@@ -1527,7 +1527,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
-            
+
             const mainContent = document.getElementById('main-content');
             // Page Sections
             const jobsPage = document.getElementById('jobs');
@@ -1548,6 +1548,40 @@
             const schoolsEsan4Page = document.getElementById('schools-esan4');
             const faqPage = document.getElementById('faq');
             const contactPage = document.getElementById('contact-page');
+
+            const purgeUpdateNotes = () => {
+                const directSelectors = [
+                    '#update-notes',
+                    '#update-notes-section',
+                    '.update-notes',
+                    '.update-notes-card',
+                    '[data-section="update-notes"]',
+                    '[data-component="update-notes"]'
+                ];
+                directSelectors.forEach((selector) => {
+                    document.querySelectorAll(selector).forEach((node) => node.remove());
+                });
+
+                const disallowedHeadings = [
+                    /เราแก้ไขอะไรเพิ่มเติมบ้าง/i,
+                    /เราแก้ไขอะไรเพิ่มเติมบ้าง\?/i,
+                    /เราแก้ไขอะไรบ้าง/i,
+                    /update notes/i,
+                    /เราได้แก้ไขอะไร/i
+                ];
+                document.querySelectorAll('section, .card, .update-section').forEach((block) => {
+                    const heading = block.querySelector('h2, h3, h4');
+                    if (heading && disallowedHeadings.some((regex) => regex.test(heading.textContent.trim()))) {
+                        block.remove();
+                    }
+                });
+            };
+
+            purgeUpdateNotes();
+            if (typeof MutationObserver !== 'undefined') {
+                const updateNotesObserver = new MutationObserver(() => purgeUpdateNotes());
+                updateNotesObserver.observe(document.body, { childList: true, subtree: true });
+            }
 
 
             const allPages = [
