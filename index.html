@@ -4,6 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; img-src 'self' data: https://images.unsplash.com https://placehold.co https://drive.google.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://unpkg.com; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://cdnjs.cloudflare.com https://unpkg.com https://script.google.com; connect-src 'self' https://script.google.com; form-action 'self' https://script.google.com https://formspree.io; frame-ancestors 'self'; upgrade-insecure-requests">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
     <title>Global Teach Thailand - Your Professional Teaching Journey</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -158,6 +163,25 @@
 
         .program-card:hover .program-card-image {
             transform: scale(1.1);
+        }
+
+        form[aria-busy="true"] {
+            opacity: 0.7;
+            pointer-events: none;
+        }
+
+        .honeypot-field {
+            position: absolute;
+            left: -10000px;
+            top: auto;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+        }
+
+        button:disabled {
+            cursor: not-allowed;
+            opacity: 0.8;
         }
         
         /* Final Testimonial Slider */
@@ -775,12 +799,16 @@
                          </div>
                          <div class="max-w-4xl mx-auto card p-8 lg:p-12" data-aos="fade-up">
                              <!-- This form will now submit to Google Sheets -->
-                             <form id="contact-form-g-sheets" class="space-y-6">
+                             <form id="contact-form-g-sheets" class="space-y-6" autocomplete="on">
                                  <div class="grid md:grid-cols-2 gap-6">
-                                     <input type="text" name="fullName" placeholder="Full Name" class="w-full bg-gray-100 p-4 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500" required>
-                                     <input type="email" name="email" placeholder="Email Address" class="w-full bg-gray-100 p-4 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                                     <input type="text" name="fullName" placeholder="Full Name" class="w-full bg-gray-100 p-4 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500" required minlength="2" maxlength="120" autocomplete="name">
+                                     <input type="email" name="email" placeholder="Email Address" class="w-full bg-gray-100 p-4 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500" required inputmode="email" autocomplete="email" maxlength="160">
                                  </div>
-                                 <textarea name="message" placeholder="Tell us about your teaching experience..." rows="5" class="w-full bg-gray-100 p-4 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500" required></textarea>
+                                 <textarea name="message" placeholder="Tell us about your teaching experience..." rows="5" class="w-full bg-gray-100 p-4 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500" required minlength="20" maxlength="1000"></textarea>
+                                 <div class="honeypot-field" aria-hidden="true">
+                                     <label for="company-website">Company Website</label>
+                                     <input type="text" id="company-website" name="companyWebsite" tabindex="-1" data-honeypot="true" autocomplete="off">
+                                 </div>
                                  <div class="text-center">
                                      <button type="submit" class="btn-primary w-full md:w-auto py-4 px-12 rounded-full text-lg">Send Application</button>
                                  </div>
@@ -1375,13 +1403,52 @@
                          <div class="card p-8">
                              <h3 class="text-2xl font-bold mb-4">Send us a message</h3>
                              <!-- This form also submits to Formspree -->
-                             <form action="https://formspree.io/f/mqaykklk" method="POST" class="space-y-4">
-                                <input type="text" name="name" placeholder="Your Name" class="w-full bg-gray-100 p-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-blue-500" required>
-                                <input type="email" name="email" placeholder="Your Email" class="w-full bg-gray-100 p-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-blue-500" required>
-                                <textarea name="message" rows="5" placeholder="Your Message" class="w-full bg-gray-100 p-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-blue-500" required></textarea>
+                             <form action="https://formspree.io/f/mqaykklk" method="POST" class="space-y-4" autocomplete="on">
+                                <input type="text" name="name" placeholder="Your Name" class="w-full bg-gray-100 p-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-blue-500" required minlength="2" maxlength="120" autocomplete="name">
+                                <input type="email" name="email" placeholder="Your Email" class="w-full bg-gray-100 p-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-blue-500" required inputmode="email" autocomplete="email" maxlength="160">
+                                <textarea name="message" rows="5" placeholder="Your Message" class="w-full bg-gray-100 p-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-blue-500" required minlength="10" maxlength="1000"></textarea>
+                                <div class="honeypot-field" aria-hidden="true">
+                                    <label for="contact-page-website">Company Website</label>
+                                    <input type="text" id="contact-page-website" name="companyWebsite" tabindex="-1" autocomplete="off">
+                                </div>
                                 <button type="submit" class="btn-primary w-full py-3 rounded-lg">Send Message</button>
                             </form>
                          </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Update Notes Section -->
+        <section id="update-notes" class="py-16 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto card p-8" data-aos="fade-up">
+                    <h2 class="section-title text-center mb-6">เราแก้ไขอะไรเพิ่มเติมบ้าง?</h2>
+                    <p class="section-subtitle text-center mb-10">
+                        เพื่อให้เว็บไซต์ใช้งานได้เสถียรและปลอดภัยขึ้น เราปรับปรุงหลายส่วนตามข้อเสนอแนะของทีมงาน ดังนี้
+                    </p>
+                    <div class="space-y-6 text-gray-700">
+                        <div class="flex items-start">
+                            <div class="text-blue-600 text-2xl mr-4"><i class="fas fa-shield-alt"></i></div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-1">ปรับนโยบายความปลอดภัยของเบราว์เซอร์</h3>
+                                <p>เพิ่ม Content Security Policy, Referrer Policy และ Permissions Policy เพื่อจำกัดโดเมนที่สามารถโหลดสคริปต์/สไตล์ได้ ช่วยลดความเสี่ยงจากสคริปต์ไม่พึงประสงค์และการโจมตีแบบคลิกแจ็คกิ้ง</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="text-blue-600 text-2xl mr-4"><i class="fas fa-robot"></i></div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-1">ยกระดับการป้องกันสแปมในฟอร์ม</h3>
+                                <p>เพิ่มฟิลด์ Honeypot แบบซ่อน, จำกัดความยาวข้อความ, แนะนำการกรอกผ่าน autocomplete และตรวจสอบความถูกต้องของอีเมลก่อนส่ง ลดโอกาสที่บอทจะส่งข้อมูลถี่จนทำให้ระบบล่ม</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="text-blue-600 text-2xl mr-4"><i class="fas fa-sync"></i></div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-1">ระบบส่งข้อมูล Google Sheets ที่เสถียรกว่า</h3>
+                                <p>เพิ่มการหน่วงเวลา 3 วินาทีก่อนกดส่ง, ทำความสะอาดข้อมูลก่อน POST, ตั้งเวลา timeout และแสดงข้อความสถานะให้ผู้ใช้เห็น เพื่อป้องกันการยิงคำขอถี่ ๆ และช่วยให้ผู้ใช้ทราบหากเครือข่ายมีปัญหา</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1865,34 +1932,89 @@
         const form = document.getElementById('contact-form-g-sheets');
         const formWrapper = document.getElementById('contact-section-wrapper');
         const thankYouMessage = document.getElementById('thank-you-message');
+        const honeypotField = form?.querySelector('[data-honeypot]');
+        const SUBMISSION_DELAY_MS = 3000;
+        const REQUEST_TIMEOUT_MS = 12000;
+        const sanitizeInput = (value = '') => value.replace(/[<>]/g, '').trim();
+        const isValidEmail = (email = '') => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        let formInitTime = Date.now();
+
+        const setFormState = (isBusy, button) => {
+            if (!button) return;
+            if (isBusy) {
+                form?.setAttribute('aria-busy', 'true');
+                button.disabled = true;
+                button.textContent = 'Sending...';
+            } else {
+                form?.removeAttribute('aria-busy');
+                button.disabled = false;
+                button.textContent = 'Send Application';
+            }
+        };
 
         if (form) {
             form.addEventListener('submit', async (e) => {
                 e.preventDefault();
                 const btn = form.querySelector('button[type="submit"]');
-                btn.disabled = true;
-                btn.textContent = 'Sending...';
+                setFormState(true, btn);
+
+                if (honeypotField && honeypotField.value.trim() !== '') {
+                    alert('Your submission could not be validated. Please try again.');
+                    honeypotField.value = '';
+                    return setFormState(false, btn);
+                }
+
+                const elapsedTime = Date.now() - formInitTime;
+                if (elapsedTime < SUBMISSION_DELAY_MS) {
+                    alert('Please take a moment to review your information before submitting.');
+                    return setFormState(false, btn);
+                }
+
+                const formData = new FormData(form);
+                ['fullName', 'email', 'message'].forEach((field) => {
+                    const sanitizedValue = sanitizeInput(formData.get(field));
+                    formData.set(field, sanitizedValue);
+                });
+
+                const emailValue = formData.get('email');
+                if (!isValidEmail(emailValue)) {
+                    alert('Please enter a valid email address.');
+                    return setFormState(false, btn);
+                }
+
+                const controller = 'AbortController' in window ? new AbortController() : null;
+                const timeoutId = controller ? setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS) : null;
 
                 try {
-                    const res = await fetch(scriptURL, { method: 'POST', body: new FormData(form) });
-                    const data = await res.json().catch(() => ({})); // Read response from script
-                    console.log('Response from script:', data);
+                    const fetchOptions = { method: 'POST', body: formData };
+                    if (controller) {
+                        fetchOptions.signal = controller.signal;
+                    }
+                    const res = await fetch(scriptURL, fetchOptions);
+                    const data = await res.json().catch(() => ({}));
 
                     if (res.ok && data.result === 'success') {
+                        form.reset();
+                        formInitTime = Date.now();
                         if(formWrapper && thankYouMessage){
                             formWrapper.classList.add('hidden');
                             thankYouMessage.classList.remove('hidden');
                         }
                     } else {
-                        alert('Submission failed. Please try again. Error: ' + (data.message || 'Unknown error'));
-                        btn.disabled = false;
-                        btn.textContent = 'Send Application';
+                        throw new Error(data.message || 'Unknown error');
                     }
                 } catch (err) {
-                    console.error('Connection Error!', err);
-                    alert('There was a connection error. Please check your internet and try again.'); 
-                    btn.disabled = false;
-                    btn.textContent = 'Send Application';
+                    if (err.name === 'AbortError') {
+                        alert('Network timeout. Please try again in a moment.');
+                    } else {
+                        console.error('Submission Error:', err);
+                        alert('Submission failed. Please try again. Error: ' + (err.message || 'Unknown error'));
+                    }
+                } finally {
+                    if (timeoutId) {
+                        clearTimeout(timeoutId);
+                    }
+                    setFormState(false, btn);
                 }
             });
         }
