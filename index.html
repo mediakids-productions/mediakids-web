@@ -1,0 +1,1904 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Teach Thailand - Your Professional Teaching Journey</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- AOS Animation Library -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <style>
+        :root {
+            --primary-blue: #0052CC;
+            --accent-yellow: #FFD100;
+            --dark-text: #1a202c;
+            --light-text: #f7fafc;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #FFFFFF;
+            color: var(--dark-text);
+        }
+        
+        /* New Hero background */
+        .bg-hero-pattern {
+            background-color: #f8f9fa;
+        }
+
+        .accent-text {
+            color: var(--primary-blue);
+        }
+        
+        .accent-yellow-text {
+             color: var(--accent-yellow);
+        }
+
+        .btn-primary {
+            background-color: var(--primary-blue);
+            color: var(--light-text);
+            transition: all 0.3s ease;
+            font-weight: 600;
+            box-shadow: 0 4px 14px 0 rgba(0, 82, 204, 0.39);
+        }
+
+        .btn-primary:hover {
+            background-color: #0041a3;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px 0 rgba(0, 82, 204, 0.45);
+        }
+        
+        .btn-secondary {
+            background-color: var(--accent-yellow);
+            color: var(--dark-text);
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background-color: #e6bb00;
+            transform: translateY(-2px);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: #4a5568;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        @media (max-width: 768px) {
+            .section-subtitle {
+                font-size: 1rem;
+            }
+        }
+
+        .card {
+            background: #FFFFFF;
+            border-radius: 1rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease-in-out;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-link {
+            position: relative;
+            color: var(--dark-text);
+            font-weight: 500;
+            cursor: pointer;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--primary-blue);
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 100%;
+        }
+
+        /* Hero Image Animation */
+        .hero-img {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .hero-img:hover {
+            transform: scale(1.05) rotate(2deg);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        /* Our Programs Card CSS */
+        .program-card {
+            height: 450px; /* Added fixed height */
+        }
+        
+        .program-card-content {
+            transform: translateY(calc(100% - 9.5rem)); /* Further increased visible area for titles */
+            transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .program-card:hover .program-card-content {
+            transform: translateY(0);
+        }
+
+        .program-card-image {
+            transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .program-card:hover .program-card-image {
+            transform: scale(1.1);
+        }
+        
+        /* Final Testimonial Slider */
+        .testimonial-card {
+            transition: all 0.5s ease-in-out;
+        }
+        .testimonial-card-image {
+            transition: all 0.5s ease-in-out;
+        }
+        .testimonial-card.active .testimonial-card-image {
+            transform: scale(1.05);
+        }
+        
+        @media (max-width: 767px) {
+            .testimonial-card .grid {
+                flex-direction: column;
+            }
+        }
+
+
+        /* Latest Posts Card */
+        .post-card-image {
+            transition: transform 0.4s ease-in-out;
+        }
+        .post-card:hover .post-card-image {
+            transform: scale(1.1);
+        }
+
+        /* Dropdown Menu Styles */
+        .dropdown {
+            visibility: hidden;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease-in-out;
+        }
+        .group:hover .dropdown {
+            visibility: visible;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .submenu {
+            visibility: hidden;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .group\/sub:hover .submenu {
+            visibility: visible;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* FAQ Accordion */
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out;
+        }
+
+    </style>
+</head>
+
+<body class="leading-relaxed overflow-x-hidden">
+
+    <!-- Header -->
+    <header class="bg-white/80 backdrop-blur-sm sticky top-0 z-50 shadow-sm">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" data-scroll-to="home" class="nav-logo flex items-center space-x-3">
+                <img id="logo-image" src="" alt="MediaKids Academy Logo" class="h-10 w-auto">
+                <span class="text-3xl font-bold accent-text">
+                    MediaKids<span class="text-gray-800"> Academy</span>
+                </span>
+            </a>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden lg:flex items-center space-x-8">
+                <!-- About Us -->
+                <div class="group relative">
+                    <button class="nav-link flex items-center">
+                        About Us <i class="fas fa-chevron-down text-xs ml-2"></i>
+                    </button>
+                    <div class="dropdown absolute top-full left-1/2 -translate-x-1/2 mt-4 w-64 rounded-xl shadow-lg bg-white ring-1 ring-black ring-opacity-5 p-2 z-10">
+                        <a href="#" data-page="about-mediakids" class="nav-page block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">MediaKids</a>
+                        <div class="group/sub relative">
+                            <button class="flex justify-between items-center w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">
+                                Our Team
+                                <i class="fas fa-chevron-right text-xs"></i>
+                            </button>
+                            <div class="submenu absolute top-0 left-full ml-2 w-64 rounded-xl shadow-lg bg-white ring-1 ring-black ring-opacity-5 p-2">
+                                <a href="#" data-page="about-team-hr" class="nav-page block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">Overseas Human Resoursces (HR)</a>
+                                <a href="#" data-page="about-team-curriculum" class="nav-page block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">Curriculum Development Department</a>
+                                <a href="#" data-page="about-team-consult" class="nav-page block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">Operations Department</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Programs -->
+                 <div class="group relative">
+                    <button class="nav-link flex items-center">
+                        Programs <i class="fas fa-chevron-down text-xs ml-2"></i>
+                    </button>
+                    <div class="dropdown absolute top-full left-1/2 -translate-x-1/2 mt-4 w-64 rounded-xl shadow-lg bg-white ring-1 ring-black ring-opacity-5 p-2 z-10">
+                        <a href="#" data-page="programs-ecd" class="nav-page block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">ECD Program</a>
+                        <a href="#" data-page="programs-iep" class="nav-page block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">IEP Program</a>
+                        <a href="#" data-page="programs-ep-ip" class="nav-page block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">IP / EP / MEP Program</a>
+                        <div class="group/sub relative">
+                            <button class="flex justify-between items-center w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">
+                                Other Activities
+                                <i class="fas fa-chevron-right text-xs"></i>
+                            </button>
+                            <div class="submenu absolute top-0 left-full ml-2 w-56 rounded-xl shadow-lg bg-white ring-1 ring-black ring-opacity-5 p-2">
+                                <a href="#" data-page="programs-camp" class="nav-page block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">English Camp</a>
+                                <a href="#" data-page="programs-mk-awards" class="nav-page block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">MediaKids Award</a>
+                                <a href="#" data-page="programs-summer-camp" class="nav-page block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">Summer Camp in Canada</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Schools -->
+                <div class="group relative">
+                    <button class="nav-link flex items-center">
+                        Schools <i class="fas fa-chevron-down text-xs ml-2"></i>
+                    </button>
+                    <div class="dropdown absolute top-full left-1/2 -translate-x-1/2 mt-4 w-56 rounded-xl shadow-lg bg-white ring-1 ring-black ring-opacity-5 p-2 z-10">
+                        <a href="#" data-page="schools-central-north" class="nav-page block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">Central & North Area</a>
+                        <a href="#" data-page="schools-esan1" class="nav-page block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">Esan 1 Area</a>
+                        <a href="#" data-page="schools-esan2" class="nav-page block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">Esan 2 Area</a>
+                        <a href="#" data-page="schools-esan3" class="nav-page block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">Esan 3 Area</a>
+                        <a href="#" data-page="schools-esan4" class="nav-page block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">Esan 4 Area</a>
+                    </div>
+                </div>
+
+                <a href="#" data-page="faq" class="nav-page nav-link">FAQ</a>
+                <a href="#" data-page="jobs" class="nav-link nav-page">Jobs</a>
+                <a href="#" data-page="contact-page" class="nav-page nav-link">Contact</a>
+            </div>
+            <a href="#" data-page="jobs" class="hidden lg:block btn-primary px-6 py-2 rounded-full nav-page">
+                Apply Now
+            </a>
+            <button id="mobile-menu-button" class="lg:hidden text-gray-800 focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </nav>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden px-6 pt-2 pb-4 space-y-2 bg-white">
+            <!-- About Us -->
+            <div>
+                <button class="mobile-menu-toggle w-full flex justify-between items-center py-2 font-medium">
+                    <span>About Us</span>
+                    <i class="fas fa-chevron-down text-xs transform transition-transform duration-300"></i>
+                </button>
+                <div class="mobile-submenu hidden pl-4 mt-2 space-y-2">
+                    <a href="#" data-page="about-mediakids" class="nav-page block py-1 text-gray-600">MediaKids</a>
+                     <div>
+                        <button class="mobile-menu-toggle w-full flex justify-between items-center py-1 text-gray-600">
+                            <span>Our Team</span>
+                            <i class="fas fa-chevron-down text-xs transform transition-transform duration-300"></i>
+                        </button>
+                        <div class="mobile-submenu hidden pl-4 mt-2 space-y-2">
+                            <a href="#" data-page="about-team-hr" class="nav-page block py-1 text-gray-500">Overseas Human Resoursces (HR)</a>
+                            <a href="#" data-page="about-team-curriculum" class="nav-page block py-1 text-gray-500">Curriculum Development Department</a>
+                            <a href="#" data-page="about-team-consult" class="nav-page block py-1 text-gray-500">Operations Department</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Programs -->
+            <div>
+                <button class="mobile-menu-toggle w-full flex justify-between items-center py-2 font-medium">
+                    <span>Programs</span>
+                    <i class="fas fa-chevron-down text-xs transform transition-transform duration-300"></i>
+                </button>
+                <div class="mobile-submenu hidden pl-4 mt-2 space-y-2">
+                    <a href="#" data-page="programs-ecd" class="nav-page block py-1 text-gray-600">ECD Program</a>
+                    <a href="#" data-page="programs-iep" class="nav-page block py-1 text-gray-600">IEP Program</a>
+                    <a href="#" data-page="programs-ep-ip" class="nav-page block py-1 text-gray-600">IP / EP / MEP Program</a>
+                     <div>
+                        <button class="mobile-menu-toggle w-full flex justify-between items-center py-1 text-gray-600">
+                            <span>Other Activities</span>
+                            <i class="fas fa-chevron-down text-xs transform transition-transform duration-300"></i>
+                        </button>
+                        <div class="mobile-submenu hidden pl-4 mt-2 space-y-2">
+                            <a href="#" data-page="programs-camp" class="nav-page block py-1 text-gray-500">English Camp</a>
+                            <a href="#" data-page="programs-mk-awards" class="nav-page block py-1 text-gray-500">MediaKids Award</a>
+                             <a href="#" data-page="programs-summer-camp" class="nav-page block py-1 text-gray-500">Summer Camp in Canada</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+             <!-- Schools -->
+            <div>
+                <button class="mobile-menu-toggle w-full flex justify-between items-center py-2 font-medium">
+                    <span>Schools</span>
+                    <i class="fas fa-chevron-down text-xs transform transition-transform duration-300"></i>
+                </button>
+                <div class="mobile-submenu hidden pl-4 mt-2 space-y-2">
+                    <a href="#" data-page="schools-central-north" class="nav-page block py-1 text-gray-600">Central & North Area</a>
+                    <a href="#" data-page="schools-esan1" class="nav-page block py-1 text-gray-600">Esan 1 Area</a>
+                    <a href="#" data-page="schools-esan2" class="nav-page block py-1 text-gray-600">Esan 2 Area</a>
+                    <a href="#" data-page="schools-esan3" class="nav-page block py-1 text-gray-600">Esan 3 Area</a>
+                    <a href="#" data-page="schools-esan4" class="nav-page block py-1 text-gray-600">Esan 4 Area</a>
+                </div>
+            </div>
+             
+              <a href="#" data-page="faq" class="nav-page block py-2 font-medium">FAQ</a>
+              <a href="#" data-page="jobs" class="block py-2 font-medium nav-page">Jobs</a>
+              <a href="#" data-page="contact-page" class="nav-page block py-2 font-medium">Contact</a>
+              <a href="#" data-page="jobs" class="nav-page block mt-4 btn-primary text-center px-6 py-2 rounded-full">
+                Apply Now
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Main Scrollable Content -->
+        <div id="main-content">
+            <!-- Hero Section -->
+            <section id="home" class="bg-hero-pattern">
+                <div class="container mx-auto px-6 py-20 lg:py-32 grid lg:grid-cols-2 gap-12 items-center">
+                    <div data-aos="fade-right">
+                        <h1 class="text-5xl md:text-7xl font-extrabold leading-tight">
+                            <span class="accent-text">Teach.</span>
+                            <span class="block">Travel.</span>
+                            <span class="block">Transform.</span>
+                        </h1>
+                        <p class="mt-6 text-lg text-gray-600 max-w-lg">
+                            Your gateway to an unforgettable teaching experience in Thailand. We connect talented educators with schools that make a difference.
+                        </p>
+                        <div class="mt-8 flex flex-wrap gap-4">
+                            <a href="#" data-page="jobs" class="nav-page btn-primary px-10 py-4 rounded-full text-lg">
+                                Explore Opportunities
+                            </a>
+                            <a href="#" data-scroll-to="about" class="nav-main btn-secondary px-10 py-4 rounded-full text-lg">
+                                Learn More
+                            </a>
+                        </div>
+                    </div>
+                    <div id="hero-slideshow" class="relative w-full h-[300px] md:h-[450px] overflow-hidden rounded-2xl" data-aos="fade-left" data-aos-delay="200">
+                        <img src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?q=80&w=2070&auto=format&fit=crop" alt="Teacher with students in Thailand" class="slideshow-img absolute top-0 left-0 w-full h-full object-cover shadow-lg transition-all duration-1000 ease-in-out">
+                        <img src="https://images.unsplash.com/photo-1528181304800-259b08848526?q=80&w=2070&auto=format&fit=crop" alt="Grand Palace in Bangkok, Thailand" class="slideshow-img absolute top-0 left-0 w-full h-full object-cover shadow-lg transition-all duration-1000 ease-in-out">
+                        <img src="https://images.unsplash.com/photo-1500835556837-99ac94a94552?q=80&w=1974&auto=format&fit=crop" alt="Traveling in Thailand" class="slideshow-img absolute top-0 left-0 w-full h-full object-cover shadow-lg transition-all duration-1000 ease-in-out">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071&auto=format&fit=crop" alt="Community of teachers" class="slideshow-img absolute top-0 left-0 w-full h-full object-cover shadow-lg transition-all duration-1000 ease-in-out">
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Our Stats Section -->
+            <section id="stats" class="py-20 bg-white">
+                <div class="container mx-auto px-6 text-center">
+                    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                        <div class="p-6" data-aos="fade-up">
+                            <h3 class="text-5xl font-extrabold accent-text leading-tight">
+                                <span><span class="counter" data-target="20">0</span>+</span>
+                                <span class="block text-4xl font-normal mt-1">Years</span>
+                            </h3>
+                            <p class="mt-2 text-gray-500 font-medium">Experience in Thailand</p>
+                        </div>
+                         <div class="p-6" data-aos="fade-up" data-aos-delay="100">
+                            <h3 class="text-5xl font-extrabold accent-text leading-tight">
+                                <span><span class="counter" data-target="50">0</span>+</span>
+                                <span class="block text-4xl font-normal mt-1">Schools</span>
+                            </h3>
+                            <p class="mt-2 text-gray-500 font-medium">Nationwide partners</p>
+                        </div>
+                         <div class="p-6" data-aos="fade-up" data-aos-delay="200">
+                            <h3 class="text-5xl font-extrabold accent-text leading-tight">
+                                <span><span class="counter" data-target="500">0</span>+</span>
+                                <span class="block text-4xl font-normal mt-1">Teachers</span>
+                            </h3>
+                            <p class="mt-2 text-gray-500 font-medium">Active community</p>
+                        </div>
+                         <div class="p-6" data-aos="fade-up" data-aos-delay="300">
+                            <h3 class="text-5xl font-extrabold accent-text leading-tight">
+                                <span><span class="counter" data-target="50000">0</span>+</span>
+                                <span class="block text-4xl font-normal mt-1">Students</span>
+                            </h3>
+                            <p class="mt-2 text-gray-500 font-medium">Impacted Annually</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Our Programs Section -->
+            <section id="programs" class="py-20 bg-gray-50">
+                <div class="container mx-auto px-6">
+                    <div class="text-center mb-12">
+                         <h2 class="section-title">What We Offer</h2>
+                         <p class="section-subtitle">Comprehensive services to support your teaching journey from start to finish.</p>
+                    </div>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        <!-- Card 1: Visa & Work Permit -->
+                        <div class="program-card relative rounded-2xl shadow-xl overflow-hidden" data-aos="fade-up">
+                            <img src="https://images.unsplash.com/photo-1590402494682-cd3fb53b1f70?q=80&w=2070&auto=format&fit=crop" alt="Visa & Work Permit" class="program-card-image w-full h-full object-cover absolute inset-0">
+                            <div class="program-card-content absolute inset-0 bg-gradient-to-t from-blue-900/90 to-transparent p-6 flex flex-col justify-end text-white">
+                                <div class="mb-4">
+                                    <i class="fas fa-file-alt text-3xl mb-2 text-blue-300"></i>
+                                    <h3 class="text-xl font-bold">Visa & Work Permit</h3>
+                                </div>
+                                <p class="text-blue-100 opacity-0 group-hover:opacity-100 transition-opacity duration-300">Full support from pre-departure paperwork to your first class.</p>
+                            </div>
+                        </div>
+                        <!-- Card 2: Training + Orientation -->
+                        <div class="program-card relative rounded-2xl shadow-xl overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                             <img src="https://images.unsplash.com/photo-1542744095-291d1f67b221?q=80&w=2070&auto=format&fit=crop" alt="Training" class="program-card-image w-full h-full object-cover absolute inset-0">
+                             <div class="program-card-content absolute inset-0 bg-gradient-to-t from-orange-900/90 to-transparent p-6 flex flex-col justify-end text-white">
+                                 <div class="mb-4">
+                                     <i class="fas fa-graduation-cap text-3xl mb-2 text-orange-300"></i>
+                                     <h3 class="text-xl font-bold">Training + Orientation</h3>
+                                 </div>
+                                 <p class="text-orange-100 opacity-0 group-hover:opacity-100 transition-opacity duration-300">Hands-on workshops, classroom management, and Thai culture.</p>
+                             </div>
+                        </div>
+                        <!-- Card 3: Housing Support -->
+                        <div class="program-card relative rounded-2xl shadow-xl overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                             <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070&auto=format&fit=crop" alt="Housing Support" class="program-card-image w-full h-full object-cover absolute inset-0">
+                             <div class="program-card-content absolute inset-0 bg-gradient-to-t from-indigo-900/90 to-transparent p-6 flex flex-col justify-end text-white">
+                                 <div class="mb-4">
+                                     <i class="fas fa-home text-3xl mb-2 text-indigo-300"></i>
+                                     <h3 class="text-xl font-bold">Housing Support</h3>
+                                 </div>
+                                 <p class="text-indigo-100 opacity-0 group-hover:opacity-100 transition-opacity duration-300">Team helps find housing + monthly allowance / partner discounts.</p>
+                             </div>
+                        </div>
+                        <!-- Card 4: Thai Consultant -->
+                        <div class="program-card relative rounded-2xl shadow-xl overflow-hidden" data-aos="fade-up" data-aos-delay="300">
+                             <img src="https://images.unsplash.com/photo-1573497491208-6b1acb260507?q=80&w=2070&auto=format&fit=crop" alt="Thai Consultant" class="program-card-image w-full h-full object-cover absolute inset-0">
+                             <div class="program-card-content absolute inset-0 bg-gradient-to-t from-amber-900/90 to-transparent p-6 flex flex-col justify-end text-white">
+                                 <div class="mb-4">
+                                     <i class="fas fa-headset text-3xl mb-2 text-amber-300"></i>
+                                     <h3 class="text-xl font-bold">Thai Consultant</h3>
+                                 </div>
+                                 <p class="text-amber-100 opacity-0 group-hover:opacity-100 transition-opacity duration-300">Dedicated Thai consultant with rapid-response hotline.</p>
+                             </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Our Partners Section -->
+            <section id="partners" class="py-20 bg-white">
+                <div class="container mx-auto px-6">
+                    <h3 class="text-center text-3xl font-bold text-gray-800 mb-12">Our Valued Partners</h3>
+                    <div class="flex flex-wrap justify-center items-center gap-x-16 gap-y-8">
+                        <img id="partner-logo-1" src="" alt="Partner 1" class="h-20 transition-transform duration-300 hover:scale-110" data-aos="zoom-in">
+                        <img id="partner-logo-2" src="" alt="Partner 2" class="h-20 transition-transform duration-300 hover:scale-110" data-aos="zoom-in" data-aos-delay="100">
+                        <img id="partner-logo-3" src="" alt="Partner 3" class="h-20 transition-transform duration-300 hover:scale-110" data-aos="zoom-in" data-aos-delay="200">
+                        <img id="partner-logo-4" src="" alt="Partner 4" class="h-20 transition-transform duration-300 hover:scale-110" data-aos="zoom-in" data-aos-delay="300">
+                        <img id="partner-logo-5" src="" alt="Partner 5" class="h-20 transition-transform duration-300 hover:scale-110" data-aos="zoom-in" data-aos-delay="400">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Your Journey Section -->
+            <section id="journey" class="py-20 bg-gray-50">
+                <div class="container mx-auto px-6">
+                    <div class="text-center mb-16">
+                        <h2 class="section-title">Your Journey With Us</h2>
+                        <p class="section-subtitle">A clear and supportive path to your teaching career in Thailand.</p>
+                    </div>
+                    <div class="grid lg:grid-cols-3 gap-12 items-center">
+                        <!-- Left Side: Navigation -->
+                        <div class="lg:col-span-1 flex flex-col space-y-4" data-aos="fade-right">
+                            <div class="journey-tab p-6 rounded-2xl cursor-pointer transition-all duration-300" data-step="1">
+                                <div class="flex items-center space-x-4">
+                                    <div class="journey-number flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-full font-bold text-lg">1</div>
+                                    <div>
+                                        <h3 class="text-lg font-semibold">Apply Online</h3>
+                                        <p class="text-gray-600 text-sm">Fill the form in ~5 minutes.</p>
+                                    </div>
+                                </div>
+                            </div>
+                             <div class="journey-tab p-6 rounded-2xl cursor-pointer transition-all duration-300" data-step="2">
+                                <div class="flex items-center space-x-4">
+                                    <div class="journey-number flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-full font-bold text-lg">2</div>
+                                    <div>
+                                        <h3 class="text-lg font-semibold">Interview</h3>
+                                        <p class="text-gray-600 text-sm">Online interview + demo lesson.</p>
+                                    </div>
+                                </div>
+                            </div>
+                             <div class="journey-tab p-6 rounded-2xl cursor-pointer transition-all duration-300" data-step="3">
+                                <div class="flex items-center space-x-4">
+                                    <div class="journey-number flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-full font-bold text-lg">3</div>
+                                    <div>
+                                        <h3 class="text-lg font-semibold">Visa Process</h3>
+                                        <p class="text-gray-600 text-sm">Transparent handling of documents.</p>
+                                    </div>
+                                </div>
+                            </div>
+                             <div class="journey-tab p-6 rounded-2xl cursor-pointer transition-all duration-300" data-step="4">
+                                <div class="flex items-center space-x-4">
+                                    <div class="journey-number flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-full font-bold text-lg">4</div>
+                                    <div>
+                                        <h3 class="text-lg font-semibold">Orientation</h3>
+                                        <p class="text-gray-600 text-sm">Practice teaching + meet your cohort.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="journey-tab p-6 rounded-2xl cursor-pointer transition-all duration-300" data-step="5">
+                                <div class="flex items-center space-x-4">
+                                    <div class="journey-number flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-full font-bold text-lg">5</div>
+                                    <div>
+                                        <h3 class="text-lg font-semibold">Placement</h3>
+                                        <p class="text-gray-600 text-sm">Start at your new school.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right Side: Image Display -->
+                        <div class="lg:col-span-2 relative h-96 lg:h-[500px] rounded-2xl overflow-hidden shadow-xl" data-aos="fade-left">
+                             <div class="journey-panel absolute inset-0" data-step="1">
+                                <img src="https://images.unsplash.com/photo-1554415707-6e8cfc93fe23?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover transition-all duration-500">
+                            </div>
+                            <div class="journey-panel absolute inset-0" data-step="2">
+                                <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover transition-all duration-500">
+                            </div>
+                             <div class="journey-panel absolute inset-0" data-step="3">
+                                <img id="visa-process-image" src="" class="w-full h-full object-cover transition-all duration-500">
+                            </div>
+                             <div class="journey-panel absolute inset-0" data-step="4">
+                                <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover transition-all duration-500">
+                            </div>
+                             <div class="journey-panel absolute inset-0" data-step="5">
+                                <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=2132&auto=format&fit=crop" class="w-full h-full object-cover transition-all duration-500">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Teacher Stories Section -->
+            <section id="testimonials" class="py-20 bg-gray-50">
+                <div class="container mx-auto px-6">
+                    <div class="text-center mb-16">
+                        <h2 class="section-title">Teacher Stories</h2>
+                        <p class="section-subtitle">Hear from educators who have embarked on this journey with us.</p>
+                    </div>
+                    <div class="relative max-w-5xl mx-auto" data-aos="fade-up">
+                        <div id="testimonial-final-slider" class="relative h-auto md:h-[400px]">
+                            <!-- Slide 1 -->
+                            <div class="testimonial-card absolute inset-0 opacity-0 invisible">
+                                <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center h-full">
+                                    <div class="relative w-full h-64 md:h-full rounded-2xl overflow-hidden shadow-lg">
+                                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1974&auto=format&fit=crop" alt="Marco" class="testimonial-card-image w-full h-full object-cover">
+                                    </div>
+                                    <div class="text-center md:text-left">
+                                        <i class="fas fa-quote-left text-blue-500 text-4xl mb-4"></i>
+                                        <p class="text-lg text-gray-700 leading-relaxed">"Teaching materials ready. Thai consultant responds fast. I never felt alone upcountry. A very professional and caring team."</p>
+                                        <div class="mt-6">
+                                            <p class="font-bold text-xl text-gray-900">Marco</p>
+                                            <p class="text-gray-500">Italy</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Slide 2 -->
+                            <div class="testimonial-card absolute inset-0 opacity-0 invisible">
+                                <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center h-full">
+                                    <div class="relative w-full h-64 md:h-full rounded-2xl overflow-hidden shadow-lg">
+                                        <img id="sarah-story-image" src="" alt="Sarah" class="testimonial-card-image w-full h-full object-cover">
+                                    </div>
+                                    <div class="text-center md:text-left">
+                                        <i class="fas fa-quote-left text-blue-500 text-4xl mb-4"></i>
+                                        <p class="text-lg text-gray-700 leading-relaxed">"The support from Global Teach was incredible. From the visa process to finding an apartment, they were with me every step of the way. I highly recommend them!"</p>
+                                        <div class="mt-6">
+                                            <p class="font-bold text-xl text-gray-900">Sarah</p>
+                                            <p class="text-gray-500">USA</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Slide 3 -->
+                           <div class="testimonial-card absolute inset-0 opacity-0 invisible">
+                                <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center h-full">
+                                    <div class="relative w-full h-64 md:h-full rounded-2xl overflow-hidden shadow-lg">
+                                        <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=1974&auto=format&fit=crop" alt="David" class="testimonial-card-image w-full h-full object-cover">
+                                    </div>
+                                    <div class="text-center md:text-left">
+                                        <i class="fas fa-quote-left text-blue-500 text-4xl mb-4"></i>
+                                        <p class="text-lg text-gray-700 leading-relaxed">"The orientation week was fantastic for meeting other teachers and learning about Thai culture before stepping into the classroom."</p>
+                                        <div class="mt-6">
+                                            <p class="font-bold text-xl text-gray-900">David</p>
+                                            <p class="text-gray-500">United Kingdom</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                         <!-- Navigation -->
+                        <div class="flex justify-center items-center space-x-4 mt-8">
+                             <button id="prev-testimonial-btn" class="bg-white rounded-full w-12 h-12 flex items-center justify-center shadow-md hover:bg-gray-100 transition">
+                                <i class="fas fa-arrow-left text-gray-600"></i>
+                            </button>
+                            <div id="testimonial-dots-container" class="flex space-x-2"></div>
+                             <button id="next-testimonial-btn" class="bg-white rounded-full w-12 h-12 flex items-center justify-center shadow-md hover:bg-gray-100 transition">
+                                <i class="fas fa-arrow-right text-gray-600"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Latest Activities & Posts Section -->
+            <section id="latest-posts" class="py-20 bg-white">
+                <div class="container mx-auto px-6">
+                    <div class="flex flex-col md:flex-row justify-between md:items-center mb-12">
+                        <h2 class="section-title !mb-4 md:!mb-0">Latest Activities & Posts</h2>
+                        <a href="#" class="text-blue-600 font-semibold hover:text-blue-800 transition self-start md:self-center">
+                            View all <i class="fas fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" data-aos="fade-up">
+                        <!-- Post Card 1 -->
+                        <div class="post-card bg-white rounded-2xl shadow-lg overflow-hidden group transform hover:-translate-y-2 transition-transform duration-300">
+                            <div class="overflow-hidden h-64">
+                                <img id="post-image-1" src="" alt="English Camp 1" class="post-card-image w-full h-full object-cover">
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold mb-2 text-gray-800">English Camp Highlight #1</h3>
+                                <p class="text-gray-600 mb-4">Real scenes from partner schools this week.</p>
+                                <a href="#" class="font-semibold text-blue-600 group-hover:text-blue-800 transition">Read more &rarr;</a>
+                            </div>
+                        </div>
+                        <!-- Post Card 2 -->
+                        <div class="post-card bg-white rounded-2xl shadow-lg overflow-hidden group transform hover:-translate-y-2 transition-transform duration-300">
+                            <div class="overflow-hidden h-64">
+                                <img id="post-image-2" src="" alt="English Camp 2" class="post-card-image w-full h-full object-cover">
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold mb-2 text-gray-800">English Camp Highlight #2</h3>
+                                <p class="text-gray-600 mb-4">Students engaging in fun, interactive activities.</p>
+                                <a href="#" class="font-semibold text-blue-600 group-hover:text-blue-800 transition">Read more &rarr;</a>
+                            </div>
+                        </div>
+                        <!-- Post Card 3 -->
+                        <div class="post-card bg-white rounded-2xl shadow-lg overflow-hidden group transform hover:-translate-y-2 transition-transform duration-300">
+                            <div class="overflow-hidden h-64">
+                                <img id="post-image-3" src="" alt="English Camp 3" class="post-card-image w-full h-full object-cover">
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold mb-2 text-gray-800">English Camp Highlight #3</h3>
+                                <p class="text-gray-600 mb-4">Building confidence and making new friends.</p>
+                                <a href="#" class="font-semibold text-blue-600 group-hover:text-blue-800 transition">Read more &rarr;</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- About Us Section -->
+            <section id="about" class="py-20 bg-gray-50">
+                <div class="container mx-auto px-6">
+                    <div class="grid md:grid-cols-2 gap-16 items-center">
+                        <div data-aos="fade-right">
+                            <img src="https://images.unsplash.com/photo-1542744095-291d1f67b221?q=80&w=2070&auto=format&fit=crop" alt="Our team" class="rounded-2xl shadow-xl w-full h-auto object-cover">
+                        </div>
+                        <div data-aos="fade-left">
+                            <h2 class="section-title">Your Trusted Partner in <span class="accent-text">Education</span></h2>
+                            <p class="text-gray-600 mb-6">
+                                MediaKids Academy was founded by a team of experienced educators and recruitment specialists dedicated to bridging the gap between international teachers and Thai schools. We believe in the power of education to transform lives and foster cultural understanding.
+                            </p>
+                             <a href="#" data-scroll-to="contact" class="nav-main mt-4 inline-block btn-primary px-8 py-3 rounded-full">Get In Touch</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+             <!-- Why Choose Us Section -->
+            <section id="why-us" class="py-20 bg-white">
+                <div class="container mx-auto px-6 text-center">
+                    <h2 class="section-title">Our Commitment to You</h2>
+                    <p class="section-subtitle">
+                        We go beyond job placement. We provide a comprehensive support system to ensure your success and well-being in Thailand.
+                    </p>
+                    <div class="grid lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                        <div class="card p-8 text-center" data-aos="zoom-in">
+                            <div class="text-5xl accent-text mb-4 inline-block bg-blue-100 p-4 rounded-full"><i class="fas fa-shield-alt"></i></div>
+                            <h3 class="text-xl font-bold mb-2">Full Support</h3>
+                            <p class="text-gray-600">Complete assistance with visa, work permit, and bank account setup. We handle the paperwork so you can focus on teaching.</p>
+                        </div>
+                        <div class="card p-8 text-center" data-aos="zoom-in" data-aos-delay="100">
+                            <div class="text-5xl accent-text mb-4 inline-block bg-blue-100 p-4 rounded-full"><i class="fas fa-school"></i></div>
+                            <h3 class="text-xl font-bold mb-2">Quality Placements</h3>
+                            <p class="text-gray-600">Access to our exclusive network of reputable schools with competitive salaries and positive work environments.</p>
+                        </div>
+                        <div class="card p-8 text-center" data-aos="zoom-in" data-aos-delay="200">
+                            <div class="text-5xl accent-text mb-4 inline-block bg-blue-100 p-4 rounded-full"><i class="fas fa-users"></i></div>
+                            <h3 class="text-xl font-bold mb-2">Community & Events</h3>
+                            <p class="text-gray-600">Join a welcoming community of fellow teachers. We organize regular social events and professional development workshops.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section id="contact" class="py-20 bg-gray-50">
+                <div class="container mx-auto px-6">
+                     
+                     <!-- Wrapper for the form and thank you message -->
+                     <div id="contact-section-wrapper">
+                         <div class="text-center">
+                             <h2 class="section-title">Start Your Journey</h2>
+                             <p class="section-subtitle">
+                                 Have questions? Want to apply? Fill out the form below and our placement coordinator will be in touch shortly.
+                             </p>
+                         </div>
+                         <div class="max-w-4xl mx-auto card p-8 lg:p-12" data-aos="fade-up">
+                             <!-- This form will now submit to Google Sheets -->
+                             <form id="contact-form-g-sheets" class="space-y-6">
+                                 <div class="grid md:grid-cols-2 gap-6">
+                                     <input type="text" name="fullName" placeholder="Full Name" class="w-full bg-gray-100 p-4 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                                     <input type="email" name="email" placeholder="Email Address" class="w-full bg-gray-100 p-4 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                                 </div>
+                                 <textarea name="message" placeholder="Tell us about your teaching experience..." rows="5" class="w-full bg-gray-100 p-4 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500" required></textarea>
+                                 <div class="text-center">
+                                     <button type="submit" class="btn-primary w-full md:w-auto py-4 px-12 rounded-full text-lg">Send Application</button>
+                                 </div>
+                             </form>
+                         </div>
+                     </div>
+ 
+                     <!-- Thank You Message (Initially Hidden) -->
+                     <div id="thank-you-message" class="hidden text-center max-w-4xl mx-auto card p-8 lg:p-12" data-aos="fade-up">
+                        <h2 class="text-3xl font-bold text-blue-600 mb-4">Thank You!</h2>
+                        <p class="text-gray-700 text-lg">Your application has been sent successfully. We will get back to you shortly.</p>
+                        <i class="fas fa-check-circle text-green-500 text-6xl mt-6"></i>
+                     </div>
+
+                </div>
+            </section>
+        </div>
+
+        <!-- Jobs Page Content -->
+        <section id="jobs" class="hidden py-20 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <!-- Header -->
+                <div class="text-center mb-16">
+                    <h2 class="section-title">Current Opportunities</h2>
+                    <p class="section-subtitle">Find your perfect teaching position in the Land of Smiles. Your next adventure awaits!</p>
+                </div>
+
+                <!-- Job Listings -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+                    <!-- Job Card 1: Kindergarten Teacher -->
+                    <div class="card p-6 flex flex-col" data-aos="fade-up">
+                        <h3 class="text-xl font-bold mb-2">Kindergarten English Teacher</h3>
+                        <p class="text-blue-600 font-semibold mb-3">Multiple Locations</p>
+                        <p class="text-gray-600 mb-4 flex-grow">Engage young learners (ages 3-6) with fun, play-based activities. A rewarding role for energetic and creative individuals.</p>
+                        <div class="border-t pt-4 mt-4">
+                            <p class="text-gray-800 font-bold">Salary: ฿34,000 - ฿38,000</p>
+                            <a href="#" data-scroll-to="contact" class="nav-main mt-4 inline-block btn-secondary px-6 py-2 rounded-full text-sm">View Details & Apply</a>
+                        </div>
+                    </div>
+                    <!-- Job Card 2: Primary School Teacher -->
+                    <div class="card p-6 flex flex-col" data-aos="fade-up" data-aos-delay="100">
+                        <h3 class="text-xl font-bold mb-2">Primary School English Teacher</h3>
+                        <p class="text-blue-600 font-semibold mb-3">Isaan Region</p>
+                        <p class="text-gray-600 mb-4 flex-grow">Teach English communication skills to students aged 7-12 in Thai government schools. Experience authentic local culture.</p>
+                        <div class="border-t pt-4 mt-4">
+                            <p class="text-gray-800 font-bold">Salary: ฿33,000 - ฿36,000</p>
+                            <a href="#" data-scroll-to="contact" class="nav-main mt-4 inline-block btn-secondary px-6 py-2 rounded-full text-sm">View Details & Apply</a>
+                        </div>
+                    </div>
+                    <!-- Job Card 3: High School Teacher -->
+                    <div class="card p-6 flex flex-col" data-aos="fade-up" data-aos-delay="200">
+                        <h3 class="text-xl font-bold mb-2">High School English Teacher</h3>
+                        <p class="text-blue-600 font-semibold mb-3">Central & Northern Regions</p>
+                        <p class="text-gray-600 mb-4 flex-grow">Prepare secondary students for their future with lessons focused on conversational skills, grammar, and exam preparation.</p>
+                        <div class="border-t pt-4 mt-4">
+                            <p class="text-gray-800 font-bold">Salary: ฿33,000 - ฿36,000</p>
+                            <a href="#" data-scroll-to="contact" class="nav-main mt-4 inline-block btn-secondary px-6 py-2 rounded-full text-sm">View Details & Apply</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Benefits Section -->
+                <div class="text-center mb-20">
+                    <h2 class="section-title">Why Teach With MediaKids?</h2>
+                    <p class="section-subtitle">We don't just find you a job; we support your entire journey.</p>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+                        <div class="text-center p-4" data-aos="zoom-in">
+                            <div class="text-5xl accent-text mb-4"><i class="fas fa-file-contract"></i></div>
+                            <h3 class="text-xl font-bold mb-2">Full Legal Support</h3>
+                            <p class="text-gray-600">Complete visa, work permit, and bank account assistance.</p>
+                        </div>
+                        <div class="text-center p-4" data-aos="zoom-in" data-aos-delay="100">
+                            <div class="text-5xl accent-text mb-4"><i class="fas fa-house-user"></i></div>
+                            <h3 class="text-xl font-bold mb-2">Accommodation Help</h3>
+                            <p class="text-gray-600">We help you find a safe and comfortable place to live near your school.</p>
+                        </div>
+                        <div class="text-center p-4" data-aos="zoom-in" data-aos-delay="200">
+                            <div class="text-5xl accent-text mb-4"><i class="fas fa-book-open"></i></div>
+                            <h3 class="text-xl font-bold mb-2">Ready-Made Curriculum</h3>
+                            <p class="text-gray-600">Access to our proven curriculum, lesson plans, and teaching materials.</p>
+                        </div>
+                        <div class="text-center p-4" data-aos="zoom-in" data-aos-delay="300">
+                            <div class="text-5xl accent-text mb-4"><i class="fas fa-users"></i></div>
+                            <h3 class="text-xl font-bold mb-2">A Thriving Community</h3>
+                            <p class="text-gray-600">Connect with hundreds of fellow MediaKids teachers across Thailand.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- How to Apply Section -->
+                <div class="max-w-4xl mx-auto">
+                    <h2 class="section-title text-center">Ready to Apply?</h2>
+                    <p class="section-subtitle text-center">Follow these simple steps to start your teaching adventure.</p>
+                    <div class="relative pl-8" data-aos="fade-up">
+                        <!-- The vertical line -->
+                        <div class="absolute left-12 top-0 h-full w-0.5 bg-blue-200"></div>
+                        <!-- Step 1 -->
+                        <div class="relative mb-8">
+                            <div class="absolute left-12 top-4 -ml-5 w-10 h-10 rounded-full bg-blue-500 text-white flex items-center justify-center font-bold">1</div>
+                            <div class="ml-16 p-6 bg-white rounded-lg shadow-md">
+                                <h3 class="text-xl font-bold mb-2">Submit Your Application</h3>
+                                <p class="text-gray-600">Fill out our online form and upload your resume/CV. We want to get to know you!</p>
+                            </div>
+                        </div>
+                        <!-- Step 2 -->
+                        <div class="relative mb-8">
+                            <div class="absolute left-12 top-4 -ml-5 w-10 h-10 rounded-full bg-blue-500 text-white flex items-center justify-center font-bold">2</div>
+                            <div class="ml-16 p-6 bg-white rounded-lg shadow-md">
+                                <h3 class="text-xl font-bold mb-2">Initial Interview</h3>
+                                <p class="text-gray-600">Our recruitment team will schedule a short online interview to discuss your qualifications and preferences.</p>
+                            </div>
+                        </div>
+                        <!-- Step 3 -->
+                        <div class="relative mb-8">
+                            <div class="absolute left-12 top-4 -ml-5 w-10 h-10 rounded-full bg-blue-500 text-white flex items-center justify-center font-bold">3</div>
+                            <div class="ml-16 p-6 bg-white rounded-lg shadow-md">
+                                <h3 class="text-xl font-bold mb-2">Receive an Offer</h3>
+                                <p class="text-gray-600">If successful, you'll receive a formal job offer with details about your placement, salary, and contract.</p>
+                            </div>
+                        </div>
+                        <!-- Step 4 -->
+                        <div class="relative">
+                            <div class="absolute left-12 top-4 -ml-5 w-10 h-10 rounded-full bg-blue-500 text-white flex items-center justify-center font-bold">4</div>
+                            <div class="ml-16 p-6 bg-white rounded-lg shadow-md">
+                                <h3 class="text-xl font-bold mb-2">Prepare for Thailand!</h3>
+                                <p class="text-gray-600">We'll guide you through the visa process and prepare you for your arrival.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center mt-12">
+                        <a href="#" data-scroll-to="contact" class="nav-main btn-primary px-10 py-4 rounded-full text-lg">
+                           Apply Now
+                       </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About MediaKids Page -->
+        <section id="about-mediakids" class="hidden py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="section-title">About MediaKids Academy</h2>
+                    <p class="section-subtitle">Your trusted partner in education since 2001.</p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-16 items-center">
+                    <div data-aos="fade-right">
+                         <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071&auto=format&fit=crop" alt="MediaKids Team" class="rounded-2xl shadow-xl w-full h-auto object-cover">
+                    </div>
+                    <div data-aos="fade-left">
+                        <h3 class="text-3xl font-bold mb-4 text-gray-800">Our Mission</h3>
+                        <p class="text-gray-600 mb-6">To provide quality English language education to Thai students by connecting dedicated international teachers with schools across Thailand, fostering cultural exchange and creating transformative experiences for both educators and learners.</p>
+                        <h3 class="text-3xl font-bold mb-4 text-gray-800">Our Vision</h3>
+                        <p class="text-gray-600">To be the leading and most trusted educational placement agency in Thailand, recognized for our professionalism, comprehensive support, and positive impact on the Thai education system.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About HR Team Page -->
+        <section id="about-team-hr" class="hidden py-20 bg-gray-50">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="section-title">Meet Our HR Team</h2>
+                <p class="section-subtitle">The heart of our organization, dedicated to supporting our teachers every step of the way.</p>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- HR Team Member 1 -->
+                    <div class="card p-8" data-aos="fade-up">
+                        <img src="https://placehold.co/150x150/0052CC/FFFFFF?text=HR" class="w-32 h-32 rounded-full mx-auto mb-4 shadow-lg">
+                        <h3 class="text-xl font-bold mb-1">Jane Doe</h3>
+                        <p class="text-gray-500 mb-3">Head of Human Resources</p>
+                        <p class="text-gray-600 text-sm">Jane ensures that our teachers have a smooth and rewarding experience, from recruitment to placement and beyond.</p>
+                    </div>
+                     <!-- HR Team Member 2 -->
+                     <div class="card p-8" data-aos="fade-up" data-aos-delay="100">
+                        <img src="https://placehold.co/150x150/0052CC/FFFFFF?text=HR" class="w-32 h-32 rounded-full mx-auto mb-4 shadow-lg">
+                        <h3 class="text-xl font-bold mb-1">John Smith</h3>
+                        <p class="text-gray-500 mb-3">Teacher Relations Manager</p>
+                        <p class="text-gray-600 text-sm">John is the primary point of contact for our teachers, providing support and guidance throughout their contract.</p>
+                    </div>
+                     <!-- HR Team Member 3 -->
+                     <div class="card p-8" data-aos="fade-up" data-aos-delay="200">
+                        <img src="https://placehold.co/150x150/0052CC/FFFFFF?text=HR" class="w-32 h-32 rounded-full mx-auto mb-4 shadow-lg">
+                        <h3 class="text-xl font-bold mb-1">Emily White</h3>
+                        <p class="text-gray-500 mb-3">Recruitment Specialist</p>
+                        <p class="text-gray-600 text-sm">Emily finds the best and brightest teaching talent from around the world to join our team in Thailand.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Consult Team Page (Operations) -->
+        <section id="about-team-consult" class="hidden py-20 bg-white">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="section-title">Meet Our Operations Department</h2>
+                <p class="section-subtitle">Your expert guides for navigating life and work in Thailand.</p>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Consult Team Member 1 -->
+                    <div class="card p-8" data-aos="fade-up">
+                        <img src="https://placehold.co/150x150/FFD100/1a202c?text=Ops" class="w-32 h-32 rounded-full mx-auto mb-4 shadow-lg">
+                        <h3 class="text-xl font-bold mb-1">Michael Brown</h3>
+                        <p class="text-gray-500 mb-3">Senior Thai Consultant</p>
+                        <p class="text-gray-600 text-sm">With years of experience, Michael provides invaluable advice on visas, work permits, and cultural integration.</p>
+                    </div>
+                     <!-- Consult Team Member 2 -->
+                     <div class="card p-8" data-aos="fade-up" data-aos-delay="100">
+                        <img src="https://placehold.co/150x150/FFD100/1a202c?text=Ops" class="w-32 h-32 rounded-full mx-auto mb-4 shadow-lg">
+                        <h3 class="text-xl font-bold mb-1">Somchai Jaidee</h3>
+                        <p class="text-gray-500 mb-3">Regional Coordinator</p>
+                        <p class="text-gray-600 text-sm">Somchai supports our teachers in the Isaan region, ensuring they have everything they need to succeed.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Curriculum Team Page -->
+        <section id="about-team-curriculum" class="hidden py-20 bg-gray-50">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="section-title">Meet Our Curriculum Team</h2>
+                <p class="section-subtitle">Providing our teachers with the best resources for an impactful classroom experience.</p>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Curriculum Team Member 1 -->
+                    <div class="card p-8" data-aos="fade-up">
+                        <img src="https://placehold.co/150x150/1a202c/FFFFFF?text=CD" class="w-32 h-32 rounded-full mx-auto mb-4 shadow-lg">
+                        <h3 class="text-xl font-bold mb-1">Dr. Susan Green</h3>
+                        <p class="text-gray-500 mb-3">Head of Academics</p>
+                        <p class="text-gray-600 text-sm">Dr. Green develops our proprietary curriculum and provides ongoing professional development for our teachers.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Programs - ECD Page -->
+        <section id="programs-ecd" class="hidden py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="section-title">Early Childhood Development (ECD)</h2>
+                    <p class="section-subtitle">Nurturing the potential of our youngest learners through engaging, play-based education.</p>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="card p-8 text-center" data-aos="fade-up">
+                        <div class="text-5xl accent-text mb-4"><i class="fas fa-cubes"></i></div>
+                        <h3 class="text-xl font-bold mb-2">Play-Based Learning</h3>
+                        <p class="text-gray-600">Our curriculum focuses on learning through play, helping children develop social, cognitive, and emotional skills naturally.</p>
+                    </div>
+                    <div class="card p-8 text-center" data-aos="fade-up" data-aos-delay="100">
+                        <div class="text-5xl accent-text mb-4"><i class="fas fa-heart"></i></div>
+                        <h3 class="text-xl font-bold mb-2">Safe & Stimulating Environment</h3>
+                        <p class="text-gray-600">We partner with schools that provide a secure and stimulating setting where young children can explore and grow with confidence.</p>
+                    </div>
+                    <div class="card p-8 text-center" data-aos="fade-up" data-aos-delay="200">
+                        <div class="text-5xl accent-text mb-4"><i class="fas fa-pencil-ruler"></i></div>
+                        <h3 class="text-xl font-bold mb-2">Foundational Skills</h3>
+                        <p class="text-gray-600">Teachers guide students in developing foundational literacy and numeracy skills, preparing them for primary education.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Programs - IEP Page -->
+        <section id="programs-iep" class="hidden py-20 bg-gray-50">
+            <div class="container mx-auto px-6">
+                 <div class="text-center mb-16">
+                    <h2 class="section-title">Intensive English Program (IEP)</h2>
+                    <p class="section-subtitle">Accelerating English proficiency with a focused and immersive curriculum.</p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-16 items-center">
+                     <div data-aos="fade-right">
+                         <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=2070&auto=format&fit=crop" alt="Intensive English Program" class="rounded-2xl shadow-xl w-full h-auto object-cover">
+                    </div>
+                    <div data-aos="fade-left">
+                        <h3 class="text-3xl font-bold mb-4 text-gray-800">Focused Learning</h3>
+                        <p class="text-gray-600 mb-6">IEP is designed for students who require a rapid improvement in their English skills. Our teachers focus on the four core skills: listening, speaking, reading, and writing, using dynamic and interactive methods to maximize student engagement and retention.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Programs - EP/IP Page -->
+        <section id="programs-ep-ip" class="hidden py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="section-title">English & International Programs (EP/IP)</h2>
+                    <p class="section-subtitle">Teaching core subjects in English to prepare students for a globalized world.</p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-16 items-center">
+                    <div data-aos="fade-right">
+                        <h3 class="text-3xl font-bold mb-4 text-gray-800">Beyond Language</h3>
+                        <p class="text-gray-600 mb-6">In EP and IP settings, our teachers are not just language instructors; they are subject matter experts who teach subjects like Math, Science, and Social Studies in English. This approach enhances language fluency while building a strong academic foundation.</p>
+                    </div>
+                     <div data-aos="fade-left">
+                         <img src="https://images.unsplash.com/photo-1531482615713-2c65a449abc1?q=80&w=2070&auto=format&fit=crop" alt="English Program classroom" class="rounded-2xl shadow-xl w-full h-auto object-cover">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Programs - Camp Page -->
+        <section id="programs-camp" class="hidden py-20 bg-gray-50">
+             <div class="container mx-auto px-6 text-center">
+                <h2 class="section-title">MediaKids English Camps</h2>
+                <p class="section-subtitle">Making learning English a fun and unforgettable adventure!</p>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                     <div class="card p-8" data-aos="fade-up">
+                        <img src="https://images.unsplash.com/photo-1517420704952-d9f39e95b43e?q=80&w=2070&auto=format&fit=crop" class="rounded-lg mx-auto mb-4 shadow-lg">
+                        <h3 class="text-xl font-bold mb-2">Themed Activities</h3>
+                        <p class="text-gray-600 text-sm">Each camp has an exciting theme, from "Space Adventure" to "Jungle Safari," that makes learning engaging and context-rich.</p>
+                    </div>
+                     <div class="card p-8" data-aos="fade-up" data-aos-delay="100">
+                        <img src="https://images.unsplash.com/photo-1556742502-ec7c0e9f34b1?q=80&w=1974&auto=format&fit=crop" class="rounded-lg mx-auto mb-4 shadow-lg">
+                        <h3 class="text-xl font-bold mb-2">Project-Based Learning</h3>
+                        <p class="text-gray-600 text-sm">Students work in teams on creative projects, developing communication, collaboration, and critical thinking skills.</p>
+                    </div>
+                     <div class="card p-8" data-aos="fade-up" data-aos-delay="200">
+                        <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=2070&auto=format&fit=crop" class="rounded-lg mx-auto mb-4 shadow-lg">
+                        <h3 class="text-xl font-bold mb-2">Build Confidence</h3>
+                        <p class="text-gray-600 text-sm">Our camps provide a supportive environment where students feel confident to practice English and make new friends.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Programs - Summer Camp Page -->
+        <section id="programs-summer-camp" class="hidden py-20 bg-white">
+            <div class="container mx-auto px-6">
+                 <div class="text-center mb-16">
+                    <h2 class="section-title">Summer Camp in Canada</h2>
+                    <p class="section-subtitle">An immersive English language and cultural experience in beautiful Canada.</p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-16 items-center">
+                     <div data-aos="fade-right">
+                         <img src="https://images.unsplash.com/photo-1517935706615-2717063c2225?q=80&w=2070&auto=format&fit=crop" alt="Summer Camp in Canada" class="rounded-2xl shadow-xl w-full h-auto object-cover">
+                    </div>
+                    <div data-aos="fade-left">
+                        <h3 class="text-3xl font-bold mb-4 text-gray-800">Learn and Explore</h3>
+                        <p class="text-gray-600 mb-6">Our summer camp program offers students a unique opportunity to improve their English skills while exploring the stunning landscapes and vibrant cities of Canada. The program combines classroom learning with exciting excursions and activities.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Programs - MK Awards Page -->
+        <section id="programs-mk-awards" class="hidden py-20 bg-gray-50">
+             <div class="container mx-auto px-6 text-center">
+                <h2 class="section-title">MediaKids Awards</h2>
+                <p class="section-subtitle">Celebrating Excellence in Education.</p>
+                <div class="max-w-4xl mx-auto">
+                    <p class="text-lg text-gray-700 mb-12">The MediaKids Awards is an annual event to recognize the outstanding contributions of our teachers and partner schools. We celebrate dedication, innovation, and the positive impact made in classrooms across Thailand.</p>
+                     <div class="grid md:grid-cols-2 gap-8 text-left">
+                        <div class="bg-gray-100 p-6 rounded-lg">
+                            <h3 class="text-2xl font-bold mb-2 text-blue-600">Award Categories</h3>
+                            <ul class="list-disc list-inside space-y-2 text-gray-700">
+                                <li>Teacher of the Year</li>
+                                <li>Rookie of the Year</li>
+                                <li>Most Innovative Teacher</li>
+                                <li>School Partner of the Year</li>
+                                <li>Outstanding Community Engagement</li>
+                            </ul>
+                        </div>
+                        <div class="bg-gray-100 p-6 rounded-lg">
+                             <h3 class="text-2xl font-bold mb-2 text-blue-600">Join the Celebration</h3>
+                            <p class="text-gray-700">The awards ceremony is a night of celebration, networking, and inspiration. Stay tuned for details on our next event!</p>
+                             <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?q=80&w=2070&auto=format&fit=crop" class="rounded-lg mt-4 shadow-lg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Schools - Central & North Page -->
+        <section id="schools-central-north" class="hidden py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="section-title">Schools in Central & Northern Thailand</h2>
+                    <p class="section-subtitle">Discover teaching opportunities in the heart of Thailand and the beautiful mountainous north.</p>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="card overflow-hidden" data-aos="fade-up">
+                        <img src="https://images.unsplash.com/photo-1533109721025-d1ae7de8437f?q=80&w=2070&auto=format&fit=crop" class="w-full h-60 object-cover" alt="Bangkok">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Bangkok</h3>
+                            <p class="text-gray-600">Experience the vibrant capital city, a hub of culture, food, and energy, with numerous school partners.</p>
+                        </div>
+                    </div>
+                    <div class="card overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                        <img src="https://images.unsplash.com/photo-1596342373111-936111f6a1d4?q=80&w=1974&auto=format&fit=crop" class="w-full h-60 object-cover" alt="Chiang Mai">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Chiang Mai</h3>
+                            <p class="text-gray-600">Teach amidst ancient temples and lush mountains in the "Rose of the North."</p>
+                        </div>
+                    </div>
+                    <div class="card overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                        <img src="https://images.unsplash.com/photo-1591283795159-a7a537042c31?q=80&w=2070&auto=format&fit=crop" class="w-full h-60 object-cover" alt="Ayutthaya">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Ayutthaya</h3>
+                            <p class="text-gray-600">Immerse yourself in history by teaching in the former capital of Siam, surrounded by ancient ruins.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Schools - Esan 1 Page -->
+        <section id="schools-esan1" class="hidden py-20 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="section-title">Schools in Esan 1</h2>
+                    <p class="section-subtitle">Explore the rich culture and history of Southern Isaan.</p>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="card overflow-hidden" data-aos="fade-up">
+                        <img src="https://images.unsplash.com/photo-1623100233155-2593d56a2373?q=80&w=2070&auto=format&fit=crop" class="w-full h-60 object-cover" alt="Nakhon Ratchasima">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Nakhon Ratchasima</h3>
+                            <p class="text-gray-600">Teach in the gateway to Isaan, a bustling city close to Khao Yai National Park.</p>
+                        </div>
+                    </div>
+                    <div class="card overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                        <img src="https://images.unsplash.com/photo-1610416518925-523c35b4d455?q=80&w=2070&auto=format&fit=crop" class="w-full h-60 object-cover" alt="Buriram">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Buriram</h3>
+                            <p class="text-gray-600">Discover ancient Khmer temples and a modern world-class motorsport circuit.</p>
+                        </div>
+                    </div>
+                    <div class="card overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                        <img src="https://images.unsplash.com/photo-1582265224397-cf9dc8bf4175?q=80&w=2069&auto=format&fit=crop" class="w-full h-60 object-cover" alt="Surin">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Surin</h3>
+                            <p class="text-gray-600">Famous for its annual Elephant Round-up, Surin offers a unique cultural experience.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Schools - Esan 2 Page -->
+        <section id="schools-esan2" class="hidden py-20 bg-white">
+            <div class="container mx-auto px-6">
+                 <div class="text-center mb-16">
+                    <h2 class="section-title">Schools in Esan 2</h2>
+                    <p class="section-subtitle">Experience the heart of Isaan, known for its vibrant cities and rich heritage.</p>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                     <div class="card overflow-hidden" data-aos="fade-up">
+                        <img src="https://images.unsplash.com/photo-1589182333857-3c5836a3224b?q=80&w=2070&auto=format&fit=crop" class="w-full h-60 object-cover" alt="Khon Kaen">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Khon Kaen</h3>
+                            <p class="text-gray-600">One of the major cities in Isaan, offering a blend of modern city life and traditional culture.</p>
+                        </div>
+                    </div>
+                     <div class="card overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                        <img src="https://images.unsplash.com/photo-1588334434975-524d8542918b?q=80&w=2071&auto=format&fit=crop" class="w-full h-60 object-cover" alt="Udon Thani">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Udon Thani</h3>
+                            <p class="text-gray-600">Home to the UNESCO World Heritage site of Ban Chiang, a center of prehistoric civilization.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Schools - Esan 3 Page -->
+        <section id="schools-esan3" class="hidden py-20 bg-gray-50">
+            <div class="container mx-auto px-6">
+                 <div class="text-center mb-16">
+                    <h2 class="section-title">Schools in Esan 3</h2>
+                    <p class="section-subtitle">Discover the beauty of the Mun River basin and its surrounding provinces.</p>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="card overflow-hidden" data-aos="fade-up">
+                        <img src="https://images.unsplash.com/photo-1611023995831-a83151b75225?q=80&w=1964&auto=format&fit=crop" class="w-full h-60 object-cover" alt="Ubon Ratchathani">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Ubon Ratchathani</h3>
+                            <p class="text-gray-600">Known for its annual Candle Festival, this province offers stunning natural parks and temples.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Schools - Esan 4 Page -->
+        <section id="schools-esan4" class="hidden py-20 bg-white">
+            <div class="container mx-auto px-6">
+                 <div class="text-center mb-16">
+                    <h2 class="section-title">Schools in Esan 4</h2>
+                    <p class="section-subtitle">Explore the picturesque provinces along the Mekong River.</p>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                     <div class="card overflow-hidden" data-aos="fade-up">
+                        <img src="https://images.unsplash.com/photo-1588334434975-524d8542918b?q=80&w=2071&auto=format&fit=crop" class="w-full h-60 object-cover" alt="Sakon Nakhon">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Sakon Nakhon</h3>
+                            <p class="text-gray-600">A province with a long history, beautiful lakes, and a strong Buddhist tradition.</p>
+                        </div>
+                    </div>
+                     <div class="card overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                        <img src="https://images.unsplash.com/photo-1623528343515-3393b5a93273?q=80&w=2070&auto=format&fit=crop" class="w-full h-60 object-cover" alt="Nakhon Phanom">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Nakhon Phanom</h3>
+                            <p class="text-gray-600">Enjoy stunning views of the Mekong River and the mountains of Laos from this charming city.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Page -->
+        <section id="faq" class="hidden py-20 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="section-title">Frequently Asked Questions</h2>
+                    <p class="section-subtitle">Have questions? We've got answers. Here are some of the most common inquiries we receive.</p>
+                </div>
+                <div class="max-w-3xl mx-auto space-y-4">
+                    <!-- FAQ Item 1 -->
+                    <div class="bg-white rounded-lg shadow-md" data-aos="fade-up">
+                        <button class="faq-question w-full flex justify-between items-center text-left p-6">
+                            <span class="text-lg font-semibold">What qualifications do I need?</span>
+                            <i class="fas fa-chevron-down transform transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p class="p-6 pt-0 text-gray-600">You must have a Bachelor's degree (in any field) to obtain a work permit in Thailand. You should also be a native English speaker or have a high level of proficiency (e.g., TOEIC score of 800+). A TEFL/TESOL certificate is highly recommended and often required by schools.</p>
+                        </div>
+                    </div>
+                    <!-- FAQ Item 2 -->
+                    <div class="bg-white rounded-lg shadow-md" data-aos="fade-up">
+                        <button class="faq-question w-full flex justify-between items-center text-left p-6">
+                            <span class="text-lg font-semibold">Do I need teaching experience?</span>
+                            <i class="fas fa-chevron-down transform transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p class="p-6 pt-0 text-gray-600">While previous teaching experience is a plus, it's not always a requirement. We provide comprehensive pre-service training and ongoing support to equip new teachers with the skills needed for a successful semester. A positive attitude and a passion for working with children are most important!</p>
+                        </div>
+                    </div>
+                    <!-- FAQ Item 3 -->
+                    <div class="bg-white rounded-lg shadow-md" data-aos="fade-up">
+                        <button class="faq-question w-full flex justify-between items-center text-left p-6">
+                            <span class="text-lg font-semibold">What is the salary like?</span>
+                            <i class="fas fa-chevron-down transform transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p class="p-6 pt-0 text-gray-600">Salaries are competitive and depend on your qualifications, experience, and the location of the school. A typical salary is more than enough to live a comfortable lifestyle in Thailand, allowing you to cover living expenses, travel, and save money.</p>
+                        </div>
+                    </div>
+                     <!-- FAQ Item 4 -->
+                     <div class="bg-white rounded-lg shadow-md" data-aos="fade-up">
+                        <button class="faq-question w-full flex justify-between items-center text-left p-6">
+                            <span class="text-lg font-semibold">Do you assist with visas and work permits?</span>
+                            <i class="fas fa-chevron-down transform transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p class="p-6 pt-0 text-gray-600">Absolutely. This is one of our key services. We provide full, step-by-step guidance and support with all the necessary paperwork to obtain your Non-Immigrant B (Business) visa and your Thai work permit.</p>
+                        </div>
+                    </div>
+                     <!-- FAQ Item 5 -->
+                     <div class="bg-white rounded-lg shadow-md" data-aos="fade-up">
+                        <button class="faq-question w-full flex justify-between items-center text-left p-6">
+                            <span class="text-lg font-semibold">What kind of support will I receive in Thailand?</span>
+                            <i class="fas fa-chevron-down transform transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p class="p-6 pt-0 text-gray-600">Our support is comprehensive. It starts with pre-departure guidance, an airport pickup, and a detailed orientation week. Once you are at your school, you will have a dedicated Thai consultant for any issues that may arise, from finding housing and opening a bank account to cultural or classroom-related questions.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Contact Page -->
+        <section id="contact-page" class="hidden py-20 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="section-title">Get In Touch</h2>
+                    <p class="section-subtitle">We'd love to hear from you! Whether you have a question about our programs, partnerships, or anything else, our team is ready to answer all your questions.</p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-16 items-start">
+                    <div class="space-y-8" data-aos="fade-right">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-2 flex items-center"><i class="fas fa-map-marker-alt mr-3 text-blue-500"></i>Our Office</h3>
+                            <p class="text-gray-600">123 MediaKids Lane, Education District, Bangkok 10110, Thailand</p>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold mb-2 flex items-center"><i class="fas fa-envelope mr-3 text-blue-500"></i>Email Us</h3>
+                            <p class="text-gray-600">info@mediakids.co.th</p>
+                        </div>
+                         <div>
+                            <h3 class="text-2xl font-bold mb-2 flex items-center"><i class="fas fa-phone mr-3 text-blue-500"></i>Call Us</h3>
+                            <p class="text-gray-600">+66 2 123 4567</p>
+                        </div>
+                    </div>
+                     <div data-aos="fade-left">
+                         <div class="card p-8">
+                             <h3 class="text-2xl font-bold mb-4">Send us a message</h3>
+                             <!-- This form also submits to Formspree -->
+                             <form action="https://formspree.io/f/mqaykklk" method="POST" class="space-y-4">
+                                <input type="text" name="name" placeholder="Your Name" class="w-full bg-gray-100 p-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                                <input type="email" name="email" placeholder="Your Email" class="w-full bg-gray-100 p-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                                <textarea name="message" rows="5" placeholder="Your Message" class="w-full bg-gray-100 p-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-blue-500" required></textarea>
+                                <button type="submit" class="btn-primary w-full py-3 rounded-lg">Send Message</button>
+                            </form>
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#0A192F] text-white py-12">
+        <div class="container mx-auto px-6 text-center text-gray-400">
+            <div class="mb-4">
+                 <a href="#" data-scroll-to="home" class="nav-logo text-3xl font-bold text-blue-400">
+                    MediaKids<span class="text-white"> Academy</span>
+                </a>
+            </div>
+            <div class="flex justify-center space-x-6 mb-6">
+                <a href="#" class="text-2xl hover:text-blue-400 transition-colors"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="text-2xl hover:text-blue-400 transition-colors"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-2xl hover:text-blue-400 transition-colors"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="text-2xl hover:text-blue-400 transition-colors"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p>&copy; 2024 Global Teach Thailand. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true, 
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            const mainContent = document.getElementById('main-content');
+            // Page Sections
+            const jobsPage = document.getElementById('jobs');
+            const aboutMediakidsPage = document.getElementById('about-mediakids');
+            const aboutHrPage = document.getElementById('about-team-hr');
+            const aboutConsultPage = document.getElementById('about-team-consult');
+            const aboutCurriculumPage = document.getElementById('about-team-curriculum');
+            const programsEcdPage = document.getElementById('programs-ecd');
+            const programsIepPage = document.getElementById('programs-iep');
+            const programsEpIpPage = document.getElementById('programs-ep-ip');
+            const programsCampPage = document.getElementById('programs-camp');
+            const programsMkAwardsPage = document.getElementById('programs-mk-awards');
+            const programsSummerCampPage = document.getElementById('programs-summer-camp');
+            const schoolsCentralNorthPage = document.getElementById('schools-central-north');
+            const schoolsEsan1Page = document.getElementById('schools-esan1');
+            const schoolsEsan2Page = document.getElementById('schools-esan2');
+            const schoolsEsan3Page = document.getElementById('schools-esan3');
+            const schoolsEsan4Page = document.getElementById('schools-esan4');
+            const faqPage = document.getElementById('faq');
+            const contactPage = document.getElementById('contact-page');
+
+
+            const allPages = [
+                jobsPage, aboutMediakidsPage, aboutHrPage, aboutConsultPage, aboutCurriculumPage,
+                programsEcdPage, programsIepPage, programsEpIpPage, programsCampPage, programsMkAwardsPage, programsSummerCampPage,
+                schoolsCentralNorthPage, schoolsEsan1Page, schoolsEsan2Page, schoolsEsan3Page, schoolsEsan4Page,
+                faqPage, contactPage
+            ];
+
+            const pageLinks = document.querySelectorAll('.nav-page');
+            const mainLinks = document.querySelectorAll('.nav-main');
+            const logoLinks = document.querySelectorAll('.nav-logo');
+            
+            const counters = document.querySelectorAll('.counter');
+
+            // --- Mobile Menu Toggle ---
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            const mobileMenuToggles = document.querySelectorAll('.mobile-menu-toggle');
+            mobileMenuToggles.forEach(button => {
+                button.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const submenu = button.nextElementSibling;
+                    const icon = button.querySelector('i');
+                    submenu.classList.toggle('hidden');
+                    icon.classList.toggle('rotate-180');
+                });
+            });
+
+
+            // --- Hero Slideshow ---
+            const slideshowImages = document.querySelectorAll('#hero-slideshow .slideshow-img');
+            let currentImageIndex = 0;
+
+            if (slideshowImages.length > 0) {
+                // Initial setup
+                slideshowImages.forEach((img, index) => {
+                    if (index === 0) {
+                        img.classList.add('opacity-100', 'translate-x-0');
+                        img.classList.remove('opacity-0', 'translate-x-full', '-translate-x-full');
+                    } else {
+                        img.classList.add('opacity-0', 'translate-x-full');
+                        img.classList.remove('opacity-100', 'translate-x-0', '-translate-x-full');
+                    }
+                });
+
+                setInterval(() => {
+                    const nextImageIndex = (currentImageIndex + 1) % slideshowImages.length;
+                    const currentImage = slideshowImages[currentImageIndex];
+                    const nextImage = slideshowImages[nextImageIndex];
+
+                    currentImage.classList.remove('opacity-100', 'translate-x-0');
+                    currentImage.classList.add('opacity-0', '-translate-x-full');
+
+                    nextImage.classList.remove('opacity-0', 'translate-x-full');
+                    nextImage.classList.add('opacity-100', 'translate-x-0');
+                    
+                    setTimeout(() => {
+                        currentImage.classList.remove('-translate-x-full');
+                        currentImage.classList.add('translate-x-full');
+                    }, 1000);
+
+                    currentImageIndex = nextImageIndex;
+                }, 4000);
+            }
+            
+            // --- Journey Section Tabs ---
+            const journeyTabs = document.querySelectorAll('.journey-tab');
+            const journeyPanels = document.querySelectorAll('.journey-panel');
+
+            const setActiveTab = (step) => {
+                 journeyTabs.forEach(tab => {
+                    const numberDiv = tab.querySelector('.journey-number');
+                    if (tab.dataset.step === step) {
+                        tab.classList.add('bg-blue-50', 'scale-105', 'shadow-lg');
+                        tab.classList.remove('bg-white');
+                        numberDiv.classList.add('bg-blue-500', 'text-white');
+                        numberDiv.classList.remove('bg-gray-200', 'text-gray-600');
+                    } else {
+                        tab.classList.remove('bg-blue-50', 'scale-105', 'shadow-lg');
+                        tab.classList.add('bg-white');
+                        numberDiv.classList.remove('bg-blue-500', 'text-white');
+                        numberDiv.classList.add('bg-gray-200', 'text-gray-600');
+                    }
+                });
+
+                journeyPanels.forEach(panel => {
+                    const img = panel.querySelector('img');
+                    if (panel.dataset.step === step) {
+                        panel.classList.remove('opacity-0', 'invisible');
+                        panel.classList.add('opacity-100', 'visible');
+                        img.classList.add('scale-105');
+                    } else {
+                        panel.classList.remove('opacity-100', 'visible');
+                        panel.classList.add('opacity-0', 'invisible');
+                        img.classList.remove('scale-105');
+                    }
+                });
+            }
+
+            journeyTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    setActiveTab(tab.dataset.step);
+                });
+            });
+
+            if(journeyTabs.length > 0){
+                setActiveTab('1');
+            }
+
+
+            // --- Final Testimonial Slider ---
+            const slides = document.querySelectorAll('.testimonial-card');
+            const dotsContainer = document.getElementById('testimonial-dots-container');
+            const prevBtn = document.getElementById('prev-testimonial-btn');
+            const nextBtn = document.getElementById('next-testimonial-btn');
+            let currentSlide = 0;
+            let slideInterval;
+
+            function showSlide(index) {
+                slides.forEach((slide, i) => {
+                    slide.classList.remove('active', 'opacity-100', 'visible');
+                    slide.classList.add('opacity-0', 'invisible');
+                    if (i === index) {
+                        slide.classList.add('active', 'opacity-100', 'visible');
+                        slide.classList.remove('opacity-0', 'invisible');
+                    }
+                });
+                
+                if(dotsContainer) {
+                    const dots = dotsContainer.children;
+                    for (let i = 0; i < dots.length; i++) {
+                        dots[i].classList.remove('bg-blue-500');
+                        dots[i].classList.add('bg-gray-300');
+                    }
+                    if(dots[index]) {
+                       dots[index].classList.add('bg-blue-500');
+                    }
+                }
+            }
+
+            function next() {
+                currentSlide = (currentSlide + 1) % slides.length;
+                showSlide(currentSlide);
+            }
+            
+            function prev() {
+                 currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+                 showSlide(currentSlide);
+            }
+
+            function startAutoplay() {
+                slideInterval = setInterval(next, 5000);
+            }
+
+            function stopAutoplay() {
+                clearInterval(slideInterval);
+            }
+            
+            if (slides.length > 0) {
+                if(dotsContainer){
+                    slides.forEach((_, i) => {
+                        const dot = document.createElement('button');
+                        dot.classList.add('w-2.5', 'h-2.5', 'rounded-full', 'transition-colors');
+                        dot.addEventListener('click', () => {
+                            stopAutoplay();
+                            showSlide(i);
+                            currentSlide = i;
+                            startAutoplay();
+                        });
+                        dotsContainer.appendChild(dot);
+                    });
+                }
+
+                if(prevBtn){
+                    prevBtn.addEventListener('click', () => {
+                        stopAutoplay();
+                        prev();
+                        startAutoplay();
+                    });
+                }
+                if(nextBtn){
+                    nextBtn.addEventListener('click', () => {
+                        stopAutoplay();
+                        next();
+                        startAutoplay();
+                    });
+                }
+
+                showSlide(0);
+                startAutoplay();
+            }
+
+            // --- Google Drive Image Loader ---
+            function extractDriveId(link) {
+                if (!link) return null;
+                const patterns = [
+                    /drive\.google\.com\/file\/d\/([a-zA-Z0-9_-]+)/,
+                    /drive\.google\.com\/open\?id=([a-zA-Z0-9_-]+)/,
+                    /drive\.google\.com\/uc\?id=([a-zA-Z0-9_-]+)/
+                ];
+                for (const pattern of patterns) {
+                    const match = link.match(pattern);
+                    if (match && match[1]) return match[1];
+                }
+                return null;
+            }
+
+            function generateDriveCandidates(fileId) {
+                if (!fileId) return [];
+                return [
+                    `https://drive.google.com/uc?export=view&id=${fileId}`,
+                    `https://drive.google.com/thumbnail?id=${fileId}&sz=w2000`,
+                    `https://drive.google.com/uc?id=${fileId}`
+                ];
+            }
+
+            function setDriveImageWithFallback(imgElement, driveLink) {
+                const fileId = extractDriveId(driveLink);
+                if (!fileId || !imgElement) {
+                    if(imgElement) imgElement.src = 'https://placehold.co/600x400/ccc/ffffff?text=Image+Missing';
+                    return;
+                };
+
+                const candidates = generateDriveCandidates(fileId);
+                let currentCandidateIndex = 0;
+
+                function tryNextUrl() {
+                    if (currentCandidateIndex >= candidates.length) {
+                        imgElement.src = 'https://placehold.co/600x400/ccc/ffffff?text=Image+Not+Found';
+                        return;
+                    }
+                    imgElement.src = candidates[currentCandidateIndex];
+                }
+
+                imgElement.onerror = () => {
+                    currentCandidateIndex++;
+                    tryNextUrl();
+                };
+
+                imgElement.onload = () => {
+                    imgElement.onerror = null;
+                };
+
+                tryNextUrl();
+            }
+
+            // --- Apply Drive Image Loaders ---
+            const imageLoadConfig = {
+                'logo-image': 'https://drive.google.com/file/d/1UxFx1zIXnDxq1N_nhkdHYz7qSUoqiagP/view?usp=sharing',
+                'visa-process-image': 'https://drive.google.com/file/d/1Lh8JQEFvmQ0NE6wP9uMiiJTMvIPpRbmt/view?usp=sharing',
+                'sarah-story-image': 'https://drive.google.com/file/d/12Y7QxFCCVxOdGCYzUO2zw2Z21EY2XbB2/view?usp=sharing',
+                'kindergarten-job-image': 'https://drive.google.com/file/d/1ebjFrgeH1vpTMA60ZOrrezr7dMtnzHiz/view?usp=sharing',
+                'post-image-1': 'https://drive.google.com/file/d/19tAwaFYL3jKtYH-aEVVP1AWh4xgJ6nX1/view?usp=sharing',
+                'post-image-2': 'https://drive.google.com/file/d/1ljLbiSsssZF1JuTGERGCV7y2Q7G7TbQD/view?usp=drive_link',
+                'post-image-3': 'https://drive.google.com/file/d/1psArqXEfXnHw_uKw1t_aFHXrNLW2c01d/view?usp=sharing',
+                'partner-logo-1': 'https://drive.google.com/file/d/1g9LEi54_CyfjNAD0QM0OM9EScC3nNIre/view?usp=drive_link',
+                'partner-logo-2': 'https://drive.google.com/file/d/1mwCZhaxyVoHDBDvNoybUMkpsIbc-7wGq/view?usp=drive_link',
+                'partner-logo-3': 'https://drive.google.com/file/d/19ogpzkPvsnsOrBuxk06VzeUUymCNB9od/view?usp=drive_link',
+                'partner-logo-4': 'https://drive.google.com/file/d/1KOshNinnfQSX3AJeNEkl_0_SkIJonpTN/view?usp=drive_link',
+                'partner-logo-5': 'https://drive.google.com/file/d/185gwH4nitPLQQfciT0dqm_Tx9OGsSiim/view?usp=drive_link',
+            };
+
+            for (const id in imageLoadConfig) {
+                const element = document.getElementById(id);
+                const link = imageLoadConfig[id];
+                setDriveImageWithFallback(element, link);
+            }
+
+            // --- Page View Management ---
+            function setView(viewName) {
+                mainContent.classList.add('hidden');
+                allPages.forEach(page => { 
+                    if(page) page.classList.add('hidden') 
+                });
+
+                let pageToShow = null;
+                switch(viewName) {
+                    case 'jobs': pageToShow = jobsPage; break;
+                    case 'about-mediakids': pageToShow = aboutMediakidsPage; break;
+                    case 'about-team-hr': pageToShow = aboutHrPage; break;
+                    case 'about-team-consult': pageToShow = aboutConsultPage; break;
+                    case 'about-team-curriculum': pageToShow = aboutCurriculumPage; break;
+                    case 'programs-ecd': pageToShow = programsEcdPage; break;
+                    case 'programs-iep': pageToShow = programsIepPage; break;
+                    case 'programs-ep-ip': pageToShow = programsEpIpPage; break;
+                    case 'programs-camp': pageToShow = programsCampPage; break;
+                    case 'programs-mk-awards': pageToShow = programsMkAwardsPage; break;
+                    case 'programs-summer-camp': pageToShow = programsSummerCampPage; break;
+                    case 'schools-central-north': pageToShow = schoolsCentralNorthPage; break;
+                    case 'schools-esan1': pageToShow = schoolsEsan1Page; break;
+                    case 'schools-esan2': pageToShow = schoolsEsan2Page; break;
+                    case 'schools-esan3': pageToShow = schoolsEsan3Page; break;
+                    case 'schools-esan4': pageToShow = schoolsEsan4Page; break;
+                    case 'faq': pageToShow = faqPage; break;
+                    case 'contact-page': pageToShow = contactPage; break;
+                    default: // 'main' view
+                        mainContent.classList.remove('hidden');
+                        break;
+                }
+                
+                if (pageToShow) {
+                    pageToShow.classList.remove('hidden');
+                }
+                
+                window.scrollTo({ top: 0, behavior: 'auto' }); 
+                AOS.refresh();
+            }
+            
+            // Event listeners for "page" links
+            pageLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const pageName = link.dataset.page;
+                    setView(pageName);
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                });
+            });
+
+            // Event listeners for "main" scrollable links and logo
+            const allMainLinks = [...mainLinks, ...logoLinks];
+            allMainLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault(); 
+                    
+                    const targetId = link.dataset.scrollTo;
+                    
+                    // Always switch to main view first
+                    setView('main');
+
+                    if (targetId) {
+                         // Use timeout to ensure the main content is visible before scrolling
+                          setTimeout(() => {
+                             const targetElement = document.getElementById(targetId);
+                             targetElement?.scrollIntoView({ behavior: 'smooth' });
+                          }, 50);
+                    }
+
+
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                });
+            });
+
+
+            // --- Counter Animation Logic ---
+            const animateCounter = (counter) => {
+                const target = +counter.getAttribute('data-target');
+                const speed = 200; 
+                counter.innerText = '0';
+                let count = 0;
+
+                const updateCount = () => {
+                    const increment = target / speed;
+                    count += increment;
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count).toLocaleString();
+                        requestAnimationFrame(updateCount);
+                    } else {
+                        counter.innerText = target.toLocaleString();
+                    }
+                };
+                updateCount();
+            };
+            
+            // Use Intersection Observer to trigger counter animation only when visible
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateCounter(entry.target);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            counters.forEach(counter => {
+                observer.observe(counter);
+            });
+
+            // --- FAQ Accordion Logic ---
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', () => {
+                    const answer = question.nextElementSibling;
+                    const icon = question.querySelector('i');
+
+                    // Close all other answers
+                    faqQuestions.forEach(otherQuestion => {
+                        const otherAnswer = otherQuestion.nextElementSibling;
+                        const otherIcon = otherQuestion.querySelector('i');
+                        if (otherQuestion !== question && otherAnswer.style.maxHeight) {
+                            otherAnswer.style.maxHeight = null;
+                            otherIcon.classList.remove('rotate-180');
+                        }
+                    });
+
+                    if (answer.style.maxHeight) {
+                        answer.style.maxHeight = null;
+                        icon.classList.remove('rotate-180');
+                    } else {
+                        answer.style.maxHeight = answer.scrollHeight + "px";
+                        icon.classList.add('rotate-180');
+                    }
+                });
+            });
+
+
+            // Initial view setup
+            setView('main');
+        });
+
+    </script>
+    
+    <!-- Google Sheets Form Submission Script -->
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwv8ekZILnxgsYBZz7j3TElRyV2aAJ1nuWECY9zDG2maOn4p5DM_kv9LFy8sf0y9ddV/exec';
+        const form = document.getElementById('contact-form-g-sheets');
+        const formWrapper = document.getElementById('contact-section-wrapper');
+        const thankYouMessage = document.getElementById('thank-you-message');
+
+        if (form) {
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const btn = form.querySelector('button[type="submit"]');
+                btn.disabled = true;
+                btn.textContent = 'Sending...';
+
+                try {
+                    const res = await fetch(scriptURL, { method: 'POST', body: new FormData(form) });
+                    const data = await res.json().catch(() => ({})); // Read response from script
+                    console.log('Response from script:', data);
+
+                    if (res.ok && data.result === 'success') {
+                        if(formWrapper && thankYouMessage){
+                            formWrapper.classList.add('hidden');
+                            thankYouMessage.classList.remove('hidden');
+                        }
+                    } else {
+                        alert('Submission failed. Please try again. Error: ' + (data.message || 'Unknown error'));
+                        btn.disabled = false;
+                        btn.textContent = 'Send Application';
+                    }
+                } catch (err) {
+                    console.error('Connection Error!', err);
+                    alert('There was a connection error. Please check your internet and try again.'); 
+                    btn.disabled = false;
+                    btn.textContent = 'Send Application';
+                }
+            });
+        }
+    </script>
+
+
+</body>
+
+</html>
