@@ -2,8 +2,40 @@
 <html lang="en">
 
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-C3WTLTZ1Y1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-C3WTLTZ1Y1');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Security-Policy"
+      content="default-src 'self';
+        img-src 'self' data: https://images.unsplash.com https://placehold.co https://drive.google.com https://drive.googleusercontent.com https://lh3.googleusercontent.com https://drive.usercontent.google.com https://*.googleusercontent.com;
+        font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;
+        style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://unpkg.com;
+        script-src 'self' 'unsafe-inline'
+          https://cdn.tailwindcss.com
+          https://cdnjs.cloudflare.com
+          https://unpkg.com
+          https://script.google.com
+          https://www.googletagmanager.com
+          https://www.google-analytics.com;
+        connect-src 'self'
+          https://script.google.com
+          https://script.googleusercontent.com
+          https://www.google-analytics.com
+          https://region1.google-analytics.com
+          https://www.googletagmanager.com;
+        form-action 'self' https://script.google.com https://script.googleusercontent.com https://formspree.io;
+        frame-ancestors 'self';
+        upgrade-insecure-requests">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
     <title>Global Teach Thailand - Your Professional Teaching Journey</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -159,6 +191,25 @@
         .program-card:hover .program-card-image {
             transform: scale(1.1);
         }
+
+        form[aria-busy="true"] {
+            opacity: 0.7;
+            pointer-events: none;
+        }
+
+        .honeypot-field {
+            position: absolute;
+            left: -10000px;
+            top: auto;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+        }
+
+        button:disabled {
+            cursor: not-allowed;
+            opacity: 0.8;
+        }
         
         /* Final Testimonial Slider */
         .testimonial-card {
@@ -228,7 +279,13 @@
     <header class="bg-white/80 backdrop-blur-sm sticky top-0 z-50 shadow-sm">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#" data-scroll-to="home" class="nav-logo flex items-center space-x-3">
-                <img id="logo-image" src="" alt="MediaKids Academy Logo" class="h-10 w-auto">
+                <img id="logo-image"
+                     src="https://lh3.googleusercontent.com/u/0/d/1UxFx1zIXnDxq1N_nhkdHYz7qSUoqiagP=w2000"
+                     data-drive-src="https://drive.google.com/file/d/1UxFx1zIXnDxq1N_nhkdHYz7qSUoqiagP/view?usp=sharing"
+                     alt="MediaKids Academy Logo"
+                     class="h-10 w-auto"
+                     loading="lazy"
+                     referrerpolicy="no-referrer" />
                 <span class="text-3xl font-bold accent-text">
                     MediaKids<span class="text-gray-800"> Academy</span>
                 </span>
@@ -241,7 +298,7 @@
                     <button class="nav-link flex items-center">
                         About Us <i class="fas fa-chevron-down text-xs ml-2"></i>
                     </button>
-                    <div class="dropdown absolute top-full left-1/2 -translate-x-1/2 mt-4 w-64 rounded-xl shadow-lg bg-white ring-1 ring-black ring-opacity-5 p-2 z-10">
+                    <div class="dropdown absolute top-full left-0 mt-4 w-64 rounded-xl shadow-lg bg-white ring-1 ring-black ring-opacity-5 p-2 z-10">
                         <a href="#" data-page="about-mediakids" class="nav-page block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">MediaKids</a>
                         <div class="group/sub relative">
                             <button class="flex justify-between items-center w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">
@@ -262,7 +319,7 @@
                     <button class="nav-link flex items-center">
                         Programs <i class="fas fa-chevron-down text-xs ml-2"></i>
                     </button>
-                    <div class="dropdown absolute top-full left-1/2 -translate-x-1/2 mt-4 w-64 rounded-xl shadow-lg bg-white ring-1 ring-black ring-opacity-5 p-2 z-10">
+                    <div class="dropdown absolute top-full left-0 mt-4 w-64 rounded-xl shadow-lg bg-white ring-1 ring-black ring-opacity-5 p-2 z-10">
                         <a href="#" data-page="programs-ecd" class="nav-page block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">ECD Program</a>
                         <a href="#" data-page="programs-iep" class="nav-page block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">IEP Program</a>
                         <a href="#" data-page="programs-ep-ip" class="nav-page block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">IP / EP / MEP Program</a>
@@ -285,7 +342,7 @@
                     <button class="nav-link flex items-center">
                         Schools <i class="fas fa-chevron-down text-xs ml-2"></i>
                     </button>
-                    <div class="dropdown absolute top-full left-1/2 -translate-x-1/2 mt-4 w-56 rounded-xl shadow-lg bg-white ring-1 ring-black ring-opacity-5 p-2 z-10">
+                    <div class="dropdown absolute top-full left-0 mt-4 w-56 rounded-xl shadow-lg bg-white ring-1 ring-black ring-opacity-5 p-2 z-10">
                         <a href="#" data-page="schools-central-north" class="nav-page block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">Central & North Area</a>
                         <a href="#" data-page="schools-esan1" class="nav-page block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">Esan 1 Area</a>
                         <a href="#" data-page="schools-esan2" class="nav-page block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">Esan 2 Area</a>
@@ -385,13 +442,12 @@
             <section id="home" class="bg-hero-pattern">
                 <div class="container mx-auto px-6 py-20 lg:py-32 grid lg:grid-cols-2 gap-12 items-center">
                     <div data-aos="fade-right">
-                        <h1 class="text-5xl md:text-7xl font-extrabold leading-tight">
-                            <span class="accent-text">Teach.</span>
-                            <span class="block">Travel.</span>
-                            <span class="block">Transform.</span>
+                        <h1 class="text-5xl md:text-7xl font-extrabold leading-tight" aria-label="Your Journey Begins Here">
+                            <span class="accent-text block">Your Journey</span>
+                            <span class="text-gray-900 block">Begins Here</span>
                         </h1>
                         <p class="mt-6 text-lg text-gray-600 max-w-lg">
-                            Your gateway to an unforgettable teaching experience in Thailand. We connect talented educators with schools that make a difference.
+                            Embark on a Thai adventure where teaching meets cultural immersion! In Thailand’s vibrant cities and serene temples, each classroom is a doorway to discovery. Join us in weaving tales of learning, growth, and mutual understanding, where every lesson sparks a journey of connection and transformation. Your journey begins here!
                         </p>
                         <div class="mt-8 flex flex-wrap gap-4">
                             <a href="#" data-page="jobs" class="nav-page btn-primary px-10 py-4 rounded-full text-lg">
@@ -508,11 +564,50 @@
                 <div class="container mx-auto px-6">
                     <h3 class="text-center text-3xl font-bold text-gray-800 mb-12">Our Valued Partners</h3>
                     <div class="flex flex-wrap justify-center items-center gap-x-16 gap-y-8">
-                        <img id="partner-logo-1" src="" alt="Partner 1" class="h-20 transition-transform duration-300 hover:scale-110" data-aos="zoom-in">
-                        <img id="partner-logo-2" src="" alt="Partner 2" class="h-20 transition-transform duration-300 hover:scale-110" data-aos="zoom-in" data-aos-delay="100">
-                        <img id="partner-logo-3" src="" alt="Partner 3" class="h-20 transition-transform duration-300 hover:scale-110" data-aos="zoom-in" data-aos-delay="200">
-                        <img id="partner-logo-4" src="" alt="Partner 4" class="h-20 transition-transform duration-300 hover:scale-110" data-aos="zoom-in" data-aos-delay="300">
-                        <img id="partner-logo-5" src="" alt="Partner 5" class="h-20 transition-transform duration-300 hover:scale-110" data-aos="zoom-in" data-aos-delay="400">
+                        <img id="partner-logo-1"
+                             src="https://lh3.googleusercontent.com/u/0/d/1g9LEi54_CyfjNAD0QM0OM9EScC3nNIre=w2000"
+                             data-drive-src="https://drive.google.com/file/d/1g9LEi54_CyfjNAD0QM0OM9EScC3nNIre/view?usp=drive_link"
+                             alt="Partner 1"
+                             class="h-20 transition-transform duration-300 hover:scale-110"
+                             loading="lazy"
+                             referrerpolicy="no-referrer"
+                             data-aos="zoom-in">
+                        <img id="partner-logo-2"
+                             src="https://lh3.googleusercontent.com/u/0/d/1mwCZhaxyVoHDBDvNoybUMkpsIbc-7wGq=w2000"
+                             data-drive-src="https://drive.google.com/file/d/1mwCZhaxyVoHDBDvNoybUMkpsIbc-7wGq/view?usp=drive_link"
+                             alt="Partner 2"
+                             class="h-20 transition-transform duration-300 hover:scale-110"
+                             loading="lazy"
+                             referrerpolicy="no-referrer"
+                             data-aos="zoom-in"
+                             data-aos-delay="100">
+                        <img id="partner-logo-3"
+                             src="https://lh3.googleusercontent.com/u/0/d/19ogpzkPvsnsOrBuxk06VzeUUymCNB9od=w2000"
+                             data-drive-src="https://drive.google.com/file/d/19ogpzkPvsnsOrBuxk06VzeUUymCNB9od/view?usp=drive_link"
+                             alt="Partner 3"
+                             class="h-20 transition-transform duration-300 hover:scale-110"
+                             loading="lazy"
+                             referrerpolicy="no-referrer"
+                             data-aos="zoom-in"
+                             data-aos-delay="200">
+                        <img id="partner-logo-4"
+                             src="https://lh3.googleusercontent.com/u/0/d/1KOshNinnfQSX3AJeNEkl_0_SkIJonpTN=w2000"
+                             data-drive-src="https://drive.google.com/file/d/1KOshNinnfQSX3AJeNEkl_0_SkIJonpTN/view?usp=drive_link"
+                             alt="Partner 4"
+                             class="h-20 transition-transform duration-300 hover:scale-110"
+                             loading="lazy"
+                             referrerpolicy="no-referrer"
+                             data-aos="zoom-in"
+                             data-aos-delay="300">
+                        <img id="partner-logo-5"
+                             src="https://lh3.googleusercontent.com/u/0/d/185gwH4nitPLQQfciT0dqm_Tx9OGsSiim=w2000"
+                             data-drive-src="https://drive.google.com/file/d/185gwH4nitPLQQfciT0dqm_Tx9OGsSiim/view?usp=drive_link"
+                             alt="Partner 5"
+                             class="h-20 transition-transform duration-300 hover:scale-110"
+                             loading="lazy"
+                             referrerpolicy="no-referrer"
+                             data-aos="zoom-in"
+                             data-aos-delay="400">
                     </div>
                 </div>
             </section>
@@ -582,8 +677,14 @@
                             <div class="journey-panel absolute inset-0" data-step="2">
                                 <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover transition-all duration-500">
                             </div>
-                             <div class="journey-panel absolute inset-0" data-step="3">
-                                <img id="visa-process-image" src="" class="w-full h-full object-cover transition-all duration-500">
+                            <div class="journey-panel absolute inset-0" data-step="3">
+                                <img id="visa-process-image"
+                                     src="https://lh3.googleusercontent.com/u/0/d/1Lh8JQEFvmQ0NE6wP9uMiiJTMvIPpRbmt=w2000"
+                                     data-drive-src="https://drive.google.com/file/d/1Lh8JQEFvmQ0NE6wP9uMiiJTMvIPpRbmt/view?usp=sharing"
+                                     class="w-full h-full object-cover transition-all duration-500"
+                                     loading="lazy"
+                                     referrerpolicy="no-referrer"
+                                     alt="Visa preparation" />
                             </div>
                              <div class="journey-panel absolute inset-0" data-step="4">
                                 <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover transition-all duration-500">
@@ -625,7 +726,13 @@
                             <div class="testimonial-card absolute inset-0 opacity-0 invisible">
                                 <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center h-full">
                                     <div class="relative w-full h-64 md:h-full rounded-2xl overflow-hidden shadow-lg">
-                                        <img id="sarah-story-image" src="" alt="Sarah" class="testimonial-card-image w-full h-full object-cover">
+                                        <img id="sarah-story-image"
+                                             src="https://lh3.googleusercontent.com/u/0/d/12Y7QxFCCVxOdGCYzUO2zw2Z21EY2XbB2=w2000"
+                                             data-drive-src="https://drive.google.com/file/d/12Y7QxFCCVxOdGCYzUO2zw2Z21EY2XbB2/view?usp=sharing"
+                                             alt="Sarah"
+                                             class="testimonial-card-image w-full h-full object-cover"
+                                             loading="lazy"
+                                             referrerpolicy="no-referrer" />
                                     </div>
                                     <div class="text-center md:text-left">
                                         <i class="fas fa-quote-left text-blue-500 text-4xl mb-4"></i>
@@ -681,7 +788,13 @@
                         <!-- Post Card 1 -->
                         <div class="post-card bg-white rounded-2xl shadow-lg overflow-hidden group transform hover:-translate-y-2 transition-transform duration-300">
                             <div class="overflow-hidden h-64">
-                                <img id="post-image-1" src="" alt="English Camp 1" class="post-card-image w-full h-full object-cover">
+                                <img id="post-image-1"
+                                     src="https://lh3.googleusercontent.com/u/0/d/19tAwaFYL3jKtYH-aEVVP1AWh4xgJ6nX1=w2000"
+                                     data-drive-src="https://drive.google.com/file/d/19tAwaFYL3jKtYH-aEVVP1AWh4xgJ6nX1/view?usp=sharing"
+                                     alt="English Camp 1"
+                                     class="post-card-image w-full h-full object-cover"
+                                     loading="lazy"
+                                     referrerpolicy="no-referrer" />
                             </div>
                             <div class="p-6">
                                 <h3 class="text-xl font-bold mb-2 text-gray-800">English Camp Highlight #1</h3>
@@ -692,7 +805,13 @@
                         <!-- Post Card 2 -->
                         <div class="post-card bg-white rounded-2xl shadow-lg overflow-hidden group transform hover:-translate-y-2 transition-transform duration-300">
                             <div class="overflow-hidden h-64">
-                                <img id="post-image-2" src="" alt="English Camp 2" class="post-card-image w-full h-full object-cover">
+                                <img id="post-image-2"
+                                     src="https://lh3.googleusercontent.com/u/0/d/1ljLbiSsssZF1JuTGERGCV7y2Q7G7TbQD=w2000"
+                                     data-drive-src="https://drive.google.com/file/d/1ljLbiSsssZF1JuTGERGCV7y2Q7G7TbQD/view?usp=drive_link"
+                                     alt="English Camp 2"
+                                     class="post-card-image w-full h-full object-cover"
+                                     loading="lazy"
+                                     referrerpolicy="no-referrer" />
                             </div>
                             <div class="p-6">
                                 <h3 class="text-xl font-bold mb-2 text-gray-800">English Camp Highlight #2</h3>
@@ -703,7 +822,13 @@
                         <!-- Post Card 3 -->
                         <div class="post-card bg-white rounded-2xl shadow-lg overflow-hidden group transform hover:-translate-y-2 transition-transform duration-300">
                             <div class="overflow-hidden h-64">
-                                <img id="post-image-3" src="" alt="English Camp 3" class="post-card-image w-full h-full object-cover">
+                                <img id="post-image-3"
+                                     src="https://lh3.googleusercontent.com/u/0/d/1psArqXEfXnHw_uKw1t_aFHXrNLW2c01d=w2000"
+                                     data-drive-src="https://drive.google.com/file/d/1psArqXEfXnHw_uKw1t_aFHXrNLW2c01d/view?usp=sharing"
+                                     alt="English Camp 3"
+                                     class="post-card-image w-full h-full object-cover"
+                                     loading="lazy"
+                                     referrerpolicy="no-referrer" />
                             </div>
                             <div class="p-6">
                                 <h3 class="text-xl font-bold mb-2 text-gray-800">English Camp Highlight #3</h3>
@@ -775,14 +900,19 @@
                          </div>
                          <div class="max-w-4xl mx-auto card p-8 lg:p-12" data-aos="fade-up">
                              <!-- This form will now submit to Google Sheets -->
-                             <form id="contact-form-g-sheets" class="space-y-6">
+                             <form id="contact-form-g-sheets" class="space-y-6" autocomplete="on">
                                  <div class="grid md:grid-cols-2 gap-6">
-                                     <input type="text" name="fullName" placeholder="Full Name" class="w-full bg-gray-100 p-4 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500" required>
-                                     <input type="email" name="email" placeholder="Email Address" class="w-full bg-gray-100 p-4 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                                     <input type="text" name="fullName" placeholder="Full Name" class="w-full bg-gray-100 p-4 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500" required minlength="2" maxlength="120" autocomplete="name">
+                                     <input type="email" name="email" placeholder="Email Address" class="w-full bg-gray-100 p-4 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500" required inputmode="email" autocomplete="email" maxlength="160">
                                  </div>
-                                 <textarea name="message" placeholder="Tell us about your teaching experience..." rows="5" class="w-full bg-gray-100 p-4 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500" required></textarea>
+                                 <textarea name="message" placeholder="Tell us about your teaching experience..." rows="5" class="w-full bg-gray-100 p-4 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500" required minlength="20" maxlength="1000"></textarea>
+                                 <div class="honeypot-field" aria-hidden="true">
+                                     <label for="company-website">Company Website</label>
+                                     <input type="text" id="company-website" name="companyWebsite" tabindex="-1" data-honeypot="true" autocomplete="off">
+                                 </div>
                                  <div class="text-center">
                                      <button type="submit" class="btn-primary w-full md:w-auto py-4 px-12 rounded-full text-lg">Send Application</button>
+                                     <p id="contact-form-status" class="mt-4 text-sm text-gray-500 hidden"></p>
                                  </div>
                              </form>
                          </div>
@@ -1375,10 +1505,14 @@
                          <div class="card p-8">
                              <h3 class="text-2xl font-bold mb-4">Send us a message</h3>
                              <!-- This form also submits to Formspree -->
-                             <form action="https://formspree.io/f/mqaykklk" method="POST" class="space-y-4">
-                                <input type="text" name="name" placeholder="Your Name" class="w-full bg-gray-100 p-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-blue-500" required>
-                                <input type="email" name="email" placeholder="Your Email" class="w-full bg-gray-100 p-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-blue-500" required>
-                                <textarea name="message" rows="5" placeholder="Your Message" class="w-full bg-gray-100 p-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-blue-500" required></textarea>
+                             <form action="https://formspree.io/f/mqaykklk" method="POST" class="space-y-4" autocomplete="on">
+                                <input type="text" name="name" placeholder="Your Name" class="w-full bg-gray-100 p-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-blue-500" required minlength="2" maxlength="120" autocomplete="name">
+                                <input type="email" name="email" placeholder="Your Email" class="w-full bg-gray-100 p-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-blue-500" required inputmode="email" autocomplete="email" maxlength="160">
+                                <textarea name="message" rows="5" placeholder="Your Message" class="w-full bg-gray-100 p-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-blue-500" required minlength="10" maxlength="1000"></textarea>
+                                <div class="honeypot-field" aria-hidden="true">
+                                    <label for="contact-page-website">Company Website</label>
+                                    <input type="text" id="contact-page-website" name="companyWebsite" tabindex="-1" autocomplete="off">
+                                </div>
                                 <button type="submit" class="btn-primary w-full py-3 rounded-lg">Send Message</button>
                             </form>
                          </div>
@@ -1386,7 +1520,6 @@
                 </div>
             </div>
         </section>
-
 
     </main>
 
@@ -1420,7 +1553,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
-            
+
             const mainContent = document.getElementById('main-content');
             // Page Sections
             const jobsPage = document.getElementById('jobs');
@@ -1441,6 +1574,40 @@
             const schoolsEsan4Page = document.getElementById('schools-esan4');
             const faqPage = document.getElementById('faq');
             const contactPage = document.getElementById('contact-page');
+
+            const purgeUpdateNotes = () => {
+                const directSelectors = [
+                    '#update-notes',
+                    '#update-notes-section',
+                    '.update-notes',
+                    '.update-notes-card',
+                    '[data-section="update-notes"]',
+                    '[data-component="update-notes"]'
+                ];
+                directSelectors.forEach((selector) => {
+                    document.querySelectorAll(selector).forEach((node) => node.remove());
+                });
+
+                const disallowedHeadings = [
+                    /เราแก้ไขอะไรเพิ่มเติมบ้าง/i,
+                    /เราแก้ไขอะไรเพิ่มเติมบ้าง\?/i,
+                    /เราแก้ไขอะไรบ้าง/i,
+                    /update notes/i,
+                    /เราได้แก้ไขอะไร/i
+                ];
+                document.querySelectorAll('section, .card, .update-section').forEach((block) => {
+                    const heading = block.querySelector('h2, h3, h4');
+                    if (heading && disallowedHeadings.some((regex) => regex.test(heading.textContent.trim()))) {
+                        block.remove();
+                    }
+                });
+            };
+
+            purgeUpdateNotes();
+            if (typeof MutationObserver !== 'undefined') {
+                const updateNotesObserver = new MutationObserver(() => purgeUpdateNotes());
+                updateNotesObserver.observe(document.body, { childList: true, subtree: true });
+            }
 
 
             const allPages = [
@@ -1639,14 +1806,13 @@
             // --- Google Drive Image Loader ---
             function extractDriveId(link) {
                 if (!link) return null;
-                const patterns = [
-                    /drive\.google\.com\/file\/d\/([a-zA-Z0-9_-]+)/,
-                    /drive\.google\.com\/open\?id=([a-zA-Z0-9_-]+)/,
-                    /drive\.google\.com\/uc\?id=([a-zA-Z0-9_-]+)/
-                ];
-                for (const pattern of patterns) {
-                    const match = link.match(pattern);
-                    if (match && match[1]) return match[1];
+                const byPath = link.match(/\/d\/([a-zA-Z0-9_-]+)/);
+                if (byPath && byPath[1]) {
+                    return byPath[1];
+                }
+                const byQuery = link.match(/[?&]id=([a-zA-Z0-9_-]+)/);
+                if (byQuery && byQuery[1]) {
+                    return byQuery[1];
                 }
                 return null;
             }
@@ -1654,9 +1820,18 @@
             function generateDriveCandidates(fileId) {
                 if (!fileId) return [];
                 return [
+                    `https://lh3.googleusercontent.com/u/0/d/${fileId}=w2000`,
+                    `https://lh3.googleusercontent.com/d/${fileId}=w2000`,
+                    `https://lh3.googleusercontent.com/u/0/d/${fileId}`,
+                    `https://lh3.googleusercontent.com/d/${fileId}`,
+                    `https://drive.googleusercontent.com/uc?export=view&id=${fileId}`,
+                    `https://drive.googleusercontent.com/uc?id=${fileId}&export=download`,
                     `https://drive.google.com/uc?export=view&id=${fileId}`,
+                    `https://drive.google.com/uc?id=${fileId}`,
+                    `https://drive.google.com/uc?export=download&id=${fileId}`,
                     `https://drive.google.com/thumbnail?id=${fileId}&sz=w2000`,
-                    `https://drive.google.com/uc?id=${fileId}`
+                    `https://drive.usercontent.google.com/uc?export=view&id=${fileId}`,
+                    `https://drive.usercontent.google.com/download?id=${fileId}&export=view&confirm=t`
                 ];
             }
 
@@ -1691,26 +1866,11 @@
             }
 
             // --- Apply Drive Image Loaders ---
-            const imageLoadConfig = {
-                'logo-image': 'https://drive.google.com/file/d/1UxFx1zIXnDxq1N_nhkdHYz7qSUoqiagP/view?usp=sharing',
-                'visa-process-image': 'https://drive.google.com/file/d/1Lh8JQEFvmQ0NE6wP9uMiiJTMvIPpRbmt/view?usp=sharing',
-                'sarah-story-image': 'https://drive.google.com/file/d/12Y7QxFCCVxOdGCYzUO2zw2Z21EY2XbB2/view?usp=sharing',
-                'kindergarten-job-image': 'https://drive.google.com/file/d/1ebjFrgeH1vpTMA60ZOrrezr7dMtnzHiz/view?usp=sharing',
-                'post-image-1': 'https://drive.google.com/file/d/19tAwaFYL3jKtYH-aEVVP1AWh4xgJ6nX1/view?usp=sharing',
-                'post-image-2': 'https://drive.google.com/file/d/1ljLbiSsssZF1JuTGERGCV7y2Q7G7TbQD/view?usp=drive_link',
-                'post-image-3': 'https://drive.google.com/file/d/1psArqXEfXnHw_uKw1t_aFHXrNLW2c01d/view?usp=sharing',
-                'partner-logo-1': 'https://drive.google.com/file/d/1g9LEi54_CyfjNAD0QM0OM9EScC3nNIre/view?usp=drive_link',
-                'partner-logo-2': 'https://drive.google.com/file/d/1mwCZhaxyVoHDBDvNoybUMkpsIbc-7wGq/view?usp=drive_link',
-                'partner-logo-3': 'https://drive.google.com/file/d/19ogpzkPvsnsOrBuxk06VzeUUymCNB9od/view?usp=drive_link',
-                'partner-logo-4': 'https://drive.google.com/file/d/1KOshNinnfQSX3AJeNEkl_0_SkIJonpTN/view?usp=drive_link',
-                'partner-logo-5': 'https://drive.google.com/file/d/185gwH4nitPLQQfciT0dqm_Tx9OGsSiim/view?usp=drive_link',
-            };
-
-            for (const id in imageLoadConfig) {
-                const element = document.getElementById(id);
-                const link = imageLoadConfig[id];
+            const driveImageElements = document.querySelectorAll('[data-drive-src]');
+            driveImageElements.forEach((element) => {
+                const link = element.getAttribute('data-drive-src');
                 setDriveImageWithFallback(element, link);
-            }
+            });
 
             // --- Page View Management ---
             function setView(viewName) {
@@ -1865,35 +2025,153 @@
         const form = document.getElementById('contact-form-g-sheets');
         const formWrapper = document.getElementById('contact-section-wrapper');
         const thankYouMessage = document.getElementById('thank-you-message');
+        const honeypotField = form?.querySelector('[data-honeypot]');
+        const statusMessage = document.getElementById('contact-form-status');
+        const SUBMISSION_DELAY_MS = 2000;
+        const REQUEST_TIMEOUT_MS = 12000;
+        const sanitizeInput = (value = '') => value.replace(/[<>]/g, '').trim();
+        const isValidEmail = (email = '') => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        const buildFormDataFromEntries = (entries = []) => {
+            const formData = new FormData();
+            entries.forEach(([key, value]) => formData.append(key, value));
+            return formData;
+        };
+        const buildUrlEncodedPayload = (entries = []) => {
+            const params = new URLSearchParams();
+            entries.forEach(([key, value]) => params.append(key, value));
+            return params.toString();
+        };
+        const tryBeaconSubmit = (entries = []) => {
+            if (typeof navigator === 'undefined' || typeof navigator.sendBeacon !== 'function') {
+                return false;
+            }
+            const encodedBody = buildUrlEncodedPayload(entries);
+            const beaconPayload = new Blob([encodedBody], { type: 'application/x-www-form-urlencoded' });
+            return navigator.sendBeacon(scriptURL, beaconPayload);
+        };
+        const submitToSheets = async (entries = []) => {
+            if (tryBeaconSubmit(entries)) {
+                return true;
+            }
+            const controller = (typeof AbortController !== 'undefined') ? new AbortController() : null;
+            const timeoutId = controller ? setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS) : null;
+            try {
+                await fetch(scriptURL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    body: buildFormDataFromEntries(entries),
+                    signal: controller?.signal
+                });
+                return true;
+            } finally {
+                if (timeoutId) {
+                    clearTimeout(timeoutId);
+                }
+            }
+        };
+        let formInitTime = Date.now();
+
+        const showStatus = (type = 'info', message = '') => {
+            if (!statusMessage || !message) return;
+            statusMessage.textContent = message;
+            statusMessage.classList.remove('hidden', 'text-red-500', 'text-green-600', 'text-gray-500');
+            switch (type) {
+                case 'success':
+                    statusMessage.classList.add('text-green-600');
+                    break;
+                case 'error':
+                    statusMessage.classList.add('text-red-500');
+                    break;
+                default:
+                    statusMessage.classList.add('text-gray-500');
+            }
+        };
+
+        const hideStatus = () => {
+            if (!statusMessage) return;
+            statusMessage.textContent = '';
+            statusMessage.classList.add('hidden');
+            statusMessage.classList.remove('text-red-500', 'text-green-600', 'text-gray-500');
+        };
+
+        const setFormState = (isBusy, button) => {
+            if (!button) return;
+            if (!button.dataset.defaultLabel) {
+                button.dataset.defaultLabel = button.textContent || 'Send Application';
+            }
+            if (isBusy) {
+                form?.setAttribute('aria-busy', 'true');
+                button.disabled = true;
+                button.textContent = 'Sending...';
+            } else {
+                form?.removeAttribute('aria-busy');
+                button.disabled = false;
+                button.textContent = button.dataset.defaultLabel;
+            }
+        };
 
         if (form) {
             form.addEventListener('submit', async (e) => {
                 e.preventDefault();
                 const btn = form.querySelector('button[type="submit"]');
-                btn.disabled = true;
-                btn.textContent = 'Sending...';
+                hideStatus();
+                setFormState(true, btn);
+                showStatus('info', 'Sending your application securely...');
 
-                try {
-                    const res = await fetch(scriptURL, { method: 'POST', body: new FormData(form) });
-                    const data = await res.json().catch(() => ({})); // Read response from script
-                    console.log('Response from script:', data);
+                if (honeypotField && honeypotField.value.trim() !== '') {
+                    alert('Your submission could not be validated. Please try again.');
+                    honeypotField.value = '';
+                    showStatus('error', 'Spam protection triggered. Please try again.');
+                    return setFormState(false, btn);
+                }
 
-                    if (res.ok && data.result === 'success') {
-                        if(formWrapper && thankYouMessage){
-                            formWrapper.classList.add('hidden');
-                            thankYouMessage.classList.remove('hidden');
+                const elapsedTime = Date.now() - formInitTime;
+                if (elapsedTime < SUBMISSION_DELAY_MS) {
+                    alert('Please take a moment to review your information before submitting.');
+                    showStatus('error', 'Please take a moment to review your information before submitting.');
+                    return setFormState(false, btn);
+                }
+
+                const rawFormData = new FormData(form);
+                const sanitizedEntries = [];
+                rawFormData.forEach((value, key) => {
+                    if (typeof value === 'string') {
+                        const cleaned = sanitizeInput(value);
+                        sanitizedEntries.push([key, cleaned]);
+                        const control = form.querySelector(`[name="${key}"]`);
+                        if (control && typeof control.value === 'string') {
+                            control.value = cleaned;
                         }
                     } else {
-                        alert('Submission failed. Please try again. Error: ' + (data.message || 'Unknown error'));
-                        btn.disabled = false;
-                        btn.textContent = 'Send Application';
+                        sanitizedEntries.push([key, value]);
                     }
-                } catch (err) {
-                    console.error('Connection Error!', err);
-                    alert('There was a connection error. Please check your internet and try again.'); 
-                    btn.disabled = false;
-                    btn.textContent = 'Send Application';
+                });
+
+                const emailValue = sanitizedEntries.find(([key]) => key === 'email')?.[1] || '';
+                if (!isValidEmail(emailValue)) {
+                    alert('Please enter a valid email address.');
+                    showStatus('error', 'Please enter a valid email address.');
+                    return setFormState(false, btn);
                 }
+                try {
+                    await submitToSheets(sanitizedEntries);
+                    form.reset();
+                    formInitTime = Date.now();
+                    if (formWrapper && thankYouMessage) {
+                        formWrapper.classList.add('hidden');
+                        thankYouMessage.classList.remove('hidden');
+                    }
+                    showStatus('success', 'Your application has been sent. Please watch your inbox for our reply.');
+                } catch (submissionError) {
+                    if (submissionError?.name === 'AbortError') {
+                        showStatus('error', 'Network timeout. Please try again in a moment.');
+                    } else {
+                        console.error('Submission Error:', submissionError);
+                        showStatus('error', 'Submission failed. Please try again or email us at mediakids.online@gmail.com');
+                    }
+                }
+
+                setFormState(false, btn);
             });
         }
     </script>
