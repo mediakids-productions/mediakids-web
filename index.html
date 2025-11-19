@@ -169,6 +169,17 @@
             width: 100%;
         }
 
+        /* Smart header state */
+        .smart-header {
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+        }
+
+        .smart-header.header-scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(20px);
+        }
+
         /* Hero Image Animation */
         .hero-img {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -278,13 +289,92 @@
             transition: max-height 0.5s ease-in-out;
         }
 
+        /* Hero floating blobs */
+        .hero-blob {
+            position: absolute;
+            border-radius: 9999px;
+            filter: blur(12px);
+            opacity: 0.35;
+            pointer-events: none;
+            animation: float 12s ease-in-out infinite;
+        }
+
+        .hero-blob.blob-1 {
+            width: 320px;
+            height: 320px;
+            top: -80px;
+            left: -60px;
+            background: radial-gradient(circle at 30% 30%, #4f8bff, #b7d4ff);
+        }
+
+        .hero-blob.blob-2 {
+            width: 280px;
+            height: 280px;
+            bottom: -60px;
+            right: 10%;
+            background: radial-gradient(circle at 30% 30%, #ffd166, #ffe6a1);
+            animation-delay: 2s;
+        }
+
+        .hero-blob.blob-3 {
+            width: 220px;
+            height: 220px;
+            top: 30%;
+            right: -80px;
+            background: radial-gradient(circle at 30% 30%, #74c69d, #c7f9cc);
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-16px) scale(1.05); }
+        }
+
+        /* Back to top button */
+        #back-to-top {
+            position: fixed;
+            right: 1.5rem;
+            bottom: 1.5rem;
+            width: 48px;
+            height: 48px;
+            border-radius: 9999px;
+            background: linear-gradient(135deg, #0052CC, #4f8bff);
+            color: white;
+            display: grid;
+            place-items: center;
+            box-shadow: 0 10px 30px rgba(0, 82, 204, 0.35);
+            opacity: 0;
+            transform: translateY(20px);
+            pointer-events: none;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            z-index: 60;
+        }
+
+        #back-to-top.show {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        /* Job card hover styling */
+        .job-card {
+            border: 2px solid transparent;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .job-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 18px 45px rgba(0, 82, 204, 0.18);
+            border-color: var(--primary-blue);
+        }
+
     </style>
 </head>
 
 <body class="leading-relaxed overflow-x-hidden">
 
     <!-- Header -->
-    <header class="bg-white/80 backdrop-blur-sm sticky top-0 z-50 shadow-sm">
+    <header id="site-header" class="smart-header bg-white/70 backdrop-blur-md sticky top-0 z-50 transition-all duration-300">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#" data-scroll-to="home" class="nav-logo flex items-center space-x-3">
                 <img id="logo-image"
@@ -447,8 +537,11 @@
         <!-- Main Scrollable Content -->
         <div id="main-content">
             <!-- Hero Section -->
-            <section id="home" class="bg-hero-pattern">
-                <div class="container mx-auto px-6 py-20 lg:py-32 grid lg:grid-cols-2 gap-12 items-center">
+            <section id="home" class="bg-hero-pattern relative overflow-hidden">
+                <div class="hero-blob blob-1" aria-hidden="true"></div>
+                <div class="hero-blob blob-2" aria-hidden="true"></div>
+                <div class="hero-blob blob-3" aria-hidden="true"></div>
+                <div class="container relative mx-auto px-6 py-20 lg:py-32 grid lg:grid-cols-2 gap-12 items-center">
                     <div data-aos="fade-right">
                         <h1 class="text-5xl md:text-7xl font-extrabold leading-tight" aria-label="Your Journey Begins Here">
                             <span class="accent-text block">Your Journey</span>
@@ -949,7 +1042,7 @@
                 <!-- Job Listings -->
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
                     <!-- Job Card 1: Kindergarten Teacher -->
-                    <div class="card p-6 flex flex-col" data-aos="fade-up">
+                    <div class="card job-card p-6 flex flex-col" data-aos="fade-up">
                         <h3 class="text-xl font-bold mb-2">Kindergarten English Teacher</h3>
                         <p class="text-blue-600 font-semibold mb-3">Multiple Locations</p>
                         <p class="text-gray-600 mb-4 flex-grow">Engage young learners (ages 3-6) with fun, play-based activities. A rewarding role for energetic and creative individuals.</p>
@@ -959,7 +1052,7 @@
                         </div>
                     </div>
                     <!-- Job Card 2: Primary School Teacher -->
-                    <div class="card p-6 flex flex-col" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card job-card p-6 flex flex-col" data-aos="fade-up" data-aos-delay="100">
                         <h3 class="text-xl font-bold mb-2">Primary School English Teacher</h3>
                         <p class="text-blue-600 font-semibold mb-3">Isaan Region</p>
                         <p class="text-gray-600 mb-4 flex-grow">Teach English communication skills to students aged 7-12 in Thai government schools. Experience authentic local culture.</p>
@@ -969,7 +1062,7 @@
                         </div>
                     </div>
                     <!-- Job Card 3: High School Teacher -->
-                    <div class="card p-6 flex flex-col" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card job-card p-6 flex flex-col" data-aos="fade-up" data-aos-delay="200">
                         <h3 class="text-xl font-bold mb-2">High School English Teacher</h3>
                         <p class="text-blue-600 font-semibold mb-3">Central & Northern Regions</p>
                         <p class="text-gray-600 mb-4 flex-grow">Prepare secondary students for their future with lessons focused on conversational skills, grammar, and exam preparation.</p>
@@ -1531,21 +1624,68 @@
 
     </main>
 
+    <button id="back-to-top" aria-label="Back to top" type="button">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
     <!-- Footer -->
-    <footer class="bg-[#0A192F] text-white py-12">
-        <div class="container mx-auto px-6 text-center text-gray-400">
-            <div class="mb-4">
-                 <a href="#" data-scroll-to="home" class="nav-logo text-3xl font-bold text-blue-400">
-                    MediaKids<span class="text-white"> Academy</span>
-                </a>
+    <footer class="bg-[#0A192F] text-white py-14">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10 text-gray-300">
+                <div>
+                    <a href="#" data-scroll-to="home" class="nav-logo text-3xl font-bold text-blue-400">
+                        MediaKids<span class="text-white"> Academy</span>
+                    </a>
+                    <p class="mt-4 leading-relaxed">Empowering educators to explore Thailand through meaningful teaching experiences and lasting community connections.</p>
+                    <div class="flex space-x-4 mt-4 text-xl">
+                        <a href="#" class="hover:text-blue-400 transition-colors"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="hover:text-blue-400 transition-colors"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="hover:text-blue-400 transition-colors"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="hover:text-blue-400 transition-colors"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-semibold text-white mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" data-scroll-to="about" class="nav-main hover:text-blue-300 transition-colors">About Us</a></li>
+                        <li><a href="#" data-scroll-to="programs" class="nav-main hover:text-blue-300 transition-colors">Programs</a></li>
+                        <li><a href="#" data-page="jobs" class="nav-page hover:text-blue-300 transition-colors">Jobs</a></li>
+                        <li><a href="#" data-page="faq" class="nav-page hover:text-blue-300 transition-colors">FAQ</a></li>
+                        <li><a href="#" data-scroll-to="contact" class="nav-main hover:text-blue-300 transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-semibold text-white mb-4">Contact</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start space-x-3">
+                            <i class="fas fa-map-marker-alt text-blue-400 mt-1"></i>
+                            <span>123 MediaKids Lane, Education District, Bangkok 10110, Thailand</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-envelope text-blue-400"></i>
+                            <a href="mailto:info@mediakids.co.th" class="hover:text-blue-300 transition-colors">info@mediakids.co.th</a>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-phone text-blue-400"></i>
+                            <a href="tel:+6621234567" class="hover:text-blue-300 transition-colors">+66 2 123 4567</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-semibold text-white mb-4">Newsletter</h3>
+                    <p class="text-gray-400 mb-4">Stay updated with new opportunities and teaching tips.</p>
+                    <form class="space-y-3">
+                        <input type="email" placeholder="Enter your email" class="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 focus:outline-none focus:ring-2 focus:ring-blue-400" required>
+                        <button type="button" class="w-full btn-primary px-4 py-3 rounded-lg">Subscribe</button>
+                    </form>
+                </div>
             </div>
-            <div class="flex justify-center space-x-6 mb-6">
-                <a href="#" class="text-2xl hover:text-blue-400 transition-colors"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="text-2xl hover:text-blue-400 transition-colors"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="text-2xl hover:text-blue-400 transition-colors"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#" class="text-2xl hover:text-blue-400 transition-colors"><i class="fab fa-youtube"></i></a>
+            <div class="border-t border-white/10 mt-10 pt-6 text-center text-gray-400">
+                <p>&copy; 2024 Global Teach Thailand. All Rights Reserved.</p>
             </div>
-            <p>&copy; 2024 Global Teach Thailand. All Rights Reserved.</p>
         </div>
     </footer>
 
@@ -1628,8 +1768,29 @@
             const pageLinks = document.querySelectorAll('.nav-page');
             const mainLinks = document.querySelectorAll('.nav-main');
             const logoLinks = document.querySelectorAll('.nav-logo');
-            
+
+            const siteHeader = document.getElementById('site-header');
+            const backToTopButton = document.getElementById('back-to-top');
+
             const counters = document.querySelectorAll('.counter');
+
+            const handleScrollUI = () => {
+                if (siteHeader) {
+                    if (window.scrollY > 10) {
+                        siteHeader.classList.add('header-scrolled');
+                    } else {
+                        siteHeader.classList.remove('header-scrolled');
+                    }
+                }
+
+                if (backToTopButton) {
+                    if (window.scrollY > 400) {
+                        backToTopButton.classList.add('show');
+                    } else {
+                        backToTopButton.classList.remove('show');
+                    }
+                }
+            };
 
             // --- Mobile Menu Toggle ---
             mobileMenuButton.addEventListener('click', () => {
@@ -1646,6 +1807,17 @@
                     icon.classList.toggle('rotate-180');
                 });
             });
+
+
+            handleScrollUI();
+            window.addEventListener('scroll', handleScrollUI, { passive: true });
+
+            if (backToTopButton) {
+                backToTopButton.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
 
 
             // --- Hero Slideshow ---
