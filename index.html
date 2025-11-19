@@ -270,52 +270,6 @@
             opacity: 1;
             transform: translateY(0);
         }
-
-        /* Mega Menu */
-        .mega-overlay {
-            position: fixed;
-            inset: 0;
-            background: rgba(255, 255, 255, 0.65);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s ease, visibility 0.3s ease;
-            z-index: 40;
-        }
-
-        .mega-overlay.open {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .mega-panel {
-            max-width: 1200px;
-            margin: 110px auto 0;
-            padding: 32px;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 24px;
-            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.12);
-            border: 1px solid rgba(255, 255, 255, 0.4);
-        }
-
-        .mega-panel h4 {
-            font-size: 1rem;
-            font-weight: 700;
-            color: #0f172a;
-        }
-
-        .mega-panel a {
-            display: block;
-            margin-top: 0.35rem;
-            color: #334155;
-            font-weight: 500;
-            transition: color 0.2s ease;
-        }
-
-        .mega-panel a:hover {
-            color: var(--primary-blue);
-        }
         
         /* FAQ Accordion */
         .faq-answer {
@@ -344,16 +298,9 @@
                     MediaKids<span class="text-gray-800"> Academy</span>
                 </span>
             </a>
-
+            
             <!-- Desktop Menu -->
             <div class="hidden lg:flex items-center space-x-8">
-                <!-- TV & Home Mega Menu -->
-                <div class="relative">
-                    <button id="mega-menu-trigger" class="nav-link flex items-center" aria-expanded="false">
-                        TV และบ้าน <i class="fas fa-chevron-down text-xs ml-2"></i>
-                    </button>
-                </div>
-
                 <!-- About Us -->
                 <div class="group relative">
                     <button class="nav-link flex items-center">
@@ -423,70 +370,9 @@
                 <i class="fas fa-bars text-2xl"></i>
             </button>
         </nav>
-
-        <!-- TV & Home Mega Menu Overlay -->
-        <div id="mega-menu-overlay" class="mega-overlay" aria-hidden="true">
-            <div class="mega-panel">
-                <div class="flex items-start justify-between gap-6 mb-6">
-                    <div>
-                        <p class="text-sm uppercase tracking-wide text-slate-500 font-semibold">TV & Home</p>
-                        <h3 class="text-2xl font-bold text-slate-900">แรงบันดาลใจสไตล์ Apple สำหรับบ้านของคุณ</h3>
-                        <p class="text-slate-600 mt-1">เลือกความบันเทิงและโซลูชันบ้านอัจฉริยะครบชุดในที่เดียว</p>
-                    </div>
-                    <button id="mega-menu-close" class="text-slate-400 hover:text-slate-700 transition" aria-label="ปิดเมนู TV และบ้าน">
-                        <i class="fas fa-times text-xl"></i>
-                    </button>
-                </div>
-
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <div>
-                        <h4>ทีวีและความบันเทิง</h4>
-                        <a href="#" class="mt-2">Apple TV 4K</a>
-                        <a href="#">บริการสตรีมมิ่ง</a>
-                        <a href="#">ชุดโฮมเธียเตอร์</a>
-                        <a href="#">ลำโพงอัจฉริยะ</a>
-                    </div>
-                    <div>
-                        <h4>บ้านอัจฉริยะ</h4>
-                        <a href="#">ระบบไฟอัจฉริยะ</a>
-                        <a href="#">อุปกรณ์รักษาความปลอดภัย</a>
-                        <a href="#">ปลั๊กและสวิตช์ IoT</a>
-                        <a href="#">การเชื่อมต่อ HomeKit</a>
-                    </div>
-                    <div>
-                        <h4>บริการและการตั้งค่า</h4>
-                        <a href="#">บริการติดตั้งถึงบ้าน</a>
-                        <a href="#">คำแนะนำการออกแบบ</a>
-                        <a href="#">บริการหลังการขาย</a>
-                        <a href="#">คู่มือการเริ่มต้นใช้งาน</a>
-                    </div>
-                    <div>
-                        <h4>ดีลพิเศษ</h4>
-                        <a href="#">แพ็กเกจคู่ ทีวี + บ้าน</a>
-                        <a href="#">อัปเกรดอุปกรณ์เก่า</a>
-                        <a href="#">ข้อเสนอสำหรับนักศึกษา</a>
-                        <a href="#">ผ่อนชำระ 0%</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
+        
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden lg:hidden px-6 pt-2 pb-4 space-y-2 bg-white">
-            <!-- TV & Home -->
-            <div>
-                <button class="mobile-menu-toggle w-full flex justify-between items-center py-2 font-medium">
-                    <span>TV และบ้าน</span>
-                    <i class="fas fa-chevron-down text-xs transform transition-transform duration-300"></i>
-                </button>
-                <div class="mobile-submenu hidden pl-4 mt-2 space-y-2">
-                    <a href="#" class="nav-page block py-1 text-gray-600">Apple TV 4K</a>
-                    <a href="#" class="nav-page block py-1 text-gray-600">บริการสตรีมมิ่ง</a>
-                    <a href="#" class="nav-page block py-1 text-gray-600">บ้านอัจฉริยะ</a>
-                    <a href="#" class="nav-page block py-1 text-gray-600">บริการติดตั้ง</a>
-                </div>
-            </div>
-
             <!-- About Us -->
             <div>
                 <button class="mobile-menu-toggle w-full flex justify-between items-center py-2 font-medium">
@@ -1696,78 +1582,6 @@
             const schoolsEsan4Page = document.getElementById('schools-esan4');
             const faqPage = document.getElementById('faq');
             const contactPage = document.getElementById('contact-page');
-            const megaMenuTrigger = document.getElementById('mega-menu-trigger');
-            const megaMenuOverlay = document.getElementById('mega-menu-overlay');
-            const megaMenuClose = document.getElementById('mega-menu-close');
-            let megaHoverTimeout = null;
-
-            const purgeUpdateNotes = () => {
-                const directSelectors = [
-                    '#update-notes',
-                    '#update-notes-section',
-                    '.update-notes',
-                    '.update-notes-card',
-                    '[data-section="update-notes"]',
-                    '[data-component="update-notes"]'
-                ];
-                directSelectors.forEach((selector) => {
-                    document.querySelectorAll(selector).forEach((node) => node.remove());
-                });
-
-                const disallowedHeadings = [
-                    /เราแก้ไขอะไรเพิ่มเติมบ้าง/i,
-                    /เราแก้ไขอะไรเพิ่มเติมบ้าง\?/i,
-                    /เราแก้ไขอะไรบ้าง/i,
-                    /update notes/i,
-                    /เราได้แก้ไขอะไร/i
-                ];
-                document.querySelectorAll('section, .card, .update-section').forEach((block) => {
-                    const heading = block.querySelector('h2, h3, h4');
-                    if (heading && disallowedHeadings.some((regex) => regex.test(heading.textContent.trim()))) {
-                        block.remove();
-                    }
-                });
-            };
-
-            purgeUpdateNotes();
-            if (typeof MutationObserver !== 'undefined') {
-                const updateNotesObserver = new MutationObserver(() => purgeUpdateNotes());
-                updateNotesObserver.observe(document.body, { childList: true, subtree: true });
-            }
-
-            const purgeUpdateNotes = () => {
-                const directSelectors = [
-                    '#update-notes',
-                    '#update-notes-section',
-                    '.update-notes',
-                    '.update-notes-card',
-                    '[data-section="update-notes"]',
-                    '[data-component="update-notes"]'
-                ];
-                directSelectors.forEach((selector) => {
-                    document.querySelectorAll(selector).forEach((node) => node.remove());
-                });
-
-                const disallowedHeadings = [
-                    /เราแก้ไขอะไรเพิ่มเติมบ้าง/i,
-                    /เราแก้ไขอะไรเพิ่มเติมบ้าง\?/i,
-                    /เราแก้ไขอะไรบ้าง/i,
-                    /update notes/i,
-                    /เราได้แก้ไขอะไร/i
-                ];
-                document.querySelectorAll('section, .card, .update-section').forEach((block) => {
-                    const heading = block.querySelector('h2, h3, h4');
-                    if (heading && disallowedHeadings.some((regex) => regex.test(heading.textContent.trim()))) {
-                        block.remove();
-                    }
-                });
-            };
-
-            purgeUpdateNotes();
-            if (typeof MutationObserver !== 'undefined') {
-                const updateNotesObserver = new MutationObserver(() => purgeUpdateNotes());
-                updateNotesObserver.observe(document.body, { childList: true, subtree: true });
-            }
 
             const purgeUpdateNotes = () => {
                 const directSelectors = [
@@ -1832,61 +1646,6 @@
                     icon.classList.toggle('rotate-180');
                 });
             });
-
-            // --- TV & Home Mega Menu ---
-            const openMegaMenu = () => {
-                if (!megaMenuOverlay || !megaMenuTrigger) return;
-                megaMenuOverlay.classList.add('open');
-                megaMenuOverlay.setAttribute('aria-hidden', 'false');
-                megaMenuTrigger.setAttribute('aria-expanded', 'true');
-                document.body.classList.add('overflow-hidden');
-            };
-
-            const closeMegaMenu = () => {
-                if (!megaMenuOverlay || !megaMenuTrigger) return;
-                megaMenuOverlay.classList.remove('open');
-                megaMenuOverlay.setAttribute('aria-hidden', 'true');
-                megaMenuTrigger.setAttribute('aria-expanded', 'false');
-                document.body.classList.remove('overflow-hidden');
-            };
-
-            if (megaMenuTrigger && megaMenuOverlay) {
-                megaMenuTrigger.addEventListener('mouseenter', () => {
-                    if (megaHoverTimeout) clearTimeout(megaHoverTimeout);
-                    openMegaMenu();
-                });
-
-                megaMenuTrigger.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    if (megaMenuOverlay.classList.contains('open')) {
-                        closeMegaMenu();
-                    } else {
-                        openMegaMenu();
-                    }
-                });
-
-                megaMenuOverlay.addEventListener('mouseenter', () => {
-                    if (megaHoverTimeout) clearTimeout(megaHoverTimeout);
-                });
-
-                megaMenuOverlay.addEventListener('mouseleave', () => {
-                    megaHoverTimeout = setTimeout(closeMegaMenu, 150);
-                });
-
-                megaMenuOverlay.addEventListener('click', (event) => {
-                    if (event.target === megaMenuOverlay) {
-                        closeMegaMenu();
-                    }
-                });
-
-                megaMenuClose?.addEventListener('click', closeMegaMenu);
-
-                document.addEventListener('keyup', (event) => {
-                    if (event.key === 'Escape') {
-                        closeMegaMenu();
-                    }
-                });
-            }
 
 
             // --- Hero Slideshow ---
