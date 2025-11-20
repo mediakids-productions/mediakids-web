@@ -641,147 +641,91 @@
             transform: scale(1.1);
         }
 
-        /* ---- APPLE STYLE MEGA MENU CSS ---- */
-        
-        /* 1. Container and Positioning */
-        #main-header, nav.container {
-            position: static; /* Allows absolute children to align with viewport/doc */
-        }
-        
-        header#main-header {
-             position: sticky;
-        }
-        
-        .group {
-            position: static; 
-        }
-
-        /* 2. The Mega Menu Panel */
-        .mega-menu {
-            /* Visibility & State */
-            visibility: hidden;
-            opacity: 0;
-            pointer-events: none;
-            
-            /* Position & Layout */
-            position: absolute;
-            top: 100%; /* Flush against the bottom of header */
-            left: 0;
-            width: 100%;
-            padding: 4rem 0 5rem 0; 
-            
-            /* Appearance */
-            background-color: #FFFFFF; 
-            box-shadow: 0 50px 100px -20px rgba(50, 50, 93, 0.1), 
-                        0 30px 60px -30px rgba(0, 0, 0, 0.1);
-            
-            /* ANIMATION CORE: Stretch & Fade */
-            transform-origin: top center;
-            transform: scaleY(0.85);
-            
-            /* Smooth, slow transition for opening AND closing */
-            transition: 
-                opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-                transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), 
-                visibility 0.6s; /* Matches transform duration */
-            
-            z-index: 40;
-        }
-
-        /* This class is toggled by JS to force close the menu */
-        .force-hidden {
-            visibility: hidden !important;
-            opacity: 0 !important;
-            display: none !important;
-            transition: none !important;
-        }
-
-        /* 3. Hover Trigger */
-        .group:hover .mega-menu {
-            visibility: visible;
-            opacity: 1;
-            pointer-events: auto;
-            transform: scaleY(1); /* Stretch to full height */
-        }
-        
-        /* 4. Staggered Content Animation (Text floating DOWN) */
-        .mm-col {
-            opacity: 0; 
-            transform: translateY(-20px); 
-            transition: opacity 0.4s ease, transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
-        }
-
-        .group:hover .mm-col {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        .group:hover .mm-col:nth-child(1) { transition-delay: 0.1s; }
-        .group:hover .mm-col:nth-child(2) { transition-delay: 0.18s; }
-        .group:hover .mm-col:nth-child(3) { transition-delay: 0.26s; }
-        .group:hover .mm-col:nth-child(4) { transition-delay: 0.34s; }
-        
-        /* 5. Page Content Blur Effect */
-        header:has(.group:hover) ~ main,
-        header:has(.group:hover) ~ footer,
-        header:has(.group:hover) ~ #back-to-top {
-            filter: blur(12px); 
-            opacity: 0.7; 
-            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1); 
-        }
-
-        /* Mega Menu Typography */
-        .mm-header {
-            font-size: 0.7rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: #86868b;
-            margin-bottom: 1.5rem;
-            display: block;
-        }
-        
-        .mm-link {
-            display: block;
-            font-size: 1rem;
-            font-weight: 500;
-            color: #1d1d1f;
-            margin-bottom: 1rem;
-            transition: color 0.2s ease;
-            text-decoration: none;
-            cursor: pointer;
-        }
-        
-        .mm-link:hover {
-            color: var(--primary-blue);
-        }
-        
-        .mm-sub-text {
-            font-size: 0.8rem;
-            color: #86868b;
-            font-weight: 400;
-            margin-left: 0.3rem;
-        }
-
-        /* Mobile Submenu Animation */
-        .submenu {
-            visibility: hidden;
-            opacity: 0;
-            transform: translateY(10px);
-            transition: all 0.3s ease-in-out;
-        }
-
-        .group\/sub:hover .submenu {
-            visibility: visible;
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
+        /* Dropdown Menu Styles */
         /* FAQ Accordion */
         .faq-answer {
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.5s ease-in-out;
+        }
+
+        /* Hero floating blobs */
+        .hero-blob {
+            position: absolute;
+            border-radius: 9999px;
+            filter: blur(12px);
+            opacity: 0.35;
+            pointer-events: none;
+            animation: float 12s ease-in-out infinite;
+        }
+
+        .hero-blob.blob-1 {
+            width: 320px;
+            height: 320px;
+            top: -80px;
+            left: -60px;
+            background: radial-gradient(circle at 30% 30%, #4f8bff, #b7d4ff);
+        }
+
+        .hero-blob.blob-2 {
+            width: 280px;
+            height: 280px;
+            bottom: -60px;
+            right: 10%;
+            background: radial-gradient(circle at 30% 30%, #ffd166, #ffe6a1);
+            animation-delay: 2s;
+        }
+
+        .hero-blob.blob-3 {
+            width: 220px;
+            height: 220px;
+            top: 30%;
+            right: -80px;
+            background: radial-gradient(circle at 30% 30%, #74c69d, #c7f9cc);
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-16px) scale(1.05); }
+        }
+
+        /* Back to top button */
+        #back-to-top {
+            position: fixed;
+            right: 1.5rem;
+            bottom: 1.5rem;
+            width: 48px;
+            height: 48px;
+            border-radius: 9999px;
+            background: linear-gradient(135deg, #0052CC, #4f8bff);
+            color: white;
+            display: grid;
+            place-items: center;
+            box-shadow: 0 10px 30px rgba(0, 82, 204, 0.35);
+            opacity: 0;
+            transform: translateY(20px);
+            pointer-events: none;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            z-index: 60;
+        }
+
+        #back-to-top.show {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        /* Job card hover styling */
+        .job-card {
+            border: 2px solid transparent;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .job-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 18px 45px rgba(0, 82, 204, 0.18);
+            border-color: var(--primary-blue);
         }
 
         /* Hero floating blobs */
@@ -2554,10 +2498,6 @@
                 mobileMenuButton.addEventListener('click', () => toggleMobileMenu());
             }
 
-            if (mobileMenuClose) {
-                mobileMenuClose.addEventListener('click', () => setMobileMenuState(false));
-            }
-            
             const mobileMenuToggles = document.querySelectorAll('.mobile-menu-toggle');
             mobileMenuToggles.forEach(button => {
                 button.addEventListener('click', (e) => {
