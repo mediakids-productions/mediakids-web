@@ -169,6 +169,81 @@
             width: 100%;
         }
 
+        /* Mega menu */
+        .mega-menu-panel {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 100%;
+            padding: 2.5rem 0 3rem;
+            width: 100vw;
+            background: rgba(255, 255, 255, 0.82);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 24px 70px rgba(0, 0, 0, 0.12);
+            transform-origin: top center;
+            transform: translateY(-12px) scaleY(0.96);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.35s ease, transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+            z-index: 40;
+        }
+
+        .mega-menu-panel.open {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0) scaleY(1);
+        }
+
+        .mega-menu-surface {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+        }
+
+        .mega-menu-group h4 {
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: #0f172a;
+        }
+
+        .mega-menu-link {
+            display: block;
+            padding: 0.2rem 0;
+            color: #1f2937;
+            font-weight: 500;
+            opacity: 0;
+            transform: translateY(12px);
+        }
+
+        .mega-menu-panel.open .mega-menu-link {
+            animation: megaLinkRise 0.5s ease forwards;
+            animation-delay: var(--d, 0ms);
+        }
+
+        .mega-menu-link:hover {
+            color: var(--primary-blue);
+        }
+
+        @keyframes megaLinkRise {
+            from {
+                opacity: 0;
+                transform: translateY(12px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 1023px) {
+            .mega-menu-panel {
+                display: none;
+            }
+        }
+
         /* Smart header state */
         .smart-header {
             box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
@@ -178,6 +253,11 @@
             background: rgba(255, 255, 255, 0.95);
             box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
             backdrop-filter: blur(20px);
+        }
+
+        .smart-header.mega-open {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(24px);
         }
 
         /* Hero Image Animation */
@@ -374,7 +454,7 @@
 <body class="leading-relaxed overflow-x-hidden">
 
     <!-- Header -->
-    <header id="site-header" class="smart-header bg-white/70 backdrop-blur-md sticky top-0 z-50 transition-all duration-300">
+    <header id="site-header" class="smart-header bg-white/70 backdrop-blur-md sticky top-0 z-50 transition-all duration-300 relative overflow-visible">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#" data-scroll-to="home" class="nav-logo flex items-center space-x-3">
                 <img id="logo-image"
@@ -391,6 +471,13 @@
             
             <!-- Desktop Menu -->
             <div class="hidden lg:flex items-center space-x-8">
+                <!-- TV & Home Mega Menu -->
+                <div class="relative">
+                    <button id="mega-menu-trigger" class="nav-link flex items-center">
+                        TV และบ้าน <i class="fas fa-chevron-down text-xs ml-2"></i>
+                    </button>
+                </div>
+
                 <!-- About Us -->
                 <div class="group relative">
                     <button class="nav-link flex items-center">
@@ -460,7 +547,46 @@
                 <i class="fas fa-bars text-2xl"></i>
             </button>
         </nav>
-        
+
+        <!-- Apple-style Mega Menu -->
+        <div id="mega-menu-panel" class="mega-menu-panel">
+            <div class="mega-menu-surface">
+                <div class="mega-menu-group">
+                    <h4>ดูข้อมูล TV & Home</h4>
+                    <a href="#" class="mega-menu-link" style="--d: 40ms">Apple TV 4K</a>
+                    <a href="#" class="mega-menu-link" style="--d: 80ms">Apple TV App</a>
+                    <a href="#" class="mega-menu-link" style="--d: 120ms">Apple TV+</a>
+                    <a href="#" class="mega-menu-link" style="--d: 160ms">HomePod</a>
+                    <a href="#" class="mega-menu-link" style="--d: 200ms">HomeKit</a>
+                    <a href="#" class="mega-menu-link" style="--d: 240ms">AirPlay</a>
+                    <a href="#" class="mega-menu-link" style="--d: 280ms">อุปกรณ์เสริม</a>
+                </div>
+                <div class="mega-menu-group">
+                    <h4>ซื้อ TV & Home</h4>
+                    <a href="#" class="mega-menu-link" style="--d: 80ms">เลือกซื้อ Apple TV 4K</a>
+                    <a href="#" class="mega-menu-link" style="--d: 120ms">เลือกซื้อ HomePod</a>
+                    <a href="#" class="mega-menu-link" style="--d: 160ms">เลือกซื้อ HomePod mini</a>
+                    <a href="#" class="mega-menu-link" style="--d: 200ms">เลือกซื้อ Siri Remote</a>
+                    <a href="#" class="mega-menu-link" style="--d: 240ms">เลือกซื้ออุปกรณ์เสริม TV และบ้าน</a>
+                </div>
+                <div class="mega-menu-group">
+                    <h4>เพิ่มเติมเกี่ยวกับ TV & Home</h4>
+                    <a href="#" class="mega-menu-link" style="--d: 120ms">ความพร้อมใช้งานของบริการ</a>
+                    <a href="#" class="mega-menu-link" style="--d: 160ms">ซื้อ AppleCare+</a>
+                    <a href="#" class="mega-menu-link" style="--d: 200ms">HomeCare</a>
+                    <a href="#" class="mega-menu-link" style="--d: 240ms">Apple Intelligence</a>
+                    <a href="#" class="mega-menu-link" style="--d: 280ms">สารพัดวิธีในการรับชม Apple TV+</a>
+                </div>
+                <div class="mega-menu-group">
+                    <h4>ทางเลือกในการช้อป</h4>
+                    <a href="#" class="mega-menu-link" style="--d: 160ms">รับความช่วยเหลือเกี่ยวกับการเลือกซื้อ</a>
+                    <a href="#" class="mega-menu-link" style="--d: 200ms">เยี่ยมชม Apple Store</a>
+                    <a href="#" class="mega-menu-link" style="--d: 240ms">ซื้อแบบผ่อนชำระ</a>
+                    <a href="#" class="mega-menu-link" style="--d: 280ms">บริการช่วยเหลือในห้องเรียน</a>
+                </div>
+            </div>
+        </div>
+
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden lg:hidden px-6 pt-2 pb-4 space-y-2 bg-white">
             <!-- About Us -->
@@ -1771,6 +1897,9 @@
 
             const siteHeader = document.getElementById('site-header');
             const backToTopButton = document.getElementById('back-to-top');
+            const megaTrigger = document.getElementById('mega-menu-trigger');
+            const megaPanel = document.getElementById('mega-menu-panel');
+            let megaMenuTimeout;
 
             const counters = document.querySelectorAll('.counter');
 
@@ -1791,6 +1920,48 @@
                     }
                 }
             };
+
+            const openMegaMenu = () => {
+                if (!megaPanel) return;
+                clearTimeout(megaMenuTimeout);
+                megaPanel.classList.add('open');
+                siteHeader?.classList.add('mega-open');
+            };
+
+            const closeMegaMenu = (force = false) => {
+                if (!megaPanel) return;
+                clearTimeout(megaMenuTimeout);
+                const delay = force ? 0 : 120;
+                megaMenuTimeout = setTimeout(() => {
+                    megaPanel.classList.remove('open');
+                    siteHeader?.classList.remove('mega-open');
+                }, delay);
+            };
+
+            if (megaTrigger && megaPanel) {
+                ['mouseenter', 'focus'].forEach((evt) => megaTrigger.addEventListener(evt, openMegaMenu));
+                megaTrigger.addEventListener('mouseleave', () => closeMegaMenu());
+                megaTrigger.addEventListener('blur', (e) => {
+                    if (!megaPanel.contains(e.relatedTarget)) {
+                        closeMegaMenu();
+                    }
+                });
+
+                megaPanel.addEventListener('mouseenter', openMegaMenu);
+                megaPanel.addEventListener('mouseleave', () => closeMegaMenu());
+
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape') {
+                        closeMegaMenu(true);
+                    }
+                });
+
+                document.addEventListener('click', (e) => {
+                    if (!megaPanel.contains(e.target) && !megaTrigger.contains(e.target)) {
+                        closeMegaMenu();
+                    }
+                });
+            }
 
             // --- Mobile Menu Toggle ---
             mobileMenuButton.addEventListener('click', () => {
