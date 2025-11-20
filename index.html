@@ -196,21 +196,142 @@
             color: var(--dark-text);
             font-weight: 500;
             cursor: pointer;
-            /* Padding handled by flex container for full height */
+            padding: 0 0.25rem;
+            transition: color 0.2s ease;
         }
         .nav-link::after {
             content: '';
             position: absolute;
             width: 0;
             height: 2px;
-            bottom: 15px; /* Positioned visually */
-            left: 50%;
-            transform: translateX(-50%);
+            bottom: -4px;
+            left: 0;
             background-color: var(--primary-blue);
             transition: width 0.3s ease;
         }
         .nav-link:hover::after, .nav-link.active::after {
             width: 100%;
+        }
+
+        /* Mega menu */
+        .mega-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: #ffffff;
+            box-shadow: 0 30px 90px rgba(0, 0, 0, 0.14);
+            overflow: hidden;
+            height: 0;
+            opacity: 0;
+            pointer-events: none;
+            transition: height 0.7s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.35s ease;
+            z-index: 40;
+        }
+
+        .mega-overlay.open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .mega-shell {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 96px 28px 44px;
+            min-height: 0;
+        }
+
+        .mm-section {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(14px);
+            transition: opacity 0.35s ease, transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .mm-section.active {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0);
+        }
+
+        .mega-link {
+            display: block;
+            padding: 0.35rem 0;
+            color: #1f2937;
+            font-weight: 500;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mega-link::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, rgba(0,82,204,0.15), rgba(0,82,204,0.5));
+            transform: translateY(6px);
+            opacity: 0;
+            transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.3s ease;
+        }
+
+        .mega-link:hover::after {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .mega-link:hover {
+            color: #0b4db3;
+        }
+
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(12px);
+            animation: fadeInUp 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(12px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 1023px) {
+            .mega-overlay {
+                display: none;
+            }
+        }
+
+        /* Smart header state */
+        .smart-header {
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+        }
+
+        .smart-header.header-scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(20px);
+        }
+
+        .smart-header.mega-open {
+            background-color: transparent;
+            box-shadow: none;
+        }
+
+        body.mega-active main,
+        body.mega-active footer {
+            filter: blur(12px);
+            opacity: 0.65;
+            transition: filter 0.35s ease, opacity 0.35s ease;
         }
 
         /* Hero Image Animation */
@@ -432,76 +553,94 @@
             transition: max-height 0.5s ease-in-out;
         }
 
-        /* CHANGE 3: Back to Top Button */
-        #back-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background-color: var(--primary-blue);
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 14px rgba(0,0,0,0.25);
-            cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            z-index: 999;
-        }
-        #back-to-top.show {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-        #back-to-top:hover {
-            background-color: var(--accent-yellow);
-            transform: translateY(-5px);
-            color: var(--dark-text);
+        /* Hero floating blobs */
+        .hero-blob {
+            position: absolute;
+            border-radius: 9999px;
+            filter: blur(12px);
+            opacity: 0.35;
+            pointer-events: none;
+            animation: float 12s ease-in-out infinite;
         }
 
-        /* Navbar Transition Class */
-        header.scrolled {
-            background-color: rgba(255, 255, 255, 0.98) !important;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-            padding-top: 0px;
-            padding-bottom: 0px;
+        .hero-blob.blob-1 {
+            width: 320px;
+            height: 320px;
+            top: -80px;
+            left: -60px;
+            background: radial-gradient(circle at 30% 30%, #4f8bff, #b7d4ff);
         }
-        
-        /* Page Content Transition Animation */
-        @keyframes fadeInUpContent {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+
+        .hero-blob.blob-2 {
+            width: 280px;
+            height: 280px;
+            bottom: -60px;
+            right: 10%;
+            background: radial-gradient(circle at 30% 30%, #ffd166, #ffe6a1);
+            animation-delay: 2s;
         }
-        
-        .fade-in-up {
-            animation: fadeInUpContent 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+
+        .hero-blob.blob-3 {
+            width: 220px;
+            height: 220px;
+            top: 30%;
+            right: -80px;
+            background: radial-gradient(circle at 30% 30%, #74c69d, #c7f9cc);
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-16px) scale(1.05); }
+        }
+
+        /* Back to top button */
+        #back-to-top {
+            position: fixed;
+            right: 1.5rem;
+            bottom: 1.5rem;
+            width: 48px;
+            height: 48px;
+            border-radius: 9999px;
+            background: linear-gradient(135deg, #0052CC, #4f8bff);
+            color: white;
+            display: grid;
+            place-items: center;
+            box-shadow: 0 10px 30px rgba(0, 82, 204, 0.35);
+            opacity: 0;
+            transform: translateY(20px);
+            pointer-events: none;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            z-index: 60;
+        }
+
+        #back-to-top.show {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        /* Job card hover styling */
+        .job-card {
+            border: 2px solid transparent;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .job-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 18px 45px rgba(0, 82, 204, 0.18);
+            border-color: var(--primary-blue);
         }
 
     </style>
 </head>
 
-<body class="leading-relaxed overflow-x-hidden relative">
+<body class="leading-relaxed overflow-x-hidden">
 
-    <!-- Change 3: Back to Top Button HTML -->
-    <button id="back-to-top" aria-label="Back to top">
-        <i class="fas fa-chevron-up"></i>
-    </button>
-
-    <!-- Header (Updated with ID for scroll logic) -->
-    <header id="main-header" class="bg-white sticky top-0 z-50 transition-all duration-300 h-[88px]"> <!-- Fixed height header for stability -->
-        <!-- Added items-stretch to nav to ensure children fill vertical height -->
-        <nav class="container mx-auto px-6 flex justify-between items-stretch transition-all duration-300 relative z-50 h-full">
-            <a href="#" data-scroll-to="home" class="nav-logo flex items-center space-x-3 py-4">
+    <!-- Header -->
+    <header id="main-header" class="smart-header bg-white/70 backdrop-blur-md sticky top-0 z-50 transition-all duration-300 relative overflow-visible h-[88px]">
+        <nav class="container mx-auto px-6 flex justify-between items-center h-full">
+            <a href="#" data-scroll-to="home" class="nav-logo flex items-center space-x-3">
                 <img id="logo-image"
                      src="https://lh3.googleusercontent.com/u/0/d/1UxFx1zIXnDxq1N_nhkdHYz7qSUoqiagP=w2000"
                      data-drive-src="https://drive.google.com/file/d/1UxFx1zIXnDxq1N_nhkdHYz7qSUoqiagP/view?usp=sharing"
@@ -514,141 +653,32 @@
                 </span>
             </a>
             
-            <!-- Desktop Menu (APPLE STYLE MEGA MENU IMPLEMENTATION) -->
-            <!-- Removed space-x-8 to eliminate gaps, using padding on items instead for continuous hit area -->
-            <div class="hidden lg:flex items-stretch h-full">
-                
-                <!-- Mega Menu Item: About Us -->
-                <div class="group h-full flex items-center px-5"> <!-- Added px-5 for internal spacing/hit area -->
-                    <button class="nav-link flex items-center h-full w-full justify-center"> <!-- Full height clickable area -->
-                        About Us <i class="fas fa-chevron-down text-xs ml-2 transition-transform duration-300 group-hover:rotate-180"></i>
+            <!-- Desktop Menu -->
+            <div class="hidden lg:flex items-center space-x-8 h-full">
+                <!-- About Us Mega Trigger -->
+                <div class="relative h-full">
+                    <button class="nav-link flex items-center mega-trigger h-full" data-target="about">
+                        About Us <i class="fas fa-chevron-down text-xs ml-2"></i>
                     </button>
-                    <div class="mega-menu">
-                        <div class="container mx-auto px-6">
-                            <div class="grid grid-cols-12 gap-8">
-                                <!-- Column 1 -->
-                                <div class="col-span-3 mm-col">
-                                    <span class="mm-header">Organization</span>
-                                    <a href="#" data-page="about-mediakids" class="mm-link nav-page">MediaKids Story</a>
-                                    <a href="#" data-page="about-mediakids" class="mm-link nav-page">Our Mission & Vision</a>
-                                    <a href="#" data-page="contact-page" class="mm-link nav-page">Contact Us</a>
-                                </div>
-                                <!-- Column 2 -->
-                                <div class="col-span-3 mm-col">
-                                    <span class="mm-header">Our Departments</span>
-                                    <a href="#" data-page="about-team-hr" class="mm-link nav-page">Human Resources (HR)</a>
-                                    <a href="#" data-page="about-team-curriculum" class="mm-link nav-page">Curriculum Development</a>
-                                    <a href="#" data-page="about-team-consult" class="mm-link nav-page">Operations & Support</a>
-                                </div>
-                                <!-- Feature/Image Column -->
-                                <div class="col-span-6 border-l border-gray-100 pl-12 mm-col">
-                                    <span class="mm-header">Featured</span>
-                                    <div class="flex items-start gap-6 mt-4 group/card cursor-pointer" onclick="document.querySelector('[data-page=\'jobs\']').click()">
-                                        <div class="overflow-hidden rounded-lg shadow-sm w-40 h-24 flex-shrink-0">
-                                            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=300&auto=format&fit=crop" class="w-full h-full object-cover transform transition-transform duration-500 group-hover/card:scale-110">
-                                        </div>
-                                        <div>
-                                            <p class="text-base font-semibold text-gray-900 group-hover/card:text-blue-600 transition-colors">Join our growing family</p>
-                                            <p class="text-sm text-gray-500 mt-2 leading-relaxed">Over 20 years of educational excellence in Thailand. Be part of our journey.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
 
-                <!-- Mega Menu Item: Programs -->
-                <div class="group h-full flex items-center px-5">
-                    <button class="nav-link flex items-center h-full w-full justify-center">
-                        Programs <i class="fas fa-chevron-down text-xs ml-2 transition-transform duration-300 group-hover:rotate-180"></i>
+                <!-- Programs Mega Trigger -->
+                <div class="relative h-full">
+                    <button class="nav-link flex items-center mega-trigger h-full" data-target="programs">
+                        Programs <i class="fas fa-chevron-down text-xs ml-2"></i>
                     </button>
-                    <div class="mega-menu">
-                        <div class="container mx-auto px-6">
-                            <div class="grid grid-cols-12 gap-8">
-                                <!-- Column 1 -->
-                                <div class="col-span-3 mm-col">
-                                    <span class="mm-header">Academic Programs</span>
-                                    <a href="#" data-page="programs-ecd" class="mm-link nav-page">ECD Program <span class="mm-sub-text">(3-6 Years)</span></a>
-                                    <a href="#" data-page="programs-iep" class="mm-link nav-page">IEP Program <span class="mm-sub-text">(Intensive)</span></a>
-                                    <a href="#" data-page="programs-ep-ip" class="mm-link nav-page">IP / EP / MEP Program</a>
-                                </div>
-                                <!-- Column 2 -->
-                                <div class="col-span-3 mm-col">
-                                    <span class="mm-header">Student Activities</span>
-                                    <a href="#" data-page="programs-camp" class="mm-link nav-page">English Camps</a>
-                                    <a href="#" data-page="programs-mk-awards" class="mm-link nav-page">MediaKids Awards</a>
-                                    <a href="#" data-page="programs-summer-camp" class="mm-link nav-page">Summer Camp in Canada</a>
-                                </div>
-                                 <!-- Column 3 -->
-                                 <div class="col-span-6 border-l border-gray-100 pl-12 mm-col">
-                                    <span class="mm-header">Highlights</span>
-                                    <div class="grid grid-cols-2 gap-6 mt-4">
-                                        <a href="#" data-page="programs-camp" class="group/img block nav-page">
-                                            <div class="overflow-hidden rounded-lg shadow-sm h-32 mb-3">
-                                                <img src="https://images.unsplash.com/photo-1517420704952-d9f39e95b43e?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover transform transition-transform duration-500 group-hover/img:scale-110">
-                                            </div>
-                                            <span class="text-sm font-semibold text-gray-800 group-hover/img:text-blue-600">English Camps</span>
-                                        </a>
-                                        <a href="#" data-page="programs-summer-camp" class="group/img block nav-page">
-                                             <div class="overflow-hidden rounded-lg shadow-sm h-32 mb-3">
-                                                 <img src="https://images.unsplash.com/photo-1517935706615-2717063c2225?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover transform transition-transform duration-500 group-hover/img:scale-110">
-                                             </div>
-                                             <span class="text-sm font-semibold text-gray-800 group-hover/img:text-blue-600">Overseas Trips</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Mega Menu Item: Schools -->
-                <div class="group h-full flex items-center px-5">
-                    <button class="nav-link flex items-center h-full w-full justify-center">
-                        Schools <i class="fas fa-chevron-down text-xs ml-2 transition-transform duration-300 group-hover:rotate-180"></i>
-                    </button>
-                    <div class="mega-menu">
-                        <div class="container mx-auto px-6">
-                            <div class="grid grid-cols-12 gap-8">
-                                <!-- Column 1 -->
-                                <div class="col-span-3 mm-col">
-                                    <span class="mm-header">Locations</span>
-                                    <a href="#" data-page="schools-central-north" class="mm-link nav-page">Central & North Area</a>
-                                    <a href="#" data-page="schools-esan1" class="mm-link nav-page">Esan 1 Area <span class="mm-sub-text">Korat, Buriram</span></a>
-                                </div>
-                                <!-- Column 2 -->
-                                <div class="col-span-3 mm-col">
-                                    <span class="mm-header">Northeast (Isaan)</span>
-                                    <a href="#" data-page="schools-esan2" class="mm-link nav-page">Esan 2 Area <span class="mm-sub-text">Khon Kaen, Udon</span></a>
-                                    <a href="#" data-page="schools-esan3" class="mm-link nav-page">Esan 3 Area <span class="mm-sub-text">Ubon Ratchathani</span></a>
-                                    <a href="#" data-page="schools-esan4" class="mm-link nav-page">Esan 4 Area <span class="mm-sub-text">Sakon Nakhon</span></a>
-                                </div>
-                                 <!-- Map Graphic Placeholder -->
-                                <div class="col-span-6 border-l border-gray-100 pl-12 mm-col flex flex-col justify-center">
-                                    <span class="mm-header mb-4">Our Coverage</span>
-                                    <div class="flex items-center text-blue-600">
-                                        <i class="fas fa-map-marked-alt text-5xl mr-4"></i>
-                                        <div>
-                                            <p class="text-lg font-bold">Nationwide Network</p>
-                                            <p class="text-sm text-gray-500">Partnering with over 50 schools across Thailand.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
 
-                <div class="flex items-center h-full px-5">
-                    <a href="#" data-page="faq" class="nav-page nav-link flex items-center h-full w-full justify-center">FAQ</a>
+                <!-- Schools Mega Trigger -->
+                <div class="relative h-full">
+                    <button class="nav-link flex items-center mega-trigger h-full" data-target="schools">
+                        Schools <i class="fas fa-chevron-down text-xs ml-2"></i>
+                    </button>
                 </div>
-                <div class="flex items-center h-full px-5">
-                    <a href="#" data-page="jobs" class="nav-link nav-page flex items-center h-full w-full justify-center">Jobs</a>
-                </div>
-                <div class="flex items-center h-full px-5">
-                    <a href="#" data-page="contact-page" class="nav-page nav-link flex items-center h-full w-full justify-center">Contact</a>
-                </div>
+
+                <a href="#" data-page="faq" class="nav-page nav-link h-full flex items-center">FAQ</a>
+                <a href="#" data-page="jobs" class="nav-link nav-page h-full flex items-center">Jobs</a>
+                <a href="#" data-page="contact-page" class="nav-page nav-link h-full flex items-center">Contact</a>
             </div>
             
             <div class="hidden lg:flex items-center h-full">
@@ -661,9 +691,80 @@
                 <i class="fas fa-bars text-2xl"></i>
             </button>
         </nav>
-        
-        <!-- Mobile Menu (Kept as Accordion for Usability) -->
-        <div id="mobile-menu" class="hidden lg:hidden px-6 pt-2 pb-4 space-y-2 bg-white border-t">
+
+        <!-- Apple-style Mega Menu -->
+        <div id="mega-menu-container" class="mega-overlay">
+            <div id="mega-menu-shell" class="mega-shell">
+                <div class="mm-section" data-section="about">
+                    <div class="grid grid-cols-12 gap-6">
+                        <div class="col-span-12 lg:col-span-5 space-y-3">
+                            <p class="text-xs uppercase tracking-[0.2em] text-gray-400">About</p>
+                            <h3 class="text-3xl font-bold text-gray-900">Who we are</h3>
+                            <p class="text-gray-600 leading-relaxed">Discover MediaKids Academy and meet the teams that support teachers across Thailand.</p>
+                        </div>
+                        <div class="col-span-12 lg:col-span-7 grid grid-cols-2 gap-6">
+                            <div class="space-y-2">
+                                <p class="text-sm font-semibold text-gray-800">About MediaKids</p>
+                                <a href="#" data-page="about-mediakids" class="nav-page mega-link">MediaKids</a>
+                            </div>
+                            <div class="space-y-2">
+                                <p class="text-sm font-semibold text-gray-800">Our Team</p>
+                                <a href="#" data-page="about-team-hr" class="nav-page mega-link">Overseas Human Resoursces (HR)</a>
+                                <a href="#" data-page="about-team-curriculum" class="nav-page mega-link">Curriculum Development Department</a>
+                                <a href="#" data-page="about-team-consult" class="nav-page mega-link">Operations Department</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mm-section" data-section="programs">
+                    <div class="grid grid-cols-12 gap-6">
+                        <div class="col-span-12 lg:col-span-5 space-y-3">
+                            <p class="text-xs uppercase tracking-[0.2em] text-gray-400">Programs</p>
+                            <h3 class="text-3xl font-bold text-gray-900">Teach across Thailand</h3>
+                            <p class="text-gray-600 leading-relaxed">Explore teaching pathways and special activities designed for immersive learning.</p>
+                        </div>
+                        <div class="col-span-12 lg:col-span-7 grid grid-cols-2 gap-6">
+                            <div class="space-y-2">
+                                <p class="text-sm font-semibold text-gray-800">Programs</p>
+                                <a href="#" data-page="programs-ecd" class="nav-page mega-link">ECD Program</a>
+                                <a href="#" data-page="programs-iep" class="nav-page mega-link">IEP Program</a>
+                                <a href="#" data-page="programs-ep-ip" class="nav-page mega-link">IP / EP / MEP Program</a>
+                            </div>
+                            <div class="space-y-2">
+                                <p class="text-sm font-semibold text-gray-800">Other Activities</p>
+                                <a href="#" data-page="programs-camp" class="nav-page mega-link">English Camp</a>
+                                <a href="#" data-page="programs-mk-awards" class="nav-page mega-link">MediaKids Award</a>
+                                <a href="#" data-page="programs-summer-camp" class="nav-page mega-link">Summer Camp in Canada</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mm-section" data-section="schools">
+                    <div class="grid grid-cols-12 gap-6">
+                        <div class="col-span-12 lg:col-span-5 space-y-3">
+                            <p class="text-xs uppercase tracking-[0.2em] text-gray-400">Schools</p>
+                            <h3 class="text-3xl font-bold text-gray-900">Where you can teach</h3>
+                            <p class="text-gray-600 leading-relaxed">Choose from partner schools nationwide—from city centers to serene countryside.</p>
+                        </div>
+                        <div class="col-span-12 lg:col-span-7 grid grid-cols-2 gap-6">
+                            <div class="space-y-2">
+                                <p class="text-sm font-semibold text-gray-800">Regions</p>
+                                <a href="#" data-page="schools-central-north" class="nav-page mega-link">Central &amp; North Area</a>
+                                <a href="#" data-page="schools-esan1" class="nav-page mega-link">Esan 1 Area</a>
+                                <a href="#" data-page="schools-esan2" class="nav-page mega-link">Esan 2 Area</a>
+                                <a href="#" data-page="schools-esan3" class="nav-page mega-link">Esan 3 Area</a>
+                                <a href="#" data-page="schools-esan4" class="nav-page mega-link">Esan 4 Area</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden px-6 pt-2 pb-4 space-y-2 bg-white">
             <!-- About Us -->
             <div>
                 <button class="mobile-menu-toggle w-full flex justify-between items-center py-2 font-medium">
@@ -721,20 +822,19 @@
     <main>
         <!-- Main Scrollable Content -->
         <div id="main-content">
-            <!-- Hero Section (Updated with Blob Animation) -->
-            <section id="home" class="bg-hero-pattern relative z-10">
-                <!-- CHANGE 2: Blobs in background -->
-                <div class="blob blob-1"></div>
-                <div class="blob blob-2"></div>
-                
-                <div class="container mx-auto px-6 py-20 lg:py-32 grid lg:grid-cols-2 gap-12 items-center relative z-20">
+            <!-- Hero Section -->
+            <section id="home" class="bg-hero-pattern relative overflow-hidden">
+                <div class="hero-blob blob-1" aria-hidden="true"></div>
+                <div class="hero-blob blob-2" aria-hidden="true"></div>
+                <div class="hero-blob blob-3" aria-hidden="true"></div>
+                <div class="container relative mx-auto px-6 py-20 lg:py-32 grid lg:grid-cols-2 gap-12 items-center">
                     <div data-aos="fade-right">
                         <h1 class="text-5xl md:text-7xl font-extrabold leading-tight" aria-label="Your Journey Begins Here">
                             <span class="accent-text block">Your Journey</span>
                             <span class="text-gray-900 block">Begins Here</span>
                         </h1>
                         <p class="mt-6 text-lg text-gray-600 max-w-lg">
-                            Embark on a Thai adventure where teaching meets cultural immersion! In Thailand’s vibrant cities and serene temples, each classroom is a doorway to discovery. Join us in weaving tales of learning, growth, and mutual understanding.
+                            Embark on a Thai adventure where teaching meets cultural immersion! In Thailand’s vibrant cities and serene temples, each classroom is a doorway to discovery. Join us in weaving tales of learning, growth, and mutual understanding, where every lesson sparks a journey of connection and transformation. Your journey begins here!
                         </p>
                         <div class="mt-8 flex flex-wrap gap-4">
                             <a href="#" data-page="jobs" class="nav-page btn-primary px-10 py-4 rounded-full text-lg">
@@ -855,7 +955,7 @@
                              src="https://lh3.googleusercontent.com/u/0/d/1g9LEi54_CyfjNAD0QM0OM9EScC3nNIre=w2000"
                              data-drive-src="https://drive.google.com/file/d/1g9LEi54_CyfjNAD0QM0OM9EScC3nNIre/view?usp=drive_link"
                              alt="Partner 1"
-                             class="h-20 transition-transform duration-300 hover:scale-110 grayscale hover:grayscale-0"
+                             class="h-20 transition-transform duration-300 hover:scale-110"
                              loading="lazy"
                              referrerpolicy="no-referrer"
                              data-aos="zoom-in">
@@ -863,7 +963,7 @@
                              src="https://lh3.googleusercontent.com/u/0/d/1mwCZhaxyVoHDBDvNoybUMkpsIbc-7wGq=w2000"
                              data-drive-src="https://drive.google.com/file/d/1mwCZhaxyVoHDBDvNoybUMkpsIbc-7wGq/view?usp=drive_link"
                              alt="Partner 2"
-                             class="h-20 transition-transform duration-300 hover:scale-110 grayscale hover:grayscale-0"
+                             class="h-20 transition-transform duration-300 hover:scale-110"
                              loading="lazy"
                              referrerpolicy="no-referrer"
                              data-aos="zoom-in"
@@ -872,7 +972,7 @@
                              src="https://lh3.googleusercontent.com/u/0/d/19ogpzkPvsnsOrBuxk06VzeUUymCNB9od=w2000"
                              data-drive-src="https://drive.google.com/file/d/19ogpzkPvsnsOrBuxk06VzeUUymCNB9od/view?usp=drive_link"
                              alt="Partner 3"
-                             class="h-20 transition-transform duration-300 hover:scale-110 grayscale hover:grayscale-0"
+                             class="h-20 transition-transform duration-300 hover:scale-110"
                              loading="lazy"
                              referrerpolicy="no-referrer"
                              data-aos="zoom-in"
@@ -881,7 +981,7 @@
                              src="https://lh3.googleusercontent.com/u/0/d/1KOshNinnfQSX3AJeNEkl_0_SkIJonpTN=w2000"
                              data-drive-src="https://drive.google.com/file/d/1KOshNinnfQSX3AJeNEkl_0_SkIJonpTN/view?usp=drive_link"
                              alt="Partner 4"
-                             class="h-20 transition-transform duration-300 hover:scale-110 grayscale hover:grayscale-0"
+                             class="h-20 transition-transform duration-300 hover:scale-110"
                              loading="lazy"
                              referrerpolicy="no-referrer"
                              data-aos="zoom-in"
@@ -890,7 +990,7 @@
                              src="https://lh3.googleusercontent.com/u/0/d/185gwH4nitPLQQfciT0dqm_Tx9OGsSiim=w2000"
                              data-drive-src="https://drive.google.com/file/d/185gwH4nitPLQQfciT0dqm_Tx9OGsSiim/view?usp=drive_link"
                              alt="Partner 5"
-                             class="h-20 transition-transform duration-300 hover:scale-110 grayscale hover:grayscale-0"
+                             class="h-20 transition-transform duration-300 hover:scale-110"
                              loading="lazy"
                              referrerpolicy="no-referrer"
                              data-aos="zoom-in"
@@ -1811,67 +1911,66 @@
 
     </main>
 
-    <!-- Footer (CHANGE 4: Enhanced Layout) -->
-    <footer class="bg-[#0A192F] text-white py-16 border-t border-gray-800">
+    <button id="back-to-top" aria-label="Back to top" type="button">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Footer -->
+    <footer class="bg-[#0A192F] text-white py-14">
         <div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-                <!-- Column 1: Brand -->
-                <div class="space-y-4">
-                    <a href="#" data-scroll-to="home" class="nav-logo text-3xl font-bold text-blue-400 block mb-4">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10 text-gray-300">
+                <div>
+                    <a href="#" data-scroll-to="home" class="nav-logo text-3xl font-bold text-blue-400">
                         MediaKids<span class="text-white"> Academy</span>
                     </a>
-                    <p class="text-gray-400 text-sm leading-relaxed">
-                        Empowering education in Thailand since 2001. Connecting passionate teachers with schools nationwide to create a brighter future.
-                    </p>
-                    <div class="flex space-x-4 pt-2">
-                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-600 transition-colors"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-pink-600 transition-colors"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-800 transition-colors"><i class="fab fa-linkedin-in"></i></a>
+                    <p class="mt-4 leading-relaxed">Empowering educators to explore Thailand through meaningful teaching experiences and lasting community connections.</p>
+                    <div class="flex space-x-4 mt-4 text-xl">
+                        <a href="#" class="hover:text-blue-400 transition-colors"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="hover:text-blue-400 transition-colors"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="hover:text-blue-400 transition-colors"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="hover:text-blue-400 transition-colors"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
 
-                <!-- Column 2: Quick Links -->
                 <div>
-                    <h4 class="text-lg font-bold mb-6 border-b border-blue-500 inline-block pb-2">Quick Links</h4>
-                    <ul class="space-y-3 text-gray-400">
-                        <li><a href="#" data-page="jobs" class="nav-page hover:text-blue-400 transition-colors">Apply Now</a></li>
-                        <li><a href="#" data-page="programs-ecd" class="nav-page hover:text-blue-400 transition-colors">Our Programs</a></li>
-                        <li><a href="#" data-page="schools-central-north" class="nav-page hover:text-blue-400 transition-colors">School Locations</a></li>
-                        <li><a href="#" data-page="about-mediakids" class="nav-page hover:text-blue-400 transition-colors">About Us</a></li>
-                        <li><a href="#" data-page="faq" class="nav-page hover:text-blue-400 transition-colors">FAQ</a></li>
+                    <h3 class="text-xl font-semibold text-white mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" data-scroll-to="about" class="nav-main hover:text-blue-300 transition-colors">About Us</a></li>
+                        <li><a href="#" data-scroll-to="programs" class="nav-main hover:text-blue-300 transition-colors">Programs</a></li>
+                        <li><a href="#" data-page="jobs" class="nav-page hover:text-blue-300 transition-colors">Jobs</a></li>
+                        <li><a href="#" data-page="faq" class="nav-page hover:text-blue-300 transition-colors">FAQ</a></li>
+                        <li><a href="#" data-scroll-to="contact" class="nav-main hover:text-blue-300 transition-colors">Contact</a></li>
                     </ul>
                 </div>
 
-                <!-- Column 3: Contact Info -->
                 <div>
-                    <h4 class="text-lg font-bold mb-6 border-b border-blue-500 inline-block pb-2">Contact Us</h4>
-                    <ul class="space-y-4 text-gray-400">
-                        <li class="flex items-start">
-                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-blue-400"></i>
-                            <span>123 MediaKids Lane, Education District,<br>Bangkok 10110, Thailand</span>
+                    <h3 class="text-xl font-semibold text-white mb-4">Contact</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start space-x-3">
+                            <i class="fas fa-map-marker-alt text-blue-400 mt-1"></i>
+                            <span>123 MediaKids Lane, Education District, Bangkok 10110, Thailand</span>
                         </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-phone-alt mr-3 text-blue-400"></i>
-                            <span>+66 2 123 4567</span>
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-envelope text-blue-400"></i>
+                            <a href="mailto:info@mediakids.co.th" class="hover:text-blue-300 transition-colors">info@mediakids.co.th</a>
                         </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-envelope mr-3 text-blue-400"></i>
-                            <span>info@mediakids.co.th</span>
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-phone text-blue-400"></i>
+                            <a href="tel:+6621234567" class="hover:text-blue-300 transition-colors">+66 2 123 4567</a>
                         </li>
                     </ul>
                 </div>
 
-                <!-- Column 4: Newsletter (Visual Only) -->
                 <div>
-                    <h4 class="text-lg font-bold mb-6 border-b border-blue-500 inline-block pb-2">Newsletter</h4>
-                    <p class="text-gray-400 text-sm mb-4">Subscribe to get the latest teaching tips and news.</p>
-                    <form class="flex flex-col space-y-3" onsubmit="event.preventDefault(); alert('Thanks for subscribing!');">
-                        <input type="email" placeholder="Your email address" class="bg-gray-800 text-white px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 rounded-lg font-semibold transition-colors">Subscribe</button>
+                    <h3 class="text-xl font-semibold text-white mb-4">Newsletter</h3>
+                    <p class="text-gray-400 mb-4">Stay updated with new opportunities and teaching tips.</p>
+                    <form class="space-y-3">
+                        <input type="email" placeholder="Enter your email" class="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 focus:outline-none focus:ring-2 focus:ring-blue-400" required>
+                        <button type="button" class="w-full btn-primary px-4 py-3 rounded-lg">Subscribe</button>
                     </form>
                 </div>
             </div>
-            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500 text-sm">
+            <div class="border-t border-white/10 mt-10 pt-6 text-center text-gray-400">
                 <p>&copy; 2024 Global Teach Thailand. All Rights Reserved.</p>
             </div>
         </div>
@@ -1889,8 +1988,6 @@
         document.addEventListener('DOMContentLoaded', () => {
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
-            const mainHeader = document.getElementById('main-header');
-            const backToTopButton = document.getElementById('back-to-top');
 
             const mainContent = document.getElementById('main-content');
             // Page Sections
@@ -1958,8 +2055,140 @@
             const pageLinks = document.querySelectorAll('.nav-page');
             const mainLinks = document.querySelectorAll('.nav-main');
             const logoLinks = document.querySelectorAll('.nav-logo');
-            
+
+            const mainHeader = document.getElementById('main-header');
+            const backToTopButton = document.getElementById('back-to-top');
+            const megaContainer = document.getElementById('mega-menu-container');
+            const megaShell = document.getElementById('mega-menu-shell');
+            const megaTriggers = document.querySelectorAll('.mega-trigger');
+            const megaSections = megaContainer?.querySelectorAll('.mm-section');
+            let megaMenuTimeout;
+            let activeMegaTarget = null;
+
             const counters = document.querySelectorAll('.counter');
+
+            const runPageReveal = (element) => {
+                if (!element) return;
+                element.classList.remove('fade-in-up');
+                void element.offsetWidth;
+                element.classList.add('fade-in-up');
+            };
+
+            const handleScrollUI = () => {
+                if (mainHeader) {
+                    if (window.scrollY > 10) {
+                        mainHeader.classList.add('header-scrolled');
+                    } else {
+                        mainHeader.classList.remove('header-scrolled');
+                    }
+                }
+
+                if (backToTopButton) {
+                    if (window.scrollY > 400) {
+                        backToTopButton.classList.add('show');
+                    } else {
+                        backToTopButton.classList.remove('show');
+                    }
+                }
+            };
+
+            const computeMegaHeight = (section) => {
+                if (!section || !megaShell) return 0;
+                const shellStyles = getComputedStyle(megaShell);
+                const paddingTop = parseFloat(shellStyles.paddingTop) || 0;
+                const paddingBottom = parseFloat(shellStyles.paddingBottom) || 0;
+                return section.offsetHeight + paddingTop + paddingBottom;
+            };
+
+            const activateMegaSection = (target) => {
+                if (!megaSections) return null;
+                let selectedSection = null;
+                megaSections.forEach((section) => {
+                    const isActive = section.dataset.section === target;
+                    section.classList.toggle('active', isActive);
+                    section.classList.toggle('inactive', !isActive);
+                    if (isActive) selectedSection = section;
+                });
+                return selectedSection;
+            };
+
+            const openMegaMenu = (target) => {
+                if (!megaContainer || !megaSections) return;
+                clearTimeout(megaMenuTimeout);
+                activeMegaTarget = target;
+                const section = activateMegaSection(target);
+                if (!section) return;
+                const targetHeight = computeMegaHeight(section);
+                megaContainer.style.height = `${targetHeight}px`;
+                megaContainer.classList.add('open');
+                document.body.classList.add('mega-active');
+                mainHeader?.classList.add('mega-open');
+            };
+
+            const closeMegaMenu = (force = false) => {
+                if (!megaContainer) return;
+                clearTimeout(megaMenuTimeout);
+                const delay = force ? 0 : 160;
+                megaMenuTimeout = setTimeout(() => {
+                    megaContainer.classList.remove('open');
+                    megaContainer.style.height = '0px';
+                    document.body.classList.remove('mega-active');
+                    mainHeader?.classList.remove('mega-open');
+                    megaSections?.forEach((section) => section.classList.remove('active', 'inactive'));
+                    activeMegaTarget = null;
+                }, delay);
+            };
+
+            if (megaContainer && megaTriggers.length > 0) {
+                megaTriggers.forEach(trigger => {
+                    const target = trigger.dataset.target;
+                    ['mouseenter', 'focus'].forEach((evt) => trigger.addEventListener(evt, () => openMegaMenu(target)));
+                    trigger.addEventListener('mouseleave', () => closeMegaMenu());
+                    trigger.addEventListener('blur', (e) => {
+                        if (!megaContainer.contains(e.relatedTarget)) {
+                            closeMegaMenu();
+                        }
+                    });
+                });
+
+                const nonDropdownLinks = document.querySelectorAll('.nav-page:not(.mega-trigger)');
+                nonDropdownLinks.forEach((link) => {
+                    link.addEventListener('mouseenter', () => closeMegaMenu(true));
+                    link.addEventListener('focus', () => closeMegaMenu(true));
+                });
+
+                megaContainer.addEventListener('mouseenter', () => {
+                    clearTimeout(megaMenuTimeout);
+                    if (activeMegaTarget) {
+                        openMegaMenu(activeMegaTarget);
+                    }
+                });
+                megaContainer.addEventListener('mouseleave', () => closeMegaMenu());
+                mainHeader?.addEventListener('mouseleave', () => closeMegaMenu());
+
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape') {
+                        closeMegaMenu(true);
+                    }
+                });
+
+                document.addEventListener('click', (e) => {
+                    const isTrigger = Array.from(megaTriggers).some(trigger => trigger.contains(e.target));
+                    if (!megaContainer.contains(e.target) && !isTrigger) {
+                        closeMegaMenu();
+                    }
+                });
+
+                window.addEventListener('resize', () => {
+                    if (activeMegaTarget) {
+                        const activeSection = activateMegaSection(activeMegaTarget);
+                        if (activeSection) {
+                            const targetHeight = computeMegaHeight(activeSection);
+                            megaContainer.style.height = `${targetHeight}px`;
+                        }
+                    }
+                });
+            }
 
             // --- Mobile Menu Toggle ---
             mobileMenuButton.addEventListener('click', () => {
@@ -1976,6 +2205,17 @@
                     icon.classList.toggle('rotate-180');
                 });
             });
+
+
+            handleScrollUI();
+            window.addEventListener('scroll', handleScrollUI, { passive: true });
+
+            if (backToTopButton) {
+                backToTopButton.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
 
 
             // --- Hero Slideshow ---
@@ -2163,7 +2403,7 @@
                     `https://lh3.googleusercontent.com/u/0/d/${fileId}`,
                     `https://lh3.googleusercontent.com/d/${fileId}`,
                     `https://drive.googleusercontent.com/uc?export=view&id=${fileId}`,
-                    `https://drive.google.com/uc?id=${fileId}&export=download`,
+                    `https://drive.googleusercontent.com/uc?id=${fileId}&export=download`,
                     `https://drive.google.com/uc?export=view&id=${fileId}`,
                     `https://drive.google.com/uc?id=${fileId}`,
                     `https://drive.google.com/uc?export=download&id=${fileId}`,
@@ -2213,14 +2453,14 @@
             // --- Page View Management ---
             function setView(viewName) {
                 mainContent.classList.add('hidden');
-                allPages.forEach(page => { 
-                    if(page) {
-                        page.classList.add('hidden');
-                        page.classList.remove('fade-in-up'); // Clean up previous animations
-                    } 
+                allPages.forEach(page => {
+                    if(page) page.classList.add('hidden')
                 });
 
                 let pageToShow = null;
+                closeMegaMenu(true);
+                document.body.classList.remove('mega-active');
+                mainHeader?.classList.remove('mega-open');
                 switch(viewName) {
                     case 'jobs': pageToShow = jobsPage; break;
                     case 'about-mediakids': pageToShow = aboutMediakidsPage; break;
@@ -2241,18 +2481,14 @@
                     case 'faq': pageToShow = faqPage; break;
                     case 'contact-page': pageToShow = contactPage; break;
                     default: // 'main' view
-                        pageToShow = mainContent; // Set mainContent as the page to show
+                        mainContent.classList.remove('hidden');
+                        runPageReveal(mainContent);
                         break;
                 }
-                
+
                 if (pageToShow) {
                     pageToShow.classList.remove('hidden');
-                    
-                    // Trigger reflow to restart animation
-                    void pageToShow.offsetWidth; 
-                    
-                    // Add animation class
-                    pageToShow.classList.add('fade-in-up');
+                    runPageReveal(pageToShow);
                 }
                 
                 window.scrollTo({ top: 0, behavior: 'auto' }); 
