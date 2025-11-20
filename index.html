@@ -2,9 +2,49 @@
 <html lang="en">
 
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-C3WTLTZ1Y1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-C3WTLTZ1Y1');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Security-Policy"
+      content="default-src 'self';
+        img-src 'self' data: https://images.unsplash.com https://placehold.co https://drive.google.com https://drive.googleusercontent.com https://lh3.googleusercontent.com https://drive.usercontent.google.com https://*.googleusercontent.com;
+        font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;
+        style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://unpkg.com;
+        script-src 'self' 'unsafe-inline'
+          https://cdn.tailwindcss.com
+          https://cdnjs.cloudflare.com
+          https://unpkg.com
+          https://script.google.com
+          https://www.googletagmanager.com
+          https://www.google-analytics.com;
+        connect-src 'self'
+          https://script.google.com
+          https://script.googleusercontent.com
+          https://www.google-analytics.com
+          https://region1.google-analytics.com
+          https://www.googletagmanager.com;
+        form-action 'self' https://script.google.com https://script.googleusercontent.com https://formspree.io;
+        frame-ancestors 'self';
+        upgrade-insecure-requests">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
     <title>Global Teach Thailand - Your Professional Teaching Journey</title>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-C3WTLZIY1Y"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-C3WTLZIY1Y');
+    </script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -113,20 +153,373 @@
             color: var(--dark-text);
             font-weight: 500;
             cursor: pointer;
+            padding: 0 0.25rem;
+            transition: color 0.2s ease;
         }
         .nav-link::after {
             content: '';
             position: absolute;
             width: 0;
             height: 2px;
-            bottom: -5px;
-            left: 50%;
-            transform: translateX(-50%);
+            bottom: -4px;
+            left: 0;
             background-color: var(--primary-blue);
             transition: width 0.3s ease;
         }
         .nav-link:hover::after, .nav-link.active::after {
             width: 100%;
+        }
+
+        /* ---- APPLE STYLE MEGA MENU CSS (Advanced Morphing & Premium Feel) ---- */
+        /* Shared Mega Menu Container (The white box) */
+        #mega-menu-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            background-color: #FFFFFF;
+            box-shadow: 0 50px 100px -20px rgba(50, 50, 93, 0.15),
+                        0 30px 60px -30px rgba(0, 0, 0, 0.15);
+            transform-origin: top center;
+            opacity: 0;
+            visibility: hidden;
+            height: 0;
+            transition:
+                height 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+                opacity 0.5s ease,
+                visibility 0.5s;
+            z-index: 40;
+        }
+
+        /* Inner Content For Mega Menu */
+        .mm-inner {
+            position: relative;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 1.5rem 2.5rem;
+        }
+
+        /* Backdrop Blur Canvas Behind the White Box */
+        .mm-backdrop {
+            position: fixed;
+            inset: 0;
+            background: radial-gradient(circle at top, rgba(15, 23, 42, 0.25), rgba(15, 23, 42, 0.6));
+            backdrop-filter: blur(20px);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.45s ease, visibility 0.45s ease;
+            z-index: 30;
+        }
+
+        .mm-backdrop.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* When Body has menu-open, apply subtle blur & dim to whole page */
+        body.menu-open #main-content,
+        body.menu-open #jobs,
+        body.menu-open #about-mediakids,
+        body.menu-open #about-team-hr,
+        body.menu-open #about-team-consult,
+        body.menu-open #about-team-curriculum,
+        body.menu-open #programs-ecd,
+        body.menu-open #programs-iep,
+        body.menu-open #programs-ep-ip,
+        body.menu-open #programs-camp,
+        body.menu-open #programs-mk-awards,
+        body.menu-open #programs-summer-camp,
+        body.menu-open #schools-central-north,
+        body.menu-open #schools-esan1,
+        body.menu-open #schools-esan2,
+        body.menu-open #schools-esan3,
+        body.menu-open #schools-esan4,
+        body.menu-open #faq,
+        body.menu-open #contact-page {
+            filter: blur(6px) brightness(0.85);
+            transition: filter 0.4s ease;
+        }
+
+        body.switching-page #main-content,
+        body.switching-page #jobs,
+        body.switching-page #about-mediakids,
+        body.switching-page #about-team-hr,
+        body.switching-page #about-team-consult,
+        body.switching-page #about-team-curriculum,
+        body.switching-page #programs-ecd,
+        body.switching-page #programs-iep,
+        body.switching-page #programs-ep-ip,
+        body.switching-page #programs-camp,
+        body.switching-page #programs-mk-awards,
+        body.switching-page #programs-summer-camp,
+        body.switching-page #schools-central-north,
+        body.switching-page #schools-esan1,
+        body.switching-page #schools-esan2,
+        body.switching-page #schools-esan3,
+        body.switching-page #schools-esan4,
+        body.switching-page #faq,
+        body.switching-page #contact-page {
+            filter: none !important;
+        }
+
+        /* Extended UI Styling For Columns Inside Mega Menu */
+        .mm-col {
+            position: relative;
+            padding-top: 1.5rem;
+        }
+
+        .mm-header {
+            display: inline-flex;
+            align-items: center;
+            font-size: 0.78rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            font-weight: 600;
+            color: #6b7280;
+            margin-bottom: 0.75rem;
+        }
+
+        .mm-header::before {
+            content: '';
+            display: inline-block;
+            width: 24px;
+            height: 2px;
+            border-radius: 999px;
+            background: linear-gradient(90deg, #0ea5e9, #6366f1);
+            margin-right: 0.5rem;
+        }
+
+        .mm-link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.45rem 0;
+            font-size: 0.9rem;
+            color: #111827;
+            text-decoration: none;
+            transition: color 0.25s ease, transform 0.25s ease;
+        }
+
+        .mm-link span {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .mm-icon-small {
+            font-size: 0.85rem;
+            color: #2563eb;
+        }
+
+        .mm-link i {
+            opacity: 0;
+            transform: translateX(-4px);
+            transition: opacity 0.25s ease, transform 0.25s ease;
+            font-size: 0.75rem;
+            color: #0ea5e9;
+        }
+
+        .mm-link:hover {
+            color: #0f766e;
+            transform: translateX(2px);
+        }
+
+        .mm-link:hover i {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .mm-subheader {
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: #9ca3af;
+            margin-bottom: 0.4rem;
+        }
+
+        .mm-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.15rem 0.55rem;
+            border-radius: 999px;
+            font-size: 0.7rem;
+            font-weight: 500;
+            border: 1px solid rgba(16, 185, 129, 0.25);
+            color: #047857;
+            background: linear-gradient(135deg, rgba(209, 250, 229, 0.9), rgba(224, 242, 254, 0.9));
+        }
+
+        .mm-pill i {
+            font-size: 0.75rem;
+        }
+
+        .mm-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            font-size: 0.7rem;
+            font-weight: 500;
+            border-radius: 999px;
+            padding: 0.1rem 0.6rem;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            color: #1d4ed8;
+            background: rgba(219, 234, 254, 0.8);
+        }
+
+        .mm-badge i {
+            font-size: 0.7rem;
+        }
+
+        .mm-description {
+            font-size: 0.82rem;
+            color: #6b7280;
+            margin-top: 0.4rem;
+            max-width: 16rem;
+        }
+
+        .mm-highlight {
+            border-radius: 1.25rem;
+            padding: 1rem 1.25rem;
+            background: radial-gradient(circle at top left, rgba(59, 130, 246, 0.08), transparent 55%),
+                        radial-gradient(circle at bottom right, rgba(16, 185, 129, 0.08), transparent 55%);
+            border: 1px solid rgba(229, 231, 235, 0.9);
+        }
+
+        .mm-highlight-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #111827;
+        }
+
+        .mm-highlight-text {
+            font-size: 0.8rem;
+            color: #6b7280;
+        }
+
+        .mm-grid-tight {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1.75rem;
+        }
+
+        .mm-cta-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            font-size: 0.85rem;
+            color: #2563eb;
+            margin-top: 0.75rem;
+            text-decoration: none;
+        }
+
+        .mm-cta-link i {
+            font-size: 0.8rem;
+            transition: transform 0.25s ease;
+        }
+
+        .mm-cta-link:hover i {
+            transform: translateX(3px);
+        }
+
+        .mm-tagline {
+            font-size: 0.8rem;
+            color: #4b5563;
+        }
+
+        .mm-footnote {
+            font-size: 0.7rem;
+            color: #9ca3af;
+            margin-top: 0.4rem;
+        }
+
+        .mm-divider {
+            height: 1px;
+            width: 100%;
+            background: linear-gradient(to right, transparent, rgba(209, 213, 219, 1), transparent);
+            margin: 0.6rem 0 1.1rem 0;
+        }
+
+        .mm-icon-bubble {
+            width: 38px;
+            height: 38px;
+            border-radius: 999px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle at 20% 20%, #e0f2fe, #eef2ff);
+            box-shadow: 0 10px 25px rgba(15, 23, 42, 0.12);
+        }
+
+        .mm-icon-bubble i {
+            color: #1d4ed8;
+        }
+
+        .mm-subtext {
+            font-size: 0.75rem;
+            color: #6b7280;
+        }
+
+        @media (max-width: 1023px) {
+            #mega-menu-container {
+                display: none !important;
+            }
+        }
+
+        /* Individual Content Sections */
+        .mm-section {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            opacity: 0;
+            visibility: hidden;
+            padding: 110px 0 5rem 0;
+            transition: opacity 0.4s ease, visibility 0.4s;
+        }
+        
+        .mm-section.active-section {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+            position: relative;
+        }
+        
+        /* Animation: Initial Entry (Slide Down + Fade In) */
+        .anim-entry .mm-col {
+             animation: mmSlideDown 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+             opacity: 0;
+        }
+
+        @keyframes mmSlideDown {
+            0% { opacity: 0; transform: translateY(-6px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(12px);
+            animation: fadeInUp 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(12px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Header scroll state */
+        #main-header.header-scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+            backdrop-filter: blur(16px);
         }
 
         /* Hero Image Animation */
@@ -159,6 +552,25 @@
         .program-card:hover .program-card-image {
             transform: scale(1.1);
         }
+
+        form[aria-busy="true"] {
+            opacity: 0.7;
+            pointer-events: none;
+        }
+
+        .honeypot-field {
+            position: absolute;
+            left: -10000px;
+            top: auto;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+        }
+
+        button:disabled {
+            cursor: not-allowed;
+            opacity: 0.8;
+        }
         
         /* Final Testimonial Slider */
         .testimonial-card {
@@ -187,36 +599,90 @@
         }
 
         /* Dropdown Menu Styles */
-        .dropdown {
-            visibility: hidden;
-            opacity: 0;
-            transform: translateY(10px);
-            transition: all 0.3s ease-in-out;
-        }
-        .group:hover .dropdown {
-            visibility: visible;
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        .submenu {
-            visibility: hidden;
-            opacity: 0;
-            transform: translateY(10px);
-            transition: all 0.3s ease-in-out;
-        }
-
-        .group\/sub:hover .submenu {
-            visibility: visible;
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
         /* FAQ Accordion */
         .faq-answer {
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.5s ease-in-out;
+        }
+
+        /* Hero floating blobs */
+        .hero-blob {
+            position: absolute;
+            border-radius: 9999px;
+            filter: blur(12px);
+            opacity: 0.35;
+            pointer-events: none;
+            animation: float 12s ease-in-out infinite;
+        }
+
+        .hero-blob.blob-1 {
+            width: 320px;
+            height: 320px;
+            top: -80px;
+            left: -60px;
+            background: radial-gradient(circle at 30% 30%, #4f8bff, #b7d4ff);
+        }
+
+        .hero-blob.blob-2 {
+            width: 280px;
+            height: 280px;
+            bottom: -60px;
+            right: 10%;
+            background: radial-gradient(circle at 30% 30%, #ffd166, #ffe6a1);
+            animation-delay: 2s;
+        }
+
+        .hero-blob.blob-3 {
+            width: 220px;
+            height: 220px;
+            top: 30%;
+            right: -80px;
+            background: radial-gradient(circle at 30% 30%, #74c69d, #c7f9cc);
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-16px) scale(1.05); }
+        }
+
+        /* Back to top button */
+        #back-to-top {
+            position: fixed;
+            right: 1.5rem;
+            bottom: 1.5rem;
+            width: 48px;
+            height: 48px;
+            border-radius: 9999px;
+            background: linear-gradient(135deg, #0052CC, #4f8bff);
+            color: white;
+            display: grid;
+            place-items: center;
+            box-shadow: 0 10px 30px rgba(0, 82, 204, 0.35);
+            opacity: 0;
+            transform: translateY(20px);
+            pointer-events: none;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            z-index: 60;
+        }
+
+        #back-to-top.show {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        /* Job card hover styling */
+        .job-card {
+            border: 2px solid transparent;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .job-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 18px 45px rgba(0, 82, 204, 0.18);
+            border-color: var(--primary-blue);
         }
 
     </style>
@@ -225,173 +691,308 @@
 <body class="leading-relaxed overflow-x-hidden">
 
     <!-- Header -->
-    <header class="bg-white/80 backdrop-blur-sm sticky top-0 z-50 shadow-sm">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" data-scroll-to="home" class="nav-logo flex items-center space-x-3">
-                <img id="logo-image" src="" alt="MediaKids Academy Logo" class="h-10 w-auto">
+    <header id="main-header" class="sticky top-0 z-50 transition-all duration-300 h-[88px]">
+        <nav id="nav-container" class="container mx-auto px-6 flex justify-between items-stretch transition-all duration-300 relative z-50 h-full">
+            <a href="#" data-scroll-to="home" class="nav-logo menu-close-trigger flex items-center space-x-3 py-4 relative z-50">
+                <img id="logo-image"
+                     src="https://lh3.googleusercontent.com/u/0/d/1UxFx1zIXnDxq1N_nhkdHYz7qSUoqiagP=w2000"
+                     data-drive-src="https://drive.google.com/file/d/1UxFx1zIXnDxq1N_nhkdHYz7qSUoqiagP/view?usp=sharing"
+                     alt="MediaKids Academy Logo"
+                     class="h-10 w-auto"
+                     loading="lazy"
+                     referrerpolicy="no-referrer" />
                 <span class="text-3xl font-bold accent-text">
                     MediaKids<span class="text-gray-800"> Academy</span>
                 </span>
             </a>
-            
-            <!-- Desktop Menu -->
-            <div class="hidden lg:flex items-center space-x-8">
-                <!-- About Us -->
-                <div class="group relative">
-                    <button class="nav-link flex items-center">
-                        About Us <i class="fas fa-chevron-down text-xs ml-2"></i>
+
+            <!-- Desktop Navigation -->
+            <div class="hidden lg:flex items-stretch space-x-2 h-full">
+                <div class="group-trigger h-full flex items-center px-5" data-menu="about">
+                    <button class="nav-link flex items-center h-full w-full justify-center">
+                        About Us <i class="fas fa-chevron-down text-xs ml-2 transition-transform duration-300"></i>
                     </button>
-                    <div class="dropdown absolute top-full left-1/2 -translate-x-1/2 mt-4 w-64 rounded-xl shadow-lg bg-white ring-1 ring-black ring-opacity-5 p-2 z-10">
-                        <a href="#" data-page="about-mediakids" class="nav-page block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">MediaKids</a>
-                        <div class="group/sub relative">
-                            <button class="flex justify-between items-center w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">
-                                Our Team
-                                <i class="fas fa-chevron-right text-xs"></i>
-                            </button>
-                            <div class="submenu absolute top-0 left-full ml-2 w-64 rounded-xl shadow-lg bg-white ring-1 ring-black ring-opacity-5 p-2">
-                                <a href="#" data-page="about-team-hr" class="nav-page block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">Overseas Human Resoursces (HR)</a>
-                                <a href="#" data-page="about-team-curriculum" class="nav-page block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">Curriculum Development Department</a>
-                                <a href="#" data-page="about-team-consult" class="nav-page block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">Operations Department</a>
-                            </div>
-                        </div>
-                    </div>
                 </div>
 
-                <!-- Programs -->
-                 <div class="group relative">
-                    <button class="nav-link flex items-center">
-                        Programs <i class="fas fa-chevron-down text-xs ml-2"></i>
+                <div class="group-trigger h-full flex items-center px-5" data-menu="programs">
+                    <button class="nav-link flex items-center h-full w-full justify-center">
+                        Programs <i class="fas fa-chevron-down text-xs ml-2 transition-transform duration-300"></i>
                     </button>
-                    <div class="dropdown absolute top-full left-1/2 -translate-x-1/2 mt-4 w-64 rounded-xl shadow-lg bg-white ring-1 ring-black ring-opacity-5 p-2 z-10">
-                        <a href="#" data-page="programs-ecd" class="nav-page block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">ECD Program</a>
-                        <a href="#" data-page="programs-iep" class="nav-page block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">IEP Program</a>
-                        <a href="#" data-page="programs-ep-ip" class="nav-page block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">IP / EP / MEP Program</a>
-                        <div class="group/sub relative">
-                            <button class="flex justify-between items-center w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">
-                                Other Activities
-                                <i class="fas fa-chevron-right text-xs"></i>
-                            </button>
-                            <div class="submenu absolute top-0 left-full ml-2 w-56 rounded-xl shadow-lg bg-white ring-1 ring-black ring-opacity-5 p-2">
-                                <a href="#" data-page="programs-camp" class="nav-page block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">English Camp</a>
-                                <a href="#" data-page="programs-mk-awards" class="nav-page block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">MediaKids Award</a>
-                                <a href="#" data-page="programs-summer-camp" class="nav-page block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">Summer Camp in Canada</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Schools -->
-                <div class="group relative">
-                    <button class="nav-link flex items-center">
-                        Schools <i class="fas fa-chevron-down text-xs ml-2"></i>
-                    </button>
-                    <div class="dropdown absolute top-full left-1/2 -translate-x-1/2 mt-4 w-56 rounded-xl shadow-lg bg-white ring-1 ring-black ring-opacity-5 p-2 z-10">
-                        <a href="#" data-page="schools-central-north" class="nav-page block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">Central & North Area</a>
-                        <a href="#" data-page="schools-esan1" class="nav-page block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">Esan 1 Area</a>
-                        <a href="#" data-page="schools-esan2" class="nav-page block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">Esan 2 Area</a>
-                        <a href="#" data-page="schools-esan3" class="nav-page block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">Esan 3 Area</a>
-                        <a href="#" data-page="schools-esan4" class="nav-page block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-lg">Esan 4 Area</a>
-                    </div>
                 </div>
 
-                <a href="#" data-page="faq" class="nav-page nav-link">FAQ</a>
-                <a href="#" data-page="jobs" class="nav-link nav-page">Jobs</a>
-                <a href="#" data-page="contact-page" class="nav-page nav-link">Contact</a>
+                <div class="group-trigger h-full flex items-center px-5" data-menu="schools">
+                    <button class="nav-link flex items-center h-full w-full justify-center">
+                        Schools <i class="fas fa-chevron-down text-xs ml-2 transition-transform duration-300"></i>
+                    </button>
+                </div>
+
+                <div class="menu-close-trigger flex items-center h-full px-5">
+                    <a href="#" data-page="faq" class="nav-page nav-link flex items-center h-full w-full justify-center">FAQ</a>
+                </div>
+                <div class="menu-close-trigger flex items-center h-full px-5">
+                    <a href="#" data-page="jobs" class="nav-link nav-page flex items-center h-full w-full justify-center">Jobs</a>
+                </div>
+                <div class="menu-close-trigger flex items-center h-full px-5">
+                    <a href="#" data-page="contact-page" class="nav-page nav-link flex items-center h-full w-full justify-center">Contact</a>
+                </div>
+                <div class="menu-close-trigger flex items-center h-full pl-2">
+                    <a href="#" data-page="jobs"
+                       class="nav-page inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-sm font-semibold shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-300">
+                        Apply Now
+                        <i class="fas fa-arrow-right text-xs ml-2"></i>
+                    </a>
+                </div>
             </div>
-            <a href="#" data-page="jobs" class="hidden lg:block btn-primary px-6 py-2 rounded-full nav-page">
-                Apply Now
-            </a>
-            <button id="mobile-menu-button" class="lg:hidden text-gray-800 focus:outline-none">
-                <i class="fas fa-bars text-2xl"></i>
-            </button>
+
+            <!-- Mobile Menu Button -->
+            <div class="lg:hidden flex items-center">
+                <button id="mobile-menu-button" class="p-2 rounded-full border border-gray-200 shadow-sm bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-primary-blue focus:ring-offset-2">
+                    <i class="fas fa-bars text-gray-700 text-lg"></i>
+                </button>
+            </div>
         </nav>
-        
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden lg:hidden px-6 pt-2 pb-4 space-y-2 bg-white">
-            <!-- About Us -->
-            <div>
-                <button class="mobile-menu-toggle w-full flex justify-between items-center py-2 font-medium">
-                    <span>About Us</span>
-                    <i class="fas fa-chevron-down text-xs transform transition-transform duration-300"></i>
-                </button>
-                <div class="mobile-submenu hidden pl-4 mt-2 space-y-2">
-                    <a href="#" data-page="about-mediakids" class="nav-page block py-1 text-gray-600">MediaKids</a>
-                     <div>
-                        <button class="mobile-menu-toggle w-full flex justify-between items-center py-1 text-gray-600">
-                            <span>Our Team</span>
-                            <i class="fas fa-chevron-down text-xs transform transition-transform duration-300"></i>
-                        </button>
-                        <div class="mobile-submenu hidden pl-4 mt-2 space-y-2">
-                            <a href="#" data-page="about-team-hr" class="nav-page block py-1 text-gray-500">Overseas Human Resoursces (HR)</a>
-                            <a href="#" data-page="about-team-curriculum" class="nav-page block py-1 text-gray-500">Curriculum Development Department</a>
-                            <a href="#" data-page="about-team-consult" class="nav-page block py-1 text-gray-500">Operations Department</a>
+
+        <div class="mm-backdrop" id="mm-backdrop"></div>
+
+        <!-- SINGLE MEGA MENU CONTAINER (ABSOLUTE TO TOP OF HEADER) -->
+        <div id="mega-menu-container">
+            <!-- Content: About Us -->
+            <div id="mm-content-about" class="mm-section">
+                <div class="container mx-auto px-6">
+                    <div class="grid grid-cols-12 gap-8">
+                        <div class="col-span-3 mm-col">
+                            <span class="mm-header">Organization</span>
+                            <a href="#" data-page="about-mediakids" class="mm-link nav-page">MediaKids Story</a>
+                            <a href="#" data-page="about-mediakids" class="mm-link nav-page">Our Mission &amp; Vision</a>
+                            <a href="#" data-page="contact-page" class="mm-link nav-page">Contact Us</a>
+                        </div>
+                        <div class="col-span-3 mm-col">
+                            <span class="mm-header">Our Departments</span>
+                            <a href="#" data-page="about-team-hr" class="mm-link nav-page">
+                                <span><i class="fas fa-users mm-icon-small"></i> Overseas HR</span>
+                                <i class="fas fa-chevron-right"></i>
+                            </a>
+                            <a href="#" data-page="about-team-curriculum" class="mm-link nav-page">
+                                <span><i class="fas fa-book-open mm-icon-small"></i> Curriculum Team</span>
+                                <i class="fas fa-chevron-right"></i>
+                            </a>
+                            <a href="#" data-page="about-team-consult" class="mm-link nav-page">
+                                <span><i class="fas fa-handshake mm-icon-small"></i> Operations &amp; Consulting</span>
+                                <i class="fas fa-chevron-right"></i>
+                            </a>
+                        </div>
+                        <div class="col-span-3 mm-col">
+                            <span class="mm-header">For Teachers</span>
+                            <div class="mm-highlight">
+                                <div class="flex items-center gap-3 mb-2">
+                                    <div class="mm-icon-bubble">
+                                        <i class="fas fa-globe-americas"></i>
+                                    </div>
+                                    <div>
+                                        <div class="mm-highlight-title">Teach in Thailand with Support</div>
+                                        <div class="mm-highlight-text">
+                                            Visa, work permit, and in-class support for international teachers.
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="#" data-page="jobs" class="mm-cta-link nav-page">
+                                    Explore Teaching Positions
+                                    <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-span-3 mm-col">
+                            <span class="mm-header">Fast Facts</span>
+                            <p class="mm-tagline mb-2">
+                                <i class="fas fa-school mr-2 text-blue-500"></i> 
+                                20+ years supporting English programs in Thai schools.
+                            </p>
+                            <div class="mm-divider"></div>
+                            <p class="mm-subtext">
+                                MediaKids Academy partners with schools nationwide to provide quality English education
+                                with well-trained international teachers.
+                            </p>
+                            <p class="mm-footnote">
+                                Ready to join us? Visit the Jobs page or contact our HR team for more details.
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
-            
-            <!-- Programs -->
-            <div>
-                <button class="mobile-menu-toggle w-full flex justify-between items-center py-2 font-medium">
-                    <span>Programs</span>
-                    <i class="fas fa-chevron-down text-xs transform transition-transform duration-300"></i>
-                </button>
-                <div class="mobile-submenu hidden pl-4 mt-2 space-y-2">
-                    <a href="#" data-page="programs-ecd" class="nav-page block py-1 text-gray-600">ECD Program</a>
-                    <a href="#" data-page="programs-iep" class="nav-page block py-1 text-gray-600">IEP Program</a>
-                    <a href="#" data-page="programs-ep-ip" class="nav-page block py-1 text-gray-600">IP / EP / MEP Program</a>
-                     <div>
-                        <button class="mobile-menu-toggle w-full flex justify-between items-center py-1 text-gray-600">
-                            <span>Other Activities</span>
-                            <i class="fas fa-chevron-down text-xs transform transition-transform duration-300"></i>
-                        </button>
-                        <div class="mobile-submenu hidden pl-4 mt-2 space-y-2">
-                            <a href="#" data-page="programs-camp" class="nav-page block py-1 text-gray-500">English Camp</a>
-                            <a href="#" data-page="programs-mk-awards" class="nav-page block py-1 text-gray-500">MediaKids Award</a>
-                             <a href="#" data-page="programs-summer-camp" class="nav-page block py-1 text-gray-500">Summer Camp in Canada</a>
+
+            <!-- Content: Programs -->
+            <div id="mm-content-programs" class="mm-section">
+                <div class="container mx-auto px-6">
+                    <div class="grid grid-cols-12 gap-8">
+                        <div class="col-span-4 mm-col">
+                            <span class="mm-header">Core Programs</span>
+                            <a href="#" data-page="programs-ecd" class="mm-link nav-page">
+                                <span>ECD Program</span>
+                                <i class="fas fa-chevron-right"></i>
+                            </a>
+                            <a href="#" data-page="programs-iep" class="mm-link nav-page">
+                                <span>IEP Program</span>
+                                <i class="fas fa-chevron-right"></i>
+                            </a>
+                            <a href="#" data-page="programs-ep-ip" class="mm-link nav-page">
+                                <span>IP / EP / MEP</span>
+                                <i class="fas fa-chevron-right"></i>
+                            </a>
+                        </div>
+                        <div class="col-span-4 mm-col">
+                            <span class="mm-header">Enrichment</span>
+                            <a href="#" data-page="programs-camp" class="mm-link nav-page">
+                                <span>English Camp</span>
+                                <i class="fas fa-chevron-right"></i>
+                            </a>
+                            <a href="#" data-page="programs-mk-awards" class="mm-link nav-page">
+                                <span>MediaKids Awards</span>
+                                <i class="fas fa-chevron-right"></i>
+                            </a>
+                            <a href="#" data-page="programs-summer-camp" class="mm-link nav-page">
+                                <span>International Summer Camp</span>
+                                <i class="fas fa-chevron-right"></i>
+                            </a>
+                        </div>
+                        <div class="col-span-4 mm-col">
+                            <span class="mm-header">Why our programs?</span>
+                            <div class="mm-highlight">
+                                <p class="mm-highlight-title mb-1">
+                                    Tailored for Thai government schools
+                                </p>
+                                <p class="mm-highlight-text">
+                                    Aligned with MOE standards and designed to build real-life communication skills.
+                                </p>
+                                <a href="#" data-scroll-to="programs" class="mm-cta-link">
+                                    View Program Overview
+                                    <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            
-             <!-- Schools -->
-            <div>
-                <button class="mobile-menu-toggle w-full flex justify-between items-center py-2 font-medium">
-                    <span>Schools</span>
-                    <i class="fas fa-chevron-down text-xs transform transition-transform duration-300"></i>
-                </button>
-                <div class="mobile-submenu hidden pl-4 mt-2 space-y-2">
-                    <a href="#" data-page="schools-central-north" class="nav-page block py-1 text-gray-600">Central & North Area</a>
-                    <a href="#" data-page="schools-esan1" class="nav-page block py-1 text-gray-600">Esan 1 Area</a>
-                    <a href="#" data-page="schools-esan2" class="nav-page block py-1 text-gray-600">Esan 2 Area</a>
-                    <a href="#" data-page="schools-esan3" class="nav-page block py-1 text-gray-600">Esan 3 Area</a>
-                    <a href="#" data-page="schools-esan4" class="nav-page block py-1 text-gray-600">Esan 4 Area</a>
+
+            <!-- Content: Schools -->
+            <div id="mm-content-schools" class="mm-section">
+                <div class="container mx-auto px-6">
+                    <div class="grid grid-cols-12 gap-8">
+                        <div class="col-span-4 mm-col">
+                            <span class="mm-header">Regions</span>
+                            <a href="#" data-page="schools-central-north" class="mm-link nav-page">
+                                <span>Central &amp; North</span>
+                                <i class="fas fa-chevron-right"></i>
+                            </a>
+                            <a href="#" data-page="schools-esan1" class="mm-link nav-page">
+                                <span>Esan Area 1</span>
+                                <i class="fas fa-chevron-right"></i>
+                            </a>
+                            <a href="#" data-page="schools-esan2" class="mm-link nav-page">
+                                <span>Esan Area 2</span>
+                                <i class="fas fa-chevron-right"></i>
+                            </a>
+                            <a href="#" data-page="schools-esan3" class="mm-link nav-page">
+                                <span>Esan Area 3</span>
+                                <i class="fas fa-chevron-right"></i>
+                            </a>
+                            <a href="#" data-page="schools-esan4" class="mm-link nav-page">
+                                <span>Esan Area 4</span>
+                                <i class="fas fa-chevron-right"></i>
+                            </a>
+                        </div>
+                        <div class="col-span-4 mm-col">
+                            <span class="mm-header">For Schools</span>
+                            <div class="mm-highlight">
+                                <p class="mm-highlight-title mb-1">
+                                    Partner with MediaKids
+                                </p>
+                                <p class="mm-highlight-text">
+                                    We provide recruitment, training, and ongoing support for foreign teachers.
+                                </p>
+                                <a href="#" data-page="contact-page" class="mm-cta-link nav-page">
+                                    Talk to our team
+                                    <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-span-4 mm-col flex flex-col justify-center">
+                            <span class="mm-header mb-4">Our Coverage</span>
+                            <div class="flex items-center text-blue-600">
+                                <i class="fas fa-map-marked-alt text-5xl mr-4"></i>
+                                <div>
+                                    <p class="text-lg font-bold">Nationwide Network</p>
+                                    <p class="text-sm text-gray-500">Partnering with over 50 schools across Thailand.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-             
-              <a href="#" data-page="faq" class="nav-page block py-2 font-medium">FAQ</a>
-              <a href="#" data-page="jobs" class="block py-2 font-medium nav-page">Jobs</a>
-              <a href="#" data-page="contact-page" class="nav-page block py-2 font-medium">Contact</a>
-              <a href="#" data-page="jobs" class="nav-page block mt-4 btn-primary text-center px-6 py-2 rounded-full">
-                Apply Now
-            </a>
         </div>
     </header>
+
+    <div id="mobile-menu" class="hidden lg:hidden px-6 pt-2 pb-4 space-y-2 bg-white border-t">
+        <div>
+            <button class="mobile-menu-toggle w-full flex justify-between items-center py-2 font-medium">
+                <span>About Us</span>
+                <i class="fas fa-chevron-down text-xs transform transition-transform duration-300"></i>
+            </button>
+            <div class="mobile-submenu hidden pl-4 mt-2 space-y-2 border-l-2 border-gray-100 ml-2">
+                <a href="#" data-page="about-mediakids" class="nav-page block py-1 text-gray-600">MediaKids</a>
+                <a href="#" data-page="about-team-hr" class="nav-page block py-1 text-gray-500">Overseas HR</a>
+                <a href="#" data-page="about-team-curriculum" class="nav-page block py-1 text-gray-500">Curriculum Dept</a>
+                <a href="#" data-page="about-team-consult" class="nav-page block py-1 text-gray-500">Operations Dept</a>
+            </div>
+        </div>
+        <div>
+            <button class="mobile-menu-toggle w-full flex justify-between items-center py-2 font-medium">
+                <span>Programs</span>
+                <i class="fas fa-chevron-down text-xs transform transition-transform duration-300"></i>
+            </button>
+            <div class="mobile-submenu hidden pl-4 mt-2 space-y-2 border-l-2 border-gray-100 ml-2">
+                <a href="#" data-page="programs-ecd" class="nav-page block py-1 text-gray-600">ECD Program</a>
+                <a href="#" data-page="programs-iep" class="nav-page block py-1 text-gray-600">IEP Program</a>
+                <a href="#" data-page="programs-ep-ip" class="nav-page block py-1 text-gray-600">IP / EP / MEP</a>
+                <a href="#" data-page="programs-camp" class="nav-page block py-1 text-gray-500">English Camp</a>
+                <a href="#" data-page="programs-mk-awards" class="nav-page block py-1 text-gray-500">MediaKids Awards</a>
+                <a href="#" data-page="programs-summer-camp" class="nav-page block py-1 text-gray-500">International Summer Camp</a>
+            </div>
+        </div>
+        <div>
+            <button class="mobile-menu-toggle w-full flex justify-between items-center py-2 font-medium">
+                <span>Schools</span>
+                <i class="fas fa-chevron-down text-xs transform transition-transform duration-300"></i>
+            </button>
+            <div class="mobile-submenu hidden pl-4 mt-2 space-y-2 border-l-2 border-gray-100 ml-2">
+                <a href="#" data-page="schools-central-north" class="nav-page block py-1 text-gray-600">Central &amp; North</a>
+                <a href="#" data-page="schools-esan1" class="nav-page block py-1 text-gray-600">Esan 1 Area</a>
+                <a href="#" data-page="schools-esan2" class="nav-page block py-1 text-gray-600">Esan 2 Area</a>
+                <a href="#" data-page="schools-esan3" class="nav-page block py-1 text-gray-600">Esan 3 Area</a>
+                <a href="#" data-page="schools-esan4" class="nav-page block py-1 text-gray-600">Esan 4 Area</a>
+            </div>
+        </div>
+        <a href="#" data-page="faq" class="nav-page block py-2 font-medium">FAQ</a>
+        <a href="#" data-page="jobs" class="block py-2 font-medium nav-page">Jobs</a>
+        <a href="#" data-page="contact-page" class="nav-page block py-2 font-medium">Contact</a>
+        <a href="#" data-page="jobs" class="nav-page block mt-4 btn-primary text-center px-6 py-2 rounded-full">Apply Now</a>
+    </div>
 
     <main>
         <!-- Main Scrollable Content -->
         <div id="main-content">
             <!-- Hero Section -->
-            <section id="home" class="bg-hero-pattern">
-                <div class="container mx-auto px-6 py-20 lg:py-32 grid lg:grid-cols-2 gap-12 items-center">
+            <section id="home" class="bg-hero-pattern relative overflow-hidden">
+                <div class="hero-blob blob-1" aria-hidden="true"></div>
+                <div class="hero-blob blob-2" aria-hidden="true"></div>
+                <div class="hero-blob blob-3" aria-hidden="true"></div>
+                <div class="container relative mx-auto px-6 py-20 lg:py-32 grid lg:grid-cols-2 gap-12 items-center">
                     <div data-aos="fade-right">
-                        <h1 class="text-5xl md:text-7xl font-extrabold leading-tight">
-                            <span class="accent-text">Teach.</span>
-                            <span class="block">Travel.</span>
-                            <span class="block">Transform.</span>
+                        <h1 class="text-5xl md:text-7xl font-extrabold leading-tight" aria-label="Your Journey Begins Here">
+                            <span class="accent-text block">Your Journey</span>
+                            <span class="text-gray-900 block">Begins Here</span>
                         </h1>
                         <p class="mt-6 text-lg text-gray-600 max-w-lg">
-                            Your gateway to an unforgettable teaching experience in Thailand. We connect talented educators with schools that make a difference.
+                            Embark on a Thai adventure where teaching meets cultural immersion! In Thailand’s vibrant cities and serene temples, each classroom is a doorway to discovery. Join us in weaving tales of learning, growth, and mutual understanding, where every lesson sparks a journey of connection and transformation. Your journey begins here!
                         </p>
                         <div class="mt-8 flex flex-wrap gap-4">
                             <a href="#" data-page="jobs" class="nav-page btn-primary px-10 py-4 rounded-full text-lg">
@@ -508,11 +1109,50 @@
                 <div class="container mx-auto px-6">
                     <h3 class="text-center text-3xl font-bold text-gray-800 mb-12">Our Valued Partners</h3>
                     <div class="flex flex-wrap justify-center items-center gap-x-16 gap-y-8">
-                        <img id="partner-logo-1" src="" alt="Partner 1" class="h-20 transition-transform duration-300 hover:scale-110" data-aos="zoom-in">
-                        <img id="partner-logo-2" src="" alt="Partner 2" class="h-20 transition-transform duration-300 hover:scale-110" data-aos="zoom-in" data-aos-delay="100">
-                        <img id="partner-logo-3" src="" alt="Partner 3" class="h-20 transition-transform duration-300 hover:scale-110" data-aos="zoom-in" data-aos-delay="200">
-                        <img id="partner-logo-4" src="" alt="Partner 4" class="h-20 transition-transform duration-300 hover:scale-110" data-aos="zoom-in" data-aos-delay="300">
-                        <img id="partner-logo-5" src="" alt="Partner 5" class="h-20 transition-transform duration-300 hover:scale-110" data-aos="zoom-in" data-aos-delay="400">
+                        <img id="partner-logo-1"
+                             src="https://lh3.googleusercontent.com/u/0/d/1g9LEi54_CyfjNAD0QM0OM9EScC3nNIre=w2000"
+                             data-drive-src="https://drive.google.com/file/d/1g9LEi54_CyfjNAD0QM0OM9EScC3nNIre/view?usp=drive_link"
+                             alt="Partner 1"
+                             class="h-20 transition-transform duration-300 hover:scale-110"
+                             loading="lazy"
+                             referrerpolicy="no-referrer"
+                             data-aos="zoom-in">
+                        <img id="partner-logo-2"
+                             src="https://lh3.googleusercontent.com/u/0/d/1mwCZhaxyVoHDBDvNoybUMkpsIbc-7wGq=w2000"
+                             data-drive-src="https://drive.google.com/file/d/1mwCZhaxyVoHDBDvNoybUMkpsIbc-7wGq/view?usp=drive_link"
+                             alt="Partner 2"
+                             class="h-20 transition-transform duration-300 hover:scale-110"
+                             loading="lazy"
+                             referrerpolicy="no-referrer"
+                             data-aos="zoom-in"
+                             data-aos-delay="100">
+                        <img id="partner-logo-3"
+                             src="https://lh3.googleusercontent.com/u/0/d/19ogpzkPvsnsOrBuxk06VzeUUymCNB9od=w2000"
+                             data-drive-src="https://drive.google.com/file/d/19ogpzkPvsnsOrBuxk06VzeUUymCNB9od/view?usp=drive_link"
+                             alt="Partner 3"
+                             class="h-20 transition-transform duration-300 hover:scale-110"
+                             loading="lazy"
+                             referrerpolicy="no-referrer"
+                             data-aos="zoom-in"
+                             data-aos-delay="200">
+                        <img id="partner-logo-4"
+                             src="https://lh3.googleusercontent.com/u/0/d/1KOshNinnfQSX3AJeNEkl_0_SkIJonpTN=w2000"
+                             data-drive-src="https://drive.google.com/file/d/1KOshNinnfQSX3AJeNEkl_0_SkIJonpTN/view?usp=drive_link"
+                             alt="Partner 4"
+                             class="h-20 transition-transform duration-300 hover:scale-110"
+                             loading="lazy"
+                             referrerpolicy="no-referrer"
+                             data-aos="zoom-in"
+                             data-aos-delay="300">
+                        <img id="partner-logo-5"
+                             src="https://lh3.googleusercontent.com/u/0/d/185gwH4nitPLQQfciT0dqm_Tx9OGsSiim=w2000"
+                             data-drive-src="https://drive.google.com/file/d/185gwH4nitPLQQfciT0dqm_Tx9OGsSiim/view?usp=drive_link"
+                             alt="Partner 5"
+                             class="h-20 transition-transform duration-300 hover:scale-110"
+                             loading="lazy"
+                             referrerpolicy="no-referrer"
+                             data-aos="zoom-in"
+                             data-aos-delay="400">
                     </div>
                 </div>
             </section>
@@ -582,8 +1222,14 @@
                             <div class="journey-panel absolute inset-0" data-step="2">
                                 <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover transition-all duration-500">
                             </div>
-                             <div class="journey-panel absolute inset-0" data-step="3">
-                                <img id="visa-process-image" src="" class="w-full h-full object-cover transition-all duration-500">
+                            <div class="journey-panel absolute inset-0" data-step="3">
+                                <img id="visa-process-image"
+                                     src="https://lh3.googleusercontent.com/u/0/d/1Lh8JQEFvmQ0NE6wP9uMiiJTMvIPpRbmt=w2000"
+                                     data-drive-src="https://drive.google.com/file/d/1Lh8JQEFvmQ0NE6wP9uMiiJTMvIPpRbmt/view?usp=sharing"
+                                     class="w-full h-full object-cover transition-all duration-500"
+                                     loading="lazy"
+                                     referrerpolicy="no-referrer"
+                                     alt="Visa preparation" />
                             </div>
                              <div class="journey-panel absolute inset-0" data-step="4">
                                 <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover transition-all duration-500">
@@ -625,7 +1271,13 @@
                             <div class="testimonial-card absolute inset-0 opacity-0 invisible">
                                 <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center h-full">
                                     <div class="relative w-full h-64 md:h-full rounded-2xl overflow-hidden shadow-lg">
-                                        <img id="sarah-story-image" src="" alt="Sarah" class="testimonial-card-image w-full h-full object-cover">
+                                        <img id="sarah-story-image"
+                                             src="https://lh3.googleusercontent.com/u/0/d/12Y7QxFCCVxOdGCYzUO2zw2Z21EY2XbB2=w2000"
+                                             data-drive-src="https://drive.google.com/file/d/12Y7QxFCCVxOdGCYzUO2zw2Z21EY2XbB2/view?usp=sharing"
+                                             alt="Sarah"
+                                             class="testimonial-card-image w-full h-full object-cover"
+                                             loading="lazy"
+                                             referrerpolicy="no-referrer" />
                                     </div>
                                     <div class="text-center md:text-left">
                                         <i class="fas fa-quote-left text-blue-500 text-4xl mb-4"></i>
@@ -681,7 +1333,13 @@
                         <!-- Post Card 1 -->
                         <div class="post-card bg-white rounded-2xl shadow-lg overflow-hidden group transform hover:-translate-y-2 transition-transform duration-300">
                             <div class="overflow-hidden h-64">
-                                <img id="post-image-1" src="" alt="English Camp 1" class="post-card-image w-full h-full object-cover">
+                                <img id="post-image-1"
+                                     src="https://lh3.googleusercontent.com/u/0/d/19tAwaFYL3jKtYH-aEVVP1AWh4xgJ6nX1=w2000"
+                                     data-drive-src="https://drive.google.com/file/d/19tAwaFYL3jKtYH-aEVVP1AWh4xgJ6nX1/view?usp=sharing"
+                                     alt="English Camp 1"
+                                     class="post-card-image w-full h-full object-cover"
+                                     loading="lazy"
+                                     referrerpolicy="no-referrer" />
                             </div>
                             <div class="p-6">
                                 <h3 class="text-xl font-bold mb-2 text-gray-800">English Camp Highlight #1</h3>
@@ -692,7 +1350,13 @@
                         <!-- Post Card 2 -->
                         <div class="post-card bg-white rounded-2xl shadow-lg overflow-hidden group transform hover:-translate-y-2 transition-transform duration-300">
                             <div class="overflow-hidden h-64">
-                                <img id="post-image-2" src="" alt="English Camp 2" class="post-card-image w-full h-full object-cover">
+                                <img id="post-image-2"
+                                     src="https://lh3.googleusercontent.com/u/0/d/1ljLbiSsssZF1JuTGERGCV7y2Q7G7TbQD=w2000"
+                                     data-drive-src="https://drive.google.com/file/d/1ljLbiSsssZF1JuTGERGCV7y2Q7G7TbQD/view?usp=drive_link"
+                                     alt="English Camp 2"
+                                     class="post-card-image w-full h-full object-cover"
+                                     loading="lazy"
+                                     referrerpolicy="no-referrer" />
                             </div>
                             <div class="p-6">
                                 <h3 class="text-xl font-bold mb-2 text-gray-800">English Camp Highlight #2</h3>
@@ -703,7 +1367,13 @@
                         <!-- Post Card 3 -->
                         <div class="post-card bg-white rounded-2xl shadow-lg overflow-hidden group transform hover:-translate-y-2 transition-transform duration-300">
                             <div class="overflow-hidden h-64">
-                                <img id="post-image-3" src="" alt="English Camp 3" class="post-card-image w-full h-full object-cover">
+                                <img id="post-image-3"
+                                     src="https://lh3.googleusercontent.com/u/0/d/1psArqXEfXnHw_uKw1t_aFHXrNLW2c01d=w2000"
+                                     data-drive-src="https://drive.google.com/file/d/1psArqXEfXnHw_uKw1t_aFHXrNLW2c01d/view?usp=sharing"
+                                     alt="English Camp 3"
+                                     class="post-card-image w-full h-full object-cover"
+                                     loading="lazy"
+                                     referrerpolicy="no-referrer" />
                             </div>
                             <div class="p-6">
                                 <h3 class="text-xl font-bold mb-2 text-gray-800">English Camp Highlight #3</h3>
@@ -775,14 +1445,19 @@
                          </div>
                          <div class="max-w-4xl mx-auto card p-8 lg:p-12" data-aos="fade-up">
                              <!-- This form will now submit to Google Sheets -->
-                             <form id="contact-form-g-sheets" class="space-y-6">
+                             <form id="contact-form-g-sheets" class="space-y-6" autocomplete="on">
                                  <div class="grid md:grid-cols-2 gap-6">
-                                     <input type="text" name="fullName" placeholder="Full Name" class="w-full bg-gray-100 p-4 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500" required>
-                                     <input type="email" name="email" placeholder="Email Address" class="w-full bg-gray-100 p-4 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                                     <input type="text" name="fullName" placeholder="Full Name" class="w-full bg-gray-100 p-4 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500" required minlength="2" maxlength="120" autocomplete="name">
+                                     <input type="email" name="email" placeholder="Email Address" class="w-full bg-gray-100 p-4 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500" required inputmode="email" autocomplete="email" maxlength="160">
                                  </div>
-                                 <textarea name="message" placeholder="Tell us about your teaching experience..." rows="5" class="w-full bg-gray-100 p-4 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500" required></textarea>
+                                 <textarea name="message" placeholder="Tell us about your teaching experience..." rows="5" class="w-full bg-gray-100 p-4 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500" required minlength="20" maxlength="1000"></textarea>
+                                 <div class="honeypot-field" aria-hidden="true">
+                                     <label for="company-website">Company Website</label>
+                                     <input type="text" id="company-website" name="companyWebsite" tabindex="-1" data-honeypot="true" autocomplete="off">
+                                 </div>
                                  <div class="text-center">
                                      <button type="submit" class="btn-primary w-full md:w-auto py-4 px-12 rounded-full text-lg">Send Application</button>
+                                     <p id="contact-form-status" class="mt-4 text-sm text-gray-500 hidden"></p>
                                  </div>
                              </form>
                          </div>
@@ -811,7 +1486,7 @@
                 <!-- Job Listings -->
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
                     <!-- Job Card 1: Kindergarten Teacher -->
-                    <div class="card p-6 flex flex-col" data-aos="fade-up">
+                    <div class="card job-card p-6 flex flex-col" data-aos="fade-up">
                         <h3 class="text-xl font-bold mb-2">Kindergarten English Teacher</h3>
                         <p class="text-blue-600 font-semibold mb-3">Multiple Locations</p>
                         <p class="text-gray-600 mb-4 flex-grow">Engage young learners (ages 3-6) with fun, play-based activities. A rewarding role for energetic and creative individuals.</p>
@@ -821,7 +1496,7 @@
                         </div>
                     </div>
                     <!-- Job Card 2: Primary School Teacher -->
-                    <div class="card p-6 flex flex-col" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card job-card p-6 flex flex-col" data-aos="fade-up" data-aos-delay="100">
                         <h3 class="text-xl font-bold mb-2">Primary School English Teacher</h3>
                         <p class="text-blue-600 font-semibold mb-3">Isaan Region</p>
                         <p class="text-gray-600 mb-4 flex-grow">Teach English communication skills to students aged 7-12 in Thai government schools. Experience authentic local culture.</p>
@@ -831,7 +1506,7 @@
                         </div>
                     </div>
                     <!-- Job Card 3: High School Teacher -->
-                    <div class="card p-6 flex flex-col" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card job-card p-6 flex flex-col" data-aos="fade-up" data-aos-delay="200">
                         <h3 class="text-xl font-bold mb-2">High School English Teacher</h3>
                         <p class="text-blue-600 font-semibold mb-3">Central & Northern Regions</p>
                         <p class="text-gray-600 mb-4 flex-grow">Prepare secondary students for their future with lessons focused on conversational skills, grammar, and exam preparation.</p>
@@ -1375,10 +2050,14 @@
                          <div class="card p-8">
                              <h3 class="text-2xl font-bold mb-4">Send us a message</h3>
                              <!-- This form also submits to Formspree -->
-                             <form action="https://formspree.io/f/mqaykklk" method="POST" class="space-y-4">
-                                <input type="text" name="name" placeholder="Your Name" class="w-full bg-gray-100 p-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-blue-500" required>
-                                <input type="email" name="email" placeholder="Your Email" class="w-full bg-gray-100 p-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-blue-500" required>
-                                <textarea name="message" rows="5" placeholder="Your Message" class="w-full bg-gray-100 p-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-blue-500" required></textarea>
+                             <form action="https://formspree.io/f/mqaykklk" method="POST" class="space-y-4" autocomplete="on">
+                                <input type="text" name="name" placeholder="Your Name" class="w-full bg-gray-100 p-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-blue-500" required minlength="2" maxlength="120" autocomplete="name">
+                                <input type="email" name="email" placeholder="Your Email" class="w-full bg-gray-100 p-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-blue-500" required inputmode="email" autocomplete="email" maxlength="160">
+                                <textarea name="message" rows="5" placeholder="Your Message" class="w-full bg-gray-100 p-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-blue-500" required minlength="10" maxlength="1000"></textarea>
+                                <div class="honeypot-field" aria-hidden="true">
+                                    <label for="contact-page-website">Company Website</label>
+                                    <input type="text" id="contact-page-website" name="companyWebsite" tabindex="-1" autocomplete="off">
+                                </div>
                                 <button type="submit" class="btn-primary w-full py-3 rounded-lg">Send Message</button>
                             </form>
                          </div>
@@ -1387,24 +2066,70 @@
             </div>
         </section>
 
-
     </main>
 
+    <button id="back-to-top" aria-label="Back to top" type="button">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
     <!-- Footer -->
-    <footer class="bg-[#0A192F] text-white py-12">
-        <div class="container mx-auto px-6 text-center text-gray-400">
-            <div class="mb-4">
-                 <a href="#" data-scroll-to="home" class="nav-logo text-3xl font-bold text-blue-400">
-                    MediaKids<span class="text-white"> Academy</span>
-                </a>
+    <footer class="bg-[#0A192F] text-white py-14">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10 text-gray-300">
+                <div>
+                    <a href="#" data-scroll-to="home" class="nav-logo text-3xl font-bold text-blue-400">
+                        MediaKids<span class="text-white"> Academy</span>
+                    </a>
+                    <p class="mt-4 leading-relaxed">Empowering educators to explore Thailand through meaningful teaching experiences and lasting community connections.</p>
+                    <div class="flex space-x-4 mt-4 text-xl">
+                        <a href="#" class="hover:text-blue-400 transition-colors"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="hover:text-blue-400 transition-colors"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="hover:text-blue-400 transition-colors"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="hover:text-blue-400 transition-colors"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-semibold text-white mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" data-scroll-to="about" class="nav-main hover:text-blue-300 transition-colors">About Us</a></li>
+                        <li><a href="#" data-scroll-to="programs" class="nav-main hover:text-blue-300 transition-colors">Programs</a></li>
+                        <li><a href="#" data-page="jobs" class="nav-page hover:text-blue-300 transition-colors">Jobs</a></li>
+                        <li><a href="#" data-page="faq" class="nav-page hover:text-blue-300 transition-colors">FAQ</a></li>
+                        <li><a href="#" data-scroll-to="contact" class="nav-main hover:text-blue-300 transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-semibold text-white mb-4">Contact</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start space-x-3">
+                            <i class="fas fa-map-marker-alt text-blue-400 mt-1"></i>
+                            <span>123 MediaKids Lane, Education District, Bangkok 10110, Thailand</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-envelope text-blue-400"></i>
+                            <a href="mailto:info@mediakids.co.th" class="hover:text-blue-300 transition-colors">info@mediakids.co.th</a>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-phone text-blue-400"></i>
+                            <a href="tel:+6621234567" class="hover:text-blue-300 transition-colors">+66 2 123 4567</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-semibold text-white mb-4">Newsletter</h3>
+                    <p class="text-gray-400 mb-4">Stay updated with new opportunities and teaching tips.</p>
+                    <form class="space-y-3">
+                        <input type="email" placeholder="Enter your email" class="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 focus:outline-none focus:ring-2 focus:ring-blue-400" required>
+                        <button type="button" class="w-full btn-primary px-4 py-3 rounded-lg">Subscribe</button>
+                    </form>
+                </div>
             </div>
-            <div class="flex justify-center space-x-6 mb-6">
-                <a href="#" class="text-2xl hover:text-blue-400 transition-colors"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="text-2xl hover:text-blue-400 transition-colors"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="text-2xl hover:text-blue-400 transition-colors"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#" class="text-2xl hover:text-blue-400 transition-colors"><i class="fab fa-youtube"></i></a>
+            <div class="border-t border-white/10 mt-10 pt-6 text-center text-gray-400">
+                <p>&copy; 2024 Global Teach Thailand. All Rights Reserved.</p>
             </div>
-            <p>&copy; 2024 Global Teach Thailand. All Rights Reserved.</p>
         </div>
     </footer>
 
@@ -1420,7 +2145,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
-            
+
             const mainContent = document.getElementById('main-content');
             // Page Sections
             const jobsPage = document.getElementById('jobs');
@@ -1442,6 +2167,40 @@
             const faqPage = document.getElementById('faq');
             const contactPage = document.getElementById('contact-page');
 
+            const purgeUpdateNotes = () => {
+                const directSelectors = [
+                    '#update-notes',
+                    '#update-notes-section',
+                    '.update-notes',
+                    '.update-notes-card',
+                    '[data-section="update-notes"]',
+                    '[data-component="update-notes"]'
+                ];
+                directSelectors.forEach((selector) => {
+                    document.querySelectorAll(selector).forEach((node) => node.remove());
+                });
+
+                const disallowedHeadings = [
+                    /เราแก้ไขอะไรเพิ่มเติมบ้าง/i,
+                    /เราแก้ไขอะไรเพิ่มเติมบ้าง\?/i,
+                    /เราแก้ไขอะไรบ้าง/i,
+                    /update notes/i,
+                    /เราได้แก้ไขอะไร/i
+                ];
+                document.querySelectorAll('section, .card, .update-section').forEach((block) => {
+                    const heading = block.querySelector('h2, h3, h4');
+                    if (heading && disallowedHeadings.some((regex) => regex.test(heading.textContent.trim()))) {
+                        block.remove();
+                    }
+                });
+            };
+
+            purgeUpdateNotes();
+            if (typeof MutationObserver !== 'undefined') {
+                const updateNotesObserver = new MutationObserver(() => purgeUpdateNotes());
+                updateNotesObserver.observe(document.body, { childList: true, subtree: true });
+            }
+
 
             const allPages = [
                 jobsPage, aboutMediakidsPage, aboutHrPage, aboutConsultPage, aboutCurriculumPage,
@@ -1453,14 +2212,164 @@
             const pageLinks = document.querySelectorAll('.nav-page');
             const mainLinks = document.querySelectorAll('.nav-main');
             const logoLinks = document.querySelectorAll('.nav-logo');
-            
+
+            const mainHeader = document.getElementById('main-header');
+            const navContainer = document.getElementById('nav-container');
+            const backToTopButton = document.getElementById('back-to-top');
+            const megaContainer = document.getElementById('mega-menu-container');
+            const megaBackdrop = document.getElementById('mm-backdrop');
+            const megaTriggers = document.querySelectorAll('.group-trigger');
+            const megaSections = document.querySelectorAll('.mm-section');
+            let megaMenuTimeout;
+            let activeMegaTarget = null;
+
             const counters = document.querySelectorAll('.counter');
 
+            const updateBodyMenuState = () => {
+                const megaOpen = megaContainer?.dataset.open === 'true';
+                const mobileOpen = mobileMenu && !mobileMenu.classList.contains('hidden');
+                document.body.classList.toggle('menu-open', megaOpen || mobileOpen);
+            };
+
+            const setMobileMenuState = (isOpen) => {
+                if (!mobileMenu) return;
+                mobileMenu.classList.toggle('hidden', !isOpen);
+                mobileMenu.dataset.open = isOpen ? 'true' : 'false';
+                updateBodyMenuState();
+            };
+
+            const toggleMobileMenu = (forceState = null) => {
+                if (!mobileMenu) return;
+                const shouldOpen = forceState !== null ? forceState : mobileMenu.classList.contains('hidden');
+                setMobileMenuState(shouldOpen);
+            };
+
+            const runPageReveal = (element) => {
+                if (!element) return;
+                element.classList.remove('fade-in-up');
+                void element.offsetWidth;
+                element.classList.add('fade-in-up');
+            };
+
+            const handleScrollUI = () => {
+                if (mainHeader) {
+                    if (window.scrollY > 10) {
+                        mainHeader.classList.add('header-scrolled');
+                    } else {
+                        mainHeader.classList.remove('header-scrolled');
+                    }
+                }
+
+                if (backToTopButton) {
+                    if (window.scrollY > 400) {
+                        backToTopButton.classList.add('show');
+                    } else {
+                        backToTopButton.classList.remove('show');
+                    }
+                }
+            };
+
+            const showMegaSection = (target) => {
+                if (!megaSections) return null;
+                let selectedSection = null;
+                megaSections.forEach((section) => {
+                    const isActive = section.id === `mm-content-${target}`;
+                    section.classList.toggle('active-section', isActive);
+                    if (isActive) {
+                        selectedSection = section;
+                        section.classList.add('anim-entry');
+                    } else {
+                        section.classList.remove('anim-entry');
+                    }
+                });
+                return selectedSection;
+            };
+
+            const adjustMegaHeight = (section) => {
+                if (!megaContainer || !section) return;
+                megaContainer.style.height = `${section.offsetHeight}px`;
+            };
+
+            const openMegaMenu = (target) => {
+                if (!megaContainer) return;
+                clearTimeout(megaMenuTimeout);
+                activeMegaTarget = target;
+                const section = showMegaSection(target);
+                if (!section) return;
+                adjustMegaHeight(section);
+                megaContainer.style.opacity = '1';
+                megaContainer.style.visibility = 'visible';
+                megaContainer.dataset.open = 'true';
+                if (megaBackdrop) megaBackdrop.classList.add('visible');
+                updateBodyMenuState();
+            };
+
+            const closeMegaMenu = (force = false) => {
+                if (!megaContainer) return;
+                clearTimeout(megaMenuTimeout);
+                const delay = force ? 0 : 150;
+                megaMenuTimeout = setTimeout(() => {
+                    megaContainer.style.height = '0px';
+                    megaContainer.style.opacity = '0';
+                    megaContainer.style.visibility = 'hidden';
+                    megaContainer.dataset.open = 'false';
+                    megaSections?.forEach((section) => section.classList.remove('active-section', 'anim-entry'));
+                    activeMegaTarget = null;
+                    if (megaBackdrop) megaBackdrop.classList.remove('visible');
+                    updateBodyMenuState();
+                }, delay);
+            };
+
+            if (megaContainer && megaTriggers.length > 0) {
+                megaTriggers.forEach((trigger) => {
+                    const target = trigger.dataset.menu;
+                    ['mouseenter', 'focusin'].forEach((evt) => trigger.addEventListener(evt, () => openMegaMenu(target)));
+                    trigger.addEventListener('mouseleave', () => closeMegaMenu());
+                });
+
+                const nonDropdownLinks = document.querySelectorAll('.menu-close-trigger a');
+                nonDropdownLinks.forEach((link) => {
+                    ['mouseenter', 'focusin', 'click'].forEach((evt) => link.addEventListener(evt, () => closeMegaMenu(true)));
+                });
+
+                megaContainer.addEventListener('mouseenter', () => {
+                    clearTimeout(megaMenuTimeout);
+                    if (activeMegaTarget) {
+                        openMegaMenu(activeMegaTarget);
+                    }
+                });
+                megaContainer.addEventListener('mouseleave', () => closeMegaMenu());
+                navContainer?.addEventListener('mouseleave', () => closeMegaMenu());
+
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape') {
+                        closeMegaMenu(true);
+                        setMobileMenuState(false);
+                    }
+                });
+
+                document.addEventListener('click', (e) => {
+                    const isTrigger = Array.from(megaTriggers).some(trigger => trigger.contains(e.target));
+                    if (!megaContainer.contains(e.target) && !isTrigger) {
+                        closeMegaMenu();
+                    }
+                });
+
+                window.addEventListener('resize', () => {
+                    if (activeMegaTarget) {
+                        const activeSection = showMegaSection(activeMegaTarget);
+                        if (activeSection) {
+                            adjustMegaHeight(activeSection);
+                        }
+                    }
+                });
+            }
+
             // --- Mobile Menu Toggle ---
-            mobileMenuButton.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
-            
+            if (mobileMenuButton) {
+                mobileMenuButton.addEventListener('click', () => toggleMobileMenu());
+            }
+
             const mobileMenuToggles = document.querySelectorAll('.mobile-menu-toggle');
             mobileMenuToggles.forEach(button => {
                 button.addEventListener('click', (e) => {
@@ -1471,6 +2380,17 @@
                     icon.classList.toggle('rotate-180');
                 });
             });
+
+
+            handleScrollUI();
+            window.addEventListener('scroll', handleScrollUI, { passive: true });
+
+            if (backToTopButton) {
+                backToTopButton.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
 
 
             // --- Hero Slideshow ---
@@ -1639,14 +2559,13 @@
             // --- Google Drive Image Loader ---
             function extractDriveId(link) {
                 if (!link) return null;
-                const patterns = [
-                    /drive\.google\.com\/file\/d\/([a-zA-Z0-9_-]+)/,
-                    /drive\.google\.com\/open\?id=([a-zA-Z0-9_-]+)/,
-                    /drive\.google\.com\/uc\?id=([a-zA-Z0-9_-]+)/
-                ];
-                for (const pattern of patterns) {
-                    const match = link.match(pattern);
-                    if (match && match[1]) return match[1];
+                const byPath = link.match(/\/d\/([a-zA-Z0-9_-]+)/);
+                if (byPath && byPath[1]) {
+                    return byPath[1];
+                }
+                const byQuery = link.match(/[?&]id=([a-zA-Z0-9_-]+)/);
+                if (byQuery && byQuery[1]) {
+                    return byQuery[1];
                 }
                 return null;
             }
@@ -1654,9 +2573,18 @@
             function generateDriveCandidates(fileId) {
                 if (!fileId) return [];
                 return [
+                    `https://lh3.googleusercontent.com/u/0/d/${fileId}=w2000`,
+                    `https://lh3.googleusercontent.com/d/${fileId}=w2000`,
+                    `https://lh3.googleusercontent.com/u/0/d/${fileId}`,
+                    `https://lh3.googleusercontent.com/d/${fileId}`,
+                    `https://drive.googleusercontent.com/uc?export=view&id=${fileId}`,
+                    `https://drive.googleusercontent.com/uc?id=${fileId}&export=download`,
                     `https://drive.google.com/uc?export=view&id=${fileId}`,
+                    `https://drive.google.com/uc?id=${fileId}`,
+                    `https://drive.google.com/uc?export=download&id=${fileId}`,
                     `https://drive.google.com/thumbnail?id=${fileId}&sz=w2000`,
-                    `https://drive.google.com/uc?id=${fileId}`
+                    `https://drive.usercontent.google.com/uc?export=view&id=${fileId}`,
+                    `https://drive.usercontent.google.com/download?id=${fileId}&export=view&confirm=t`
                 ];
             }
 
@@ -1691,35 +2619,23 @@
             }
 
             // --- Apply Drive Image Loaders ---
-            const imageLoadConfig = {
-                'logo-image': 'https://drive.google.com/file/d/1UxFx1zIXnDxq1N_nhkdHYz7qSUoqiagP/view?usp=sharing',
-                'visa-process-image': 'https://drive.google.com/file/d/1Lh8JQEFvmQ0NE6wP9uMiiJTMvIPpRbmt/view?usp=sharing',
-                'sarah-story-image': 'https://drive.google.com/file/d/12Y7QxFCCVxOdGCYzUO2zw2Z21EY2XbB2/view?usp=sharing',
-                'kindergarten-job-image': 'https://drive.google.com/file/d/1ebjFrgeH1vpTMA60ZOrrezr7dMtnzHiz/view?usp=sharing',
-                'post-image-1': 'https://drive.google.com/file/d/19tAwaFYL3jKtYH-aEVVP1AWh4xgJ6nX1/view?usp=sharing',
-                'post-image-2': 'https://drive.google.com/file/d/1ljLbiSsssZF1JuTGERGCV7y2Q7G7TbQD/view?usp=drive_link',
-                'post-image-3': 'https://drive.google.com/file/d/1psArqXEfXnHw_uKw1t_aFHXrNLW2c01d/view?usp=sharing',
-                'partner-logo-1': 'https://drive.google.com/file/d/1g9LEi54_CyfjNAD0QM0OM9EScC3nNIre/view?usp=drive_link',
-                'partner-logo-2': 'https://drive.google.com/file/d/1mwCZhaxyVoHDBDvNoybUMkpsIbc-7wGq/view?usp=drive_link',
-                'partner-logo-3': 'https://drive.google.com/file/d/19ogpzkPvsnsOrBuxk06VzeUUymCNB9od/view?usp=drive_link',
-                'partner-logo-4': 'https://drive.google.com/file/d/1KOshNinnfQSX3AJeNEkl_0_SkIJonpTN/view?usp=drive_link',
-                'partner-logo-5': 'https://drive.google.com/file/d/185gwH4nitPLQQfciT0dqm_Tx9OGsSiim/view?usp=drive_link',
-            };
-
-            for (const id in imageLoadConfig) {
-                const element = document.getElementById(id);
-                const link = imageLoadConfig[id];
+            const driveImageElements = document.querySelectorAll('[data-drive-src]');
+            driveImageElements.forEach((element) => {
+                const link = element.getAttribute('data-drive-src');
                 setDriveImageWithFallback(element, link);
-            }
+            });
 
             // --- Page View Management ---
             function setView(viewName) {
                 mainContent.classList.add('hidden');
-                allPages.forEach(page => { 
-                    if(page) page.classList.add('hidden') 
+                allPages.forEach(page => {
+                    if(page) page.classList.add('hidden')
                 });
 
                 let pageToShow = null;
+                closeMegaMenu(true);
+                setMobileMenuState(false);
+                updateBodyMenuState();
                 switch(viewName) {
                     case 'jobs': pageToShow = jobsPage; break;
                     case 'about-mediakids': pageToShow = aboutMediakidsPage; break;
@@ -1741,11 +2657,13 @@
                     case 'contact-page': pageToShow = contactPage; break;
                     default: // 'main' view
                         mainContent.classList.remove('hidden');
+                        runPageReveal(mainContent);
                         break;
                 }
-                
+
                 if (pageToShow) {
                     pageToShow.classList.remove('hidden');
+                    runPageReveal(pageToShow);
                 }
                 
                 window.scrollTo({ top: 0, behavior: 'auto' }); 
@@ -1758,8 +2676,8 @@
                     e.preventDefault();
                     const pageName = link.dataset.page;
                     setView(pageName);
-                    if (!mobileMenu.classList.contains('hidden')) {
-                        mobileMenu.classList.add('hidden');
+                    if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                        setMobileMenuState(false);
                     }
                 });
             });
@@ -1777,15 +2695,15 @@
 
                     if (targetId) {
                          // Use timeout to ensure the main content is visible before scrolling
-                          setTimeout(() => {
+                            setTimeout(() => {
                              const targetElement = document.getElementById(targetId);
                              targetElement?.scrollIntoView({ behavior: 'smooth' });
                           }, 50);
                     }
 
 
-                    if (!mobileMenu.classList.contains('hidden')) {
-                        mobileMenu.classList.add('hidden');
+                    if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                        setMobileMenuState(false);
                     }
                 });
             });
@@ -1865,35 +2783,153 @@
         const form = document.getElementById('contact-form-g-sheets');
         const formWrapper = document.getElementById('contact-section-wrapper');
         const thankYouMessage = document.getElementById('thank-you-message');
+        const honeypotField = form?.querySelector('[data-honeypot]');
+        const statusMessage = document.getElementById('contact-form-status');
+        const SUBMISSION_DELAY_MS = 2000;
+        const REQUEST_TIMEOUT_MS = 12000;
+        const sanitizeInput = (value = '') => value.replace(/[<>]/g, '').trim();
+        const isValidEmail = (email = '') => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        const buildFormDataFromEntries = (entries = []) => {
+            const formData = new FormData();
+            entries.forEach(([key, value]) => formData.append(key, value));
+            return formData;
+        };
+        const buildUrlEncodedPayload = (entries = []) => {
+            const params = new URLSearchParams();
+            entries.forEach(([key, value]) => params.append(key, value));
+            return params.toString();
+        };
+        const tryBeaconSubmit = (entries = []) => {
+            if (typeof navigator === 'undefined' || typeof navigator.sendBeacon !== 'function') {
+                return false;
+            }
+            const encodedBody = buildUrlEncodedPayload(entries);
+            const beaconPayload = new Blob([encodedBody], { type: 'application/x-www-form-urlencoded' });
+            return navigator.sendBeacon(scriptURL, beaconPayload);
+        };
+        const submitToSheets = async (entries = []) => {
+            if (tryBeaconSubmit(entries)) {
+                return true;
+            }
+            const controller = (typeof AbortController !== 'undefined') ? new AbortController() : null;
+            const timeoutId = controller ? setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS) : null;
+            try {
+                await fetch(scriptURL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    body: buildFormDataFromEntries(entries),
+                    signal: controller?.signal
+                });
+                return true;
+            } finally {
+                if (timeoutId) {
+                    clearTimeout(timeoutId);
+                }
+            }
+        };
+        let formInitTime = Date.now();
+
+        const showStatus = (type = 'info', message = '') => {
+            if (!statusMessage || !message) return;
+            statusMessage.textContent = message;
+            statusMessage.classList.remove('hidden', 'text-red-500', 'text-green-600', 'text-gray-500');
+            switch (type) {
+                case 'success':
+                    statusMessage.classList.add('text-green-600');
+                    break;
+                case 'error':
+                    statusMessage.classList.add('text-red-500');
+                    break;
+                default:
+                    statusMessage.classList.add('text-gray-500');
+            }
+        };
+
+        const hideStatus = () => {
+            if (!statusMessage) return;
+            statusMessage.textContent = '';
+            statusMessage.classList.add('hidden');
+            statusMessage.classList.remove('text-red-500', 'text-green-600', 'text-gray-500');
+        };
+
+        const setFormState = (isBusy, button) => {
+            if (!button) return;
+            if (!button.dataset.defaultLabel) {
+                button.dataset.defaultLabel = button.textContent || 'Send Application';
+            }
+            if (isBusy) {
+                form?.setAttribute('aria-busy', 'true');
+                button.disabled = true;
+                button.textContent = 'Sending...';
+            } else {
+                form?.removeAttribute('aria-busy');
+                button.disabled = false;
+                button.textContent = button.dataset.defaultLabel;
+            }
+        };
 
         if (form) {
             form.addEventListener('submit', async (e) => {
                 e.preventDefault();
                 const btn = form.querySelector('button[type="submit"]');
-                btn.disabled = true;
-                btn.textContent = 'Sending...';
+                hideStatus();
+                setFormState(true, btn);
+                showStatus('info', 'Sending your application securely...');
 
-                try {
-                    const res = await fetch(scriptURL, { method: 'POST', body: new FormData(form) });
-                    const data = await res.json().catch(() => ({})); // Read response from script
-                    console.log('Response from script:', data);
+                if (honeypotField && honeypotField.value.trim() !== '') {
+                    alert('Your submission could not be validated. Please try again.');
+                    honeypotField.value = '';
+                    showStatus('error', 'Spam protection triggered. Please try again.');
+                    return setFormState(false, btn);
+                }
 
-                    if (res.ok && data.result === 'success') {
-                        if(formWrapper && thankYouMessage){
-                            formWrapper.classList.add('hidden');
-                            thankYouMessage.classList.remove('hidden');
+                const elapsedTime = Date.now() - formInitTime;
+                if (elapsedTime < SUBMISSION_DELAY_MS) {
+                    alert('Please take a moment to review your information before submitting.');
+                    showStatus('error', 'Please take a moment to review your information before submitting.');
+                    return setFormState(false, btn);
+                }
+
+                const rawFormData = new FormData(form);
+                const sanitizedEntries = [];
+                rawFormData.forEach((value, key) => {
+                    if (typeof value === 'string') {
+                        const cleaned = sanitizeInput(value);
+                        sanitizedEntries.push([key, cleaned]);
+                        const control = form.querySelector(`[name="${key}"]`);
+                        if (control && typeof control.value === 'string') {
+                            control.value = cleaned;
                         }
                     } else {
-                        alert('Submission failed. Please try again. Error: ' + (data.message || 'Unknown error'));
-                        btn.disabled = false;
-                        btn.textContent = 'Send Application';
+                        sanitizedEntries.push([key, value]);
                     }
-                } catch (err) {
-                    console.error('Connection Error!', err);
-                    alert('There was a connection error. Please check your internet and try again.'); 
-                    btn.disabled = false;
-                    btn.textContent = 'Send Application';
+                });
+
+                const emailValue = sanitizedEntries.find(([key]) => key === 'email')?.[1] || '';
+                if (!isValidEmail(emailValue)) {
+                    alert('Please enter a valid email address.');
+                    showStatus('error', 'Please enter a valid email address.');
+                    return setFormState(false, btn);
                 }
+                try {
+                    await submitToSheets(sanitizedEntries);
+                    form.reset();
+                    formInitTime = Date.now();
+                    if (formWrapper && thankYouMessage) {
+                        formWrapper.classList.add('hidden');
+                        thankYouMessage.classList.remove('hidden');
+                    }
+                    showStatus('success', 'Your application has been sent. Please watch your inbox for our reply.');
+                } catch (submissionError) {
+                    if (submissionError?.name === 'AbortError') {
+                        showStatus('error', 'Network timeout. Please try again in a moment.');
+                    } else {
+                        console.error('Submission Error:', submissionError);
+                        showStatus('error', 'Submission failed. Please try again or email us at mediakids.online@gmail.com');
+                    }
+                }
+
+                setFormState(false, btn);
             });
         }
     </script>
