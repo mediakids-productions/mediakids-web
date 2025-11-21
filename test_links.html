@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Dropdown Links Test</title>
+</head>
+
+<body>
+    <h1>Testing Dropdown Navigation Links</h1>
+    <button onclick="testLinks()">Test All Links</button>
+    <div id="results"></div>
+
+    <script>
+        function testLinks() {
+            const results = document.getElementById('results');
+            results.innerHTML = '<h2>Test Results:</h2>';
+
+            // Open index.html in iframe
+            const iframe = document.createElement('iframe');
+            iframe.src = 'index.html';
+            iframe.style.width = '1px';
+            iframe.style.height = '1px';
+            iframe.style.position = 'absolute';
+            iframe.style.left = '-9999px';
+            document.body.appendChild(iframe);
+
+            iframe.onload = function () {
+                const doc = iframe.contentDocument;
+
+                // Check for nav-page links
+                const navLinks = doc.querySelectorAll('.nav-page');
+                results.innerHTML += `<p>Found ${navLinks.length} .nav-page links</p>`;
+
+                // Check each link's data-page
+                const linkData = [];
+                navLinks.forEach(link => {
+                    const page = link.dataset.page;
+                    const section = doc.getElementById(page);
+                    linkData.push({
+                        page: page,
+                        exists: !!section,
+                        text: link.textContent.trim()
+                    });
+                });
+
+                // Display results
+                results.innerHTML += '<ul>';
+                linkData.forEach(item => {
+                    const status = item.exists ? '✅' : '❌';
+                    results.innerHTML += `<li>${status} ${item.text} → ${item.page} ${item.exists ? '' : '(MISSING!)'}</li>`;
+                });
+                results.innerHTML += '</ul>';
+
+                // Test if event listeners are attached
+                results.innerHTML += '<hr><h3>Event Listener Test:</h3>';
+                const firstLink = navLinks[0];
+                if (firstLink) {
+                    results.innerHTML += `<p>First link: ${firstLink.textContent.trim()}</p>`;
+                    results.innerHTML += `<p>Has click listener: ${firstLink.onclick ? 'Yes (onclick)' : 'Check addEventListener'}</p>`;
+                }
+            };
+        }
+    </script>
+</body>
+
+</html>
