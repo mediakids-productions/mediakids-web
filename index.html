@@ -1055,7 +1055,8 @@
                                 <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center h-full">
                                     <div class="relative w-full h-64 md:h-full rounded-2xl overflow-hidden shadow-lg">
                                         <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1974&auto=format&fit=crop"
-                                            alt="Marco" class="testimonial-card-image w-full h-full object-cover"></div>
+                                            alt="Marco" class="testimonial-card-image w-full h-full object-cover">
+                                    </div>
                                     <div class="text-center md:text-left"><i
                                             class="fas fa-quote-left text-blue-500 text-4xl mb-4"></i>
                                         <p class="text-lg text-gray-700 leading-relaxed">"Teaching materials ready. Thai
@@ -1075,7 +1076,8 @@
                                             src="https://lh3.googleusercontent.com/u/0/d/12Y7QxFCCVxOdGCYzUO2zw2Z21EY2XbB2=w2000"
                                             data-drive-src="https://drive.google.com/file/d/12Y7QxFCCVxOdGCYzUO2zw2Z21EY2XbB2/view?usp=sharing"
                                             alt="Sarah" class="testimonial-card-image w-full h-full object-cover"
-                                            loading="lazy" referrerpolicy="no-referrer" /></div>
+                                            loading="lazy" referrerpolicy="no-referrer" />
+                                    </div>
                                     <div class="text-center md:text-left"><i
                                             class="fas fa-quote-left text-blue-500 text-4xl mb-4"></i>
                                         <p class="text-lg text-gray-700 leading-relaxed">"The support from Global Teach
@@ -1092,7 +1094,8 @@
                                 <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center h-full">
                                     <div class="relative w-full h-64 md:h-full rounded-2xl overflow-hidden shadow-lg">
                                         <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=1974&auto=format&fit=crop"
-                                            alt="David" class="testimonial-card-image w-full h-full object-cover"></div>
+                                            alt="David" class="testimonial-card-image w-full h-full object-cover">
+                                    </div>
                                     <div class="text-center md:text-left"><i
                                             class="fas fa-quote-left text-blue-500 text-4xl mb-4"></i>
                                         <p class="text-lg text-gray-700 leading-relaxed">"The orientation week was
@@ -2269,6 +2272,124 @@
             document.querySelectorAll('.counter').forEach(counter => {
                 observer.observe(counter);
             });
+
+            // Testimonial Slider Logic
+            const testimonialSlider = document.getElementById('testimonial-final-slider');
+            const testimonialCards = testimonialSlider ? testimonialSlider.querySelectorAll('.testimonial-card') : [];
+            const prevBtn = document.getElementById('prev-testimonial-btn');
+            const nextBtn = document.getElementById('next-testimonial-btn');
+            const dotsContainer = document.getElementById('testimonial-dots-container');
+            let currentTestimonialIndex = 0;
+
+            if (testimonialCards.length > 0) {
+                // Initialize dots
+                if (dotsContainer) {
+                    dotsContainer.innerHTML = '';
+                    testimonialCards.forEach((_, index) => {
+                        const dot = document.createElement('button');
+                        dot.className = `w-3 h-3 rounded-full transition-colors duration-300 ${index === 0 ? 'bg-blue-600' : 'bg-gray-300 hover:bg-blue-400'}`;
+                        dot.setAttribute('aria-label', `Go to testimonial ${index + 1}`);
+                        dot.addEventListener('click', () => showTestimonial(index));
+                        dotsContainer.appendChild(dot);
+                    });
+                }
+
+                function showTestimonial(index) {
+                    // Handle wrapping
+                    if (index < 0) index = testimonialCards.length - 1;
+                    if (index >= testimonialCards.length) index = 0;
+
+                    // Update cards
+                    testimonialCards.forEach((card, i) => {
+                        if (i === index) {
+                            card.classList.remove('opacity-0', 'invisible');
+                            card.classList.add('opacity-100', 'visible', 'z-10');
+                        } else {
+                            card.classList.add('opacity-0', 'invisible');
+                            card.classList.remove('opacity-100', 'visible', 'z-10');
+                        }
+                    });
+
+                    // Update dots
+                    if (dotsContainer) {
+                        const dots = dotsContainer.querySelectorAll('button');
+                        dots.forEach((dot, i) => {
+                            if (i === index) {
+                                dot.classList.remove('bg-gray-300', 'hover:bg-blue-400');
+                                dot.classList.add('bg-blue-600');
+                            } else {
+                                dot.classList.add('bg-gray-300', 'hover:bg-blue-400');
+                                dot.classList.remove('bg-blue-600');
+                            }
+                        });
+                    }
+
+                    currentTestimonialIndex = index;
+                }
+
+                // Event Listeners
+                if (prevBtn) prevBtn.addEventListener('click', () => showTestimonial(currentTestimonialIndex - 1));
+                if (nextBtn) nextBtn.addEventListener('click', () => showTestimonial(currentTestimonialIndex + 1));
+
+                // Initialize first slide
+                showTestimonial(0);
+
+                // Optional: Auto-play
+                setInterval(() => {
+                    showTestimonial(currentTestimonialIndex + 1);
+                }, 6000);
+            }
+
+            // Journey Tabs Logic
+            const journeyTabs = document.querySelectorAll('.journey-tab');
+            const journeyPanels = document.querySelectorAll('.journey-panel');
+
+            if (journeyTabs.length > 0 && journeyPanels.length > 0) {
+                function activateJourneyStep(step) {
+                    // Update Tabs
+                    journeyTabs.forEach(tab => {
+                        const tabStep = tab.dataset.step;
+                        const numberCircle = tab.querySelector('.journey-number');
+
+                        if (tabStep === step) {
+                            tab.classList.add('bg-white', 'shadow-lg', 'scale-105');
+                            tab.classList.remove('hover:bg-white');
+                            if (numberCircle) {
+                                numberCircle.classList.remove('bg-gray-200', 'text-gray-600');
+                                numberCircle.classList.add('bg-blue-600', 'text-white');
+                            }
+                        } else {
+                            tab.classList.remove('bg-white', 'shadow-lg', 'scale-105');
+                            tab.classList.add('hover:bg-white');
+                            if (numberCircle) {
+                                numberCircle.classList.add('bg-gray-200', 'text-gray-600');
+                                numberCircle.classList.remove('bg-blue-600', 'text-white');
+                            }
+                        }
+                    });
+
+                    // Update Panels
+                    journeyPanels.forEach(panel => {
+                        if (panel.dataset.step === step) {
+                            panel.classList.remove('opacity-0');
+                            panel.classList.add('opacity-100', 'z-10');
+                        } else {
+                            panel.classList.add('opacity-0');
+                            panel.classList.remove('opacity-100', 'z-10');
+                        }
+                    });
+                }
+
+                // Add click listeners
+                journeyTabs.forEach(tab => {
+                    tab.addEventListener('click', () => {
+                        activateJourneyStep(tab.dataset.step);
+                    });
+                });
+
+                // Initialize first step
+                activateJourneyStep('1');
+            }
 
             // FAQ Logic
             const faqQuestions = document.querySelectorAll('.faq-question');
