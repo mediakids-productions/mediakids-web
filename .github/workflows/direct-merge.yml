@@ -1,0 +1,97 @@
+name: Direct Merge to Main (Simple & Fast)
+
+# Trigger when a push happens to AI branches
+on:
+  push:
+    branches:
+      - 'claude/**'
+      - 'codex/**'
+      - 'antigravity/**'
+
+permissions:
+  contents: write
+
+jobs:
+  direct-merge:
+    name: Merge to Main Branch
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: ⚙️ Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: 🏷️ Get Branch Info
+        id: branch
+        run: |
+          BRANCH_NAME=${GITHUB_REF#refs/heads/}
+          AI_TYPE=$(echo $BRANCH_NAME | cut -d'/' -f1)
+          echo "name=$BRANCH_NAME" >> $GITHUB_OUTPUT
+          echo "ai=$AI_TYPE" >> $GITHUB_OUTPUT
+          echo "📌 Branch: $BRANCH_NAME"
+          echo "🤖 AI Type: $AI_TYPE"
+
+      - name: 🔍 Check for Conflicts
+        id: check
+        run: |
+          git fetch origin main
+          git checkout main
+
+          # Try to merge (dry-run)
+          if git merge --no-commit --no-ff origin/${{ steps.branch.outputs.name }}; then
+            echo "✅ No conflicts detected"
+            git merge --abort 2>/dev/null || true
+            echo "can_merge=true" >> $GITHUB_OUTPUT
+          else
+            echo "❌ Conflicts detected"
+            git merge --abort 2>/dev/null || true
+            echo "can_merge=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: 🔀 Merge to Main
+        if: steps.check.outputs.can_merge == 'true'
+        run: |
+          git checkout main
+          git merge --no-ff origin/${{ steps.branch.outputs.name }} -m "🤖 Auto-merge from ${{ steps.branch.outputs.ai }}: ${{ steps.branch.outputs.name }}"
+          git push origin main
+          echo "✅ Successfully merged to main!"
+
+      - name: 🗑️ Delete Feature Branch (Optional)
+        if: steps.check.outputs.can_merge == 'true'
+        run: |
+          git push origin --delete ${{ steps.branch.outputs.name }} || echo "⚠️ Could not delete branch (may be protected)"
+
+      - name: 🎉 Success Notification
+        if: steps.check.outputs.can_merge == 'true'
+        run: |
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "✅ MERGE SUCCESSFUL!"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "🤖 AI: ${{ steps.branch.outputs.ai }}"
+          echo "📝 Branch: ${{ steps.branch.outputs.name }}"
+          echo "🚀 GitHub Pages deploying..."
+          echo "⏱️  Website will update in 1-2 minutes"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+
+      - name: ❌ Conflict Notification
+        if: steps.check.outputs.can_merge == 'false'
+        run: |
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "❌ MERGE FAILED - CONFLICTS DETECTED"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "🤖 AI: ${{ steps.branch.outputs.ai }}"
+          echo "📝 Branch: ${{ steps.branch.outputs.name }}"
+          echo ""
+          echo "🔧 ACTION REQUIRED:"
+          echo "1. Pull latest main branch"
+          echo "2. Resolve conflicts manually"
+          echo "3. Push again to retry"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          exit 1
