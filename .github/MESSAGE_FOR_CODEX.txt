@@ -1,0 +1,161 @@
+=================================================================
+📨 MESSAGE FOR GPT CODEX - Auto-Deploy Setup Complete
+=================================================================
+
+Hi Codex!
+
+I've set up automatic deployment for you on the mediakids-web repository.
+Here's what you need to know:
+
+-----------------------------------------------------------------
+🎯 YOUR JOB: Auto-Deploy to Website
+-----------------------------------------------------------------
+
+When I ask you to modify the website, you will:
+1. Make changes to the code
+2. Push to a branch named: codex/description-sessionid
+3. That's it! GitHub will auto-merge and deploy
+
+⚠️ CRITICAL: You MUST use this branch naming format:
+   codex/your-feature-name-xyz
+
+Examples:
+   ✅ codex/add-contact-form-abc123
+   ✅ codex/fix-navigation-xyz789
+   ❌ main (will fail - protected)
+   ❌ codex-feature (wrong - missing slash)
+
+-----------------------------------------------------------------
+⚡ THE WORKFLOW (Automatic!)
+-----------------------------------------------------------------
+
+YOU DO:
+  git checkout -b codex/add-gallery-xyz
+  (make changes to index.html)
+  git add .
+  git commit -m "Add photo gallery"
+  git push origin codex/add-gallery-xyz
+
+GITHUB DOES (Automatically in 30 seconds):
+  ✅ Detects your push
+  ✅ Checks for conflicts
+  ✅ Merges to main branch
+  ✅ Deploys to GitHub Pages
+  ✅ Deletes your feature branch
+
+RESULT:
+  🌐 Website updates in 1-2 minutes!
+
+-----------------------------------------------------------------
+📋 STEP-BY-STEP QUICK START
+-----------------------------------------------------------------
+
+1. Get latest code:
+   git checkout main && git pull origin main
+
+2. Create your branch (use "codex/" prefix!):
+   git checkout -b codex/my-feature-xyz
+
+3. Make changes:
+   (edit files)
+
+4. Commit:
+   git add .
+   git commit -m "Description of changes"
+
+5. Push (triggers auto-deploy):
+   git push origin codex/my-feature-xyz
+
+6. Wait 1-2 minutes, check website:
+   https://mediakids-productions.github.io/mediakids-web/
+
+-----------------------------------------------------------------
+✅ VERIFICATION QUESTIONS (Answer to confirm understanding)
+-----------------------------------------------------------------
+
+Q1: What branch name format should you use?
+Answer: codex/feature-name-sessionid
+
+Q2: What happens after you push to codex/* branch?
+Answer: GitHub Actions automatically merges to main and deploys
+
+Q3: Can you push directly to main branch?
+Answer: No, I must use codex/* branches only
+
+Q4: Do you need to create Pull Requests manually?
+Answer: No, GitHub Actions creates and merges them automatically
+
+-----------------------------------------------------------------
+📚 FULL DOCUMENTATION
+-----------------------------------------------------------------
+
+Read complete instructions here:
+https://github.com/mediakids-productions/mediakids-web/blob/main/.github/CODEX_INSTRUCTIONS.md
+
+This includes:
+- Detailed workflow explanation
+- Troubleshooting guide
+- Best practices
+- How to handle conflicts
+- Working with other AIs (Claude and Antigravity)
+
+-----------------------------------------------------------------
+🧪 LET'S TEST IT!
+-----------------------------------------------------------------
+
+To verify you understand, please:
+
+1. Confirm you read this message
+2. Tell me the correct branch naming format
+3. I'll give you a small test task
+4. You'll push to your codex/* branch
+5. We'll verify auto-deploy works
+
+-----------------------------------------------------------------
+🤝 WORKING WITH OTHER AIs
+-----------------------------------------------------------------
+
+You're working alongside:
+- Claude (uses claude/* branches)
+- Antigravity (uses antigravity/* branches)
+
+Always pull latest main before starting:
+  git checkout main
+  git pull origin main
+
+-----------------------------------------------------------------
+🚨 COMMON MISTAKES TO AVOID
+-----------------------------------------------------------------
+
+❌ Don't push to main directly
+❌ Don't use wrong branch name (codex-feature)
+❌ Don't create PRs manually
+❌ Don't wait for human approval
+
+✅ Do use codex/* branch names
+✅ Do push and let automation handle it
+✅ Do pull latest main before starting
+
+-----------------------------------------------------------------
+📞 IF YOU HAVE PROBLEMS
+-----------------------------------------------------------------
+
+Check workflow status:
+https://github.com/mediakids-productions/mediakids-web/actions
+
+Common issues:
+1. Wrong branch name → Use codex/feature-xyz
+2. Conflicts → Pull main, merge, push again
+3. 403 error → You're trying to push to main (use codex/*)
+
+-----------------------------------------------------------------
+
+🎉 READY TO START?
+
+Confirm you understand by saying:
+"I understand. I will use branch names like codex/feature-name-sessionid
+and GitHub will auto-merge my changes to main."
+
+Then we can begin!
+
+=================================================================
