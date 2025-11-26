@@ -1,0 +1,490 @@
+:root {
+    --primary-blue: #0052CC;
+    --accent-yellow: #FFD100;
+    --dark-text: #1a202c;
+    --light-text: #f7fafc;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #FFFFFF;
+    color: var(--dark-text);
+}
+
+/* Floating Background Animation */
+.bg-hero-pattern {
+    background-color: #f8f9fa;
+    position: relative;
+    overflow: hidden;
+}
+
+.blob {
+    position: absolute;
+    filter: blur(50px);
+    z-index: 0;
+    opacity: 0.4;
+    animation: float 10s infinite ease-in-out;
+}
+
+.blob-1 {
+    top: -10%;
+    left: -10%;
+    width: 300px;
+    height: 300px;
+    background: #b3d4fc;
+    animation-delay: 0s;
+}
+
+.blob-2 {
+    bottom: 10%;
+    right: -5%;
+    width: 250px;
+    height: 250px;
+    background: #fff5cc;
+    animation-delay: 2s;
+}
+
+@keyframes float {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    50% {
+        transform: translate(20px, -20px) scale(1.1);
+    }
+
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+}
+
+.accent-text {
+    color: var(--primary-blue);
+}
+
+.accent-yellow-text {
+    color: var(--accent-yellow);
+}
+
+.btn-primary {
+    background-color: var(--primary-blue);
+    color: var(--light-text);
+    transition: all 0.3s ease;
+    font-weight: 600;
+    box-shadow: 0 4px 14px 0 rgba(0, 82, 204, 0.39);
+}
+
+.btn-primary:hover {
+    background-color: #0041a3;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px 0 rgba(0, 82, 204, 0.45);
+}
+
+.btn-secondary {
+    background-color: var(--accent-yellow);
+    color: var(--dark-text);
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background-color: #e6bb00;
+    transform: translateY(-2px);
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 2rem;
+    }
+}
+
+.section-subtitle {
+    font-size: 1.2rem;
+    color: #4a5568;
+    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (max-width: 768px) {
+    .section-subtitle {
+        font-size: 1rem;
+    }
+}
+
+.card {
+    background: #FFFFFF;
+    border-radius: 1rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.job-card {
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.job-card:hover {
+    border-color: var(--primary-blue);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 82, 204, 0.15);
+}
+
+.nav-link {
+    position: relative;
+    color: var(--dark-text);
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--primary-blue);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after,
+.nav-link.active-menu::after {
+    width: 100%;
+}
+
+.nav-link.active-menu {
+    color: var(--primary-blue);
+}
+
+.hero-img {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-img:hover {
+    transform: scale(1.05) rotate(2deg);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.program-card {
+    height: 450px;
+}
+
+.program-card-content {
+    transform: translateY(calc(100% - 9.5rem));
+    transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.program-card:hover .program-card-content {
+    transform: translateY(0);
+}
+
+.program-card-image {
+    transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.program-card:hover .program-card-image {
+    transform: scale(1.1);
+}
+
+form[aria-busy="true"] {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.honeypot-field {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+button:disabled {
+    cursor: not-allowed;
+    opacity: 0.8;
+}
+
+.testimonial-card {
+    transition: all 0.5s ease-in-out;
+}
+
+.testimonial-card-image {
+    transition: all 0.5s ease-in-out;
+}
+
+.testimonial-card.active .testimonial-card-image {
+    transform: scale(1.05);
+}
+
+@media (max-width: 767px) {
+    .testimonial-card .grid {
+        flex-direction: column;
+    }
+}
+
+.post-card-image {
+    transition: transform 0.4s ease-in-out;
+}
+
+.post-card:hover .post-card-image {
+    transform: scale(1.1);
+}
+
+/* ---- APPLE STYLE MEGA MENU CSS (Advanced Morphing & Premium Feel) ---- */
+
+/* Shared Mega Menu Container (The white box) */
+#mega-menu-container {
+    position: absolute;
+    top: 0;
+    /* Starts at the VERY top of the screen/header */
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    background-color: #FFFFFF;
+    /* Strong shadow for the whole panel */
+    box-shadow: 0 50px 100px -20px rgba(50, 50, 93, 0.15),
+        0 30px 60px -30px rgba(0, 0, 0, 0.15);
+    transform-origin: top center;
+    opacity: 0;
+    visibility: hidden;
+    height: 0;
+    /* Initial height */
+    /* UPDATED: Slower transitions for premium feel */
+    transition:
+        height 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+        opacity 0.5s ease,
+        visibility 0.5s;
+    z-index: 40;
+    /* Behind the nav items (z-50) */
+}
+
+/* Special class for CLOSING via Link Click (Fade Out Only, No Retraction) */
+#mega-menu-container.nav-closing {
+    transition: opacity 0.5s ease, visibility 0.5s !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    /* We purposely ignore height transition here to prevent the 'slide up' effect */
+}
+
+/* Active state for the container */
+#mega-menu-container.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Individual Content Sections */
+.mm-section {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    visibility: hidden;
+    /* IMPORTANT: Padding top accommodates the header height (88px) + extra space */
+    padding: 110px 0 5rem 0;
+    /* Slower fade for content switching */
+    transition: opacity 0.4s ease, visibility 0.4s;
+    pointer-events: none;
+}
+
+.mm-section.active-section {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    position: relative;
+    /* To take up space for height calculation */
+}
+
+/* Animation: Initial Entry (Slide Down + Fade In) */
+.anim-entry .mm-col {
+    animation: mmSlideDown 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    opacity: 0;
+}
+
+@keyframes mmSlideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Stagger delays for Initial Entry */
+.anim-entry .mm-col:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.anim-entry .mm-col:nth-child(2) {
+    animation-delay: 0.15s;
+}
+
+.anim-entry .mm-col:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.anim-entry .mm-col:nth-child(4) {
+    animation-delay: 0.25s;
+}
+
+/* Seamless Header Integration */
+#main-header {
+    background-color: rgba(255, 255, 255, 0.98);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 15px -5px rgba(0, 0, 0, 0.05);
+}
+
+body.menu-open #main-header {
+    background-color: transparent !important;
+    box-shadow: none !important;
+    border-bottom-color: transparent !important;
+}
+
+/* Page Content Blur Effect */
+body.menu-open main,
+body.menu-open footer,
+body.menu-open #back-to-top {
+    filter: blur(12px);
+    opacity: 0.7;
+    transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Force remove blur immediately when switching page */
+body.switching-page main,
+body.switching-page footer {
+    filter: none !important;
+    opacity: 1 !important;
+    transition: none !important;
+}
+
+.mm-header {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #86868b;
+    margin-bottom: 1.5rem;
+    display: block;
+}
+
+.mm-link {
+    display: block;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #1d1d1f;
+    margin-bottom: 1rem;
+    transition: color 0.2s ease;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.mm-link:hover {
+    color: var(--primary-blue);
+}
+
+.mm-sub-text {
+    font-size: 0.8rem;
+    color: #86868b;
+    font-weight: 400;
+    margin-left: 0.3rem;
+}
+
+.submenu {
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease-in-out;
+}
+
+.group\/sub:hover .submenu {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out;
+}
+
+#back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: var(--primary-blue);
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 999;
+}
+
+#back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+#back-to-top:hover {
+    background-color: var(--accent-yellow);
+    transform: translateY(-5px);
+    color: var(--dark-text);
+}
+
+header.scrolled {
+    background-color: rgba(255, 255, 255, 0.98) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+/* New Page Transition Animation - Premium Slow Float */
+@keyframes fadeInUpContent {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+        /* Slightly less distance for subtle feel */
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-up {
+    /* 1s duration with a very soft ease-out */
+    animation: fadeInUpContent 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
