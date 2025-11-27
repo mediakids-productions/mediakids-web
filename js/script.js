@@ -140,20 +140,24 @@ document.addEventListener('DOMContentLoaded', () => {
                 img.classList.remove('opacity-100', 'translate-x-0', '-translate-x-full');
             }
         });
-        setInterval(() => {
-            const nextImageIndex = (currentImageIndex + 1) % slideshowImages.length;
-            const currentImage = slideshowImages[currentImageIndex];
-            const nextImage = slideshowImages[nextImageIndex];
-            currentImage.classList.remove('opacity-100', 'translate-x-0');
-            currentImage.classList.add('opacity-0', '-translate-x-full');
-            nextImage.classList.remove('opacity-0', 'translate-x-full');
-            nextImage.classList.add('opacity-100', 'translate-x-0');
-            setTimeout(() => {
-                currentImage.classList.remove('-translate-x-full');
-                currentImage.classList.add('translate-x-full');
-            }, 1000);
-            currentImageIndex = nextImageIndex;
-        }, 4000);
+
+        // Delay 3 seconds before starting auto-rotation
+        setTimeout(() => {
+            setInterval(() => {
+                const nextImageIndex = (currentImageIndex + 1) % slideshowImages.length;
+                const currentImage = slideshowImages[currentImageIndex];
+                const nextImage = slideshowImages[nextImageIndex];
+                currentImage.classList.remove('opacity-100', 'translate-x-0');
+                currentImage.classList.add('opacity-0', '-translate-x-full');
+                nextImage.classList.remove('opacity-0', 'translate-x-full');
+                nextImage.classList.add('opacity-100', 'translate-x-0');
+                setTimeout(() => {
+                    currentImage.classList.remove('-translate-x-full');
+                    currentImage.classList.add('translate-x-full');
+                }, 1000);
+                currentImageIndex = nextImageIndex;
+            }, 4000);
+        }, 3000);
     }
 
     // Counter Animation Logic
@@ -238,9 +242,13 @@ document.addEventListener('DOMContentLoaded', () => {
         if (prevBtn) prevBtn.addEventListener('click', () => showTestimonial(currentTestimonialIndex - 1));
         if (nextBtn) nextBtn.addEventListener('click', () => showTestimonial(currentTestimonialIndex + 1));
         showTestimonial(0);
-        setInterval(() => {
-            showTestimonial(currentTestimonialIndex + 1);
-        }, 6000);
+
+        // Delay 3 seconds before starting auto-rotation
+        setTimeout(() => {
+            setInterval(() => {
+                showTestimonial(currentTestimonialIndex + 1);
+            }, 6000);
+        }, 3000);
     }
 
     // Journey Tabs Logic
