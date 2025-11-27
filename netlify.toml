@@ -1,22 +1,13 @@
-# Netlify Configuration
-# This file tells Netlify how to build and deploy your site
+# Netlify Configuration for Static HTML Site
 
 [build]
-  # No build command needed for static HTML site
-  command = ""
-
-  # Publish directory is the root (where index.html is)
   publish = "."
 
-  # Ignore builds if only these files change
-  ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF -- README.md .github/"
-
-# Headers for security and performance
+# Headers for security
 [[headers]]
   for = "/*"
   [headers.values]
-    X-Frame-Options = "DENY"
-    X-XSS-Protection = "1; mode=block"
+    X-Frame-Options = "SAMEORIGIN"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
 
@@ -24,20 +15,14 @@
 [[headers]]
   for = "/images/*"
   [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
+    Cache-Control = "public, max-age=604800"
 
 [[headers]]
   for = "/css/*"
   [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
+    Cache-Control = "public, max-age=604800"
 
 [[headers]]
   for = "/js/*"
   [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
-
-# Custom 404 page (if you create one)
-# [[redirects]]
-#   from = "/*"
-#   to = "/404.html"
-#   status = 404
+    Cache-Control = "public, max-age=604800"
