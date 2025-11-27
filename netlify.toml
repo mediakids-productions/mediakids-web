@@ -11,18 +11,6 @@
   # Ignore builds if only these files change
   ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF -- README.md .github/"
 
-# Deploy all branches (for preview)
-[build.environment]
-  NODE_VERSION = "18"
-
-# Redirect rules (optional - for single page app behavior if needed)
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
-  force = false
-  conditions = {Role = ["admin"]}
-
 # Headers for security and performance
 [[headers]]
   for = "/*"
