@@ -3,6 +3,22 @@
 [build]
   publish = "."
 
+[context.production]
+  publish = "."
+
+[context.deploy-preview]
+  command = "node .github/scripts/setup-preview.js"
+
+[[context.deploy-preview.headers]]
+  for = "/*"
+  [context.deploy-preview.headers.values]
+    X-Robots-Tag = "noindex, nofollow, noarchive"
+
+[[context.branch-deploy.headers]]
+  for = "/*"
+  [context.branch-deploy.headers.values]
+    X-Robots-Tag = "noindex, nofollow, noarchive"
+
 # Headers for security
 [[headers]]
   for = "/*"
