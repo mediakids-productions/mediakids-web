@@ -53,6 +53,7 @@
 </head>
 
 </head>
+
 <body class="leading-relaxed overflow-x-hidden relative">
 
     <!-- Change 3: Back to Top Button HTML -->
@@ -62,13 +63,12 @@
 
     <!-- Header (Updated with ID for scroll logic) -->
 
-        <header id="main-header" class="sticky top-0 z-50 transition-all duration-300 h-[88px]">
+    <header id="main-header" class="sticky top-0 z-50 transition-all duration-300 h-[88px]">
         <!-- nav tag for detecting leave -->
         <nav id="nav-container"
             class="container mx-auto px-6 flex justify-between items-stretch transition-all duration-300 relative z-50 h-full">
             <!-- Added menu-close-trigger to Logo -->
-            <a href="index.html"
-                class="nav-logo menu-close-trigger flex items-center space-x-3 py-4 relative z-50">
+            <a href="index.html" class="nav-logo menu-close-trigger flex items-center space-x-3 py-4 relative z-50">
                 <img id="logo-image" src="images/google-drive-image-17.jpg"
                     data-drive-src="images/google-drive-image-1.jpg" alt="MediaKids Academy Logo" class="h-10 w-auto"
                     loading="lazy" referrerpolicy="no-referrer" />
@@ -96,40 +96,26 @@
 
                 <!-- Trigger: Schools -->
                 <div class="group-trigger h-full flex items-center px-5" data-menu="schools">
-                    <a href="schools.html" class="nav-link flex items-center h-full w-full justify-center">
-                        Schools</a> <i class="fas fa-chevron-down text-xs ml-2 transition-transform duration-300"></i>
+                    <div class="menu-close-trigger flex items-center h-full px-5">
+                        <a href="jobs.html"
+                            class="nav-link nav-page flex items-center h-full w-full justify-center">Jobs</a>
+                    </div>
+                    <div class="menu-close-trigger flex items-center h-full px-5">
+                        <a href="contact.html"
+                            class="nav-page nav-link flex items-center h-full w-full justify-center">Contact</a>
+                    </div>
+                </div>
+
+                <!-- Added menu-close-trigger to Apply Button wrapper -->
+                <div class="menu-close-trigger hidden lg:flex items-center h-full relative z-50">
+                    <a href="jobs.html" class="btn-primary px-6 py-2 rounded-full nav-page ml-4">
+                        Apply Now
                     </a>
                 </div>
 
-                <!-- Added menu-close-trigger to non-dropdown items -->
-                <div class="menu-close-trigger flex items-center h-full px-5">
-                    <a href="activity.html"
-                        class="nav-page nav-link flex items-center h-full w-full justify-center">Activity</a>
-                </div>
-                <div class="menu-close-trigger flex items-center h-full px-5">
-                    <a href="faq.html"
-                        class="nav-page nav-link flex items-center h-full w-full justify-center">FAQ</a>
-                </div>
-                <div class="menu-close-trigger flex items-center h-full px-5">
-                    <a href="jobs.html"
-                        class="nav-link nav-page flex items-center h-full w-full justify-center">Jobs</a>
-                </div>
-                <div class="menu-close-trigger flex items-center h-full px-5">
-                    <a href="contact.html"
-                        class="nav-page nav-link flex items-center h-full w-full justify-center">Contact</a>
-                </div>
-            </div>
-
-            <!-- Added menu-close-trigger to Apply Button wrapper -->
-            <div class="menu-close-trigger hidden lg:flex items-center h-full relative z-50">
-                <a href="jobs.html" class="btn-primary px-6 py-2 rounded-full nav-page ml-4">
-                    Apply Now
-                </a>
-            </div>
-
-            <button id="mobile-menu-button" class="lg:hidden text-gray-800 focus:outline-none relative z-50">
-                <i class="fas fa-bars text-2xl"></i>
-            </a>
+                <button id="mobile-menu-button" class="lg:hidden text-gray-800 focus:outline-none relative z-50">
+                    <i class="fas fa-bars text-2xl"></i>
+                    </a>
         </nav>
 
         <!-- SINGLE MEGA MENU CONTAINER (ABSOLUTE TO TOP OF HEADER) -->
@@ -250,6 +236,42 @@
                     </div>
                 </div>
             </div>
+            <!-- Activity -->
+            <div id="mm-content-activity" class="mm-section">
+                <div class="container mx-auto px-6">
+                    <div class="grid grid-cols-12 gap-8">
+                        <div class="col-span-3 mm-col">
+                            <span class="mm-header">Activity Programs</span>
+                            <a href="programs.html#programs-camp" class="mm-link nav-page">English Camps</a>
+                            <a href="programs.html#programs-mk-awards" class="mm-link nav-page">MediaKids Awards</a>
+                            <a href="programs.html#programs-summer-camp" class="mm-link nav-page">Summer Camp in
+                                Canada</a>
+                        </div>
+                        <div class="col-span-3 mm-col">
+                            <span class="mm-header">Gallery & Updates</span>
+                            <a href="activity.html" class="mm-link nav-page">All Activities</a>
+                            <a href="activity.html#gallery" class="mm-link nav-page">Photo Gallery</a>
+                        </div>
+                        <div class="col-span-6 border-l border-gray-100 pl-12 mm-col">
+                            <span class="mm-header">Featured Activity</span>
+                            <div class="flex items-start gap-6 mt-4 group/card cursor-pointer"
+                                onclick="window.location.href='programs.html#programs-camp'">
+                                <div class="overflow-hidden rounded-lg shadow-sm w-40 h-24 flex-shrink-0">
+                                    <img src="images/unsplash-image-38.jpg"
+                                        class="w-full h-full object-cover transform transition-transform duration-500 group-hover/card:scale-110">
+                                </div>
+                                <div>
+                                    <p
+                                        class="text-base font-semibold text-gray-900 group-hover/card:text-blue-600 transition-colors">
+                                        English Camps</p>
+                                    <p class="text-sm text-gray-500 mt-2 leading-relaxed">Fun and educational camps for
+                                        students across Thailand.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </header>
 
@@ -261,44 +283,60 @@
             <button class="mobile-menu-toggle w-full flex justify-between items-center py-2 font-medium">
                 <span>About Us</span>
                 <i class="fas fa-chevron-down text-xs transform transition-transform duration-300"></i>
-            </a>
-            <div class="mobile-submenu hidden pl-4 mt-2 space-y-2 border-l-2 border-gray-100 ml-2">
-                <a href="about.html#about-mediakids" class="nav-page block py-1 text-gray-600">MediaKids</a>
-                <a href="about.html#about-team-hr" class="nav-page block py-1 text-gray-500">Overseas HR</a>
-                <a href="about.html#about-team-curriculum" class="nav-page block py-1 text-gray-500">Curriculum
-                    Dept</a>
-                <a href="about.html#about-team-consult" class="nav-page block py-1 text-gray-500">Operations Dept</a>
-            </div>
+                </a>
+                <div class="mobile-submenu hidden pl-4 mt-2 space-y-2 border-l-2 border-gray-100 ml-2">
+                    <a href="about.html#about-mediakids" class="nav-page block py-1 text-gray-600">MediaKids</a>
+                    <a href="about.html#about-team-hr" class="nav-page block py-1 text-gray-500">Overseas HR</a>
+                    <a href="about.html#about-team-curriculum" class="nav-page block py-1 text-gray-500">Curriculum
+                        Dept</a>
+                    <a href="about.html#about-team-consult" class="nav-page block py-1 text-gray-500">Operations
+                        Dept</a>
+                </div>
         </div>
         <div>
             <button class="mobile-menu-toggle w-full flex justify-between items-center py-2 font-medium">
                 <span>Programs</span>
                 <i class="fas fa-chevron-down text-xs transform transition-transform duration-300"></i>
-            </a>
-            <div class="mobile-submenu hidden pl-4 mt-2 space-y-2 border-l-2 border-gray-100 ml-2">
-                <a href="programs.html#programs-ecd" class="nav-page block py-1 text-gray-600">ECD Program</a>
-                <a href="programs.html#programs-iep" class="nav-page block py-1 text-gray-600">IEP Program</a>
-                <a href="programs.html#programs-ep-ip" class="nav-page block py-1 text-gray-600">IP / EP / MEP</a>
-                <a href="programs.html#programs-camp" class="nav-page block py-1 text-gray-500">English Camp</a>
-                <a href="programs.html#programs-mk-awards" class="nav-page block py-1 text-gray-500">MediaKids Award</a>
-                <a href="programs.html#programs-summer-camp" class="nav-page block py-1 text-gray-500">Summer Camp</a>
-            </div>
+                </a>
+                <div class="mobile-submenu hidden pl-4 mt-2 space-y-2 border-l-2 border-gray-100 ml-2">
+                    <a href="programs.html#programs-ecd" class="nav-page block py-1 text-gray-600">ECD Program</a>
+                    <a href="programs.html#programs-iep" class="nav-page block py-1 text-gray-600">IEP Program</a>
+                    <a href="programs.html#programs-ep-ip" class="nav-page block py-1 text-gray-600">IP / EP / MEP</a>
+                    <a href="programs.html#programs-camp" class="nav-page block py-1 text-gray-500">English Camp</a>
+                    <a href="programs.html#programs-mk-awards" class="nav-page block py-1 text-gray-500">MediaKids
+                        Award</a>
+                    <a href="programs.html#programs-summer-camp" class="nav-page block py-1 text-gray-500">Summer
+                        Camp</a>
+                </div>
         </div>
         <div>
             <button class="mobile-menu-toggle w-full flex justify-between items-center py-2 font-medium">
                 <span>Schools</span>
                 <i class="fas fa-chevron-down text-xs transform transition-transform duration-300"></i>
-            </a>
-            <div class="mobile-submenu hidden pl-4 mt-2 space-y-2 border-l-2 border-gray-100 ml-2">
-                <a href="schools.html#schools-central-north" class="nav-page block py-1 text-gray-600">Central &
-                    North</a>
-                <a href="schools.html#schools-esan1" class="nav-page block py-1 text-gray-600">Esan 1 Area</a>
-                <a href="schools.html#schools-esan2" class="nav-page block py-1 text-gray-600">Esan 2 Area</a>
-                <a href="schools.html#schools-esan3" class="nav-page block py-1 text-gray-600">Esan 3 Area</a>
-                <a href="schools.html#schools-esan4" class="nav-page block py-1 text-gray-600">Esan 4 Area</a>
-            </div>
+                </a>
+                <div class="mobile-submenu hidden pl-4 mt-2 space-y-2 border-l-2 border-gray-100 ml-2">
+                    <a href="schools.html#schools-central-north" class="nav-page block py-1 text-gray-600">Central &
+                        North</a>
+                    <a href="schools.html#schools-esan1" class="nav-page block py-1 text-gray-600">Esan 1 Area</a>
+                    <a href="schools.html#schools-esan2" class="nav-page block py-1 text-gray-600">Esan 2 Area</a>
+                    <a href="schools.html#schools-esan3" class="nav-page block py-1 text-gray-600">Esan 3 Area</a>
+                    <a href="schools.html#schools-esan4" class="nav-page block py-1 text-gray-600">Esan 4 Area</a>
+                </div>
         </div>
-        <a href="activity.html" class="nav-page block py-2 font-medium">Activity</a>
+        <div>
+            <button class="mobile-menu-toggle w-full flex justify-between items-center py-2 font-medium">
+                <span>Activity</span>
+                <i class="fas fa-chevron-down text-xs transform transition-transform duration-300"></i>
+                </a>
+                <div class="mobile-submenu hidden pl-4 mt-2 space-y-2 border-l-2 border-gray-100 ml-2">
+                    <a href="programs.html#programs-camp" class="nav-page block py-1 text-gray-600">English Camps</a>
+                    <a href="programs.html#programs-mk-awards" class="nav-page block py-1 text-gray-600">MediaKids
+                        Awards</a>
+                    <a href="programs.html#programs-summer-camp" class="nav-page block py-1 text-gray-600">Summer Camp
+                        in Canada</a>
+                    <a href="activity.html" class="nav-page block py-1 text-gray-500">View All Activities</a>
+                </div>
+        </div>
         <a href="faq.html" class="nav-page block py-2 font-medium">FAQ</a>
         <a href="jobs.html" class="block py-2 font-medium nav-page">Jobs</a>
         <a href="contact.html" class="nav-page block py-2 font-medium">Contact</a>
@@ -307,7 +345,7 @@
     </div>
 
     <main>
-                <div id="main-content">
+        <div id="main-content">
             <!-- ... (All original sections) ... -->
             <!-- I will include all sections as requested previously -->
             <section id="home" class="bg-hero-pattern relative z-10">
@@ -325,10 +363,10 @@
                             doorway to discovery. Join us in weaving tales of learning, growth, and mutual
                             understanding.</p>
                         <div class="mt-8 flex flex-wrap gap-4">
-                            <a href="jobs.html"
-                                class="nav-page btn-primary px-10 py-4 rounded-full text-lg">Explore Opportunities</a>
-                            <a href="about.html"
-                                class="nav-main btn-secondary px-10 py-4 rounded-full text-lg">Learn More</a>
+                            <a href="jobs.html" class="nav-page btn-primary px-10 py-4 rounded-full text-lg">Explore
+                                Opportunities</a>
+                            <a href="about.html" class="nav-main btn-secondary px-10 py-4 rounded-full text-lg">Learn
+                                More</a>
                         </div>
                     </div>
                     <div id="hero-slideshow" class="relative w-full h-[300px] md:h-[450px] overflow-hidden rounded-2xl"
@@ -618,10 +656,10 @@
                     <div class="flex justify-center items-center space-x-4 mt-8"><button id="prev-testimonial-btn"
                             class="bg-white rounded-full w-12 h-12 flex items-center justify-center shadow-md hover:bg-gray-100 transition"><i
                                 class="fas fa-arrow-left text-gray-600"></i></a>
-                        <div id="testimonial-dots-container" class="flex space-x-2"></div><button
-                            id="next-testimonial-btn"
-                            class="bg-white rounded-full w-12 h-12 flex items-center justify-center shadow-md hover:bg-gray-100 transition"><i
-                                class="fas fa-arrow-right text-gray-600"></i></button>
+                            <div id="testimonial-dots-container" class="flex space-x-2"></div><button
+                                id="next-testimonial-btn"
+                                class="bg-white rounded-full w-12 h-12 flex items-center justify-center shadow-md hover:bg-gray-100 transition"><i
+                                    class="fas fa-arrow-right text-gray-600"></i></button>
                     </div>
                 </div>
         </div>
@@ -747,13 +785,12 @@
                             <div class="text-center"><button type="submit"
                                     class="btn-primary w-full md:w-auto py-4 px-12 rounded-full text-lg">Send
                                     Application</a>
-                                <p id="contact-form-status" class="mt-4 text-sm text-gray-500 hidden"></p>
+                                    <p id="contact-form-status" class="mt-4 text-sm text-gray-500 hidden"></p>
                             </div>
                         </form>
                     </div>
                 </div>
-                <div id="thank-you-message" class="text-center max-w-4xl mx-auto card p-8 lg:p-12"
-                    data-aos="fade-up">
+                <div id="thank-you-message" class="text-center max-w-4xl mx-auto card p-8 lg:p-12" data-aos="fade-up">
                     <h2 class="text-3xl font-bold text-blue-600 mb-4">Thank You!</h2>
                     <p class="text-gray-700 text-lg">Your application has been sent successfully. We will get back
                         to you shortly.</p><i class="fas fa-check-circle text-green-500 text-6xl mt-6"></i>
@@ -763,12 +800,12 @@
         </div>
 
     </main>
-        <footer class="bg-[#0A192F] text-white py-16 border-t border-gray-800">
+    <footer class="bg-[#0A192F] text-white py-16 border-t border-gray-800">
         <div class="container mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
                 <div class="space-y-4">
-                    <a href="index.html"
-                        class="nav-logo text-3xl font-bold text-blue-400 block mb-4">MediaKids<span class="text-white">
+                    <a href="index.html" class="nav-logo text-3xl font-bold text-blue-400 block mb-4">MediaKids<span
+                            class="text-white">
                             Academy</span></a>
                     <p class="text-gray-400 text-sm leading-relaxed">Empowering education in Thailand since 2001.
                         Connecting passionate teachers with schools nationwide to create a brighter future.</p>
@@ -824,8 +861,9 @@
         </div>
     </footer>
 
-        <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="js/script.js"></script>
 
 </body>
+
 </html>

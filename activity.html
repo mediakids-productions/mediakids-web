@@ -53,6 +53,7 @@
 </head>
 
 </head>
+
 <body class="leading-relaxed overflow-x-hidden relative">
 
     <!-- Change 3: Back to Top Button HTML -->
@@ -62,13 +63,12 @@
 
     <!-- Header (Updated with ID for scroll logic) -->
 
-        <header id="main-header" class="sticky top-0 z-50 transition-all duration-300 h-[88px]">
+    <header id="main-header" class="sticky top-0 z-50 transition-all duration-300 h-[88px]">
         <!-- nav tag for detecting leave -->
         <nav id="nav-container"
             class="container mx-auto px-6 flex justify-between items-stretch transition-all duration-300 relative z-50 h-full">
             <!-- Added menu-close-trigger to Logo -->
-            <a href="index.html"
-                class="nav-logo menu-close-trigger flex items-center space-x-3 py-4 relative z-50">
+            <a href="index.html" class="nav-logo menu-close-trigger flex items-center space-x-3 py-4 relative z-50">
                 <img id="logo-image" src="images/google-drive-image-17.jpg"
                     data-drive-src="images/google-drive-image-1.jpg" alt="MediaKids Academy Logo" class="h-10 w-auto"
                     loading="lazy" referrerpolicy="no-referrer" />
@@ -96,40 +96,26 @@
 
                 <!-- Trigger: Schools -->
                 <div class="group-trigger h-full flex items-center px-5" data-menu="schools">
-                    <a href="schools.html" class="nav-link flex items-center h-full w-full justify-center">
-                        Schools</a> <i class="fas fa-chevron-down text-xs ml-2 transition-transform duration-300"></i>
+                    <div class="menu-close-trigger flex items-center h-full px-5">
+                        <a href="jobs.html"
+                            class="nav-link nav-page flex items-center h-full w-full justify-center">Jobs</a>
+                    </div>
+                    <div class="menu-close-trigger flex items-center h-full px-5">
+                        <a href="contact.html"
+                            class="nav-page nav-link flex items-center h-full w-full justify-center">Contact</a>
+                    </div>
+                </div>
+
+                <!-- Added menu-close-trigger to Apply Button wrapper -->
+                <div class="menu-close-trigger hidden lg:flex items-center h-full relative z-50">
+                    <a href="jobs.html" class="btn-primary px-6 py-2 rounded-full nav-page ml-4">
+                        Apply Now
                     </a>
                 </div>
 
-                <!-- Added menu-close-trigger to non-dropdown items -->
-                <div class="menu-close-trigger flex items-center h-full px-5">
-                    <a href="activity.html"
-                        class="nav-page nav-link active-menu flex items-center h-full w-full justify-center">Activity</a>
-                </div>
-                <div class="menu-close-trigger flex items-center h-full px-5">
-                    <a href="faq.html"
-                        class="nav-page nav-link flex items-center h-full w-full justify-center">FAQ</a>
-                </div>
-                <div class="menu-close-trigger flex items-center h-full px-5">
-                    <a href="jobs.html"
-                        class="nav-link nav-page flex items-center h-full w-full justify-center">Jobs</a>
-                </div>
-                <div class="menu-close-trigger flex items-center h-full px-5">
-                    <a href="contact.html"
-                        class="nav-page nav-link flex items-center h-full w-full justify-center">Contact</a>
-                </div>
-            </div>
-
-            <!-- Added menu-close-trigger to Apply Button wrapper -->
-            <div class="menu-close-trigger hidden lg:flex items-center h-full relative z-50">
-                <a href="jobs.html" class="btn-primary px-6 py-2 rounded-full nav-page ml-4">
-                    Apply Now
-                </a>
-            </div>
-
-            <button id="mobile-menu-button" class="lg:hidden text-gray-800 focus:outline-none relative z-50">
-                <i class="fas fa-bars text-2xl"></i>
-            </a>
+                <button id="mobile-menu-button" class="lg:hidden text-gray-800 focus:outline-none relative z-50">
+                    <i class="fas fa-bars text-2xl"></i>
+                    </a>
         </nav>
 
         <!-- SINGLE MEGA MENU CONTAINER (ABSOLUTE TO TOP OF HEADER) -->
@@ -250,6 +236,42 @@
                     </div>
                 </div>
             </div>
+            <!-- Activity -->
+            <div id="mm-content-activity" class="mm-section">
+                <div class="container mx-auto px-6">
+                    <div class="grid grid-cols-12 gap-8">
+                        <div class="col-span-3 mm-col">
+                            <span class="mm-header">Activity Programs</span>
+                            <a href="programs.html#programs-camp" class="mm-link nav-page">English Camps</a>
+                            <a href="programs.html#programs-mk-awards" class="mm-link nav-page">MediaKids Awards</a>
+                            <a href="programs.html#programs-summer-camp" class="mm-link nav-page">Summer Camp in
+                                Canada</a>
+                        </div>
+                        <div class="col-span-3 mm-col">
+                            <span class="mm-header">Gallery & Updates</span>
+                            <a href="activity.html" class="mm-link nav-page">All Activities</a>
+                            <a href="activity.html#gallery" class="mm-link nav-page">Photo Gallery</a>
+                        </div>
+                        <div class="col-span-6 border-l border-gray-100 pl-12 mm-col">
+                            <span class="mm-header">Featured Activity</span>
+                            <div class="flex items-start gap-6 mt-4 group/card cursor-pointer"
+                                onclick="window.location.href='programs.html#programs-camp'">
+                                <div class="overflow-hidden rounded-lg shadow-sm w-40 h-24 flex-shrink-0">
+                                    <img src="images/unsplash-image-38.jpg"
+                                        class="w-full h-full object-cover transform transition-transform duration-500 group-hover/card:scale-110">
+                                </div>
+                                <div>
+                                    <p
+                                        class="text-base font-semibold text-gray-900 group-hover/card:text-blue-600 transition-colors">
+                                        English Camps</p>
+                                    <p class="text-sm text-gray-500 mt-2 leading-relaxed">Fun and educational camps for
+                                        students across Thailand.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </header>
 
@@ -261,44 +283,60 @@
             <button class="mobile-menu-toggle w-full flex justify-between items-center py-2 font-medium">
                 <span>About Us</span>
                 <i class="fas fa-chevron-down text-xs transform transition-transform duration-300"></i>
-            </a>
-            <div class="mobile-submenu hidden pl-4 mt-2 space-y-2 border-l-2 border-gray-100 ml-2">
-                <a href="about.html#about-mediakids" class="nav-page block py-1 text-gray-600">MediaKids</a>
-                <a href="about.html#about-team-hr" class="nav-page block py-1 text-gray-500">Overseas HR</a>
-                <a href="about.html#about-team-curriculum" class="nav-page block py-1 text-gray-500">Curriculum
-                    Dept</a>
-                <a href="about.html#about-team-consult" class="nav-page block py-1 text-gray-500">Operations Dept</a>
-            </div>
+                </a>
+                <div class="mobile-submenu hidden pl-4 mt-2 space-y-2 border-l-2 border-gray-100 ml-2">
+                    <a href="about.html#about-mediakids" class="nav-page block py-1 text-gray-600">MediaKids</a>
+                    <a href="about.html#about-team-hr" class="nav-page block py-1 text-gray-500">Overseas HR</a>
+                    <a href="about.html#about-team-curriculum" class="nav-page block py-1 text-gray-500">Curriculum
+                        Dept</a>
+                    <a href="about.html#about-team-consult" class="nav-page block py-1 text-gray-500">Operations
+                        Dept</a>
+                </div>
         </div>
         <div>
             <button class="mobile-menu-toggle w-full flex justify-between items-center py-2 font-medium">
                 <span>Programs</span>
                 <i class="fas fa-chevron-down text-xs transform transition-transform duration-300"></i>
-            </a>
-            <div class="mobile-submenu hidden pl-4 mt-2 space-y-2 border-l-2 border-gray-100 ml-2">
-                <a href="programs.html#programs-ecd" class="nav-page block py-1 text-gray-600">ECD Program</a>
-                <a href="programs.html#programs-iep" class="nav-page block py-1 text-gray-600">IEP Program</a>
-                <a href="programs.html#programs-ep-ip" class="nav-page block py-1 text-gray-600">IP / EP / MEP</a>
-                <a href="programs.html#programs-camp" class="nav-page block py-1 text-gray-500">English Camp</a>
-                <a href="programs.html#programs-mk-awards" class="nav-page block py-1 text-gray-500">MediaKids Award</a>
-                <a href="programs.html#programs-summer-camp" class="nav-page block py-1 text-gray-500">Summer Camp</a>
-            </div>
+                </a>
+                <div class="mobile-submenu hidden pl-4 mt-2 space-y-2 border-l-2 border-gray-100 ml-2">
+                    <a href="programs.html#programs-ecd" class="nav-page block py-1 text-gray-600">ECD Program</a>
+                    <a href="programs.html#programs-iep" class="nav-page block py-1 text-gray-600">IEP Program</a>
+                    <a href="programs.html#programs-ep-ip" class="nav-page block py-1 text-gray-600">IP / EP / MEP</a>
+                    <a href="programs.html#programs-camp" class="nav-page block py-1 text-gray-500">English Camp</a>
+                    <a href="programs.html#programs-mk-awards" class="nav-page block py-1 text-gray-500">MediaKids
+                        Award</a>
+                    <a href="programs.html#programs-summer-camp" class="nav-page block py-1 text-gray-500">Summer
+                        Camp</a>
+                </div>
         </div>
         <div>
             <button class="mobile-menu-toggle w-full flex justify-between items-center py-2 font-medium">
                 <span>Schools</span>
                 <i class="fas fa-chevron-down text-xs transform transition-transform duration-300"></i>
-            </a>
-            <div class="mobile-submenu hidden pl-4 mt-2 space-y-2 border-l-2 border-gray-100 ml-2">
-                <a href="schools.html#schools-central-north" class="nav-page block py-1 text-gray-600">Central &
-                    North</a>
-                <a href="schools.html#schools-esan1" class="nav-page block py-1 text-gray-600">Esan 1 Area</a>
-                <a href="schools.html#schools-esan2" class="nav-page block py-1 text-gray-600">Esan 2 Area</a>
-                <a href="schools.html#schools-esan3" class="nav-page block py-1 text-gray-600">Esan 3 Area</a>
-                <a href="schools.html#schools-esan4" class="nav-page block py-1 text-gray-600">Esan 4 Area</a>
-            </div>
+                </a>
+                <div class="mobile-submenu hidden pl-4 mt-2 space-y-2 border-l-2 border-gray-100 ml-2">
+                    <a href="schools.html#schools-central-north" class="nav-page block py-1 text-gray-600">Central &
+                        North</a>
+                    <a href="schools.html#schools-esan1" class="nav-page block py-1 text-gray-600">Esan 1 Area</a>
+                    <a href="schools.html#schools-esan2" class="nav-page block py-1 text-gray-600">Esan 2 Area</a>
+                    <a href="schools.html#schools-esan3" class="nav-page block py-1 text-gray-600">Esan 3 Area</a>
+                    <a href="schools.html#schools-esan4" class="nav-page block py-1 text-gray-600">Esan 4 Area</a>
+                </div>
         </div>
-        <a href="activity.html" class="nav-page block py-2 font-medium">Activity</a>
+        <div>
+            <button class="mobile-menu-toggle w-full flex justify-between items-center py-2 font-medium">
+                <span>Activity</span>
+                <i class="fas fa-chevron-down text-xs transform transition-transform duration-300"></i>
+                </a>
+                <div class="mobile-submenu hidden pl-4 mt-2 space-y-2 border-l-2 border-gray-100 ml-2">
+                    <a href="programs.html#programs-camp" class="nav-page block py-1 text-gray-600">English Camps</a>
+                    <a href="programs.html#programs-mk-awards" class="nav-page block py-1 text-gray-600">MediaKids
+                        Awards</a>
+                    <a href="programs.html#programs-summer-camp" class="nav-page block py-1 text-gray-600">Summer Camp
+                        in Canada</a>
+                    <a href="activity.html" class="nav-page block py-1 text-gray-500">View All Activities</a>
+                </div>
+        </div>
         <a href="faq.html" class="nav-page block py-2 font-medium">FAQ</a>
         <a href="jobs.html" class="block py-2 font-medium nav-page">Jobs</a>
         <a href="contact.html" class="nav-page block py-2 font-medium">Contact</a>
@@ -307,31 +345,42 @@
     </div>
 
     <main class="pt-24">
-                <section id="activity" class="py-20 bg-white">
+        <section id="activity" class="py-20 bg-white">
             <div class="container mx-auto px-6">
                 <!-- Header -->
                 <div class="text-center mb-16">
                     <h2 class="section-title">Our Activities & Events</h2>
-                    <p class="section-subtitle">Discover the exciting activities, events, and memorable moments happening across our partner schools in Thailand.</p>
+                    <p class="section-subtitle">Discover the exciting activities, events, and memorable moments
+                        happening across our partner schools in Thailand.</p>
                 </div>
 
                 <!-- Activity Categories Tabs -->
                 <div class="flex flex-wrap justify-center gap-4 mb-12" data-aos="fade-up">
-                    <button class="activity-tab active px-6 py-3 rounded-full bg-blue-600 text-white font-semibold transition-all hover:bg-blue-700" data-category="all">
+                    <button
+                        class="activity-tab active px-6 py-3 rounded-full bg-blue-600 text-white font-semibold transition-all hover:bg-blue-700"
+                        data-category="all">
                         All Activities
-                    </a>
-                    <button class="activity-tab px-6 py-3 rounded-full bg-gray-200 text-gray-700 font-semibold transition-all hover:bg-blue-600 hover:text-white" data-category="camps">
-                        English Camps
-                    </button>
-                    <button class="activity-tab px-6 py-3 rounded-full bg-gray-200 text-gray-700 font-semibold transition-all hover:bg-blue-600 hover:text-white" data-category="classroom">
-                        Classroom Activities
-                    </button>
-                    <button class="activity-tab px-6 py-3 rounded-full bg-gray-200 text-gray-700 font-semibold transition-all hover:bg-blue-600 hover:text-white" data-category="events">
-                        Special Events
-                    </button>
-                    <button class="activity-tab px-6 py-3 rounded-full bg-gray-200 text-gray-700 font-semibold transition-all hover:bg-blue-600 hover:text-white" data-category="cultural">
-                        Cultural Exchange
-                    </button>
+                        </a>
+                        <button
+                            class="activity-tab px-6 py-3 rounded-full bg-gray-200 text-gray-700 font-semibold transition-all hover:bg-blue-600 hover:text-white"
+                            data-category="camps">
+                            English Camps
+                        </button>
+                        <button
+                            class="activity-tab px-6 py-3 rounded-full bg-gray-200 text-gray-700 font-semibold transition-all hover:bg-blue-600 hover:text-white"
+                            data-category="classroom">
+                            Classroom Activities
+                        </button>
+                        <button
+                            class="activity-tab px-6 py-3 rounded-full bg-gray-200 text-gray-700 font-semibold transition-all hover:bg-blue-600 hover:text-white"
+                            data-category="events">
+                            Special Events
+                        </button>
+                        <button
+                            class="activity-tab px-6 py-3 rounded-full bg-gray-200 text-gray-700 font-semibold transition-all hover:bg-blue-600 hover:text-white"
+                            data-category="cultural">
+                            Cultural Exchange
+                        </button>
                 </div>
 
                 <!-- Activity Grid -->
@@ -339,9 +388,12 @@
                     <!-- Activity Card 1 -->
                     <div class="activity-card card overflow-hidden group" data-category="camps" data-aos="fade-up">
                         <div class="relative overflow-hidden h-64">
-                            <img src="images/unsplash-image-12.jpg" alt="English Camp Activity" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110">
+                            <img src="images/unsplash-image-12.jpg" alt="English Camp Activity"
+                                class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110">
                             <div class="absolute top-4 right-4">
-                                <span class="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-semibold">English Camp</span>
+                                <span
+                                    class="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-semibold">English
+                                    Camp</span>
                             </div>
                         </div>
                         <div class="p-6">
@@ -352,19 +404,24 @@
                                 <span>Khon Kaen</span>
                             </div>
                             <h3 class="text-xl font-bold mb-2 text-gray-800">Adventure English Camp 2024</h3>
-                            <p class="text-gray-600 mb-4">Students explored nature while practicing English through fun outdoor activities and team challenges.</p>
-                            <a href="#" class="text-blue-600 font-semibold hover:text-blue-800 transition inline-flex items-center">
+                            <p class="text-gray-600 mb-4">Students explored nature while practicing English through fun
+                                outdoor activities and team challenges.</p>
+                            <a href="#"
+                                class="text-blue-600 font-semibold hover:text-blue-800 transition inline-flex items-center">
                                 View Gallery <i class="fas fa-arrow-right ml-2"></i>
                             </a>
                         </div>
                     </div>
 
                     <!-- Activity Card 2 -->
-                    <div class="activity-card card overflow-hidden group" data-category="classroom" data-aos="fade-up" data-aos-delay="100">
+                    <div class="activity-card card overflow-hidden group" data-category="classroom" data-aos="fade-up"
+                        data-aos-delay="100">
                         <div class="relative overflow-hidden h-64">
-                            <img src="images/unsplash-image-3.jpg" alt="Classroom Activity" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110">
+                            <img src="images/unsplash-image-3.jpg" alt="Classroom Activity"
+                                class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110">
                             <div class="absolute top-4 right-4">
-                                <span class="bg-green-600 text-white px-3 py-1 rounded-full text-sm font-semibold">Classroom</span>
+                                <span
+                                    class="bg-green-600 text-white px-3 py-1 rounded-full text-sm font-semibold">Classroom</span>
                             </div>
                         </div>
                         <div class="p-6">
@@ -375,19 +432,25 @@
                                 <span>Nakhon Ratchasima</span>
                             </div>
                             <h3 class="text-xl font-bold mb-2 text-gray-800">Interactive Learning Week</h3>
-                            <p class="text-gray-600 mb-4">Students engaged in hands-on learning activities, building confidence in English communication.</p>
-                            <a href="#" class="text-blue-600 font-semibold hover:text-blue-800 transition inline-flex items-center">
+                            <p class="text-gray-600 mb-4">Students engaged in hands-on learning activities, building
+                                confidence in English communication.</p>
+                            <a href="#"
+                                class="text-blue-600 font-semibold hover:text-blue-800 transition inline-flex items-center">
                                 View Gallery <i class="fas fa-arrow-right ml-2"></i>
                             </a>
                         </div>
                     </div>
 
                     <!-- Activity Card 3 -->
-                    <div class="activity-card card overflow-hidden group" data-category="events" data-aos="fade-up" data-aos-delay="200">
+                    <div class="activity-card card overflow-hidden group" data-category="events" data-aos="fade-up"
+                        data-aos-delay="200">
                         <div class="relative overflow-hidden h-64">
-                            <img src="images/unsplash-image-8.jpg" alt="Awards Ceremony" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110">
+                            <img src="images/unsplash-image-8.jpg" alt="Awards Ceremony"
+                                class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110">
                             <div class="absolute top-4 right-4">
-                                <span class="bg-purple-600 text-white px-3 py-1 rounded-full text-sm font-semibold">Special Event</span>
+                                <span
+                                    class="bg-purple-600 text-white px-3 py-1 rounded-full text-sm font-semibold">Special
+                                    Event</span>
                             </div>
                         </div>
                         <div class="p-6">
@@ -398,8 +461,10 @@
                                 <span>Bangkok</span>
                             </div>
                             <h3 class="text-xl font-bold mb-2 text-gray-800">MediaKids Awards Ceremony</h3>
-                            <p class="text-gray-600 mb-4">Celebrating excellence in teaching and recognizing outstanding achievements of our teachers and students.</p>
-                            <a href="#" class="text-blue-600 font-semibold hover:text-blue-800 transition inline-flex items-center">
+                            <p class="text-gray-600 mb-4">Celebrating excellence in teaching and recognizing outstanding
+                                achievements of our teachers and students.</p>
+                            <a href="#"
+                                class="text-blue-600 font-semibold hover:text-blue-800 transition inline-flex items-center">
                                 View Gallery <i class="fas fa-arrow-right ml-2"></i>
                             </a>
                         </div>
@@ -408,9 +473,11 @@
                     <!-- Activity Card 4 -->
                     <div class="activity-card card overflow-hidden group" data-category="cultural" data-aos="fade-up">
                         <div class="relative overflow-hidden h-64">
-                            <img src="images/unsplash-image-33.jpg" alt="Cultural Exchange" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110">
+                            <img src="images/unsplash-image-33.jpg" alt="Cultural Exchange"
+                                class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110">
                             <div class="absolute top-4 right-4">
-                                <span class="bg-orange-600 text-white px-3 py-1 rounded-full text-sm font-semibold">Cultural</span>
+                                <span
+                                    class="bg-orange-600 text-white px-3 py-1 rounded-full text-sm font-semibold">Cultural</span>
                             </div>
                         </div>
                         <div class="p-6">
@@ -421,19 +488,25 @@
                                 <span>Udon Thani</span>
                             </div>
                             <h3 class="text-xl font-bold mb-2 text-gray-800">Thai Culture Day</h3>
-                            <p class="text-gray-600 mb-4">Teachers and students celebrated Thai traditions, sharing cultural experiences and building understanding.</p>
-                            <a href="#" class="text-blue-600 font-semibold hover:text-blue-800 transition inline-flex items-center">
+                            <p class="text-gray-600 mb-4">Teachers and students celebrated Thai traditions, sharing
+                                cultural experiences and building understanding.</p>
+                            <a href="#"
+                                class="text-blue-600 font-semibold hover:text-blue-800 transition inline-flex items-center">
                                 View Gallery <i class="fas fa-arrow-right ml-2"></i>
                             </a>
                         </div>
                     </div>
 
                     <!-- Activity Card 5 -->
-                    <div class="activity-card card overflow-hidden group" data-category="camps" data-aos="fade-up" data-aos-delay="100">
+                    <div class="activity-card card overflow-hidden group" data-category="camps" data-aos="fade-up"
+                        data-aos-delay="100">
                         <div class="relative overflow-hidden h-64">
-                            <img src="images/unsplash-image-27.jpg" alt="Summer Camp" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110">
+                            <img src="images/unsplash-image-27.jpg" alt="Summer Camp"
+                                class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110">
                             <div class="absolute top-4 right-4">
-                                <span class="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-semibold">English Camp</span>
+                                <span
+                                    class="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-semibold">English
+                                    Camp</span>
                             </div>
                         </div>
                         <div class="p-6">
@@ -444,19 +517,24 @@
                                 <span>Buriram</span>
                             </div>
                             <h3 class="text-xl font-bold mb-2 text-gray-800">Project-Based Learning Camp</h3>
-                            <p class="text-gray-600 mb-4">Students worked in teams on creative projects, developing communication and collaboration skills.</p>
-                            <a href="#" class="text-blue-600 font-semibold hover:text-blue-800 transition inline-flex items-center">
+                            <p class="text-gray-600 mb-4">Students worked in teams on creative projects, developing
+                                communication and collaboration skills.</p>
+                            <a href="#"
+                                class="text-blue-600 font-semibold hover:text-blue-800 transition inline-flex items-center">
                                 View Gallery <i class="fas fa-arrow-right ml-2"></i>
                             </a>
                         </div>
                     </div>
 
                     <!-- Activity Card 6 -->
-                    <div class="activity-card card overflow-hidden group" data-category="classroom" data-aos="fade-up" data-aos-delay="200">
+                    <div class="activity-card card overflow-hidden group" data-category="classroom" data-aos="fade-up"
+                        data-aos-delay="200">
                         <div class="relative overflow-hidden h-64">
-                            <img src="images/unsplash-image-16.jpg" alt="Reading Activity" class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110">
+                            <img src="images/unsplash-image-16.jpg" alt="Reading Activity"
+                                class="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110">
                             <div class="absolute top-4 right-4">
-                                <span class="bg-green-600 text-white px-3 py-1 rounded-full text-sm font-semibold">Classroom</span>
+                                <span
+                                    class="bg-green-600 text-white px-3 py-1 rounded-full text-sm font-semibold">Classroom</span>
                             </div>
                         </div>
                         <div class="p-6">
@@ -467,8 +545,10 @@
                                 <span>Ubon Ratchathani</span>
                             </div>
                             <h3 class="text-xl font-bold mb-2 text-gray-800">Reading Week Challenge</h3>
-                            <p class="text-gray-600 mb-4">Students discovered the joy of reading through storytelling sessions and interactive book activities.</p>
-                            <a href="#" class="text-blue-600 font-semibold hover:text-blue-800 transition inline-flex items-center">
+                            <p class="text-gray-600 mb-4">Students discovered the joy of reading through storytelling
+                                sessions and interactive book activities.</p>
+                            <a href="#"
+                                class="text-blue-600 font-semibold hover:text-blue-800 transition inline-flex items-center">
                                 View Gallery <i class="fas fa-arrow-right ml-2"></i>
                             </a>
                         </div>
@@ -476,11 +556,14 @@
                 </div>
 
                 <!-- Featured Section -->
-                <div class="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-12 text-white text-center mb-16" data-aos="zoom-in">
+                <div class="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-12 text-white text-center mb-16"
+                    data-aos="zoom-in">
                     <div class="max-w-3xl mx-auto">
                         <h3 class="text-3xl font-bold mb-4">Join Our Next Activity!</h3>
-                        <p class="text-lg mb-8 opacity-90">Want to be part of these amazing experiences? Our upcoming English camp is accepting registrations now.</p>
-                        <a href="programs.html#programs-camp" class="nav-page inline-block bg-white text-blue-600 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-colors">
+                        <p class="text-lg mb-8 opacity-90">Want to be part of these amazing experiences? Our upcoming
+                            English camp is accepting registrations now.</p>
+                        <a href="programs.html#programs-camp"
+                            class="nav-page inline-block bg-white text-blue-600 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-colors">
                             Learn More About Our Camps
                         </a>
                     </div>
@@ -509,12 +592,12 @@
         </section>
 
     </main>
-        <footer class="bg-[#0A192F] text-white py-16 border-t border-gray-800">
+    <footer class="bg-[#0A192F] text-white py-16 border-t border-gray-800">
         <div class="container mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
                 <div class="space-y-4">
-                    <a href="index.html"
-                        class="nav-logo text-3xl font-bold text-blue-400 block mb-4">MediaKids<span class="text-white">
+                    <a href="index.html" class="nav-logo text-3xl font-bold text-blue-400 block mb-4">MediaKids<span
+                            class="text-white">
                             Academy</span></a>
                     <p class="text-gray-400 text-sm leading-relaxed">Empowering education in Thailand since 2001.
                         Connecting passionate teachers with schools nationwide to create a brighter future.</p>
@@ -570,8 +653,9 @@
         </div>
     </footer>
 
-        <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="js/script.js"></script>
 
 </body>
+
 </html>
