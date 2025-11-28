@@ -1,0 +1,306 @@
+const headerHTML = `
+    <header id="main-header" class="sticky top-0 z-50 transition-all duration-300 h-[88px]">
+        <nav id="nav-container" class="container mx-auto px-6 flex justify-between items-stretch transition-all duration-300 relative z-50 h-full">
+            <a href="index.html" class="nav-logo menu-close-trigger flex items-center space-x-3 py-4 relative z-50">
+                <img id="logo-image" src="images/google-drive-image-17.jpg" data-drive-src="images/google-drive-image-1.jpg" alt="MediaKids Academy Logo" class="h-10 w-auto" loading="lazy" referrerpolicy="no-referrer" />
+                <span class="text-3xl font-bold accent-text">
+                    MediaKids<span class="text-gray-800"> Academy</span>
+                </span>
+            </a>
+
+            <div class="hidden lg:flex items-stretch h-full relative z-50">
+                <div class="group-trigger h-full flex items-center px-5" data-menu="about">
+                    <a href="about.html" class="nav-link flex items-center h-full w-full justify-center">
+                        About Us</a> <i class="fas fa-chevron-down text-xs ml-2 transition-transform duration-300"></i>
+                    </a>
+                </div>
+
+                <div class="group-trigger h-full flex items-center px-5" data-menu="programs">
+                    <a href="programs.html" class="nav-link flex items-center h-full w-full justify-center">
+                        Programs</a> <i class="fas fa-chevron-down text-xs ml-2 transition-transform duration-300"></i>
+                    </a>
+                </div>
+
+                <div class="group-trigger h-full flex items-center px-5" data-menu="schools">
+                    <a href="schools.html" class="nav-link flex items-center h-full w-full justify-center">
+                        Schools</a> <i class="fas fa-chevron-down text-xs ml-2 transition-transform duration-300"></i>
+                    </a>
+                </div>
+
+                <!-- Activity Dropdown Trigger -->
+                <div class="group-trigger h-full flex items-center px-5" data-menu="activity">
+                    <a href="activity.html" class="nav-link flex items-center h-full w-full justify-center">
+                        Activity</a> <i class="fas fa-chevron-down text-xs ml-2 transition-transform duration-300"></i>
+                    </a>
+                </div>
+
+                <div class="menu-close-trigger flex items-center h-full px-5">
+                    <a href="faq.html" class="nav-page nav-link flex items-center h-full w-full justify-center">FAQ</a>
+                </div>
+                <div class="menu-close-trigger flex items-center h-full px-5">
+                    <a href="jobs.html" class="nav-link nav-page flex items-center h-full w-full justify-center">Jobs</a>
+                </div>
+                <div class="menu-close-trigger flex items-center h-full px-5">
+                    <a href="contact.html" class="nav-page nav-link flex items-center h-full w-full justify-center">Contact</a>
+                </div>
+            </div>
+
+            <div class="menu-close-trigger hidden lg:flex items-center h-full relative z-50">
+                <a href="jobs.html" class="btn-primary px-6 py-2 rounded-full nav-page ml-4">
+                    Apply Now
+                </a>
+            </div>
+                        </div>
+                        <div class="col-span-3 mm-col">
+                            <span class="mm-header">Our Departments</span>
+                            <a href="about.html#about-team-hr" class="mm-link nav-page">Human Resources (HR)</a>
+                            <a href="about.html#about-team-curriculum" class="mm-link nav-page">Curriculum Development</a>
+                            <a href="about.html#about-team-consult" class="mm-link nav-page">Operations & Support</a>
+                        </div>
+                        <div class="col-span-6 border-l border-gray-100 pl-12 mm-col">
+                            <span class="mm-header">Featured</span>
+                            <div class="flex items-start gap-6 mt-4 group/card cursor-pointer" onclick="document.querySelector('[data-page=\'about-mediakids\']').click()">
+                                <div class="overflow-hidden rounded-lg shadow-sm w-40 h-24 flex-shrink-0">
+                                    <img src="images/unsplash-image-33.jpg" class="w-full h-full object-cover transform transition-transform duration-500 group-hover/card:scale-110">
+                                </div>
+                                <div>
+                                    <p class="text-base font-semibold text-gray-900 group-hover/card:text-blue-600 transition-colors">About MediaKids Academy</p>
+                                    <p class="text-sm text-gray-500 mt-2 leading-relaxed">Your trusted partner in education since 2001.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Programs -->
+            <div id="mm-content-programs" class="mm-section">
+                <div class="container mx-auto px-6">
+                    <div class="grid grid-cols-12 gap-8">
+                        <div class="col-span-3 mm-col">
+                            <span class="mm-header">Academic Programs</span>
+                            <a href="programs.html#programs-ecd" class="mm-link nav-page">ECD Program <span class="mm-sub-text">(3-6 Years)</span></a>
+                            <a href="programs.html#programs-iep" class="mm-link nav-page">IEP Program <span class="mm-sub-text">(Intensive)</span></a>
+                            <a href="programs.html#programs-ep-ip" class="mm-link nav-page">IP / EP / MEP Program</a>
+                        </div>
+                        <div class="col-span-3 mm-col">
+                            <span class="mm-header">Student Activities</span>
+                            <a href="programs.html#programs-camp" class="mm-link nav-page">English Camps</a>
+                            <a href="programs.html#programs-mk-awards" class="mm-link nav-page">MediaKids Awards</a>
+                            <a href="programs.html#programs-summer-camp" class="mm-link nav-page">Summer Camp in Canada</a>
+                        </div>
+                        <div class="col-span-6 border-l border-gray-100 pl-12 mm-col">
+                            <span class="mm-header">Highlights</span>
+                            <div class="grid grid-cols-2 gap-6 mt-4">
+                                <a href="programs.html#programs-camp" class="group/img block nav-page">
+                                    <div class="overflow-hidden rounded-lg shadow-sm h-32 mb-3">
+                                        <img src="images/unsplash-image-38.jpg" class="w-full h-full object-cover transform transition-transform duration-500 group-hover/img:scale-110">
+                                    </div>
+                                    <span class="text-sm font-semibold text-gray-800 group-hover/img:text-blue-600">English Camps</span>
+                                </a>
+                                <a href="programs.html#programs-summer-camp" class="group/img block nav-page">
+                                    <div class="overflow-hidden rounded-lg shadow-sm h-32 mb-3">
+                                        <img src="images/unsplash-image-20.jpg" class="w-full h-full object-cover transform transition-transform duration-500 group-hover/img:scale-110">
+                                    </div>
+                                    <span class="text-sm font-semibold text-gray-800 group-hover/img:text-blue-600">Overseas Trips</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Schools -->
+            <div id="mm-content-schools" class="mm-section">
+                <div class="container mx-auto px-6">
+                    <div class="grid grid-cols-12 gap-8">
+                        <div class="col-span-3 mm-col">
+                            <span class="mm-header">Locations</span>
+                            <a href="schools.html#schools-central-north" class="mm-link nav-page">Central & North Area</a>
+                            <a href="schools.html#schools-esan1" class="mm-link nav-page">Esan 1 Area <span class="mm-sub-text">Korat, Buriram</span></a>
+                        </div>
+                        <div class="col-span-3 mm-col">
+                            <span class="mm-header">Northeast (Isaan)</span>
+                            <a href="schools.html#schools-esan2" class="mm-link nav-page">Esan 2 Area <span class="mm-sub-text">Khon Kaen, Udon</span></a>
+                            <a href="schools.html#schools-esan3" class="mm-link nav-page">Esan 3 Area <span class="mm-sub-text">Ubon Ratchathani</span></a>
+                            <a href="schools.html#schools-esan4" class="mm-link nav-page">Esan 4 Area <span class="mm-sub-text">Sakon Nakhon</span></a>
+                        </div>
+                        <div class="col-span-6 border-l border-gray-100 pl-12 mm-col flex flex-col justify-center">
+                            <span class="mm-header mb-4">Our Coverage</span>
+                            <div class="flex items-center text-blue-600">
+                                <i class="fas fa-map-marked-alt text-5xl mr-4"></i>
+                                <div>
+                                    <p class="text-lg font-bold">Nationwide Network</p>
+                                    <p class="text-sm text-gray-500">Partnering with over 50 schools across Thailand.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Activity (NEW) -->
+            <div id="mm-content-activity" class="mm-section">
+                <div class="container mx-auto px-6">
+                    <div class="grid grid-cols-12 gap-8">
+                        <div class="col-span-3 mm-col">
+                            <span class="mm-header">Activities</span>
+                            <a href="programs.html#programs-camp" class="mm-link nav-page">English Camps</a>
+                            <a href="programs.html#programs-mk-awards" class="mm-link nav-page">MediaKids Awards</a>
+                            <a href="programs.html#programs-summer-camp" class="mm-link nav-page">Summer Camp in Canada</a>
+                        </div>
+                        <div class="col-span-9 border-l border-gray-100 pl-12 mm-col">
+                            <span class="mm-header">Highlights</span>
+                            <div class="grid grid-cols-2 gap-6 mt-4">
+                                <a href="programs.html#programs-camp" class="group/img block nav-page">
+                                    <div class="overflow-hidden rounded-lg shadow-sm h-32 mb-3">
+                                        <img src="images/unsplash-image-38.jpg" class="w-full h-full object-cover transform transition-transform duration-500 group-hover/img:scale-110">
+                                    </div>
+                                    <span class="text-sm font-semibold text-gray-800 group-hover/img:text-blue-600">English Camps</span>
+                                </a>
+                                <a href="programs.html#programs-mk-awards" class="group/img block nav-page">
+                                    <div class="overflow-hidden rounded-lg shadow-sm h-32 mb-3">
+                                        <img src="images/post-1.jpg" class="w-full h-full object-cover transform transition-transform duration-500 group-hover/img:scale-110">
+                                    </div>
+                                    <span class="text-sm font-semibold text-gray-800 group-hover/img:text-blue-600">MediaKids Awards</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden lg:hidden px-6 pt-2 pb-4 space-y-2 bg-white border-t">
+        <div>
+            <button class="mobile-menu-toggle w-full flex justify-between items-center py-2 font-medium">
+                <span>About Us</span>
+                <i class="fas fa-chevron-down text-xs transform transition-transform duration-300"></i>
+            </button>
+            <div class="mobile-submenu hidden pl-4 mt-2 space-y-2 border-l-2 border-gray-100 ml-2">
+                <a href="about.html#about-mediakids" class="nav-page block py-1 text-gray-600">MediaKids</a>
+                <a href="about.html#about-team-hr" class="nav-page block py-1 text-gray-500">Overseas HR</a>
+                <a href="about.html#about-team-curriculum" class="nav-page block py-1 text-gray-500">Curriculum Dept</a>
+                <a href="about.html#about-team-consult" class="nav-page block py-1 text-gray-500">Operations Dept</a>
+            </div>
+        </div>
+        <div>
+            <button class="mobile-menu-toggle w-full flex justify-between items-center py-2 font-medium">
+                <span>Programs</span>
+                <i class="fas fa-chevron-down text-xs transform transition-transform duration-300"></i>
+            </button>
+            <div class="mobile-submenu hidden pl-4 mt-2 space-y-2 border-l-2 border-gray-100 ml-2">
+                <a href="programs.html#programs-ecd" class="nav-page block py-1 text-gray-600">ECD Program</a>
+                <a href="programs.html#programs-iep" class="nav-page block py-1 text-gray-600">IEP Program</a>
+                <a href="programs.html#programs-ep-ip" class="nav-page block py-1 text-gray-600">IP / EP / MEP</a>
+                <a href="programs.html#programs-camp" class="nav-page block py-1 text-gray-500">English Camp</a>
+                <a href="programs.html#programs-mk-awards" class="nav-page block py-1 text-gray-500">MediaKids Award</a>
+                <a href="programs.html#programs-summer-camp" class="nav-page block py-1 text-gray-500">Summer Camp</a>
+            </div>
+        </div>
+        <div>
+            <button class="mobile-menu-toggle w-full flex justify-between items-center py-2 font-medium">
+                <span>Schools</span>
+                <i class="fas fa-chevron-down text-xs transform transition-transform duration-300"></i>
+            </button>
+            <div class="mobile-submenu hidden pl-4 mt-2 space-y-2 border-l-2 border-gray-100 ml-2">
+                <a href="schools.html#schools-central-north" class="nav-page block py-1 text-gray-600">Central & North</a>
+                <a href="schools.html#schools-esan1" class="nav-page block py-1 text-gray-600">Esan 1 Area</a>
+                <a href="schools.html#schools-esan2" class="nav-page block py-1 text-gray-600">Esan 2 Area</a>
+                <a href="schools.html#schools-esan3" class="nav-page block py-1 text-gray-600">Esan 3 Area</a>
+                <a href="schools.html#schools-esan4" class="nav-page block py-1 text-gray-600">Esan 4 Area</a>
+            </div>
+        </div>
+
+        <!-- Activity Mobile Dropdown -->
+        <div>
+            <button class="mobile-menu-toggle w-full flex justify-between items-center py-2 font-medium">
+                <span>Activity</span>
+                <i class="fas fa-chevron-down text-xs transform transition-transform duration-300"></i>
+            </button>
+            <div class="mobile-submenu hidden pl-4 mt-2 space-y-2 border-l-2 border-gray-100 ml-2">
+                <a href="programs.html#programs-camp" class="nav-page block py-1 text-gray-600">English Camps</a>
+                <a href="programs.html#programs-mk-awards" class="nav-page block py-1 text-gray-600">MediaKids Awards</a>
+                <a href="programs.html#programs-summer-camp" class="nav-page block py-1 text-gray-600">Summer Camp in Canada</a>
+            </div>
+        </div>
+
+        <a href="faq.html" class="nav-page block py-2 font-medium">FAQ</a>
+        <a href="jobs.html" class="block py-2 font-medium nav-page">Jobs</a>
+        <a href="contact.html" class="nav-page block py-2 font-medium">Contact</a>
+        <a href="jobs.html" class="nav-page block mt-4 btn-primary text-center px-6 py-2 rounded-full">Apply Now</a>
+    </div>
+`;
+
+const footerHTML = `
+    <footer class="bg-[#0A192F] text-white py-16 border-t border-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+                <div class="space-y-4">
+                    <a href="index.html" class="nav-logo text-3xl font-bold text-blue-400 block mb-4">MediaKids<span class="text-white"> Academy</span></a>
+                    <p class="text-gray-400 text-sm leading-relaxed">Empowering education in Thailand since 2001. Connecting passionate teachers with schools nationwide to create a brighter future.</p>
+                    <div class="flex space-x-4 pt-2">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-600 transition-colors"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-pink-600 transition-colors"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-800 transition-colors"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-6 border-b border-blue-500 inline-block pb-2">Quick Links</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><a href="jobs.html" class="nav-page hover:text-blue-400 transition-colors">Apply Now</a></li>
+                        <li><a href="programs.html#programs-ecd" class="nav-page hover:text-blue-400 transition-colors">Our Programs</a></li>
+                        <li><a href="schools.html#schools-central-north" class="nav-page hover:text-blue-400 transition-colors">School Locations</a></li>
+                        <li><a href="about.html#about-mediakids" class="nav-page hover:text-blue-400 transition-colors">About Us</a></li>
+                        <li><a href="faq.html" class="nav-page hover:text-blue-400 transition-colors">FAQ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-6 border-b border-blue-500 inline-block pb-2">Contact Us</h4>
+                    <ul class="space-y-4 text-gray-400">
+                        <li class="flex items-start"><i class="fas fa-map-marker-alt mt-1 mr-3 text-blue-400"></i><span>123 MediaKids Lane, Education District,<br>Bangkok 10110, Thailand</span></li>
+                        <li class="flex items-center"><i class="fas fa-phone-alt mr-3 text-blue-400"></i><span>+66 2 123 4567</span></li>
+                        <li class="flex items-center"><i class="fas fa-envelope mr-3 text-blue-400"></i><span>info@mediakids.co.th</span></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-6 border-b border-blue-500 inline-block pb-2">Newsletter</h4>
+                    <p class="text-gray-400 text-sm mb-4">Subscribe to get the latest teaching tips and news.</p>
+                    <form class="flex flex-col space-y-3" onsubmit="event.preventDefault(); alert('Thanks for subscribing!');">
+                        <input type="email" placeholder="Your email address" class="bg-gray-800 text-white px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 rounded-lg font-semibold transition-colors">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500 text-sm">
+                <p>&copy; 2024 Global Teach Thailand. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+`;
+
+function loadComponents() {
+    // 1. Inject HTML
+    const headerContainer = document.getElementById('shared-header');
+    const footerContainer = document.getElementById('shared-footer');
+    if (headerContainer) headerContainer.innerHTML = headerHTML;
+    if (footerContainer) footerContainer.innerHTML = footerHTML;
+
+    // 2. Highlight Active Menu
+    const currentPage = window.location.pathname.split("/").pop() || "index.html";
+    const navLinks = document.querySelectorAll('.nav-page, .nav-link');
+    navLinks.forEach(link => {
+        if (link.getAttribute('href') === currentPage) {
+            link.classList.add('active-menu', 'text-blue-600');
+        }
+    });
+
+    // 3. Dispatch Event (CRITICAL for script.js)
+    console.log("Components loaded. Dispatching event...");
+    document.dispatchEvent(new Event('componentsLoaded'));
+}
+
+// Run immediately
+loadComponents();
