@@ -104,29 +104,34 @@
             background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(14, 165, 233, 0.1));
         }
 
+        /* Fix AOS pointer-events issue */
+        .faq-section,
+        .faq-card,
+        .faq-question-btn {
+            pointer-events: auto !important;
+        }
+
         .faq-card {
             background: white;
             border-radius: 16px;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
             border: 1px solid rgba(0, 0, 0, 0.05);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            overflow: hidden;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
 
         .faq-card:hover {
-            box-shadow: 0 20px 40px -15px rgba(59, 130, 246, 0.2);
-            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -10px rgba(59, 130, 246, 0.15);
             border-color: rgba(59, 130, 246, 0.2);
         }
 
         .faq-card.open {
             border-color: #3b82f6;
-            box-shadow: 0 20px 40px -15px rgba(59, 130, 246, 0.25);
+            box-shadow: 0 10px 25px -10px rgba(59, 130, 246, 0.2);
         }
 
         .faq-question-btn {
             width: 100%;
-            padding: 1.5rem;
+            padding: 1.25rem 1.5rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -137,19 +142,31 @@
             gap: 1rem;
         }
 
+        @media (max-width: 640px) {
+            .faq-question-btn {
+                padding: 1rem;
+                gap: 0.75rem;
+            }
+            .faq-question-btn .text-lg {
+                font-size: 0.95rem;
+                line-height: 1.4;
+            }
+        }
+
         .faq-question-btn:focus {
             outline: none;
         }
 
         .faq-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 12px;
+            width: 36px;
+            height: 36px;
+            min-width: 36px;
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.3s ease;
         }
 
         .faq-card.open .faq-icon {
@@ -161,23 +178,39 @@
         .faq-answer-wrapper {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+            padding: 0 1.5rem 0 4.5rem;
         }
 
         .faq-card.open .faq-answer-wrapper {
             max-height: 500px;
+            padding: 0 1.5rem 1.5rem 4.5rem;
+        }
+
+        @media (max-width: 640px) {
+            .faq-answer-wrapper {
+                padding: 0 1rem 0 1rem;
+            }
+            .faq-card.open .faq-answer-wrapper {
+                padding: 0 1rem 1.5rem 1rem;
+            }
         }
 
         .faq-answer {
-            padding: 0 1.5rem 1.5rem;
-            opacity: 0;
-            transform: translateY(-10px);
-            transition: all 0.4s ease 0.1s;
+            color: #4b5563;
+            line-height: 1.7;
+            font-size: 1rem;
         }
 
-        .faq-card.open .faq-answer {
-            opacity: 1;
-            transform: translateY(0);
+        @media (max-width: 640px) {
+            .faq-answer {
+                font-size: 0.925rem;
+                line-height: 1.6;
+            }
+        }
+
+        .faq-answer p {
+            margin: 0;
         }
 
         .question-number {
@@ -268,21 +301,21 @@
             50% { transform: scale(1.2); opacity: 0.7; }
         }
     </style>
-</head>
+    </head>
 
 <body class="leading-relaxed overflow-x-hidden relative bg-gray-50">
 
     <!-- Back to Top Button -->
-    <button id="back-to-top" aria-label="Back to top">
-        <i class="fas fa-chevron-up"></i>
-    </button>
+        <button id="back-to-top" aria-label="Back to top">
+            <i class="fas fa-chevron-up"></i>
+        </button>
 
     <!-- Header -->
-    <div id="shared-header"></div>
+        <div id="shared-header"></div>
 
-    <main class="pt-24">
+    <main class="pt-20">
         <!-- Hero Section -->
-        <section class="faq-hero py-20 md:py-28 text-white relative">
+        <section class="faq-hero py-16 md:py-24 text-white relative">
             <!-- Floating Shapes -->
             <div class="floating-shape w-64 h-64 bg-white top-10 -left-20" style="animation-delay: 0s;"></div>
             <div class="floating-shape w-48 h-48 bg-white bottom-10 right-10" style="animation-delay: 5s;"></div>
@@ -292,7 +325,7 @@
                 <div class="max-w-4xl mx-auto text-center">
                     <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-6" data-aos="fade-down">
                         <span class="w-2 h-2 bg-green-400 rounded-full pulse-dot"></span>
-                        <span class="text-sm font-medium">Teacher FAQ - Updated 2024</span>
+                        <span class="text-sm font-medium">Teacher FAQ - Updated 2025</span>
                     </div>
 
                     <h1 class="text-4xl md:text-6xl font-bold mb-6" data-aos="fade-up">
@@ -319,7 +352,7 @@
                     </div>
 
                     <!-- Stats -->
-                    <div class="grid grid-cols-3 gap-4 max-w-lg mx-auto mt-12" data-aos="fade-up" data-aos-delay="300">
+                    <div class="grid grid-cols-2 gap-4 max-w-sm mx-auto mt-12" data-aos="fade-up" data-aos-delay="300">
                         <div class="stat-card rounded-xl p-4">
                             <div class="text-3xl font-bold">30</div>
                             <div class="text-sm text-blue-200">Questions</div>
@@ -327,10 +360,6 @@
                         <div class="stat-card rounded-xl p-4">
                             <div class="text-3xl font-bold">7</div>
                             <div class="text-sm text-blue-200">Categories</div>
-                        </div>
-                        <div class="stat-card rounded-xl p-4">
-                            <div class="text-3xl font-bold">24/7</div>
-                            <div class="text-sm text-blue-200">Support</div>
                         </div>
                     </div>
                 </div>
@@ -386,7 +415,7 @@
 
         <!-- FAQ Content -->
         <section class="py-16">
-            <div class="container mx-auto px-6">
+                <div class="container mx-auto px-6">
                 <div class="max-w-4xl mx-auto">
 
                     <!-- No Results Message -->
@@ -693,7 +722,7 @@
                                     </div>
                                 </button>
                                 <div class="faq-answer-wrapper">
-                                    <div class="faq-answer">
+                                <div class="faq-answer">
                                         <p class="text-gray-600 leading-relaxed">We supply <strong>lesson plans, worksheets, teaching guides, and curriculum support</strong>. You are free to adapt lessons to your style.</p>
                                     </div>
                                 </div>
@@ -710,7 +739,7 @@
                             <div>
                                 <h2 class="text-2xl font-bold text-gray-800">Living in Thailand</h2>
                                 <p class="text-gray-500">Daily life and accommodation</p>
-                            </div>
+                                </div>
                         </div>
 
                         <div class="space-y-4">
@@ -776,7 +805,7 @@
                                     </div>
                                 </button>
                                 <div class="faq-answer-wrapper">
-                                    <div class="faq-answer">
+                            <div class="faq-answer">
                                         <p class="text-gray-600 leading-relaxed">Teachers enjoy a <strong>relaxed pace of life</strong>, friendly communities, delicious food, and endless travel opportunities on weekends and holidays.</p>
                                     </div>
                                 </div>
@@ -859,7 +888,7 @@
                                     </div>
                                 </button>
                                 <div class="faq-answer-wrapper">
-                                    <div class="faq-answer">
+                            <div class="faq-answer">
                                         <p class="text-gray-600 leading-relaxed">Our coordinators and academic consultants are <strong>always available</strong> to answer questions, provide advice, and help solve any challenges that come up.</p>
                                     </div>
                                 </div>
@@ -942,7 +971,7 @@
                                     </div>
                                 </button>
                                 <div class="faq-answer-wrapper">
-                                    <div class="faq-answer">
+                            <div class="faq-answer">
                                         <p class="text-gray-600 leading-relaxed">Thailand has affordable <strong>buses, trains, vans, taxis, and domestic flights</strong>. Most teachers find it easy and cheap to travel.</p>
                                     </div>
                                 </div>
@@ -1008,7 +1037,7 @@
                                     </div>
                                 </button>
                                 <div class="faq-answer-wrapper">
-                                    <div class="faq-answer">
+                            <div class="faq-answer">
                                         <p class="text-gray-600 leading-relaxed">You'll complete your <strong>in-person orientation</strong>, settle into accommodation, meet your coordinator, and then be introduced to your school.</p>
                                     </div>
                                 </div>
@@ -1037,17 +1066,17 @@
                         </div>
                     </div>
 
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
     </main>
 
     <!-- Footer -->
-    <div id="shared-footer"></div>
+        <div id="shared-footer"></div>
 
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script src="js/components.js"></script>
-    <script src="js/script.js"></script>
+        <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+        <script src="js/components.js"></script>
+        <script src="js/script.js"></script>
 
     <script>
         // FAQ Page Specific JavaScript
@@ -1055,19 +1084,20 @@
             // Initialize AOS
             AOS.init({ duration: 600, once: true, offset: 50 });
 
-            // FAQ Accordion
-            const faqCards = document.querySelectorAll('.faq-card');
-            faqCards.forEach(card => {
-                const btn = card.querySelector('.faq-question-btn');
-                btn.addEventListener('click', () => {
-                    const isOpen = card.classList.contains('open');
-                    
-                    // Close all other cards (optional - remove for multi-open)
-                    // faqCards.forEach(c => c.classList.remove('open'));
-                    
-                    // Toggle current card
-                    card.classList.toggle('open');
-                });
+            // FAQ Accordion - Using Event Delegation for better reliability
+            const faqContainer = document.querySelector('#faq-container') || document.querySelector('.max-w-4xl');
+            
+            // Add click event listener to the container (event delegation)
+            document.addEventListener('click', function(e) {
+                // Check if clicked element is a FAQ question button or its child
+                const questionBtn = e.target.closest('.faq-question-btn');
+                if (questionBtn) {
+                    const card = questionBtn.closest('.faq-card');
+                    if (card) {
+                        // Toggle the card
+                        card.classList.toggle('open');
+                    }
+                }
             });
 
             // Category Filter
@@ -1168,6 +1198,6 @@
             });
         });
     </script>
-</body>
+    </body>
 
-</html>
+    </html>

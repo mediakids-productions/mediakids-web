@@ -427,11 +427,7 @@ body.switching-page footer {
     transform: translateY(0);
 }
 
-.faq-answer {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.5s ease-in-out;
-}
+/* .faq-answer styles moved to faq.html inline styles */
 
 #back-to-top {
     position: fixed;
