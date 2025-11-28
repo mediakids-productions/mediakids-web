@@ -1,6 +1,18 @@
-AOS.init({ duration: 800, once: true });
+function initSite() {
+    AOS.init({ duration: 800, once: true });
 
-document.addEventListener('DOMContentLoaded', () => {
+    // Header Scroll Effect
+    const header = document.getElementById('main-header');
+    if (header) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    }
+
     // Mega Menu Logic
     const triggers = document.querySelectorAll('.group-trigger');
     const megaMenuContainer = document.getElementById('mega-menu-container');
@@ -361,7 +373,14 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     });
-});
+}
+
+// Initialize logic
+if (document.getElementById('mobile-menu-button')) {
+    initSite();
+} else {
+    document.addEventListener('componentsLoaded', initSite);
+}
 
 const scriptURL = 'https://script.google.com/macros/s/AKfycbwv8ekZILnxgsYBZz7j3TElRyV2aAJ1nuWECY9zDG2maOn4p5DM_kv9LFy8sf0y9ddV/exec';
 const form = document.getElementById('contact-form-g-sheets');

@@ -53,451 +53,219 @@
 </head>
 
 </head>
+
 <body class="leading-relaxed overflow-x-hidden relative">
+    <!DOCTYPE html>
+    <html lang="en">
 
-    <!-- Change 3: Back to Top Button HTML -->
-    <button id="back-to-top" aria-label="Back to top">
-        <i class="fas fa-chevron-up"></i>
-    </button>
+    <head>
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-C3WTLTZ1Y1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+            gtag('config', 'G-C3WTLTZ1Y1');
+        </script>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self';
+        img-src 'self' data: https://images.unsplash.com https://placehold.co https://drive.google.com https://drive.googleusercontent.com https://lh3.googleusercontent.com https://drive.usercontent.google.com https://*.googleusercontent.com;
+        font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;
+        style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://unpkg.com;
+        script-src 'self' 'unsafe-inline'
+          https://cdn.tailwindcss.com
+          https://cdnjs.cloudflare.com
+          https://unpkg.com
+          https://script.google.com
+          https://www.googletagmanager.com
+          https://www.google-analytics.com;
+        connect-src 'self'
+          https://script.google.com
+          https://script.googleusercontent.com
+          https://www.google-analytics.com
+          https://region1.google-analytics.com
+          https://www.googletagmanager.com;
+        form-action 'self' https://script.google.com https://script.googleusercontent.com https://formspree.io;
+        frame-ancestors 'self';
+        upgrade-insecure-requests">
+        <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+        <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
+        <title>Global Teach Thailand - Your Professional Teaching Journey</title>
 
-    <!-- Header (Updated with ID for scroll logic) -->
+        <!-- Favicon -->
+        <link rel="icon" type="image/png" sizes="32x32" href="images/logo.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="images/logo.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="images/logo.png">
 
-        <header id="main-header" class="sticky top-0 z-50 transition-all duration-300 h-[88px]">
-        <!-- nav tag for detecting leave -->
-        <nav id="nav-container"
-            class="container mx-auto px-6 flex justify-between items-stretch transition-all duration-300 relative z-50 h-full">
-            <!-- Added menu-close-trigger to Logo -->
-            <a href="index.html"
-                class="nav-logo menu-close-trigger flex items-center space-x-3 py-4 relative z-50">
-                <img id="logo-image" src="images/google-drive-image-17.jpg"
-                    data-drive-src="images/google-drive-image-1.jpg" alt="MediaKids Academy Logo" class="h-10 w-auto"
-                    loading="lazy" referrerpolicy="no-referrer" />
-                <span class="text-3xl font-bold accent-text">
-                    MediaKids<span class="text-gray-800"> Academy</span>
-                </span>
-            </a>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+            rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+        <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+        <link rel="stylesheet" href="css/style.css">
+    </head>
 
-            <!-- Desktop Menu Triggers -->
-            <div class="hidden lg:flex items-stretch h-full relative z-50">
+    </head>
 
-                <!-- Trigger: About Us -->
-                <div class="group-trigger h-full flex items-center px-5" data-menu="about">
-                    <a href="about.html" class="nav-link flex items-center h-full w-full justify-center">
-                        About Us</a> <i class="fas fa-chevron-down text-xs ml-2 transition-transform duration-300"></i>
-                    </a>
-                </div>
+    <body class="leading-relaxed overflow-x-hidden relative">
 
-                <!-- Trigger: Programs -->
-                <div class="group-trigger h-full flex items-center px-5" data-menu="programs">
-                    <a href="programs.html" class="nav-link flex items-center h-full w-full justify-center">
-                        Programs</a> <i class="fas fa-chevron-down text-xs ml-2 transition-transform duration-300"></i>
-                    </a>
-                </div>
+        <!-- Change 3: Back to Top Button HTML -->
+        <button id="back-to-top" aria-label="Back to top">
+            <i class="fas fa-chevron-up"></i>
+        </button>
 
-                <!-- Trigger: Schools -->
-                <div class="group-trigger h-full flex items-center px-5" data-menu="schools">
-                    <a href="schools.html" class="nav-link flex items-center h-full w-full justify-center">
-                        Schools</a> <i class="fas fa-chevron-down text-xs ml-2 transition-transform duration-300"></i>
-                    </a>
-                </div>
+        <!-- Header (Updated with ID for scroll logic) -->
+        <div id="shared-header"></div>
 
-                <!-- Added menu-close-trigger to non-dropdown items -->
-                <div class="menu-close-trigger flex items-center h-full px-5">
-                    <a href="activity.html"
-                        class="nav-page nav-link flex items-center h-full w-full justify-center">Activity</a>
-                </div>
-                <div class="menu-close-trigger flex items-center h-full px-5">
-                    <a href="faq.html"
-                        class="nav-page nav-link flex items-center h-full w-full justify-center">FAQ</a>
-                </div>
-                <div class="menu-close-trigger flex items-center h-full px-5">
-                    <a href="jobs.html"
-                        class="nav-link nav-page active-menu flex items-center h-full w-full justify-center">Jobs</a>
-                </div>
-                <div class="menu-close-trigger flex items-center h-full px-5">
-                    <a href="contact.html"
-                        class="nav-page nav-link flex items-center h-full w-full justify-center">Contact</a>
-                </div>
-            </div>
-
-            <!-- Added menu-close-trigger to Apply Button wrapper -->
-            <div class="menu-close-trigger hidden lg:flex items-center h-full relative z-50">
-                <a href="jobs.html" class="btn-primary px-6 py-2 rounded-full nav-page ml-4">
-                    Apply Now
-                </a>
-            </div>
-
-            <button id="mobile-menu-button" class="lg:hidden text-gray-800 focus:outline-none relative z-50">
-                <i class="fas fa-bars text-2xl"></i>
-            </a>
-        </nav>
-
-        <!-- SINGLE MEGA MENU CONTAINER (ABSOLUTE TO TOP OF HEADER) -->
-        <div id="mega-menu-container">
-            <!-- Content: About Us -->
-            <div id="mm-content-about" class="mm-section">
+        <main class="pt-24">
+            <section id="jobs" class="py-20 bg-gray-50">
                 <div class="container mx-auto px-6">
-                    <div class="grid grid-cols-12 gap-8">
-                        <div class="col-span-3 mm-col">
-                            <span class="mm-header">Organization</span>
-                            <a href="about.html#about-mediakids" class="mm-link nav-page">MediaKids Story</a>
-                            <a href="about.html#about-mediakids" class="mm-link nav-page">Our Mission & Vision</a>
-                            <a href="contact.html" class="mm-link nav-page">Contact Us</a>
+                    <div class="text-center mb-16">
+                        <h2 class="section-title">Current Opportunities</h2>
+                        <p class="section-subtitle">Find your perfect teaching position in the Land of Smiles. Your next
+                            adventure awaits!</p>
+                    </div>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+                        <div class="card job-card p-6 flex flex-col" data-aos="fade-up">
+                            <h3 class="text-xl font-bold mb-2">Kindergarten English Teacher</h3>
+                            <p class="text-blue-600 font-semibold mb-3">Multiple Locations</p>
+                            <p class="text-gray-600 mb-4 flex-grow">Engage young learners (ages 3-6) with fun,
+                                play-based
+                                activities. A rewarding role for energetic and creative individuals.</p>
+                            <div class="border-t pt-4 mt-4">
+                                <p class="text-gray-800 font-bold">Salary: ฿34,000 - ฿38,000</p><a href="#"
+                                    data-scroll-to="contact"
+                                    class="nav-main mt-4 inline-block btn-secondary px-6 py-2 rounded-full text-sm">View
+                                    Details & Apply</a>
+                            </div>
                         </div>
-                        <div class="col-span-3 mm-col">
-                            <span class="mm-header">Our Departments</span>
-                            <a href="about.html#about-team-hr" class="mm-link nav-page">Human Resources (HR)</a>
-                            <a href="about.html#about-team-curriculum" class="mm-link nav-page">Curriculum
-                                Development</a>
-                            <a href="about.html#about-team-consult" class="mm-link nav-page">Operations & Support</a>
+                        <div class="card job-card p-6 flex flex-col" data-aos="fade-up" data-aos-delay="100">
+                            <h3 class="text-xl font-bold mb-2">Primary School English Teacher</h3>
+                            <p class="text-blue-600 font-semibold mb-3">Isaan Region</p>
+                            <p class="text-gray-600 mb-4 flex-grow">Teach English communication skills to students aged
+                                7-12
+                                in Thai government schools. Experience authentic local culture.</p>
+                            <div class="border-t pt-4 mt-4">
+                                <p class="text-gray-800 font-bold">Salary: ฿33,000 - ฿36,000</p><a href="#"
+                                    data-scroll-to="contact"
+                                    class="nav-main mt-4 inline-block btn-secondary px-6 py-2 rounded-full text-sm">View
+                                    Details & Apply</a>
+                            </div>
                         </div>
-                        <div class="col-span-6 border-l border-gray-100 pl-12 mm-col">
-                            <span class="mm-header">Featured</span>
-                            <div class="flex items-start gap-6 mt-4 group/card cursor-pointer"
-                                onclick="document.querySelector('[data-page=\'about-mediakids\']').click()">
-                                <div class="overflow-hidden rounded-lg shadow-sm w-40 h-24 flex-shrink-0">
-                                    <img src="images/unsplash-image-33.jpg"
-                                        class="w-full h-full object-cover transform transition-transform duration-500 group-hover/card:scale-110">
-                                </div>
-                                <div>
-                                    <p
-                                        class="text-base font-semibold text-gray-900 group-hover/card:text-blue-600 transition-colors">
-                                        About MediaKids Academy</p>
-                                    <p class="text-sm text-gray-500 mt-2 leading-relaxed">Your trusted partner in
-                                        education since 2001.</p>
-                                </div>
+                        <div class="card job-card p-6 flex flex-col" data-aos="fade-up" data-aos-delay="200">
+                            <h3 class="text-xl font-bold mb-2">High School English Teacher</h3>
+                            <p class="text-blue-600 font-semibold mb-3">Central & Northern Regions</p>
+                            <p class="text-gray-600 mb-4 flex-grow">Prepare secondary students for their future with
+                                lessons
+                                focused on conversational skills, grammar, and exam preparation.</p>
+                            <div class="border-t pt-4 mt-4">
+                                <p class="text-gray-800 font-bold">Salary: ฿33,000 - ฿36,000</p><a href="#"
+                                    data-scroll-to="contact"
+                                    class="nav-main mt-4 inline-block btn-secondary px-6 py-2 rounded-full text-sm">View
+                                    Details & Apply</a>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <!-- Programs -->
-            <div id="mm-content-programs" class="mm-section">
-                <div class="container mx-auto px-6">
-                    <div class="grid grid-cols-12 gap-8">
-                        <div class="col-span-3 mm-col">
-                            <span class="mm-header">Academic Programs</span>
-                            <a href="programs.html#programs-ecd" class="mm-link nav-page">ECD Program <span
-                                    class="mm-sub-text">(3-6 Years)</span></a>
-                            <a href="programs.html#programs-iep" class="mm-link nav-page">IEP Program <span
-                                    class="mm-sub-text">(Intensive)</span></a>
-                            <a href="programs.html#programs-ep-ip" class="mm-link nav-page">IP / EP / MEP Program</a>
-                        </div>
-                        <div class="col-span-3 mm-col">
-                            <span class="mm-header">Student Activities</span>
-                            <a href="programs.html#programs-camp" class="mm-link nav-page">English Camps</a>
-                            <a href="programs.html#programs-mk-awards" class="mm-link nav-page">MediaKids Awards</a>
-                            <a href="programs.html#programs-summer-camp" class="mm-link nav-page">Summer Camp in
-                                Canada</a>
-                        </div>
-                        <div class="col-span-6 border-l border-gray-100 pl-12 mm-col">
-                            <span class="mm-header">Highlights</span>
-                            <div class="grid grid-cols-2 gap-6 mt-4">
-                                <a href="programs.html#programs-camp" class="group/img block nav-page">
-                                    <div class="overflow-hidden rounded-lg shadow-sm h-32 mb-3">
-                                        <img src="images/unsplash-image-38.jpg"
-                                            class="w-full h-full object-cover transform transition-transform duration-500 group-hover/img:scale-110">
-                                    </div>
-                                    <span
-                                        class="text-sm font-semibold text-gray-800 group-hover/img:text-blue-600">English
-                                        Camps</span>
-                                </a>
-                                <a href="programs.html#programs-summer-camp" class="group/img block nav-page">
-                                    <div class="overflow-hidden rounded-lg shadow-sm h-32 mb-3">
-                                        <img src="images/unsplash-image-20.jpg"
-                                            class="w-full h-full object-cover transform transition-transform duration-500 group-hover/img:scale-110">
-                                    </div>
-                                    <span
-                                        class="text-sm font-semibold text-gray-800 group-hover/img:text-blue-600">Overseas
-                                        Trips</span>
-                                </a>
+                    <div class="text-center mb-20">
+                        <h2 class="section-title">Why Teach With MediaKids?</h2>
+                        <p class="section-subtitle">We don't just find you a job; we support your entire journey.</p>
+                        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+                            <div class="text-center p-4" data-aos="zoom-in">
+                                <div class="text-5xl accent-text mb-4"><i class="fas fa-file-contract"></i></div>
+                                <h3 class="text-xl font-bold mb-2">Full Legal Support</h3>
+                                <p class="text-gray-600">Complete visa, work permit, and bank account assistance.</p>
+                            </div>
+                            <div class="text-center p-4" data-aos="zoom-in" data-aos-delay="100">
+                                <div class="text-5xl accent-text mb-4"><i class="fas fa-house-user"></i></div>
+                                <h3 class="text-xl font-bold mb-2">Accommodation Help</h3>
+                                <p class="text-gray-600">We help you find a safe and comfortable place to live near your
+                                    school.</p>
+                            </div>
+                            <div class="text-center p-4" data-aos="zoom-in" data-aos-delay="200">
+                                <div class="text-5xl accent-text mb-4"><i class="fas fa-book-open"></i></div>
+                                <h3 class="text-xl font-bold mb-2">Ready-Made Curriculum</h3>
+                                <p class="text-gray-600">Access to our proven curriculum, lesson plans, and teaching
+                                    materials.</p>
+                            </div>
+                            <div class="text-center p-4" data-aos="zoom-in" data-aos-delay="300">
+                                <div class="text-5xl accent-text mb-4"><i class="fas fa-users"></i></div>
+                                <h3 class="text-xl font-bold mb-2">A Thriving Community</h3>
+                                <p class="text-gray-600">Connect with hundreds of fellow MediaKids teachers across
+                                    Thailand.
+                                </p>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <!-- Schools -->
-            <div id="mm-content-schools" class="mm-section">
-                <div class="container mx-auto px-6">
-                    <div class="grid grid-cols-12 gap-8">
-                        <div class="col-span-3 mm-col">
-                            <span class="mm-header">Locations</span>
-                            <a href="schools.html#schools-central-north" class="mm-link nav-page">Central & North
-                                Area</a>
-                            <a href="schools.html#schools-esan1" class="mm-link nav-page">Esan 1 Area <span
-                                    class="mm-sub-text">Korat, Buriram</span></a>
-                        </div>
-                        <div class="col-span-3 mm-col">
-                            <span class="mm-header">Northeast (Isaan)</span>
-                            <a href="schools.html#schools-esan2" class="mm-link nav-page">Esan 2 Area <span
-                                    class="mm-sub-text">Khon Kaen, Udon</span></a>
-                            <a href="schools.html#schools-esan3" class="mm-link nav-page">Esan 3 Area <span
-                                    class="mm-sub-text">Ubon Ratchathani</span></a>
-                            <a href="schools.html#schools-esan4" class="mm-link nav-page">Esan 4 Area <span
-                                    class="mm-sub-text">Sakon Nakhon</span></a>
-                        </div>
-                        <div class="col-span-6 border-l border-gray-100 pl-12 mm-col flex flex-col justify-center">
-                            <span class="mm-header mb-4">Our Coverage</span>
-                            <div class="flex items-center text-blue-600">
-                                <i class="fas fa-map-marked-alt text-5xl mr-4"></i>
-                                <div>
-                                    <p class="text-lg font-bold">Nationwide Network</p>
-                                    <p class="text-sm text-gray-500">Partnering with over 50 schools across Thailand.
-                                    </p>
+                    <div class="max-w-4xl mx-auto">
+                        <h2 class="section-title text-center">Ready to Apply?</h2>
+                        <p class="section-subtitle text-center">Follow these simple steps to start your teaching
+                            adventure.
+                        </p>
+                        <div class="relative pl-8" data-aos="fade-up">
+                            <div class="absolute left-12 top-0 h-full w-0.5 bg-blue-200"></div>
+                            <div class="relative mb-8">
+                                <div
+                                    class="absolute left-12 top-4 -ml-5 w-10 h-10 rounded-full bg-blue-500 text-white flex items-center justify-center font-bold">
+                                    1</div>
+                                <div class="ml-16 p-6 bg-white rounded-lg shadow-md">
+                                    <h3 class="text-xl font-bold mb-2">Submit Your Application</h3>
+                                    <p class="text-gray-600">Fill out our online form and upload your resume/CV. We want
+                                        to
+                                        get to know you!</p>
                                 </div>
                             </div>
+                            <div class="relative mb-8">
+                                <div
+                                    class="absolute left-12 top-4 -ml-5 w-10 h-10 rounded-full bg-blue-500 text-white flex items-center justify-center font-bold">
+                                    2</div>
+                                <div class="ml-16 p-6 bg-white rounded-lg shadow-md">
+                                    <h3 class="text-xl font-bold mb-2">Initial Interview</h3>
+                                    <p class="text-gray-600">Our recruitment team will schedule a short online interview
+                                        to
+                                        discuss your qualifications and preferences.</p>
+                                </div>
+                            </div>
+                            <div class="relative mb-8">
+                                <div
+                                    class="absolute left-12 top-4 -ml-5 w-10 h-10 rounded-full bg-blue-500 text-white flex items-center justify-center font-bold">
+                                    3</div>
+                                <div class="ml-16 p-6 bg-white rounded-lg shadow-md">
+                                    <h3 class="text-xl font-bold mb-2">Receive an Offer</h3>
+                                    <p class="text-gray-600">If successful, you'll receive a formal job offer with
+                                        details
+                                        about your placement, salary, and contract.</p>
+                                </div>
+                            </div>
+                            <div class="relative">
+                                <div
+                                    class="absolute left-12 top-4 -ml-5 w-10 h-10 rounded-full bg-blue-500 text-white flex items-center justify-center font-bold">
+                                    4</div>
+                                <div class="ml-16 p-6 bg-white rounded-lg shadow-md">
+                                    <h3 class="text-xl font-bold mb-2">Prepare for Thailand!</h3>
+                                    <p class="text-gray-600">We'll guide you through the visa process and prepare you
+                                        for
+                                        your arrival.</p>
+                                </div>
+                            </div>
                         </div>
+                        <div class="text-center mt-12"><a href="#" data-scroll-to="contact"
+                                class="nav-main btn-primary px-10 py-4 rounded-full text-lg">Apply Now</a></div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </header>
+            </section>
 
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="hidden lg:hidden px-6 pt-2 pb-4 space-y-2 bg-white border-t">
-        <!-- ... Mobile menu content ... -->
-        <!-- Same as previous -->
-        <div>
-            <button class="mobile-menu-toggle w-full flex justify-between items-center py-2 font-medium">
-                <span>About Us</span>
-                <i class="fas fa-chevron-down text-xs transform transition-transform duration-300"></i>
-            </a>
-            <div class="mobile-submenu hidden pl-4 mt-2 space-y-2 border-l-2 border-gray-100 ml-2">
-                <a href="about.html#about-mediakids" class="nav-page block py-1 text-gray-600">MediaKids</a>
-                <a href="about.html#about-team-hr" class="nav-page block py-1 text-gray-500">Overseas HR</a>
-                <a href="about.html#about-team-curriculum" class="nav-page block py-1 text-gray-500">Curriculum
-                    Dept</a>
-                <a href="about.html#about-team-consult" class="nav-page block py-1 text-gray-500">Operations Dept</a>
-            </div>
-        </div>
-        <div>
-            <button class="mobile-menu-toggle w-full flex justify-between items-center py-2 font-medium">
-                <span>Programs</span>
-                <i class="fas fa-chevron-down text-xs transform transition-transform duration-300"></i>
-            </a>
-            <div class="mobile-submenu hidden pl-4 mt-2 space-y-2 border-l-2 border-gray-100 ml-2">
-                <a href="programs.html#programs-ecd" class="nav-page block py-1 text-gray-600">ECD Program</a>
-                <a href="programs.html#programs-iep" class="nav-page block py-1 text-gray-600">IEP Program</a>
-                <a href="programs.html#programs-ep-ip" class="nav-page block py-1 text-gray-600">IP / EP / MEP</a>
-                <a href="programs.html#programs-camp" class="nav-page block py-1 text-gray-500">English Camp</a>
-                <a href="programs.html#programs-mk-awards" class="nav-page block py-1 text-gray-500">MediaKids Award</a>
-                <a href="programs.html#programs-summer-camp" class="nav-page block py-1 text-gray-500">Summer Camp</a>
-            </div>
-        </div>
-        <div>
-            <button class="mobile-menu-toggle w-full flex justify-between items-center py-2 font-medium">
-                <span>Schools</span>
-                <i class="fas fa-chevron-down text-xs transform transition-transform duration-300"></i>
-            </a>
-            <div class="mobile-submenu hidden pl-4 mt-2 space-y-2 border-l-2 border-gray-100 ml-2">
-                <a href="schools.html#schools-central-north" class="nav-page block py-1 text-gray-600">Central &
-                    North</a>
-                <a href="schools.html#schools-esan1" class="nav-page block py-1 text-gray-600">Esan 1 Area</a>
-                <a href="schools.html#schools-esan2" class="nav-page block py-1 text-gray-600">Esan 2 Area</a>
-                <a href="schools.html#schools-esan3" class="nav-page block py-1 text-gray-600">Esan 3 Area</a>
-                <a href="schools.html#schools-esan4" class="nav-page block py-1 text-gray-600">Esan 4 Area</a>
-            </div>
-        </div>
-        <a href="activity.html" class="nav-page block py-2 font-medium">Activity</a>
-        <a href="faq.html" class="nav-page block py-2 font-medium">FAQ</a>
-        <a href="jobs.html" class="block py-2 font-medium nav-page">Jobs</a>
-        <a href="contact.html" class="nav-page block py-2 font-medium">Contact</a>
-        <a href="jobs.html" class="nav-page block mt-4 btn-primary text-center px-6 py-2 rounded-full">Apply
-            Now</a>
-    </div>
-
-    <main class="pt-24">
-                <section id="jobs" class="py-20 bg-gray-50">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-16">
-                    <h2 class="section-title">Current Opportunities</h2>
-                    <p class="section-subtitle">Find your perfect teaching position in the Land of Smiles. Your next
-                        adventure awaits!</p>
-                </div>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
-                    <div class="card job-card p-6 flex flex-col" data-aos="fade-up">
-                        <h3 class="text-xl font-bold mb-2">Kindergarten English Teacher</h3>
-                        <p class="text-blue-600 font-semibold mb-3">Multiple Locations</p>
-                        <p class="text-gray-600 mb-4 flex-grow">Engage young learners (ages 3-6) with fun, play-based
-                            activities. A rewarding role for energetic and creative individuals.</p>
-                        <div class="border-t pt-4 mt-4">
-                            <p class="text-gray-800 font-bold">Salary: ฿34,000 - ฿38,000</p><a href="#"
-                                data-scroll-to="contact"
-                                class="nav-main mt-4 inline-block btn-secondary px-6 py-2 rounded-full text-sm">View
-                                Details & Apply</a>
-                        </div>
-                    </div>
-                    <div class="card job-card p-6 flex flex-col" data-aos="fade-up" data-aos-delay="100">
-                        <h3 class="text-xl font-bold mb-2">Primary School English Teacher</h3>
-                        <p class="text-blue-600 font-semibold mb-3">Isaan Region</p>
-                        <p class="text-gray-600 mb-4 flex-grow">Teach English communication skills to students aged 7-12
-                            in Thai government schools. Experience authentic local culture.</p>
-                        <div class="border-t pt-4 mt-4">
-                            <p class="text-gray-800 font-bold">Salary: ฿33,000 - ฿36,000</p><a href="#"
-                                data-scroll-to="contact"
-                                class="nav-main mt-4 inline-block btn-secondary px-6 py-2 rounded-full text-sm">View
-                                Details & Apply</a>
-                        </div>
-                    </div>
-                    <div class="card job-card p-6 flex flex-col" data-aos="fade-up" data-aos-delay="200">
-                        <h3 class="text-xl font-bold mb-2">High School English Teacher</h3>
-                        <p class="text-blue-600 font-semibold mb-3">Central & Northern Regions</p>
-                        <p class="text-gray-600 mb-4 flex-grow">Prepare secondary students for their future with lessons
-                            focused on conversational skills, grammar, and exam preparation.</p>
-                        <div class="border-t pt-4 mt-4">
-                            <p class="text-gray-800 font-bold">Salary: ฿33,000 - ฿36,000</p><a href="#"
-                                data-scroll-to="contact"
-                                class="nav-main mt-4 inline-block btn-secondary px-6 py-2 rounded-full text-sm">View
-                                Details & Apply</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="text-center mb-20">
-                    <h2 class="section-title">Why Teach With MediaKids?</h2>
-                    <p class="section-subtitle">We don't just find you a job; we support your entire journey.</p>
-                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
-                        <div class="text-center p-4" data-aos="zoom-in">
-                            <div class="text-5xl accent-text mb-4"><i class="fas fa-file-contract"></i></div>
-                            <h3 class="text-xl font-bold mb-2">Full Legal Support</h3>
-                            <p class="text-gray-600">Complete visa, work permit, and bank account assistance.</p>
-                        </div>
-                        <div class="text-center p-4" data-aos="zoom-in" data-aos-delay="100">
-                            <div class="text-5xl accent-text mb-4"><i class="fas fa-house-user"></i></div>
-                            <h3 class="text-xl font-bold mb-2">Accommodation Help</h3>
-                            <p class="text-gray-600">We help you find a safe and comfortable place to live near your
-                                school.</p>
-                        </div>
-                        <div class="text-center p-4" data-aos="zoom-in" data-aos-delay="200">
-                            <div class="text-5xl accent-text mb-4"><i class="fas fa-book-open"></i></div>
-                            <h3 class="text-xl font-bold mb-2">Ready-Made Curriculum</h3>
-                            <p class="text-gray-600">Access to our proven curriculum, lesson plans, and teaching
-                                materials.</p>
-                        </div>
-                        <div class="text-center p-4" data-aos="zoom-in" data-aos-delay="300">
-                            <div class="text-5xl accent-text mb-4"><i class="fas fa-users"></i></div>
-                            <h3 class="text-xl font-bold mb-2">A Thriving Community</h3>
-                            <p class="text-gray-600">Connect with hundreds of fellow MediaKids teachers across Thailand.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="max-w-4xl mx-auto">
-                    <h2 class="section-title text-center">Ready to Apply?</h2>
-                    <p class="section-subtitle text-center">Follow these simple steps to start your teaching adventure.
-                    </p>
-                    <div class="relative pl-8" data-aos="fade-up">
-                        <div class="absolute left-12 top-0 h-full w-0.5 bg-blue-200"></div>
-                        <div class="relative mb-8">
-                            <div
-                                class="absolute left-12 top-4 -ml-5 w-10 h-10 rounded-full bg-blue-500 text-white flex items-center justify-center font-bold">
-                                1</div>
-                            <div class="ml-16 p-6 bg-white rounded-lg shadow-md">
-                                <h3 class="text-xl font-bold mb-2">Submit Your Application</h3>
-                                <p class="text-gray-600">Fill out our online form and upload your resume/CV. We want to
-                                    get to know you!</p>
-                            </div>
-                        </div>
-                        <div class="relative mb-8">
-                            <div
-                                class="absolute left-12 top-4 -ml-5 w-10 h-10 rounded-full bg-blue-500 text-white flex items-center justify-center font-bold">
-                                2</div>
-                            <div class="ml-16 p-6 bg-white rounded-lg shadow-md">
-                                <h3 class="text-xl font-bold mb-2">Initial Interview</h3>
-                                <p class="text-gray-600">Our recruitment team will schedule a short online interview to
-                                    discuss your qualifications and preferences.</p>
-                            </div>
-                        </div>
-                        <div class="relative mb-8">
-                            <div
-                                class="absolute left-12 top-4 -ml-5 w-10 h-10 rounded-full bg-blue-500 text-white flex items-center justify-center font-bold">
-                                3</div>
-                            <div class="ml-16 p-6 bg-white rounded-lg shadow-md">
-                                <h3 class="text-xl font-bold mb-2">Receive an Offer</h3>
-                                <p class="text-gray-600">If successful, you'll receive a formal job offer with details
-                                    about your placement, salary, and contract.</p>
-                            </div>
-                        </div>
-                        <div class="relative">
-                            <div
-                                class="absolute left-12 top-4 -ml-5 w-10 h-10 rounded-full bg-blue-500 text-white flex items-center justify-center font-bold">
-                                4</div>
-                            <div class="ml-16 p-6 bg-white rounded-lg shadow-md">
-                                <h3 class="text-xl font-bold mb-2">Prepare for Thailand!</h3>
-                                <p class="text-gray-600">We'll guide you through the visa process and prepare you for
-                                    your arrival.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="text-center mt-12"><a href="#" data-scroll-to="contact"
-                            class="nav-main btn-primary px-10 py-4 rounded-full text-lg">Apply Now</a></div>
-                </div>
-            </div>
-        </section>
-
-    </main>
-        <footer class="bg-[#0A192F] text-white py-16 border-t border-gray-800">
-        <div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
-                <div class="space-y-4">
-                    <a href="index.html"
-                        class="nav-logo text-3xl font-bold text-blue-400 block mb-4">MediaKids<span class="text-white">
-                            Academy</span></a>
-                    <p class="text-gray-400 text-sm leading-relaxed">Empowering education in Thailand since 2001.
-                        Connecting passionate teachers with schools nationwide to create a brighter future.</p>
-                    <div class="flex space-x-4 pt-2"><a href="#"
-                            class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-600 transition-colors"><i
-                                class="fab fa-facebook-f"></i></a><a href="#"
-                            class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-pink-600 transition-colors"><i
-                                class="fab fa-instagram"></i></a><a href="#"
-                            class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-800 transition-colors"><i
-                                class="fab fa-linkedin-in"></i></a></div>
-                </div>
-                <div>
-                    <h4 class="text-lg font-bold mb-6 border-b border-blue-500 inline-block pb-2">Quick Links</h4>
-                    <ul class="space-y-3 text-gray-400">
-                        <li><a href="jobs.html" class="nav-page hover:text-blue-400 transition-colors">Apply
-                                Now</a></li>
-                        <li><a href="programs.html#programs-ecd"
-                                class="nav-page hover:text-blue-400 transition-colors">Our Programs</a></li>
-                        <li><a href="schools.html#schools-central-north"
-                                class="nav-page hover:text-blue-400 transition-colors">School Locations</a></li>
-                        <li><a href="about.html#about-mediakids"
-                                class="nav-page hover:text-blue-400 transition-colors">About Us</a></li>
-                        <li><a href="faq.html" class="nav-page hover:text-blue-400 transition-colors">FAQ</a>
-                        </li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-lg font-bold mb-6 border-b border-blue-500 inline-block pb-2">Contact Us</h4>
-                    <ul class="space-y-4 text-gray-400">
-                        <li class="flex items-start"><i
-                                class="fas fa-map-marker-alt mt-1 mr-3 text-blue-400"></i><span>123 MediaKids Lane,
-                                Education District,<br>Bangkok 10110, Thailand</span></li>
-                        <li class="flex items-center"><i class="fas fa-phone-alt mr-3 text-blue-400"></i><span>+66 2 123
-                                4567</span></li>
-                        <li class="flex items-center"><i
-                                class="fas fa-envelope mr-3 text-blue-400"></i><span>info@mediakids.co.th</span></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-lg font-bold mb-6 border-b border-blue-500 inline-block pb-2">Newsletter</h4>
-                    <p class="text-gray-400 text-sm mb-4">Subscribe to get the latest teaching tips and news.</p>
-                    <form class="flex flex-col space-y-3"
-                        onsubmit="event.preventDefault(); alert('Thanks for subscribing!');"><input type="email"
-                            placeholder="Your email address"
-                            class="bg-gray-800 text-white px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"><button
-                            class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 rounded-lg font-semibold transition-colors">Subscribe</a>
-                    </form>
-                </div>
-            </div>
-            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500 text-sm">
-                <p>&copy; 2024 Global Teach Thailand. All Rights Reserved.</p>
-            </div>
-        </div>
-    </footer>
+        </main>
+        <!-- Shared Footer Container -->
+        <div id="shared-footer"></div>
 
         <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script src="js/script.js"></script>
+        <script src="js/components.js"></script>
+        <script src="js/script.js"></script>
 
-</body>
-</html>
+    </body>
+
+    </html>

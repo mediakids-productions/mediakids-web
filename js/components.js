@@ -1,5 +1,5 @@
 const headerHTML = `
-    <header id="main-header" class="sticky top-0 z-50 transition-all duration-300 h-[88px]">
+    <header id="main-header" class="fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-in-out h-[88px] bg-white/90 backdrop-blur-md border-b border-transparent">
         <nav id="nav-container" class="container mx-auto px-6 flex justify-between items-stretch transition-all duration-300 relative z-50 h-full">
             <a href="index.html" class="nav-logo menu-close-trigger flex items-center space-x-3 py-4 relative z-50">
                 <img id="logo-image" src="images/google-drive-image-17.jpg" data-drive-src="images/google-drive-image-1.jpg" alt="MediaKids Academy Logo" class="h-10 w-auto" loading="lazy" referrerpolicy="no-referrer" />
@@ -11,26 +11,26 @@ const headerHTML = `
             <div class="hidden lg:flex items-stretch h-full relative z-50">
                 <div class="group-trigger h-full flex items-center px-5" data-menu="about">
                     <a href="about.html" class="nav-link flex items-center h-full w-full justify-center">
-                        About Us</a> <i class="fas fa-chevron-down text-xs ml-2 transition-transform duration-300"></i>
+                        About Us <i class="fas fa-chevron-down text-xs ml-2 transition-transform duration-300"></i>
                     </a>
                 </div>
 
                 <div class="group-trigger h-full flex items-center px-5" data-menu="programs">
                     <a href="programs.html" class="nav-link flex items-center h-full w-full justify-center">
-                        Programs</a> <i class="fas fa-chevron-down text-xs ml-2 transition-transform duration-300"></i>
+                        Programs <i class="fas fa-chevron-down text-xs ml-2 transition-transform duration-300"></i>
                     </a>
                 </div>
 
                 <div class="group-trigger h-full flex items-center px-5" data-menu="schools">
                     <a href="schools.html" class="nav-link flex items-center h-full w-full justify-center">
-                        Schools</a> <i class="fas fa-chevron-down text-xs ml-2 transition-transform duration-300"></i>
+                        Schools <i class="fas fa-chevron-down text-xs ml-2 transition-transform duration-300"></i>
                     </a>
                 </div>
 
                 <!-- Activity Dropdown Trigger -->
                 <div class="group-trigger h-full flex items-center px-5" data-menu="activity">
                     <a href="activity.html" class="nav-link flex items-center h-full w-full justify-center">
-                        Activity</a> <i class="fas fa-chevron-down text-xs ml-2 transition-transform duration-300"></i>
+                        Activity <i class="fas fa-chevron-down text-xs ml-2 transition-transform duration-300"></i>
                     </a>
                 </div>
 
@@ -45,11 +45,28 @@ const headerHTML = `
                 </div>
             </div>
 
-            <div class="menu-close-trigger hidden lg:flex items-center h-full relative z-50">
+            <div class="menu-close-trigger hidden lg:flex items-center h-full relative z-50 ml-4 flex-shrink-0">
                 <a href="jobs.html" class="btn-primary px-6 py-2 rounded-full nav-page ml-4">
                     Apply Now
                 </a>
             </div>
+
+            <button id="mobile-menu-button" class="lg:hidden text-gray-800 focus:outline-none relative z-50">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </nav>
+
+        <!-- SINGLE MEGA MENU CONTAINER (ABSOLUTE TO TOP OF HEADER) -->
+        <div id="mega-menu-container">
+            <!-- Content: About Us -->
+            <div id="mm-content-about" class="mm-section">
+                <div class="container mx-auto px-6">
+                    <div class="grid grid-cols-12 gap-8">
+                        <div class="col-span-3 mm-col">
+                            <span class="mm-header">Organization</span>
+                            <a href="about.html#about-mediakids" class="mm-link nav-page">MediaKids Story</a>
+
+                            <a href="contact.html" class="mm-link nav-page">Contact Us</a>
                         </div>
                         <div class="col-span-3 mm-col">
                             <span class="mm-header">Our Departments</span>
@@ -59,7 +76,7 @@ const headerHTML = `
                         </div>
                         <div class="col-span-6 border-l border-gray-100 pl-12 mm-col">
                             <span class="mm-header">Featured</span>
-                            <div class="flex items-start gap-6 mt-4 group/card cursor-pointer" onclick="document.querySelector('[data-page=\'about-mediakids\']').click()">
+                            <div class="flex items-start gap-6 mt-4 group/card cursor-pointer" onclick="document.querySelector('[data-page=\\'about-mediakids\\']').click()">
                                 <div class="overflow-hidden rounded-lg shadow-sm w-40 h-24 flex-shrink-0">
                                     <img src="images/unsplash-image-33.jpg" class="w-full h-full object-cover transform transition-transform duration-500 group-hover/card:scale-110">
                                 </div>
@@ -77,34 +94,11 @@ const headerHTML = `
             <div id="mm-content-programs" class="mm-section">
                 <div class="container mx-auto px-6">
                     <div class="grid grid-cols-12 gap-8">
-                        <div class="col-span-3 mm-col">
+                        <div class="col-span-12 mm-col">
                             <span class="mm-header">Academic Programs</span>
                             <a href="programs.html#programs-ecd" class="mm-link nav-page">ECD Program <span class="mm-sub-text">(3-6 Years)</span></a>
                             <a href="programs.html#programs-iep" class="mm-link nav-page">IEP Program <span class="mm-sub-text">(Intensive)</span></a>
                             <a href="programs.html#programs-ep-ip" class="mm-link nav-page">IP / EP / MEP Program</a>
-                        </div>
-                        <div class="col-span-3 mm-col">
-                            <span class="mm-header">Student Activities</span>
-                            <a href="programs.html#programs-camp" class="mm-link nav-page">English Camps</a>
-                            <a href="programs.html#programs-mk-awards" class="mm-link nav-page">MediaKids Awards</a>
-                            <a href="programs.html#programs-summer-camp" class="mm-link nav-page">Summer Camp in Canada</a>
-                        </div>
-                        <div class="col-span-6 border-l border-gray-100 pl-12 mm-col">
-                            <span class="mm-header">Highlights</span>
-                            <div class="grid grid-cols-2 gap-6 mt-4">
-                                <a href="programs.html#programs-camp" class="group/img block nav-page">
-                                    <div class="overflow-hidden rounded-lg shadow-sm h-32 mb-3">
-                                        <img src="images/unsplash-image-38.jpg" class="w-full h-full object-cover transform transition-transform duration-500 group-hover/img:scale-110">
-                                    </div>
-                                    <span class="text-sm font-semibold text-gray-800 group-hover/img:text-blue-600">English Camps</span>
-                                </a>
-                                <a href="programs.html#programs-summer-camp" class="group/img block nav-page">
-                                    <div class="overflow-hidden rounded-lg shadow-sm h-32 mb-3">
-                                        <img src="images/unsplash-image-20.jpg" class="w-full h-full object-cover transform transition-transform duration-500 group-hover/img:scale-110">
-                                    </div>
-                                    <span class="text-sm font-semibold text-gray-800 group-hover/img:text-blue-600">Overseas Trips</span>
-                                </a>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -195,9 +189,6 @@ const headerHTML = `
                 <a href="programs.html#programs-ecd" class="nav-page block py-1 text-gray-600">ECD Program</a>
                 <a href="programs.html#programs-iep" class="nav-page block py-1 text-gray-600">IEP Program</a>
                 <a href="programs.html#programs-ep-ip" class="nav-page block py-1 text-gray-600">IP / EP / MEP</a>
-                <a href="programs.html#programs-camp" class="nav-page block py-1 text-gray-500">English Camp</a>
-                <a href="programs.html#programs-mk-awards" class="nav-page block py-1 text-gray-500">MediaKids Award</a>
-                <a href="programs.html#programs-summer-camp" class="nav-page block py-1 text-gray-500">Summer Camp</a>
             </div>
         </div>
         <div>
