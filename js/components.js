@@ -40,6 +40,9 @@ const headerHTML = `
                 <div class="menu-close-trigger flex items-center h-full px-5">
                     <a href="jobs.html" class="nav-link nav-page flex items-center h-full w-full justify-center">Jobs</a>
                 </div>
+                <div class="menu-close-trigger flex items-center h-full px-5">
+                    <a href="curriculum.html" class="nav-link nav-page flex items-center h-full w-full justify-center">Curriculum</a>
+                </div>
             </div>
 
             <div class="menu-close-trigger hidden lg:flex items-center h-full relative z-50 ml-4 flex-shrink-0">
@@ -205,6 +208,7 @@ const headerHTML = `
 
         <a href="faq.html" class="nav-page block py-2 font-medium">FAQ</a>
         <a href="jobs.html" class="block py-2 font-medium nav-page">Jobs</a>
+        <a href="curriculum.html" class="block py-2 font-medium nav-page">Curriculum</a>
         <a href="jobs.html" class="nav-page block mt-4 btn-primary text-center px-6 py-2 rounded-full">Apply Now</a>
     </div>
 `;
