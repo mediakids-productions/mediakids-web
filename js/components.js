@@ -40,9 +40,6 @@ const headerHTML = `
                 <div class="menu-close-trigger flex items-center h-full px-5">
                     <a href="jobs.html" class="nav-link nav-page flex items-center h-full w-full justify-center">Jobs</a>
                 </div>
-                <div class="menu-close-trigger flex items-center h-full px-5">
-                    <a href="contact.html" class="nav-page nav-link flex items-center h-full w-full justify-center">Contact</a>
-                </div>
             </div>
 
             <div class="menu-close-trigger hidden lg:flex items-center h-full relative z-50 ml-4 flex-shrink-0">
@@ -62,29 +59,16 @@ const headerHTML = `
             <div id="mm-content-about" class="mm-section">
                 <div class="container mx-auto px-6">
                     <div class="grid grid-cols-12 gap-8">
-                        <div class="col-span-3 mm-col">
+                        <div class="col-span-4 mm-col">
                             <span class="mm-header">Organization</span>
                             <a href="about.html#about-mediakids" class="mm-link nav-page">MediaKids Story</a>
-
                             <a href="contact.html" class="mm-link nav-page">Contact Us</a>
                         </div>
-                        <div class="col-span-3 mm-col">
+                        <div class="col-span-4 mm-col">
                             <span class="mm-header">Our Departments</span>
                             <a href="about.html#about-team-hr" class="mm-link nav-page">Human Resources (HR)</a>
                             <a href="about.html#about-team-curriculum" class="mm-link nav-page">Curriculum Development</a>
                             <a href="about.html#about-team-consult" class="mm-link nav-page">Operations & Support</a>
-                        </div>
-                        <div class="col-span-6 border-l border-gray-100 pl-12 mm-col">
-                            <span class="mm-header">Featured</span>
-                            <div class="flex items-start gap-6 mt-4 group/card cursor-pointer" onclick="document.querySelector('[data-page=\\'about-mediakids\\']').click()">
-                                <div class="overflow-hidden rounded-lg shadow-sm w-40 h-24 flex-shrink-0">
-                                    <img src="images/unsplash-image-33.jpg" class="w-full h-full object-cover transform transition-transform duration-500 group-hover/card:scale-110">
-                                </div>
-                                <div>
-                                    <p class="text-base font-semibold text-gray-900 group-hover/card:text-blue-600 transition-colors">About MediaKids Academy</p>
-                                    <p class="text-sm text-gray-500 mt-2 leading-relaxed">Your trusted partner in education since 2001.</p>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -178,6 +162,7 @@ const headerHTML = `
                 <a href="about.html#about-team-hr" class="nav-page block py-1 text-gray-500">Overseas HR</a>
                 <a href="about.html#about-team-curriculum" class="nav-page block py-1 text-gray-500">Curriculum Dept</a>
                 <a href="about.html#about-team-consult" class="nav-page block py-1 text-gray-500">Operations Dept</a>
+                <a href="contact.html" class="nav-page block py-1 text-gray-600">Contact Us</a>
             </div>
         </div>
         <div>
@@ -220,7 +205,6 @@ const headerHTML = `
 
         <a href="faq.html" class="nav-page block py-2 font-medium">FAQ</a>
         <a href="jobs.html" class="block py-2 font-medium nav-page">Jobs</a>
-        <a href="contact.html" class="nav-page block py-2 font-medium">Contact</a>
         <a href="jobs.html" class="nav-page block mt-4 btn-primary text-center px-6 py-2 rounded-full">Apply Now</a>
     </div>
 `;
