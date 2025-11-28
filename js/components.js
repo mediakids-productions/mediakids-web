@@ -27,12 +27,7 @@ const headerHTML = `
                     </a>
                 </div>
 
-                <!-- Activity Dropdown Trigger -->
-                <div class="group-trigger h-full flex items-center px-5" data-menu="activity">
-                    <a href="activity.html" class="nav-link flex items-center h-full w-full justify-center">
-                        Activity <i class="fas fa-chevron-down text-xs ml-2 transition-transform duration-300"></i>
-                    </a>
-                </div>
+
 
                 <div class="menu-close-trigger flex items-center h-full px-5">
                     <a href="faq.html" class="nav-page nav-link flex items-center h-full w-full justify-center">FAQ</a>
@@ -81,11 +76,34 @@ const headerHTML = `
             <div id="mm-content-programs" class="mm-section">
                 <div class="container mx-auto px-6">
                     <div class="grid grid-cols-12 gap-8">
-                        <div class="col-span-12 mm-col">
+                        <div class="col-span-3 mm-col">
                             <span class="mm-header">Academic Programs</span>
                             <a href="programs.html#programs-ecd" class="mm-link nav-page">ECD Program <span class="mm-sub-text">(3-6 Years)</span></a>
                             <a href="programs.html#programs-iep" class="mm-link nav-page">IEP Program <span class="mm-sub-text">(Intensive)</span></a>
                             <a href="programs.html#programs-ep-ip" class="mm-link nav-page">IP / EP / MEP Program</a>
+                        </div>
+                        <div class="col-span-3 border-l border-gray-100 pl-8 mm-col">
+                            <span class="mm-header">Activities</span>
+                            <a href="programs.html#programs-camp" class="mm-link nav-page">English Camps</a>
+                            <a href="programs.html#programs-mk-awards" class="mm-link nav-page">MediaKids Awards</a>
+                            <a href="programs.html#programs-summer-camp" class="mm-link nav-page">Summer Camp in Canada</a>
+                        </div>
+                        <div class="col-span-6 border-l border-gray-100 pl-8 mm-col">
+                            <span class="mm-header">Highlights</span>
+                            <div class="grid grid-cols-2 gap-6 mt-4">
+                                <a href="programs.html#programs-camp" class="group/img block nav-page">
+                                    <div class="overflow-hidden rounded-lg shadow-sm h-32 mb-3">
+                                        <img src="images/unsplash-image-38.jpg" class="w-full h-full object-cover transform transition-transform duration-500 group-hover/img:scale-110">
+                                    </div>
+                                    <span class="text-sm font-semibold text-gray-800 group-hover/img:text-blue-600">English Camps</span>
+                                </a>
+                                <a href="programs.html#programs-mk-awards" class="group/img block nav-page">
+                                    <div class="overflow-hidden rounded-lg shadow-sm h-32 mb-3">
+                                        <img src="images/post-1.jpg" class="w-full h-full object-cover transform transition-transform duration-500 group-hover/img:scale-110">
+                                    </div>
+                                    <span class="text-sm font-semibold text-gray-800 group-hover/img:text-blue-600">MediaKids Awards</span>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -120,36 +138,7 @@ const headerHTML = `
                 </div>
             </div>
 
-            <!-- Activity (NEW) -->
-            <div id="mm-content-activity" class="mm-section">
-                <div class="container mx-auto px-6">
-                    <div class="grid grid-cols-12 gap-8">
-                        <div class="col-span-3 mm-col">
-                            <span class="mm-header">Activities</span>
-                            <a href="programs.html#programs-camp" class="mm-link nav-page">English Camps</a>
-                            <a href="programs.html#programs-mk-awards" class="mm-link nav-page">MediaKids Awards</a>
-                            <a href="programs.html#programs-summer-camp" class="mm-link nav-page">Summer Camp in Canada</a>
-                        </div>
-                        <div class="col-span-9 border-l border-gray-100 pl-12 mm-col">
-                            <span class="mm-header">Highlights</span>
-                            <div class="grid grid-cols-2 gap-6 mt-4">
-                                <a href="programs.html#programs-camp" class="group/img block nav-page">
-                                    <div class="overflow-hidden rounded-lg shadow-sm h-32 mb-3">
-                                        <img src="images/unsplash-image-38.jpg" class="w-full h-full object-cover transform transition-transform duration-500 group-hover/img:scale-110">
-                                    </div>
-                                    <span class="text-sm font-semibold text-gray-800 group-hover/img:text-blue-600">English Camps</span>
-                                </a>
-                                <a href="programs.html#programs-mk-awards" class="group/img block nav-page">
-                                    <div class="overflow-hidden rounded-lg shadow-sm h-32 mb-3">
-                                        <img src="images/post-1.jpg" class="w-full h-full object-cover transform transition-transform duration-500 group-hover/img:scale-110">
-                                    </div>
-                                    <span class="text-sm font-semibold text-gray-800 group-hover/img:text-blue-600">MediaKids Awards</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
         </div>
     </header>
 
@@ -177,6 +166,12 @@ const headerHTML = `
                 <a href="programs.html#programs-ecd" class="nav-page block py-1 text-gray-600">ECD Program</a>
                 <a href="programs.html#programs-iep" class="nav-page block py-1 text-gray-600">IEP Program</a>
                 <a href="programs.html#programs-ep-ip" class="nav-page block py-1 text-gray-600">IP / EP / MEP</a>
+                <div class="border-t border-gray-100 my-2 pt-2">
+                    <span class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2 block">Activities</span>
+                    <a href="programs.html#programs-camp" class="nav-page block py-1 text-gray-600">English Camps</a>
+                    <a href="programs.html#programs-mk-awards" class="nav-page block py-1 text-gray-600">MediaKids Awards</a>
+                    <a href="programs.html#programs-summer-camp" class="nav-page block py-1 text-gray-600">Summer Camp in Canada</a>
+                </div>
             </div>
         </div>
         <div>
@@ -193,18 +188,7 @@ const headerHTML = `
             </div>
         </div>
 
-        <!-- Activity Mobile Dropdown -->
-        <div>
-            <button class="mobile-menu-toggle w-full flex justify-between items-center py-2 font-medium">
-                <span>Activity</span>
-                <i class="fas fa-chevron-down text-xs transform transition-transform duration-300"></i>
-            </button>
-            <div class="mobile-submenu hidden pl-4 mt-2 space-y-2 border-l-2 border-gray-100 ml-2">
-                <a href="programs.html#programs-camp" class="nav-page block py-1 text-gray-600">English Camps</a>
-                <a href="programs.html#programs-mk-awards" class="nav-page block py-1 text-gray-600">MediaKids Awards</a>
-                <a href="programs.html#programs-summer-camp" class="nav-page block py-1 text-gray-600">Summer Camp in Canada</a>
-            </div>
-        </div>
+
 
         <a href="faq.html" class="nav-page block py-2 font-medium">FAQ</a>
         <a href="jobs.html" class="block py-2 font-medium nav-page">Jobs</a>
