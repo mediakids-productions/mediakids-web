@@ -177,23 +177,21 @@ function initSite() {
                         }
                     });
 
-                    // Delay 3 seconds before starting auto-rotation
-                    setTimeout(() => {
-                        setInterval(() => {
-                            const nextImageIndex = (currentImageIndex + 1) % slideshowImages.length;
-                            const currentImage = slideshowImages[currentImageIndex];
-                            const nextImage = slideshowImages[nextImageIndex];
-                            currentImage.classList.remove('opacity-100', 'translate-x-0');
-                            currentImage.classList.add('opacity-0', '-translate-x-full');
-                            nextImage.classList.remove('opacity-0', 'translate-x-full');
-                            nextImage.classList.add('opacity-100', 'translate-x-0');
-                            setTimeout(() => {
-                                currentImage.classList.remove('-translate-x-full');
-                                currentImage.classList.add('translate-x-full');
-                            }, 1000);
-                            currentImageIndex = nextImageIndex;
-                        }, 4000);
-                    }, 3000);
+                    // Start auto-rotation immediately so the first slide stays on screen the same duration as others
+                    setInterval(() => {
+                        const nextImageIndex = (currentImageIndex + 1) % slideshowImages.length;
+                        const currentImage = slideshowImages[currentImageIndex];
+                        const nextImage = slideshowImages[nextImageIndex];
+                        currentImage.classList.remove('opacity-100', 'translate-x-0');
+                        currentImage.classList.add('opacity-0', '-translate-x-full');
+                        nextImage.classList.remove('opacity-0', 'translate-x-full');
+                        nextImage.classList.add('opacity-100', 'translate-x-0');
+                        setTimeout(() => {
+                            currentImage.classList.remove('-translate-x-full');
+                            currentImage.classList.add('translate-x-full');
+                        }, 1000);
+                        currentImageIndex = nextImageIndex;
+                    }, 4000);
                 }, 100);
             });
         });
