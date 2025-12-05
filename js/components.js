@@ -26,13 +26,13 @@ const headerHTML = `
                 </div>
 
                 <div class="group-trigger h-full flex items-center px-5" data-menu="programs">
-                    <a href="${basePath}programs.html" class="nav-link flex items-center h-full w-full justify-center">
+                    <a href="${basePath}programs/" class="nav-link flex items-center h-full w-full justify-center">
                         Programs <i class="fas fa-chevron-down text-xs ml-2 transition-transform duration-300"></i>
                     </a>
                 </div>
 
                 <div class="group-trigger h-full flex items-center px-5" data-menu="schools">
-                    <a href="${basePath}schools.html" class="nav-link flex items-center h-full w-full justify-center">
+                    <a href="${basePath}schools/" class="nav-link flex items-center h-full w-full justify-center">
                         Schools <i class="fas fa-chevron-down text-xs ml-2 transition-transform duration-300"></i>
                     </a>
                 </div>
@@ -40,18 +40,18 @@ const headerHTML = `
 
 
                 <div class="menu-close-trigger flex items-center h-full px-5">
-                    <a href="${basePath}faq.html" class="nav-page nav-link flex items-center h-full w-full justify-center">FAQ</a>
+                    <a href="${basePath}faq/" class="nav-page nav-link flex items-center h-full w-full justify-center">FAQ</a>
                 </div>
                 <div class="menu-close-trigger flex items-center h-full px-5">
-                    <a href="${basePath}jobs.html" class="nav-link nav-page flex items-center h-full w-full justify-center">Jobs</a>
+                    <a href="${basePath}jobs/" class="nav-link nav-page flex items-center h-full w-full justify-center">Jobs</a>
                 </div>
                 <div class="menu-close-trigger flex items-center h-full px-5">
-                    <a href="${basePath}curriculum.html" class="nav-link nav-page flex items-center h-full w-full justify-center">Curriculum</a>
+                    <a href="${basePath}curriculum/" class="nav-link nav-page flex items-center h-full w-full justify-center">Curriculum</a>
                 </div>
             </div>
 
             <div class="menu-close-trigger hidden lg:flex items-center h-full relative z-50 ml-4 flex-shrink-0">
-                <a href="${basePath}jobs.html" class="btn-primary px-6 py-2 rounded-full nav-page ml-4">
+                <a href="${basePath}jobs/" class="btn-primary px-6 py-2 rounded-full nav-page ml-4">
                     Apply Now
                 </a>
             </div>
@@ -70,7 +70,7 @@ const headerHTML = `
                         <div class="col-span-4 mm-col">
                             <span class="mm-header">Organization</span>
                             <a href="${basePath}about/#about-mediakids" class="mm-link nav-page">MediaKids Story</a>
-                            <a href="${basePath}contact.html" class="mm-link nav-page">Contact Us</a>
+                            <a href="${basePath}contact/" class="mm-link nav-page">Contact Us</a>
                         </div>
                         <div class="col-span-4 mm-col">
                             <span class="mm-header">Our Departments</span>
@@ -88,26 +88,26 @@ const headerHTML = `
                     <div class="grid grid-cols-12 gap-8">
                         <div class="col-span-3 mm-col">
                             <span class="mm-header">Academic Programs</span>
-                            <a href="${basePath}programs.html#programs-ecd" class="mm-link nav-page">ECD Program <span class="mm-sub-text">(3-6 Years)</span></a>
-                            <a href="${basePath}programs.html#programs-iep" class="mm-link nav-page">IEP Program <span class="mm-sub-text">(Intensive)</span></a>
-                            <a href="${basePath}programs.html#programs-ep-ip" class="mm-link nav-page">IP / EP / MEP Program</a>
+                            <a href="${basePath}programs/#programs-ecd" class="mm-link nav-page">ECD Program <span class="mm-sub-text">(3-6 Years)</span></a>
+                            <a href="${basePath}programs/#programs-iep" class="mm-link nav-page">IEP Program <span class="mm-sub-text">(Intensive)</span></a>
+                            <a href="${basePath}programs/#programs-ep-ip" class="mm-link nav-page">IP / EP / MEP Program</a>
                         </div>
                         <div class="col-span-3 border-l border-gray-100 pl-8 mm-col">
                             <span class="mm-header">Activities</span>
-                            <a href="${basePath}programs.html#programs-camp" class="mm-link nav-page">English Camps</a>
-                            <a href="${basePath}programs.html#programs-mk-awards" class="mm-link nav-page">MediaKids Awards</a>
-                            <a href="${basePath}programs.html#programs-summer-camp" class="mm-link nav-page">Summer Camp in Canada</a>
+                            <a href="${basePath}programs/#programs-camp" class="mm-link nav-page">English Camps</a>
+                            <a href="${basePath}programs/#programs-mk-awards" class="mm-link nav-page">MediaKids Awards</a>
+                            <a href="${basePath}programs/#programs-summer-camp" class="mm-link nav-page">Summer Camp in Canada</a>
                         </div>
                         <div class="col-span-6 border-l border-gray-100 pl-8 mm-col">
                             <span class="mm-header">Highlights</span>
                             <div class="grid grid-cols-2 gap-6 mt-4">
-                                <a href="${basePath}programs.html#programs-camp" class="group/img block nav-page">
+                                <a href="${basePath}programs/#programs-camp" class="group/img block nav-page">
                                     <div class="overflow-hidden rounded-lg shadow-sm h-32 mb-3">
                                         <img src="${basePath}assets/images/programs/unsplash-image-38.jpg" class="w-full h-full object-cover transform transition-transform duration-500 group-hover/img:scale-110">
                                     </div>
                                     <span class="text-sm font-semibold text-gray-800 group-hover/img:text-blue-600">English Camps</span>
                                 </a>
-                                <a href="${basePath}programs.html#programs-mk-awards" class="group/img block nav-page">
+                                <a href="${basePath}programs/#programs-mk-awards" class="group/img block nav-page">
                                     <div class="overflow-hidden rounded-lg shadow-sm h-32 mb-3">
                                         <img src="${basePath}assets/images/posts/post-1.jpg" class="w-full h-full object-cover transform transition-transform duration-500 group-hover/img:scale-110">
                                     </div>
@@ -125,14 +125,14 @@ const headerHTML = `
                     <div class="grid grid-cols-12 gap-8">
                         <div class="col-span-3 mm-col">
                             <span class="mm-header">Locations</span>
-                            <a href="${basePath}schools.html#schools-central-north" class="mm-link nav-page">Central & North Area</a>
-                            <a href="${basePath}schools.html#schools-esan1" class="mm-link nav-page">Esan 1 Area <span class="mm-sub-text">Korat, Buriram</span></a>
+                            <a href="${basePath}schools/#schools-central-north" class="mm-link nav-page">Central & North Area</a>
+                            <a href="${basePath}schools/#schools-esan1" class="mm-link nav-page">Esan 1 Area <span class="mm-sub-text">Korat, Buriram</span></a>
                         </div>
                         <div class="col-span-3 mm-col">
                             <span class="mm-header">Northeast (Isaan)</span>
-                            <a href="${basePath}schools.html#schools-esan2" class="mm-link nav-page">Esan 2 Area <span class="mm-sub-text">Khon Kaen, Udon</span></a>
-                            <a href="${basePath}schools.html#schools-esan3" class="mm-link nav-page">Esan 3 Area <span class="mm-sub-text">Ubon Ratchathani</span></a>
-                            <a href="${basePath}schools.html#schools-esan4" class="mm-link nav-page">Esan 4 Area <span class="mm-sub-text">Sakon Nakhon</span></a>
+                            <a href="${basePath}schools/#schools-esan2" class="mm-link nav-page">Esan 2 Area <span class="mm-sub-text">Khon Kaen, Udon</span></a>
+                            <a href="${basePath}schools/#schools-esan3" class="mm-link nav-page">Esan 3 Area <span class="mm-sub-text">Ubon Ratchathani</span></a>
+                            <a href="${basePath}schools/#schools-esan4" class="mm-link nav-page">Esan 4 Area <span class="mm-sub-text">Sakon Nakhon</span></a>
                         </div>
                         <div class="col-span-6 border-l border-gray-100 pl-12 mm-col flex flex-col justify-center">
                             <span class="mm-header mb-4">Our Coverage</span>
@@ -164,7 +164,7 @@ const headerHTML = `
                 <a href="${basePath}about/#about-team-hr" class="nav-page block py-1 text-gray-500">Overseas HR</a>
                 <a href="${basePath}about/#about-team-curriculum" class="nav-page block py-1 text-gray-500">Curriculum Dept</a>
                 <a href="${basePath}about/#about-team-consult" class="nav-page block py-1 text-gray-500">Operations Dept</a>
-                <a href="${basePath}contact.html" class="nav-page block py-1 text-gray-600">Contact Us</a>
+                <a href="${basePath}contact/" class="nav-page block py-1 text-gray-600">Contact Us</a>
             </div>
         </div>
         <div>
@@ -173,14 +173,14 @@ const headerHTML = `
                 <i class="fas fa-chevron-down text-xs transform transition-transform duration-300"></i>
             </button>
             <div class="mobile-submenu hidden pl-4 mt-2 space-y-2 border-l-2 border-gray-100 ml-2">
-                <a href="${basePath}programs.html#programs-ecd" class="nav-page block py-1 text-gray-600">ECD Program</a>
-                <a href="${basePath}programs.html#programs-iep" class="nav-page block py-1 text-gray-600">IEP Program</a>
-                <a href="${basePath}programs.html#programs-ep-ip" class="nav-page block py-1 text-gray-600">IP / EP / MEP</a>
+                <a href="${basePath}programs/#programs-ecd" class="nav-page block py-1 text-gray-600">ECD Program</a>
+                <a href="${basePath}programs/#programs-iep" class="nav-page block py-1 text-gray-600">IEP Program</a>
+                <a href="${basePath}programs/#programs-ep-ip" class="nav-page block py-1 text-gray-600">IP / EP / MEP</a>
                 <div class="border-t border-gray-100 my-2 pt-2">
                     <span class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2 block">Activities</span>
-                    <a href="${basePath}programs.html#programs-camp" class="nav-page block py-1 text-gray-600">English Camps</a>
-                    <a href="${basePath}programs.html#programs-mk-awards" class="nav-page block py-1 text-gray-600">MediaKids Awards</a>
-                    <a href="${basePath}programs.html#programs-summer-camp" class="nav-page block py-1 text-gray-600">Summer Camp in Canada</a>
+                    <a href="${basePath}programs/#programs-camp" class="nav-page block py-1 text-gray-600">English Camps</a>
+                    <a href="${basePath}programs/#programs-mk-awards" class="nav-page block py-1 text-gray-600">MediaKids Awards</a>
+                    <a href="${basePath}programs/#programs-summer-camp" class="nav-page block py-1 text-gray-600">Summer Camp in Canada</a>
                 </div>
             </div>
         </div>
@@ -190,20 +190,20 @@ const headerHTML = `
                 <i class="fas fa-chevron-down text-xs transform transition-transform duration-300"></i>
             </button>
             <div class="mobile-submenu hidden pl-4 mt-2 space-y-2 border-l-2 border-gray-100 ml-2">
-                <a href="${basePath}schools.html#schools-central-north" class="nav-page block py-1 text-gray-600">Central & North</a>
-                <a href="${basePath}schools.html#schools-esan1" class="nav-page block py-1 text-gray-600">Esan 1 Area</a>
-                <a href="${basePath}schools.html#schools-esan2" class="nav-page block py-1 text-gray-600">Esan 2 Area</a>
-                <a href="${basePath}schools.html#schools-esan3" class="nav-page block py-1 text-gray-600">Esan 3 Area</a>
-                <a href="${basePath}schools.html#schools-esan4" class="nav-page block py-1 text-gray-600">Esan 4 Area</a>
+                <a href="${basePath}schools/#schools-central-north" class="nav-page block py-1 text-gray-600">Central & North</a>
+                <a href="${basePath}schools/#schools-esan1" class="nav-page block py-1 text-gray-600">Esan 1 Area</a>
+                <a href="${basePath}schools/#schools-esan2" class="nav-page block py-1 text-gray-600">Esan 2 Area</a>
+                <a href="${basePath}schools/#schools-esan3" class="nav-page block py-1 text-gray-600">Esan 3 Area</a>
+                <a href="${basePath}schools/#schools-esan4" class="nav-page block py-1 text-gray-600">Esan 4 Area</a>
             </div>
         </div>
 
 
 
-        <a href="${basePath}faq.html" class="nav-page block py-2 font-medium">FAQ</a>
-        <a href="${basePath}jobs.html" class="block py-2 font-medium nav-page">Jobs</a>
-        <a href="${basePath}curriculum.html" class="block py-2 font-medium nav-page">Curriculum</a>
-        <a href="${basePath}jobs.html" class="nav-page block mt-4 btn-primary text-center px-6 py-2 rounded-full">Apply Now</a>
+        <a href="${basePath}faq/" class="nav-page block py-2 font-medium">FAQ</a>
+        <a href="${basePath}jobs/" class="block py-2 font-medium nav-page">Jobs</a>
+        <a href="${basePath}curriculum/" class="block py-2 font-medium nav-page">Curriculum</a>
+        <a href="${basePath}jobs/" class="nav-page block mt-4 btn-primary text-center px-6 py-2 rounded-full">Apply Now</a>
     </div>
 `;
 
@@ -223,11 +223,11 @@ const footerHTML = `
                 <div>
                     <h4 class="text-lg font-bold mb-6 border-b border-blue-500 inline-block pb-2">Quick Links</h4>
                     <ul class="space-y-3 text-gray-400">
-                        <li><a href="${basePath}jobs.html" class="nav-page hover:text-blue-400 transition-colors">Apply Now</a></li>
-                        <li><a href="${basePath}programs.html#programs-ecd" class="nav-page hover:text-blue-400 transition-colors">Our Programs</a></li>
-                        <li><a href="${basePath}schools.html#schools-central-north" class="nav-page hover:text-blue-400 transition-colors">School Locations</a></li>
+                        <li><a href="${basePath}jobs/" class="nav-page hover:text-blue-400 transition-colors">Apply Now</a></li>
+                        <li><a href="${basePath}programs/#programs-ecd" class="nav-page hover:text-blue-400 transition-colors">Our Programs</a></li>
+                        <li><a href="${basePath}schools/#schools-central-north" class="nav-page hover:text-blue-400 transition-colors">School Locations</a></li>
                         <li><a href="${basePath}about/#about-mediakids" class="nav-page hover:text-blue-400 transition-colors">About Us</a></li>
-                        <li><a href="${basePath}faq.html" class="nav-page hover:text-blue-400 transition-colors">FAQ</a></li>
+                        <li><a href="${basePath}faq/" class="nav-page hover:text-blue-400 transition-colors">FAQ</a></li>
                     </ul>
                 </div>
                 <div>
