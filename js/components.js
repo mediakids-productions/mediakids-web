@@ -1,4 +1,4 @@
-// Detect base path for nested folders (e.g., /about/index.html)
+// Detect base path for nested folders (e.g., /about/)
 const basePath = window.location.pathname.includes('/about/') ||
     window.location.pathname.includes('/programs/') ||
     window.location.pathname.includes('/schools/') ||
