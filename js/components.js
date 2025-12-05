@@ -2,7 +2,7 @@ const headerHTML = `
     <header id="main-header" class="fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-in-out h-[88px] bg-white/90 backdrop-blur-md border-b border-transparent">
         <nav id="nav-container" class="container mx-auto px-6 flex justify-between items-stretch transition-all duration-300 relative z-50 h-full">
             <a href="index.html" class="nav-logo menu-close-trigger flex items-center space-x-3 py-4 relative z-50">
-                <img id="logo-image" src="images/google-drive-image-17.jpg" data-drive-src="images/google-drive-image-1.jpg" alt="MediaKids Academy Logo" class="h-10 w-auto" loading="lazy" referrerpolicy="no-referrer" />
+                <img id="logo-image" src="assets/images/icons/google-drive-image-17.jpg" data-drive-src="assets/images/icons/google-drive-image-1.jpg" alt="MediaKids Academy Logo" class="h-10 w-auto" loading="lazy" referrerpolicy="no-referrer" />
                 <span class="text-3xl font-bold accent-text">
                     MediaKids<span class="text-gray-800"> Academy</span>
                 </span>
@@ -93,13 +93,13 @@ const headerHTML = `
                             <div class="grid grid-cols-2 gap-6 mt-4">
                                 <a href="programs.html#programs-camp" class="group/img block nav-page">
                                     <div class="overflow-hidden rounded-lg shadow-sm h-32 mb-3">
-                                        <img src="images/unsplash-image-38.jpg" class="w-full h-full object-cover transform transition-transform duration-500 group-hover/img:scale-110">
+                                        <img src="assets/images/programs/unsplash-image-38.jpg" class="w-full h-full object-cover transform transition-transform duration-500 group-hover/img:scale-110">
                                     </div>
                                     <span class="text-sm font-semibold text-gray-800 group-hover/img:text-blue-600">English Camps</span>
                                 </a>
                                 <a href="programs.html#programs-mk-awards" class="group/img block nav-page">
                                     <div class="overflow-hidden rounded-lg shadow-sm h-32 mb-3">
-                                        <img src="images/post-1.jpg" class="w-full h-full object-cover transform transition-transform duration-500 group-hover/img:scale-110">
+                                        <img src="assets/images/posts/post-1.jpg" class="w-full h-full object-cover transform transition-transform duration-500 group-hover/img:scale-110">
                                     </div>
                                     <span class="text-sm font-semibold text-gray-800 group-hover/img:text-blue-600">MediaKids Awards</span>
                                 </a>
