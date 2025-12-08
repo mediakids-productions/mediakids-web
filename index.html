@@ -79,9 +79,9 @@
                             doorway to discovery. Join us in weaving tales of learning, growth, and mutual
                             understanding.</p>
                         <div class="mt-8 flex flex-wrap gap-4">
-                            <a href="jobs.html" class="nav-page btn-primary px-10 py-4 rounded-full text-lg">Explore
+                            <a href="jobs/" class="nav-page btn-primary px-10 py-4 rounded-full text-lg">Explore
                                 Opportunities</a>
-                            <a href="about.html" class="nav-main btn-secondary px-10 py-4 rounded-full text-lg">Learn
+                            <a href="story/" class="nav-main btn-secondary px-10 py-4 rounded-full text-lg">Learn
                                 More</a>
                         </div>
                     </div>
@@ -196,24 +196,128 @@
             <section id="partners" class="py-20 bg-white">
                 <div class="container mx-auto px-6">
                     <h3 class="text-center text-3xl font-bold text-gray-800 mb-12">Our Valued Partners</h3>
-                    <div class="flex flex-wrap justify-center items-center gap-x-16 gap-y-8">
-                        <img id="partner-logo-1" src="assets/images/partners/partner-1.jpg" alt="Partner 1"
-                            class="h-20 transition-transform duration-300 hover:scale-110" loading="lazy"
-                            referrerpolicy="no-referrer" data-aos="zoom-in">
-                        <img id="partner-logo-2" src="assets/images/partners/partner-2.jpg" alt="Partner 2"
-                            class="h-20 transition-transform duration-300 hover:scale-110" loading="lazy"
-                            referrerpolicy="no-referrer" data-aos="zoom-in" data-aos-delay="100">
-                        <img id="partner-logo-3" src="assets/images/partners/partner-3.jpg" alt="Partner 3"
-                            class="h-20 transition-transform duration-300 hover:scale-110" loading="lazy"
-                            referrerpolicy="no-referrer" data-aos="zoom-in" data-aos-delay="200">
-                        <img id="partner-logo-4" src="assets/images/partners/partner-4.jpg" alt="Partner 4"
-                            class="h-20 transition-transform duration-300 hover:scale-110" loading="lazy"
-                            referrerpolicy="no-referrer" data-aos="zoom-in" data-aos-delay="300">
-                        <img id="partner-logo-5" src="assets/images/partners/partner-5.jpg" alt="Partner 5"
-                            class="h-20 transition-transform duration-300 hover:scale-110" loading="lazy"
-                            referrerpolicy="no-referrer" data-aos="zoom-in" data-aos-delay="400">
+                    <div id="partners-marquee" class="relative overflow-hidden">
+                        <!-- Fade edges -->
+                        <div class="partners-fade-left"></div>
+                        <div class="partners-fade-right"></div>
+
+                        <div class="partners-track">
+                            <!-- First set -->
+                            <img src="assets/images/partners/s1.webp" alt="Partner 1" class="partner-logo">
+                            <img src="assets/images/partners/s2.webp" alt="Partner 2" class="partner-logo">
+                            <img src="assets/images/partners/s3.webp" alt="Partner 3" class="partner-logo">
+                            <img src="assets/images/partners/s4.webp" alt="Partner 4" class="partner-logo">
+                            <img src="assets/images/partners/s5.webp" alt="Partner 5" class="partner-logo">
+                            <img src="assets/images/partners/s6.webp" alt="Partner 6" class="partner-logo">
+                            <img src="assets/images/partners/s7.webp" alt="Partner 7" class="partner-logo">
+                            <img src="assets/images/partners/s8.webp" alt="Partner 8" class="partner-logo">
+                            <img src="assets/images/partners/s9.webp" alt="Partner 9" class="partner-logo">
+                            <img src="assets/images/partners/s10.webp" alt="Partner 10" class="partner-logo">
+                            <img src="assets/images/partners/s11.webp" alt="Partner 11" class="partner-logo">
+                            <img src="assets/images/partners/s12.webp" alt="Partner 12" class="partner-logo">
+                            <img src="assets/images/partners/s13.webp" alt="Partner 13" class="partner-logo">
+                            <img src="assets/images/partners/s14.webp" alt="Partner 14" class="partner-logo">
+                            <!-- Duplicate set for seamless loop -->
+                            <img src="assets/images/partners/s1.webp" alt="Partner 1" class="partner-logo">
+                            <img src="assets/images/partners/s2.webp" alt="Partner 2" class="partner-logo">
+                            <img src="assets/images/partners/s3.webp" alt="Partner 3" class="partner-logo">
+                            <img src="assets/images/partners/s4.webp" alt="Partner 4" class="partner-logo">
+                            <img src="assets/images/partners/s5.webp" alt="Partner 5" class="partner-logo">
+                            <img src="assets/images/partners/s6.webp" alt="Partner 6" class="partner-logo">
+                            <img src="assets/images/partners/s7.webp" alt="Partner 7" class="partner-logo">
+                            <img src="assets/images/partners/s8.webp" alt="Partner 8" class="partner-logo">
+                            <img src="assets/images/partners/s9.webp" alt="Partner 9" class="partner-logo">
+                            <img src="assets/images/partners/s10.webp" alt="Partner 10" class="partner-logo">
+                            <img src="assets/images/partners/s11.webp" alt="Partner 11" class="partner-logo">
+                            <img src="assets/images/partners/s12.webp" alt="Partner 12" class="partner-logo">
+                            <img src="assets/images/partners/s13.webp" alt="Partner 13" class="partner-logo">
+                            <img src="assets/images/partners/s14.webp" alt="Partner 14" class="partner-logo">
+                        </div>
                     </div>
                 </div>
+
+                <style>
+                    #partners-marquee {
+                        position: relative;
+                        max-width: 700px;
+                        margin: 0 auto;
+                    }
+
+                    .partners-fade-left,
+                    .partners-fade-right {
+                        position: absolute;
+                        top: 0;
+                        bottom: 0;
+                        width: 100px;
+                        z-index: 10;
+                        pointer-events: none;
+                    }
+
+                    .partners-fade-left {
+                        left: 0;
+                        background: linear-gradient(to right, #fff 0%, transparent 100%);
+                    }
+
+                    .partners-fade-right {
+                        right: 0;
+                        background: linear-gradient(to left, #fff 0%, transparent 100%);
+                    }
+
+                    .partners-track {
+                        display: flex;
+                        align-items: center;
+                        gap: 3rem;
+                        animation: marquee 25s linear infinite;
+                        width: max-content;
+                        will-change: transform;
+                        backface-visibility: hidden;
+                        -webkit-backface-visibility: hidden;
+                        transform: translate3d(0, 0, 0);
+                    }
+
+                    .partners-track:hover {
+                        animation-play-state: paused;
+                    }
+
+                    .partner-logo {
+                        height: 70px;
+                        width: auto;
+                        object-fit: contain;
+                        flex-shrink: 0;
+                        transition: transform 0.3s ease;
+                        will-change: transform;
+                    }
+
+                    .partner-logo:hover {
+                        transform: scale(1.15);
+                    }
+
+                    @keyframes marquee {
+                        from {
+                            transform: translate3d(0, 0, 0);
+                        }
+
+                        to {
+                            transform: translate3d(-50%, 0, 0);
+                        }
+                    }
+
+                    @media (max-width: 768px) {
+                        .partners-track {
+                            gap: 2rem;
+                            animation-duration: 20s;
+                        }
+
+                        .partner-logo {
+                            height: 50px;
+                        }
+
+                        .partners-fade-left,
+                        .partners-fade-right {
+                            width: 50px;
+                        }
+                    }
+                </style>
             </section>
             <section id="journey" class="py-20 bg-gray-50">
                 <div class="container mx-auto px-6">

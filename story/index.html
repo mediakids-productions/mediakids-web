@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-C3WTLTZ1Y1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-C3WTLTZ1Y1');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>MediaKids Story - Our Journey Since 2001 | MediaKids Academy</title>
+    <meta name="description"
+        content="Discover the MediaKids Academy story - our mission, vision, and the journey of bringing quality English education to Thailand since 2001.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/icons/logo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/icons/logo.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/icons/logo.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="../css/style.css">
+
+    <style>
+        /* Parallax Base */
+        .parallax-section {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .parallax-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 120%;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            z-index: 1;
+        }
+
+        @media (max-width: 768px) {
+            .parallax-bg {
+                background-attachment: scroll;
+            }
+        }
+
+        .parallax-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+        }
+
+        .parallax-content {
+            position: relative;
+            z-index: 10;
+        }
+
+        /* CEO Section - Enhanced */
+        .ceo-section {
+            background: linear-gradient(135deg, #0A192F 0%, #1a365d 50%, #0A192F 100%);
+            min-height: 80vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Decorative Background Elements */
+        .ceo-section::before {
+            content: '';
+            position: absolute;
+            top: 10%;
+            left: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255, 209, 0, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: pulse-glow 8s ease-in-out infinite;
+        }
+
+        .ceo-section::after {
+            content: '';
+            position: absolute;
+            bottom: 10%;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(0, 82, 204, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: pulse-glow 10s ease-in-out infinite reverse;
+        }
+
+        @keyframes pulse-glow {
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+
+            50% {
+                transform: scale(1.2);
+                opacity: 1;
+            }
+        }
+
+        /* Decorative Lines */
+        .ceo-decorative-line {
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #FFD100, transparent);
+            margin: 0 auto 2rem;
+        }
+
+        .ceo-image-wrapper {
+            position: relative;
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid rgba(255, 209, 0, 0.9);
+            box-shadow:
+                0 0 0 8px rgba(255, 209, 0, 0.1),
+                0 0 40px rgba(255, 209, 0, 0.4),
+                0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .ceo-image-wrapper::before {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 209, 0, 0.3);
+            animation: rotate-ring 20s linear infinite;
+        }
+
+        @keyframes rotate-ring {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .ceo-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+        }
+
+        /* Quote Card */
+        .ceo-quote-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 24px;
+            padding: 2.5rem 3rem;
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .ceo-quote-card::before,
+        .ceo-quote-card::after {
+            font-family: Georgia, serif;
+            font-size: 6rem;
+            color: rgba(255, 209, 0, 0.2);
+            position: absolute;
+            line-height: 1;
+        }
+
+        .ceo-quote-card::before {
+            content: '"';
+            top: 10px;
+            left: 20px;
+        }
+
+        .ceo-quote-card::after {
+            content: '"';
+            bottom: -20px;
+            right: 20px;
+        }
+
+        .ceo-quote {
+            font-size: 1.35rem;
+            line-height: 1.9;
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.92);
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* CEO Name Card */
+        .ceo-name-card {
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(255, 209, 0, 0.15) 0%, rgba(255, 209, 0, 0.05) 100%);
+            border: 1px solid rgba(255, 209, 0, 0.3);
+            border-radius: 50px;
+            padding: 1rem 2.5rem;
+            margin-top: 2rem;
+        }
+
+        /* Story Section */
+        .story-section .parallax-bg {
+            background-image: url('../assets/images/story/Our Story.webp');
+        }
+
+        .story-section .parallax-overlay {
+            background: linear-gradient(135deg, rgba(10, 25, 47, 0.6) 0%, rgba(10, 25, 47, 0.75) 100%);
+        }
+
+        /* Mission Section */
+        .mission-section .parallax-bg {
+            background-image: url('../assets/images/story/Mission.webp');
+        }
+
+        .mission-section .parallax-overlay {
+            background: linear-gradient(135deg, rgba(10, 25, 47, 0.6) 0%, rgba(10, 25, 47, 0.75) 100%);
+        }
+
+        /* Vision Section */
+        .vision-section .parallax-bg {
+            background-image: url('../assets/images/story/Vision.webp');
+        }
+
+        .vision-section .parallax-overlay {
+            background: linear-gradient(135deg, rgba(10, 25, 47, 0.6) 0%, rgba(10, 25, 47, 0.75) 100%);
+        }
+
+        /* Content Cards */
+        .content-card {
+            background: rgba(10, 25, 47, 0.85);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Section Title */
+        .section-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        @media (min-width: 768px) {
+            .section-title {
+                font-size: 3.5rem;
+            }
+        }
+
+        .section-subtitle {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        /* Value List */
+        .value-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .value-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+
+        .value-list li::before {
+            content: '•';
+            color: #FFD100;
+            font-size: 1.5rem;
+            line-height: 1.2;
+        }
+
+        /* Highlight Text */
+        .highlight-yellow {
+            color: #FFD100;
+        }
+
+        .highlight-blue {
+            color: #60a5fa;
+        }
+
+        /* Scroll Indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 20;
+            cursor: pointer;
+            opacity: 0.3;
+            transition: opacity 0.3s ease;
+        }
+
+        .scroll-indicator:hover {
+            opacity: 0.6;
+        }
+
+        .scroll-indicator i {
+            font-size: 1.2rem;
+            color: #fff;
+            animation: bounce-arrow 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce-arrow {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(8px);
+            }
+        }
+    </style>
+</head>
+
+<body class="leading-relaxed overflow-x-hidden relative">
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Shared Header Container -->
+    <div id="shared-header"></div>
+
+    <main>
+        <div id="main-content">
+
+            <!-- CEO Quote Section -->
+            <section class="ceo-section flex items-center justify-center py-20">
+                <div class="container mx-auto px-6 relative z-10">
+                    <div class="max-w-4xl mx-auto text-center" data-aos="fade-up">
+
+                        <!-- CEO Image -->
+                        <div class="ceo-image-wrapper mx-auto mb-6" data-aos="zoom-in" data-aos-delay="100">
+                            <img src="../assets/images/story/CEO.webp" alt="Wachira Tepamat - MediaKids Academy CEO"
+                                loading="lazy">
+                        </div>
+
+                        <!-- Decorative Line -->
+                        <div class="ceo-decorative-line" data-aos="fade-up" data-aos-delay="150"></div>
+
+                        <!-- CEO Quote Card -->
+                        <div class="ceo-quote-card" data-aos="fade-up" data-aos-delay="200">
+                            <p class="ceo-quote">
+                                MediaKids Academy is bringing different worlds and cultures together. Our aim is to
+                                educate Thai children in English language with an emphasis on cultural differences and
+                                its role in education. We are not an ordinary agency. We make a difference from big
+                                cities to rural areas across Thailand!
+                            </p>
+                        </div>
+
+                        <!-- CEO Name Card -->
+                        <div class="ceo-name-card" data-aos="fade-up" data-aos-delay="300">
+                            <p class="text-lg font-bold text-white mb-1">Wachira Tepamat</p>
+                            <p class="text-yellow-400 font-medium text-sm">MediaKids Academy CEO</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Scroll Indicator -->
+                <a href="#our-story" class="scroll-indicator">
+                    <i class="fas fa-chevron-down"></i>
+                </a>
+            </section>
+
+            <!-- Our Story Section -->
+            <section id="our-story" class="parallax-section story-section">
+                <div class="parallax-bg"></div>
+                <div class="parallax-overlay"></div>
+                <div class="parallax-content container mx-auto px-6 py-20">
+                    <div class="max-w-4xl mx-auto text-white">
+
+                        <div class="text-center mb-12" data-aos="fade-up">
+                            <span class="section-badge bg-yellow-500/20 text-yellow-400">
+                                <i class="fas fa-book-open"></i> Since 2001
+                            </span>
+                            <h2 class="section-title text-white">Our Story</h2>
+                            <p class="section-subtitle text-blue-200">A Journey of Teaching, Culture, and Community</p>
+                        </div>
+
+                        <div class="content-card" data-aos="fade-up" data-aos-delay="100">
+                            <p class="text-lg leading-relaxed mb-6 text-gray-100">
+                                MediaKids Academy was founded in <span class="highlight-yellow font-bold">2001</span>
+                                with a simple yet powerful goal: to support English education in Thailand through
+                                meaningful cultural exchange. What began as a small team dedicated to helping Thai
+                                schools quickly grew into a nationwide organization trusted by educators, families, and
+                                communities.
+                            </p>
+
+                            <p class="text-lg leading-relaxed mb-6 text-gray-100">
+                                For more than <span class="highlight-yellow font-bold">two decades</span>, we have
+                                expanded our programs, developed innovative learning materials, and partnered with over
+                                <span class="highlight-yellow font-bold">70 schools</span> across Thailand. Our journey
+                                has always been guided by the belief that every student deserves a learning experience
+                                that inspires curiosity, confidence, and connection to the world.
+                            </p>
+
+                            <p class="text-lg leading-relaxed mb-6 text-gray-200 font-medium">
+                                Throughout our journey, our core values have remained the same:
+                            </p>
+
+                            <ul class="value-list text-gray-100 mb-6">
+                                <li>Putting students first through fun, practical, and meaningful learning experiences
+                                </li>
+                                <li>Building strong teacher communities through support, training, and ongoing
+                                    development</li>
+                                <li>Partnering with schools to create sustainable, high-quality English programs</li>
+                                <li>Celebrating culture, both Thai and international, as an essential part of education
+                                </li>
+                            </ul>
+
+                            <p class="text-lg leading-relaxed mb-4 text-gray-100">
+                                More than just an education provider, MediaKids Academy is a <span
+                                    class="highlight-blue font-bold">bridge</span>—connecting people, cultures, and
+                                ideas. Our history is a story of growth, collaboration, and the belief that every child
+                                deserves a chance to explore the world through language.
+                            </p>
+
+                            <p class="text-xl font-semibold text-yellow-400 text-center mt-8">
+                                Our story continues—with the same commitment to connection, creativity, and community
+                                that started it all.
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Scroll Indicator -->
+                <a href="#mission" class="scroll-indicator">
+                    <i class="fas fa-chevron-down"></i>
+                </a>
+            </section>
+
+            <!-- Mission Section -->
+            <section id="mission" class="parallax-section mission-section">
+                <div class="parallax-bg"></div>
+                <div class="parallax-overlay"></div>
+                <div class="parallax-content container mx-auto px-6 py-20">
+                    <div class="max-w-4xl mx-auto text-white">
+
+                        <div class="text-center mb-12" data-aos="fade-up">
+                            <span class="section-badge bg-blue-500/20 text-blue-300">
+                                <i class="fas fa-bullseye"></i> Our Purpose
+                            </span>
+                            <h2 class="section-title text-white">Mission</h2>
+                        </div>
+
+                        <div class="content-card" data-aos="fade-up" data-aos-delay="100">
+                            <p class="text-lg leading-relaxed mb-6 text-gray-100">
+                                Our mission is to <span class="highlight-yellow font-bold">empower students and
+                                    educators</span> through engaging, effective, and culturally rich English-learning
+                                experiences. We strive to create programs that build real confidence, communication
+                                skills, and curiosity—both in and beyond the classroom.
+                            </p>
+
+                            <p class="text-lg leading-relaxed mb-6 text-gray-200 font-medium">
+                                We are committed to:
+                            </p>
+
+                            <ul class="value-list text-gray-100 mb-6">
+                                <li>Designing interactive, student-centered learning that inspires active participation
+                                    and real-world use of English</li>
+                                <li>Supporting teachers with strong training, resources, and ongoing guidance</li>
+                                <li>Working closely with schools to deliver high-quality programs aligned with Thai
+                                    educational goals</li>
+                                <li>Promoting cultural exchange that encourages understanding, creativity, and global
+                                    awareness</li>
+                            </ul>
+
+                            <p class="text-xl font-semibold text-blue-300 text-center mt-8">
+                                Through these commitments, MediaKids Academy aims to create learning environments where
+                                every student feels motivated, every teacher feels supported, and every school receives
+                                the tools needed to succeed.
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Scroll Indicator -->
+                <a href="#vision" class="scroll-indicator">
+                    <i class="fas fa-chevron-down"></i>
+                </a>
+            </section>
+
+            <!-- Vision Section -->
+            <section id="vision" class="parallax-section vision-section">
+                <div class="parallax-bg"></div>
+                <div class="parallax-overlay"></div>
+                <div class="parallax-content container mx-auto px-6 py-20">
+                    <div class="max-w-4xl mx-auto text-white">
+
+                        <div class="text-center mb-12" data-aos="fade-up">
+                            <span class="section-badge bg-yellow-500/20 text-yellow-400">
+                                <i class="fas fa-eye"></i> Looking Forward
+                            </span>
+                            <h2 class="section-title text-white">Vision</h2>
+                        </div>
+
+                        <div class="content-card" data-aos="fade-up" data-aos-delay="100">
+                            <p class="text-lg leading-relaxed mb-6 text-gray-100">
+                                Our vision is to ensure that <span class="highlight-yellow font-bold">every student in
+                                    Thailand</span> has access to world-class English education that opens doors to
+                                global opportunities. We aim to lead the future of English learning through innovative
+                                programs that combine culture, communication, and creativity.
+                            </p>
+
+                            <p class="text-lg leading-relaxed mb-6 text-gray-200 font-medium">
+                                We envision:
+                            </p>
+
+                            <ul class="value-list text-gray-100 mb-6">
+                                <li>Students who are confident, curious, and globally ready</li>
+                                <li>Schools that offer modern, meaningful English programs</li>
+                                <li>Classrooms where English is used, lived, and experienced, not just memorized</li>
+                                <li>Communities strengthened by cross-cultural understanding and shared learning</li>
+                            </ul>
+
+                            <div class="bg-gradient-to-r from-yellow-500/20 to-blue-500/20 rounded-xl p-6 mt-8"
+                                data-aos="fade-up" data-aos-delay="200">
+                                <p class="text-xl font-bold text-center mb-4">
+                                    <span class="text-yellow-400">By 2030</span>
+                                </p>
+                                <p class="text-lg text-center text-gray-100">
+                                    MediaKids Academy strives to be recognized as Thailand's leading provider of
+                                    culturally enriched English education—helping students grow into <span
+                                        class="highlight-blue font-bold">global citizens</span> who can connect, create,
+                                    and contribute to a rapidly changing world.
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Shared Footer Container -->
+    <div id="shared-footer"></div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="../js/components.js"></script>
+    <script src="../js/script.js"></script>
+
+    <!-- Interactive Mouse Particles for CEO Section -->
+    <script>
+        (function () {
+            const ceoSection = document.querySelector('.ceo-section');
+            if (!ceoSection) return;
+
+            // Create particles container
+            const particlesContainer = document.createElement('div');
+            particlesContainer.className = 'ceo-particles';
+            particlesContainer.style.cssText = `
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                pointer-events: none;
+                overflow: hidden;
+                z-index: 5;
+            `;
+            ceoSection.appendChild(particlesContainer);
+
+            // Particle settings
+            const particles = [];
+            const maxParticles = 30;
+            let mouseX = 0, mouseY = 0;
+            let lastSpawn = 0;
+
+            // Create a particle
+            function createParticle(x, y) {
+                const particle = document.createElement('div');
+                const size = Math.random() * 8 + 4;
+                const isGold = Math.random() > 0.3;
+                const isStar = Math.random() > 0.5;
+
+                particle.innerHTML = isStar ? '✦' : '◆';
+                particle.style.cssText = `
+                    position: absolute;
+                    left: ${x}px;
+                    top: ${y}px;
+                    font-size: ${size}px;
+                    color: ${isGold ? 'rgba(255, 209, 0, 0.7)' : 'rgba(96, 165, 250, 0.5)'};
+                    text-shadow: 0 0 10px ${isGold ? 'rgba(255, 209, 0, 0.5)' : 'rgba(96, 165, 250, 0.3)'};
+                    pointer-events: none;
+                    transition: all 0.1s ease-out;
+                    z-index: 5;
+                `;
+
+                particlesContainer.appendChild(particle);
+
+                const life = 2000 + Math.random() * 1000;
+                const vx = (Math.random() - 0.5) * 2;
+                const vy = -Math.random() * 2 - 1;
+                const startTime = Date.now();
+
+                return { el: particle, x, y, vx, vy, life, startTime, size };
+            }
+
+            // Update particles
+            function updateParticles() {
+                const now = Date.now();
+
+                for (let i = particles.length - 1; i >= 0; i--) {
+                    const p = particles[i];
+                    const age = now - p.startTime;
+
+                    if (age > p.life) {
+                        p.el.remove();
+                        particles.splice(i, 1);
+                        continue;
+                    }
+
+                    const progress = age / p.life;
+                    p.x += p.vx;
+                    p.y += p.vy;
+
+                    p.el.style.left = p.x + 'px';
+                    p.el.style.top = p.y + 'px';
+                    p.el.style.opacity = 1 - progress;
+                    p.el.style.transform = `scale(${1 - progress * 0.5}) rotate(${progress * 180}deg)`;
+                }
+
+                requestAnimationFrame(updateParticles);
+            }
+
+            // Mouse move handler
+            ceoSection.addEventListener('mousemove', (e) => {
+                const rect = ceoSection.getBoundingClientRect();
+                mouseX = e.clientX - rect.left;
+                mouseY = e.clientY - rect.top;
+
+                const now = Date.now();
+                if (now - lastSpawn > 50 && particles.length < maxParticles) {
+                    particles.push(createParticle(mouseX, mouseY));
+                    lastSpawn = now;
+                }
+            });
+
+            // Start animation loop
+            updateParticles();
+        })();
+    </script>
+
+</body>
+
+</html>

@@ -6,7 +6,9 @@ const basePath = window.location.pathname.includes('/about/') ||
     window.location.pathname.includes('/faq/') ||
     window.location.pathname.includes('/contact/') ||
     window.location.pathname.includes('/curriculum/') ||
-    window.location.pathname.includes('/activity/') ? '../' : '';
+    window.location.pathname.includes('/activity/') ||
+    window.location.pathname.includes('/apply-now/') ||
+    window.location.pathname.includes('/story/') ? '../' : '';
 
 const headerHTML = `
     <header id="main-header" class="fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-in-out h-[88px] bg-white/90 backdrop-blur-md border-b border-transparent">
@@ -51,7 +53,7 @@ const headerHTML = `
             </div>
 
             <div class="menu-close-trigger hidden lg:flex items-center h-full relative z-50 ml-4 flex-shrink-0">
-                <a href="${basePath}jobs/" class="btn-primary px-6 py-2 rounded-full nav-page ml-4">
+                <a href="${basePath}apply-now/" class="btn-primary px-6 py-2 rounded-full nav-page ml-4">
                     Apply Now
                 </a>
             </div>
@@ -69,7 +71,7 @@ const headerHTML = `
                     <div class="grid grid-cols-12 gap-8">
                         <div class="col-span-4 mm-col">
                             <span class="mm-header">Organization</span>
-                            <a href="${basePath}about/#about-mediakids" class="mm-link nav-page">MediaKids Story</a>
+                            <a href="${basePath}story/" class="mm-link nav-page">MediaKids Story</a>
                             <a href="${basePath}contact/" class="mm-link nav-page">Contact Us</a>
                         </div>
                         <div class="col-span-4 mm-col">
@@ -160,7 +162,7 @@ const headerHTML = `
                 <i class="fas fa-chevron-down text-xs transform transition-transform duration-300"></i>
             </button>
             <div class="mobile-submenu hidden pl-4 mt-2 space-y-2 border-l-2 border-gray-100 ml-2">
-                <a href="${basePath}about/#about-mediakids" class="nav-page block py-1 text-gray-600">MediaKids</a>
+                <a href="${basePath}story/" class="nav-page block py-1 text-gray-600">MediaKids Story</a>
                 <a href="${basePath}about/#about-team-hr" class="nav-page block py-1 text-gray-500">Overseas HR</a>
                 <a href="${basePath}about/#about-team-curriculum" class="nav-page block py-1 text-gray-500">Curriculum Dept</a>
                 <a href="${basePath}about/#about-team-consult" class="nav-page block py-1 text-gray-500">Operations Dept</a>
@@ -203,7 +205,7 @@ const headerHTML = `
         <a href="${basePath}faq/" class="nav-page block py-2 font-medium">FAQ</a>
         <a href="${basePath}jobs/" class="block py-2 font-medium nav-page">Jobs</a>
         <a href="${basePath}curriculum/" class="block py-2 font-medium nav-page">Curriculum</a>
-        <a href="${basePath}jobs/" class="nav-page block mt-4 btn-primary text-center px-6 py-2 rounded-full">Apply Now</a>
+        <a href="${basePath}apply-now/" class="nav-page block mt-4 btn-primary text-center px-6 py-2 rounded-full">Apply Now</a>
     </div>
 `;
 
@@ -223,7 +225,7 @@ const footerHTML = `
                 <div>
                     <h4 class="text-lg font-bold mb-6 border-b border-blue-500 inline-block pb-2">Quick Links</h4>
                     <ul class="space-y-3 text-gray-400">
-                        <li><a href="${basePath}jobs/" class="nav-page hover:text-blue-400 transition-colors">Apply Now</a></li>
+                        <li><a href="${basePath}apply-now/" class="nav-page hover:text-blue-400 transition-colors">Apply Now</a></li>
                         <li><a href="${basePath}programs/#programs-ecd" class="nav-page hover:text-blue-400 transition-colors">Our Programs</a></li>
                         <li><a href="${basePath}schools/#schools-central-north" class="nav-page hover:text-blue-400 transition-colors">School Locations</a></li>
                         <li><a href="${basePath}about/#about-mediakids" class="nav-page hover:text-blue-400 transition-colors">About Us</a></li>
