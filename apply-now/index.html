@@ -323,13 +323,91 @@
 
                     <!-- Form Card -->
                     <div class="form-glass-card" data-aos="fade-up" data-aos-delay="100">
+                        <!-- Loading Screen (always shows first) -->
+                        <div id="form-skeleton" class="p-8 py-16" style="transition: opacity 0.6s ease;">
+                            <!-- Beautiful loader animation -->
+                            <div class="flex flex-col items-center justify-center">
+                                <!-- Animated dots loader -->
+                                <div class="flex space-x-2 mb-8">
+                                    <div class="w-4 h-4 bg-blue-500 rounded-full animate-bounce"
+                                        style="animation-delay: 0s;"></div>
+                                    <div class="w-4 h-4 bg-blue-400 rounded-full animate-bounce"
+                                        style="animation-delay: 0.1s;"></div>
+                                    <div class="w-4 h-4 bg-cyan-400 rounded-full animate-bounce"
+                                        style="animation-delay: 0.2s;"></div>
+                                </div>
+
+                                <!-- Icon -->
+                                <div
+                                    class="w-20 h-20 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-blue-200">
+                                    <i class="fas fa-file-alt text-white text-3xl"></i>
+                                </div>
+
+                                <h3 class="text-gray-800 font-bold text-2xl mb-2">Preparing Your Application</h3>
+                                <p class="text-gray-500 mb-8">Just a moment, loading the form...</p>
+
+                                <!-- Progress bar animation -->
+                                <div class="w-64 h-2 bg-gray-200 rounded-full overflow-hidden">
+                                    <div class="h-full bg-gradient-to-r from-blue-500 to-cyan-400 rounded-full animate-pulse"
+                                        style="width: 60%; animation: loadingBar 1.5s ease-in-out infinite;"></div>
+                                </div>
+                            </div>
+
+                            <style>
+                                @keyframes loadingBar {
+                                    0% {
+                                        width: 20%;
+                                    }
+
+                                    50% {
+                                        width: 80%;
+                                    }
+
+                                    100% {
+                                        width: 20%;
+                                    }
+                                }
+                            </style>
+                        </div>
+
+                        <!-- JotForm iframe (no src initially - loaded by JS) -->
                         <iframe id="JotFormIFrame-MediaKidsHR" title="MediaKids ESL Teacher Application"
                             class="jotform-frame" allowtransparency="true"
                             allow="geolocation; microphone; camera; fullscreen"
-                            src="https://form.jotform.com/MediaKidsHR/teach-and-earn-mediakids-academy-es"
-                            scrolling="no" style="height: 3480px; overflow: hidden;">
+                            data-src="https://form.jotform.com/MediaKidsHR/teach-and-earn-mediakids-academy-es"
+                            scrolling="no"
+                            style="height: 3480px; overflow: hidden; opacity: 0; display: none; transition: opacity 0.6s ease;">
                         </iframe>
                     </div>
+
+                    <!-- Lazy load iframe after skeleton shows with smooth transitions -->
+                    <script>
+                        (function () {
+                            var iframe = document.getElementById('JotFormIFrame-MediaKidsHR');
+                            var skeleton = document.getElementById('form-skeleton');
+
+                            // Show skeleton for at least 300ms before loading iframe
+                            setTimeout(function () {
+                                iframe.src = iframe.getAttribute('data-src');
+
+                                iframe.onload = function () {
+                                    // Fade out skeleton
+                                    skeleton.style.opacity = '0';
+
+                                    // After fade out, show iframe with fade in
+                                    setTimeout(function () {
+                                        skeleton.style.display = 'none';
+                                        iframe.style.display = 'block';
+
+                                        // Trigger fade in
+                                        setTimeout(function () {
+                                            iframe.style.opacity = '1';
+                                        }, 50);
+                                    }, 600);
+                                };
+                            }, 300);
+                        })();
+                    </script>
 
                     <!-- Footer -->
                     <div class="text-center mt-8" data-aos="fade-up" data-aos-delay="200">
@@ -378,8 +456,8 @@
             const colors = ['blue', 'yellow', 'light-blue'];
             const sizes = [18, 22, 26, 30, 34];
 
-            // Create floating icons
-            const numIcons = 25;
+            // Create floating icons - reduced for better performance
+            const numIcons = 15;
 
             for (let i = 0; i < numIcons; i++) {
                 const icon = document.createElement('i');
@@ -399,14 +477,20 @@
                 container.appendChild(icon);
             }
 
-            // Mouse interaction - icons dodge away from cursor
+            // Mouse interaction with throttle for performance
             let mouseX = 0, mouseY = 0;
+            let lastRun = 0;
+            const throttleMs = 50;
 
             document.addEventListener('mousemove', function (e) {
+                const now = Date.now();
+                if (now - lastRun < throttleMs) return;
+                lastRun = now;
+
                 mouseX = e.clientX;
                 mouseY = e.clientY;
 
-                const allIcons = document.querySelectorAll('.float-icon');
+                const allIcons = container.querySelectorAll('.float-icon');
                 allIcons.forEach(icon => {
                     const rect = icon.getBoundingClientRect();
                     const iconX = rect.left + rect.width / 2;
@@ -417,7 +501,6 @@
                     const distance = Math.sqrt(dx * dx + dy * dy);
 
                     if (distance < 120) {
-                        // Calculate dodge direction (away from mouse)
                         const angle = Math.atan2(dy, dx);
                         const force = (120 - distance) / 3;
                         const moveX = -Math.cos(angle) * force;
@@ -431,7 +514,7 @@
                         icon.style.opacity = '';
                     }
                 });
-            });
+            }, { passive: true });
         })();
     </script>
 

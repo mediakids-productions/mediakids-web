@@ -201,37 +201,8 @@
                         <div class="partners-fade-left"></div>
                         <div class="partners-fade-right"></div>
 
-                        <div class="partners-track">
-                            <!-- First set -->
-                            <img src="assets/images/partners/s1.webp" alt="Partner 1" class="partner-logo">
-                            <img src="assets/images/partners/s2.webp" alt="Partner 2" class="partner-logo">
-                            <img src="assets/images/partners/s3.webp" alt="Partner 3" class="partner-logo">
-                            <img src="assets/images/partners/s4.webp" alt="Partner 4" class="partner-logo">
-                            <img src="assets/images/partners/s5.webp" alt="Partner 5" class="partner-logo">
-                            <img src="assets/images/partners/s6.webp" alt="Partner 6" class="partner-logo">
-                            <img src="assets/images/partners/s7.webp" alt="Partner 7" class="partner-logo">
-                            <img src="assets/images/partners/s8.webp" alt="Partner 8" class="partner-logo">
-                            <img src="assets/images/partners/s9.webp" alt="Partner 9" class="partner-logo">
-                            <img src="assets/images/partners/s10.webp" alt="Partner 10" class="partner-logo">
-                            <img src="assets/images/partners/s11.webp" alt="Partner 11" class="partner-logo">
-                            <img src="assets/images/partners/s12.webp" alt="Partner 12" class="partner-logo">
-                            <img src="assets/images/partners/s13.webp" alt="Partner 13" class="partner-logo">
-                            <img src="assets/images/partners/s14.webp" alt="Partner 14" class="partner-logo">
-                            <!-- Duplicate set for seamless loop -->
-                            <img src="assets/images/partners/s1.webp" alt="Partner 1" class="partner-logo">
-                            <img src="assets/images/partners/s2.webp" alt="Partner 2" class="partner-logo">
-                            <img src="assets/images/partners/s3.webp" alt="Partner 3" class="partner-logo">
-                            <img src="assets/images/partners/s4.webp" alt="Partner 4" class="partner-logo">
-                            <img src="assets/images/partners/s5.webp" alt="Partner 5" class="partner-logo">
-                            <img src="assets/images/partners/s6.webp" alt="Partner 6" class="partner-logo">
-                            <img src="assets/images/partners/s7.webp" alt="Partner 7" class="partner-logo">
-                            <img src="assets/images/partners/s8.webp" alt="Partner 8" class="partner-logo">
-                            <img src="assets/images/partners/s9.webp" alt="Partner 9" class="partner-logo">
-                            <img src="assets/images/partners/s10.webp" alt="Partner 10" class="partner-logo">
-                            <img src="assets/images/partners/s11.webp" alt="Partner 11" class="partner-logo">
-                            <img src="assets/images/partners/s12.webp" alt="Partner 12" class="partner-logo">
-                            <img src="assets/images/partners/s13.webp" alt="Partner 13" class="partner-logo">
-                            <img src="assets/images/partners/s14.webp" alt="Partner 14" class="partner-logo">
+                        <div id="partners-track" class="partners-track">
+                            <!-- Logos will be inserted by JS -->
                         </div>
                     </div>
                 </div>
@@ -266,50 +237,39 @@
                     .partners-track {
                         display: flex;
                         align-items: center;
-                        gap: 3rem;
-                        animation: marquee 25s linear infinite;
+                        gap: 2.5rem;
                         width: max-content;
-                        will-change: transform;
-                        backface-visibility: hidden;
-                        -webkit-backface-visibility: hidden;
-                        transform: translate3d(0, 0, 0);
-                    }
-
-                    .partners-track:hover {
-                        animation-play-state: paused;
+                        padding: 20px 0;
                     }
 
                     .partner-logo {
-                        height: 70px;
-                        width: auto;
+                        height: 90px;
+                        width: 90px;
                         object-fit: contain;
                         flex-shrink: 0;
                         transition: transform 0.3s ease;
-                        will-change: transform;
                     }
 
                     .partner-logo:hover {
-                        transform: scale(1.15);
+                        transform: scale(1.15) !important;
                     }
 
-                    @keyframes marquee {
-                        from {
-                            transform: translate3d(0, 0, 0);
-                        }
+                    .partner-logo-large {
+                        transform: scale(1.2);
+                    }
 
-                        to {
-                            transform: translate3d(-50%, 0, 0);
-                        }
+                    .partner-logo-large:hover {
+                        transform: scale(1.35) !important;
                     }
 
                     @media (max-width: 768px) {
                         .partners-track {
                             gap: 2rem;
-                            animation-duration: 20s;
                         }
 
                         .partner-logo {
-                            height: 50px;
+                            height: 60px;
+                            width: 60px;
                         }
 
                         .partners-fade-left,
@@ -318,6 +278,63 @@
                         }
                     }
                 </style>
+
+                <script>
+                    (function () {
+                        const track = document.getElementById('partners-track');
+                        const logos = [
+                            { src: 'assets/images/partners/s1.webp', large: false },
+                            { src: 'assets/images/partners/s2.webp', large: false },
+                            { src: 'assets/images/partners/s3.webp', large: true },
+                            { src: 'assets/images/partners/s4.webp', large: true },
+                            { src: 'assets/images/partners/s5.webp', large: false },
+                            { src: 'assets/images/partners/s6.webp', large: false },
+                            { src: 'assets/images/partners/s7.webp', large: false },
+                            { src: 'assets/images/partners/s8.webp', large: false },
+                            { src: 'assets/images/partners/s9.webp', large: false },
+                            { src: 'assets/images/partners/s10.webp', large: false },
+                            { src: 'assets/images/partners/s11.webp', large: false },
+                            { src: 'assets/images/partners/s12.webp', large: false },
+                            { src: 'assets/images/partners/s13.webp', large: false },
+                            { src: 'assets/images/partners/s14.webp', large: false }
+                        ];
+
+                        // Create logos (triple for seamless loop)
+                        for (let i = 0; i < 3; i++) {
+                            logos.forEach((logo, idx) => {
+                                const img = document.createElement('img');
+                                img.src = logo.src;
+                                img.alt = 'Partner ' + (idx + 1);
+                                img.className = 'partner-logo' + (logo.large ? ' partner-logo-large' : '');
+                                img.loading = 'lazy';
+                                track.appendChild(img);
+                            });
+                        }
+
+                        let position = 0;
+                        const speed = 0.5; // pixels per frame
+
+                        function animate() {
+                            position -= speed;
+
+                            // Get width of one set of logos
+                            const oneSetWidth = track.scrollWidth / 3;
+
+                            // Reset when scrolled past first set
+                            if (Math.abs(position) >= oneSetWidth) {
+                                position = 0;
+                            }
+
+                            track.style.transform = `translateX(${position}px)`;
+                            requestAnimationFrame(animate);
+                        }
+
+                        // Start animation after images load
+                        window.addEventListener('load', () => {
+                            setTimeout(animate, 100);
+                        });
+                    })();
+                </script>
             </section>
             <section id="journey" class="py-20 bg-gray-50">
                 <div class="container mx-auto px-6">

@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-C3WTLTZ1Y1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-C3WTLTZ1Y1');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self';
+        img-src 'self' data: https://images.unsplash.com https://placehold.co https://drive.google.com https://drive.googleusercontent.com https://lh3.googleusercontent.com https://drive.usercontent.google.com https://*.googleusercontent.com;
+        font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;
+        style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://unpkg.com;
+        script-src 'self' 'unsafe-inline'
+          https://cdn.tailwindcss.com
+          https://cdnjs.cloudflare.com
+          https://unpkg.com
+          https://script.google.com
+          https://www.googletagmanager.com
+          https://www.google-analytics.com;
+        connect-src 'self'
+          https://script.google.com
+          https://script.googleusercontent.com
+          https://www.google-analytics.com
+          https://region1.google-analytics.com
+          https://www.googletagmanager.com;
+        form-action 'self' https://script.google.com https://script.googleusercontent.com https://formspree.io;
+        frame-ancestors 'self';
+        upgrade-insecure-requests">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
+    <title>Human Resources - The Support Team | MediaKids Academy</title>
+    <meta name="description"
+        content="Meet the MediaKids HR team - your dedicated support from application to placement and beyond.">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/icons/logo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/icons/logo.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/icons/logo.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <style>
+        /* Scroll animations */
+        .scroll-fade {
+            opacity: 0;
+            transform: translateY(80px);
+            transition: all 1s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .scroll-fade.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .card-reveal {
+            opacity: 0;
+            transform: translateY(50px) scale(0.95);
+            transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .card-reveal.visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        .feature-slide {
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: all 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .feature-slide.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .counter-box {
+            opacity: 0;
+            transform: scale(0.7) rotate(-10deg);
+            transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .counter-box.visible {
+            opacity: 1;
+            transform: scale(1) rotate(0);
+        }
+
+        /* Progress line */
+        .progress-line {
+            position: fixed;
+            top: 88px;
+            left: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #0052CC, #00B4D8, #0052CC);
+            background-size: 200% 100%;
+            animation: gradientMove 2s linear infinite;
+            z-index: 100;
+            width: 0%;
+        }
+
+        @keyframes gradientMove {
+            0% {
+                background-position: 0% 0%;
+            }
+
+            100% {
+                background-position: 200% 0%;
+            }
+        }
+
+        /* Floating shapes */
+        .float-shape {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .float-1 {
+            animation: float1 8s ease-in-out infinite;
+        }
+
+        .float-2 {
+            animation: float2 10s ease-in-out infinite;
+        }
+
+        .float-3 {
+            animation: float3 12s ease-in-out infinite;
+        }
+
+        @keyframes float1 {
+
+            0%,
+            100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+
+            50% {
+                transform: translate(30px, -30px) rotate(180deg);
+            }
+        }
+
+        @keyframes float2 {
+
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            50% {
+                transform: translate(-20px, 20px) scale(1.1);
+            }
+        }
+
+        @keyframes float3 {
+
+            0%,
+            100% {
+                transform: translate(0, 0);
+            }
+
+            33% {
+                transform: translate(20px, -15px);
+            }
+
+            66% {
+                transform: translate(-15px, 10px);
+            }
+        }
+
+        /* Dot pattern */
+        .dot-pattern {
+            background-image: radial-gradient(circle, #e5e7eb 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        /* Icon bounce */
+        .icon-bounce {
+            animation: iconBounce 2s ease-in-out infinite;
+        }
+
+        @keyframes iconBounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+
+        /* Glow effect */
+        .glow-blue {
+            box-shadow: 0 0 60px rgba(0, 82, 204, 0.2);
+        }
+
+        .glow-cyan {
+            box-shadow: 0 0 60px rgba(0, 180, 216, 0.2);
+        }
+
+        /* Line decoration */
+        .line-deco {
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #0052CC, #00B4D8);
+            border-radius: 2px;
+        }
+
+        /* Gradient text */
+        .gradient-text {
+            background: linear-gradient(135deg, #0052CC, #00B4D8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Card hover effect */
+        .hover-lift {
+            transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .hover-lift:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Pulse ring */
+        .pulse-ring {
+            position: relative;
+        }
+
+        .pulse-ring::after {
+            content: '';
+            position: absolute;
+            inset: -8px;
+            border: 2px solid currentColor;
+            border-radius: inherit;
+            opacity: 0.3;
+            animation: pulseRing 2s ease-out infinite;
+        }
+
+        @keyframes pulseRing {
+            0% {
+                transform: scale(1);
+                opacity: 0.3;
+            }
+
+            100% {
+                transform: scale(1.3);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body class="leading-relaxed overflow-x-hidden relative bg-white">
+    <!-- Progress Line -->
+    <div class="progress-line" id="progress-line"></div>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Shared Header -->
+    <div id="shared-header"></div>
+
+    <main class="pt-0">
+        <!-- Hero Section -->
+        <section class="min-h-screen flex items-center justify-center relative overflow-hidden">
+            <!-- Floating decorations -->
+            <div class="float-shape float-1 w-72 h-72 bg-blue-200 blur-3xl top-20 -left-20"></div>
+            <div class="float-shape float-2 w-96 h-96 bg-cyan-200 blur-3xl bottom-20 -right-20"></div>
+            <div class="float-shape float-3 w-48 h-48 bg-yellow-200 blur-3xl top-1/2 left-1/4"></div>
+
+            <!-- Dot pattern background -->
+            <div class="absolute inset-0 dot-pattern opacity-50"></div>
+
+            <div class="container mx-auto px-6 text-center relative z-10">
+                <!-- Badge -->
+                <div class="scroll-fade mb-8">
+                    <span
+                        class="inline-flex items-center gap-3 px-6 py-3 bg-blue-50 border border-blue-100 rounded-full">
+                        <span class="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></span>
+                        <span class="text-blue-600 font-semibold">The Support Team</span>
+                    </span>
+                </div>
+
+                <h1 class="text-6xl md:text-7xl lg:text-8xl font-bold text-gray-900 mb-6 scroll-fade"
+                    style="transition-delay: 0.1s;">
+                    Human<br><span class="gradient-text">Resources</span>
+                </h1>
+
+                <p class="text-xl md:text-2xl text-gray-500 max-w-2xl mx-auto mb-12 scroll-fade"
+                    style="transition-delay: 0.2s;">
+                    Your dedicated team from application to placement
+                </p>
+
+                <!-- Decorative icons -->
+                <div class="flex justify-center gap-6 scroll-fade" style="transition-delay: 0.3s;">
+                    <div class="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center icon-bounce">
+                        <i class="fas fa-users text-blue-500 text-xl"></i>
+                    </div>
+                    <div class="w-14 h-14 bg-cyan-100 rounded-2xl flex items-center justify-center icon-bounce"
+                        style="animation-delay: 0.2s;">
+                        <i class="fas fa-handshake text-cyan-500 text-xl"></i>
+                    </div>
+                    <div class="w-14 h-14 bg-teal-100 rounded-2xl flex items-center justify-center icon-bounce"
+                        style="animation-delay: 0.4s;">
+                        <i class="fas fa-heart text-teal-500 text-xl"></i>
+                    </div>
+                </div>
+
+                <!-- Scroll hint - below icons, centered -->
+                <div class="mt-16 scroll-fade" style="transition-delay: 0.5s;">
+                    <div class="flex flex-col items-center text-gray-400">
+                        <span class="text-sm font-medium mb-3">Scroll to explore</span>
+                        <div class="w-7 h-11 border-2 border-gray-300 rounded-full flex justify-center pt-2">
+                            <div class="w-1.5 h-3 bg-gray-400 rounded-full animate-bounce"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Image Section with Stats -->
+        <section class="py-20 bg-gradient-to-b from-white to-gray-50 relative">
+            <div class="container mx-auto px-6">
+                <div class="max-w-5xl mx-auto">
+                    <!-- Image -->
+                    <div class="scroll-fade mb-12">
+                        <div class="relative rounded-3xl overflow-hidden shadow-2xl glow-blue">
+                            <img src="../assets/images/hr.webp" alt="MediaKids HR Team" class="w-full">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                        </div>
+                    </div>
+
+                    <!-- Info row -->
+                    <div class="grid grid-cols-3 gap-6">
+                        <div class="card-reveal text-center bg-white rounded-2xl p-6 shadow-lg hover-lift">
+                            <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mx-auto mb-3">
+                                <i class="fas fa-users text-blue-600 text-xl"></i>
+                            </div>
+                            <div class="text-lg font-bold text-gray-900 mb-1">2 Teams</div>
+                            <div class="text-gray-500 text-sm">Recruitment & Generalist</div>
+                        </div>
+                        <div class="card-reveal text-center bg-white rounded-2xl p-6 shadow-lg hover-lift"
+                            style="transition-delay: 0.1s;">
+                            <div class="w-12 h-12 bg-cyan-100 rounded-xl flex items-center justify-center mx-auto mb-3">
+                                <i class="fas fa-heart text-cyan-600 text-xl"></i>
+                            </div>
+                            <div class="text-lg font-bold text-gray-900 mb-1">Here For You</div>
+                            <div class="text-gray-500 text-sm">Every Step</div>
+                        </div>
+                        <div class="card-reveal text-center bg-white rounded-2xl p-6 shadow-lg hover-lift"
+                            style="transition-delay: 0.2s;">
+                            <div class="w-12 h-12 bg-teal-100 rounded-xl flex items-center justify-center mx-auto mb-3">
+                                <i class="fas fa-hands-helping text-teal-600 text-xl"></i>
+                            </div>
+                            <div class="text-lg font-bold text-gray-900 mb-1">Ongoing</div>
+                            <div class="text-gray-500 text-sm">Support Throughout</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- HR Recruitment Section -->
+        <section class="py-32 bg-white relative overflow-hidden">
+            <!-- Background decoration -->
+            <div class="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-blue-50 to-transparent"></div>
+
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="max-w-6xl mx-auto">
+                    <div class="grid lg:grid-cols-2 gap-16 items-start">
+                        <!-- Left - Sticky -->
+                        <div class="lg:sticky lg:top-40">
+                            <div
+                                class="counter-box pulse-ring inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 text-white text-3xl font-bold rounded-2xl mb-8">
+                                01
+                            </div>
+                            <div class="line-deco mb-6 scroll-fade"></div>
+                            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4 scroll-fade"
+                                style="transition-delay: 0.1s;">
+                                HR Recruitment
+                            </h2>
+                            <p class="text-xl text-blue-600 font-medium mb-6 scroll-fade"
+                                style="transition-delay: 0.2s;">
+                                Human Resources and Overseas Recruitment
+                            </p>
+
+                            <!-- Decorative illustration -->
+                            <div class="hidden lg:flex gap-3 mt-10 scroll-fade" style="transition-delay: 0.3s;">
+                                <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
+                                    <i class="fas fa-user-plus text-blue-500"></i>
+                                </div>
+                                <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
+                                    <i class="fas fa-file-alt text-blue-500"></i>
+                                </div>
+                                <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
+                                    <i class="fas fa-check-circle text-blue-500"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right - Scrolling Content -->
+                        <div class="space-y-8">
+                            <div
+                                class="card-reveal bg-gradient-to-br from-gray-50 to-blue-50 rounded-3xl p-10 glow-blue">
+                                <div class="flex items-center gap-4 mb-6">
+                                    <div class="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center">
+                                        <i class="fas fa-star text-white"></i>
+                                    </div>
+                                    <h3 class="text-2xl font-bold text-gray-900">Your First Point of Contact</h3>
+                                </div>
+                                <p class="text-lg text-gray-600 leading-relaxed">
+                                    Your first point of contact with MediaKids! They will guide you through each step of
+                                    the application process and answer any questions which you might have relating to
+                                    your application and, if successful, your placement.
+                                </p>
+                            </div>
+
+                            <div class="space-y-4">
+                                <div
+                                    class="feature-slide flex items-center gap-5 bg-white rounded-2xl p-6 shadow-md border border-gray-100 hover-lift">
+                                    <div
+                                        class="w-14 h-14 bg-gradient-to-br from-blue-400 to-blue-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg">
+                                        <i class="fas fa-clipboard-check text-white text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-gray-900 text-lg">Application Guidance</h4>
+                                        <p class="text-gray-500">Step-by-step support throughout your application</p>
+                                    </div>
+                                </div>
+
+                                <div class="feature-slide flex items-center gap-5 bg-white rounded-2xl p-6 shadow-md border border-gray-100 hover-lift"
+                                    style="transition-delay: 0.1s;">
+                                    <div
+                                        class="w-14 h-14 bg-gradient-to-br from-blue-400 to-blue-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg">
+                                        <i class="fas fa-comments text-white text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-gray-900 text-lg">Interview Preparation</h4>
+                                        <p class="text-gray-500">Get ready for your interview with our team</p>
+                                    </div>
+                                </div>
+
+                                <div class="feature-slide flex items-center gap-5 bg-white rounded-2xl p-6 shadow-md border border-gray-100 hover-lift"
+                                    style="transition-delay: 0.2s;">
+                                    <div
+                                        class="w-14 h-14 bg-gradient-to-br from-blue-400 to-blue-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg">
+                                        <i class="fas fa-map-marker-alt text-white text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-gray-900 text-lg">Placement Coordination</h4>
+                                        <p class="text-gray-500">Find the perfect school for your teaching style</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Transition Section -->
+        <section class="py-20 bg-gradient-to-b from-white via-gray-50 to-white relative overflow-hidden">
+            <div class="container mx-auto px-6">
+                <div class="max-w-3xl mx-auto text-center">
+                    <div class="scroll-fade">
+                        <div class="inline-flex items-center gap-4 px-8 py-4 bg-white rounded-full shadow-lg">
+                            <div
+                                class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold">
+                                01</div>
+                            <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full"></div>
+                            <div
+                                class="w-10 h-10 bg-cyan-500 rounded-full flex items-center justify-center text-white font-bold">
+                                02</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- HR Generalist Section -->
+        <section class="py-32 bg-white relative overflow-hidden">
+            <!-- Background decoration -->
+            <div class="absolute top-0 left-0 w-1/3 h-full bg-gradient-to-r from-cyan-50 to-transparent"></div>
+
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="max-w-6xl mx-auto">
+                    <div class="grid lg:grid-cols-2 gap-16 items-start">
+                        <!-- Left - Scrolling Content -->
+                        <div class="space-y-8 order-2 lg:order-1">
+                            <div
+                                class="card-reveal bg-gradient-to-br from-gray-50 to-cyan-50 rounded-3xl p-10 glow-cyan">
+                                <div class="flex items-center gap-4 mb-6">
+                                    <div class="w-12 h-12 bg-cyan-500 rounded-xl flex items-center justify-center">
+                                        <i class="fas fa-user-tie text-white"></i>
+                                    </div>
+                                    <h3 class="text-2xl font-bold text-gray-900">Your Regional Representative</h3>
+                                </div>
+                                <p class="text-lg text-gray-600 leading-relaxed">
+                                    You will be assigned a regional HR representative, who will be your first point of
+                                    call in relation to your contract, salary, renewal, bonuses, grievance and
+                                    disciplinary procedures, and anything else related to your employment with
+                                    MediaKids.
+                                </p>
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-4">
+                                <div
+                                    class="card-reveal bg-white rounded-2xl p-6 text-center shadow-md border border-gray-100 hover-lift">
+                                    <div
+                                        class="w-14 h-14 bg-gradient-to-br from-cyan-400 to-teal-500 rounded-xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                                        <i class="fas fa-file-signature text-white text-xl"></i>
+                                    </div>
+                                    <p class="font-bold text-gray-900">Contract</p>
+                                </div>
+                                <div class="card-reveal bg-white rounded-2xl p-6 text-center shadow-md border border-gray-100 hover-lift"
+                                    style="transition-delay: 0.1s;">
+                                    <div
+                                        class="w-14 h-14 bg-gradient-to-br from-cyan-400 to-teal-500 rounded-xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                                        <i class="fas fa-money-bill-wave text-white text-xl"></i>
+                                    </div>
+                                    <p class="font-bold text-gray-900">Salary</p>
+                                </div>
+                                <div class="card-reveal bg-white rounded-2xl p-6 text-center shadow-md border border-gray-100 hover-lift"
+                                    style="transition-delay: 0.2s;">
+                                    <div
+                                        class="w-14 h-14 bg-gradient-to-br from-cyan-400 to-teal-500 rounded-xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                                        <i class="fas fa-redo text-white text-xl"></i>
+                                    </div>
+                                    <p class="font-bold text-gray-900">Renewal</p>
+                                </div>
+                                <div class="card-reveal bg-white rounded-2xl p-6 text-center shadow-md border border-gray-100 hover-lift"
+                                    style="transition-delay: 0.3s;">
+                                    <div
+                                        class="w-14 h-14 bg-gradient-to-br from-cyan-400 to-teal-500 rounded-xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                                        <i class="fas fa-award text-white text-xl"></i>
+                                    </div>
+                                    <p class="font-bold text-gray-900">Bonuses</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right - Sticky -->
+                        <div class="lg:sticky lg:top-40 order-1 lg:order-2">
+                            <div
+                                class="counter-box pulse-ring inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-cyan-500 to-teal-500 text-white text-3xl font-bold rounded-2xl mb-8">
+                                02
+                            </div>
+                            <div class="line-deco mb-6 scroll-fade"
+                                style="background: linear-gradient(90deg, #00B4D8, #14b8a6);"></div>
+                            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4 scroll-fade"
+                                style="transition-delay: 0.1s;">
+                                HR Generalist
+                            </h2>
+                            <p class="text-xl text-cyan-600 font-medium mb-6 scroll-fade"
+                                style="transition-delay: 0.2s;">
+                                Human Resources Generalist
+                            </p>
+
+                            <!-- Decorative illustration -->
+                            <div class="hidden lg:flex gap-3 mt-10 scroll-fade" style="transition-delay: 0.3s;">
+                                <div class="w-12 h-12 bg-cyan-100 rounded-xl flex items-center justify-center">
+                                    <i class="fas fa-headset text-cyan-500"></i>
+                                </div>
+                                <div class="w-12 h-12 bg-cyan-100 rounded-xl flex items-center justify-center">
+                                    <i class="fas fa-shield-alt text-cyan-500"></i>
+                                </div>
+                                <div class="w-12 h-12 bg-cyan-100 rounded-xl flex items-center justify-center">
+                                    <i class="fas fa-heart text-cyan-500"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quote Section -->
+        <section class="py-24 bg-gradient-to-br from-blue-600 to-cyan-600 relative overflow-hidden">
+            <!-- Decorations -->
+            <div class="absolute top-10 left-10 w-20 h-20 border-4 border-white/20 rounded-full"></div>
+            <div class="absolute bottom-10 right-10 w-32 h-32 border-4 border-white/20 rounded-full"></div>
+            <div class="absolute top-1/2 right-1/4 w-16 h-16 bg-white/10 rounded-2xl rotate-12"></div>
+
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="max-w-4xl mx-auto text-center">
+                    <div class="scroll-fade">
+                        <i class="fas fa-quote-left text-5xl text-white/30 mb-8"></i>
+                        <blockquote class="text-2xl md:text-3xl font-medium text-white leading-relaxed mb-8">
+                            "They are your point of contact in head office, and will do everything they can to ensure a
+                            <span class="font-bold">great professional relationship</span> before, during and after your
+                            placement."
+                        </blockquote>
+                        <div class="flex items-center justify-center gap-3">
+                            <div class="w-12 h-1 bg-white/50 rounded"></div>
+                            <span class="text-white/80">MediaKids HR Philosophy</span>
+                            <div class="w-12 h-1 bg-white/50 rounded"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Summary Section -->
+        <section class="py-32 bg-gray-50 relative overflow-hidden">
+            <div class="absolute inset-0 dot-pattern opacity-30"></div>
+
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="max-w-4xl mx-auto text-center">
+                    <div class="scroll-fade mb-6">
+                        <span
+                            class="inline-block px-4 py-2 bg-white rounded-full text-gray-600 font-medium shadow-sm">Summary</span>
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-16 scroll-fade"
+                        style="transition-delay: 0.1s;">
+                        Two Teams, <span class="gradient-text">One Goal</span>
+                    </h2>
+
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="card-reveal bg-white rounded-3xl p-10 shadow-xl hover-lift">
+                            <div
+                                class="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
+                                <i class="fas fa-user-plus text-white text-3xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-4">Recruitment</h3>
+                            <p class="text-gray-600 text-lg">Helps you join the MediaKids family — from application to
+                                placement.</p>
+                        </div>
+
+                        <div class="card-reveal bg-white rounded-3xl p-10 shadow-xl hover-lift"
+                            style="transition-delay: 0.15s;">
+                            <div
+                                class="w-20 h-20 bg-gradient-to-br from-cyan-500 to-teal-500 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
+                                <i class="fas fa-hands-helping text-white text-3xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-4">Generalist</h3>
+                            <p class="text-gray-600 text-lg">Supports you throughout your entire employment journey.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Shared Footer -->
+    <div id="shared-footer"></div>
+
+    <script src="../js/components.js"></script>
+    <script src="../js/script.js"></script>
+
+    <!-- Scroll Animation Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const progressLine = document.getElementById('progress-line');
+            const animatedElements = document.querySelectorAll('.scroll-fade, .card-reveal, .feature-slide, .counter-box');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const delay = entry.target.style.transitionDelay || '0s';
+                        const delayMs = parseFloat(delay) * 1000;
+                        setTimeout(() => entry.target.classList.add('visible'), delayMs);
+                    }
+                });
+            }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+
+            animatedElements.forEach(el => observer.observe(el));
+
+            window.addEventListener('scroll', function () {
+                const scrollTop = window.scrollY;
+                const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+                const progress = (scrollTop / docHeight) * 100;
+                progressLine.style.width = progress + '%';
+            });
+
+            setTimeout(() => {
+                document.querySelectorAll('section:first-of-type .scroll-fade').forEach((el, i) => {
+                    setTimeout(() => el.classList.add('visible'), i * 150);
+                });
+            }, 300);
+        });
+    </script>
+</body>
+
+</html>

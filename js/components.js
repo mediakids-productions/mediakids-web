@@ -8,6 +8,7 @@ const basePath = window.location.pathname.includes('/about/') ||
     window.location.pathname.includes('/curriculum/') ||
     window.location.pathname.includes('/activity/') ||
     window.location.pathname.includes('/apply-now/') ||
+    window.location.pathname.includes('/hr/') ||
     window.location.pathname.includes('/story/') ? '../' : '';
 
 const headerHTML = `
@@ -76,7 +77,7 @@ const headerHTML = `
                         </div>
                         <div class="col-span-4 mm-col">
                             <span class="mm-header">Our Departments</span>
-                            <a href="${basePath}about/#about-team-hr" class="mm-link nav-page">Human Resources (HR)</a>
+                            <a href="${basePath}hr/" class="mm-link nav-page">Human Resources (HR)</a>
                             <a href="${basePath}about/#about-team-curriculum" class="mm-link nav-page">Curriculum Development</a>
                             <a href="${basePath}about/#about-team-consult" class="mm-link nav-page">Operations & Support</a>
                         </div>
@@ -217,9 +218,8 @@ const footerHTML = `
                     <a href="${basePath}index.html" class="nav-logo text-3xl font-bold text-blue-400 block mb-4">MediaKids<span class="text-white"> Academy</span></a>
                     <p class="text-gray-400 text-sm leading-relaxed">Empowering education in Thailand since 2001. Connecting passionate teachers with schools nationwide to create a brighter future.</p>
                     <div class="flex space-x-4 pt-2">
-                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-600 transition-colors"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-pink-600 transition-colors"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-800 transition-colors"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.facebook.com/share/1DsygETo3J/?mibextid=wwXIfr" target="_blank" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-600 transition-colors"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.tiktok.com/@mediakidsacademy" target="_blank" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-pink-600 transition-colors"><i class="fab fa-tiktok"></i></a>
                     </div>
                 </div>
                 <div>
@@ -235,9 +235,9 @@ const footerHTML = `
                 <div>
                     <h4 class="text-lg font-bold mb-6 border-b border-blue-500 inline-block pb-2">Contact Us</h4>
                     <ul class="space-y-4 text-gray-400">
-                        <li class="flex items-start"><i class="fas fa-map-marker-alt mt-1 mr-3 text-blue-400"></i><span>123 MediaKids Lane, Education District,<br>Bangkok 10110, Thailand</span></li>
-                        <li class="flex items-center"><i class="fas fa-phone-alt mr-3 text-blue-400"></i><span>+66 2 123 4567</span></li>
-                        <li class="flex items-center"><i class="fas fa-envelope mr-3 text-blue-400"></i><span>info@mediakids.co.th</span></li>
+                        <li class="flex items-start"><i class="fas fa-map-marker-alt mt-1 mr-3 text-blue-400"></i><span>40/470 Prueksa B Village, Liab Klongsam Road,<br>Klongluang, Pathumthani 12120, Thailand</span></li>
+                        <li class="flex items-center"><i class="fas fa-phone-alt mr-3 text-blue-400"></i><a href="tel:+6628341897" class="hover:text-blue-400 transition-colors">(+66) 2834 1897</a></li>
+                        <li class="flex items-center"><i class="fas fa-envelope mr-3 text-blue-400"></i><a href="mailto:hr@mediakidsacademy.com" class="hover:text-blue-400 transition-colors">hr@mediakidsacademy.com</a></li>
                     </ul>
                 </div>
                 <div>
