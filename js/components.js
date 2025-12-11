@@ -9,7 +9,9 @@ const basePath = window.location.pathname.includes('/about/') ||
     window.location.pathname.includes('/activity/') ||
     window.location.pathname.includes('/apply-now/') ||
     window.location.pathname.includes('/hr/') ||
-    window.location.pathname.includes('/story/') ? '../' : '';
+    window.location.pathname.includes('/story/') ||
+    window.location.pathname.includes('/curriculum-consultants/') ||
+    window.location.pathname.includes('/thai-consultants/') ? '../' : '';
 
 const headerHTML = `
     <header id="main-header" class="fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-in-out h-[88px] bg-white/90 backdrop-blur-md border-b border-transparent">
@@ -70,16 +72,27 @@ const headerHTML = `
             <div id="mm-content-about" class="mm-section">
                 <div class="container mx-auto px-6">
                     <div class="grid grid-cols-12 gap-8">
-                        <div class="col-span-4 mm-col">
+                        <div class="col-span-3 mm-col">
                             <span class="mm-header">Organization</span>
                             <a href="${basePath}story/" class="mm-link nav-page">MediaKids Story</a>
+                            <a href="${basePath}about/" class="mm-link nav-page">About Us</a>
                             <a href="${basePath}contact/" class="mm-link nav-page">Contact Us</a>
                         </div>
-                        <div class="col-span-4 mm-col">
-                            <span class="mm-header">Our Departments</span>
-                            <a href="${basePath}hr/" class="mm-link nav-page">Human Resources (HR)</a>
-                            <a href="${basePath}about/#about-team-curriculum" class="mm-link nav-page">Curriculum Development</a>
-                            <a href="${basePath}about/#about-team-consult" class="mm-link nav-page">Operations & Support</a>
+                        <div class="col-span-3 border-l border-gray-100 pl-8 mm-col">
+                            <span class="mm-header">Our Teams</span>
+                            <a href="${basePath}hr/" class="mm-link nav-page">Human Resources</a>
+                            <a href="${basePath}curriculum-consultants/" class="mm-link nav-page">Curriculum Consultants</a>
+                            <a href="${basePath}thai-consultants/" class="mm-link nav-page">Thai Consultants</a>
+                        </div>
+                        <div class="col-span-6 border-l border-gray-100 pl-12 mm-col flex flex-col justify-center">
+                            <span class="mm-header mb-4">Who We Are</span>
+                            <div class="flex items-center text-blue-600">
+                                <i class="fas fa-users text-5xl mr-4"></i>
+                                <div>
+                                    <p class="text-lg font-bold">Teaching Excellence Since 2001</p>
+                                    <p class="text-sm text-gray-500">Empowering teachers and transforming education in Thailand.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -164,9 +177,9 @@ const headerHTML = `
             </button>
             <div class="mobile-submenu hidden pl-4 mt-2 space-y-2 border-l-2 border-gray-100 ml-2">
                 <a href="${basePath}story/" class="nav-page block py-1 text-gray-600">MediaKids Story</a>
-                <a href="${basePath}about/#about-team-hr" class="nav-page block py-1 text-gray-500">Overseas HR</a>
-                <a href="${basePath}about/#about-team-curriculum" class="nav-page block py-1 text-gray-500">Curriculum Dept</a>
-                <a href="${basePath}about/#about-team-consult" class="nav-page block py-1 text-gray-500">Operations Dept</a>
+                <a href="${basePath}hr/" class="nav-page block py-1 text-gray-500">Human Resources</a>
+                <a href="${basePath}curriculum-consultants/" class="nav-page block py-1 text-gray-500">Curriculum Consultants</a>
+                <a href="${basePath}thai-consultants/" class="nav-page block py-1 text-gray-500">Thai Consultants</a>
                 <a href="${basePath}contact/" class="nav-page block py-1 text-gray-600">Contact Us</a>
             </div>
         </div>
