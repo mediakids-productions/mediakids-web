@@ -114,28 +114,55 @@ function initSite() {
         });
     });
 
-    // Mobile Toggle
+    // Mobile Menu Toggle - NEW OVERLAY SYSTEM
     const mobileMenuButton = document.getElementById('mobile-menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
-    if (mobileMenuButton && mobileMenu) {
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
+    const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+    const mobileMenuClose = document.getElementById('mobile-menu-close');
+
+    function openMobileMenu() {
+        if (mobileMenuOverlay) {
+            mobileMenuOverlay.classList.add('active');
+            document.body.classList.add('mobile-menu-open');
+        }
     }
 
-    // Mobile Submenu Toggles
-    const mobileSubmenuToggles = document.querySelectorAll('.mobile-menu-toggle');
-    mobileSubmenuToggles.forEach(toggle => {
+    function closeMobileMenu() {
+        if (mobileMenuOverlay) {
+            mobileMenuOverlay.classList.remove('active');
+            document.body.classList.remove('mobile-menu-open');
+        }
+    }
+
+    if (mobileMenuButton) {
+        mobileMenuButton.addEventListener('click', openMobileMenu);
+    }
+
+    if (mobileMenuClose) {
+        mobileMenuClose.addEventListener('click', closeMobileMenu);
+    }
+
+    // Close menu when clicking a link
+    const mobileMenuLinks = document.querySelectorAll('#mobile-menu-overlay a');
+    mobileMenuLinks.forEach(link => {
+        link.addEventListener('click', closeMobileMenu);
+    });
+
+    // Mobile Accordion Toggle
+    const mobileAccordions = document.querySelectorAll('.mobile-accordion-toggle');
+    mobileAccordions.forEach(toggle => {
         toggle.addEventListener('click', (e) => {
             e.preventDefault();
-            const submenu = toggle.nextElementSibling;
-            const icon = toggle.querySelector('i');
-            if (submenu) {
-                submenu.classList.toggle('hidden');
-                if (icon) {
-                    icon.classList.toggle('rotate-180');
+            const accordion = toggle.parentElement;
+
+            // Close other accordions
+            document.querySelectorAll('.mobile-accordion.active').forEach(other => {
+                if (other !== accordion) {
+                    other.classList.remove('active');
                 }
-            }
+            });
+
+            // Toggle current accordion
+            accordion.classList.toggle('active');
         });
     });
 

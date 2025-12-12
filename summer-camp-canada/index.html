@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-C3WTLTZ1Y1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-C3WTLTZ1Y1');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self';
+        img-src 'self' data: https://images.unsplash.com https://placehold.co https://drive.google.com https://drive.googleusercontent.com https://lh3.googleusercontent.com https://drive.usercontent.google.com https://*.googleusercontent.com;
+        font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;
+        style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://unpkg.com;
+        script-src 'self' 'unsafe-inline'
+          https://cdn.tailwindcss.com
+          https://cdnjs.cloudflare.com
+          https://unpkg.com
+          https://script.google.com
+          https://www.googletagmanager.com
+          https://www.google-analytics.com;
+        connect-src 'self'
+          https://script.google.com
+          https://script.googleusercontent.com
+          https://www.google-analytics.com
+          https://region1.google-analytics.com
+          https://www.googletagmanager.com;
+        form-action 'self' https://script.google.com https://script.googleusercontent.com https://formspree.io;
+        frame-ancestors 'self';
+        upgrade-insecure-requests">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
+    <title>Summer Camp in Canada - International Experience | MediaKids Academy</title>
+    <meta name="description"
+        content="Summer Camp in Canada by MediaKids Academy - A unique opportunity for students to learn English while experiencing life in Canada with cultural excursions and real-life immersion.">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/icons/logo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/icons/logo.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/icons/logo.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="../css/style.css">
+
+    <style>
+        /* Animated badge */
+        .canada-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 28px;
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.1), rgba(16, 185, 129, 0.1));
+            border: 2px solid rgba(6, 182, 212, 0.3);
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #0891b2;
+            animation: pulse-badge 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-badge {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.02);
+            }
+        }
+
+        /* Gradient text cyan-emerald */
+        .gradient-text-canada {
+            background: linear-gradient(135deg, #06b6d4, #10b981, #0d9488);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 3s ease infinite;
+        }
+
+        @keyframes gradientShift {
+
+            0%,
+            100% {
+                background-position: 0% center;
+            }
+
+            50% {
+                background-position: 100% center;
+            }
+        }
+
+        /* Gallery grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            cursor: pointer;
+            aspect-ratio: 4/3;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(6, 182, 212, 0.7) 0%, transparent 60%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay i {
+            font-size: 2rem;
+            color: white;
+            transform: scale(0);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay i {
+            transform: scale(1);
+        }
+
+        /* Feature cards */
+        .feature-card {
+            background: white;
+            border-radius: 24px;
+            padding: 36px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+            border: 1px solid #f1f5f9;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #06b6d4, #10b981);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+            transform-origin: left;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 50px rgba(6, 182, 212, 0.15);
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .feature-icon {
+            width: 72px;
+            height: 72px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            margin-bottom: 24px;
+            transition: all 0.4s ease;
+        }
+
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        /* Lightbox */
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 9999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .lightbox.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90vh;
+            object-fit: contain;
+            border-radius: 12px;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 2.5rem;
+            color: white;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .lightbox-close:hover {
+            transform: rotate(90deg);
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            color: white;
+            cursor: pointer;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .lightbox-nav:hover {
+            color: #06b6d4;
+        }
+
+        .lightbox-prev {
+            left: 20px;
+        }
+
+        .lightbox-next {
+            right: 20px;
+        }
+
+        /* Floating shapes */
+        .floating-shape {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.1;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(10deg);
+            }
+        }
+
+        /* Canada flag colors accent */
+        .maple-accent {
+            color: #dc2626;
+        }
+    </style>
+</head>
+
+<body class="leading-relaxed overflow-x-hidden relative bg-white">
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox(event)">
+        <span class="lightbox-close" onclick="closeLightbox(event)">&times;</span>
+        <span class="lightbox-nav lightbox-prev" onclick="navigateLightbox(-1, event)"><i
+                class="fas fa-chevron-left"></i></span>
+        <img id="lightbox-img" src="" alt="Canada camp photo">
+        <span class="lightbox-nav lightbox-next" onclick="navigateLightbox(1, event)"><i
+                class="fas fa-chevron-right"></i></span>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Shared Header -->
+    <div id="shared-header"></div>
+
+    <main>
+        <div id="main-content">
+
+            <!-- Hero Section -->
+            <section class="py-24 lg:py-32 bg-white relative overflow-hidden">
+                <!-- Floating decorations -->
+                <div class="floating-shape w-96 h-96 bg-cyan-400 top-0 right-0 blur-3xl" style="animation-delay: 0s;">
+                </div>
+                <div class="floating-shape w-80 h-80 bg-emerald-400 bottom-0 left-0 blur-3xl"
+                    style="animation-delay: 2s;"></div>
+                <div class="floating-shape w-40 h-40 bg-teal-300 top-1/2 left-1/4 blur-2xl"
+                    style="animation-delay: 4s;"></div>
+
+                <div class="container mx-auto px-6 relative z-10">
+                    <div class="grid lg:grid-cols-2 gap-12 items-center">
+                        <!-- Left content -->
+                        <div>
+                            <div class="canada-badge mb-8" data-aos="fade-right">
+                                <i class="fas fa-plane-departure"></i>
+                                <span>International Experience</span>
+                            </div>
+
+                            <h1 class="text-5xl md:text-6xl font-extrabold text-gray-900 mb-6 leading-tight"
+                                data-aos="fade-right" data-aos-delay="100">
+                                Summer Camp in <span class="gradient-text-canada">Canada</span>
+                                <i class="fas fa-canadian-maple-leaf maple-accent text-4xl ml-2"></i>
+                            </h1>
+
+                            <p class="text-xl text-gray-600 mb-8 leading-relaxed" data-aos="fade-right"
+                                data-aos-delay="150">
+                                Our Summer Camp in Canada offers students a unique opportunity to learn English while
+                                experiencing life in one of the most welcoming and multicultural countries in the world.
+                                Through classroom lessons, cultural excursions, and real-life immersion, students
+                                develop their language skills naturally.
+                            </p>
+
+                            <p class="text-lg text-gray-500 mb-8" data-aos="fade-right" data-aos-delay="200">
+                                The program provides a <span class="font-semibold text-cyan-600">safe and supportive
+                                    environment</span> where students grow in confidence, independence, and global
+                                awareness. Every day is filled with memorable experiences!
+                            </p>
+
+                            <!-- Quick stats -->
+                            <div class="flex flex-wrap gap-6" data-aos="fade-right" data-aos-delay="250">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-12 h-12 bg-cyan-100 rounded-xl flex items-center justify-center">
+                                        <i class="fas fa-globe-americas text-cyan-500 text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-bold text-gray-900">Real Immersion</p>
+                                        <p class="text-sm text-gray-500">English-speaking environment</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <div class="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center">
+                                        <i class="fas fa-user-friends text-emerald-600 text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-bold text-gray-900">International Friends</p>
+                                        <p class="text-sm text-gray-500">Lifelong memories</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right: Featured image -->
+                        <div class="relative" data-aos="fade-left" data-aos-delay="200">
+                            <div class="relative rounded-3xl overflow-hidden shadow-2xl">
+                                <img src="../assets/images/summer-camp-canada/cannada6.webp" alt="Summer Camp Canada"
+                                    class="w-full h-[450px] object-cover">
+                                <div class="absolute inset-0 bg-gradient-to-t from-cyan-900/60 to-transparent"></div>
+                                <div class="absolute bottom-6 left-6 right-6">
+                                    <div class="bg-white/95 backdrop-blur-sm rounded-2xl p-5 flex items-center gap-4">
+                                        <div
+                                            class="w-14 h-14 bg-gradient-to-br from-cyan-500 to-emerald-500 rounded-xl flex items-center justify-center">
+                                            <i class="fas fa-mountain text-white text-2xl"></i>
+                                        </div>
+                                        <div>
+                                            <p class="font-bold text-gray-900 text-lg">Life-Changing Experience</p>
+                                            <p class="text-sm text-gray-500">Cultural trips & excursions</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Decorative elements -->
+                            <div
+                                class="absolute -top-6 -right-6 w-24 h-24 bg-emerald-400 rounded-full blur-2xl opacity-50">
+                            </div>
+                            <div
+                                class="absolute -bottom-8 -left-8 w-32 h-32 bg-cyan-400 rounded-full blur-2xl opacity-40">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Photo Gallery Section -->
+            <section class="py-20 bg-gray-50">
+                <div class="container mx-auto px-6">
+                    <div class="text-center mb-16">
+                        <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4" data-aos="fade-up">
+                            Trip <span class="gradient-text-canada">Gallery</span>
+                        </h2>
+                        <p class="text-xl text-gray-600 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                            Memorable moments from our Canada Summer Camp program
+                        </p>
+                    </div>
+
+                    <div class="gallery-grid" data-aos="fade-up" data-aos-delay="200">
+                        <div class="gallery-item" onclick="openLightbox(0)">
+                            <img src="../assets/images/summer-camp-canada/cannada1.webp" alt="Canada trip 1"
+                                loading="lazy">
+                            <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+                        </div>
+                        <div class="gallery-item" onclick="openLightbox(1)">
+                            <img src="../assets/images/summer-camp-canada/cannada2.webp" alt="Canada trip 2"
+                                loading="lazy">
+                            <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+                        </div>
+                        <div class="gallery-item" onclick="openLightbox(2)">
+                            <img src="../assets/images/summer-camp-canada/cannada3.webp" alt="Canada trip 3"
+                                loading="lazy">
+                            <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+                        </div>
+                        <div class="gallery-item" onclick="openLightbox(3)">
+                            <img src="../assets/images/summer-camp-canada/cannada4.webp" alt="Canada trip 4"
+                                loading="lazy">
+                            <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+                        </div>
+                        <div class="gallery-item" onclick="openLightbox(4)">
+                            <img src="../assets/images/summer-camp-canada/cannada5.webp" alt="Canada trip 5"
+                                loading="lazy">
+                            <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+                        </div>
+                        <div class="gallery-item" onclick="openLightbox(5)">
+                            <img src="../assets/images/summer-camp-canada/cannada6.webp" alt="Canada trip 6"
+                                loading="lazy">
+                            <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Program Highlights Section -->
+            <section class="py-20 bg-white">
+                <div class="container mx-auto px-6">
+                    <div class="text-center mb-16">
+                        <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4" data-aos="fade-up">
+                            Program <span class="gradient-text-canada">Highlights</span>
+                        </h2>
+                        <p class="text-xl text-gray-600 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                            What makes this experience unforgettable
+                        </p>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- Feature 1 -->
+                        <div class="feature-card" data-aos="fade-up">
+                            <div class="feature-icon bg-cyan-100 text-cyan-500">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">Real Language Immersion</h3>
+                            <p class="text-gray-600 leading-relaxed">Students experience genuine English immersion in an
+                                English-speaking environment every single day.</p>
+                        </div>
+
+                        <!-- Feature 2 -->
+                        <div class="feature-card" data-aos="fade-up" data-aos-delay="50">
+                            <div class="feature-icon bg-emerald-100 text-emerald-600">
+                                <i class="fas fa-chalkboard-teacher"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">Engaging Lessons & Activities</h3>
+                            <p class="text-gray-600 leading-relaxed">Carefully designed lessons and activities for
+                                international learners to maximize learning.</p>
+                        </div>
+
+                        <!-- Feature 3 -->
+                        <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                            <div class="feature-icon bg-blue-100 text-blue-500">
+                                <i class="fas fa-landmark"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">Cultural Trips & Excursions</h3>
+                            <p class="text-gray-600 leading-relaxed">Visits to famous attractions and landmarks create
+                                memorable educational experiences.</p>
+                        </div>
+
+                        <!-- Feature 4 -->
+                        <div class="feature-card" data-aos="fade-up" data-aos-delay="150">
+                            <div class="feature-icon bg-green-100 text-green-500">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">Safe & Supportive</h3>
+                            <p class="text-gray-600 leading-relaxed">Trained staff provide 24/7 supervision ensuring
+                                students' safety and well-being.</p>
+                        </div>
+
+                        <!-- Feature 5 -->
+                        <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                            <div class="feature-icon bg-purple-100 text-purple-500">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">Builds Confidence</h3>
+                            <p class="text-gray-600 leading-relaxed">Global experiences help students develop confidence
+                                and independence they carry forever.</p>
+                        </div>
+
+                        <!-- Feature 6 -->
+                        <div class="feature-card" data-aos="fade-up" data-aos-delay="250">
+                            <div class="feature-icon bg-pink-100 text-pink-500">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">International Friends</h3>
+                            <p class="text-gray-600 leading-relaxed">Students make friends from around the world,
+                                creating lifelong memories and connections.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CTA Section -->
+            <section class="py-24 bg-gradient-to-br from-cyan-600 via-teal-600 to-emerald-600 relative overflow-hidden">
+                <!-- Decorative circles -->
+                <div class="absolute top-0 left-0 w-full h-full opacity-10">
+                    <div class="absolute top-10 left-10 w-40 h-40 bg-white rounded-full blur-3xl"></div>
+                    <div class="absolute bottom-10 right-10 w-60 h-60 bg-white rounded-full blur-3xl"></div>
+                    <div
+                        class="absolute top-1/2 left-1/2 w-80 h-80 bg-emerald-300 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2">
+                    </div>
+                </div>
+
+                <div class="container mx-auto px-6 relative z-10">
+                    <div class="text-center max-w-3xl mx-auto">
+                        <div class="inline-flex items-center gap-2 px-6 py-3 bg-white/20 rounded-full text-white font-medium mb-8"
+                            data-aos="fade-up">
+                            <i class="fas fa-briefcase"></i>
+                            <span>Join Our Team</span>
+                        </div>
+
+                        <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-6" data-aos="fade-up"
+                            data-aos-delay="100">
+                            Want to Create These Experiences?
+                        </h2>
+                        <p class="text-xl text-cyan-100 mb-10" data-aos="fade-up" data-aos-delay="150">
+                            Join MediaKids Academy and be part of our team that creates life-changing experiences for
+                            students through international programs!
+                        </p>
+
+                        <div class="flex flex-wrap justify-center gap-4" data-aos="fade-up" data-aos-delay="200">
+                            <a href="../apply-now/"
+                                class="px-10 py-5 bg-white text-cyan-600 rounded-full text-lg font-bold inline-flex items-center gap-3 hover:bg-cyan-50 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1">
+                                <i class="fas fa-paper-plane"></i>
+                                <span>Apply Now</span>
+                            </a>
+                            <a href="../contact/"
+                                class="px-10 py-5 bg-transparent border-2 border-white text-white rounded-full text-lg font-bold inline-flex items-center gap-3 hover:bg-white/10 transition-all">
+                                <i class="fas fa-envelope"></i>
+                                <span>Contact Us</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Shared Footer -->
+    <div id="shared-footer"></div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="../js/components.js"></script>
+    <script src="../js/script.js"></script>
+
+    <script>
+        // Lightbox functionality
+        const allImages = [
+            '../assets/images/summer-camp-canada/cannada1.webp',
+            '../assets/images/summer-camp-canada/cannada2.webp',
+            '../assets/images/summer-camp-canada/cannada3.webp',
+            '../assets/images/summer-camp-canada/cannada4.webp',
+            '../assets/images/summer-camp-canada/cannada5.webp',
+            '../assets/images/summer-camp-canada/cannada6.webp'
+        ];
+
+        let currentImageIndex = 0;
+
+        function openLightbox(index) {
+            currentImageIndex = index;
+            document.getElementById('lightbox-img').src = allImages[index];
+            document.getElementById('lightbox').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox(event) {
+            if (event.target.id === 'lightbox' || event.target.classList.contains('lightbox-close')) {
+                document.getElementById('lightbox').classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+
+        function navigateLightbox(direction, event) {
+            event.stopPropagation();
+            currentImageIndex += direction;
+            if (currentImageIndex < 0) currentImageIndex = allImages.length - 1;
+            if (currentImageIndex >= allImages.length) currentImageIndex = 0;
+            document.getElementById('lightbox-img').src = allImages[currentImageIndex];
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function (e) {
+            if (!document.getElementById('lightbox').classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox({ target: { id: 'lightbox' } });
+            if (e.key === 'ArrowLeft') navigateLightbox(-1, e);
+            if (e.key === 'ArrowRight') navigateLightbox(1, e);
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-C3WTLTZ1Y1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-C3WTLTZ1Y1');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogs - MediaKids Academy</title>
+
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/icons/logo.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="../css/style.css">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+
+        .blog-card {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .blog-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .blog-card img {
+            transition: transform 0.5s ease;
+        }
+
+        .blog-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .category-badge {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+            color: #6366f1;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+
+<body class="antialiased">
+
+    <div id="shared-header"></div>
+
+    <main class="min-h-screen pb-24">
+
+        <!-- Hero Section -->
+        <div class="text-center pt-24 pb-16 px-6" data-aos="fade-down">
+            <div
+                class="inline-flex items-center gap-3 px-6 py-3 bg-indigo-50 rounded-full text-indigo-600 font-semibold mb-8">
+                <i class="fas fa-newspaper"></i>
+                <span>Teacher Resources</span>
+            </div>
+
+            <h1 class="text-4xl md:text-6xl font-extrabold text-gray-900 mb-6">
+                <span class="gradient-text">Blogs</span> & Articles
+            </h1>
+            <p class="text-lg text-gray-500 max-w-2xl mx-auto leading-relaxed">
+                Insights, tips, and stories for teachers in Thailand
+            </p>
+        </div>
+
+        <!-- Blog Grid -->
+        <div class="container mx-auto px-6 max-w-6xl">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Blog Card 1 -->
+                <a href="top-10-myths/" class="blog-card group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="relative h-52 overflow-hidden">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 flex items-center justify-center">
+                            <i class="fas fa-lightbulb text-white text-6xl opacity-30"></i>
+                        </div>
+                        <div class="absolute top-4 left-4">
+                            <span class="category-badge px-4 py-2 rounded-full text-sm font-semibold bg-white/90">
+                                <i class="fas fa-star mr-1"></i> Featured
+                            </span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3 group-hover:text-indigo-600 transition-colors">
+                            Top 10 Myths About Teaching in Thailand
+                        </h3>
+                        <p class="text-gray-500 text-sm mb-4 line-clamp-2">
+                            What teachers often hear vs. what is actually true. Debunking common misconceptions about
+                            teaching abroad.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs text-gray-400">5 min read</span>
+                            <span
+                                class="text-indigo-600 font-semibold text-sm group-hover:translate-x-2 transition-transform inline-flex items-center gap-1">
+                                Read More <i class="fas fa-arrow-right text-xs"></i>
+                            </span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Coming Soon Card 2 -->
+                <div class="blog-card opacity-60 cursor-not-allowed" data-aos="fade-up" data-aos-delay="150">
+                    <div class="relative h-52 overflow-hidden bg-gray-200 flex items-center justify-center">
+                        <i class="fas fa-clock text-gray-400 text-5xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-400 mb-3">More Articles Coming Soon</h3>
+                        <p class="text-gray-400 text-sm mb-4">
+                            We're working on more helpful content for teachers.
+                        </p>
+                        <span class="text-xs text-gray-400">Stay tuned!</span>
+                    </div>
+                </div>
+
+                <!-- Coming Soon Card 3 -->
+                <div class="blog-card opacity-60 cursor-not-allowed" data-aos="fade-up" data-aos-delay="200">
+                    <div class="relative h-52 overflow-hidden bg-gray-200 flex items-center justify-center">
+                        <i class="fas fa-clock text-gray-400 text-5xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-400 mb-3">More Articles Coming Soon</h3>
+                        <p class="text-gray-400 text-sm mb-4">
+                            We're working on more helpful content for teachers.
+                        </p>
+                        <span class="text-xs text-gray-400">Stay tuned!</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Back Link -->
+            <div class="text-center mt-16" data-aos="fade-up">
+                <a href="../"
+                    class="inline-flex items-center gap-2 text-gray-500 hover:text-indigo-600 transition-colors font-medium">
+                    <i class="fas fa-arrow-left"></i>
+                    <span>Back to Home</span>
+                </a>
+            </div>
+        </div>
+
+    </main>
+
+    <div id="shared-footer"></div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="../js/components.js"></script>
+    <script src="../js/script.js"></script>
+
+    <script>
+        AOS.init({ once: true, offset: 50, duration: 800 });
+    </script>
+</body>
+
+</html>

@@ -1,24 +1,48 @@
-// Detect base path for nested folders (e.g., /about/)
-const basePath = window.location.pathname.includes('/schools/central-area/') ||
-    window.location.pathname.includes('/schools/north-area/') ||
-    window.location.pathname.includes('/schools/esan-area/') ? '../../' :
-    (window.location.pathname.includes('/about/') ||
-        window.location.pathname.includes('/programs/') ||
-        window.location.pathname.includes('/schools/') ||
-        window.location.pathname.includes('/jobs/') ||
-        window.location.pathname.includes('/faq/') ||
-        window.location.pathname.includes('/contact/') ||
-        window.location.pathname.includes('/curriculum/') ||
-        window.location.pathname.includes('/activity/') ||
-        window.location.pathname.includes('/apply-now/') ||
-        window.location.pathname.includes('/hr/') ||
-        window.location.pathname.includes('/story/') ||
-        window.location.pathname.includes('/curriculum-consultants/') ||
-        window.location.pathname.includes('/thai-consultants/') ||
-        window.location.pathname.includes('/mission-vision/') ||
-        window.location.pathname.includes('/ecd-program/') ||
-        window.location.pathname.includes('/mep-program/') ||
-        window.location.pathname.includes('/iep-program/') ? '../' : '');
+// Detect base path for nested folders
+let basePath = '';
+const path = window.location.pathname;
+
+// Level 3 deep: ../../../
+if (path.includes('/schools/central-area/') ||
+    path.includes('/schools/north-area/') ||
+    path.includes('/schools/esan-area/') ||
+    path.includes('/curriculum/sem1/ecd/') ||
+    path.includes('/curriculum/sem2/ecd/')) {
+    basePath = '../../../';
+}
+// Level 2 deep: ../../
+else if (path.includes('/curriculum/sem1/') ||
+    path.includes('/curriculum/sem2/') ||
+    path.includes('/blogs/top-10-myths/')) {
+    basePath = '../../';
+}
+// Level 1 deep: ../
+else if (path.includes('/about/') ||
+    path.includes('/programs/') ||
+    path.includes('/schools/') ||
+    path.includes('/jobs/') ||
+    path.includes('/faq/') ||
+    path.includes('/contact/') ||
+    path.includes('/curriculum/') ||
+    path.includes('/activity/') ||
+    path.includes('/apply-now/') ||
+    path.includes('/hr/') ||
+    path.includes('/story/') ||
+    path.includes('/curriculum-consultants/') ||
+    path.includes('/thai-consultants/') ||
+    path.includes('/mission-vision/') ||
+    path.includes('/ecd-program/') ||
+    path.includes('/mep-program/') ||
+    path.includes('/iep-program/') ||
+    path.includes('/english-camps/') ||
+    path.includes('/mediakids-awards/') ||
+    path.includes('/summer-camp-canada/') ||
+    path.includes('/about/') ||
+    path.includes('/programs/') ||
+    path.includes('/blogs/')) {
+    basePath = '../';
+}
+
 
 const headerHTML = `
     <header id="main-header" class="fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-in-out h-[88px] bg-white/90 backdrop-blur-md border-b border-transparent">
@@ -83,6 +107,7 @@ const headerHTML = `
                             <span class="mm-header">Organization</span>
                             <a href="${basePath}story/" class="mm-link nav-page">MediaKids Story</a>
                             <a href="${basePath}mission-vision/" class="mm-link nav-page">Mission & Vision</a>
+                            <a href="${basePath}blogs/" class="mm-link nav-page">Blogs</a>
                             <a href="${basePath}contact/" class="mm-link nav-page">Contact Us</a>
                         </div>
                         <div class="col-span-3 border-l border-gray-100 pl-8 mm-col">
@@ -117,22 +142,22 @@ const headerHTML = `
                         </div>
                         <div class="col-span-3 border-l border-gray-100 pl-8 mm-col">
                             <span class="mm-header">Activities</span>
-                            <a href="${basePath}programs/#programs-camp" class="mm-link nav-page">English Camps</a>
-                            <a href="${basePath}programs/#programs-mk-awards" class="mm-link nav-page">MediaKids Awards</a>
-                            <a href="${basePath}programs/#programs-summer-camp" class="mm-link nav-page">Summer Camp in Canada</a>
+                            <a href="${basePath}english-camps/" class="mm-link nav-page">English Camps</a>
+                            <a href="${basePath}mediakids-awards/" class="mm-link nav-page">MediaKids Awards</a>
+                            <a href="${basePath}summer-camp-canada/" class="mm-link nav-page">Summer Camp in Canada</a>
                         </div>
                         <div class="col-span-6 border-l border-gray-100 pl-8 mm-col">
                             <span class="mm-header">Highlights</span>
                             <div class="grid grid-cols-2 gap-6 mt-4">
-                                <a href="${basePath}programs/#programs-camp" class="group/img block nav-page">
+                                <a href="${basePath}english-camps/" class="group/img block nav-page">
                                     <div class="overflow-hidden rounded-lg shadow-sm h-32 mb-3">
-                                        <img src="${basePath}assets/images/programs/unsplash-image-38.jpg" class="w-full h-full object-cover transform transition-transform duration-500 group-hover/img:scale-110">
+                                        <img src="${basePath}assets/images/camps/camps1.webp" class="w-full h-full object-cover transform transition-transform duration-500 group-hover/img:scale-110">
                                     </div>
                                     <span class="text-sm font-semibold text-gray-800 group-hover/img:text-blue-600">English Camps</span>
                                 </a>
-                                <a href="${basePath}programs/#programs-mk-awards" class="group/img block nav-page">
+                                <a href="${basePath}mediakids-awards/" class="group/img block nav-page">
                                     <div class="overflow-hidden rounded-lg shadow-sm h-32 mb-3">
-                                        <img src="${basePath}assets/images/posts/post-1.jpg" class="w-full h-full object-cover transform transition-transform duration-500 group-hover/img:scale-110">
+                                        <img src="${basePath}assets/images/mediakids-awards/mkaannounce1.webp" class="w-full h-full object-cover transform transition-transform duration-500 group-hover/img:scale-110">
                                     </div>
                                     <span class="text-sm font-semibold text-gray-800 group-hover/img:text-blue-600">MediaKids Awards</span>
                                 </a>
@@ -146,23 +171,19 @@ const headerHTML = `
             <div id="mm-content-schools" class="mm-section">
                 <div class="container mx-auto px-6">
                     <div class="grid grid-cols-12 gap-8">
-                        <div class="col-span-3 mm-col">
+                        <div class="col-span-4 mm-col">
                             <span class="mm-header">Regions</span>
                             <a href="${basePath}schools/central-area/" class="mm-link nav-page">Central Area</a>
                             <a href="${basePath}schools/north-area/" class="mm-link nav-page">North Area</a>
                             <a href="${basePath}schools/esan-area/" class="mm-link nav-page">Esan Area</a>
                         </div>
-                        <div class="col-span-3 border-l border-gray-100 pl-8 mm-col">
-                            <span class="mm-header">Coming Soon</span>
-                            <p class="text-sm text-gray-500 mt-2">School pages are being updated. Check back soon for detailed information about each region.</p>
-                        </div>
-                        <div class="col-span-6 border-l border-gray-100 pl-12 mm-col flex flex-col justify-center">
+                        <div class="col-span-8 border-l border-gray-100 pl-12 mm-col flex flex-col justify-center">
                             <span class="mm-header mb-4">Our Coverage</span>
                             <div class="flex items-center text-blue-600">
                                 <i class="fas fa-map-marked-alt text-5xl mr-4"></i>
                                 <div>
                                     <p class="text-lg font-bold">Nationwide Network</p>
-                                    <p class="text-sm text-gray-500">Partnering with over 50 schools across Thailand.</p>
+                                    <p class="text-sm text-gray-500">Connecting teachers with schools throughout Thailand.</p>
                                 </div>
                             </div>
                         </div>
@@ -174,58 +195,117 @@ const headerHTML = `
         </div>
     </header>
 
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="hidden lg:hidden px-6 pt-2 pb-4 space-y-2 bg-white border-t">
-        <div>
-            <button class="mobile-menu-toggle w-full flex justify-between items-center py-2 font-medium">
-                <span>About Us</span>
-                <i class="fas fa-chevron-down text-xs transform transition-transform duration-300"></i>
-            </button>
-            <div class="mobile-submenu hidden pl-4 mt-2 space-y-2 border-l-2 border-gray-100 ml-2">
-                <a href="${basePath}story/" class="nav-page block py-1 text-gray-600">MediaKids Story</a>
-                <a href="${basePath}mission-vision/" class="nav-page block py-1 text-gray-600">Mission & Vision</a>
-                <a href="${basePath}hr/" class="nav-page block py-1 text-gray-500">Human Resources</a>
-                <a href="${basePath}curriculum-consultants/" class="nav-page block py-1 text-gray-500">Curriculum Consultants</a>
-                <a href="${basePath}thai-consultants/" class="nav-page block py-1 text-gray-500">Thai Consultants</a>
-                <a href="${basePath}contact/" class="nav-page block py-1 text-gray-600">Contact Us</a>
+    <!-- Mobile Menu Overlay (Full Screen) -->
+    <div id="mobile-menu-overlay" class="mobile-menu-overlay">
+        <div class="mobile-menu-panel">
+            <!-- Header with Close Button -->
+            <div class="mobile-menu-header">
+                <a href="${basePath}index.html" class="text-2xl font-bold text-blue-600">MediaKids<span class="text-gray-800"> Academy</span></a>
+                <button id="mobile-menu-close" class="mobile-menu-close" aria-label="Close menu">
+                    <i class="fas fa-times"></i>
+                </button>
             </div>
-        </div>
-        <div>
-            <button class="mobile-menu-toggle w-full flex justify-between items-center py-2 font-medium">
-                <span>Programs</span>
-                <i class="fas fa-chevron-down text-xs transform transition-transform duration-300"></i>
-            </button>
-            <div class="mobile-submenu hidden pl-4 mt-2 space-y-2 border-l-2 border-gray-100 ml-2">
-                <a href="${basePath}programs/#programs-ecd" class="nav-page block py-1 text-gray-600">ECD Program</a>
-                <a href="${basePath}programs/#programs-iep" class="nav-page block py-1 text-gray-600">IEP Program</a>
-                <a href="${basePath}programs/#programs-ep-ip" class="nav-page block py-1 text-gray-600">IP / EP / MEP</a>
-                <div class="border-t border-gray-100 my-2 pt-2">
-                    <span class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2 block">Activities</span>
-                    <a href="${basePath}programs/#programs-camp" class="nav-page block py-1 text-gray-600">English Camps</a>
-                    <a href="${basePath}programs/#programs-mk-awards" class="nav-page block py-1 text-gray-600">MediaKids Awards</a>
-                    <a href="${basePath}programs/#programs-summer-camp" class="nav-page block py-1 text-gray-600">Summer Camp in Canada</a>
+
+            <!-- Menu Items -->
+            <nav class="mobile-menu-nav">
+                <!-- About Us -->
+                <div class="mobile-accordion">
+                    <button class="mobile-accordion-toggle">
+                        <span>About Us</span>
+                        <i class="fas fa-chevron-down mobile-accordion-icon"></i>
+                    </button>
+                    <div class="mobile-accordion-content">
+                        <a href="${basePath}about/" class="mobile-menu-link nav-page">
+                            <i class="fas fa-th-large"></i>Overview
+                        </a>
+                        <a href="${basePath}story/" class="mobile-menu-link nav-page">
+                            <i class="fas fa-book-open"></i>MediaKids Story
+                        </a>
+                        <a href="${basePath}mission-vision/" class="mobile-menu-link nav-page">
+                            <i class="fas fa-bullseye"></i>Mission & Vision
+                        </a>
+                        <a href="${basePath}blogs/" class="mobile-menu-link nav-page">
+                            <i class="fas fa-pen-fancy"></i>Blogs
+                        </a>
+                        <a href="${basePath}contact/" class="mobile-menu-link nav-page">
+                            <i class="fas fa-envelope"></i>Contact Us
+                        </a>
+                    </div>
                 </div>
+
+                <!-- Programs -->
+                <div class="mobile-accordion">
+                    <button class="mobile-accordion-toggle">
+                        <span>Programs</span>
+                        <i class="fas fa-chevron-down mobile-accordion-icon"></i>
+                    </button>
+                    <div class="mobile-accordion-content">
+                        <a href="${basePath}programs/" class="mobile-menu-link nav-page">
+                            <i class="fas fa-th-large"></i>All Programs
+                        </a>
+                        <a href="${basePath}ecd-program/" class="mobile-menu-link nav-page">
+                            <i class="fas fa-child"></i>ECD Program
+                        </a>
+                        <a href="${basePath}iep-program/" class="mobile-menu-link nav-page">
+                            <i class="fas fa-globe"></i>IEP Program
+                        </a>
+                        <a href="${basePath}mep-program/" class="mobile-menu-link nav-page">
+                            <i class="fas fa-school"></i>IP / EP / MEP
+                        </a>
+                        <div class="mobile-menu-divider"></div>
+                        <a href="${basePath}english-camps/" class="mobile-menu-link nav-page">
+                            <i class="fas fa-campground"></i>English Camps
+                        </a>
+                        <a href="${basePath}mediakids-awards/" class="mobile-menu-link nav-page">
+                            <i class="fas fa-trophy"></i>MediaKids Awards
+                        </a>
+                        <a href="${basePath}summer-camp-canada/" class="mobile-menu-link nav-page">
+                            <i class="fas fa-leaf"></i>Summer Camp Canada
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Schools -->
+                <div class="mobile-accordion">
+                    <button class="mobile-accordion-toggle">
+                        <span>Schools</span>
+                        <i class="fas fa-chevron-down mobile-accordion-icon"></i>
+                    </button>
+                    <div class="mobile-accordion-content">
+                        <a href="${basePath}schools/" class="mobile-menu-link nav-page">
+                            <i class="fas fa-th-large"></i>All Regions
+                        </a>
+                        <a href="${basePath}schools/central-area/" class="mobile-menu-link nav-page">
+                            <i class="fas fa-city"></i>Central Area
+                        </a>
+                        <a href="${basePath}schools/north-area/" class="mobile-menu-link nav-page">
+                            <i class="fas fa-mountain"></i>North Area
+                        </a>
+                        <a href="${basePath}schools/esan-area/" class="mobile-menu-link nav-page">
+                            <i class="fas fa-seedling"></i>Esan Area
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Direct Links -->
+                <a href="${basePath}faq/" class="mobile-menu-direct nav-page">
+                    <i class="fas fa-question-circle"></i>FAQ
+                </a>
+                <a href="${basePath}jobs/" class="mobile-menu-direct nav-page">
+                    <i class="fas fa-briefcase"></i>Jobs
+                </a>
+                <a href="${basePath}curriculum/" class="mobile-menu-direct nav-page">
+                    <i class="fas fa-book"></i>Curriculum
+                </a>
+            </nav>
+
+            <!-- Apply Now Button -->
+            <div class="mobile-menu-footer">
+                <a href="${basePath}jobs/" class="mobile-apply-btn nav-page">
+                    <i class="fas fa-paper-plane"></i>Apply Now
+                </a>
             </div>
         </div>
-        <div>
-            <button class="mobile-menu-toggle w-full flex justify-between items-center py-2 font-medium">
-                <span>Schools</span>
-                <i class="fas fa-chevron-down text-xs transform transition-transform duration-300"></i>
-            </button>
-            <div class="mobile-submenu hidden pl-4 mt-2 space-y-2 border-l-2 border-gray-100 ml-2">
-                <span class="block py-1 text-gray-500">Central Area</span>
-                <span class="block py-1 text-gray-500">North Area</span>
-                <span class="block py-1 text-gray-500">Esan Area</span>
-                <span class="block py-1 text-gray-400 text-sm italic">Pages coming soon</span>
-            </div>
-        </div>
-
-
-
-        <a href="${basePath}faq/" class="nav-page block py-2 font-medium">FAQ</a>
-        <a href="${basePath}jobs/" class="block py-2 font-medium nav-page">Jobs</a>
-        <a href="${basePath}curriculum/" class="block py-2 font-medium nav-page">Curriculum</a>
-        <a href="${basePath}apply-now/" class="nav-page block mt-4 btn-primary text-center px-6 py-2 rounded-full">Apply Now</a>
     </div>
 `;
 
@@ -260,12 +340,9 @@ const footerHTML = `
                     </ul>
                 </div>
                 <div>
-                    <h4 class="text-lg font-bold mb-6 border-b border-blue-500 inline-block pb-2">Newsletter</h4>
-                    <p class="text-gray-400 text-sm mb-4">Subscribe to get the latest teaching tips and news.</p>
-                    <form class="flex flex-col space-y-3" onsubmit="event.preventDefault(); alert('Thanks for subscribing!');">
-                        <input type="email" placeholder="Your email address" class="bg-gray-800 text-white px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 rounded-lg font-semibold transition-colors">Subscribe</button>
-                    </form>
+                    <h4 class="text-lg font-bold mb-6 border-b border-blue-500 inline-block pb-2">Start Your Journey</h4>
+                    <p class="text-gray-400 text-sm mb-4">Ready to teach in Thailand? Apply today and begin your adventure!</p>
+                    <a href="${basePath}jobs/" class="nav-page inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors text-center w-full">Apply Now</a>
                 </div>
             </div>
             <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500 text-sm">

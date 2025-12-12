@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-C3WTLTZ1Y1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-C3WTLTZ1Y1');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self';
+        img-src 'self' data: https://images.unsplash.com https://placehold.co https://drive.google.com https://drive.googleusercontent.com https://lh3.googleusercontent.com https://drive.usercontent.google.com https://*.googleusercontent.com;
+        font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;
+        style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://unpkg.com;
+        script-src 'self' 'unsafe-inline'
+          https://cdn.tailwindcss.com
+          https://cdnjs.cloudflare.com
+          https://unpkg.com
+          https://script.google.com
+          https://www.googletagmanager.com
+          https://www.google-analytics.com;
+        connect-src 'self'
+          https://script.google.com
+          https://script.googleusercontent.com
+          https://www.google-analytics.com
+          https://region1.google-analytics.com
+          https://www.googletagmanager.com;
+        form-action 'self' https://script.google.com https://script.googleusercontent.com https://formspree.io;
+        frame-ancestors 'self';
+        upgrade-insecure-requests">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
+    <title>MediaKids Awards - English Competition | MediaKids Academy</title>
+    <meta name="description"
+        content="MediaKids Awards - A fun and motivating English vocabulary competition with international trip prizes. Build confidence, teamwork, and a love for learning.">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/icons/logo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/icons/logo.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/icons/logo.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="../css/style.css">
+
+    <style>
+        /* Animated badge */
+        .awards-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 28px;
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(251, 191, 36, 0.1));
+            border: 2px solid rgba(139, 92, 246, 0.3);
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #8b5cf6;
+            animation: pulse-badge 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-badge {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.02);
+            }
+        }
+
+        /* Gradient text purple-gold */
+        .gradient-text-awards {
+            background: linear-gradient(135deg, #8b5cf6, #f59e0b, #fbbf24);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 3s ease infinite;
+        }
+
+        @keyframes gradientShift {
+
+            0%,
+            100% {
+                background-position: 0% center;
+            }
+
+            50% {
+                background-position: 100% center;
+            }
+        }
+
+        /* Gallery section */
+        .gallery-section {
+            margin-bottom: 4rem;
+        }
+
+        .gallery-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .gallery-title {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+            color: white;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+        }
+
+        .gallery-title.gold {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+        }
+
+        .gallery-title.travel {
+            background: linear-gradient(135deg, #10b981, #059669);
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+        }
+
+        /* Gallery grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .gallery-grid-small {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .gallery-grid-large {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        @media (max-width: 1024px) {
+            .gallery-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .gallery-grid-large {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .gallery-grid-large {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 16px;
+            cursor: pointer;
+            aspect-ratio: 4/3;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(139, 92, 246, 0.7) 0%, transparent 60%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay i {
+            font-size: 2rem;
+            color: white;
+            transform: scale(0);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay i {
+            transform: scale(1);
+        }
+
+        /* Feature cards */
+        .feature-card {
+            background: white;
+            border-radius: 24px;
+            padding: 36px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+            border: 1px solid #f1f5f9;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #8b5cf6, #fbbf24);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+            transform-origin: left;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 50px rgba(139, 92, 246, 0.15);
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .feature-icon {
+            width: 72px;
+            height: 72px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            margin-bottom: 24px;
+            transition: all 0.4s ease;
+        }
+
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        /* Lightbox */
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 9999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .lightbox.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90vh;
+            object-fit: contain;
+            border-radius: 12px;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 2.5rem;
+            color: white;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .lightbox-close:hover {
+            transform: rotate(90deg);
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            color: white;
+            cursor: pointer;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .lightbox-nav:hover {
+            color: #8b5cf6;
+        }
+
+        .lightbox-prev {
+            left: 20px;
+        }
+
+        .lightbox-next {
+            right: 20px;
+        }
+
+        /* Floating shapes */
+        .floating-shape {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.1;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(10deg);
+            }
+        }
+    </style>
+</head>
+
+<body class="leading-relaxed overflow-x-hidden relative bg-white">
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox(event)">
+        <span class="lightbox-close" onclick="closeLightbox(event)">&times;</span>
+        <span class="lightbox-nav lightbox-prev" onclick="navigateLightbox(-1, event)"><i
+                class="fas fa-chevron-left"></i></span>
+        <img id="lightbox-img" src="" alt="Award photo">
+        <span class="lightbox-nav lightbox-next" onclick="navigateLightbox(1, event)"><i
+                class="fas fa-chevron-right"></i></span>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Shared Header -->
+    <div id="shared-header"></div>
+
+    <main>
+        <div id="main-content">
+
+            <!-- Hero Section -->
+            <section class="py-24 lg:py-32 bg-white relative overflow-hidden">
+                <!-- Floating decorations -->
+                <div class="floating-shape w-96 h-96 bg-purple-400 top-0 right-0 blur-3xl" style="animation-delay: 0s;">
+                </div>
+                <div class="floating-shape w-80 h-80 bg-yellow-400 bottom-0 left-0 blur-3xl"
+                    style="animation-delay: 2s;"></div>
+                <div class="floating-shape w-40 h-40 bg-purple-300 top-1/2 left-1/4 blur-2xl"
+                    style="animation-delay: 4s;"></div>
+
+                <div class="container mx-auto px-6 relative z-10">
+                    <div class="grid lg:grid-cols-2 gap-12 items-center">
+                        <!-- Left content -->
+                        <div>
+                            <div class="awards-badge mb-8" data-aos="fade-right">
+                                <i class="fas fa-trophy"></i>
+                                <span>English Competition</span>
+                            </div>
+
+                            <h1 class="text-5xl md:text-7xl font-extrabold text-gray-900 mb-6 leading-tight"
+                                data-aos="fade-right" data-aos-delay="100">
+                                MediaKids <span class="gradient-text-awards">Awards</span>
+                            </h1>
+
+                            <p class="text-xl text-gray-600 mb-8 leading-relaxed" data-aos="fade-right"
+                                data-aos-delay="150">
+                                The MediaKids Awards is a fun and motivating English competition designed to encourage
+                                students to develop their vocabulary, confidence, and communication skills. Held across
+                                partner schools nationwide, the competition offers an accessible and enjoyable way for
+                                students to challenge themselves.
+                            </p>
+
+                            <p class="text-lg text-gray-500 mb-8" data-aos="fade-right" data-aos-delay="200">
+                                With clear guidelines, fair scoring, and engaging activities, the MediaKids Awards gives
+                                every student—from beginner to advanced—a chance to <span
+                                    class="font-semibold text-purple-600">shine</span>. It's more than a competition;
+                                it's an opportunity to build confidence, teamwork, and a love for learning.
+                            </p>
+
+                            <!-- Quick stats -->
+                            <div class="flex flex-wrap gap-6" data-aos="fade-right" data-aos-delay="250">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center">
+                                        <i class="fas fa-medal text-purple-500 text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-bold text-gray-900">Win Prizes</p>
+                                        <p class="text-sm text-gray-500">International Trip</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <div class="w-12 h-12 bg-yellow-100 rounded-xl flex items-center justify-center">
+                                        <i class="fas fa-star text-yellow-600 text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-bold text-gray-900">All Levels</p>
+                                        <p class="text-sm text-gray-500">Beginner to Advanced</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right: Featured image -->
+                        <div class="relative" data-aos="fade-left" data-aos-delay="200">
+                            <div class="relative rounded-3xl overflow-hidden shadow-2xl">
+                                <img src="../assets/images/mediakids-awards/mkaannounce1.webp" alt="MediaKids Awards"
+                                    class="w-full h-[450px] object-cover">
+                                <div class="absolute inset-0 bg-gradient-to-t from-purple-900/60 to-transparent"></div>
+                                <div class="absolute bottom-6 left-6 right-6">
+                                    <div class="bg-white/95 backdrop-blur-sm rounded-2xl p-5 flex items-center gap-4">
+                                        <div
+                                            class="w-14 h-14 bg-gradient-to-br from-purple-500 to-yellow-500 rounded-xl flex items-center justify-center">
+                                            <i class="fas fa-plane text-white text-2xl"></i>
+                                        </div>
+                                        <div>
+                                            <p class="font-bold text-gray-900 text-lg">Grand Prize</p>
+                                            <p class="text-sm text-gray-500">International trip for winners!</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Decorative elements -->
+                            <div
+                                class="absolute -top-6 -right-6 w-24 h-24 bg-yellow-400 rounded-full blur-2xl opacity-50">
+                            </div>
+                            <div
+                                class="absolute -bottom-8 -left-8 w-32 h-32 bg-purple-400 rounded-full blur-2xl opacity-40">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Gallery Sections -->
+            <section class="py-20 bg-gray-50">
+                <div class="container mx-auto px-6">
+                    <div class="text-center mb-16">
+                        <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4" data-aos="fade-up">
+                            Event <span class="gradient-text-awards">Gallery</span>
+                        </h2>
+                        <p class="text-xl text-gray-600 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                            Experience the excitement of MediaKids Awards
+                        </p>
+                    </div>
+
+                    <!-- The Competition -->
+                    <div class="gallery-section" data-aos="fade-up">
+                        <div class="gallery-title">
+                            <i class="fas fa-pencil-alt"></i>
+                            <span>The Competition</span>
+                        </div>
+                        <div class="gallery-grid gallery-grid-small">
+                            <div class="gallery-item" onclick="openLightbox(0)">
+                                <img src="../assets/images/mediakids-awards/mkatest1.webp" alt="Competition 1"
+                                    loading="lazy">
+                                <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+                            </div>
+                            <div class="gallery-item" onclick="openLightbox(1)">
+                                <img src="../assets/images/mediakids-awards/mkatest2.webp" alt="Competition 2"
+                                    loading="lazy">
+                                <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+                            </div>
+                            <div class="gallery-item" onclick="openLightbox(2)">
+                                <img src="../assets/images/mediakids-awards/mkatest3.webp" alt="Competition 3"
+                                    loading="lazy">
+                                <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+                            </div>
+                            <div class="gallery-item" onclick="openLightbox(3)">
+                                <img src="../assets/images/mediakids-awards/mkatest4.webp" alt="Competition 4"
+                                    loading="lazy">
+                                <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Award Ceremony -->
+                    <div class="gallery-section" data-aos="fade-up">
+                        <div class="gallery-title gold">
+                            <i class="fas fa-award"></i>
+                            <span>Award Ceremony</span>
+                        </div>
+                        <div class="gallery-grid gallery-grid-small">
+                            <div class="gallery-item" onclick="openLightbox(4)">
+                                <img src="../assets/images/mediakids-awards/mkaannounce1.webp" alt="Award 1"
+                                    loading="lazy">
+                                <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+                            </div>
+                            <div class="gallery-item" onclick="openLightbox(5)">
+                                <img src="../assets/images/mediakids-awards/mkaannounce2.webp" alt="Award 2"
+                                    loading="lazy">
+                                <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+                            </div>
+                            <div class="gallery-item" onclick="openLightbox(6)">
+                                <img src="../assets/images/mediakids-awards/mkaannounce3.webp" alt="Award 3"
+                                    loading="lazy">
+                                <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+                            </div>
+                            <div class="gallery-item" onclick="openLightbox(7)">
+                                <img src="../assets/images/mediakids-awards/mkaannounce4.webp" alt="Award 4"
+                                    loading="lazy">
+                                <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- International Trip -->
+                    <div class="gallery-section" data-aos="fade-up">
+                        <div class="gallery-title travel">
+                            <i class="fas fa-plane-departure"></i>
+                            <span>International Trip</span>
+                        </div>
+                        <div class="gallery-grid gallery-grid-large">
+                            <div class="gallery-item" onclick="openLightbox(8)">
+                                <img src="../assets/images/mediakids-awards/mkatravel1.webp" alt="Travel 1"
+                                    loading="lazy">
+                                <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+                            </div>
+                            <div class="gallery-item" onclick="openLightbox(9)">
+                                <img src="../assets/images/mediakids-awards/mkatravel2.webp" alt="Travel 2"
+                                    loading="lazy">
+                                <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+                            </div>
+                            <div class="gallery-item" onclick="openLightbox(10)">
+                                <img src="../assets/images/mediakids-awards/mkatravel3.webp" alt="Travel 3"
+                                    loading="lazy">
+                                <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+                            </div>
+                            <div class="gallery-item" onclick="openLightbox(11)">
+                                <img src="../assets/images/mediakids-awards/mkatravel4.webp" alt="Travel 4"
+                                    loading="lazy">
+                                <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+                            </div>
+                            <div class="gallery-item" onclick="openLightbox(12)">
+                                <img src="../assets/images/mediakids-awards/mkatravel5.webp" alt="Travel 5"
+                                    loading="lazy">
+                                <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+                            </div>
+                            <div class="gallery-item" onclick="openLightbox(13)">
+                                <img src="../assets/images/mediakids-awards/mkatravel6.webp" alt="Travel 6"
+                                    loading="lazy">
+                                <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+                            </div>
+                            <div class="gallery-item" onclick="openLightbox(14)">
+                                <img src="../assets/images/mediakids-awards/mkatravel7.webp" alt="Travel 7"
+                                    loading="lazy">
+                                <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+                            </div>
+                            <div class="gallery-item" onclick="openLightbox(15)">
+                                <img src="../assets/images/mediakids-awards/mkatravel8.webp" alt="Travel 8"
+                                    loading="lazy">
+                                <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+                            </div>
+                            <div class="gallery-item" onclick="openLightbox(16)">
+                                <img src="../assets/images/mediakids-awards/mkatravel9.webp" alt="Travel 9"
+                                    loading="lazy">
+                                <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+                            </div>
+                            <div class="gallery-item" onclick="openLightbox(17)">
+                                <img src="../assets/images/mediakids-awards/mkatravel10.webp" alt="Travel 10"
+                                    loading="lazy">
+                                <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+                            </div>
+                            <div class="gallery-item" onclick="openLightbox(18)">
+                                <img src="../assets/images/mediakids-awards/mkatravel11.webp" alt="Travel 11"
+                                    loading="lazy">
+                                <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+                            </div>
+                            <div class="gallery-item" onclick="openLightbox(19)">
+                                <img src="../assets/images/mediakids-awards/mkatravel12.webp" alt="Travel 12"
+                                    loading="lazy">
+                                <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Why Join Section -->
+            <section class="py-20 bg-white">
+                <div class="container mx-auto px-6">
+                    <div class="text-center mb-16">
+                        <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4" data-aos="fade-up">
+                            Why Join <span class="gradient-text-awards">MediaKids Awards?</span>
+                        </h2>
+                        <p class="text-xl text-gray-600 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                            Benefits for students and schools alike
+                        </p>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- Feature 1 -->
+                        <div class="feature-card" data-aos="fade-up">
+                            <div class="feature-icon bg-purple-100 text-purple-500">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">Boosts Confidence</h3>
+                            <p class="text-gray-600 leading-relaxed">Through friendly, supportive competition that
+                                encourages students to try their best.</p>
+                        </div>
+
+                        <!-- Feature 2 -->
+                        <div class="feature-card" data-aos="fade-up" data-aos-delay="50">
+                            <div class="feature-icon bg-yellow-100 text-yellow-600">
+                                <i class="fas fa-book-open"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">Improves Vocabulary</h3>
+                            <p class="text-gray-600 leading-relaxed">Practical, age-appropriate tasks that enhance
+                                vocabulary and communication skills.</p>
+                        </div>
+
+                        <!-- Feature 3 -->
+                        <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                            <div class="feature-icon bg-blue-100 text-blue-500">
+                                <i class="fas fa-balance-scale"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">Fair & Transparent</h3>
+                            <p class="text-gray-600 leading-relaxed">Clear scoring aligned with learning objectives
+                                ensures fairness for all participants.</p>
+                        </div>
+
+                        <!-- Feature 4 -->
+                        <div class="feature-card" data-aos="fade-up" data-aos-delay="150">
+                            <div class="feature-icon bg-green-100 text-green-500">
+                                <i class="fas fa-gamepad"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">Fun Format</h3>
+                            <p class="text-gray-600 leading-relaxed">Engaging format that motivates students to
+                                challenge themselves while having fun.</p>
+                        </div>
+
+                        <!-- Feature 5 -->
+                        <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                            <div class="feature-icon bg-pink-100 text-pink-500">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">Encourages Teamwork</h3>
+                            <p class="text-gray-600 leading-relaxed">Builds school spirit and encourages collaboration
+                                among students.</p>
+                        </div>
+
+                        <!-- Feature 6 -->
+                        <div class="feature-card" data-aos="fade-up" data-aos-delay="250">
+                            <div class="feature-icon bg-orange-100 text-orange-500">
+                                <i class="fas fa-certificate"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">Recognizes Achievement</h3>
+                            <p class="text-gray-600 leading-relaxed">Certificates, awards, and celebration for all
+                                participants' achievements.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CTA Section -->
+            <section
+                class="py-24 bg-gradient-to-br from-purple-600 via-purple-700 to-indigo-800 relative overflow-hidden">
+                <!-- Decorative circles -->
+                <div class="absolute top-0 left-0 w-full h-full opacity-10">
+                    <div class="absolute top-10 left-10 w-40 h-40 bg-white rounded-full blur-3xl"></div>
+                    <div class="absolute bottom-10 right-10 w-60 h-60 bg-yellow-300 rounded-full blur-3xl"></div>
+                    <div
+                        class="absolute top-1/2 left-1/2 w-80 h-80 bg-purple-300 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2">
+                    </div>
+                </div>
+
+                <div class="container mx-auto px-6 relative z-10">
+                    <div class="text-center max-w-3xl mx-auto">
+                        <div class="inline-flex items-center gap-2 px-6 py-3 bg-white/20 rounded-full text-white font-medium mb-8"
+                            data-aos="fade-up">
+                            <i class="fas fa-school"></i>
+                            <span>For Schools</span>
+                        </div>
+
+                        <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-6" data-aos="fade-up"
+                            data-aos-delay="100">
+                            Want to Bring MediaKids Awards to Your School?
+                        </h2>
+                        <p class="text-xl text-purple-100 mb-10" data-aos="fade-up" data-aos-delay="150">
+                            Partner with us to host the MediaKids Awards at your school and give your students an
+                            unforgettable learning experience!
+                        </p>
+
+                        <div class="flex flex-wrap justify-center gap-4" data-aos="fade-up" data-aos-delay="200">
+                            <a href="../apply-now/"
+                                class="px-10 py-5 bg-white text-purple-600 rounded-full text-lg font-bold inline-flex items-center gap-3 hover:bg-purple-50 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1">
+                                <i class="fas fa-paper-plane"></i>
+                                <span>Apply Now</span>
+                            </a>
+                            <a href="../contact/"
+                                class="px-10 py-5 bg-transparent border-2 border-white text-white rounded-full text-lg font-bold inline-flex items-center gap-3 hover:bg-white/10 transition-all">
+                                <i class="fas fa-envelope"></i>
+                                <span>Contact Us</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Shared Footer -->
+    <div id="shared-footer"></div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="../js/components.js"></script>
+    <script src="../js/script.js"></script>
+
+    <script>
+        // Lightbox functionality
+        const allImages = [
+            // Test (0-3)
+            '../assets/images/mediakids-awards/mkatest1.webp',
+            '../assets/images/mediakids-awards/mkatest2.webp',
+            '../assets/images/mediakids-awards/mkatest3.webp',
+            '../assets/images/mediakids-awards/mkatest4.webp',
+            // Announce (4-7)
+            '../assets/images/mediakids-awards/mkaannounce1.webp',
+            '../assets/images/mediakids-awards/mkaannounce2.webp',
+            '../assets/images/mediakids-awards/mkaannounce3.webp',
+            '../assets/images/mediakids-awards/mkaannounce4.webp',
+            // Travel (8-19)
+            '../assets/images/mediakids-awards/mkatravel1.webp',
+            '../assets/images/mediakids-awards/mkatravel2.webp',
+            '../assets/images/mediakids-awards/mkatravel3.webp',
+            '../assets/images/mediakids-awards/mkatravel4.webp',
+            '../assets/images/mediakids-awards/mkatravel5.webp',
+            '../assets/images/mediakids-awards/mkatravel6.webp',
+            '../assets/images/mediakids-awards/mkatravel7.webp',
+            '../assets/images/mediakids-awards/mkatravel8.webp',
+            '../assets/images/mediakids-awards/mkatravel9.webp',
+            '../assets/images/mediakids-awards/mkatravel10.webp',
+            '../assets/images/mediakids-awards/mkatravel11.webp',
+            '../assets/images/mediakids-awards/mkatravel12.webp'
+        ];
+
+        let currentImageIndex = 0;
+
+        function openLightbox(index) {
+            currentImageIndex = index;
+            document.getElementById('lightbox-img').src = allImages[index];
+            document.getElementById('lightbox').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox(event) {
+            if (event.target.id === 'lightbox' || event.target.classList.contains('lightbox-close')) {
+                document.getElementById('lightbox').classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+
+        function navigateLightbox(direction, event) {
+            event.stopPropagation();
+            currentImageIndex += direction;
+            if (currentImageIndex < 0) currentImageIndex = allImages.length - 1;
+            if (currentImageIndex >= allImages.length) currentImageIndex = 0;
+            document.getElementById('lightbox-img').src = allImages[currentImageIndex];
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function (e) {
+            if (!document.getElementById('lightbox').classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox({ target: { id: 'lightbox' } });
+            if (e.key === 'ArrowLeft') navigateLightbox(-1, e);
+            if (e.key === 'ArrowRight') navigateLightbox(1, e);
+        });
+    </script>
+</body>
+
+</html>

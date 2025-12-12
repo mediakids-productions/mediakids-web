@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-C3WTLTZ1Y1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-C3WTLTZ1Y1');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self';
+        img-src 'self' data: https://images.unsplash.com https://placehold.co https://drive.google.com https://drive.googleusercontent.com https://lh3.googleusercontent.com https://drive.usercontent.google.com https://*.googleusercontent.com;
+        font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;
+        style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://unpkg.com;
+        script-src 'self' 'unsafe-inline'
+          https://cdn.tailwindcss.com
+          https://cdnjs.cloudflare.com
+          https://unpkg.com
+          https://script.google.com
+          https://www.googletagmanager.com
+          https://www.google-analytics.com;
+        connect-src 'self'
+          https://script.google.com
+          https://script.googleusercontent.com
+          https://www.google-analytics.com
+          https://region1.google-analytics.com
+          https://www.googletagmanager.com;
+        form-action 'self' https://script.google.com https://script.googleusercontent.com https://formspree.io;
+        frame-ancestors 'self';
+        upgrade-insecure-requests">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
+    <title>English Camps - Fun & Interactive Learning Experiences | MediaKids Academy</title>
+    <meta name="description"
+        content="English Camps by MediaKids Academy - Fun, interactive learning experiences with activity-based learning, professional facilitators, and memorable experiences.">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/icons/logo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/icons/logo.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/icons/logo.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="../css/style.css">
+
+    <style>
+        /* Hero gradient accent */
+        .hero-accent {
+            background: linear-gradient(135deg, #f97316 0%, #f59e0b 50%, #eab308 100%);
+        }
+
+        /* Animated badge */
+        .camp-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 28px;
+            background: linear-gradient(135deg, rgba(249, 115, 22, 0.1), rgba(234, 179, 8, 0.1));
+            border: 2px solid rgba(249, 115, 22, 0.3);
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #f97316;
+            animation: pulse-badge 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-badge {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.02);
+            }
+        }
+
+        /* Masonry gallery */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: 200px;
+            gap: 16px;
+        }
+
+        @media (max-width: 1024px) {
+            .gallery-grid {
+                grid-template-columns: repeat(3, 1fr);
+                grid-auto-rows: 180px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                grid-auto-rows: 160px;
+            }
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 16px;
+            cursor: pointer;
+        }
+
+        .gallery-item:nth-child(1) {
+            grid-row: span 2;
+        }
+
+        .gallery-item:nth-child(4) {
+            grid-row: span 2;
+        }
+
+        .gallery-item:nth-child(7) {
+            grid-row: span 2;
+        }
+
+        .gallery-item:nth-child(10) {
+            grid-row: span 2;
+        }
+
+        .gallery-item:nth-child(13) {
+            grid-row: span 2;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            align-items: flex-end;
+            padding: 20px;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay i {
+            font-size: 2rem;
+            color: white;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay i {
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        /* Feature cards */
+        .feature-card {
+            background: white;
+            border-radius: 24px;
+            padding: 36px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+            border: 1px solid #f1f5f9;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #f97316, #eab308);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+            transform-origin: left;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 50px rgba(249, 115, 22, 0.15);
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .feature-icon {
+            width: 72px;
+            height: 72px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            margin-bottom: 24px;
+            transition: all 0.4s ease;
+        }
+
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        /* Gradient text */
+        .gradient-text-warm {
+            background: linear-gradient(135deg, #f97316, #eab308);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Stats counter */
+        .stat-card {
+            text-align: center;
+            padding: 32px 24px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #f97316, #eab308);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+        }
+
+        /* Lightbox */
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 9999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .lightbox.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90vh;
+            object-fit: contain;
+            border-radius: 12px;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 2.5rem;
+            color: white;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .lightbox-close:hover {
+            transform: rotate(90deg);
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            color: white;
+            cursor: pointer;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .lightbox-nav:hover {
+            color: #f97316;
+        }
+
+        .lightbox-prev {
+            left: 20px;
+        }
+
+        .lightbox-next {
+            right: 20px;
+        }
+
+        /* Floating shapes */
+        .floating-shape {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.1;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(10deg);
+            }
+        }
+    </style>
+</head>
+
+<body class="leading-relaxed overflow-x-hidden relative bg-white">
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox(event)">
+        <span class="lightbox-close" onclick="closeLightbox(event)">&times;</span>
+        <span class="lightbox-nav lightbox-prev" onclick="navigateLightbox(-1, event)"><i
+                class="fas fa-chevron-left"></i></span>
+        <img id="lightbox-img" src="" alt="Camp photo">
+        <span class="lightbox-nav lightbox-next" onclick="navigateLightbox(1, event)"><i
+                class="fas fa-chevron-right"></i></span>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Shared Header -->
+    <div id="shared-header"></div>
+
+    <main>
+        <div id="main-content">
+
+            <!-- Hero Section -->
+            <section class="py-24 lg:py-32 bg-white relative overflow-hidden">
+                <!-- Floating decorations -->
+                <div class="floating-shape w-96 h-96 bg-orange-400 top-0 right-0 blur-3xl" style="animation-delay: 0s;">
+                </div>
+                <div class="floating-shape w-80 h-80 bg-yellow-400 bottom-0 left-0 blur-3xl"
+                    style="animation-delay: 2s;"></div>
+                <div class="floating-shape w-40 h-40 bg-orange-300 top-1/2 left-1/4 blur-2xl"
+                    style="animation-delay: 4s;"></div>
+
+                <div class="container mx-auto px-6 relative z-10">
+                    <div class="grid lg:grid-cols-2 gap-12 items-center">
+                        <!-- Left content -->
+                        <div>
+                            <div class="camp-badge mb-8" data-aos="fade-right">
+                                <i class="fas fa-campground"></i>
+                                <span>Fun & Interactive Learning</span>
+                            </div>
+
+                            <h1 class="text-5xl md:text-7xl font-extrabold text-gray-900 mb-6 leading-tight"
+                                data-aos="fade-right" data-aos-delay="100">
+                                English <span class="gradient-text-warm">Camp</span>
+                            </h1>
+
+                            <p class="text-xl text-gray-600 mb-8 leading-relaxed" data-aos="fade-right"
+                                data-aos-delay="150">
+                                Our English Camps offer fun, interactive learning experiences that help students use
+                                English with confidence. Through hands-on activities, creative challenges, and
+                                communication-based tasks, students learn naturally while enjoying every moment.
+                            </p>
+
+                            <p class="text-lg text-gray-500 mb-8" data-aos="fade-right" data-aos-delay="200">
+                                Led by our <span class="font-semibold text-orange-600">energetic facilitators</span>,
+                                each camp creates a positive environment where learners work together, express
+                                themselves, and build real communication skills.
+                            </p>
+
+                            <!-- Quick stats -->
+                            <div class="flex flex-wrap gap-6" data-aos="fade-right" data-aos-delay="250">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center">
+                                        <i class="fas fa-smile-beam text-orange-500 text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-bold text-gray-900">Fun Activities</p>
+                                        <p class="text-sm text-gray-500">100% Engaging</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <div class="w-12 h-12 bg-yellow-100 rounded-xl flex items-center justify-center">
+                                        <i class="fas fa-users text-yellow-600 text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-bold text-gray-900">All Grade Levels</p>
+                                        <p class="text-sm text-gray-500">Flexible formats</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right: Featured image -->
+                        <div class="relative" data-aos="fade-left" data-aos-delay="200">
+                            <div class="relative rounded-3xl overflow-hidden shadow-2xl">
+                                <img src="../assets/images/camps/camps1.webp" alt="English Camp"
+                                    class="w-full h-[450px] object-cover">
+                                <div class="absolute inset-0 bg-gradient-to-t from-orange-900/60 to-transparent"></div>
+                                <div class="absolute bottom-6 left-6 right-6">
+                                    <div class="bg-white/95 backdrop-blur-sm rounded-2xl p-5 flex items-center gap-4">
+                                        <div
+                                            class="w-14 h-14 bg-gradient-to-br from-orange-500 to-yellow-500 rounded-xl flex items-center justify-center">
+                                            <i class="fas fa-star text-white text-2xl"></i>
+                                        </div>
+                                        <div>
+                                            <p class="font-bold text-gray-900 text-lg">Memorable Experiences</p>
+                                            <p class="text-sm text-gray-500">Inspiring lasting motivation to learn</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Decorative elements -->
+                            <div
+                                class="absolute -top-6 -right-6 w-24 h-24 bg-yellow-400 rounded-full blur-2xl opacity-50">
+                            </div>
+                            <div
+                                class="absolute -bottom-8 -left-8 w-32 h-32 bg-orange-400 rounded-full blur-2xl opacity-40">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Photo Gallery Section -->
+            <section class="py-20 bg-gray-50">
+                <div class="container mx-auto px-6">
+                    <div class="text-center mb-16">
+                        <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4" data-aos="fade-up">
+                            Camp <span class="gradient-text-warm">Gallery</span>
+                        </h2>
+                        <p class="text-xl text-gray-600 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                            See the fun, energy, and learning in action at our English Camps
+                        </p>
+                    </div>
+
+                    <div class="gallery-grid" data-aos="fade-up" data-aos-delay="200">
+                        <div class="gallery-item" onclick="openLightbox(0)">
+                            <img src="../assets/images/camps/camps1.webp" alt="Camp activity 1" loading="lazy">
+                            <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+                        </div>
+                        <div class="gallery-item" onclick="openLightbox(1)">
+                            <img src="../assets/images/camps/camps2.webp" alt="Camp activity 2" loading="lazy">
+                            <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+                        </div>
+                        <div class="gallery-item" onclick="openLightbox(2)">
+                            <img src="../assets/images/camps/camps3.webp" alt="Camp activity 3" loading="lazy">
+                            <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+                        </div>
+                        <div class="gallery-item" onclick="openLightbox(3)">
+                            <img src="../assets/images/camps/camps4.webp" alt="Camp activity 4" loading="lazy">
+                            <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+                        </div>
+                        <div class="gallery-item" onclick="openLightbox(4)">
+                            <img src="../assets/images/camps/camps5.webp" alt="Camp activity 5" loading="lazy">
+                            <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+                        </div>
+                        <div class="gallery-item" onclick="openLightbox(5)">
+                            <img src="../assets/images/camps/camps6.webp" alt="Camp activity 6" loading="lazy">
+                            <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+                        </div>
+                        <div class="gallery-item" onclick="openLightbox(6)">
+                            <img src="../assets/images/camps/camps7.webp" alt="Camp activity 7" loading="lazy">
+                            <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+                        </div>
+                        <div class="gallery-item" onclick="openLightbox(7)">
+                            <img src="../assets/images/camps/camps8.webp" alt="Camp activity 8" loading="lazy">
+                            <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+                        </div>
+                        <div class="gallery-item" onclick="openLightbox(8)">
+                            <img src="../assets/images/camps/camps9.webp" alt="Camp activity 9" loading="lazy">
+                            <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+                        </div>
+                        <div class="gallery-item" onclick="openLightbox(9)">
+                            <img src="../assets/images/camps/camps10.webp" alt="Camp activity 10" loading="lazy">
+                            <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+                        </div>
+                        <div class="gallery-item" onclick="openLightbox(10)">
+                            <img src="../assets/images/camps/camps11.webp" alt="Camp activity 11" loading="lazy">
+                            <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+                        </div>
+                        <div class="gallery-item" onclick="openLightbox(11)">
+                            <img src="../assets/images/camps/camps12.webp" alt="Camp activity 12" loading="lazy">
+                            <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+                        </div>
+                        <div class="gallery-item" onclick="openLightbox(12)">
+                            <img src="../assets/images/camps/camps13.webp" alt="Camp activity 13" loading="lazy">
+                            <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+                        </div>
+                        <div class="gallery-item" onclick="openLightbox(13)">
+                            <img src="../assets/images/camps/camps14.webp" alt="Camp activity 14" loading="lazy">
+                            <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+                        </div>
+                        <div class="gallery-item" onclick="openLightbox(14)">
+                            <img src="../assets/images/camps/camps15.webp" alt="Camp activity 15" loading="lazy">
+                            <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+                        </div>
+                        <div class="gallery-item" onclick="openLightbox(15)">
+                            <img src="../assets/images/camps/camps16.webp" alt="Camp activity 16" loading="lazy">
+                            <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- What Students Receive Section -->
+            <section class="py-20 bg-white">
+                <div class="container mx-auto px-6">
+                    <div class="text-center mb-16">
+                        <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4" data-aos="fade-up">
+                            What Students <span class="gradient-text-warm">Receive</span>
+                        </h2>
+                        <p class="text-xl text-gray-600 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                            Every camp delivers meaningful learning experiences
+                        </p>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- Feature 1 -->
+                        <div class="feature-card" data-aos="fade-up">
+                            <div class="feature-icon bg-orange-100 text-orange-500">
+                                <i class="fas fa-puzzle-piece"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">Activity-Based Learning</h3>
+                            <p class="text-gray-600 leading-relaxed">Keeps students engaged and excited through hands-on
+                                activities that make learning fun and memorable.</p>
+                        </div>
+
+                        <!-- Feature 2 -->
+                        <div class="feature-card" data-aos="fade-up" data-aos-delay="50">
+                            <div class="feature-icon bg-yellow-100 text-yellow-600">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">Real Communication Practice</h3>
+                            <p class="text-gray-600 leading-relaxed">Students practice English in fun, practical
+                                situations that mirror real-world communication.</p>
+                        </div>
+
+                        <!-- Feature 3 -->
+                        <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                            <div class="feature-icon bg-blue-100 text-blue-500">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">Professional Facilitators</h3>
+                            <p class="text-gray-600 leading-relaxed">Energetic and trained facilitators who create a
+                                supportive and encouraging learning environment.</p>
+                        </div>
+
+                        <!-- Feature 4 -->
+                        <div class="feature-card" data-aos="fade-up" data-aos-delay="150">
+                            <div class="feature-icon bg-purple-100 text-purple-500">
+                                <i class="fas fa-sliders-h"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">Flexible Themes & Formats</h3>
+                            <p class="text-gray-600 leading-relaxed">Customizable camp themes and formats suitable for
+                                all grade levels and school requirements.</p>
+                        </div>
+
+                        <!-- Feature 5 -->
+                        <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                            <div class="feature-icon bg-green-100 text-green-500">
+                                <i class="fas fa-hand-holding-heart"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">Confidence-Building Approach</h3>
+                            <p class="text-gray-600 leading-relaxed">Encouraging teamwork and creativity to help
+                                students build confidence in using English.</p>
+                        </div>
+
+                        <!-- Feature 6 -->
+                        <div class="feature-card" data-aos="fade-up" data-aos-delay="250">
+                            <div class="feature-icon bg-pink-100 text-pink-500">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">Memorable Experiences</h3>
+                            <p class="text-gray-600 leading-relaxed">Creating lasting memories that inspire ongoing
+                                motivation to learn and use English.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CTA Section -->
+            <section
+                class="py-24 bg-gradient-to-br from-orange-500 via-orange-600 to-yellow-500 relative overflow-hidden">
+                <!-- Decorative circles -->
+                <div class="absolute top-0 left-0 w-full h-full opacity-10">
+                    <div class="absolute top-10 left-10 w-40 h-40 bg-white rounded-full blur-3xl"></div>
+                    <div class="absolute bottom-10 right-10 w-60 h-60 bg-white rounded-full blur-3xl"></div>
+                    <div
+                        class="absolute top-1/2 left-1/2 w-80 h-80 bg-yellow-300 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2">
+                    </div>
+                </div>
+
+                <div class="container mx-auto px-6 relative z-10">
+                    <div class="text-center max-w-3xl mx-auto">
+                        <div class="inline-flex items-center gap-2 px-6 py-3 bg-white/20 rounded-full text-white font-medium mb-8"
+                            data-aos="fade-up">
+                            <i class="fas fa-fire animate-pulse"></i>
+                            <span>Join Our Team</span>
+                        </div>
+
+                        <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-6" data-aos="fade-up"
+                            data-aos-delay="100">
+                            Want to be Part of Our Camp Team?
+                        </h2>
+                        <p class="text-xl text-orange-100 mb-10" data-aos="fade-up" data-aos-delay="150">
+                            We're looking for energetic, passionate teachers who love creating fun learning experiences.
+                            Join us and make a difference!
+                        </p>
+
+                        <div class="flex flex-wrap justify-center gap-4" data-aos="fade-up" data-aos-delay="200">
+                            <a href="../apply-now/"
+                                class="px-10 py-5 bg-white text-orange-600 rounded-full text-lg font-bold inline-flex items-center gap-3 hover:bg-orange-50 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1">
+                                <i class="fas fa-paper-plane"></i>
+                                <span>Apply Now</span>
+                            </a>
+                            <a href="../contact/"
+                                class="px-10 py-5 bg-transparent border-2 border-white text-white rounded-full text-lg font-bold inline-flex items-center gap-3 hover:bg-white/10 transition-all">
+                                <i class="fas fa-envelope"></i>
+                                <span>Contact Us</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Shared Footer -->
+    <div id="shared-footer"></div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="../js/components.js"></script>
+    <script src="../js/script.js"></script>
+
+    <script>
+        // Lightbox functionality
+        const campImages = [
+            '../assets/images/camps/camps1.webp',
+            '../assets/images/camps/camps2.webp',
+            '../assets/images/camps/camps3.webp',
+            '../assets/images/camps/camps4.webp',
+            '../assets/images/camps/camps5.webp',
+            '../assets/images/camps/camps6.webp',
+            '../assets/images/camps/camps7.webp',
+            '../assets/images/camps/camps8.webp',
+            '../assets/images/camps/camps9.webp',
+            '../assets/images/camps/camps10.webp',
+            '../assets/images/camps/camps11.webp',
+            '../assets/images/camps/camps12.webp',
+            '../assets/images/camps/camps13.webp',
+            '../assets/images/camps/camps14.webp',
+            '../assets/images/camps/camps15.webp',
+            '../assets/images/camps/camps16.webp'
+        ];
+
+        let currentImageIndex = 0;
+
+        function openLightbox(index) {
+            currentImageIndex = index;
+            document.getElementById('lightbox-img').src = campImages[index];
+            document.getElementById('lightbox').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox(event) {
+            if (event.target.id === 'lightbox' || event.target.classList.contains('lightbox-close')) {
+                document.getElementById('lightbox').classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+
+        function navigateLightbox(direction, event) {
+            event.stopPropagation();
+            currentImageIndex += direction;
+            if (currentImageIndex < 0) currentImageIndex = campImages.length - 1;
+            if (currentImageIndex >= campImages.length) currentImageIndex = 0;
+            document.getElementById('lightbox-img').src = campImages[currentImageIndex];
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function (e) {
+            if (!document.getElementById('lightbox').classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox({ target: { id: 'lightbox' } });
+            if (e.key === 'ArrowLeft') navigateLightbox(-1, e);
+            if (e.key === 'ArrowRight') navigateLightbox(1, e);
+        });
+    </script>
+</body>
+
+</html>
