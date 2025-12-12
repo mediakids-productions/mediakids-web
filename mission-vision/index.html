@@ -53,139 +53,107 @@
     <link rel="stylesheet" href="../css/style.css">
 
     <style>
-        /* Hero gradient animation */
-        .hero-gradient {
-            background: linear-gradient(-45deg, #0A192F, #1a365d, #0d2847, #0A192F);
-            background-size: 400% 400%;
-            animation: gradientShift 15s ease infinite;
+        /* Hero badge */
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 20px;
+            background: linear-gradient(135deg, rgba(0, 82, 204, 0.1), rgba(139, 92, 246, 0.1));
+            border: 1px solid rgba(0, 82, 204, 0.2);
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #0052CC;
         }
 
-        @keyframes gradientShift {
-            0% {
-                background-position: 0% 50%;
-            }
-
-            50% {
-                background-position: 100% 50%;
-            }
-
-            100% {
-                background-position: 0% 50%;
-            }
+        /* Feature icon box */
+        .icon-box {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
         }
 
-        /* Floating elements */
-        .float-slow {
-            animation: floatSlow 6s ease-in-out infinite;
+        /* Hover card */
+        .hover-card {
+            transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
         }
 
-        .float-medium {
-            animation: floatMedium 5s ease-in-out infinite;
+        .hover-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
         }
 
-        .float-fast {
-            animation: floatFast 4s ease-in-out infinite;
+        /* Image card overlay */
+        .image-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 24px;
         }
 
-        @keyframes floatSlow {
-
-            0%,
-            100% {
-                transform: translateY(0) rotate(0deg);
-            }
-
-            50% {
-                transform: translateY(-20px) rotate(5deg);
-            }
+        .image-card img {
+            transition: transform 0.6s ease;
         }
 
-        @keyframes floatMedium {
-
-            0%,
-            100% {
-                transform: translateY(0) rotate(0deg);
-            }
-
-            50% {
-                transform: translateY(-15px) rotate(-3deg);
-            }
+        .image-card:hover img {
+            transform: scale(1.05);
         }
 
-        @keyframes floatFast {
-
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-
-        /* Card hover effects */
-        .mission-card {
-            transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-        }
-
-        .mission-card:hover {
-            transform: translateY(-8px) scale(1.02);
-        }
-
-        /* Glow effects */
-        .glow-blue {
-            box-shadow: 0 0 60px rgba(59, 130, 246, 0.3);
-        }
-
-        .glow-purple {
-            box-shadow: 0 0 60px rgba(147, 51, 234, 0.3);
-        }
-
-        /* Scroll indicator */
-        .scroll-indicator {
-            animation: bounce 2s infinite;
-        }
-
-        @keyframes bounce {
-
-            0%,
-            100% {
-                transform: translateY(0) translateX(-50%);
-            }
-
-            50% {
-                transform: translateY(10px) translateX(-50%);
-            }
-        }
-
-        /* Progress line */
-        .progress-line {
-            position: fixed;
-            top: 88px;
+        .image-card-overlay {
+            position: absolute;
+            bottom: 0;
             left: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #3B82F6, #8B5CF6, #3B82F6);
-            background-size: 200% 100%;
-            animation: gradientMove 2s linear infinite;
-            z-index: 40;
-            width: 0%;
+            right: 0;
+            padding: 32px;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
         }
 
-        @keyframes gradientMove {
-            0% {
-                background-position: 0% 0%;
-            }
+        /* Number badge */
+        .number-badge {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            font-weight: 800;
+        }
 
-            100% {
-                background-position: 200% 0%;
-            }
+        /* Gradient border card */
+        .gradient-border-card {
+            position: relative;
+            background: white;
+            border-radius: 20px;
+            padding: 2px;
+        }
+
+        .gradient-border-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 20px;
+            padding: 2px;
+            background: linear-gradient(135deg, #0052CC, #8B5CF6);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+        }
+
+        .gradient-border-card-inner {
+            background: white;
+            border-radius: 18px;
+            padding: 32px;
         }
     </style>
 </head>
 
-<body class="leading-relaxed overflow-x-hidden relative bg-slate-900">
-    <!-- Progress Line -->
-    <div class="progress-line" id="progress-line"></div>
+<body class="leading-relaxed overflow-x-hidden relative">
 
     <!-- Back to Top Button -->
     <button id="back-to-top" aria-label="Back to top">
@@ -195,402 +163,264 @@
     <!-- Shared Header -->
     <div id="shared-header"></div>
 
-    <main class="pt-0">
-        <!-- Hero Section -->
-        <section class="hero-gradient min-h-screen flex items-center justify-center relative overflow-hidden">
-            <!-- Floating decorations -->
-            <div class="absolute inset-0 overflow-hidden">
-                <div class="float-slow absolute top-20 left-10 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl"></div>
-                <div class="float-medium absolute top-40 right-20 w-48 h-48 bg-purple-500/10 rounded-full blur-3xl">
-                </div>
-                <div class="float-fast absolute bottom-32 left-1/4 w-24 h-24 bg-yellow-500/10 rounded-full blur-2xl">
-                </div>
-                <div class="float-slow absolute bottom-20 right-1/3 w-40 h-40 bg-blue-500/10 rounded-full blur-2xl">
-                </div>
-            </div>
+    <main>
+        <div id="main-content">
 
-            <!-- Grid pattern overlay -->
-            <div class="absolute inset-0 opacity-5"
-                style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 40px 40px;">
-            </div>
-
-            <div class="container mx-auto px-6 text-center relative z-10">
-                <!-- Badge -->
-                <div class="mb-8" data-aos="fade-down">
-                    <span
-                        class="inline-flex items-center gap-3 px-6 py-3 bg-white/5 border border-white/10 rounded-full backdrop-blur-sm">
-                        <span class="w-2 h-2 bg-yellow-400 rounded-full animate-pulse"></span>
-                        <span class="text-yellow-400 font-semibold">Our Purpose & Direction</span>
-                    </span>
+            <!-- Hero Section - Clean centered -->
+            <section class="py-24 lg:py-32 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
+                <!-- Decorative circles -->
+                <div
+                    class="absolute top-0 right-0 w-96 h-96 bg-blue-100 rounded-full opacity-50 blur-3xl -translate-y-1/2 translate-x-1/2">
+                </div>
+                <div
+                    class="absolute bottom-0 left-0 w-80 h-80 bg-purple-100 rounded-full opacity-50 blur-3xl translate-y-1/2 -translate-x-1/2">
                 </div>
 
-                <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6" data-aos="fade-up"
-                    data-aos-delay="100">
-                    Mission <span
-                        class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">&</span>
-                    Vision
-                </h1>
-
-                <p class="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto mb-12" data-aos="fade-up"
-                    data-aos-delay="200">
-                    Empowering students, supporting teachers, and transforming English education across Thailand
-                </p>
-
-                <!-- Decorative icons -->
-                <div class="flex justify-center gap-6 mb-16" data-aos="fade-up" data-aos-delay="300">
-                    <div
-                        class="w-16 h-16 bg-blue-500/20 border border-blue-400/30 rounded-2xl flex items-center justify-center float-slow">
-                        <i class="fas fa-bullseye text-blue-400 text-2xl"></i>
-                    </div>
-                    <div
-                        class="w-16 h-16 bg-purple-500/20 border border-purple-400/30 rounded-2xl flex items-center justify-center float-medium">
-                        <i class="fas fa-eye text-purple-400 text-2xl"></i>
-                    </div>
-                    <div
-                        class="w-16 h-16 bg-yellow-500/20 border border-yellow-400/30 rounded-2xl flex items-center justify-center float-fast">
-                        <i class="fas fa-star text-yellow-400 text-2xl"></i>
-                    </div>
-                </div>
-
-                <!-- Scroll indicator -->
-                <a href="#mission"
-                    class="scroll-indicator absolute bottom-10 left-1/2 text-white/50 hover:text-white/80 transition-colors">
-                    <div class="flex flex-col items-center gap-2">
-                        <span class="text-sm font-medium">Scroll to explore</span>
-                        <i class="fas fa-chevron-down text-xl"></i>
-                    </div>
-                </a>
-            </div>
-        </section>
-
-        <!-- Mission Section -->
-        <section id="mission"
-            class="py-24 bg-gradient-to-br from-slate-900 via-blue-900/50 to-slate-900 relative overflow-hidden">
-            <!-- Background decorations -->
-            <div class="absolute top-0 left-0 w-full h-full">
-                <div class="absolute top-20 left-10 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl"></div>
-                <div class="absolute bottom-20 right-10 w-96 h-96 bg-yellow-500/5 rounded-full blur-3xl"></div>
-            </div>
-
-            <div class="container mx-auto px-6 relative z-10">
-                <div class="grid lg:grid-cols-2 gap-16 items-center">
-
-                    <!-- Left: Content -->
-                    <div class="text-white" data-aos="fade-right">
-                        <!-- Badge -->
-                        <div
-                            class="inline-flex items-center gap-2 px-4 py-2 bg-blue-500/20 border border-blue-400/30 rounded-full mb-6">
-                            <i class="fas fa-bullseye text-blue-400"></i>
-                            <span class="text-blue-300 font-semibold">Our Purpose</span>
-                        </div>
-
-                        <h2 class="text-4xl md:text-5xl font-bold mb-6">
-                            Our <span
-                                class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Mission</span>
-                        </h2>
-
-                        <p class="text-xl text-gray-300 leading-relaxed mb-8">
-                            Our mission is to <span class="text-yellow-400 font-bold">empower students and
-                                educators</span> through engaging, effective, and culturally rich English-learning
-                            experiences.
-                        </p>
-
-                        <div class="space-y-4 mb-8">
-                            <div
-                                class="flex items-start gap-4 p-4 bg-white/5 rounded-xl border border-white/10 mission-card">
-                                <div
-                                    class="w-10 h-10 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-lg flex items-center justify-center flex-shrink-0">
-                                    <i class="fas fa-chalkboard-teacher text-white"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-white mb-1">Interactive Learning</h4>
-                                    <p class="text-gray-400 text-sm">Student-centered experiences that inspire
-                                        participation</p>
-                                </div>
-                            </div>
-                            <div
-                                class="flex items-start gap-4 p-4 bg-white/5 rounded-xl border border-white/10 mission-card">
-                                <div
-                                    class="w-10 h-10 bg-gradient-to-br from-blue-400 to-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
-                                    <i class="fas fa-user-graduate text-white"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-white mb-1">Teacher Support</h4>
-                                    <p class="text-gray-400 text-sm">Training, resources, and ongoing guidance</p>
-                                </div>
-                            </div>
-                            <div
-                                class="flex items-start gap-4 p-4 bg-white/5 rounded-xl border border-white/10 mission-card">
-                                <div
-                                    class="w-10 h-10 bg-gradient-to-br from-green-400 to-emerald-600 rounded-lg flex items-center justify-center flex-shrink-0">
-                                    <i class="fas fa-globe-asia text-white"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-white mb-1">Cultural Exchange</h4>
-                                    <p class="text-gray-400 text-sm">Promoting understanding and global awareness</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Quote box -->
-                        <div class="bg-gradient-to-r from-blue-500/20 to-blue-600/10 border border-blue-400/30 rounded-2xl p-6"
-                            data-aos="fade-up" data-aos-delay="200">
-                            <i class="fas fa-quote-left text-blue-400/50 text-2xl mb-3"></i>
-                            <p class="text-blue-100 text-lg italic">
-                                "Every student motivated, every teacher supported, every school equipped to succeed."
-                            </p>
-                        </div>
+                <div class="container mx-auto px-6 text-center relative z-10">
+                    <div class="hero-badge mb-6" data-aos="fade-down">
+                        <i class="fas fa-compass"></i>
+                        <span>Our Purpose & Direction</span>
                     </div>
 
-                    <!-- Right: Visual -->
-                    <div data-aos="fade-left">
-                        <div class="relative">
-                            <!-- Main card -->
-                            <div
-                                class="bg-gradient-to-br from-blue-600/30 to-blue-800/40 backdrop-blur-sm rounded-3xl p-8 border border-blue-400/20 glow-blue">
-                                <!-- Icon grid -->
-                                <div class="grid grid-cols-2 gap-6">
-                                    <div
-                                        class="bg-white/10 rounded-2xl p-6 text-center hover:bg-white/15 transition-all duration-300 hover:scale-105">
-                                        <div
-                                            class="w-16 h-16 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-xl flex items-center justify-center mx-auto mb-4 shadow-lg">
-                                            <i class="fas fa-lightbulb text-white text-2xl"></i>
-                                        </div>
-                                        <p class="text-white font-semibold">Inspire</p>
-                                        <p class="text-blue-200 text-sm">Curiosity</p>
-                                    </div>
-                                    <div
-                                        class="bg-white/10 rounded-2xl p-6 text-center hover:bg-white/15 transition-all duration-300 hover:scale-105">
-                                        <div
-                                            class="w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-600 rounded-xl flex items-center justify-center mx-auto mb-4 shadow-lg">
-                                            <i class="fas fa-hands-helping text-white text-2xl"></i>
-                                        </div>
-                                        <p class="text-white font-semibold">Empower</p>
-                                        <p class="text-blue-200 text-sm">Growth</p>
-                                    </div>
-                                    <div
-                                        class="bg-white/10 rounded-2xl p-6 text-center hover:bg-white/15 transition-all duration-300 hover:scale-105">
-                                        <div
-                                            class="w-16 h-16 bg-gradient-to-br from-green-400 to-emerald-600 rounded-xl flex items-center justify-center mx-auto mb-4 shadow-lg">
-                                            <i class="fas fa-users text-white text-2xl"></i>
-                                        </div>
-                                        <p class="text-white font-semibold">Connect</p>
-                                        <p class="text-blue-200 text-sm">Communities</p>
-                                    </div>
-                                    <div
-                                        class="bg-white/10 rounded-2xl p-6 text-center hover:bg-white/15 transition-all duration-300 hover:scale-105">
-                                        <div
-                                            class="w-16 h-16 bg-gradient-to-br from-purple-400 to-purple-600 rounded-xl flex items-center justify-center mx-auto mb-4 shadow-lg">
-                                            <i class="fas fa-award text-white text-2xl"></i>
-                                        </div>
-                                        <p class="text-white font-semibold">Excel</p>
-                                        <p class="text-blue-200 text-sm">Standards</p>
-                                    </div>
-                                </div>
-                            </div>
+                    <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold text-gray-900 mb-6" data-aos="fade-up">
+                        Mission <span class="accent-text">&</span> Vision
+                    </h1>
 
-                            <!-- Floating badge -->
-                            <div
-                                class="absolute -top-4 -right-4 bg-yellow-500 text-slate-900 px-5 py-2 rounded-full font-bold shadow-lg float-slow">
-                                <i class="fas fa-bullseye mr-2"></i>Mission
+                    <p class="text-xl text-gray-600 max-w-2xl mx-auto mb-12" data-aos="fade-up" data-aos-delay="100">
+                        Transforming English education across Thailand through innovative programs, cultural exchange,
+                        and dedicated support.
+                    </p>
+
+                    <!-- Two preview cards -->
+                    <div class="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+                        <a href="#mission"
+                            class="hover-card bg-white rounded-2xl p-6 shadow-lg text-left flex items-center gap-4">
+                            <div class="icon-box bg-blue-100 text-blue-600">
+                                <i class="fas fa-bullseye"></i>
                             </div>
-                        </div>
+                            <div>
+                                <h3 class="font-bold text-gray-900">Mission</h3>
+                                <p class="text-gray-500 text-sm">Our purpose today</p>
+                            </div>
+                            <i class="fas fa-arrow-right text-gray-300 ml-auto"></i>
+                        </a>
+                        <a href="#vision"
+                            class="hover-card bg-white rounded-2xl p-6 shadow-lg text-left flex items-center gap-4">
+                            <div class="icon-box bg-purple-100 text-purple-600">
+                                <i class="fas fa-eye"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-gray-900">Vision</h3>
+                                <p class="text-gray-500 text-sm">Our future direction</p>
+                            </div>
+                            <i class="fas fa-arrow-right text-gray-300 ml-auto"></i>
+                        </a>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Transition -->
-        <section class="py-12 bg-slate-900 relative">
-            <div class="container mx-auto px-6">
-                <div class="flex justify-center">
-                    <div class="flex items-center gap-4 px-8 py-4 bg-white/5 rounded-full border border-white/10"
-                        data-aos="zoom-in">
-                        <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center">
-                            <i class="fas fa-bullseye text-white"></i>
-                        </div>
-                        <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
-                        <div class="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center">
-                            <i class="fas fa-eye text-white"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+            <!-- Mission Section -->
+            <section id="mission" class="py-20 bg-white">
+                <div class="container mx-auto px-6">
+                    <div class="grid lg:grid-cols-5 gap-12 items-start">
 
-        <!-- Vision Section -->
-        <section id="vision"
-            class="py-24 bg-gradient-to-br from-slate-900 via-purple-900/50 to-slate-900 relative overflow-hidden">
-            <!-- Background decorations -->
-            <div class="absolute top-0 left-0 w-full h-full">
-                <div class="absolute top-20 right-10 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl"></div>
-                <div class="absolute bottom-20 left-10 w-96 h-96 bg-yellow-500/5 rounded-full blur-3xl"></div>
-            </div>
-
-            <div class="container mx-auto px-6 relative z-10">
-                <div class="grid lg:grid-cols-2 gap-16 items-center">
-
-                    <!-- Left: Visual -->
-                    <div class="order-2 lg:order-1" data-aos="fade-right">
-                        <div class="relative">
-                            <!-- Main card -->
-                            <div
-                                class="bg-gradient-to-br from-purple-600/30 to-purple-800/40 backdrop-blur-sm rounded-3xl p-8 border border-purple-400/20 glow-purple">
-
-                                <!-- Central icon -->
-                                <div class="text-center mb-8">
-                                    <div
-                                        class="w-28 h-28 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center mx-auto shadow-2xl mb-4 float-slow">
-                                        <i class="fas fa-rocket text-white text-5xl"></i>
-                                    </div>
-                                    <h3 class="text-2xl font-bold text-white">Global Citizens</h3>
-                                    <p class="text-purple-300">of Tomorrow</p>
+                        <!-- Left: Image card (2 cols) -->
+                        <div class="lg:col-span-2" data-aos="fade-right">
+                            <div class="image-card shadow-2xl">
+                                <img src="../assets/images/story/Mission.webp" alt="Our Mission"
+                                    class="w-full h-[400px] object-cover">
+                                <div class="image-card-overlay">
+                                    <div class="number-badge bg-blue-500 text-white mb-3">01</div>
+                                    <h3 class="text-2xl font-bold text-white">Mission</h3>
+                                    <p class="text-gray-300 text-sm">Our Purpose</p>
                                 </div>
-
-                                <!-- Stats grid -->
-                                <div class="grid grid-cols-2 gap-4">
-                                    <div
-                                        class="bg-white/10 rounded-xl p-5 text-center hover:bg-white/15 transition-all">
-                                        <div class="text-4xl font-bold text-yellow-400 mb-1">2030</div>
-                                        <p class="text-white text-sm">Target Year</p>
-                                    </div>
-                                    <div
-                                        class="bg-white/10 rounded-xl p-5 text-center hover:bg-white/15 transition-all">
-                                        <div class="text-4xl font-bold text-purple-300 mb-1">#1</div>
-                                        <p class="text-white text-sm">In Thailand</p>
-                                    </div>
-                                    <div
-                                        class="bg-white/10 rounded-xl p-5 text-center hover:bg-white/15 transition-all">
-                                        <div class="text-4xl font-bold text-blue-300 mb-1">100+</div>
-                                        <p class="text-white text-sm">Partner Schools</p>
-                                    </div>
-                                    <div
-                                        class="bg-white/10 rounded-xl p-5 text-center hover:bg-white/15 transition-all">
-                                        <div class="text-4xl font-bold text-green-300 mb-1">∞</div>
-                                        <p class="text-white text-sm">Possibilities</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Floating badge -->
-                            <div
-                                class="absolute -top-4 -left-4 bg-purple-500 text-white px-5 py-2 rounded-full font-bold shadow-lg float-medium">
-                                <i class="fas fa-eye mr-2"></i>Vision
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Right: Content -->
-                    <div class="order-1 lg:order-2 text-white" data-aos="fade-left">
-                        <!-- Badge -->
-                        <div
-                            class="inline-flex items-center gap-2 px-4 py-2 bg-purple-500/20 border border-purple-400/30 rounded-full mb-6">
-                            <i class="fas fa-eye text-purple-400"></i>
-                            <span class="text-purple-300 font-semibold">Looking Forward</span>
-                        </div>
-
-                        <h2 class="text-4xl md:text-5xl font-bold mb-6">
-                            Our <span
-                                class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">Vision</span>
-                        </h2>
-
-                        <p class="text-xl text-gray-300 leading-relaxed mb-8">
-                            Our vision is to ensure that <span class="text-yellow-400 font-bold">every student in
-                                Thailand</span> has access to world-class English education that opens doors to global
-                            opportunities.
-                        </p>
-
-                        <div class="space-y-4 mb-8">
-                            <div class="flex items-center gap-4">
-                                <div
-                                    class="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center flex-shrink-0">
-                                    <i class="fas fa-star text-white text-xs"></i>
-                                </div>
-                                <span class="text-gray-200">Students who are confident, curious, and globally
-                                    ready</span>
-                            </div>
-                            <div class="flex items-center gap-4">
-                                <div
-                                    class="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center flex-shrink-0">
-                                    <i class="fas fa-star text-white text-xs"></i>
-                                </div>
-                                <span class="text-gray-200">Schools offering modern, meaningful English programs</span>
-                            </div>
-                            <div class="flex items-center gap-4">
-                                <div
-                                    class="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center flex-shrink-0">
-                                    <i class="fas fa-star text-white text-xs"></i>
-                                </div>
-                                <span class="text-gray-200">Classrooms where English is lived and experienced</span>
-                            </div>
-                            <div class="flex items-center gap-4">
-                                <div
-                                    class="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center flex-shrink-0">
-                                    <i class="fas fa-star text-white text-xs"></i>
-                                </div>
-                                <span class="text-gray-200">Communities strengthened through shared learning</span>
                             </div>
                         </div>
 
-                        <!-- 2030 Goal box -->
-                        <div class="bg-gradient-to-r from-purple-500/20 to-pink-500/10 border border-purple-400/30 rounded-2xl p-6"
-                            data-aos="fade-up" data-aos-delay="200">
-                            <div class="text-center">
-                                <span class="text-yellow-400 font-bold text-2xl">By 2030</span>
-                                <p class="text-purple-100 mt-2">
-                                    Thailand's leading provider of culturally enriched English education—helping
-                                    students grow into <span class="text-yellow-400 font-semibold">global
-                                        citizens</span>.
+                        <!-- Right: Content (3 cols) -->
+                        <div class="lg:col-span-3" data-aos="fade-left">
+                            <div class="mb-8">
+                                <span class="text-blue-600 font-semibold text-sm uppercase tracking-wider">What We
+                                    Do</span>
+                                <h2 class="text-4xl font-bold text-gray-900 mt-2 mb-4">Our Mission</h2>
+                                <p class="text-lg text-gray-600 leading-relaxed">
+                                    Our mission is to <span class="accent-text font-bold">empower students and
+                                        educators</span> through engaging, effective, and culturally rich
+                                    English-learning experiences that build real confidence and global awareness.
                                 </p>
                             </div>
+
+                            <!-- Feature list -->
+                            <div class="space-y-4">
+                                <div class="flex items-start gap-4 p-5 bg-gray-50 rounded-xl hover-card"
+                                    data-aos="fade-up" data-aos-delay="100">
+                                    <div
+                                        class="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                                        <i class="fas fa-chalkboard-teacher text-white"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-gray-900">Interactive Learning</h4>
+                                        <p class="text-gray-600 text-sm">Student-centered experiences that inspire
+                                            active participation and real-world use of English</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-4 p-5 bg-gray-50 rounded-xl hover-card"
+                                    data-aos="fade-up" data-aos-delay="150">
+                                    <div
+                                        class="w-12 h-12 bg-orange-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                                        <i class="fas fa-user-graduate text-white"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-gray-900">Teacher Support</h4>
+                                        <p class="text-gray-600 text-sm">Training, resources, and ongoing guidance for
+                                            every educator</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-4 p-5 bg-gray-50 rounded-xl hover-card"
+                                    data-aos="fade-up" data-aos-delay="200">
+                                    <div
+                                        class="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                                        <i class="fas fa-globe-asia text-white"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-gray-900">Cultural Exchange</h4>
+                                        <p class="text-gray-600 text-sm">Promoting understanding, creativity, and global
+                                            awareness</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Summary Section -->
-        <section class="py-24 bg-slate-900 relative overflow-hidden">
-            <div class="absolute inset-0 opacity-5"
-                style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 40px 40px;">
-            </div>
+            <!-- Quote Section -->
+            <section class="py-16 bg-gradient-to-r from-blue-600 to-blue-700">
+                <div class="container mx-auto px-6">
+                    <div class="max-w-3xl mx-auto text-center" data-aos="zoom-in">
+                        <i class="fas fa-quote-left text-blue-300 text-4xl mb-6"></i>
+                        <p class="text-2xl md:text-3xl text-white font-medium leading-relaxed mb-6">
+                            Every student motivated, every teacher supported, every school equipped to succeed.
+                        </p>
+                        <div class="w-16 h-1 bg-yellow-400 mx-auto rounded"></div>
+                    </div>
+                </div>
+            </section>
 
-            <div class="container mx-auto px-6 relative z-10">
-                <div class="text-center mb-16" data-aos="fade-up">
-                    <span
-                        class="inline-block px-4 py-2 bg-white/5 border border-white/10 rounded-full text-gray-300 font-medium mb-4">Summary</span>
-                    <h2 class="text-4xl md:text-5xl font-bold text-white">
-                        Purpose <span
-                            class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">&</span>
-                        Direction
+            <!-- Vision Section -->
+            <section id="vision" class="py-20 bg-gray-50">
+                <div class="container mx-auto px-6">
+                    <div class="grid lg:grid-cols-5 gap-12 items-start">
+
+                        <!-- Left: Content (3 cols) -->
+                        <div class="lg:col-span-3 order-2 lg:order-1" data-aos="fade-right">
+                            <div class="mb-8">
+                                <span class="text-purple-600 font-semibold text-sm uppercase tracking-wider">Where We're
+                                    Going</span>
+                                <h2 class="text-4xl font-bold text-gray-900 mt-2 mb-4">Our Vision</h2>
+                                <p class="text-lg text-gray-600 leading-relaxed">
+                                    Our vision is to ensure that <span class="accent-text font-bold">every student in
+                                        Thailand</span> has access to world-class English education that opens doors to
+                                    global opportunities.
+                                </p>
+                            </div>
+
+                            <!-- Goals grid -->
+                            <div class="grid sm:grid-cols-2 gap-4 mb-8">
+                                <div class="bg-white rounded-xl p-5 shadow-sm hover-card" data-aos="fade-up"
+                                    data-aos-delay="100">
+                                    <div
+                                        class="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center mb-3">
+                                        <i class="fas fa-user-check text-purple-600"></i>
+                                    </div>
+                                    <h4 class="font-bold text-gray-900 mb-1">Confident Students</h4>
+                                    <p class="text-gray-600 text-sm">Curious and globally ready learners</p>
+                                </div>
+                                <div class="bg-white rounded-xl p-5 shadow-sm hover-card" data-aos="fade-up"
+                                    data-aos-delay="150">
+                                    <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mb-3">
+                                        <i class="fas fa-school text-blue-600"></i>
+                                    </div>
+                                    <h4 class="font-bold text-gray-900 mb-1">Modern Schools</h4>
+                                    <p class="text-gray-600 text-sm">Meaningful English programs</p>
+                                </div>
+                                <div class="bg-white rounded-xl p-5 shadow-sm hover-card" data-aos="fade-up"
+                                    data-aos-delay="200">
+                                    <div
+                                        class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center mb-3">
+                                        <i class="fas fa-comments text-green-600"></i>
+                                    </div>
+                                    <h4 class="font-bold text-gray-900 mb-1">Living Language</h4>
+                                    <p class="text-gray-600 text-sm">English experienced daily</p>
+                                </div>
+                                <div class="bg-white rounded-xl p-5 shadow-sm hover-card" data-aos="fade-up"
+                                    data-aos-delay="250">
+                                    <div
+                                        class="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center mb-3">
+                                        <i class="fas fa-heart text-orange-600"></i>
+                                    </div>
+                                    <h4 class="font-bold text-gray-900 mb-1">United Communities</h4>
+                                    <p class="text-gray-600 text-sm">Strengthened through learning</p>
+                                </div>
+                            </div>
+
+                            <!-- 2030 Goal -->
+                            <div class="gradient-border-card" data-aos="fade-up">
+                                <div class="gradient-border-card-inner flex items-center gap-6">
+                                    <div
+                                        class="text-5xl font-extrabold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                                        2030
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-gray-900">Our Goal</h4>
+                                        <p class="text-gray-600">Thailand's leading provider of culturally enriched
+                                            English education</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right: Image card (2 cols) -->
+                        <div class="lg:col-span-2 order-1 lg:order-2" data-aos="fade-left">
+                            <div class="image-card shadow-2xl">
+                                <img src="../assets/images/story/Vision.webp" alt="Our Vision"
+                                    class="w-full h-[400px] object-cover">
+                                <div class="image-card-overlay">
+                                    <div class="number-badge bg-purple-500 text-white mb-3">02</div>
+                                    <h3 class="text-2xl font-bold text-white">Vision</h3>
+                                    <p class="text-gray-300 text-sm">Our Future</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CTA Section -->
+            <section class="py-20 bg-white">
+                <div class="container mx-auto px-6 text-center">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4" data-aos="fade-up">
+                        Want to learn more about us?
                     </h2>
-                </div>
-
-                <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                    <div class="bg-gradient-to-br from-blue-600/20 to-blue-800/30 backdrop-blur-sm rounded-3xl p-8 border border-blue-400/20 text-center hover:scale-105 transition-all duration-300"
-                        data-aos="fade-up" data-aos-delay="100">
-                        <div
-                            class="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
-                            <i class="fas fa-bullseye text-white text-3xl"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold text-white mb-3">Mission</h3>
-                        <p class="text-gray-300">Empower students and educators through engaging, culturally rich
-                            learning experiences.</p>
-                    </div>
-
-                    <div class="bg-gradient-to-br from-purple-600/20 to-purple-800/30 backdrop-blur-sm rounded-3xl p-8 border border-purple-400/20 text-center hover:scale-105 transition-all duration-300"
-                        data-aos="fade-up" data-aos-delay="200">
-                        <div
-                            class="w-20 h-20 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
-                            <i class="fas fa-eye text-white text-3xl"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold text-white mb-3">Vision</h3>
-                        <p class="text-gray-300">Ensure every student has access to world-class English education for
-                            global opportunities.</p>
+                    <p class="text-gray-600 mb-8 max-w-xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                        Discover our story, meet our team, and see how we're making a difference in education.
+                    </p>
+                    <div class="flex flex-wrap justify-center gap-4" data-aos="fade-up" data-aos-delay="200">
+                        <a href="../story/"
+                            class="btn-primary px-8 py-4 rounded-full text-lg inline-flex items-center gap-2">
+                            <i class="fas fa-book-open"></i>
+                            <span>Our Story</span>
+                        </a>
+                        <a href="../contact/"
+                            class="btn-secondary px-8 py-4 rounded-full text-lg inline-flex items-center gap-2">
+                            <i class="fas fa-envelope"></i>
+                            <span>Contact Us</span>
+                        </a>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+
+        </div>
     </main>
 
     <!-- Shared Footer -->
@@ -599,20 +429,6 @@
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="../js/components.js"></script>
     <script src="../js/script.js"></script>
-
-    <!-- Scroll Animation Script -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const progressLine = document.getElementById('progress-line');
-
-            window.addEventListener('scroll', function () {
-                const scrollTop = window.scrollY;
-                const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-                const progress = (scrollTop / docHeight) * 100;
-                progressLine.style.width = progress + '%';
-            });
-        });
-    </script>
 </body>
 
 </html>
