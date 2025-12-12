@@ -11,7 +11,8 @@ const basePath = window.location.pathname.includes('/about/') ||
     window.location.pathname.includes('/hr/') ||
     window.location.pathname.includes('/story/') ||
     window.location.pathname.includes('/curriculum-consultants/') ||
-    window.location.pathname.includes('/thai-consultants/') ? '../' : '';
+    window.location.pathname.includes('/thai-consultants/') ||
+    window.location.pathname.includes('/mission-vision/') ? '../' : '';
 
 const headerHTML = `
     <header id="main-header" class="fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-in-out h-[88px] bg-white/90 backdrop-blur-md border-b border-transparent">
@@ -75,7 +76,7 @@ const headerHTML = `
                         <div class="col-span-3 mm-col">
                             <span class="mm-header">Organization</span>
                             <a href="${basePath}story/" class="mm-link nav-page">MediaKids Story</a>
-                            <a href="${basePath}about/" class="mm-link nav-page">About Us</a>
+                            <a href="${basePath}mission-vision/" class="mm-link nav-page">Mission & Vision</a>
                             <a href="${basePath}contact/" class="mm-link nav-page">Contact Us</a>
                         </div>
                         <div class="col-span-3 border-l border-gray-100 pl-8 mm-col">
@@ -140,15 +141,14 @@ const headerHTML = `
                 <div class="container mx-auto px-6">
                     <div class="grid grid-cols-12 gap-8">
                         <div class="col-span-3 mm-col">
-                            <span class="mm-header">Locations</span>
-                            <a href="${basePath}schools/#schools-central-north" class="mm-link nav-page">Central & North Area</a>
-                            <a href="${basePath}schools/#schools-esan1" class="mm-link nav-page">Esan 1 Area <span class="mm-sub-text">Korat, Buriram</span></a>
+                            <span class="mm-header">Regions</span>
+                            <span class="mm-link text-gray-600 cursor-default">Central Area</span>
+                            <span class="mm-link text-gray-600 cursor-default">North Area</span>
+                            <span class="mm-link text-gray-600 cursor-default">Esan Area</span>
                         </div>
-                        <div class="col-span-3 mm-col">
-                            <span class="mm-header">Northeast (Isaan)</span>
-                            <a href="${basePath}schools/#schools-esan2" class="mm-link nav-page">Esan 2 Area <span class="mm-sub-text">Khon Kaen, Udon</span></a>
-                            <a href="${basePath}schools/#schools-esan3" class="mm-link nav-page">Esan 3 Area <span class="mm-sub-text">Ubon Ratchathani</span></a>
-                            <a href="${basePath}schools/#schools-esan4" class="mm-link nav-page">Esan 4 Area <span class="mm-sub-text">Sakon Nakhon</span></a>
+                        <div class="col-span-3 border-l border-gray-100 pl-8 mm-col">
+                            <span class="mm-header">Coming Soon</span>
+                            <p class="text-sm text-gray-500 mt-2">School pages are being updated. Check back soon for detailed information about each region.</p>
                         </div>
                         <div class="col-span-6 border-l border-gray-100 pl-12 mm-col flex flex-col justify-center">
                             <span class="mm-header mb-4">Our Coverage</span>
@@ -177,6 +177,7 @@ const headerHTML = `
             </button>
             <div class="mobile-submenu hidden pl-4 mt-2 space-y-2 border-l-2 border-gray-100 ml-2">
                 <a href="${basePath}story/" class="nav-page block py-1 text-gray-600">MediaKids Story</a>
+                <a href="${basePath}mission-vision/" class="nav-page block py-1 text-gray-600">Mission & Vision</a>
                 <a href="${basePath}hr/" class="nav-page block py-1 text-gray-500">Human Resources</a>
                 <a href="${basePath}curriculum-consultants/" class="nav-page block py-1 text-gray-500">Curriculum Consultants</a>
                 <a href="${basePath}thai-consultants/" class="nav-page block py-1 text-gray-500">Thai Consultants</a>
@@ -206,11 +207,10 @@ const headerHTML = `
                 <i class="fas fa-chevron-down text-xs transform transition-transform duration-300"></i>
             </button>
             <div class="mobile-submenu hidden pl-4 mt-2 space-y-2 border-l-2 border-gray-100 ml-2">
-                <a href="${basePath}schools/#schools-central-north" class="nav-page block py-1 text-gray-600">Central & North</a>
-                <a href="${basePath}schools/#schools-esan1" class="nav-page block py-1 text-gray-600">Esan 1 Area</a>
-                <a href="${basePath}schools/#schools-esan2" class="nav-page block py-1 text-gray-600">Esan 2 Area</a>
-                <a href="${basePath}schools/#schools-esan3" class="nav-page block py-1 text-gray-600">Esan 3 Area</a>
-                <a href="${basePath}schools/#schools-esan4" class="nav-page block py-1 text-gray-600">Esan 4 Area</a>
+                <span class="block py-1 text-gray-500">Central Area</span>
+                <span class="block py-1 text-gray-500">North Area</span>
+                <span class="block py-1 text-gray-500">Esan Area</span>
+                <span class="block py-1 text-gray-400 text-sm italic">Pages coming soon</span>
             </div>
         </div>
 
