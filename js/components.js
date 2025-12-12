@@ -15,7 +15,10 @@ const basePath = window.location.pathname.includes('/schools/central-area/') ||
         window.location.pathname.includes('/story/') ||
         window.location.pathname.includes('/curriculum-consultants/') ||
         window.location.pathname.includes('/thai-consultants/') ||
-        window.location.pathname.includes('/mission-vision/') ? '../' : '');
+        window.location.pathname.includes('/mission-vision/') ||
+        window.location.pathname.includes('/ecd-program/') ||
+        window.location.pathname.includes('/mep-program/') ||
+        window.location.pathname.includes('/iep-program/') ? '../' : '');
 
 const headerHTML = `
     <header id="main-header" class="fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-in-out h-[88px] bg-white/90 backdrop-blur-md border-b border-transparent">
@@ -108,9 +111,9 @@ const headerHTML = `
                     <div class="grid grid-cols-12 gap-8">
                         <div class="col-span-3 mm-col">
                             <span class="mm-header">Academic Programs</span>
-                            <a href="${basePath}programs/#programs-ecd" class="mm-link nav-page">ECD Program</a>
-                            <a href="${basePath}programs/#programs-iep" class="mm-link nav-page">IEP Program</a>
-                            <a href="${basePath}programs/#programs-ep-ip" class="mm-link nav-page">IP / EP / MEP Program</a>
+                            <a href="${basePath}ecd-program/" class="mm-link nav-page">ECD Program</a>
+                            <a href="${basePath}iep-program/" class="mm-link nav-page">IEP Program</a>
+                            <a href="${basePath}mep-program/" class="mm-link nav-page">IP / EP / MEP Program</a>
                         </div>
                         <div class="col-span-3 border-l border-gray-100 pl-8 mm-col">
                             <span class="mm-header">Activities</span>
@@ -146,8 +149,8 @@ const headerHTML = `
                         <div class="col-span-3 mm-col">
                             <span class="mm-header">Regions</span>
                             <a href="${basePath}schools/central-area/" class="mm-link nav-page">Central Area</a>
-                            <span class="mm-link text-gray-600 cursor-default">North Area</span>
-                            <span class="mm-link text-gray-600 cursor-default">Esan Area</span>
+                            <a href="${basePath}schools/north-area/" class="mm-link nav-page">North Area</a>
+                            <a href="${basePath}schools/esan-area/" class="mm-link nav-page">Esan Area</a>
                         </div>
                         <div class="col-span-3 border-l border-gray-100 pl-8 mm-col">
                             <span class="mm-header">Coming Soon</span>

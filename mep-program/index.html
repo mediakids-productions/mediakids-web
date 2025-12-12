@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-C3WTLTZ1Y1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-C3WTLTZ1Y1');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self';
+        img-src 'self' data: https://images.unsplash.com https://placehold.co https://drive.google.com https://drive.googleusercontent.com https://lh3.googleusercontent.com https://drive.usercontent.google.com https://*.googleusercontent.com;
+        font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;
+        style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://unpkg.com;
+        script-src 'self' 'unsafe-inline'
+          https://cdn.tailwindcss.com
+          https://cdnjs.cloudflare.com
+          https://unpkg.com
+          https://script.google.com
+          https://www.googletagmanager.com
+          https://www.google-analytics.com;
+        connect-src 'self'
+          https://script.google.com
+          https://script.googleusercontent.com
+          https://www.google-analytics.com
+          https://region1.google-analytics.com
+          https://www.googletagmanager.com;
+        form-action 'self' https://script.google.com https://script.googleusercontent.com https://formspree.io;
+        frame-ancestors 'self';
+        upgrade-insecure-requests">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
+    <title>MEP / EP / IP Program - MediaKids Academy</title>
+    <meta name="description"
+        content="MEP, EP, IP Programs - English-medium instruction in core subjects. Bilingual learning for Thai students.">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/icons/logo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/icons/logo.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/icons/logo.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="../css/style.css">
+
+    <style>
+        /* Program badge */
+        .program-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 24px;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(6, 182, 212, 0.1));
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #10b981;
+        }
+
+        /* Feature card */
+        .feature-card {
+            background: white;
+            border-radius: 20px;
+            padding: 32px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+            border: 1px solid #f1f5f9;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, #10b981, #06b6d4);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+
+        /* Feature icon */
+        .feature-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1);
+        }
+
+        /* About card */
+        .about-card {
+            background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+            border-radius: 24px;
+            padding: 40px;
+            position: relative;
+        }
+
+        .about-card::after {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(6, 182, 212, 0.1));
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        /* Highlight box */
+        .highlight-box {
+            background: linear-gradient(135deg, #10b981, #06b6d4);
+            border-radius: 20px;
+            padding: 32px;
+            color: white;
+        }
+
+        /* Animated gradient text */
+        .gradient-text-animated {
+            background: linear-gradient(90deg, #10b981, #06b6d4, #10b981);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientFlow 3s ease infinite;
+        }
+
+        @keyframes gradientFlow {
+            0% {
+                background-position: 0% center;
+            }
+
+            50% {
+                background-position: 100% center;
+            }
+
+            100% {
+                background-position: 0% center;
+            }
+        }
+
+        /* Subject badge */
+        .subject-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .subject-badge:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+        }
+    </style>
+</head>
+
+<body class="leading-relaxed overflow-x-hidden relative">
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Shared Header -->
+    <div id="shared-header"></div>
+
+    <main>
+        <div id="main-content">
+
+            <!-- Hero Section -->
+            <section class="py-24 lg:py-32 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
+                <!-- Decorative circles -->
+                <div
+                    class="absolute top-0 right-0 w-96 h-96 bg-emerald-100 rounded-full opacity-50 blur-3xl -translate-y-1/2 translate-x-1/2">
+                </div>
+                <div
+                    class="absolute bottom-0 left-0 w-80 h-80 bg-cyan-100 rounded-full opacity-50 blur-3xl translate-y-1/2 -translate-x-1/2">
+                </div>
+
+                <div class="container mx-auto px-6 relative z-10">
+                    <div class="grid lg:grid-cols-2 gap-12 items-center">
+                        <!-- Left content -->
+                        <div>
+                            <div class="program-badge mb-6" data-aos="fade-right">
+                                <i class="fas fa-globe"></i>
+                                <span>Bilingual Program</span>
+                            </div>
+
+                            <h1 class="text-5xl md:text-6xl font-extrabold text-gray-900 mb-6" data-aos="fade-right"
+                                data-aos-delay="100">
+                                MEP / EP / <span class="gradient-text-animated">IP</span>
+                            </h1>
+
+                            <p class="text-2xl text-gray-700 font-medium mb-6" data-aos="fade-right"
+                                data-aos-delay="150">
+                                Expanding Learning Through English Across Subjects
+                            </p>
+
+                            <p class="text-lg text-gray-600 mb-8" data-aos="fade-right" data-aos-delay="200">
+                                These programs offer an immersive learning experience where students study selected
+                                subjects—such as Math, Science, or Computer—through English.
+                            </p>
+
+                            <!-- Quick info badges -->
+                            <div class="flex flex-wrap gap-3" data-aos="fade-right" data-aos-delay="250">
+                                <span
+                                    class="inline-flex items-center gap-2 px-4 py-2 bg-emerald-50 text-emerald-700 rounded-full text-sm font-medium">
+                                    <i class="fas fa-language"></i>
+                                    Bilingual
+                                </span>
+                                <span
+                                    class="inline-flex items-center gap-2 px-4 py-2 bg-cyan-50 text-cyan-700 rounded-full text-sm font-medium">
+                                    <i class="fas fa-flask"></i>
+                                    Subject-Based
+                                </span>
+                                <span
+                                    class="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 text-blue-700 rounded-full text-sm font-medium">
+                                    <i class="fas fa-globe-asia"></i>
+                                    Global Ready
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Right image -->
+                        <div class="relative" data-aos="fade-left" data-aos-delay="200">
+                            <div class="relative rounded-3xl overflow-hidden shadow-2xl">
+                                <img src="../assets/images/programs/mep-hero.webp" alt="MEP Program"
+                                    class="w-full h-[400px] object-cover"
+                                    onerror="this.src='https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=800&h=600&fit=crop'">
+                                <div class="absolute inset-0 bg-gradient-to-t from-emerald-900/50 to-transparent"></div>
+                                <div class="absolute bottom-6 left-6 right-6">
+                                    <div class="bg-white/90 backdrop-blur-sm rounded-2xl p-4 flex items-center gap-4">
+                                        <div
+                                            class="w-12 h-12 bg-emerald-500 rounded-xl flex items-center justify-center">
+                                            <i class="fas fa-book-open text-white text-xl"></i>
+                                        </div>
+                                        <div>
+                                            <p class="font-bold text-gray-900">English-Medium Instruction</p>
+                                            <p class="text-sm text-gray-500">Learn subjects through English</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Subjects Section -->
+            <section class="py-16 bg-white">
+                <div class="container mx-auto px-6">
+                    <div class="text-center mb-10">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-2" data-aos="fade-up">Subjects Taught in English
+                        </h2>
+                        <p class="text-gray-600" data-aos="fade-up" data-aos-delay="50">Core academic subjects delivered
+                            through English medium</p>
+                    </div>
+                    <div class="flex flex-wrap justify-center gap-4" data-aos="fade-up" data-aos-delay="100">
+                        <div class="subject-badge">
+                            <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-calculator text-blue-600"></i>
+                            </div>
+                            <span class="font-semibold text-gray-800">Mathematics</span>
+                        </div>
+                        <div class="subject-badge">
+                            <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-flask text-green-600"></i>
+                            </div>
+                            <span class="font-semibold text-gray-800">Science</span>
+                        </div>
+                        <div class="subject-badge">
+                            <div class="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-laptop-code text-purple-600"></i>
+                            </div>
+                            <span class="font-semibold text-gray-800">Computer</span>
+                        </div>
+                        <div class="subject-badge">
+                            <div class="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-atom text-orange-600"></i>
+                            </div>
+                            <span class="font-semibold text-gray-800">Physics</span>
+                        </div>
+                        <div class="subject-badge">
+                            <div class="w-10 h-10 bg-cyan-100 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-dna text-cyan-600"></i>
+                            </div>
+                            <span class="font-semibold text-gray-800">Biology</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- About Section -->
+            <section class="py-20 bg-gray-50">
+                <div class="container mx-auto px-6">
+                    <div class="grid lg:grid-cols-2 gap-12 items-center">
+                        <!-- Left: About card -->
+                        <div class="about-card" data-aos="fade-right">
+                            <div class="relative z-10">
+                                <h2 class="text-3xl font-bold text-gray-900 mb-6">What is MEP / EP / IP?</h2>
+                                <p class="text-lg text-gray-600 leading-relaxed mb-6">
+                                    This bilingual learning model helps students develop strong language skills while
+                                    gaining content knowledge in key academic areas.
+                                </p>
+                                <p class="text-lg text-gray-600 leading-relaxed">
+                                    <span class="font-semibold text-emerald-600">MEP</span> creates a supportive
+                                    environment that builds academic confidence and prepares students for global
+                                    learning pathways.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Right: Highlight box -->
+                        <div class="highlight-box" data-aos="fade-left">
+                            <div class="flex items-center gap-4 mb-6">
+                                <div class="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center">
+                                    <i class="fas fa-star text-yellow-300 text-2xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-2xl font-bold">Program Benefits</h3>
+                                    <p class="text-emerald-100">Why choose MEP / EP / IP</p>
+                                </div>
+                            </div>
+                            <ul class="space-y-4">
+                                <li class="flex items-center gap-3">
+                                    <i class="fas fa-check-circle text-green-300"></i>
+                                    <span>Bilingual literacy development</span>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <i class="fas fa-check-circle text-green-300"></i>
+                                    <span>Critical thinking skills</span>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <i class="fas fa-check-circle text-green-300"></i>
+                                    <span>Global learning pathways</span>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <i class="fas fa-check-circle text-green-300"></i>
+                                    <span>Academic vocabulary building</span>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <i class="fas fa-check-circle text-green-300"></i>
+                                    <span>Combine with ECD/IEP programs</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Key Features Section -->
+            <section class="py-20 bg-white">
+                <div class="container mx-auto px-6">
+                    <div class="text-center mb-16">
+                        <h2 class="section-title" data-aos="fade-up">Key Features</h2>
+                        <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">What makes our MEP / EP / IP
+                            Program effective</p>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Feature 1 -->
+                        <div class="feature-card" data-aos="fade-up">
+                            <div class="feature-icon bg-emerald-100 text-emerald-600">
+                                <i class="fas fa-chalkboard"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">English-Medium Instruction</h3>
+                            <p class="text-gray-600">Core subjects like Math, Science, and Computer taught entirely in
+                                English for immersive learning.</p>
+                        </div>
+
+                        <!-- Feature 2 -->
+                        <div class="feature-card" data-aos="fade-up" data-aos-delay="50">
+                            <div class="feature-icon bg-blue-100 text-blue-600">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">Expert Foreign Teachers</h3>
+                            <p class="text-gray-600">Experienced foreign teachers with subject knowledge deliver
+                                engaging lessons.</p>
+                        </div>
+
+                        <!-- Feature 3 -->
+                        <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                            <div class="feature-icon bg-purple-100 text-purple-600">
+                                <i class="fas fa-book"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">Academic Vocabulary</h3>
+                            <p class="text-gray-600">Strong emphasis on academic vocabulary and subject-specific English
+                                terminology.</p>
+                        </div>
+
+                        <!-- Feature 4 -->
+                        <div class="feature-card" data-aos="fade-up" data-aos-delay="150">
+                            <div class="feature-icon bg-orange-100 text-orange-600">
+                                <i class="fas fa-microscope"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">Hands-On Learning</h3>
+                            <p class="text-gray-600">Experiments, projects, and inquiry-based learning for practical
+                                understanding.</p>
+                        </div>
+
+                        <!-- Feature 5 -->
+                        <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                            <div class="feature-icon bg-cyan-100 text-cyan-600">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">Critical Thinking</h3>
+                            <p class="text-gray-600">Supports bilingual literacy and develops critical thinking skills
+                                for future success.</p>
+                        </div>
+
+                        <!-- Feature 6 -->
+                        <div class="feature-card" data-aos="fade-up" data-aos-delay="250">
+                            <div class="feature-icon bg-pink-100 text-pink-600">
+                                <i class="fas fa-puzzle-piece"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">Flexible Combination</h3>
+                            <p class="text-gray-600">Option to combine with standard English classes (ECD/IEP) for
+                                comprehensive learning.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Other Programs CTA -->
+            <section class="py-16 bg-gray-50">
+                <div class="container mx-auto px-6">
+                    <div class="text-center mb-10">
+                        <h2 class="text-3xl font-bold text-gray-900 mb-4" data-aos="fade-up">Explore Other Programs</h2>
+                        <p class="text-gray-600" data-aos="fade-up" data-aos-delay="100">Discover more academic programs
+                            we offer</p>
+                    </div>
+
+                    <div class="flex flex-wrap justify-center gap-4" data-aos="fade-up" data-aos-delay="200">
+                        <a href="../ecd-program/"
+                            class="px-8 py-4 bg-white rounded-full shadow-md hover:shadow-lg transition-all duration-300 flex items-center gap-3 font-semibold text-gray-700 hover:text-blue-600">
+                            <i class="fas fa-comments text-blue-600"></i>
+                            <span>ECD Program</span>
+                            <i class="fas fa-arrow-right text-gray-300"></i>
+                        </a>
+                        <a href="../iep-program/"
+                            class="px-8 py-4 bg-white rounded-full shadow-md hover:shadow-lg transition-all duration-300 flex items-center gap-3 font-semibold text-gray-700 hover:text-purple-600">
+                            <i class="fas fa-rocket text-purple-600"></i>
+                            <span>IEP Program</span>
+                            <i class="fas fa-arrow-right text-gray-300"></i>
+                        </a>
+                        <a href="../programs/"
+                            class="px-8 py-4 bg-white rounded-full shadow-md hover:shadow-lg transition-all duration-300 flex items-center gap-3 font-semibold text-gray-700 hover:text-emerald-600">
+                            <i class="fas fa-th-large text-emerald-600"></i>
+                            <span>All Programs</span>
+                            <i class="fas fa-arrow-right text-gray-300"></i>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CTA Section -->
+            <section class="py-20 bg-gradient-to-br from-slate-800 via-slate-900 to-gray-900 relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-full opacity-10">
+                    <div class="absolute top-10 left-10 w-40 h-40 bg-emerald-400 rounded-full blur-3xl"></div>
+                    <div class="absolute bottom-10 right-10 w-60 h-60 bg-cyan-400 rounded-full blur-3xl"></div>
+                </div>
+
+                <div class="container mx-auto px-6 relative z-10">
+                    <div class="text-center max-w-2xl mx-auto">
+                        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4" data-aos="fade-up">
+                            Ready to Get Started?
+                        </h2>
+                        <p class="text-gray-300 mb-8" data-aos="fade-up" data-aos-delay="100">
+                            Join our MEP / EP / IP Program and prepare your students for global learning pathways.
+                        </p>
+                        <div class="flex flex-wrap justify-center gap-4" data-aos="fade-up" data-aos-delay="200">
+                            <a href="../apply-now/"
+                                class="btn-primary px-8 py-4 rounded-full text-lg inline-flex items-center gap-2">
+                                <i class="fas fa-paper-plane"></i>
+                                <span>Apply Now</span>
+                            </a>
+                            <a href="../contact/"
+                                class="px-8 py-4 bg-white/10 border border-white/20 text-white rounded-full text-lg inline-flex items-center gap-2 hover:bg-white/20 transition-all">
+                                <i class="fas fa-envelope"></i>
+                                <span>Contact Us</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Shared Footer -->
+    <div id="shared-footer"></div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="../js/components.js"></script>
+    <script src="../js/script.js"></script>
+</body>
+
+</html>
