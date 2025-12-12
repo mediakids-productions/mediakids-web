@@ -230,6 +230,16 @@ const headerHTML = `
                         <a href="${basePath}contact/" class="mobile-menu-link nav-page">
                             <i class="fas fa-envelope"></i>Contact Us
                         </a>
+                        <div class="mobile-menu-divider"></div>
+                        <a href="${basePath}hr/" class="mobile-menu-link nav-page">
+                            <i class="fas fa-users"></i>Human Resources
+                        </a>
+                        <a href="${basePath}curriculum-consultants/" class="mobile-menu-link nav-page">
+                            <i class="fas fa-chalkboard-teacher"></i>Curriculum Consultants
+                        </a>
+                        <a href="${basePath}thai-consultants/" class="mobile-menu-link nav-page">
+                            <i class="fas fa-headset"></i>Thai Consultants
+                        </a>
                     </div>
                 </div>
 
