@@ -1,18 +1,21 @@
 // Detect base path for nested folders (e.g., /about/)
-const basePath = window.location.pathname.includes('/about/') ||
-    window.location.pathname.includes('/programs/') ||
-    window.location.pathname.includes('/schools/') ||
-    window.location.pathname.includes('/jobs/') ||
-    window.location.pathname.includes('/faq/') ||
-    window.location.pathname.includes('/contact/') ||
-    window.location.pathname.includes('/curriculum/') ||
-    window.location.pathname.includes('/activity/') ||
-    window.location.pathname.includes('/apply-now/') ||
-    window.location.pathname.includes('/hr/') ||
-    window.location.pathname.includes('/story/') ||
-    window.location.pathname.includes('/curriculum-consultants/') ||
-    window.location.pathname.includes('/thai-consultants/') ||
-    window.location.pathname.includes('/mission-vision/') ? '../' : '';
+const basePath = window.location.pathname.includes('/schools/central-area/') ||
+    window.location.pathname.includes('/schools/north-area/') ||
+    window.location.pathname.includes('/schools/esan-area/') ? '../../' :
+    (window.location.pathname.includes('/about/') ||
+        window.location.pathname.includes('/programs/') ||
+        window.location.pathname.includes('/schools/') ||
+        window.location.pathname.includes('/jobs/') ||
+        window.location.pathname.includes('/faq/') ||
+        window.location.pathname.includes('/contact/') ||
+        window.location.pathname.includes('/curriculum/') ||
+        window.location.pathname.includes('/activity/') ||
+        window.location.pathname.includes('/apply-now/') ||
+        window.location.pathname.includes('/hr/') ||
+        window.location.pathname.includes('/story/') ||
+        window.location.pathname.includes('/curriculum-consultants/') ||
+        window.location.pathname.includes('/thai-consultants/') ||
+        window.location.pathname.includes('/mission-vision/') ? '../' : '');
 
 const headerHTML = `
     <header id="main-header" class="fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-in-out h-[88px] bg-white/90 backdrop-blur-md border-b border-transparent">
@@ -105,8 +108,8 @@ const headerHTML = `
                     <div class="grid grid-cols-12 gap-8">
                         <div class="col-span-3 mm-col">
                             <span class="mm-header">Academic Programs</span>
-                            <a href="${basePath}programs/#programs-ecd" class="mm-link nav-page">ECD Program <span class="mm-sub-text">(3-6 Years)</span></a>
-                            <a href="${basePath}programs/#programs-iep" class="mm-link nav-page">IEP Program <span class="mm-sub-text">(Intensive)</span></a>
+                            <a href="${basePath}programs/#programs-ecd" class="mm-link nav-page">ECD Program</a>
+                            <a href="${basePath}programs/#programs-iep" class="mm-link nav-page">IEP Program</a>
                             <a href="${basePath}programs/#programs-ep-ip" class="mm-link nav-page">IP / EP / MEP Program</a>
                         </div>
                         <div class="col-span-3 border-l border-gray-100 pl-8 mm-col">
@@ -142,7 +145,7 @@ const headerHTML = `
                     <div class="grid grid-cols-12 gap-8">
                         <div class="col-span-3 mm-col">
                             <span class="mm-header">Regions</span>
-                            <span class="mm-link text-gray-600 cursor-default">Central Area</span>
+                            <a href="${basePath}schools/central-area/" class="mm-link nav-page">Central Area</a>
                             <span class="mm-link text-gray-600 cursor-default">North Area</span>
                             <span class="mm-link text-gray-600 cursor-default">Esan Area</span>
                         </div>

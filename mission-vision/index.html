@@ -150,6 +150,127 @@
             border-radius: 18px;
             padding: 32px;
         }
+
+        /* Preview card animations */
+        .preview-card {
+            position: relative;
+            transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .preview-card::before {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #3B82F6, #8B5CF6, #3B82F6);
+            background-size: 200% 200%;
+            animation: gradientShift 3s ease infinite;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+
+        .preview-card:hover::before {
+            opacity: 1;
+        }
+
+        .preview-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Icon box pulse animation */
+        .icon-box-pulse {
+            animation: iconPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes iconPulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4);
+            }
+
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 0 20px 5px rgba(59, 130, 246, 0.2);
+            }
+        }
+
+        .icon-box-pulse-purple {
+            animation: iconPulsePurple 2s ease-in-out infinite;
+            animation-delay: 0.5s;
+        }
+
+        @keyframes iconPulsePurple {
+
+            0%,
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(139, 92, 246, 0.4);
+            }
+
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 0 20px 5px rgba(139, 92, 246, 0.2);
+            }
+        }
+
+        /* Arrow bounce animation */
+        .arrow-bounce {
+            animation: arrowBounce 1.5s ease-in-out infinite;
+        }
+
+        @keyframes arrowBounce {
+
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+
+            50% {
+                transform: translateX(5px);
+            }
+        }
+
+        /* Shimmer effect on card */
+        .preview-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            animation: shimmer 3s ease-in-out infinite;
+            border-radius: 16px;
+        }
+
+        @keyframes shimmer {
+            0% {
+                left: -100%;
+            }
+
+            50%,
+            100% {
+                left: 100%;
+            }
+        }
     </style>
 </head>
 
@@ -194,26 +315,26 @@
                     <!-- Two preview cards -->
                     <div class="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="200">
                         <a href="#mission"
-                            class="hover-card bg-white rounded-2xl p-6 shadow-lg text-left flex items-center gap-4">
-                            <div class="icon-box bg-blue-100 text-blue-600">
+                            class="preview-card bg-white rounded-2xl p-6 shadow-lg text-left flex items-center gap-4 overflow-hidden">
+                            <div class="icon-box icon-box-pulse bg-blue-100 text-blue-600">
                                 <i class="fas fa-bullseye"></i>
                             </div>
                             <div>
                                 <h3 class="font-bold text-gray-900">Mission</h3>
                                 <p class="text-gray-500 text-sm">Our purpose today</p>
                             </div>
-                            <i class="fas fa-arrow-right text-gray-300 ml-auto"></i>
+                            <i class="fas fa-arrow-right text-blue-500 ml-auto arrow-bounce"></i>
                         </a>
                         <a href="#vision"
-                            class="hover-card bg-white rounded-2xl p-6 shadow-lg text-left flex items-center gap-4">
-                            <div class="icon-box bg-purple-100 text-purple-600">
+                            class="preview-card bg-white rounded-2xl p-6 shadow-lg text-left flex items-center gap-4 overflow-hidden">
+                            <div class="icon-box icon-box-pulse-purple bg-purple-100 text-purple-600">
                                 <i class="fas fa-eye"></i>
                             </div>
                             <div>
                                 <h3 class="font-bold text-gray-900">Vision</h3>
                                 <p class="text-gray-500 text-sm">Our future direction</p>
                             </div>
-                            <i class="fas fa-arrow-right text-gray-300 ml-auto"></i>
+                            <i class="fas fa-arrow-right text-purple-500 ml-auto arrow-bounce"></i>
                         </a>
                     </div>
                 </div>
