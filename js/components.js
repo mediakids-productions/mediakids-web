@@ -37,6 +37,7 @@ else if (path.includes('/about/') ||
     path.includes('/english-camps/') ||
     path.includes('/mediakids-awards/') ||
     path.includes('/summer-camp-canada/') ||
+    path.includes('/teach-and-earn/') ||
     path.includes('/about/') ||
     path.includes('/programs/') ||
     path.includes('/blogs/')) {
@@ -378,7 +379,13 @@ function loadComponents() {
         }
     });
 
-    // 3. Dispatch Event (CRITICAL for script.js)
+    // 3. Load Analytics Script
+    const analyticsScript = document.createElement('script');
+    analyticsScript.src = basePath + 'js/analytics.js';
+    analyticsScript.async = true;
+    document.body.appendChild(analyticsScript);
+
+    // 4. Dispatch Event (CRITICAL for script.js)
     console.log("Components loaded. Dispatching event...");
     document.dispatchEvent(new Event('componentsLoaded'));
 }
