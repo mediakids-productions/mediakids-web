@@ -13,7 +13,8 @@ if (path.includes('/schools/central-area/') ||
 // Level 2 deep: ../../
 else if (path.includes('/curriculum/sem1/') ||
     path.includes('/curriculum/sem2/') ||
-    path.includes('/blogs/top-10-myths/')) {
+    path.includes('/blogs/top-10-myths/') ||
+    path.includes('/teach-and-earn/apply/')) {
     basePath = '../../';
 }
 // Level 1 deep: ../
