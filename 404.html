@@ -12,6 +12,16 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self';
+        img-src 'self' data:;
+        font-src 'self' https://fonts.gstatic.com;
+        style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+        script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://www.googletagmanager.com https://www.google-analytics.com;
+        connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com;
+        frame-ancestors 'self';
+        upgrade-insecure-requests">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
     <title>404 - Page Not Found | MediaKids Academy</title>
     <link rel="icon" type="image/png" sizes="32x32" href="assets/images/icons/logo.png">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -32,7 +42,7 @@
         <p class="text-gray-600 mb-8 max-w-md mx-auto">
             ขออภัย ไม่พบหน้าที่คุณต้องการ หน้านี้อาจถูกย้ายหรือลบไปแล้ว
         </p>
-        <a href="index.html"
+        <a href="./"
             class="inline-block bg-blue-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-blue-700 transition-colors duration-300 shadow-lg hover:shadow-xl">
             กลับหน้าแรก
         </a>

@@ -48,8 +48,8 @@ else if (path.includes('/about/') ||
 const headerHTML = `
     <header id="main-header" class="fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-in-out h-[88px] bg-white/90 backdrop-blur-md border-b border-transparent">
         <nav id="nav-container" class="container mx-auto px-6 flex justify-between items-stretch transition-all duration-300 relative z-50 h-full">
-            <a href="${basePath}index.html" class="nav-logo menu-close-trigger flex items-center space-x-3 py-4 relative z-50">
-                <img id="logo-image" src="${basePath}assets/images/icons/google-drive-image-17.jpg" data-drive-src="${basePath}assets/images/icons/google-drive-image-1.jpg" alt="MediaKids Academy Logo" class="h-10 w-auto" loading="lazy" referrerpolicy="no-referrer" />
+            <a href="${basePath}" class="nav-logo menu-close-trigger flex items-center space-x-3 py-4 relative z-50">
+                <img id="logo-image" src="${basePath}assets/images/icons/logo.png" alt="MediaKids Academy Logo" class="h-10 w-auto" loading="lazy" />
                 <span class="text-3xl font-bold accent-text">
                     MediaKids<span class="text-gray-800"> Academy</span>
                 </span>
@@ -201,7 +201,7 @@ const headerHTML = `
         <div class="mobile-menu-panel">
             <!-- Header with Close Button -->
             <div class="mobile-menu-header">
-                <a href="${basePath}index.html" class="text-2xl font-bold text-blue-600">MediaKids<span class="text-gray-800"> Academy</span></a>
+                <a href="${basePath}" class="text-2xl font-bold text-blue-600">MediaKids<span class="text-gray-800"> Academy</span></a>
                 <button id="mobile-menu-close" class="mobile-menu-close" aria-label="Close menu">
                     <i class="fas fa-times"></i>
                 </button>
@@ -325,7 +325,7 @@ const footerHTML = `
         <div class="container mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
                 <div class="space-y-4">
-                    <a href="${basePath}index.html" class="nav-logo text-3xl font-bold text-blue-400 block mb-4">MediaKids<span class="text-white"> Academy</span></a>
+                    <a href="${basePath}" class="nav-logo text-3xl font-bold text-blue-400 block mb-4">MediaKids<span class="text-white"> Academy</span></a>
                     <p class="text-gray-400 text-sm leading-relaxed">Empowering education in Thailand since 2001. Connecting passionate teachers with schools nationwide to create a brighter future.</p>
                     <div class="flex space-x-4 pt-2">
                         <a href="https://www.facebook.com/share/1DsygETo3J/?mibextid=wwXIfr" target="_blank" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-600 transition-colors"><i class="fab fa-facebook-f"></i></a>
