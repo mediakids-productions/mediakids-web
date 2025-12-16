@@ -161,6 +161,11 @@
             color: #1e40af;
         }
 
+        .province-loei {
+            background: linear-gradient(135deg, #e0f2fe, #bae6fd);
+            color: #0284c7;
+        }
+
         .province-mahasarakam {
             background: linear-gradient(135deg, #ede9fe, #ddd6fe);
             color: #5b21b6;
@@ -217,6 +222,10 @@
 
         .dot-khonkaen {
             background: #3b82f6;
+        }
+
+        .dot-loei {
+            background: #0ea5e9;
         }
 
         .dot-mahasarakam {
@@ -298,11 +307,11 @@
                     <!-- Stats -->
                     <div class="grid grid-cols-2 gap-4 max-w-md mx-auto" data-aos="fade-up" data-aos-delay="200">
                         <div class="stat-card">
-                            <div class="text-3xl font-extrabold text-orange-500 mb-1">12</div>
+                            <div class="text-3xl font-extrabold text-orange-500 mb-1">13</div>
                             <div class="text-gray-500 text-sm">Provinces</div>
                         </div>
                         <div class="stat-card">
-                            <div class="text-3xl font-extrabold text-amber-600 mb-1">22</div>
+                            <div class="text-3xl font-extrabold text-amber-600 mb-1">33</div>
                             <div class="text-gray-500 text-sm">Schools</div>
                         </div>
                     </div>
@@ -348,8 +357,12 @@
                                 </div>
                                 <div>
                                     <h3 class="text-xl font-bold text-gray-900">Chaiyaphum</h3>
-                                    <p class="text-gray-500 text-sm">2 Schools</p>
+                                    <p class="text-gray-500 text-sm">6 Schools</p>
                                 </div>
+                            </div>
+                            <div class="school-item">
+                                <div class="school-dot dot-chaiyaphum"></div>
+                                <span class="text-gray-700">Anubanchaiyaphum School</span>
                             </div>
                             <div class="school-item">
                                 <div class="school-dot dot-chaiyaphum"></div>
@@ -358,6 +371,18 @@
                             <div class="school-item">
                                 <div class="school-dot dot-chaiyaphum"></div>
                                 <span class="text-gray-700">Kaengkhrowittaya School</span>
+                            </div>
+                            <div class="school-item">
+                                <div class="school-dot dot-chaiyaphum"></div>
+                                <span class="text-gray-700">Phukhieo School</span>
+                            </div>
+                            <div class="school-item">
+                                <div class="school-dot dot-chaiyaphum"></div>
+                                <span class="text-gray-700">Phumwittaya School</span>
+                            </div>
+                            <div class="school-item">
+                                <div class="school-dot dot-chaiyaphum"></div>
+                                <span class="text-gray-700">Satrichaiyaphum School</span>
                             </div>
                         </div>
 
@@ -369,12 +394,12 @@
                                 </div>
                                 <div>
                                     <h3 class="text-xl font-bold text-gray-900">Khon Kaen</h3>
-                                    <p class="text-gray-500 text-sm">3 Schools</p>
+                                    <p class="text-gray-500 text-sm">4 Schools</p>
                                 </div>
                             </div>
                             <div class="school-item">
                                 <div class="school-dot dot-khonkaen"></div>
-                                <span class="text-gray-700">Amata Wittaya School</span>
+                                <span class="text-gray-700">Amata wittaya School</span>
                             </div>
                             <div class="school-item">
                                 <div class="school-dot dot-khonkaen"></div>
@@ -382,33 +407,62 @@
                             </div>
                             <div class="school-item">
                                 <div class="school-dot dot-khonkaen"></div>
-                                <span class="text-gray-700">Manchakhiri Wittaya School</span>
+                                <span class="text-gray-700">Mancha Suksa School</span>
+                            </div>
+                            <div class="school-item">
+                                <div class="school-dot dot-khonkaen"></div>
+                                <span class="text-gray-700">Montrisuksa School</span>
+                            </div>
+                        </div>
+
+                        <!-- Loei (NEW) -->
+                        <div class="province-card" data-aos="fade-up" data-aos-delay="150">
+                            <div class="province-header">
+                                <div class="province-icon province-loei">
+                                    <i class="fas fa-mountain"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold text-gray-900">Loei</h3>
+                                    <p class="text-gray-500 text-sm">1 School</p>
+                                </div>
+                            </div>
+                            <div class="school-item">
+                                <div class="school-dot dot-loei"></div>
+                                <span class="text-gray-700">Anubanloei School</span>
                             </div>
                         </div>
 
                         <!-- Maha Sarakam -->
-                        <div class="province-card" data-aos="fade-up" data-aos-delay="150">
+                        <div class="province-card" data-aos="fade-up" data-aos-delay="200">
                             <div class="province-header">
                                 <div class="province-icon province-mahasarakam">
                                     <i class="fas fa-graduation-cap"></i>
                                 </div>
                                 <div>
                                     <h3 class="text-xl font-bold text-gray-900">Maha Sarakam</h3>
-                                    <p class="text-gray-500 text-sm">2 Schools</p>
+                                    <p class="text-gray-500 text-sm">4 Schools</p>
                                 </div>
                             </div>
                             <div class="school-item">
                                 <div class="school-dot dot-mahasarakam"></div>
-                                <span class="text-gray-700">Nachuakpittayasarn School</span>
+                                <span class="text-gray-700">Anuban Mahasarakam School</span>
                             </div>
                             <div class="school-item">
                                 <div class="school-dot dot-mahasarakam"></div>
-                                <span class="text-gray-700">Sarakham Pittayakom School</span>
+                                <span class="text-gray-700">Nachuakpittayasan School</span>
+                            </div>
+                            <div class="school-item">
+                                <div class="school-dot dot-mahasarakam"></div>
+                                <span class="text-gray-700">Phayakkaphumwittayakarn School</span>
+                            </div>
+                            <div class="school-item">
+                                <div class="school-dot dot-mahasarakam"></div>
+                                <span class="text-gray-700">Sarakharmpittayakom School</span>
                             </div>
                         </div>
 
                         <!-- Mukdahan -->
-                        <div class="province-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="province-card" data-aos="fade-up" data-aos-delay="250">
                             <div class="province-header">
                                 <div class="province-icon province-mukdahan">
                                     <i class="fas fa-water"></i>
@@ -425,7 +479,7 @@
                         </div>
 
                         <!-- Nakhon Ratchasima -->
-                        <div class="province-card" data-aos="fade-up" data-aos-delay="250">
+                        <div class="province-card" data-aos="fade-up" data-aos-delay="300">
                             <div class="province-header">
                                 <div class="province-icon province-nakhonratchasima">
                                     <i class="fas fa-monument"></i>
@@ -437,7 +491,7 @@
                             </div>
                             <div class="school-item">
                                 <div class="school-dot dot-nakhonratchasima"></div>
-                                <span class="text-gray-700">Nonthaikhuruk School</span>
+                                <span class="text-gray-700">Nonthaikhuruuppatham School</span>
                             </div>
                             <div class="school-item">
                                 <div class="school-dot dot-nakhonratchasima"></div>
@@ -446,14 +500,14 @@
                         </div>
 
                         <!-- Nong Khai -->
-                        <div class="province-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="province-card" data-aos="fade-up" data-aos-delay="350">
                             <div class="province-header">
                                 <div class="province-icon province-nongkhai">
                                     <i class="fas fa-bridge"></i>
                                 </div>
                                 <div>
                                     <h3 class="text-xl font-bold text-gray-900">Nong Khai</h3>
-                                    <p class="text-gray-500 text-sm">2 Schools</p>
+                                    <p class="text-gray-500 text-sm">4 Schools</p>
                                 </div>
                             </div>
                             <div class="school-item">
@@ -462,12 +516,20 @@
                             </div>
                             <div class="school-item">
                                 <div class="school-dot dot-nongkhai"></div>
+                                <span class="text-gray-700">Nongkhaiwittayakarn School</span>
+                            </div>
+                            <div class="school-item">
+                                <div class="school-dot dot-nongkhai"></div>
                                 <span class="text-gray-700">Pathumthepwittayakarn School</span>
+                            </div>
+                            <div class="school-item">
+                                <div class="school-dot dot-nongkhai"></div>
+                                <span class="text-gray-700">Tessaban 2 Chamnan Anukhro School</span>
                             </div>
                         </div>
 
                         <!-- Roi Et -->
-                        <div class="province-card" data-aos="fade-up" data-aos-delay="350">
+                        <div class="province-card" data-aos="fade-up" data-aos-delay="400">
                             <div class="province-header">
                                 <div class="province-icon province-roiet">
                                     <i class="fas fa-seedling"></i>
@@ -479,23 +541,23 @@
                             </div>
                             <div class="school-item">
                                 <div class="school-dot dot-roiet"></div>
-                                <span class="text-gray-700">Roi-Et Wittayalai School</span>
+                                <span class="text-gray-700">Roi-Et Wittyalai School</span>
                             </div>
                             <div class="school-item">
                                 <div class="school-dot dot-roiet"></div>
-                                <span class="text-gray-700">Suwannapum Pittayapaisan School</span>
+                                <span class="text-gray-700">Suwannapum Pittayapaisarn School</span>
                             </div>
                         </div>
 
                         <!-- Sakon Nakhon -->
-                        <div class="province-card" data-aos="fade-up" data-aos-delay="400">
+                        <div class="province-card" data-aos="fade-up" data-aos-delay="450">
                             <div class="province-header">
                                 <div class="province-icon province-sakonnakhon">
                                     <i class="fas fa-fish"></i>
                                 </div>
                                 <div>
                                     <h3 class="text-xl font-bold text-gray-900">Sakon Nakhon</h3>
-                                    <p class="text-gray-500 text-sm">2 Schools</p>
+                                    <p class="text-gray-500 text-sm">3 Schools</p>
                                 </div>
                             </div>
                             <div class="school-item">
@@ -506,10 +568,14 @@
                                 <div class="school-dot dot-sakonnakhon"></div>
                                 <span class="text-gray-700">Sawangdaendin School</span>
                             </div>
+                            <div class="school-item">
+                                <div class="school-dot dot-sakonnakhon"></div>
+                                <span class="text-gray-700">Triam Udom Suksa School Of The Northeast</span>
+                            </div>
                         </div>
 
                         <!-- Si Sa Ket -->
-                        <div class="province-card" data-aos="fade-up" data-aos-delay="450">
+                        <div class="province-card" data-aos="fade-up" data-aos-delay="500">
                             <div class="province-header">
                                 <div class="province-icon province-sisaket">
                                     <i class="fas fa-pagelines"></i>
@@ -526,7 +592,7 @@
                         </div>
 
                         <!-- Ubon Ratchathani -->
-                        <div class="province-card" data-aos="fade-up" data-aos-delay="500">
+                        <div class="province-card" data-aos="fade-up" data-aos-delay="550">
                             <div class="province-header">
                                 <div class="province-icon province-ubonratchathani">
                                     <i class="fas fa-dharmachakra"></i>
@@ -538,12 +604,12 @@
                             </div>
                             <div class="school-item">
                                 <div class="school-dot dot-ubonratchathani"></div>
-                                <span class="text-gray-700">Khuangnai Pittayakarn School</span>
+                                <span class="text-gray-700">Khuangnaipittayakarn School</span>
                             </div>
                         </div>
 
                         <!-- Udon Thani -->
-                        <div class="province-card" data-aos="fade-up" data-aos-delay="550">
+                        <div class="province-card" data-aos="fade-up" data-aos-delay="600">
                             <div class="province-header">
                                 <div class="province-icon province-udonthani">
                                     <i class="fas fa-sun"></i>
