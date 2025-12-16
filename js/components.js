@@ -2,11 +2,14 @@
 let basePath = '';
 const path = window.location.pathname;
 
-// Level 3 deep: ../../../
+// Level 3 deep: ../../ (schools areas are inside /schools/xxx-area/)
 if (path.includes('/schools/central-area/') ||
     path.includes('/schools/north-area/') ||
-    path.includes('/schools/esan-area/') ||
-    path.includes('/curriculum/sem1/ecd/') ||
+    path.includes('/schools/esan-area/')) {
+    basePath = '../../';
+}
+// Level 4 deep: ../../../ (curriculum pages are inside /curriculum/semX/ecd/)
+else if (path.includes('/curriculum/sem1/ecd/') ||
     path.includes('/curriculum/sem2/ecd/')) {
     basePath = '../../../';
 }
