@@ -192,68 +192,554 @@
                     </div>
                 </div>
             </section>
-            <section id="programs" class="py-20 bg-gray-50">
+            <section id="programs" class="py-20 bg-gray-100">
                 <div class="container mx-auto px-6">
-                    <div class="text-center mb-12">
-                        <h2 class="section-title">What We Offer</h2>
-                        <p class="section-subtitle">Comprehensive services to support your teaching journey from start
-                            to finish.</p>
+                    <!-- Header -->
+                    <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-12" data-aos="fade-up">
+                        <div>
+                            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
+                                What We Offer
+                            </h2>
+                        </div>
+                        <a href="teach-and-earn/"
+                            class="text-blue-600 hover:text-blue-700 font-medium mt-4 md:mt-0 flex items-center gap-1 group">
+                            Learn More
+                            <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
+                                </path>
+                            </svg>
+                        </a>
                     </div>
-                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                        <div class="program-card relative rounded-2xl shadow-xl overflow-hidden" data-aos="fade-up"><img
-                                src="assets/images/general/mk17.webp"
-                                class="program-card-image w-full h-full object-cover absolute inset-0">
-                            <div
-                                class="program-card-content absolute inset-0 bg-gradient-to-t from-blue-900/90 to-transparent p-6 flex flex-col justify-end text-white">
-                                <div class="mb-4"><i class="fas fa-file-alt text-3xl mb-2 text-blue-300"></i>
-                                    <h3 class="text-xl font-bold">Visa & Work Permit</h3>
+
+                    <!-- Horizontal Scroll Container -->
+                    <div class="offer-scroll-wrapper" data-aos="fade-up">
+                        <div class="offer-scroll-container" id="offerScrollContainer">
+                            <!-- Card 1: Unique Locations -->
+                            <div class="offer-card" data-card="1">
+                                <div class="offer-icon">
+                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="1.5">
+                                        <path
+                                            d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+                                        <circle cx="12" cy="9" r="2.5" />
+                                    </svg>
                                 </div>
-                                <p
-                                    class="text-blue-100 opacity-70 group-hover:opacity-100 transition-opacity duration-300">
-                                    Full support from pre-departure paperwork to your first class.</p>
+                                <h3 class="offer-title">Unique Locations</h3>
+                                <p class="offer-desc">Kindergarten, primary, and secondary schools throughout Thailand.
+                                </p>
+                                <button class="offer-btn" onclick="openOfferModal(1)"
+                                    aria-label="Learn more about Unique Locations">
+                                    <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
+                                        <path d="M6 0v12M0 6h12" stroke="currentColor" stroke-width="2" fill="none" />
+                                    </svg>
+                                </button>
+                            </div>
+
+                            <!-- Card 2: Free Training -->
+                            <div class="offer-card" data-card="2">
+                                <div class="offer-icon">
+                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="1.5">
+                                        <path d="M12 3L1 9l11 6 9-4.91V17M5 13.18v4L12 21l7-3.82v-4" />
+                                    </svg>
+                                </div>
+                                <h3 class="offer-title">Free Professional Training</h3>
+                                <p class="offer-desc">Orientation including Thai language basics and cultural immersion.
+                                </p>
+                                <button class="offer-btn" onclick="openOfferModal(2)"
+                                    aria-label="Learn more about Free Training">
+                                    <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
+                                        <path d="M6 0v12M0 6h12" stroke="currentColor" stroke-width="2" fill="none" />
+                                    </svg>
+                                </button>
+                            </div>
+
+                            <!-- Card 3: Document Assistance -->
+                            <div class="offer-card" data-card="3">
+                                <div class="offer-icon">
+                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="1.5">
+                                        <rect x="3" y="4" width="18" height="16" rx="2" />
+                                        <path d="M7 8h10M7 12h6" />
+                                        <circle cx="17" cy="14" r="2" />
+                                    </svg>
+                                </div>
+                                <h3 class="offer-title">Document Assistance</h3>
+                                <p class="offer-desc">Working documents support and partial reimbursement towards work
+                                    visa costs.</p>
+                                <button class="offer-btn" onclick="openOfferModal(3)"
+                                    aria-label="Learn more about Document Assistance">
+                                    <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
+                                        <path d="M6 0v12M0 6h12" stroke="currentColor" stroke-width="2" fill="none" />
+                                    </svg>
+                                </button>
+                            </div>
+
+                            <!-- Card 4: Thai Consultant -->
+                            <div class="offer-card" data-card="4">
+                                <div class="offer-icon">
+                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="1.5">
+                                        <circle cx="12" cy="7" r="4" />
+                                        <path d="M5.5 21a6.5 6.5 0 0 1 13 0" />
+                                        <path d="M16 11l2 2 4-4" />
+                                    </svg>
+                                </div>
+                                <h3 class="offer-title">Thai Consultant Support</h3>
+                                <p class="offer-desc">Dedicated Thai consultant available to assist you throughout your
+                                    journey.</p>
+                                <button class="offer-btn" onclick="openOfferModal(4)"
+                                    aria-label="Learn more about Thai Consultant">
+                                    <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
+                                        <path d="M6 0v12M0 6h12" stroke="currentColor" stroke-width="2" fill="none" />
+                                    </svg>
+                                </button>
+                            </div>
+
+                            <!-- Card 5: Curriculum Consultant -->
+                            <div class="offer-card" data-card="5">
+                                <div class="offer-icon">
+                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="1.5">
+                                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+                                        <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
+                                        <path d="M12 7v10M9 12h6" />
+                                    </svg>
+                                </div>
+                                <h3 class="offer-title">Curriculum Consultant</h3>
+                                <p class="offer-desc">Expert guidance on lesson planning and teaching methodology.</p>
+                                <button class="offer-btn" onclick="openOfferModal(5)"
+                                    aria-label="Learn more about Curriculum Consultant">
+                                    <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
+                                        <path d="M6 0v12M0 6h12" stroke="currentColor" stroke-width="2" fill="none" />
+                                    </svg>
+                                </button>
+                            </div>
+
+                            <!-- Card 6: Accident Insurance -->
+                            <div class="offer-card" data-card="6">
+                                <div class="offer-icon">
+                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="1.5">
+                                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                                        <path d="M9 12l2 2 4-4" />
+                                    </svg>
+                                </div>
+                                <h3 class="offer-title">Accident Insurance</h3>
+                                <p class="offer-desc">Comprehensive accident insurance coverage for your peace of mind.
+                                </p>
+                                <button class="offer-btn" onclick="openOfferModal(6)"
+                                    aria-label="Learn more about Accident Insurance">
+                                    <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
+                                        <path d="M6 0v12M0 6h12" stroke="currentColor" stroke-width="2" fill="none" />
+                                    </svg>
+                                </button>
+                            </div>
+
+                            <!-- Card 7: Accommodation -->
+                            <div class="offer-card" data-card="7">
+                                <div class="offer-icon">
+                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="1.5">
+                                        <path d="M3 21h18M5 21V7l7-4 7 4v14" />
+                                        <path d="M9 21v-6h6v6" />
+                                        <path d="M9 9h.01M15 9h.01M9 13h.01M15 13h.01" />
+                                    </svg>
+                                </div>
+                                <h3 class="offer-title">Accommodation Assistance</h3>
+                                <p class="offer-desc">Help finding quality, affordable housing near your school.</p>
+                                <button class="offer-btn" onclick="openOfferModal(7)"
+                                    aria-label="Learn more about Accommodation">
+                                    <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
+                                        <path d="M6 0v12M0 6h12" stroke="currentColor" stroke-width="2" fill="none" />
+                                    </svg>
+                                </button>
+                            </div>
+
+                            <!-- Card 8: Full Curriculum -->
+                            <div class="offer-card" data-card="8">
+                                <div class="offer-icon">
+                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="1.5">
+                                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+                                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+                                        <path d="M8 7h8M8 11h8M8 15h4" />
+                                    </svg>
+                                </div>
+                                <h3 class="offer-title">Full Curriculum</h3>
+                                <p class="offer-desc">Complete curriculum inclusive of textbooks and course plans.</p>
+                                <button class="offer-btn" onclick="openOfferModal(8)"
+                                    aria-label="Learn more about Full Curriculum">
+                                    <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
+                                        <path d="M6 0v12M0 6h12" stroke="currentColor" stroke-width="2" fill="none" />
+                                    </svg>
+                                </button>
                             </div>
                         </div>
-                        <div class="program-card relative rounded-2xl shadow-xl overflow-hidden" data-aos="fade-up"
-                            data-aos-delay="100"><img src="assets/images/general/mk5.webp"
-                                class="program-card-image w-full h-full object-cover absolute inset-0">
-                            <div
-                                class="program-card-content absolute inset-0 bg-gradient-to-t from-orange-900/90 to-transparent p-6 flex flex-col justify-end text-white">
-                                <div class="mb-4"><i class="fas fa-graduation-cap text-3xl mb-2 text-orange-300"></i>
-                                    <h3 class="text-xl font-bold">Training + Orientation</h3>
-                                </div>
-                                <p
-                                    class="text-orange-100 opacity-70 group-hover:opacity-100 transition-opacity duration-300">
-                                    Hands-on workshops, classroom management, and Thai culture.</p>
-                            </div>
-                        </div>
-                        <div class="program-card relative rounded-2xl shadow-xl overflow-hidden" data-aos="fade-up"
-                            data-aos-delay="200"><img src="assets/images/general/mk2.webp"
-                                class="program-card-image w-full h-full object-cover absolute inset-0">
-                            <div
-                                class="program-card-content absolute inset-0 bg-gradient-to-t from-indigo-900/90 to-transparent p-6 flex flex-col justify-end text-white">
-                                <div class="mb-4"><i class="fas fa-home text-3xl mb-2 text-indigo-300"></i>
-                                    <h3 class="text-xl font-bold">Housing Support</h3>
-                                </div>
-                                <p
-                                    class="text-indigo-100 opacity-70 group-hover:opacity-100 transition-opacity duration-300">
-                                    We help connect and find quality accommodation for you.</p>
-                            </div>
-                        </div>
-                        <div class="program-card relative rounded-2xl shadow-xl overflow-hidden" data-aos="fade-up"
-                            data-aos-delay="300"><img src="assets/images/general/mk9.webp"
-                                class="program-card-image w-full h-full object-cover absolute inset-0">
-                            <div
-                                class="program-card-content absolute inset-0 bg-gradient-to-t from-amber-900/90 to-transparent p-6 flex flex-col justify-end text-white">
-                                <div class="mb-4"><i class="fas fa-headset text-3xl mb-2 text-amber-300"></i>
-                                    <h3 class="text-xl font-bold">Thai Consultant</h3>
-                                </div>
-                                <p
-                                    class="text-amber-100 opacity-70 group-hover:opacity-100 transition-opacity duration-300">
-                                    Dedicated Thai consultant with rapid-response hotline.</p>
-                            </div>
-                        </div>
+                    </div>
+
+                    <!-- Navigation Arrows -->
+                    <div class="flex justify-end mt-8 gap-3" data-aos="fade-up">
+                        <button class="offer-nav-btn" id="offerPrevBtn" onclick="scrollOfferCards(-1)"
+                            aria-label="Previous">
+                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M8 2L4 6l4 4" />
+                            </svg>
+                        </button>
+                        <button class="offer-nav-btn" id="offerNextBtn" onclick="scrollOfferCards(1)" aria-label="Next">
+                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M4 2l4 4-4 4" />
+                            </svg>
+                        </button>
                     </div>
                 </div>
+
+                <!-- Modal -->
+                <div id="offerModal" class="offer-modal" onclick="closeOfferModal(event)">
+                    <div class="offer-modal-content" onclick="event.stopPropagation()">
+                        <button class="offer-modal-close" onclick="closeOfferModal()" aria-label="Close">
+                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M1 1l12 12M13 1L1 13" />
+                            </svg>
+                        </button>
+                        <p class="offer-modal-category" id="modalCategory"></p>
+                        <h3 class="offer-modal-title" id="modalTitle"></h3>
+                        <p class="offer-modal-desc" id="modalDesc"></p>
+                    </div>
+                </div>
+
+                <style>
+                    /* Offer Section - Apple Style */
+                    .offer-scroll-wrapper {
+                        position: relative;
+                        margin: 0 -1.5rem;
+                        padding: 0 1.5rem;
+                    }
+
+                    .offer-scroll-container {
+                        display: flex;
+                        gap: 1.25rem;
+                        overflow-x: auto;
+                        scroll-behavior: smooth;
+                        scrollbar-width: none;
+                        -ms-overflow-style: none;
+                        padding: 0.5rem 0;
+                    }
+
+                    .offer-scroll-container::-webkit-scrollbar {
+                        display: none;
+                    }
+
+                    .offer-card {
+                        background: #ffffff;
+                        border-radius: 20px;
+                        padding: 2rem 2rem 3.5rem 2rem;
+                        min-width: 320px;
+                        max-width: 320px;
+                        min-height: 340px;
+                        display: flex;
+                        flex-direction: column;
+                        position: relative;
+                        transition: all 0.3s ease;
+                        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+                        flex-shrink: 0;
+                    }
+
+                    .offer-card:hover {
+                        transform: translateY(-4px);
+                        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+                    }
+
+                    .offer-icon {
+                        width: 56px;
+                        height: 56px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        color: #1d1d1f;
+                        margin-bottom: 1.5rem;
+                    }
+
+                    .offer-icon svg {
+                        width: 40px;
+                        height: 40px;
+                        stroke-linecap: round;
+                        stroke-linejoin: round;
+                    }
+
+                    .offer-title {
+                        font-size: 1.5rem;
+                        font-weight: 600;
+                        color: #1d1d1f;
+                        margin-bottom: 1rem;
+                        line-height: 1.35;
+                    }
+
+                    .offer-desc {
+                        font-size: 1rem;
+                        color: #86868b;
+                        line-height: 1.7;
+                        flex-grow: 1;
+                    }
+
+                    .offer-btn {
+                        position: absolute;
+                        bottom: 1.25rem;
+                        right: 1.25rem;
+                        width: 32px;
+                        height: 32px;
+                        border-radius: 50%;
+                        background: #e8e8ed;
+                        border: none;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        color: #1d1d1f;
+                        cursor: pointer;
+                        transition: all 0.2s ease;
+                    }
+
+                    .offer-card:hover .offer-btn {
+                        background: #0071e3;
+                        color: white;
+                    }
+
+                    .offer-nav-btn {
+                        width: 36px;
+                        height: 36px;
+                        border-radius: 50%;
+                        background: #e8e8ed;
+                        border: none;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        color: #1d1d1f;
+                        cursor: pointer;
+                        transition: all 0.2s ease;
+                    }
+
+                    .offer-nav-btn:hover {
+                        background: #d2d2d7;
+                    }
+
+                    .offer-nav-btn:disabled {
+                        opacity: 0.4;
+                        cursor: not-allowed;
+                    }
+
+                    /* Modal Styles */
+                    .offer-modal {
+                        display: none;
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background: rgba(0, 0, 0, 0.3);
+                        backdrop-filter: blur(8px);
+                        -webkit-backdrop-filter: blur(8px);
+                        z-index: 9999;
+                        align-items: center;
+                        justify-content: center;
+                        padding: 1.5rem;
+                        opacity: 0;
+                        transition: opacity 0.3s ease;
+                    }
+
+                    .offer-modal.active {
+                        display: flex;
+                        opacity: 1;
+                    }
+
+                    .offer-modal-content {
+                        background: #ffffff;
+                        border-radius: 24px;
+                        padding: 3rem 3rem 2.5rem 3rem;
+                        max-width: 640px;
+                        width: 100%;
+                        position: relative;
+                        box-shadow: 0 25px 80px rgba(0, 0, 0, 0.2);
+                        transform: scale(0.95);
+                        transition: transform 0.3s ease;
+                    }
+
+                    .offer-modal.active .offer-modal-content {
+                        transform: scale(1);
+                    }
+
+                    .offer-modal-close {
+                        position: absolute;
+                        top: 1.25rem;
+                        right: 1.25rem;
+                        width: 32px;
+                        height: 32px;
+                        border-radius: 50%;
+                        background: #f5f5f7;
+                        border: none;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        color: #86868b;
+                        cursor: pointer;
+                        transition: all 0.2s ease;
+                    }
+
+                    .offer-modal-close:hover {
+                        background: #e8e8ed;
+                        color: #1d1d1f;
+                    }
+
+                    .offer-modal-category {
+                        font-size: 1rem;
+                        color: #f56300;
+                        font-weight: 500;
+                        margin-bottom: 1rem;
+                    }
+
+                    .offer-modal-title {
+                        font-size: 2.25rem;
+                        font-weight: 700;
+                        color: #1d1d1f;
+                        line-height: 1.25;
+                        margin-bottom: 1.25rem;
+                    }
+
+                    .offer-modal-desc {
+                        font-size: 1.125rem;
+                        color: #515154;
+                        line-height: 1.75;
+                    }
+
+                    @media (max-width: 768px) {
+                        .offer-card {
+                            min-width: 290px;
+                            max-width: 290px;
+                            min-height: 300px;
+                            padding: 1.75rem 1.75rem 3rem 1.75rem;
+                        }
+
+                        .offer-icon svg {
+                            width: 36px;
+                            height: 36px;
+                        }
+
+                        .offer-title {
+                            font-size: 1.35rem;
+                        }
+
+                        .offer-modal-content {
+                            padding: 2.5rem 2rem 2rem 2rem;
+                        }
+
+                        .offer-modal-title {
+                            font-size: 1.75rem;
+                        }
+
+                        .offer-modal-desc {
+                            font-size: 1rem;
+                        }
+                    }
+                </style>
+
+                <script>
+                    // Offer Cards Data
+                    const offerData = {
+                        1: {
+                            category: "Teaching Locations",
+                            title: "Unique Locations",
+                            desc: "Teach in diverse settings across Thailand - from kindergartens nurturing young minds, to primary schools building foundations, to secondary schools preparing students for the future. Experience the rich culture and warm hospitality of Thai communities while making a real difference in students' lives."
+                        },
+                        2: {
+                            category: "Professional Development",
+                            title: "Free Professional Training",
+                            desc: "Start your teaching journey with comprehensive orientation training. Learn essential Thai language skills for daily communication, understand Thai classroom culture and etiquette, and receive practical teaching strategies. Our training prepares you to thrive in Thai schools from day one."
+                        },
+                        3: {
+                            category: "Visa & Documents",
+                            title: "Document Assistance",
+                            desc: "Navigate the work permit process with confidence. We provide guidance on required documents, assist with applications, and offer partial reimbursement towards work visa costs. Our experienced team ensures your paperwork is handled efficiently and correctly."
+                        },
+                        4: {
+                            category: "Local Support",
+                            title: "Thai Consultant Support",
+                            desc: "Your personal Thai consultant is always ready to help. From translating documents to accompanying you to government offices, from helping with housing to resolving everyday challenges - you'll never have to navigate Thai bureaucracy alone."
+                        },
+                        5: {
+                            category: "Teaching Support",
+                            title: "Curriculum Consultant",
+                            desc: "Receive expert guidance from our curriculum consultants. Get help with lesson planning, teaching materials, classroom management strategies, and adapting your teaching style to Thai students. We're here to help you become the best teacher you can be."
+                        },
+                        6: {
+                            category: "Safety & Security",
+                            title: "Accident Insurance",
+                            desc: "Teach with peace of mind knowing you're protected. Our comprehensive accident insurance covers medical expenses in case of unexpected injuries, allowing you to focus on what matters most - your teaching and your adventure in Thailand."
+                        },
+                        7: {
+                            category: "Housing Support",
+                            title: "Accommodation Assistance",
+                            desc: "Finding a home in Thailand is easy with our help. We connect you with safe, affordable housing options near your school. Our local consultants can accompany you to view apartments and help negotiate fair rental terms."
+                        },
+                        8: {
+                            category: "Teaching Resources",
+                            title: "Full Curriculum",
+                            desc: "Hit the ground running with our complete curriculum package. Receive all textbooks, detailed lesson plans, activity guides, and supplementary materials you need. Our curriculum is designed specifically for Thai schools and updated regularly."
+                        }
+                    };
+
+                    // Scroll functionality
+                    function scrollOfferCards(direction) {
+                        const container = document.getElementById('offerScrollContainer');
+                        const cardWidth = 280 + 20; // card width + gap
+                        container.scrollBy({ left: direction * cardWidth, behavior: 'smooth' });
+                        updateOfferNavButtons();
+                    }
+
+                    function updateOfferNavButtons() {
+                        const container = document.getElementById('offerScrollContainer');
+                        const prevBtn = document.getElementById('offerPrevBtn');
+                        const nextBtn = document.getElementById('offerNextBtn');
+
+                        setTimeout(() => {
+                            prevBtn.disabled = container.scrollLeft <= 0;
+                            nextBtn.disabled = container.scrollLeft >= container.scrollWidth - container.clientWidth - 10;
+                        }, 350);
+                    }
+
+                    // Modal functionality
+                    function openOfferModal(cardId) {
+                        const modal = document.getElementById('offerModal');
+                        const data = offerData[cardId];
+
+                        document.getElementById('modalCategory').textContent = data.category;
+                        document.getElementById('modalTitle').textContent = data.title;
+                        document.getElementById('modalDesc').textContent = data.desc;
+
+                        modal.classList.add('active');
+                        document.body.style.overflow = 'hidden';
+                    }
+
+                    function closeOfferModal(event) {
+                        if (event && event.target !== event.currentTarget) return;
+                        const modal = document.getElementById('offerModal');
+                        modal.classList.remove('active');
+                        document.body.style.overflow = '';
+                    }
+
+                    // Initialize
+                    document.addEventListener('DOMContentLoaded', function () {
+                        updateOfferNavButtons();
+                        document.getElementById('offerScrollContainer').addEventListener('scroll', updateOfferNavButtons);
+
+                        // Close modal with Escape key
+                        document.addEventListener('keydown', function (e) {
+                            if (e.key === 'Escape') closeOfferModal();
+                        });
+                    });
+                </script>
             </section>
             <section id="partners" class="py-20 bg-white">
                 <div class="container mx-auto px-6">
@@ -479,7 +965,8 @@
                                     src="assets/images/journey/journey-visa.jpg"
                                     class="w-full h-full object-cover transition-all duration-500" loading="lazy"
                                     referrerpolicy="no-referrer" alt="Visa preparation" /></div>
-                            <div class="journey-panel absolute inset-0" data-step="4"><img src="assets/images/general/mk1.webp"
+                            <div class="journey-panel absolute inset-0" data-step="4"><img
+                                    src="assets/images/general/mk1.webp"
                                     class="w-full h-full object-cover transition-all duration-500"></div>
                             <div class="journey-panel absolute inset-0" data-step="5"><img
                                     src="assets/images/camps/camps15.webp"
