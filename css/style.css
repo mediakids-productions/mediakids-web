@@ -506,8 +506,9 @@ body.switching-page footer {
     transition: transform 0.5s ease;
 }
 
-/* Rotate dropdown arrow on hover */
-.group-trigger:hover .fa-chevron-down {
+/* Rotate dropdown arrow on hover or when active */
+.group-trigger:hover .fa-chevron-down,
+.group-trigger.active .fa-chevron-down {
     transform: rotate(180deg);
 }
 
@@ -704,7 +705,24 @@ body.switching-page footer {
     box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
 }
 
-/* Body lock when menu open */
-body.mobile-menu-open {
-    overflow: hidden;
+/* Variable Proximity Text Effect */
+.focus-line {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 0;
+}
+
+.focus-char {
+    display: inline-block;
+    white-space: pre;
+    font-weight: 800;
+    /* Original Extrabold */
+    transition: none;
+    /* Removed for direct mouse-response smoothness */
+    will-change: transform, font-weight;
+}
+
+/* Character scale on direct hover */
+.focus-char:hover {
+    transform: scale(1.1);
 }

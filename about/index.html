@@ -42,48 +42,137 @@
     <style>
         body {
             font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
-            min-height: 100vh;
         }
 
-        .nav-card {
-            background: white;
+        /* CEO Section Styles (Synced from Story Page) */
+        .ceo-section {
+            background: linear-gradient(135deg, #0A192F 0%, #1a365d 50%, #0A192F 100%);
+            position: relative;
+            overflow: hidden;
+            color: white;
+        }
+
+        .ceo-image-wrapper {
+            position: relative;
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid rgba(255, 209, 0, 0.9);
+            box-shadow: 0 0 40px rgba(255, 209, 0, 0.4);
+        }
+
+        .ceo-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+        }
+
+        .ceo-quote-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
             border-radius: 24px;
-            padding: 32px;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.06);
-            transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-            text-decoration: none;
-            display: block;
+            padding: 2.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .nav-card:hover {
+        .ceo-quote {
+            font-size: 1.25rem;
+            line-height: 1.8;
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .highlight-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .highlight-card:hover {
             transform: translateY(-8px);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
         }
 
-        .card-icon {
-            width: 72px;
-            height: 72px;
-            border-radius: 20px;
+        .card-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .highlight-card:hover .card-image {
+            transform: scale(1.05);
+        }
+
+        .card-content {
+            padding: 2rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .icon-box {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.75rem;
-            margin-bottom: 20px;
-            transition: all 0.4s ease;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
         }
 
-        .nav-card:hover .card-icon {
-            transform: scale(1.1) rotate(5deg);
+        /* Mission & Vision Overlay Style */
+        .mission-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 4rem;
         }
 
-        .section-header {
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: #64748b;
-            margin-bottom: 1.5rem;
+        .visual-highlight {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            height: 350px;
+            color: white;
+            display: flex;
+            align-items: flex-end;
+            padding: 2.5rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .visual-highlight::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.8) 100%);
+            z-index: 1;
+        }
+
+        .visual-highlight img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .visual-highlight:hover img {
+            transform: scale(1.1);
+        }
+
+        .visual-content {
+            position: relative;
+            z-index: 2;
         }
     </style>
 </head>
@@ -93,107 +182,270 @@
     <!-- Header -->
     <div id="shared-header"></div>
 
-    <main class="min-h-screen pb-24">
-
-        <!-- Hero Section -->
-        <div class="text-center pt-24 pb-16 px-6" data-aos="fade-down" data-aos-duration="800">
-            <div
-                class="inline-flex items-center gap-3 px-6 py-3 bg-blue-50 rounded-full text-blue-600 font-semibold mb-8">
-                <i class="fas fa-building"></i>
-                <span>About MediaKids</span>
-            </div>
-
-            <h1 class="text-4xl md:text-6xl font-extrabold text-gray-900 mb-6">
-                About Us
-            </h1>
-            <p class="text-lg text-gray-500 max-w-2xl mx-auto leading-relaxed">
-                Learn more about our organization, teams, and how we're transforming education in Thailand.
-            </p>
-        </div>
-
-        <!-- Navigation Cards -->
-        <div class="container mx-auto px-6 max-w-5xl">
-
-            <!-- Organization Section -->
-            <div class="mb-12">
-                <p class="section-header" data-aos="fade-up">Organization</p>
-                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <a href="../story/" class="nav-card group nav-page" data-aos="fade-up" data-aos-delay="100">
-                        <div class="card-icon bg-blue-100 text-blue-600">
-                            <i class="fas fa-book-open"></i>
+    <main>
+        <!-- Hero Overview -->
+        <section class="pt-32 pb-20 bg-gray-50 overflow-hidden">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col lg:flex-row items-center gap-12">
+                    <div class="lg:w-1/2" data-aos="fade-right">
+                        <span
+                            class="inline-block px-4 py-1 rounded-full bg-blue-100 text-blue-600 font-semibold text-sm mb-6">Who
+                            We Are</span>
+                        <h1 class="text-4xl md:text-6xl font-bold text-gray-900 leading-tight mb-6">
+                            Transforming Education <br><span class="text-blue-600">Since 2001</span>
+                        </h1>
+                        <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                            MediaKids Academy is Thailand's leading English teaching placement agency. For over two
+                            decades, we have been dedicated to improving English literacy in schools across the country
+                            by connecting passionate international teachers with young Thai learners.
+                        </p>
+                        <div class="flex gap-4">
+                            <div class="flex flex-col">
+                                <span class="text-3xl font-bold text-gray-900">300+</span>
+                                <span class="text-sm text-gray-500 uppercase tracking-wider">Teachers Placement</span>
+                            </div>
+                            <div class="w-px h-12 bg-gray-200 mx-4"></div>
+                            <div class="flex flex-col">
+                                <span class="text-3xl font-bold text-gray-900">70+</span>
+                                <span class="text-sm text-gray-500 uppercase tracking-wider">Partner Schools</span>
+                            </div>
                         </div>
-                        <h3 class="text-lg font-bold text-gray-800 mb-2 group-hover:text-blue-600 transition-colors">
-                            MediaKids Story</h3>
-                        <p class="text-gray-500 text-sm">Our journey and history</p>
-                    </a>
-
-                    <a href="../mission-vision/" class="nav-card group nav-page" data-aos="fade-up"
-                        data-aos-delay="150">
-                        <div class="card-icon bg-purple-100 text-purple-600">
-                            <i class="fas fa-bullseye"></i>
+                    </div>
+                    <div class="lg:w-1/2" data-aos="fade-left">
+                        <div class="relative">
+                            <img src="../assets/images/general/mk1.webp" alt="MediaKids Academy Overview"
+                                class="rounded-3xl shadow-2xl relative z-10">
+                            <div
+                                class="absolute -bottom-6 -right-6 w-full h-full bg-blue-600 rounded-3xl -z-10 opacity-10">
+                            </div>
                         </div>
-                        <h3 class="text-lg font-bold text-gray-800 mb-2 group-hover:text-purple-600 transition-colors">
-                            Mission & Vision</h3>
-                        <p class="text-gray-500 text-sm">What drives us forward</p>
-                    </a>
-
-                    <a href="../blogs/" class="nav-card group nav-page" data-aos="fade-up" data-aos-delay="200">
-                        <div class="card-icon bg-pink-100 text-pink-600">
-                            <i class="fas fa-pen-fancy"></i>
-                        </div>
-                        <h3 class="text-lg font-bold text-gray-800 mb-2 group-hover:text-pink-600 transition-colors">
-                            Blogs</h3>
-                        <p class="text-gray-500 text-sm">Articles and resources</p>
-                    </a>
-
-                    <a href="../contact/" class="nav-card group nav-page" data-aos="fade-up" data-aos-delay="250">
-                        <div class="card-icon bg-green-100 text-green-600">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <h3 class="text-lg font-bold text-gray-800 mb-2 group-hover:text-green-600 transition-colors">
-                            Contact Us</h3>
-                        <p class="text-gray-500 text-sm">Get in touch with us</p>
-                    </a>
+                    </div>
                 </div>
             </div>
+        </section>
 
-            <!-- Teams Section -->
-            <div>
-                <p class="section-header" data-aos="fade-up">Our Teams</p>
-                <div class="grid md:grid-cols-3 gap-6">
-                    <a href="../hr/" class="nav-card group nav-page" data-aos="fade-up" data-aos-delay="100">
-                        <div class="card-icon bg-amber-100 text-amber-600">
-                            <i class="fas fa-users"></i>
+        <!-- CEO Vision Section -->
+        <section class="ceo-section py-24">
+            <div class="container mx-auto px-6">
+                <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-12">
+                    <div class="md:w-1/3 flex flex-col items-center" data-aos="zoom-in">
+                        <div class="ceo-image-wrapper mb-6">
+                            <img src="../assets/images/story/CEO.webp" alt="Wachira Tepamat - MediaKids Academy CEO">
                         </div>
-                        <h3 class="text-lg font-bold text-gray-800 mb-2 group-hover:text-amber-600 transition-colors">
-                            Human Resources</h3>
-                        <p class="text-gray-500 text-sm">Recruitment and teacher support</p>
-                    </a>
-
-                    <a href="../curriculum-consultants/" class="nav-card group nav-page" data-aos="fade-up"
-                        data-aos-delay="150">
-                        <div class="card-icon bg-indigo-100 text-indigo-600">
-                            <i class="fas fa-chalkboard-teacher"></i>
+                        <div class="text-center">
+                            <h3 class="text-xl font-bold text-white mb-1">Wachira Tepamat</h3>
+                            <p class="text-yellow-400 font-medium">CEO & Founder</p>
                         </div>
-                        <h3 class="text-lg font-bold text-gray-800 mb-2 group-hover:text-indigo-600 transition-colors">
-                            Curriculum Consultants</h3>
-                        <p class="text-gray-500 text-sm">Academic guidance and training</p>
-                    </a>
-
-                    <a href="../thai-consultants/" class="nav-card group nav-page" data-aos="fade-up"
-                        data-aos-delay="200">
-                        <div class="card-icon bg-teal-100 text-teal-600">
-                            <i class="fas fa-headset"></i>
+                    </div>
+                    <div class="md:w-2/3" data-aos="fade-left">
+                        <div class="ceo-quote-card">
+                            <p class="ceo-quote mb-6">
+                                "MediaKids Academy is bringing different worlds and cultures together. Our aim is to
+                                educate Thai children in English language with an emphasis on cultural differences and
+                                its role in education. We make a difference from big cities to rural areas across
+                                Thailand!"
+                            </p>
+                            <div class="h-1 w-20 bg-yellow-400"></div>
                         </div>
-                        <h3 class="text-lg font-bold text-gray-800 mb-2 group-hover:text-teal-600 transition-colors">
-                            Thai Consultants</h3>
-                        <p class="text-gray-500 text-sm">On-ground support team</p>
-                    </a>
+                    </div>
                 </div>
             </div>
+        </section>
 
-        </div>
+        <!-- Highlights: Mission & Vision -->
+        <section class="py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 class="text-3xl md:text-5xl font-bold text-gray-900 mb-4">Our Purpose</h2>
+                    <p class="text-gray-500 max-w-2xl mx-auto">Discover the pillars that drive our commitment to
+                        excellence in Thai education.</p>
+                </div>
 
+                <div class="mission-grid">
+                    <!-- Mission -->
+                    <a href="../mission-vision/" class="visual-highlight" data-aos="fade-right">
+                        <img src="../assets/images/story/Mission.webp" alt="MediaKids Mission">
+                        <div class="visual-content">
+                            <span
+                                class="inline-block px-3 py-1 bg-blue-600 rounded-lg text-xs font-bold mb-3 uppercase tracking-tighter">Mission</span>
+                            <h3 class="text-2xl font-bold mb-2 text-white">Our Mission</h3>
+                            <p class="text-gray-200 text-sm leading-relaxed mb-4">Empowering students through fun,
+                                practical, and meaningful English learning experiences while supporting our teachers
+                                every step of the way.</p>
+                            <span class="text-white text-sm font-semibold flex items-center gap-2">View Details <i
+                                    class="fas fa-arrow-right text-xs"></i></span>
+                        </div>
+                    </a>
+
+                    <!-- Vision -->
+                    <a href="../mission-vision/" class="visual-highlight" data-aos="fade-left">
+                        <img src="../assets/images/story/Vision.webp" alt="MediaKids Vision">
+                        <div class="visual-content">
+                            <span
+                                class="inline-block px-3 py-1 bg-yellow-500 rounded-lg text-xs font-bold mb-3 uppercase tracking-tighter text-gray-900">Vision</span>
+                            <h3 class="text-2xl font-bold mb-2 text-white">Our Vision</h3>
+                            <p class="text-gray-200 text-sm leading-relaxed mb-4">To be the most trusted educational
+                                partner in Thailand, bridging cultures and inspiring confidence in the next generation.
+                            </p>
+                            <span class="text-white text-sm font-semibold flex items-center gap-2">View Details <i
+                                    class="fas fa-arrow-right text-xs"></i></span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- More Highlights -->
+                <div class="grid md:grid-cols-3 gap-8 pt-12">
+                    <!-- Academic Programs -->
+                    <div class="highlight-card" data-aos="fade-up" data-aos-delay="100">
+                        <img src="../assets/images/general/mk2.webp" class="card-image" alt="Academic Programs">
+                        <div class="card-content">
+                            <div class="icon-box bg-blue-100 text-blue-600">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <h4 class="text-xl font-bold mb-3">Academic Excellence</h4>
+                            <p class="text-gray-500 text-sm mb-6 leading-relaxed">
+                                We provide comprehensive curricula from ECD to MEP, ensuring high-quality learning
+                                outcomes for students nationwide.
+                            </p>
+                            <a href="../programs/"
+                                class="mt-auto text-blue-600 font-semibold flex items-center gap-2 hover:gap-3 transition-all">
+                                Explore programs <i class="fas fa-arrow-right text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Nationwide -->
+                    <div class="highlight-card" data-aos="fade-up" data-aos-delay="200">
+                        <img src="../assets/images/story/Our Story.webp" class="card-image" alt="MediaKids Story">
+                        <div class="card-content">
+                            <div class="icon-box bg-purple-100 text-purple-600">
+                                <i class="fas fa-book-open"></i>
+                            </div>
+                            <h4 class="text-xl font-bold mb-3">Our 20-Year Journey</h4>
+                            <p class="text-gray-500 text-sm mb-6 leading-relaxed">
+                                Starting in 2001, we've grown into a trusted bridge between international educators and
+                                local Thai communities.
+                            </p>
+                            <a href="../story/"
+                                class="mt-auto text-blue-600 font-semibold flex items-center gap-2 hover:gap-3 transition-all">
+                                Read our story <i class="fas fa-arrow-right text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Schools -->
+                    <div class="highlight-card" data-aos="fade-up" data-aos-delay="300">
+                        <img src="../assets/images/general/mk3.webp" class="card-image" alt="Partner Schools">
+                        <div class="card-content">
+                            <div class="icon-box bg-green-100 text-green-600">
+                                <i class="fas fa-map-marked-alt"></i>
+                            </div>
+                            <h4 class="text-xl font-bold mb-3">70+ Partner Schools</h4>
+                            <p class="text-gray-500 text-sm mb-6 leading-relaxed">
+                                From the mountains of the North to the vibrant cities of the Central region, our network
+                                covers the whole of Thailand.
+                            </p>
+                            <a href="../schools/"
+                                class="mt-auto text-blue-600 font-semibold flex items-center gap-2 hover:gap-3 transition-all">
+                                View regions <i class="fas fa-arrow-right text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Teams Section -->
+        <section class="py-24 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <span
+                        class="inline-block px-4 py-1 rounded-full bg-blue-100 text-blue-600 font-semibold text-sm mb-6">Expert
+                        Teams</span>
+                    <h2 class="text-3xl md:text-5xl font-bold text-gray-900 mb-4">The People Behind Your Success</h2>
+                    <p class="text-gray-500 max-w-2xl mx-auto">Our dedicated support teams provide a full ecosystem of
+                        assistance to ensure a professional teaching experience.</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- HR Team -->
+                    <div class="highlight-card" data-aos="fade-up" data-aos-delay="100">
+                        <img src="../assets/images/team/team-hr.webp" class="card-image" alt="HR Team">
+                        <div class="card-content">
+                            <div class="icon-box bg-amber-100 text-amber-600">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h4 class="text-xl font-bold mb-3">Human Resources</h4>
+                            <p class="text-gray-500 text-sm mb-6 leading-relaxed">
+                                Managing everything from recruitment to visa assistance and work permits, making your
+                                dream of teaching in Thailand a reality.
+                            </p>
+                            <a href="../hr/"
+                                class="mt-auto text-blue-600 font-semibold flex items-center gap-2 hover:gap-3 transition-all">
+                                Meet our HR <i class="fas fa-arrow-right text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Curriculum Consultants -->
+                    <div class="highlight-card" data-aos="fade-up" data-aos-delay="200">
+                        <img src="../assets/images/team/team-curriculum.webp" class="card-image"
+                            alt="Curriculum Consultants">
+                        <div class="card-content">
+                            <div class="icon-box bg-indigo-100 text-indigo-600">
+                                <i class="fas fa-chalkboard-teacher"></i>
+                            </div>
+                            <h4 class="text-xl font-bold mb-3">Curriculum Consultants</h4>
+                            <p class="text-gray-500 text-sm mb-6 leading-relaxed">
+                                Providing expert academic guidance, teaching materials, and training to ensure you are
+                                confident and effective in the classroom.
+                            </p>
+                            <a href="../curriculum-consultants/"
+                                class="mt-auto text-blue-600 font-semibold flex items-center gap-2 hover:gap-3 transition-all">
+                                Academic Support <i class="fas fa-arrow-right text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Thai Consultants -->
+                    <div class="highlight-card" data-aos="fade-up" data-aos-delay="300">
+                        <img src="../assets/images/team/team-thai.webp" class="card-image" alt="Thai Consultants">
+                        <div class="card-content">
+                            <div class="icon-box bg-teal-100 text-teal-600">
+                                <i class="fas fa-headset"></i>
+                            </div>
+                            <h4 class="text-xl font-bold mb-3">Thai Consultants</h4>
+                            <p class="text-gray-500 text-sm mb-6 leading-relaxed">
+                                Your local bridge to the community, assisting with on-ground orientation, housing, and
+                                effective communication with your school.
+                            </p>
+                            <a href="../thai-consultants/"
+                                class="mt-auto text-blue-600 font-semibold flex items-center gap-2 hover:gap-3 transition-all">
+                                On-ground Help <i class="fas fa-arrow-right text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-20 bg-gray-900 text-white">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-5xl font-bold mb-8" data-aos="fade-up">Ready to join our team?</h2>
+                <p class="text-gray-400 mb-10 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                    Apply today and start your professional journey in the Land of Smiles with MediaKids Academy.
+                </p>
+                <div class="flex flex-wrap justify-center gap-6" data-aos="fade-up" data-aos-delay="200">
+                    <a href="../jobs/"
+                        class="bg-blue-600 hover:bg-blue-700 text-white px-10 py-4 rounded-full font-bold transition-all shadow-lg hover:shadow-blue-500/20">Browse
+                        Jobs</a>
+                    <a href="../contact/"
+                        class="border border-gray-600 hover:border-white text-white px-10 py-4 rounded-full font-bold transition-all">Contact
+                        Us</a>
+                </div>
+            </div>
+        </section>
     </main>
 
     <!-- Footer -->

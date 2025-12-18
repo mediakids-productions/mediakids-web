@@ -132,9 +132,9 @@
                 <div
                     class="container mx-auto px-6 py-16 lg:py-24 grid lg:grid-cols-2 gap-10 lg:gap-12 items-center relative z-20">
                     <div data-aos="fade-right">
-                        <h1 class="text-5xl md:text-7xl font-extrabold leading-tight">
-                            <span class="accent-text block">Your Journey</span>
-                            <span class="text-gray-900 block">Begins Here</span>
+                        <h1 id="hero-focus-title" class="text-5xl md:text-7xl font-extrabold leading-tight select-none">
+                            <span class="accent-text block focus-line" data-text="Your Journey">Your Journey</span>
+                            <span class="text-gray-900 block focus-line" data-text="Begins Here">Begins Here</span>
                         </h1>
                         <p class="mt-6 text-lg text-gray-600 max-w-lg">Embark on a Thai adventure where teaching meets
                             cultural immersion! In Thailand’s vibrant cities and serene temples, each classroom is a
@@ -162,7 +162,7 @@
                     </div>
                 </div>
             </section>
-            <section id="stats" class="py-20 bg-white relative z-20">
+            <section id="stats" class="py-0 bg-white relative z-20">
                 <div class="container mx-auto px-6 text-center">
                     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
                         <div class="p-6" data-aos="fade-up">
@@ -422,7 +422,7 @@
 
                     .offer-scroll-container {
                         display: flex;
-                        gap: 1.25rem;
+                        gap: 20px;
                         overflow-x: auto;
                         scroll-behavior: smooth;
                         scrollbar-width: none;
@@ -436,53 +436,53 @@
 
                     .offer-card {
                         background: #ffffff;
-                        border-radius: 20px;
-                        padding: 2rem 2rem 3.5rem 2rem;
-                        min-width: 320px;
-                        max-width: 320px;
-                        min-height: 340px;
+                        border-radius: 28px;
+                        padding: 32px 76px 56px 32px;
+                        min-width: 372px;
+                        max-width: 372px;
+                        min-height: 389px;
                         display: flex;
                         flex-direction: column;
                         position: relative;
                         transition: all 0.3s ease;
-                        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+                        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
                         flex-shrink: 0;
                     }
 
                     .offer-card:hover {
-                        transform: translateY(-4px);
-                        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+                        transform: translateY(-2px);
+                        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
                     }
 
                     .offer-icon {
-                        width: 56px;
+                        width: 46px;
                         height: 56px;
                         display: flex;
                         align-items: center;
                         justify-content: center;
                         color: #1d1d1f;
-                        margin-bottom: 1.5rem;
+                        margin-bottom: 1.25rem;
                     }
 
                     .offer-icon svg {
-                        width: 40px;
-                        height: 40px;
+                        width: 46px;
+                        height: 56px;
                         stroke-linecap: round;
                         stroke-linejoin: round;
                     }
 
                     .offer-title {
-                        font-size: 1.5rem;
+                        font-size: 28px;
                         font-weight: 600;
                         color: #1d1d1f;
-                        margin-bottom: 1rem;
-                        line-height: 1.35;
+                        margin-bottom: 0.75rem;
+                        line-height: 1.4;
                     }
 
                     .offer-desc {
-                        font-size: 1rem;
+                        font-size: 17px;
                         color: #86868b;
-                        line-height: 1.7;
+                        line-height: 1.47;
                         flex-grow: 1;
                     }
 
@@ -616,19 +616,20 @@
 
                     @media (max-width: 768px) {
                         .offer-card {
-                            min-width: 290px;
-                            max-width: 290px;
-                            min-height: 300px;
-                            padding: 1.75rem 1.75rem 3rem 1.75rem;
+                            min-width: 300px;
+                            max-width: 300px;
+                            min-height: 320px;
+                            padding: 24px 48px 48px 24px;
+                            border-radius: 22px;
                         }
 
                         .offer-icon svg {
-                            width: 36px;
-                            height: 36px;
+                            width: 40px;
+                            height: 48px;
                         }
 
                         .offer-title {
-                            font-size: 1.35rem;
+                            font-size: 22px;
                         }
 
                         .offer-modal-content {
@@ -693,7 +694,7 @@
                     // Scroll functionality
                     function scrollOfferCards(direction) {
                         const container = document.getElementById('offerScrollContainer');
-                        const cardWidth = 280 + 20; // card width + gap
+                        const cardWidth = 372 + 20; // card width + gap
                         container.scrollBy({ left: direction * cardWidth, behavior: 'smooth' });
                         updateOfferNavButtons();
                     }
@@ -738,12 +739,75 @@
                         document.addEventListener('keydown', function (e) {
                             if (e.key === 'Escape') closeOfferModal();
                         });
+                        // Hero Variable Proximity Effect (Optimized for Smoothness & Precision)
+                        const focusLines = document.querySelectorAll('.focus-line');
+                        const RADIUS = 100; // Tighter radius
+                        const MIN_WEIGHT = 800;
+                        const MAX_WEIGHT = 900;
+
+                        // 1. Initialize: Split characters
+                        focusLines.forEach(line => {
+                            const text = line.getAttribute('data-text');
+                            line.innerHTML = '';
+                            [...text].forEach(char => {
+                                const span = document.createElement('span');
+                                span.className = 'focus-char';
+                                span.textContent = char;
+                                line.appendChild(span);
+                            });
+                        });
+
+                        const allChars = document.querySelectorAll('.focus-char');
+                        let mouseX = 0, mouseY = 0;
+                        let lastMouseX = 0, lastMouseY = 0;
+
+                        window.addEventListener('mousemove', (e) => {
+                            mouseX = e.clientX;
+                            mouseY = e.clientY;
+                        });
+
+                        function updateProximity() {
+                            // Only update if mouse moved to save performance
+                            if (mouseX !== lastMouseX || mouseY !== lastMouseY) {
+                                allChars.forEach(char => {
+                                    const rect = char.getBoundingClientRect();
+                                    const charX = rect.left + rect.width / 2;
+                                    const charY = rect.top + rect.height / 2;
+
+                                    // Weight vertical distance (dy * 2.5) to prevent bleeding into other lines
+                                    const dx = mouseX - charX;
+                                    const dy = (mouseY - charY) * 2.5;
+                                    const dist = Math.sqrt(dx * dx + dy * dy);
+
+                                    if (dist < RADIUS) {
+                                        // Use a more aggressive falloff for a "snappier" feel (squared distance)
+                                        const proximity = Math.pow(1 - (dist / RADIUS), 2);
+                                        const weight = MIN_WEIGHT + (MAX_WEIGHT - MIN_WEIGHT) * proximity;
+                                        const scale = 1 + (0.15 * proximity);
+
+                                        char.style.fontWeight = Math.round(weight);
+                                        char.style.transform = `scale(${scale})`;
+                                        char.style.zIndex = "10";
+                                    } else {
+                                        char.style.fontWeight = MIN_WEIGHT;
+                                        char.style.transform = `scale(1)`;
+                                        char.style.zIndex = "1";
+                                    }
+                                });
+                                lastMouseX = mouseX;
+                                lastMouseY = mouseY;
+                            }
+                            requestAnimationFrame(updateProximity);
+                        }
+
+                        // Start the high-performance loop
+                        requestAnimationFrame(updateProximity);
                     });
                 </script>
             </section>
-            <section id="partners" class="py-20 bg-white">
+            <section id="partners" class="py-12 bg-white">
                 <div class="container mx-auto px-6">
-                    <h3 class="text-center text-3xl font-bold text-gray-800 mb-12">Our Valued Partners</h3>
+                    <h3 class="text-center text-4xl md:text-5xl font-bold mb-12 shimmer-text">Our Valued Partners</h3>
                     <div id="partners-marquee" class="relative overflow-hidden">
                         <!-- Fade edges -->
                         <div class="partners-fade-left"></div>
@@ -756,6 +820,31 @@
                 </div>
 
                 <style>
+                    /* Shimmer Text Animation */
+                    .shimmer-text {
+                        background: linear-gradient(90deg,
+                                #00c9a7 0%,
+                                #00b4d8 25%,
+                                #0077b6 50%,
+                                #00b4d8 75%,
+                                #00c9a7 100%);
+                        background-size: 200% auto;
+                        -webkit-background-clip: text;
+                        background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                        animation: shimmer 3s linear infinite;
+                    }
+
+                    @keyframes shimmer {
+                        0% {
+                            background-position: 0% center;
+                        }
+
+                        100% {
+                            background-position: 200% center;
+                        }
+                    }
+
                     #partners-marquee {
                         position: relative;
                         max-width: 700px;

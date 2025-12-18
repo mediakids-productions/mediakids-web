@@ -19,6 +19,7 @@ function initSite() {
     const navContainer = document.getElementById('nav-container');
     let activeMenu = null;
     let closeTimeout = null;
+    let openTimeout = null; // New: delay before opening menu
 
     function openMenu(menuName) {
         if (closeTimeout) {
@@ -34,6 +35,15 @@ function initSite() {
 
         megaMenuContainer.classList.add('active');
         document.body.classList.add('menu-open');
+
+        // Manage active class on triggers for arrow rotation
+        triggers.forEach(trigger => {
+            if (trigger.dataset.menu === menuName) {
+                trigger.classList.add('active');
+            } else {
+                trigger.classList.remove('active');
+            }
+        });
 
         if (activeMenu && activeMenu !== menuName) {
             const oldContent = document.getElementById(`mm-content-${activeMenu}`);
@@ -60,6 +70,9 @@ function initSite() {
             }
         }
 
+        // Remove active class from all triggers
+        triggers.forEach(trigger => trigger.classList.remove('active'));
+
         if (immediate) {
             megaMenuContainer.classList.add('nav-closing');
             megaMenuContainer.classList.remove('active');
@@ -78,10 +91,43 @@ function initSite() {
 
     triggers.forEach(trigger => {
         trigger.addEventListener('mouseenter', () => {
-            // Use data-menu attribute which we preserved in the HTML
-            // Note: The button inside might be an <a> tag now, but the wrapper .group-trigger still has data-menu
             const menuName = trigger.dataset.menu;
-            openMenu(menuName);
+
+            // Clear any pending toggle timers
+            if (closeTimeout) {
+                clearTimeout(closeTimeout);
+                closeTimeout = null;
+            }
+
+            // If THIS menu is already open, don't do anything (prevents re-triggering)
+            if (activeMenu === menuName) {
+                if (openTimeout) {
+                    clearTimeout(openTimeout);
+                    openTimeout = null;
+                }
+                return;
+            }
+
+            // Clear any pending open timeout for other menus
+            if (openTimeout) {
+                clearTimeout(openTimeout);
+                openTimeout = null;
+            }
+
+            // Apply delay for BOTH opening and switching 
+            // to prevent accidental triggers when moving mouse diagonally
+            openTimeout = setTimeout(() => {
+                openMenu(menuName);
+                openTimeout = null;
+            }, 150); // Increased delay to 150ms for better stability
+        });
+
+        trigger.addEventListener('mouseleave', () => {
+            // Clear open timeout if mouse leaves before delay completes
+            if (openTimeout) {
+                clearTimeout(openTimeout);
+                openTimeout = null;
+            }
         });
     });
 
