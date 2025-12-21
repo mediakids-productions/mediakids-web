@@ -12,7 +12,7 @@ html {
 body {
     padding-top: 88px;
     /* Matches header height */
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Inter', 'Noto Sans Thai', -apple-system, BlinkMacSystemFont, 'Sukhumvit Set', sans-serif;
     background-color: #FFFFFF;
     color: var(--dark-text);
 }
@@ -42,12 +42,21 @@ body {
 }
 
 .blob-2 {
-    bottom: 10%;
+    top: 40%;
     right: -5%;
-    width: 250px;
-    height: 250px;
+    width: 350px;
+    height: 350px;
     background: #fff5cc;
     animation-delay: 2s;
+}
+
+.blob-3 {
+    bottom: 20%;
+    left: 10%;
+    width: 400px;
+    height: 400px;
+    background: #b3d4fc;
+    animation-delay: 4s;
 }
 
 @keyframes float {

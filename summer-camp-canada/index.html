@@ -44,13 +44,9 @@
     <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/icons/logo.png">
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style.css?v=1.0.1">
 
     <style>
         /* Animated badge */
@@ -595,55 +591,55 @@
     </main>
 
     <!-- Shared Footer -->
-    <div id="shared-footer"></div>
+    <div id="shared-footer"> <!-- Scripts -->
+        <script src="../js/version.js?v=1.0.1"></script>
+        <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+        <script src="../js/components.js?v=1.0.1"></script>
+        <script src="../js/script.js?v=1.0.1"></script>
 
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script src="../js/components.js"></script>
-    <script src="../js/script.js"></script>
+        <script>
+            // Lightbox functionality
+            const allImages = [
+                '../assets/images/summer-camp-canada/cannada1.webp',
+                '../assets/images/summer-camp-canada/cannada2.webp',
+                '../assets/images/summer-camp-canada/cannada3.webp',
+                '../assets/images/summer-camp-canada/cannada4.webp',
+                '../assets/images/summer-camp-canada/cannada5.webp',
+                '../assets/images/summer-camp-canada/cannada6.webp'
+            ];
 
-    <script>
-        // Lightbox functionality
-        const allImages = [
-            '../assets/images/summer-camp-canada/cannada1.webp',
-            '../assets/images/summer-camp-canada/cannada2.webp',
-            '../assets/images/summer-camp-canada/cannada3.webp',
-            '../assets/images/summer-camp-canada/cannada4.webp',
-            '../assets/images/summer-camp-canada/cannada5.webp',
-            '../assets/images/summer-camp-canada/cannada6.webp'
-        ];
+            let currentImageIndex = 0;
 
-        let currentImageIndex = 0;
-
-        function openLightbox(index) {
-            currentImageIndex = index;
-            document.getElementById('lightbox-img').src = allImages[index];
-            document.getElementById('lightbox').classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeLightbox(event) {
-            if (event.target.id === 'lightbox' || event.target.classList.contains('lightbox-close')) {
-                document.getElementById('lightbox').classList.remove('active');
-                document.body.style.overflow = '';
+            function openLightbox(index) {
+                currentImageIndex = index;
+                document.getElementById('lightbox-img').src = allImages[index];
+                document.getElementById('lightbox').classList.add('active');
+                document.body.style.overflow = 'hidden';
             }
-        }
 
-        function navigateLightbox(direction, event) {
-            event.stopPropagation();
-            currentImageIndex += direction;
-            if (currentImageIndex < 0) currentImageIndex = allImages.length - 1;
-            if (currentImageIndex >= allImages.length) currentImageIndex = 0;
-            document.getElementById('lightbox-img').src = allImages[currentImageIndex];
-        }
+            function closeLightbox(event) {
+                if (event.target.id === 'lightbox' || event.target.classList.contains('lightbox-close')) {
+                    document.getElementById('lightbox').classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            }
 
-        // Keyboard navigation
-        document.addEventListener('keydown', function (e) {
-            if (!document.getElementById('lightbox').classList.contains('active')) return;
-            if (e.key === 'Escape') closeLightbox({ target: { id: 'lightbox' } });
-            if (e.key === 'ArrowLeft') navigateLightbox(-1, e);
-            if (e.key === 'ArrowRight') navigateLightbox(1, e);
-        });
-    </script>
+            function navigateLightbox(direction, event) {
+                event.stopPropagation();
+                currentImageIndex += direction;
+                if (currentImageIndex < 0) currentImageIndex = allImages.length - 1;
+                if (currentImageIndex >= allImages.length) currentImageIndex = 0;
+                document.getElementById('lightbox-img').src = allImages[currentImageIndex];
+            }
+
+            // Keyboard navigation
+            document.addEventListener('keydown', function (e) {
+                if (!document.getElementById('lightbox').classList.contains('active')) return;
+                if (e.key === 'Escape') closeLightbox({ target: { id: 'lightbox' } });
+                if (e.key === 'ArrowLeft') navigateLightbox(-1, e);
+                if (e.key === 'ArrowRight') navigateLightbox(1, e);
+            });
+        </script>
 </body>
 
 </html>

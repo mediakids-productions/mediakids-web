@@ -368,6 +368,23 @@ const footerHTML = `
 `;
 
 function loadComponents() {
+    // 0. Inject Google Fonts (Inter + Noto Sans Thai)
+    const fontPreconnect1 = document.createElement('link');
+    fontPreconnect1.rel = 'preconnect';
+    fontPreconnect1.href = 'https://fonts.googleapis.com';
+    document.head.appendChild(fontPreconnect1);
+
+    const fontPreconnect2 = document.createElement('link');
+    fontPreconnect2.rel = 'preconnect';
+    fontPreconnect2.href = 'https://fonts.gstatic.com';
+    fontPreconnect2.crossOrigin = 'anonymous';
+    document.head.appendChild(fontPreconnect2);
+
+    const fontLink = document.createElement('link');
+    fontLink.rel = 'stylesheet';
+    fontLink.href = 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+Thai:wght@300;400;500;600;700&display=swap';
+    document.head.appendChild(fontLink);
+
     // 1. Inject HTML
     const headerContainer = document.getElementById('shared-header');
     const footerContainer = document.getElementById('shared-footer');
@@ -383,9 +400,9 @@ function loadComponents() {
         }
     });
 
-    // 3. Load Analytics Script
+    // 3. Load Analytics Script with versioning
     const analyticsScript = document.createElement('script');
-    analyticsScript.src = basePath + 'js/analytics.js';
+    analyticsScript.src = basePath + 'js/analytics.js?v=' + (window.SITE_VERSION || '1.0.1');
     analyticsScript.async = true;
     document.body.appendChild(analyticsScript);
 

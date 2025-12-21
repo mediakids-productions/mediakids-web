@@ -105,13 +105,53 @@
     <link rel="apple-touch-icon" sizes="180x180" href="assets/images/icons/logo.png">
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css?v=1.0.1">
+    <style>
+        /* Lenis Recommended CSS */
+        html.lenis {
+            height: auto;
+        }
+
+        .lenis.lenis-smooth {
+            scroll-behavior: auto;
+        }
+
+        .lenis.lenis-smooth [data-lenis-prevent] {
+            overscroll-behavior: contain;
+        }
+
+        .lenis.lenis-stopped {
+            overflow: hidden;
+        }
+
+        .lenis.lenis-scrolling iframe {
+            pointer-events: none;
+        }
+    </style>
+    <style>
+        /* Lenis Recommended CSS */
+        html.lenis {
+            height: auto;
+        }
+
+        .lenis.lenis-smooth {
+            scroll-behavior: auto;
+        }
+
+        .lenis.lenis-smooth [data-lenis-prevent] {
+            overscroll-behavior: contain;
+        }
+
+        .lenis.lenis-stopped {
+            overflow: hidden;
+        }
+
+        .lenis.lenis-scrolling iframe {
+            pointer-events: none;
+        }
+    </style>
 </head>
 
 <body class="leading-relaxed overflow-x-hidden relative">
@@ -124,9 +164,10 @@
     <!-- Shared Header Container -->
     <div id="shared-header"></div>
 
-    <main>
-        <div id="main-content">
-            <section id="home" class="bg-hero-pattern relative z-10">
+    <main class="bg-hero-pattern relative">
+        <div id="main-content" class="relative z-10">
+            <section id="home" class="relative overflow-hidden">
+                <!-- Hero Blobs - Back in hero section -->
                 <div class="blob blob-1"></div>
                 <div class="blob blob-2"></div>
                 <div
@@ -162,909 +203,984 @@
                     </div>
                 </div>
             </section>
-            <section id="stats" class="py-0 bg-white relative z-20">
-                <div class="container mx-auto px-6 text-center">
-                    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                        <div class="p-6" data-aos="fade-up">
-                            <h3 class="text-5xl font-extrabold accent-text leading-tight"><span><span class="counter"
-                                        data-target="20">0</span>+</span><span
-                                    class="block text-4xl font-normal mt-1">Years</span></h3>
-                            <p class="mt-2 text-gray-500 font-medium">Experience in Thailand</p>
-                        </div>
-                        <div class="p-6" data-aos="fade-up" data-aos-delay="100">
-                            <h3 class="text-5xl font-extrabold accent-text leading-tight"><span><span class="counter"
-                                        data-target="50">0</span>+</span><span
-                                    class="block text-4xl font-normal mt-1">Schools</span></h3>
-                            <p class="mt-2 text-gray-500 font-medium">Nationwide partners</p>
-                        </div>
-                        <div class="p-6" data-aos="fade-up" data-aos-delay="200">
-                            <h3 class="text-5xl font-extrabold accent-text leading-tight"><span><span class="counter"
-                                        data-target="500">0</span>+</span><span
-                                    class="block text-4xl font-normal mt-1">Teachers</span></h3>
-                            <p class="mt-2 text-gray-500 font-medium">Active community</p>
-                        </div>
-                        <div class="p-6" data-aos="fade-up" data-aos-delay="300">
-                            <h3 class="text-5xl font-extrabold accent-text leading-tight"><span><span class="counter"
-                                        data-target="50000">0</span>+</span><span
-                                    class="block text-4xl font-normal mt-1">Students</span></h3>
-                            <p class="mt-2 text-gray-500 font-medium">Impacted Annually</p>
-                        </div>
+
+            <!-- Teach and Earn Highlight - With Frame -->
+            <section id="teach-and-earn-program" class="py-24 lg:py-32 relative">
+                <!-- Background blobs -->
+                <div class="absolute inset-0 overflow-hidden pointer-events-none">
+                    <div
+                        class="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-blue-400 rounded-full blur-[120px] opacity-10">
                     </div>
-                </div>
-            </section>
-            <section id="programs" class="py-20 bg-gray-100">
-                <div class="container mx-auto px-6">
-                    <!-- Header -->
-                    <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-12" data-aos="fade-up">
-                        <div>
-                            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
-                                What We Offer
-                            </h2>
-                        </div>
-                        <a href="teach-and-earn/"
-                            class="text-blue-600 hover:text-blue-700 font-medium mt-4 md:mt-0 flex items-center gap-1 group">
-                            Learn More
-                            <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none"
-                                stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
-                                </path>
-                            </svg>
-                        </a>
-                    </div>
-
-                    <!-- Horizontal Scroll Container -->
-                    <div class="offer-scroll-wrapper" data-aos="fade-up">
-                        <div class="offer-scroll-container" id="offerScrollContainer">
-                            <!-- Card 1: Unique Locations -->
-                            <div class="offer-card" data-card="1">
-                                <div class="offer-icon">
-                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="1.5">
-                                        <path
-                                            d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
-                                        <circle cx="12" cy="9" r="2.5" />
-                                    </svg>
-                                </div>
-                                <h3 class="offer-title">Unique Locations</h3>
-                                <p class="offer-desc">Kindergarten, primary, and secondary schools throughout Thailand.
-                                </p>
-                                <button class="offer-btn" onclick="openOfferModal(1)"
-                                    aria-label="Learn more about Unique Locations">
-                                    <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
-                                        <path d="M6 0v12M0 6h12" stroke="currentColor" stroke-width="2" fill="none" />
-                                    </svg>
-                                </button>
-                            </div>
-
-                            <!-- Card 2: Free Training -->
-                            <div class="offer-card" data-card="2">
-                                <div class="offer-icon">
-                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="1.5">
-                                        <path d="M12 3L1 9l11 6 9-4.91V17M5 13.18v4L12 21l7-3.82v-4" />
-                                    </svg>
-                                </div>
-                                <h3 class="offer-title">Free Professional Training</h3>
-                                <p class="offer-desc">Orientation including Thai language basics and cultural immersion.
-                                </p>
-                                <button class="offer-btn" onclick="openOfferModal(2)"
-                                    aria-label="Learn more about Free Training">
-                                    <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
-                                        <path d="M6 0v12M0 6h12" stroke="currentColor" stroke-width="2" fill="none" />
-                                    </svg>
-                                </button>
-                            </div>
-
-                            <!-- Card 3: Document Assistance -->
-                            <div class="offer-card" data-card="3">
-                                <div class="offer-icon">
-                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="1.5">
-                                        <rect x="3" y="4" width="18" height="16" rx="2" />
-                                        <path d="M7 8h10M7 12h6" />
-                                        <circle cx="17" cy="14" r="2" />
-                                    </svg>
-                                </div>
-                                <h3 class="offer-title">Document Assistance</h3>
-                                <p class="offer-desc">Working documents support and partial reimbursement towards work
-                                    visa costs.</p>
-                                <button class="offer-btn" onclick="openOfferModal(3)"
-                                    aria-label="Learn more about Document Assistance">
-                                    <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
-                                        <path d="M6 0v12M0 6h12" stroke="currentColor" stroke-width="2" fill="none" />
-                                    </svg>
-                                </button>
-                            </div>
-
-                            <!-- Card 4: Thai Consultant -->
-                            <div class="offer-card" data-card="4">
-                                <div class="offer-icon">
-                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="1.5">
-                                        <circle cx="12" cy="7" r="4" />
-                                        <path d="M5.5 21a6.5 6.5 0 0 1 13 0" />
-                                        <path d="M16 11l2 2 4-4" />
-                                    </svg>
-                                </div>
-                                <h3 class="offer-title">Thai Consultant Support</h3>
-                                <p class="offer-desc">Dedicated Thai consultant available to assist you throughout your
-                                    journey.</p>
-                                <button class="offer-btn" onclick="openOfferModal(4)"
-                                    aria-label="Learn more about Thai Consultant">
-                                    <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
-                                        <path d="M6 0v12M0 6h12" stroke="currentColor" stroke-width="2" fill="none" />
-                                    </svg>
-                                </button>
-                            </div>
-
-                            <!-- Card 5: Curriculum Consultant -->
-                            <div class="offer-card" data-card="5">
-                                <div class="offer-icon">
-                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="1.5">
-                                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
-                                        <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
-                                        <path d="M12 7v10M9 12h6" />
-                                    </svg>
-                                </div>
-                                <h3 class="offer-title">Curriculum Consultant</h3>
-                                <p class="offer-desc">Expert guidance on lesson planning and teaching methodology.</p>
-                                <button class="offer-btn" onclick="openOfferModal(5)"
-                                    aria-label="Learn more about Curriculum Consultant">
-                                    <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
-                                        <path d="M6 0v12M0 6h12" stroke="currentColor" stroke-width="2" fill="none" />
-                                    </svg>
-                                </button>
-                            </div>
-
-                            <!-- Card 6: Accident Insurance -->
-                            <div class="offer-card" data-card="6">
-                                <div class="offer-icon">
-                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="1.5">
-                                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                                        <path d="M9 12l2 2 4-4" />
-                                    </svg>
-                                </div>
-                                <h3 class="offer-title">Accident Insurance</h3>
-                                <p class="offer-desc">Comprehensive accident insurance coverage for your peace of mind.
-                                </p>
-                                <button class="offer-btn" onclick="openOfferModal(6)"
-                                    aria-label="Learn more about Accident Insurance">
-                                    <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
-                                        <path d="M6 0v12M0 6h12" stroke="currentColor" stroke-width="2" fill="none" />
-                                    </svg>
-                                </button>
-                            </div>
-
-                            <!-- Card 7: Accommodation -->
-                            <div class="offer-card" data-card="7">
-                                <div class="offer-icon">
-                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="1.5">
-                                        <path d="M3 21h18M5 21V7l7-4 7 4v14" />
-                                        <path d="M9 21v-6h6v6" />
-                                        <path d="M9 9h.01M15 9h.01M9 13h.01M15 13h.01" />
-                                    </svg>
-                                </div>
-                                <h3 class="offer-title">Accommodation Assistance</h3>
-                                <p class="offer-desc">Help finding quality, affordable housing near your school.</p>
-                                <button class="offer-btn" onclick="openOfferModal(7)"
-                                    aria-label="Learn more about Accommodation">
-                                    <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
-                                        <path d="M6 0v12M0 6h12" stroke="currentColor" stroke-width="2" fill="none" />
-                                    </svg>
-                                </button>
-                            </div>
-
-                            <!-- Card 8: Full Curriculum -->
-                            <div class="offer-card" data-card="8">
-                                <div class="offer-icon">
-                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="1.5">
-                                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
-                                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
-                                        <path d="M8 7h8M8 11h8M8 15h4" />
-                                    </svg>
-                                </div>
-                                <h3 class="offer-title">Full Curriculum</h3>
-                                <p class="offer-desc">Complete curriculum inclusive of textbooks and course plans.</p>
-                                <button class="offer-btn" onclick="openOfferModal(8)"
-                                    aria-label="Learn more about Full Curriculum">
-                                    <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
-                                        <path d="M6 0v12M0 6h12" stroke="currentColor" stroke-width="2" fill="none" />
-                                    </svg>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Navigation Arrows -->
-                    <div class="flex justify-end mt-8 gap-3" data-aos="fade-up">
-                        <button class="offer-nav-btn" id="offerPrevBtn" onclick="scrollOfferCards(-1)"
-                            aria-label="Previous">
-                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <path d="M8 2L4 6l4 4" />
-                            </svg>
-                        </button>
-                        <button class="offer-nav-btn" id="offerNextBtn" onclick="scrollOfferCards(1)" aria-label="Next">
-                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <path d="M4 2l4 4-4 4" />
-                            </svg>
-                        </button>
+                    <div
+                        class="absolute bottom-1/3 left-1/4 w-[400px] h-[400px] bg-yellow-400 rounded-full blur-[100px] opacity-10">
                     </div>
                 </div>
 
-                <!-- Modal -->
-                <div id="offerModal" class="offer-modal" onclick="closeOfferModal(event)">
-                    <div class="offer-modal-content" onclick="event.stopPropagation()">
-                        <button class="offer-modal-close" onclick="closeOfferModal()" aria-label="Close">
-                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <path d="M1 1l12 12M13 1L1 13" />
-                            </svg>
-                        </button>
-                        <p class="offer-modal-category" id="modalCategory"></p>
-                        <h3 class="offer-modal-title" id="modalTitle"></h3>
-                        <p class="offer-modal-desc" id="modalDesc"></p>
+                <div class="container mx-auto px-4 md:px-6 relative z-10">
+                    <!-- Large Rounded Frame -->
+                    <div class="relative rounded-[48px] md:rounded-[64px] p-8 md:p-12 lg:p-16 overflow-hidden" style="background: rgba(255,255,255,0.95);
+                               border: 1px solid rgba(0,0,0,0.05);
+                               box-shadow: 
+                                   inset 0 0 80px rgba(59,130,246,0.06),
+                                   inset 0 0 0 1px rgba(59,130,246,0.05),
+                                   0 30px 80px -20px rgba(0,0,0,0.08);">
+
+                        <!-- Subtle gradient glow at top corners -->
+                        <div class="absolute top-0 left-0 w-full h-48 pointer-events-none rounded-t-[48px] md:rounded-t-[64px]"
+                            style="background: radial-gradient(ellipse 60% 100% at 30% 0%, rgba(59,130,246,0.1) 0%, transparent 60%);">
+                        </div>
+                        <div class="absolute top-0 right-0 w-1/2 h-64 pointer-events-none"
+                            style="background: radial-gradient(ellipse 70% 100% at 100% 0%, rgba(251,191,36,0.08) 0%, transparent 50%);">
+                        </div>
+
+                        <!-- Content -->
+                        <div class="relative z-10 grid lg:grid-cols-2 gap-12 items-center">
+                            <div data-aos="fade-right">
+                                <span
+                                    class="inline-block px-4 py-2 bg-blue-100 text-blue-600 rounded-full text-sm font-semibold mb-4">
+                                    <i class="fas fa-star mr-2"></i>New Program 2026
+                                </span>
+                                <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 leading-tight">
+                                    Teach and Earn <span class="accent-text">in Thailand</span>
+                                </h2>
+                                <p class="text-gray-600 text-lg mb-6 leading-relaxed">
+                                    Get TEFL certified, teach English in Thai schools, and earn while exploring
+                                    Thailand!
+                                    Join our 120-hour TEFL program with CultureRoute, UK.
+                                </p>
+                                <div class="flex flex-wrap gap-6 mb-8">
+                                    <div class="flex items-center gap-3">
+                                        <div
+                                            class="w-10 h-10 bg-emerald-100 rounded-lg flex items-center justify-center">
+                                            <i class="fas fa-money-bill-wave text-emerald-600"></i>
+                                        </div>
+                                        <div>
+                                            <p class="text-gray-900 font-bold">30,000 THB</p>
+                                            <p class="text-gray-500 text-sm">Monthly Salary</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                                            <i class="fas fa-certificate text-blue-600"></i>
+                                        </div>
+                                        <div>
+                                            <p class="text-gray-900 font-bold">120-Hour TEFL</p>
+                                            <p class="text-gray-500 text-sm">Accredited Course</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center gap-3">
+                                        <div
+                                            class="w-10 h-10 bg-yellow-100 rounded-lg flex items-center justify-center">
+                                            <i class="fas fa-hand-holding-usd text-yellow-600"></i>
+                                        </div>
+                                        <div>
+                                            <p class="text-gray-900 font-bold">$420 Fee</p>
+                                            <p class="text-gray-500 text-sm">100% Refundable</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="teach-and-earn/"
+                                    class="inline-flex items-center gap-3 btn-primary px-8 py-4 rounded-full font-semibold text-lg shadow-lg shadow-blue-500/30 hover:shadow-blue-500/50 transition-all duration-300 hover:scale-105 hover:-translate-y-1">
+                                    <i class="fas fa-arrow-right"></i> Learn More
+                                </a>
+                            </div>
+                            <div data-aos="fade-left" class="flex justify-center">
+                                <div class="relative">
+                                    <div
+                                        class="absolute -top-3 -left-3 w-full h-full bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl transform rotate-3">
+                                    </div>
+                                    <div
+                                        class="absolute -bottom-3 -right-3 w-full h-full bg-gradient-to-br from-blue-500 to-cyan-400 rounded-2xl transform -rotate-3">
+                                    </div>
+                                    <img src="assets/images/teach-and-earn/te6.webp" alt="Teach and Earn Program"
+                                        class="relative z-10 w-full max-w-md h-72 md:h-80 object-cover rounded-2xl shadow-2xl">
+                                    <div
+                                        class="absolute -bottom-4 left-1/2 transform -translate-x-1/2 z-20 bg-white rounded-xl px-6 py-3 shadow-xl">
+                                        <div class="flex items-center gap-2">
+                                            <i class="fas fa-calendar-alt text-blue-600"></i>
+                                            <span class="font-bold text-gray-900">Starting May 2026</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        </section>
+
+        <section id="programs" class="py-20 relative">
+            <div class="container mx-auto px-6">
+                <!-- Header -->
+                <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-12" data-aos="fade-up">
+                    <div>
+                        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
+                            What We Offer
+                        </h2>
+                    </div>
+                    <a href="teach-and-earn/"
+                        class="text-blue-600 hover:text-blue-700 font-medium mt-4 md:mt-0 flex items-center gap-1 group">
+                        Learn More
+                        <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
+                            </path>
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Horizontal Scroll Container -->
+                <div class="offer-scroll-wrapper" data-aos="fade-up">
+                    <div class="offer-scroll-container" id="offerScrollContainer">
+                        <!-- Card 1: Unique Locations -->
+                        <div class="offer-card" data-card="1">
+                            <div class="offer-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="1.5">
+                                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+                                    <circle cx="12" cy="9" r="2.5" />
+                                </svg>
+                            </div>
+                            <h3 class="offer-title">Unique Locations</h3>
+                            <p class="offer-desc">Kindergarten, primary, and secondary schools throughout Thailand.
+                            </p>
+                            <button class="offer-btn" onclick="openOfferModal(1)"
+                                aria-label="Learn more about Unique Locations">
+                                <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
+                                    <path d="M6 0v12M0 6h12" stroke="currentColor" stroke-width="2" fill="none" />
+                                </svg>
+                            </button>
+                        </div>
+
+                        <!-- Card 2: Free Training -->
+                        <div class="offer-card" data-card="2">
+                            <div class="offer-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="1.5">
+                                    <path d="M12 3L1 9l11 6 9-4.91V17M5 13.18v4L12 21l7-3.82v-4" />
+                                </svg>
+                            </div>
+                            <h3 class="offer-title">Free Professional Training</h3>
+                            <p class="offer-desc">Orientation including Thai language basics and cultural immersion.
+                            </p>
+                            <button class="offer-btn" onclick="openOfferModal(2)"
+                                aria-label="Learn more about Free Training">
+                                <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
+                                    <path d="M6 0v12M0 6h12" stroke="currentColor" stroke-width="2" fill="none" />
+                                </svg>
+                            </button>
+                        </div>
+
+                        <!-- Card 3: Document Assistance -->
+                        <div class="offer-card" data-card="3">
+                            <div class="offer-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="1.5">
+                                    <rect x="3" y="4" width="18" height="16" rx="2" />
+                                    <path d="M7 8h10M7 12h6" />
+                                    <circle cx="17" cy="14" r="2" />
+                                </svg>
+                            </div>
+                            <h3 class="offer-title">Document Assistance</h3>
+                            <p class="offer-desc">Working documents support and partial reimbursement towards work
+                                visa costs.</p>
+                            <button class="offer-btn" onclick="openOfferModal(3)"
+                                aria-label="Learn more about Document Assistance">
+                                <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
+                                    <path d="M6 0v12M0 6h12" stroke="currentColor" stroke-width="2" fill="none" />
+                                </svg>
+                            </button>
+                        </div>
+
+                        <!-- Card 4: Thai Consultant -->
+                        <div class="offer-card" data-card="4">
+                            <div class="offer-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="1.5">
+                                    <circle cx="12" cy="7" r="4" />
+                                    <path d="M5.5 21a6.5 6.5 0 0 1 13 0" />
+                                    <path d="M16 11l2 2 4-4" />
+                                </svg>
+                            </div>
+                            <h3 class="offer-title">Thai Consultant Support</h3>
+                            <p class="offer-desc">Dedicated Thai consultant available to assist you throughout your
+                                journey.</p>
+                            <button class="offer-btn" onclick="openOfferModal(4)"
+                                aria-label="Learn more about Thai Consultant">
+                                <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
+                                    <path d="M6 0v12M0 6h12" stroke="currentColor" stroke-width="2" fill="none" />
+                                </svg>
+                            </button>
+                        </div>
+
+                        <!-- Card 5: Curriculum Consultant -->
+                        <div class="offer-card" data-card="5">
+                            <div class="offer-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="1.5">
+                                    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+                                    <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
+                                    <path d="M12 7v10M9 12h6" />
+                                </svg>
+                            </div>
+                            <h3 class="offer-title">Curriculum Consultant</h3>
+                            <p class="offer-desc">Expert guidance on lesson planning and teaching methodology.</p>
+                            <button class="offer-btn" onclick="openOfferModal(5)"
+                                aria-label="Learn more about Curriculum Consultant">
+                                <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
+                                    <path d="M6 0v12M0 6h12" stroke="currentColor" stroke-width="2" fill="none" />
+                                </svg>
+                            </button>
+                        </div>
+
+                        <!-- Card 6: Accident Insurance -->
+                        <div class="offer-card" data-card="6">
+                            <div class="offer-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="1.5">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                                    <path d="M9 12l2 2 4-4" />
+                                </svg>
+                            </div>
+                            <h3 class="offer-title">Accident Insurance</h3>
+                            <p class="offer-desc">Comprehensive accident insurance coverage for your peace of mind.
+                            </p>
+                            <button class="offer-btn" onclick="openOfferModal(6)"
+                                aria-label="Learn more about Accident Insurance">
+                                <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
+                                    <path d="M6 0v12M0 6h12" stroke="currentColor" stroke-width="2" fill="none" />
+                                </svg>
+                            </button>
+                        </div>
+
+                        <!-- Card 7: Accommodation -->
+                        <div class="offer-card" data-card="7">
+                            <div class="offer-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="1.5">
+                                    <path d="M3 21h18M5 21V7l7-4 7 4v14" />
+                                    <path d="M9 21v-6h6v6" />
+                                    <path d="M9 9h.01M15 9h.01M9 13h.01M15 13h.01" />
+                                </svg>
+                            </div>
+                            <h3 class="offer-title">Accommodation Assistance</h3>
+                            <p class="offer-desc">Help finding quality, affordable housing near your school.</p>
+                            <button class="offer-btn" onclick="openOfferModal(7)"
+                                aria-label="Learn more about Accommodation">
+                                <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
+                                    <path d="M6 0v12M0 6h12" stroke="currentColor" stroke-width="2" fill="none" />
+                                </svg>
+                            </button>
+                        </div>
+
+                        <!-- Card 8: Full Curriculum -->
+                        <div class="offer-card" data-card="8">
+                            <div class="offer-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="1.5">
+                                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+                                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+                                    <path d="M8 7h8M8 11h8M8 15h4" />
+                                </svg>
+                            </div>
+                            <h3 class="offer-title">Full Curriculum</h3>
+                            <p class="offer-desc">Complete curriculum inclusive of textbooks and course plans.</p>
+                            <button class="offer-btn" onclick="openOfferModal(8)"
+                                aria-label="Learn more about Full Curriculum">
+                                <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
+                                    <path d="M6 0v12M0 6h12" stroke="currentColor" stroke-width="2" fill="none" />
+                                </svg>
+                            </button>
+                        </div>
                     </div>
                 </div>
 
-                <style>
-                    /* Offer Section - Apple Style */
-                    .offer-scroll-wrapper {
-                        position: relative;
-                        margin: 0 -1.5rem;
-                        padding: 0 1.5rem;
-                    }
+                <!-- Navigation Arrows -->
+                <div class="flex justify-end mt-8 gap-3" data-aos="fade-up">
+                    <button class="offer-nav-btn" id="offerPrevBtn" onclick="scrollOfferCards(-1)"
+                        aria-label="Previous">
+                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M8 2L4 6l4 4" />
+                        </svg>
+                    </button>
+                    <button class="offer-nav-btn" id="offerNextBtn" onclick="scrollOfferCards(1)" aria-label="Next">
+                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M4 2l4 4-4 4" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
 
-                    .offer-scroll-container {
-                        display: flex;
-                        gap: 20px;
-                        overflow-x: auto;
-                        scroll-behavior: smooth;
-                        scrollbar-width: none;
-                        -ms-overflow-style: none;
-                        padding: 0.5rem 0;
-                    }
+            <!-- Modal -->
+            <div id="offerModal" class="offer-modal" onclick="closeOfferModal(event)">
+                <div class="offer-modal-content" onclick="event.stopPropagation()">
+                    <button class="offer-modal-close" onclick="closeOfferModal()" aria-label="Close">
+                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M1 1l12 12M13 1L1 13" />
+                        </svg>
+                    </button>
+                    <p class="offer-modal-category" id="modalCategory"></p>
+                    <h3 class="offer-modal-title" id="modalTitle"></h3>
+                    <p class="offer-modal-desc" id="modalDesc"></p>
+                </div>
+            </div>
 
-                    .offer-scroll-container::-webkit-scrollbar {
-                        display: none;
-                    }
+            <style>
+                /* Offer Section - Apple Style */
+                .offer-scroll-wrapper {
+                    position: relative;
+                    margin: 0 -1.5rem;
+                    padding: 0 1.5rem;
+                }
 
+                .offer-scroll-container {
+                    display: flex;
+                    gap: 20px;
+                    overflow-x: auto;
+                    scroll-behavior: smooth;
+                    scrollbar-width: none;
+                    -ms-overflow-style: none;
+                    padding: 0.5rem 0;
+                }
+
+                .offer-scroll-container::-webkit-scrollbar {
+                    display: none;
+                }
+
+                .offer-card {
+                    background: #ffffff;
+                    border-radius: 28px;
+                    padding: 32px 76px 56px 32px;
+                    min-width: 372px;
+                    max-width: 372px;
+                    min-height: 389px;
+                    display: flex;
+                    flex-direction: column;
+                    position: relative;
+                    transition: all 0.3s ease;
+                    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+                    flex-shrink: 0;
+                }
+
+                .offer-card:hover {
+                    transform: translateY(-2px);
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+                }
+
+                .offer-icon {
+                    width: 46px;
+                    height: 56px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: #1d1d1f;
+                    margin-bottom: 1.25rem;
+                }
+
+                .offer-icon svg {
+                    width: 46px;
+                    height: 56px;
+                    stroke-linecap: round;
+                    stroke-linejoin: round;
+                }
+
+                .offer-title {
+                    font-size: 28px;
+                    font-weight: 600;
+                    color: #1d1d1f;
+                    margin-bottom: 0.75rem;
+                    line-height: 1.4;
+                }
+
+                .offer-desc {
+                    font-size: 17px;
+                    color: #86868b;
+                    line-height: 1.47;
+                    flex-grow: 1;
+                }
+
+                .offer-btn {
+                    position: absolute;
+                    bottom: 1.25rem;
+                    right: 1.25rem;
+                    width: 32px;
+                    height: 32px;
+                    border-radius: 50%;
+                    background: #e8e8ed;
+                    border: none;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: #1d1d1f;
+                    cursor: pointer;
+                    transition: all 0.2s ease;
+                }
+
+                .offer-card:hover .offer-btn {
+                    background: #0071e3;
+                    color: white;
+                }
+
+                .offer-nav-btn {
+                    width: 36px;
+                    height: 36px;
+                    border-radius: 50%;
+                    background: #e8e8ed;
+                    border: none;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: #1d1d1f;
+                    cursor: pointer;
+                    transition: all 0.2s ease;
+                }
+
+                .offer-nav-btn:hover {
+                    background: #d2d2d7;
+                }
+
+                .offer-nav-btn:disabled {
+                    opacity: 0.4;
+                    cursor: not-allowed;
+                }
+
+                /* Modal Styles */
+                .offer-modal {
+                    display: none;
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0, 0, 0, 0.3);
+                    backdrop-filter: blur(8px);
+                    -webkit-backdrop-filter: blur(8px);
+                    z-index: 9999;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 1.5rem;
+                    opacity: 0;
+                    transition: opacity 0.3s ease;
+                }
+
+                .offer-modal.active {
+                    display: flex;
+                    opacity: 1;
+                }
+
+                .offer-modal-content {
+                    background: #ffffff;
+                    border-radius: 24px;
+                    padding: 3rem 3rem 2.5rem 3rem;
+                    max-width: 640px;
+                    width: 100%;
+                    position: relative;
+                    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.2);
+                    transform: scale(0.95);
+                    transition: transform 0.3s ease;
+                }
+
+                .offer-modal.active .offer-modal-content {
+                    transform: scale(1);
+                }
+
+                .offer-modal-close {
+                    position: absolute;
+                    top: 1.25rem;
+                    right: 1.25rem;
+                    width: 32px;
+                    height: 32px;
+                    border-radius: 50%;
+                    background: #f5f5f7;
+                    border: none;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: #86868b;
+                    cursor: pointer;
+                    transition: all 0.2s ease;
+                }
+
+                .offer-modal-close:hover {
+                    background: #e8e8ed;
+                    color: #1d1d1f;
+                }
+
+                .offer-modal-category {
+                    font-size: 1rem;
+                    color: #f56300;
+                    font-weight: 500;
+                    margin-bottom: 1rem;
+                }
+
+                .offer-modal-title {
+                    font-size: 2.25rem;
+                    font-weight: 700;
+                    color: #1d1d1f;
+                    line-height: 1.25;
+                    margin-bottom: 1.25rem;
+                }
+
+                .offer-modal-desc {
+                    font-size: 1.125rem;
+                    color: #515154;
+                    line-height: 1.75;
+                }
+
+                @media (max-width: 768px) {
                     .offer-card {
-                        background: #ffffff;
-                        border-radius: 28px;
-                        padding: 32px 76px 56px 32px;
-                        min-width: 372px;
-                        max-width: 372px;
-                        min-height: 389px;
-                        display: flex;
-                        flex-direction: column;
-                        position: relative;
-                        transition: all 0.3s ease;
-                        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
-                        flex-shrink: 0;
-                    }
-
-                    .offer-card:hover {
-                        transform: translateY(-2px);
-                        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-                    }
-
-                    .offer-icon {
-                        width: 46px;
-                        height: 56px;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        color: #1d1d1f;
-                        margin-bottom: 1.25rem;
+                        min-width: 300px;
+                        max-width: 300px;
+                        min-height: 320px;
+                        padding: 24px 48px 48px 24px;
+                        border-radius: 22px;
                     }
 
                     .offer-icon svg {
-                        width: 46px;
-                        height: 56px;
-                        stroke-linecap: round;
-                        stroke-linejoin: round;
+                        width: 40px;
+                        height: 48px;
                     }
 
                     .offer-title {
-                        font-size: 28px;
-                        font-weight: 600;
-                        color: #1d1d1f;
-                        margin-bottom: 0.75rem;
-                        line-height: 1.4;
-                    }
-
-                    .offer-desc {
-                        font-size: 17px;
-                        color: #86868b;
-                        line-height: 1.47;
-                        flex-grow: 1;
-                    }
-
-                    .offer-btn {
-                        position: absolute;
-                        bottom: 1.25rem;
-                        right: 1.25rem;
-                        width: 32px;
-                        height: 32px;
-                        border-radius: 50%;
-                        background: #e8e8ed;
-                        border: none;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        color: #1d1d1f;
-                        cursor: pointer;
-                        transition: all 0.2s ease;
-                    }
-
-                    .offer-card:hover .offer-btn {
-                        background: #0071e3;
-                        color: white;
-                    }
-
-                    .offer-nav-btn {
-                        width: 36px;
-                        height: 36px;
-                        border-radius: 50%;
-                        background: #e8e8ed;
-                        border: none;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        color: #1d1d1f;
-                        cursor: pointer;
-                        transition: all 0.2s ease;
-                    }
-
-                    .offer-nav-btn:hover {
-                        background: #d2d2d7;
-                    }
-
-                    .offer-nav-btn:disabled {
-                        opacity: 0.4;
-                        cursor: not-allowed;
-                    }
-
-                    /* Modal Styles */
-                    .offer-modal {
-                        display: none;
-                        position: fixed;
-                        top: 0;
-                        left: 0;
-                        width: 100%;
-                        height: 100%;
-                        background: rgba(0, 0, 0, 0.3);
-                        backdrop-filter: blur(8px);
-                        -webkit-backdrop-filter: blur(8px);
-                        z-index: 9999;
-                        align-items: center;
-                        justify-content: center;
-                        padding: 1.5rem;
-                        opacity: 0;
-                        transition: opacity 0.3s ease;
-                    }
-
-                    .offer-modal.active {
-                        display: flex;
-                        opacity: 1;
+                        font-size: 22px;
                     }
 
                     .offer-modal-content {
-                        background: #ffffff;
-                        border-radius: 24px;
-                        padding: 3rem 3rem 2.5rem 3rem;
-                        max-width: 640px;
-                        width: 100%;
-                        position: relative;
-                        box-shadow: 0 25px 80px rgba(0, 0, 0, 0.2);
-                        transform: scale(0.95);
-                        transition: transform 0.3s ease;
-                    }
-
-                    .offer-modal.active .offer-modal-content {
-                        transform: scale(1);
-                    }
-
-                    .offer-modal-close {
-                        position: absolute;
-                        top: 1.25rem;
-                        right: 1.25rem;
-                        width: 32px;
-                        height: 32px;
-                        border-radius: 50%;
-                        background: #f5f5f7;
-                        border: none;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        color: #86868b;
-                        cursor: pointer;
-                        transition: all 0.2s ease;
-                    }
-
-                    .offer-modal-close:hover {
-                        background: #e8e8ed;
-                        color: #1d1d1f;
-                    }
-
-                    .offer-modal-category {
-                        font-size: 1rem;
-                        color: #f56300;
-                        font-weight: 500;
-                        margin-bottom: 1rem;
+                        padding: 2.5rem 2rem 2rem 2rem;
                     }
 
                     .offer-modal-title {
-                        font-size: 2.25rem;
-                        font-weight: 700;
-                        color: #1d1d1f;
-                        line-height: 1.25;
-                        margin-bottom: 1.25rem;
+                        font-size: 1.75rem;
                     }
 
                     .offer-modal-desc {
-                        font-size: 1.125rem;
-                        color: #515154;
-                        line-height: 1.75;
+                        font-size: 1rem;
                     }
+                }
+            </style>
 
-                    @media (max-width: 768px) {
-                        .offer-card {
-                            min-width: 300px;
-                            max-width: 300px;
-                            min-height: 320px;
-                            padding: 24px 48px 48px 24px;
-                            border-radius: 22px;
-                        }
-
-                        .offer-icon svg {
-                            width: 40px;
-                            height: 48px;
-                        }
-
-                        .offer-title {
-                            font-size: 22px;
-                        }
-
-                        .offer-modal-content {
-                            padding: 2.5rem 2rem 2rem 2rem;
-                        }
-
-                        .offer-modal-title {
-                            font-size: 1.75rem;
-                        }
-
-                        .offer-modal-desc {
-                            font-size: 1rem;
-                        }
+            <script>
+                // Offer Cards Data
+                const offerData = {
+                    1: {
+                        category: "Teaching Locations",
+                        title: "Unique Locations",
+                        desc: "Teach in diverse settings across Thailand - from kindergartens nurturing young minds, to primary schools building foundations, to secondary schools preparing students for the future. Experience the rich culture and warm hospitality of Thai communities while making a real difference in students' lives."
+                    },
+                    2: {
+                        category: "Professional Development",
+                        title: "Free Professional Training",
+                        desc: "Start your teaching journey with comprehensive orientation training. Learn essential Thai language skills for daily communication, understand Thai classroom culture and etiquette, and receive practical teaching strategies. Our training prepares you to thrive in Thai schools from day one."
+                    },
+                    3: {
+                        category: "Visa & Documents",
+                        title: "Document Assistance",
+                        desc: "Navigate the work permit process with confidence. We provide guidance on required documents, assist with applications, and offer partial reimbursement towards work visa costs. Our experienced team ensures your paperwork is handled efficiently and correctly."
+                    },
+                    4: {
+                        category: "Local Support",
+                        title: "Thai Consultant Support",
+                        desc: "Your personal Thai consultant is always ready to help. From translating documents to accompanying you to government offices, from helping with housing to resolving everyday challenges - you'll never have to navigate Thai bureaucracy alone."
+                    },
+                    5: {
+                        category: "Teaching Support",
+                        title: "Curriculum Consultant",
+                        desc: "Receive expert guidance from our curriculum consultants. Get help with lesson planning, teaching materials, classroom management strategies, and adapting your teaching style to Thai students. We're here to help you become the best teacher you can be."
+                    },
+                    6: {
+                        category: "Safety & Security",
+                        title: "Accident Insurance",
+                        desc: "Teach with peace of mind knowing you're protected. Our comprehensive accident insurance covers medical expenses in case of unexpected injuries, allowing you to focus on what matters most - your teaching and your adventure in Thailand."
+                    },
+                    7: {
+                        category: "Housing Support",
+                        title: "Accommodation Assistance",
+                        desc: "Finding a home in Thailand is easy with our help. We connect you with safe, affordable housing options near your school. Our local consultants can accompany you to view apartments and help negotiate fair rental terms."
+                    },
+                    8: {
+                        category: "Teaching Resources",
+                        title: "Full Curriculum",
+                        desc: "Hit the ground running with our complete curriculum package. Receive all textbooks, detailed lesson plans, activity guides, and supplementary materials you need. Our curriculum is designed specifically for Thai schools and updated regularly."
                     }
-                </style>
+                };
 
-                <script>
-                    // Offer Cards Data
-                    const offerData = {
-                        1: {
-                            category: "Teaching Locations",
-                            title: "Unique Locations",
-                            desc: "Teach in diverse settings across Thailand - from kindergartens nurturing young minds, to primary schools building foundations, to secondary schools preparing students for the future. Experience the rich culture and warm hospitality of Thai communities while making a real difference in students' lives."
-                        },
-                        2: {
-                            category: "Professional Development",
-                            title: "Free Professional Training",
-                            desc: "Start your teaching journey with comprehensive orientation training. Learn essential Thai language skills for daily communication, understand Thai classroom culture and etiquette, and receive practical teaching strategies. Our training prepares you to thrive in Thai schools from day one."
-                        },
-                        3: {
-                            category: "Visa & Documents",
-                            title: "Document Assistance",
-                            desc: "Navigate the work permit process with confidence. We provide guidance on required documents, assist with applications, and offer partial reimbursement towards work visa costs. Our experienced team ensures your paperwork is handled efficiently and correctly."
-                        },
-                        4: {
-                            category: "Local Support",
-                            title: "Thai Consultant Support",
-                            desc: "Your personal Thai consultant is always ready to help. From translating documents to accompanying you to government offices, from helping with housing to resolving everyday challenges - you'll never have to navigate Thai bureaucracy alone."
-                        },
-                        5: {
-                            category: "Teaching Support",
-                            title: "Curriculum Consultant",
-                            desc: "Receive expert guidance from our curriculum consultants. Get help with lesson planning, teaching materials, classroom management strategies, and adapting your teaching style to Thai students. We're here to help you become the best teacher you can be."
-                        },
-                        6: {
-                            category: "Safety & Security",
-                            title: "Accident Insurance",
-                            desc: "Teach with peace of mind knowing you're protected. Our comprehensive accident insurance covers medical expenses in case of unexpected injuries, allowing you to focus on what matters most - your teaching and your adventure in Thailand."
-                        },
-                        7: {
-                            category: "Housing Support",
-                            title: "Accommodation Assistance",
-                            desc: "Finding a home in Thailand is easy with our help. We connect you with safe, affordable housing options near your school. Our local consultants can accompany you to view apartments and help negotiate fair rental terms."
-                        },
-                        8: {
-                            category: "Teaching Resources",
-                            title: "Full Curriculum",
-                            desc: "Hit the ground running with our complete curriculum package. Receive all textbooks, detailed lesson plans, activity guides, and supplementary materials you need. Our curriculum is designed specifically for Thai schools and updated regularly."
-                        }
-                    };
+                // Scroll functionality
+                function scrollOfferCards(direction) {
+                    const container = document.getElementById('offerScrollContainer');
+                    const cardWidth = 372 + 20; // card width + gap
+                    container.scrollBy({ left: direction * cardWidth, behavior: 'smooth' });
+                    updateOfferNavButtons();
+                }
 
-                    // Scroll functionality
-                    function scrollOfferCards(direction) {
-                        const container = document.getElementById('offerScrollContainer');
-                        const cardWidth = 372 + 20; // card width + gap
-                        container.scrollBy({ left: direction * cardWidth, behavior: 'smooth' });
-                        updateOfferNavButtons();
-                    }
+                function updateOfferNavButtons() {
+                    const container = document.getElementById('offerScrollContainer');
+                    const prevBtn = document.getElementById('offerPrevBtn');
+                    const nextBtn = document.getElementById('offerNextBtn');
 
-                    function updateOfferNavButtons() {
-                        const container = document.getElementById('offerScrollContainer');
-                        const prevBtn = document.getElementById('offerPrevBtn');
-                        const nextBtn = document.getElementById('offerNextBtn');
+                    setTimeout(() => {
+                        prevBtn.disabled = container.scrollLeft <= 0;
+                        nextBtn.disabled = container.scrollLeft >= container.scrollWidth - container.clientWidth - 10;
+                    }, 350);
+                }
 
-                        setTimeout(() => {
-                            prevBtn.disabled = container.scrollLeft <= 0;
-                            nextBtn.disabled = container.scrollLeft >= container.scrollWidth - container.clientWidth - 10;
-                        }, 350);
-                    }
+                // Modal functionality
+                function openOfferModal(cardId) {
+                    const modal = document.getElementById('offerModal');
+                    const data = offerData[cardId];
 
-                    // Modal functionality
-                    function openOfferModal(cardId) {
-                        const modal = document.getElementById('offerModal');
-                        const data = offerData[cardId];
+                    document.getElementById('modalCategory').textContent = data.category;
+                    document.getElementById('modalTitle').textContent = data.title;
+                    document.getElementById('modalDesc').textContent = data.desc;
 
-                        document.getElementById('modalCategory').textContent = data.category;
-                        document.getElementById('modalTitle').textContent = data.title;
-                        document.getElementById('modalDesc').textContent = data.desc;
+                    modal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
 
-                        modal.classList.add('active');
-                        document.body.style.overflow = 'hidden';
-                    }
+                function closeOfferModal(event) {
+                    if (event && event.target !== event.currentTarget) return;
+                    const modal = document.getElementById('offerModal');
+                    modal.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
 
-                    function closeOfferModal(event) {
-                        if (event && event.target !== event.currentTarget) return;
-                        const modal = document.getElementById('offerModal');
-                        modal.classList.remove('active');
-                        document.body.style.overflow = '';
-                    }
+                // Initialize
+                document.addEventListener('DOMContentLoaded', function () {
+                    updateOfferNavButtons();
+                    document.getElementById('offerScrollContainer').addEventListener('scroll', updateOfferNavButtons);
 
-                    // Initialize
-                    document.addEventListener('DOMContentLoaded', function () {
-                        updateOfferNavButtons();
-                        document.getElementById('offerScrollContainer').addEventListener('scroll', updateOfferNavButtons);
-
-                        // Close modal with Escape key
-                        document.addEventListener('keydown', function (e) {
-                            if (e.key === 'Escape') closeOfferModal();
-                        });
-                        // Hero Variable Proximity Effect (Optimized for Smoothness & Precision)
-                        const focusLines = document.querySelectorAll('.focus-line');
-                        const RADIUS = 100; // Tighter radius
-                        const MIN_WEIGHT = 800;
-                        const MAX_WEIGHT = 900;
-
-                        // 1. Initialize: Split characters
-                        focusLines.forEach(line => {
-                            const text = line.getAttribute('data-text');
-                            line.innerHTML = '';
-                            [...text].forEach(char => {
-                                const span = document.createElement('span');
-                                span.className = 'focus-char';
-                                span.textContent = char;
-                                line.appendChild(span);
-                            });
-                        });
-
-                        const allChars = document.querySelectorAll('.focus-char');
-                        let mouseX = 0, mouseY = 0;
-                        let lastMouseX = 0, lastMouseY = 0;
-
-                        window.addEventListener('mousemove', (e) => {
-                            mouseX = e.clientX;
-                            mouseY = e.clientY;
-                        });
-
-                        function updateProximity() {
-                            // Only update if mouse moved to save performance
-                            if (mouseX !== lastMouseX || mouseY !== lastMouseY) {
-                                allChars.forEach(char => {
-                                    const rect = char.getBoundingClientRect();
-                                    const charX = rect.left + rect.width / 2;
-                                    const charY = rect.top + rect.height / 2;
-
-                                    // Weight vertical distance (dy * 2.5) to prevent bleeding into other lines
-                                    const dx = mouseX - charX;
-                                    const dy = (mouseY - charY) * 2.5;
-                                    const dist = Math.sqrt(dx * dx + dy * dy);
-
-                                    if (dist < RADIUS) {
-                                        // Use a more aggressive falloff for a "snappier" feel (squared distance)
-                                        const proximity = Math.pow(1 - (dist / RADIUS), 2);
-                                        const weight = MIN_WEIGHT + (MAX_WEIGHT - MIN_WEIGHT) * proximity;
-                                        const scale = 1 + (0.15 * proximity);
-
-                                        char.style.fontWeight = Math.round(weight);
-                                        char.style.transform = `scale(${scale})`;
-                                        char.style.zIndex = "10";
-                                    } else {
-                                        char.style.fontWeight = MIN_WEIGHT;
-                                        char.style.transform = `scale(1)`;
-                                        char.style.zIndex = "1";
-                                    }
-                                });
-                                lastMouseX = mouseX;
-                                lastMouseY = mouseY;
-                            }
-                            requestAnimationFrame(updateProximity);
-                        }
-
-                        // Start the high-performance loop
-                        requestAnimationFrame(updateProximity);
+                    // Close modal with Escape key
+                    document.addEventListener('keydown', function (e) {
+                        if (e.key === 'Escape') closeOfferModal();
                     });
-                </script>
-            </section>
-            <section id="partners" class="py-12 bg-white">
-                <div class="container mx-auto px-6">
-                    <h3 class="text-center text-4xl md:text-5xl font-bold mb-12 shimmer-text">Our Valued Partners</h3>
-                    <div id="partners-marquee" class="relative overflow-hidden">
-                        <!-- Fade edges -->
-                        <div class="partners-fade-left"></div>
-                        <div class="partners-fade-right"></div>
+                    // Hero Variable Proximity Effect (Optimized for Smoothness & Precision)
+                    const focusLines = document.querySelectorAll('.focus-line');
+                    const RADIUS = 100; // Tighter radius
+                    const MIN_WEIGHT = 800;
+                    const MAX_WEIGHT = 900;
 
-                        <div id="partners-track" class="partners-track">
-                            <!-- Logos will be inserted by JS -->
-                        </div>
+                    // 1. Initialize: Split characters
+                    focusLines.forEach(line => {
+                        const text = line.getAttribute('data-text');
+                        line.innerHTML = '';
+                        [...text].forEach(char => {
+                            const span = document.createElement('span');
+                            span.className = 'focus-char';
+                            span.textContent = char;
+                            line.appendChild(span);
+                        });
+                    });
+
+                    const allChars = document.querySelectorAll('.focus-char');
+                    let mouseX = 0, mouseY = 0;
+                    let lastMouseX = 0, lastMouseY = 0;
+
+                    window.addEventListener('mousemove', (e) => {
+                        mouseX = e.clientX;
+                        mouseY = e.clientY;
+                    });
+
+                    function updateProximity() {
+                        // Only update if mouse moved to save performance
+                        if (mouseX !== lastMouseX || mouseY !== lastMouseY) {
+                            allChars.forEach(char => {
+                                const rect = char.getBoundingClientRect();
+                                const charX = rect.left + rect.width / 2;
+                                const charY = rect.top + rect.height / 2;
+
+                                // Weight vertical distance (dy * 2.5) to prevent bleeding into other lines
+                                const dx = mouseX - charX;
+                                const dy = (mouseY - charY) * 2.5;
+                                const dist = Math.sqrt(dx * dx + dy * dy);
+
+                                if (dist < RADIUS) {
+                                    // Use a more aggressive falloff for a "snappier" feel (squared distance)
+                                    const proximity = Math.pow(1 - (dist / RADIUS), 2);
+                                    const weight = MIN_WEIGHT + (MAX_WEIGHT - MIN_WEIGHT) * proximity;
+                                    const scale = 1 + (0.15 * proximity);
+
+                                    char.style.fontWeight = Math.round(weight);
+                                    char.style.transform = `scale(${scale})`;
+                                    char.style.zIndex = "10";
+                                } else {
+                                    char.style.fontWeight = MIN_WEIGHT;
+                                    char.style.transform = `scale(1)`;
+                                    char.style.zIndex = "1";
+                                }
+                            });
+                            lastMouseX = mouseX;
+                            lastMouseY = mouseY;
+                        }
+                        requestAnimationFrame(updateProximity);
+                    }
+
+                    // Start the high-performance loop
+                    requestAnimationFrame(updateProximity);
+                });
+            </script>
+        </section>
+        <section id="partners" class="py-12 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <h3 class="text-center text-4xl md:text-5xl font-bold mb-12 shimmer-text">Our Valued Partners</h3>
+                <div id="partners-marquee" class="relative overflow-hidden">
+                    <!-- Fade edges -->
+                    <div class="partners-fade-left"></div>
+                    <div class="partners-fade-right"></div>
+
+                    <div id="partners-track" class="partners-track">
+                        <!-- Logos will be inserted by JS -->
                     </div>
                 </div>
+            </div>
 
-                <style>
-                    /* Shimmer Text Animation */
-                    .shimmer-text {
-                        background: linear-gradient(90deg,
-                                #00c9a7 0%,
-                                #00b4d8 25%,
-                                #0077b6 50%,
-                                #00b4d8 75%,
-                                #00c9a7 100%);
-                        background-size: 200% auto;
-                        -webkit-background-clip: text;
-                        background-clip: text;
-                        -webkit-text-fill-color: transparent;
-                        animation: shimmer 3s linear infinite;
+            <style>
+                /* Shimmer Text Animation */
+                .shimmer-text {
+                    background: linear-gradient(90deg,
+                            #00c9a7 0%,
+                            #00b4d8 25%,
+                            #0077b6 50%,
+                            #00b4d8 75%,
+                            #00c9a7 100%);
+                    background-size: 200% auto;
+                    -webkit-background-clip: text;
+                    background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    animation: shimmer 3s linear infinite;
+                }
+
+                @keyframes shimmer {
+                    0% {
+                        background-position: 0% center;
                     }
 
-                    @keyframes shimmer {
-                        0% {
-                            background-position: 0% center;
-                        }
+                    100% {
+                        background-position: 200% center;
+                    }
+                }
 
-                        100% {
-                            background-position: 200% center;
-                        }
+                #partners-marquee {
+                    position: relative;
+                    max-width: 700px;
+                    margin: 0 auto;
+                }
+
+                .partners-fade-left,
+                .partners-fade-right {
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    width: 100px;
+                    z-index: 10;
+                    pointer-events: none;
+                }
+
+                .partners-fade-left {
+                    left: 0;
+                    background: linear-gradient(to right, #fff 0%, transparent 100%);
+                }
+
+                .partners-fade-right {
+                    right: 0;
+                    background: linear-gradient(to left, #fff 0%, transparent 100%);
+                }
+
+                .partners-track {
+                    display: flex;
+                    align-items: center;
+                    gap: 2.5rem;
+                    width: max-content;
+                    padding: 20px 0;
+                }
+
+                .partner-logo {
+                    height: 90px;
+                    width: 90px;
+                    object-fit: contain;
+                    flex-shrink: 0;
+                    transition: transform 0.3s ease;
+                }
+
+                .partner-logo:hover {
+                    transform: scale(1.15) !important;
+                }
+
+                .partner-logo-large {
+                    transform: scale(1.2);
+                }
+
+                .partner-logo-large:hover {
+                    transform: scale(1.35) !important;
+                }
+
+                @media (max-width: 768px) {
+                    .partners-track {
+                        gap: 2rem;
                     }
 
-                    #partners-marquee {
-                        position: relative;
-                        max-width: 700px;
-                        margin: 0 auto;
+                    .partner-logo {
+                        height: 60px;
+                        width: 60px;
                     }
 
                     .partners-fade-left,
                     .partners-fade-right {
-                        position: absolute;
-                        top: 0;
-                        bottom: 0;
-                        width: 100px;
-                        z-index: 10;
-                        pointer-events: none;
+                        width: 50px;
                     }
+                }
+            </style>
 
-                    .partners-fade-left {
-                        left: 0;
-                        background: linear-gradient(to right, #fff 0%, transparent 100%);
-                    }
+            <script>
+                (function () {
+                    const track = document.getElementById('partners-track');
+                    const logos = [
+                        { src: 'assets/images/partners/s1.webp', large: false },
+                        { src: 'assets/images/partners/s2.webp', large: false },
+                        { src: 'assets/images/partners/s3.webp', large: true },
+                        { src: 'assets/images/partners/s4.webp', large: true },
+                        { src: 'assets/images/partners/s5.webp', large: false },
+                        { src: 'assets/images/partners/s6.webp', large: false },
+                        { src: 'assets/images/partners/s7.webp', large: false },
+                        { src: 'assets/images/partners/s8.webp', large: false },
+                        { src: 'assets/images/partners/s9.webp', large: false },
+                        { src: 'assets/images/partners/s10.webp', large: false },
+                        { src: 'assets/images/partners/s11.webp', large: false },
+                        { src: 'assets/images/partners/s12.webp', large: false },
+                        { src: 'assets/images/partners/s13.webp', large: false },
+                        { src: 'assets/images/partners/s14.webp', large: false }
+                    ];
 
-                    .partners-fade-right {
-                        right: 0;
-                        background: linear-gradient(to left, #fff 0%, transparent 100%);
-                    }
-
-                    .partners-track {
-                        display: flex;
-                        align-items: center;
-                        gap: 2.5rem;
-                        width: max-content;
-                        padding: 20px 0;
-                    }
-
-                    .partner-logo {
-                        height: 90px;
-                        width: 90px;
-                        object-fit: contain;
-                        flex-shrink: 0;
-                        transition: transform 0.3s ease;
-                    }
-
-                    .partner-logo:hover {
-                        transform: scale(1.15) !important;
-                    }
-
-                    .partner-logo-large {
-                        transform: scale(1.2);
-                    }
-
-                    .partner-logo-large:hover {
-                        transform: scale(1.35) !important;
-                    }
-
-                    @media (max-width: 768px) {
-                        .partners-track {
-                            gap: 2rem;
-                        }
-
-                        .partner-logo {
-                            height: 60px;
-                            width: 60px;
-                        }
-
-                        .partners-fade-left,
-                        .partners-fade-right {
-                            width: 50px;
-                        }
-                    }
-                </style>
-
-                <script>
-                    (function () {
-                        const track = document.getElementById('partners-track');
-                        const logos = [
-                            { src: 'assets/images/partners/s1.webp', large: false },
-                            { src: 'assets/images/partners/s2.webp', large: false },
-                            { src: 'assets/images/partners/s3.webp', large: true },
-                            { src: 'assets/images/partners/s4.webp', large: true },
-                            { src: 'assets/images/partners/s5.webp', large: false },
-                            { src: 'assets/images/partners/s6.webp', large: false },
-                            { src: 'assets/images/partners/s7.webp', large: false },
-                            { src: 'assets/images/partners/s8.webp', large: false },
-                            { src: 'assets/images/partners/s9.webp', large: false },
-                            { src: 'assets/images/partners/s10.webp', large: false },
-                            { src: 'assets/images/partners/s11.webp', large: false },
-                            { src: 'assets/images/partners/s12.webp', large: false },
-                            { src: 'assets/images/partners/s13.webp', large: false },
-                            { src: 'assets/images/partners/s14.webp', large: false }
-                        ];
-
-                        // Create logos (triple for seamless loop)
-                        for (let i = 0; i < 3; i++) {
-                            logos.forEach((logo, idx) => {
-                                const img = document.createElement('img');
-                                img.src = logo.src;
-                                img.alt = 'Partner ' + (idx + 1);
-                                img.className = 'partner-logo' + (logo.large ? ' partner-logo-large' : '');
-                                img.loading = 'lazy';
-                                track.appendChild(img);
-                            });
-                        }
-
-                        let position = 0;
-                        const speed = 0.5; // pixels per frame
-
-                        function animate() {
-                            position -= speed;
-
-                            // Get width of one set of logos
-                            const oneSetWidth = track.scrollWidth / 3;
-
-                            // Reset when scrolled past first set
-                            if (Math.abs(position) >= oneSetWidth) {
-                                position = 0;
-                            }
-
-                            track.style.transform = `translateX(${position}px)`;
-                            requestAnimationFrame(animate);
-                        }
-
-                        // Start animation after images load
-                        window.addEventListener('load', () => {
-                            setTimeout(animate, 100);
+                    // Create logos (triple for seamless loop)
+                    for (let i = 0; i < 3; i++) {
+                        logos.forEach((logo, idx) => {
+                            const img = document.createElement('img');
+                            img.src = logo.src;
+                            img.alt = 'Partner ' + (idx + 1);
+                            img.className = 'partner-logo' + (logo.large ? ' partner-logo-large' : '');
+                            img.loading = 'lazy';
+                            track.appendChild(img);
                         });
-                    })();
-                </script>
-            </section>
-            <section id="journey" class="py-20 bg-gray-50">
-                <div class="container mx-auto px-6">
-                    <div class="text-center mb-16">
-                        <h2 class="section-title">Your Journey With Us</h2>
-                        <p class="section-subtitle">A clear and supportive path to your teaching career in Thailand.</p>
+                    }
+
+                    let position = 0;
+                    const speed = 0.5; // pixels per frame
+
+                    function animate() {
+                        position -= speed;
+
+                        // Get width of one set of logos
+                        const oneSetWidth = track.scrollWidth / 3;
+
+                        // Reset when scrolled past first set
+                        if (Math.abs(position) >= oneSetWidth) {
+                            position = 0;
+                        }
+
+                        track.style.transform = `translateX(${position}px)`;
+                        requestAnimationFrame(animate);
+                    }
+
+                    // Start animation after images load
+                    window.addEventListener('load', () => {
+                        setTimeout(animate, 100);
+                    });
+                })();
+            </script>
+        </section>
+        <section id="journey" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="section-title">Your Journey With Us</h2>
+                    <p class="section-subtitle">A clear and supportive path to your teaching career in Thailand.</p>
+                </div>
+                <div class="grid lg:grid-cols-3 gap-12 items-center">
+                    <div class="lg:col-span-1 flex flex-col space-y-4" data-aos="fade-right">
+                        <div class="journey-tab p-6 rounded-2xl cursor-pointer transition-all duration-300"
+                            data-step="1">
+                            <div class="flex items-center space-x-4">
+                                <div
+                                    class="journey-number flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-full font-bold text-lg">
+                                    1</div>
+                                <div>
+                                    <h3 class="text-lg font-semibold">Apply Online</h3>
+                                    <p class="text-gray-600 text-sm">Fill the form in ~5 minutes.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="journey-tab p-6 rounded-2xl cursor-pointer transition-all duration-300"
+                            data-step="2">
+                            <div class="flex items-center space-x-4">
+                                <div
+                                    class="journey-number flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-full font-bold text-lg">
+                                    2</div>
+                                <div>
+                                    <h3 class="text-lg font-semibold">Interview</h3>
+                                    <p class="text-gray-600 text-sm">Online interview + demo lesson.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="journey-tab p-6 rounded-2xl cursor-pointer transition-all duration-300"
+                            data-step="3">
+                            <div class="flex items-center space-x-4">
+                                <div
+                                    class="journey-number flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-full font-bold text-lg">
+                                    3</div>
+                                <div>
+                                    <h3 class="text-lg font-semibold">Visa Process</h3>
+                                    <p class="text-gray-600 text-sm">Transparent handling of documents.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="journey-tab p-6 rounded-2xl cursor-pointer transition-all duration-300"
+                            data-step="4">
+                            <div class="flex items-center space-x-4">
+                                <div
+                                    class="journey-number flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-full font-bold text-lg">
+                                    4</div>
+                                <div>
+                                    <h3 class="text-lg font-semibold">Orientation</h3>
+                                    <p class="text-gray-600 text-sm">Practice teaching + meet your cohort.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="journey-tab p-6 rounded-2xl cursor-pointer transition-all duration-300"
+                            data-step="5">
+                            <div class="flex items-center space-x-4">
+                                <div
+                                    class="journey-number flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-full font-bold text-lg">
+                                    5</div>
+                                <div>
+                                    <h3 class="text-lg font-semibold">Placement</h3>
+                                    <p class="text-gray-600 text-sm">Start at your new school.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="grid lg:grid-cols-3 gap-12 items-center">
-                        <div class="lg:col-span-1 flex flex-col space-y-4" data-aos="fade-right">
-                            <div class="journey-tab p-6 rounded-2xl cursor-pointer transition-all duration-300"
-                                data-step="1">
-                                <div class="flex items-center space-x-4">
-                                    <div
-                                        class="journey-number flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-full font-bold text-lg">
-                                        1</div>
-                                    <div>
-                                        <h3 class="text-lg font-semibold">Apply Online</h3>
-                                        <p class="text-gray-600 text-sm">Fill the form in ~5 minutes.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="journey-tab p-6 rounded-2xl cursor-pointer transition-all duration-300"
-                                data-step="2">
-                                <div class="flex items-center space-x-4">
-                                    <div
-                                        class="journey-number flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-full font-bold text-lg">
-                                        2</div>
-                                    <div>
-                                        <h3 class="text-lg font-semibold">Interview</h3>
-                                        <p class="text-gray-600 text-sm">Online interview + demo lesson.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="journey-tab p-6 rounded-2xl cursor-pointer transition-all duration-300"
-                                data-step="3">
-                                <div class="flex items-center space-x-4">
-                                    <div
-                                        class="journey-number flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-full font-bold text-lg">
-                                        3</div>
-                                    <div>
-                                        <h3 class="text-lg font-semibold">Visa Process</h3>
-                                        <p class="text-gray-600 text-sm">Transparent handling of documents.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="journey-tab p-6 rounded-2xl cursor-pointer transition-all duration-300"
-                                data-step="4">
-                                <div class="flex items-center space-x-4">
-                                    <div
-                                        class="journey-number flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-full font-bold text-lg">
-                                        4</div>
-                                    <div>
-                                        <h3 class="text-lg font-semibold">Orientation</h3>
-                                        <p class="text-gray-600 text-sm">Practice teaching + meet your cohort.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="journey-tab p-6 rounded-2xl cursor-pointer transition-all duration-300"
-                                data-step="5">
-                                <div class="flex items-center space-x-4">
-                                    <div
-                                        class="journey-number flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-full font-bold text-lg">
-                                        5</div>
-                                    <div>
-                                        <h3 class="text-lg font-semibold">Placement</h3>
-                                        <p class="text-gray-600 text-sm">Start at your new school.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="lg:col-span-2 relative h-96 lg:h-[500px] rounded-2xl overflow-hidden shadow-xl"
-                            data-aos="fade-left">
-                            <div class="journey-panel absolute inset-0" data-step="1"><img
-                                    src="assets/images/journey/unsplash-image-18.jpg"
-                                    class="w-full h-full object-cover transition-all duration-500"></div>
-                            <div class="journey-panel absolute inset-0" data-step="2"><img
-                                    src="assets/images/journey/unsplash-image-16.jpg"
-                                    class="w-full h-full object-cover transition-all duration-500"></div>
-                            <div class="journey-panel absolute inset-0" data-step="3"><img id="visa-process-image"
-                                    src="assets/images/journey/journey-visa.jpg"
-                                    class="w-full h-full object-cover transition-all duration-500" loading="lazy"
-                                    referrerpolicy="no-referrer" alt="Visa preparation" /></div>
-                            <div class="journey-panel absolute inset-0" data-step="4"><img
-                                    src="assets/images/general/mk1.webp"
-                                    class="w-full h-full object-cover transition-all duration-500"></div>
-                            <div class="journey-panel absolute inset-0" data-step="5"><img
-                                    src="assets/images/camps/camps15.webp"
-                                    class="w-full h-full object-cover transition-all duration-500"></div>
-                        </div>
+                    <div class="lg:col-span-2 relative h-96 lg:h-[500px] rounded-2xl overflow-hidden shadow-xl"
+                        data-aos="fade-left">
+                        <div class="journey-panel absolute inset-0" data-step="1"><img
+                                src="assets/images/journey/unsplash-image-18.jpg"
+                                class="w-full h-full object-cover transition-all duration-500"></div>
+                        <div class="journey-panel absolute inset-0" data-step="2"><img
+                                src="assets/images/journey/unsplash-image-16.jpg"
+                                class="w-full h-full object-cover transition-all duration-500"></div>
+                        <div class="journey-panel absolute inset-0" data-step="3"><img id="visa-process-image"
+                                src="assets/images/journey/journey-visa.jpg"
+                                class="w-full h-full object-cover transition-all duration-500" loading="lazy"
+                                referrerpolicy="no-referrer" alt="Visa preparation" /></div>
+                        <div class="journey-panel absolute inset-0" data-step="4"><img
+                                src="assets/images/general/mk1.webp"
+                                class="w-full h-full object-cover transition-all duration-500"></div>
+                        <div class="journey-panel absolute inset-0" data-step="5"><img
+                                src="assets/images/camps/camps15.webp"
+                                class="w-full h-full object-cover transition-all duration-500"></div>
                     </div>
                 </div>
-            </section>
-            <!-- HIDDEN: Teacher Stories section - ซ่อนไว้รอข้อมูลจริง
+            </div>
+        </section>
+        <!-- HIDDEN: Teacher Stories section - ซ่อนไว้รอข้อมูลจริง
             <section id="testimonials" class="py-20 bg-gray-50">
                 <div class="container mx-auto px-6">
                     <div class="text-center mb-16">
@@ -1154,198 +1270,143 @@
                 </div>
             </section>
             END HIDDEN Teacher Stories -->
-            <section id="latest-posts" class="py-20 bg-white">
-                <div class="container mx-auto px-6">
-                    <div class="flex flex-col md:flex-row justify-between md:items-center mb-12">
-                        <h2 class="section-title !mb-4 md:!mb-0">English Camps Highlights</h2><a href="english-camps/"
-                            class="text-blue-600 font-semibold hover:text-blue-800 transition self-start md:self-center">View
-                            all <i class="fas fa-arrow-right ml-1"></i></a>
+        <section id="latest-posts" class="py-20 relative">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col md:flex-row justify-between md:items-center mb-12">
+                    <h2 class="section-title !mb-4 md:!mb-0">English Camps Highlights</h2><a href="english-camps/"
+                        class="text-blue-600 font-semibold hover:text-blue-800 transition self-start md:self-center">View
+                        all <i class="fas fa-arrow-right ml-1"></i></a>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" data-aos="fade-up">
+                    <div
+                        class="post-card bg-white rounded-2xl shadow-lg overflow-hidden group transform hover:-translate-y-2 transition-transform duration-300">
+                        <div class="overflow-hidden h-64"><img id="post-image-1" src="assets/images/camps/camps1.webp"
+                                alt="English Camp 1" class="post-card-image w-full h-full object-cover" loading="lazy"
+                                referrerpolicy="no-referrer" /></div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2 text-gray-800">Fun Learning Activities</h3>
+                            <p class="text-gray-600 mb-4">Students enjoy hands-on activities and creative
+                                challenges.</p><a href="english-camps/"
+                                class="font-semibold text-blue-600 group-hover:text-blue-800 transition">View
+                                English Camps
+                                &rarr;</a>
+                        </div>
                     </div>
-                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" data-aos="fade-up">
-                        <div
-                            class="post-card bg-white rounded-2xl shadow-lg overflow-hidden group transform hover:-translate-y-2 transition-transform duration-300">
-                            <div class="overflow-hidden h-64"><img id="post-image-1"
-                                    src="assets/images/camps/camps1.webp" alt="English Camp 1"
-                                    class="post-card-image w-full h-full object-cover" loading="lazy"
-                                    referrerpolicy="no-referrer" /></div>
-                            <div class="p-6">
-                                <h3 class="text-xl font-bold mb-2 text-gray-800">Fun Learning Activities</h3>
-                                <p class="text-gray-600 mb-4">Students enjoy hands-on activities and creative
-                                    challenges.</p><a href="english-camps/"
-                                    class="font-semibold text-blue-600 group-hover:text-blue-800 transition">View
-                                    English Camps
-                                    &rarr;</a>
-                            </div>
+                    <div
+                        class="post-card bg-white rounded-2xl shadow-lg overflow-hidden group transform hover:-translate-y-2 transition-transform duration-300">
+                        <div class="overflow-hidden h-64"><img id="post-image-2" src="assets/images/camps/camps2.webp"
+                                alt="English Camp 2" class="post-card-image w-full h-full object-cover" loading="lazy"
+                                referrerpolicy="no-referrer" /></div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2 text-gray-800">Interactive Communication</h3>
+                            <p class="text-gray-600 mb-4">Students practice English in fun, practical situations.
+                            </p><a href="english-camps/"
+                                class="font-semibold text-blue-600 group-hover:text-blue-800 transition">View
+                                English Camps
+                                &rarr;</a>
                         </div>
-                        <div
-                            class="post-card bg-white rounded-2xl shadow-lg overflow-hidden group transform hover:-translate-y-2 transition-transform duration-300">
-                            <div class="overflow-hidden h-64"><img id="post-image-2"
-                                    src="assets/images/camps/camps2.webp" alt="English Camp 2"
-                                    class="post-card-image w-full h-full object-cover" loading="lazy"
-                                    referrerpolicy="no-referrer" /></div>
-                            <div class="p-6">
-                                <h3 class="text-xl font-bold mb-2 text-gray-800">Interactive Communication</h3>
-                                <p class="text-gray-600 mb-4">Students practice English in fun, practical situations.
-                                </p><a href="english-camps/"
-                                    class="font-semibold text-blue-600 group-hover:text-blue-800 transition">View
-                                    English Camps
-                                    &rarr;</a>
-                            </div>
-                        </div>
-                        <div
-                            class="post-card bg-white rounded-2xl shadow-lg overflow-hidden group transform hover:-translate-y-2 transition-transform duration-300">
-                            <div class="overflow-hidden h-64"><img id="post-image-3"
-                                    src="assets/images/camps/camps3.webp" alt="English Camp 3"
-                                    class="post-card-image w-full h-full object-cover" loading="lazy"
-                                    referrerpolicy="no-referrer" /></div>
-                            <div class="p-6">
-                                <h3 class="text-xl font-bold mb-2 text-gray-800">Building Confidence</h3>
-                                <p class="text-gray-600 mb-4">Students build confidence and make new friends.</p><a
-                                    href="english-camps/"
-                                    class="font-semibold text-blue-600 group-hover:text-blue-800 transition">View
-                                    English Camps
-                                    &rarr;</a>
-                            </div>
+                    </div>
+                    <div
+                        class="post-card bg-white rounded-2xl shadow-lg overflow-hidden group transform hover:-translate-y-2 transition-transform duration-300">
+                        <div class="overflow-hidden h-64"><img id="post-image-3" src="assets/images/camps/camps3.webp"
+                                alt="English Camp 3" class="post-card-image w-full h-full object-cover" loading="lazy"
+                                referrerpolicy="no-referrer" /></div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2 text-gray-800">Building Confidence</h3>
+                            <p class="text-gray-600 mb-4">Students build confidence and make new friends.</p><a
+                                href="english-camps/"
+                                class="font-semibold text-blue-600 group-hover:text-blue-800 transition">View
+                                English Camps
+                                &rarr;</a>
                         </div>
                     </div>
                 </div>
-            </section>
-            <section id="about" class="py-20 bg-gray-50">
-                <div class="container mx-auto px-6">
-                    <div class="grid md:grid-cols-2 gap-16 items-center">
-                        <div data-aos="fade-right"><img src="assets/images/general/mk6.webp" alt="Our team"
-                                class="rounded-2xl shadow-xl w-full h-auto object-cover"></div>
-                        <div data-aos="fade-left">
-                            <h2 class="section-title">Your Trusted Partner in <span class="accent-text">Education</span>
-                            </h2>
-                            <p class="text-gray-600 mb-6">MediaKids Academy was founded by a team of experienced
-                                educators and recruitment specialists dedicated to bridging the gap between
-                                international teachers and Thai schools. We believe in the power of education to
-                                transform lives and foster cultural understanding.</p><a href="jobs/"
-                                class="nav-page mt-4 inline-block btn-primary px-8 py-3 rounded-full">Apply Now</a>
-                        </div>
+            </div>
+        </section>
+        <section id="about" class="py-20 relative">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-2 gap-16 items-center">
+                    <div data-aos="fade-right"><img src="assets/images/general/mk6.webp" alt="Our team"
+                            class="rounded-2xl shadow-xl w-full h-auto object-cover"></div>
+                    <div data-aos="fade-left">
+                        <h2 class="section-title">Your Trusted Partner in <span class="accent-text">Education</span>
+                        </h2>
+                        <p class="text-gray-600 mb-6">MediaKids Academy was founded by a team of experienced
+                            educators and recruitment specialists dedicated to bridging the gap between
+                            international teachers and Thai schools. We believe in the power of education to
+                            transform lives and foster cultural understanding.</p><a href="jobs/"
+                            class="nav-page mt-4 inline-block btn-primary px-8 py-3 rounded-full">Apply Now</a>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <!-- Teach and Earn Highlight -->
-            <section class="py-16 bg-white relative overflow-hidden">
-                <!-- Decorative elements -->
-                <div class="absolute top-10 left-10 w-64 h-64 bg-blue-100 rounded-full blur-3xl opacity-50"></div>
-                <div class="absolute bottom-10 right-10 w-80 h-80 bg-yellow-100 rounded-full blur-3xl opacity-50"></div>
 
-                <div class="container mx-auto px-6 relative z-10">
-                    <div class="grid lg:grid-cols-2 gap-12 items-center">
-                        <div data-aos="fade-right">
-                            <span
-                                class="inline-block px-4 py-2 bg-blue-100 text-blue-600 rounded-full text-sm font-semibold mb-4">
-                                <i class="fas fa-star mr-2"></i>New Program 2026
-                            </span>
-                            <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4 leading-tight">
-                                Teach and Earn <span class="accent-text">in Thailand</span>
-                            </h2>
-                            <p class="text-gray-600 text-lg mb-6 leading-relaxed">
-                                Get TEFL certified, teach English in Thai schools, and earn while exploring Thailand!
-                                Join our 120-hour TEFL program with CultureRoute, UK.
-                            </p>
-                            <div class="flex flex-wrap gap-6 mb-8">
-                                <div class="flex items-center gap-3">
-                                    <div class="w-10 h-10 bg-emerald-100 rounded-lg flex items-center justify-center">
-                                        <i class="fas fa-money-bill-wave text-emerald-600"></i>
-                                    </div>
-                                    <div>
-                                        <p class="text-gray-900 font-bold">30,000 THB</p>
-                                        <p class="text-gray-500 text-sm">Monthly Salary</p>
-                                    </div>
-                                </div>
-                                <div class="flex items-center gap-3">
-                                    <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
-                                        <i class="fas fa-certificate text-blue-600"></i>
-                                    </div>
-                                    <div>
-                                        <p class="text-gray-900 font-bold">120-Hour TEFL</p>
-                                        <p class="text-gray-500 text-sm">Accredited Course</p>
-                                    </div>
-                                </div>
-                                <div class="flex items-center gap-3">
-                                    <div class="w-10 h-10 bg-yellow-100 rounded-lg flex items-center justify-center">
-                                        <i class="fas fa-hand-holding-usd text-yellow-600"></i>
-                                    </div>
-                                    <div>
-                                        <p class="text-gray-900 font-bold">$420 Fee</p>
-                                        <p class="text-gray-500 text-sm">100% Refundable</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="teach-and-earn/"
-                                class="inline-flex items-center gap-3 btn-primary px-8 py-4 rounded-full font-semibold text-lg shadow-lg shadow-blue-500/30 hover:shadow-blue-500/50 transition-all duration-300 hover:scale-105 hover:-translate-y-1">
-                                <i class="fas fa-arrow-right"></i> Learn More
-                            </a>
-                        </div>
-                        <div data-aos="fade-left" class="flex justify-center">
-                            <div class="relative">
-                                <div
-                                    class="absolute -top-3 -left-3 w-full h-full bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl transform rotate-3">
-                                </div>
-                                <div
-                                    class="absolute -bottom-3 -right-3 w-full h-full bg-gradient-to-br from-blue-500 to-cyan-400 rounded-2xl transform -rotate-3">
-                                </div>
-                                <img src="assets/images/teach-and-earn/te6.webp" alt="Teach and Earn Program"
-                                    class="relative z-10 w-full max-w-md h-72 md:h-80 object-cover rounded-2xl shadow-2xl">
-                                <div
-                                    class="absolute -bottom-4 left-1/2 transform -translate-x-1/2 z-20 bg-white rounded-xl px-6 py-3 shadow-xl">
-                                    <div class="flex items-center gap-2">
-                                        <i class="fas fa-calendar-alt text-blue-600"></i>
-                                        <span class="font-bold text-gray-900">Starting May 2026</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+        <section id="why-us" class="py-20 relative">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="section-title">Our Commitment to You</h2>
+                <p class="section-subtitle">We go beyond job placement. We provide a comprehensive support system to
+                    ensure your success and well-being in Thailand.</p>
+                <div class="grid lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                    <div class="card p-8 text-center" data-aos="zoom-in">
+                        <div class="text-5xl accent-text mb-4 inline-block bg-blue-100 p-4 rounded-full"><i
+                                class="fas fa-shield-alt"></i></div>
+                        <h3 class="text-xl font-bold mb-2">Full Support</h3>
+                        <p class="text-gray-600">Complete assistance with visa, work permit, and bank account setup.
+                            We handle the paperwork so you can focus on teaching.</p>
+                    </div>
+                    <div class="card p-8 text-center" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="text-5xl accent-text mb-4 inline-block bg-blue-100 p-4 rounded-full"><i
+                                class="fas fa-school"></i></div>
+                        <h3 class="text-xl font-bold mb-2">Quality Placements</h3>
+                        <p class="text-gray-600">Access to our exclusive network of reputable schools with
+                            competitive salaries and positive work environments.</p>
+                    </div>
+                    <div class="card p-8 text-center" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="text-5xl accent-text mb-4 inline-block bg-blue-100 p-4 rounded-full"><i
+                                class="fas fa-users"></i></div>
+                        <h3 class="text-xl font-bold mb-2">Community & Events</h3>
+                        <p class="text-gray-600">Join a welcoming community of fellow teachers. We organize regular
+                            social events and professional development workshops.</p>
                     </div>
                 </div>
-            </section>
-
-            <section id="why-us" class="py-20 bg-white">
-                <div class="container mx-auto px-6 text-center">
-                    <h2 class="section-title">Our Commitment to You</h2>
-                    <p class="section-subtitle">We go beyond job placement. We provide a comprehensive support system to
-                        ensure your success and well-being in Thailand.</p>
-                    <div class="grid lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                        <div class="card p-8 text-center" data-aos="zoom-in">
-                            <div class="text-5xl accent-text mb-4 inline-block bg-blue-100 p-4 rounded-full"><i
-                                    class="fas fa-shield-alt"></i></div>
-                            <h3 class="text-xl font-bold mb-2">Full Support</h3>
-                            <p class="text-gray-600">Complete assistance with visa, work permit, and bank account setup.
-                                We handle the paperwork so you can focus on teaching.</p>
-                        </div>
-                        <div class="card p-8 text-center" data-aos="zoom-in" data-aos-delay="100">
-                            <div class="text-5xl accent-text mb-4 inline-block bg-blue-100 p-4 rounded-full"><i
-                                    class="fas fa-school"></i></div>
-                            <h3 class="text-xl font-bold mb-2">Quality Placements</h3>
-                            <p class="text-gray-600">Access to our exclusive network of reputable schools with
-                                competitive salaries and positive work environments.</p>
-                        </div>
-                        <div class="card p-8 text-center" data-aos="zoom-in" data-aos-delay="200">
-                            <div class="text-5xl accent-text mb-4 inline-block bg-blue-100 p-4 rounded-full"><i
-                                    class="fas fa-users"></i></div>
-                            <h3 class="text-xl font-bold mb-2">Community & Events</h3>
-                            <p class="text-gray-600">Join a welcoming community of fellow teachers. We organize regular
-                                social events and professional development workshops.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            </div>
+        </section>
 
         </div>
     </main>
 
     <!-- Shared Footer Container -->
     <div id="shared-footer"></div>
-
+    <!-- Scripts -->
+    <script src="js/version.js?v=1.0.1"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script src="js/components.js"></script>
-    <script src="js/script.js"></script>
+    <script src="js/components.js?v=1.0.1"></script>
+    <script src="js/script.js?v=1.0.1"></script>
 
+    <!-- Lenis Smooth Scroll - v1.1.13 (Exact Allfeat Version) -->
+    <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+    <script>
+        // Initialize Lenis - EXACT Allfeat.org Configuration
+        const lenis = new Lenis({
+            lerp: 0.1, // THE SECRET: Lower = more "slippery" momentum
+            orientation: 'vertical',
+            gestureOrientation: 'vertical',
+            smoothWheel: true,
+            wheelMultiplier: 1,
+            touchMultiplier: 1,
+        });
+
+        // The RAF loop is CRITICAL for Lenis to work
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+
+        requestAnimationFrame(raf);
+
+        console.log("Lenis V1.1.13 Initialized - Exact Allfeat Feel");
+    </script>
 </body>
 
 </html>
