@@ -16,7 +16,7 @@
         img-src 'self' data:;
         font-src 'self' https://fonts.gstatic.com;
         style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
-        script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://www.googletagmanager.com https://www.google-analytics.com;
+        script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://unpkg.com https://www.googletagmanager.com https://www.google-analytics.com;
         connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com;
         frame-ancestors 'self';
         upgrade-insecure-requests">
@@ -35,6 +35,28 @@
             font-family: 'Outfit', sans-serif;
         }
     </style>
+    <style>
+        /* Lenis Smooth Scroll CSS */
+        html.lenis {
+            height: auto;
+        }
+
+        .lenis.lenis-smooth {
+            scroll-behavior: auto;
+        }
+
+        .lenis.lenis-smooth [data-lenis-prevent] {
+            overscroll-behavior: contain;
+        }
+
+        .lenis.lenis-stopped {
+            overflow: hidden;
+        }
+
+        .lenis.lenis-scrolling iframe {
+            pointer-events: none;
+        }
+    </style>
 </head>
 
 <body class="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center">
@@ -50,6 +72,24 @@
         </a>
     </div>
     <script src="js/analytics.js"></script>
+
+    <!-- Lenis Smooth Scroll -->
+    <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+    <script>
+        const lenis = new Lenis({
+            lerp: 0.1,
+            orientation: 'vertical',
+            gestureOrientation: 'vertical',
+            smoothWheel: true,
+            wheelMultiplier: 1,
+            touchMultiplier: 1,
+        });
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+    </script>
 </body>
 
 </html>
