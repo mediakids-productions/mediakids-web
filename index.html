@@ -2283,92 +2283,179 @@
             </script>
         </section>
         <section id="journey" class="py-20 bg-white">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-16">
-                    <h2 class="section-title">Your Journey With Us</h2>
-                    <p class="section-subtitle">A clear and supportive path to your teaching career in Thailand.</p>
+            <style>
+                .journey-section-new {
+                    max-width: 1200px;
+                    margin: 0 auto;
+                    padding: 0 24px;
+                }
+
+                .journey-header {
+                    text-align: center;
+                    margin-bottom: 60px;
+                }
+
+                .journey-header h2 {
+                    font-size: 3rem;
+                    font-weight: 800;
+                    letter-spacing: -0.03em;
+                    background: linear-gradient(135deg, #1d1d1f 0%, #434343 100%);
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    background-clip: text;
+                    margin-bottom: 12px;
+                }
+
+                .journey-header p {
+                    font-size: 1.125rem;
+                    color: #86868b;
+                }
+
+                .journey-steps-container {
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr);
+                    gap: 32px;
+                }
+
+                @media (max-width: 768px) {
+                    .journey-steps-container {
+                        grid-template-columns: 1fr;
+                        gap: 40px;
+                    }
+
+                    .journey-header h2 {
+                        font-size: 2.25rem;
+                    }
+                }
+
+                .journey-step-card {
+                    position: relative;
+                    border-radius: 24px;
+                    overflow: hidden;
+                    background: #fff;
+                    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+                    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+                }
+
+                .journey-step-card:hover {
+                    transform: translateY(-8px);
+                    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+                }
+
+                .journey-step-image {
+                    width: 100%;
+                    height: 240px;
+                    object-fit: cover;
+                }
+
+                .journey-step-content {
+                    padding: 28px;
+                }
+
+                .journey-step-number {
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+                    background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
+                    color: #fff;
+                    font-size: 1.125rem;
+                    font-weight: 700;
+                    margin-bottom: 16px;
+                }
+
+                .journey-step-title {
+                    font-size: 1.5rem;
+                    font-weight: 700;
+                    color: #1d1d1f;
+                    margin-bottom: 12px;
+                }
+
+                .journey-step-desc {
+                    font-size: 1rem;
+                    color: #515154;
+                    line-height: 1.6;
+                }
+
+                .journey-connector {
+                    display: none;
+                }
+
+                @media (min-width: 769px) {
+                    .journey-connector {
+                        display: block;
+                        position: absolute;
+                        top: 120px;
+                        right: -16px;
+                        width: 32px;
+                        height: 2px;
+                        background: linear-gradient(90deg, #0066cc, #0052a3);
+                        z-index: 10;
+                    }
+
+                    .journey-connector::after {
+                        content: '';
+                        position: absolute;
+                        right: -4px;
+                        top: -4px;
+                        width: 10px;
+                        height: 10px;
+                        border-top: 2px solid #0052a3;
+                        border-right: 2px solid #0052a3;
+                        transform: rotate(45deg);
+                    }
+                }
+            </style>
+
+            <div class="journey-section-new">
+                <div class="journey-header" data-aos="fade-up">
+                    <h2>Your Journey With Us</h2>
+                    <p>Three simple steps to start your teaching adventure in Thailand</p>
                 </div>
-                <div class="grid lg:grid-cols-3 gap-12 items-center">
-                    <div class="lg:col-span-1 flex flex-col space-y-4" data-aos="fade-right">
-                        <div class="journey-tab p-6 rounded-2xl cursor-pointer transition-all duration-300"
-                            data-step="1">
-                            <div class="flex items-center space-x-4">
-                                <div
-                                    class="journey-number flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-full font-bold text-lg">
-                                    1</div>
-                                <div>
-                                    <h3 class="text-lg font-semibold">Apply Online</h3>
-                                    <p class="text-gray-600 text-sm">Fill the form in ~5 minutes.</p>
-                                </div>
-                            </div>
+
+                <div class="journey-steps-container">
+                    <!-- Step 1: Apply -->
+                    <div class="journey-step-card" data-aos="fade-up" data-aos-delay="100">
+                        <div style="position: relative;">
+                            <img src="assets/images/general/mk15.webp" alt="Apply to MediaKids"
+                                class="journey-step-image">
+                            <div class="journey-connector"></div>
                         </div>
-                        <div class="journey-tab p-6 rounded-2xl cursor-pointer transition-all duration-300"
-                            data-step="2">
-                            <div class="flex items-center space-x-4">
-                                <div
-                                    class="journey-number flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-full font-bold text-lg">
-                                    2</div>
-                                <div>
-                                    <h3 class="text-lg font-semibold">Interview</h3>
-                                    <p class="text-gray-600 text-sm">Online interview + demo lesson.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="journey-tab p-6 rounded-2xl cursor-pointer transition-all duration-300"
-                            data-step="3">
-                            <div class="flex items-center space-x-4">
-                                <div
-                                    class="journey-number flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-full font-bold text-lg">
-                                    3</div>
-                                <div>
-                                    <h3 class="text-lg font-semibold">Visa Process</h3>
-                                    <p class="text-gray-600 text-sm">Transparent handling of documents.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="journey-tab p-6 rounded-2xl cursor-pointer transition-all duration-300"
-                            data-step="4">
-                            <div class="flex items-center space-x-4">
-                                <div
-                                    class="journey-number flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-full font-bold text-lg">
-                                    4</div>
-                                <div>
-                                    <h3 class="text-lg font-semibold">Orientation</h3>
-                                    <p class="text-gray-600 text-sm">Practice teaching + meet your cohort.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="journey-tab p-6 rounded-2xl cursor-pointer transition-all duration-300"
-                            data-step="5">
-                            <div class="flex items-center space-x-4">
-                                <div
-                                    class="journey-number flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-full font-bold text-lg">
-                                    5</div>
-                                <div>
-                                    <h3 class="text-lg font-semibold">Placement</h3>
-                                    <p class="text-gray-600 text-sm">Start at your new school.</p>
-                                </div>
-                            </div>
+                        <div class="journey-step-content">
+                            <div class="journey-step-number">1</div>
+                            <h3 class="journey-step-title">Apply</h3>
+                            <p class="journey-step-desc">Fill out our simple application form and complete a quick
+                                online interview with our team. The whole process takes about 5 minutes.</p>
                         </div>
                     </div>
-                    <div class="lg:col-span-2 relative h-96 lg:h-[500px] rounded-2xl overflow-hidden shadow-xl"
-                        data-aos="fade-left">
-                        <div class="journey-panel absolute inset-0" data-step="1"><img
-                                src="assets/images/journey/unsplash-image-18.jpg"
-                                class="w-full h-full object-cover transition-all duration-500"></div>
-                        <div class="journey-panel absolute inset-0" data-step="2"><img
-                                src="assets/images/journey/unsplash-image-16.jpg"
-                                class="w-full h-full object-cover transition-all duration-500"></div>
-                        <div class="journey-panel absolute inset-0" data-step="3"><img id="visa-process-image"
-                                src="assets/images/journey/journey-visa.jpg"
-                                class="w-full h-full object-cover transition-all duration-500" loading="lazy"
-                                referrerpolicy="no-referrer" alt="Visa preparation" /></div>
-                        <div class="journey-panel absolute inset-0" data-step="4"><img
-                                src="assets/images/general/mk1.webp"
-                                class="w-full h-full object-cover transition-all duration-500"></div>
-                        <div class="journey-panel absolute inset-0" data-step="5"><img
-                                src="assets/images/camps/camps15.webp"
-                                class="w-full h-full object-cover transition-all duration-500"></div>
+
+                    <!-- Step 2: Prepare -->
+                    <div class="journey-step-card" data-aos="fade-up" data-aos-delay="200">
+                        <div style="position: relative;">
+                            <img src="assets/images/general/mk21.webp" alt="Prepare for teaching"
+                                class="journey-step-image">
+                            <div class="journey-connector"></div>
+                        </div>
+                        <div class="journey-step-content">
+                            <div class="journey-step-number">2</div>
+                            <h3 class="journey-step-title">Prepare</h3>
+                            <p class="journey-step-desc">We handle your visa documents and provide professional
+                                orientation training. Meet your cohort and practice teaching techniques.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Start Teaching -->
+                    <div class="journey-step-card" data-aos="fade-up" data-aos-delay="300">
+                        <img src="assets/images/general/mk3.webp" alt="Start teaching in Thailand"
+                            class="journey-step-image">
+                        <div class="journey-step-content">
+                            <div class="journey-step-number">3</div>
+                            <h3 class="journey-step-title">Start Teaching</h3>
+                            <p class="journey-step-desc">Begin your adventure at one of our partner schools across
+                                Thailand. Enjoy ongoing support from our team throughout your journey.</p>
+                        </div>
                     </div>
                 </div>
             </div>
