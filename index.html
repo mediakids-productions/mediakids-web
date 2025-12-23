@@ -2424,20 +2424,20 @@
                 </div>
             </section>
             END HIDDEN Teacher Stories -->
-        <!-- TikTok Videos Section -->
+        <!-- TikTok Videos Section (User Original) -->
         <style>
             .videos-section {
                 max-width: 1200px;
                 margin: 0 auto;
-                padding: 24px 24px 64px;
+                padding: 64px 24px;
             }
 
-            .video-section-header {
+            .section-header {
                 text-align: center;
                 margin-bottom: 40px;
             }
 
-            .video-section-label {
+            .section-label {
                 display: inline-flex;
                 align-items: center;
                 gap: 8px;
@@ -2452,12 +2452,12 @@
                 letter-spacing: 0.03em;
             }
 
-            .video-section-label svg {
+            .section-label svg {
                 width: 14px;
                 height: 14px;
             }
 
-            .video-section-header h2 {
+            .section-header h2 {
                 font-size: 2.25rem;
                 font-weight: 700;
                 letter-spacing: -0.02em;
@@ -2468,7 +2468,7 @@
                 margin-bottom: 12px;
             }
 
-            .video-section-header p {
+            .section-header p {
                 font-size: 1.0625rem;
                 color: #86868b;
                 max-width: 500px;
@@ -2514,8 +2514,6 @@
                 display: grid;
                 grid-template-columns: repeat(4, 1fr);
                 gap: 20px;
-                /* Ensure the grid items are aligned */
-                align-items: start;
             }
 
             @media (max-width: 1100px) {
@@ -2526,18 +2524,16 @@
 
             @media (max-width: 640px) {
                 .videos-grid {
-                    grid-template-columns: repeat(1, 1fr);
-                    /* 1 column on mobile for better view */
-                    gap: 24px;
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: 12px;
                 }
 
-                .video-section-header h2 {
+                .section-header h2 {
                     font-size: 1.75rem;
                 }
 
                 .video-player {
-                    height: 550px !important;
-                    /* Slightly taller for mobile */
+                    height: 400px !important;
                 }
             }
 
@@ -2563,11 +2559,12 @@
             }
 
             /* ===== VIDEO PLAYER - TikTok Standard Size ===== */
+            /* TikTok embed standard: 325 x 740 px (ratio 1:2.28) */
             .video-player {
                 position: relative;
                 width: 100%;
-                height: 580px;
-                /* Adjusted height for better fit */
+                height: 500px;
+                /* Fixed height for consistency */
                 background: #000;
                 overflow: hidden;
             }
@@ -2713,9 +2710,9 @@
             }
         </style>
 
-        <section class="videos-section" id="videos">
-            <div class="video-section-header" data-aos="fade-up">
-                <div class="video-section-label">
+        <section class="videos-section">
+            <div class="section-header">
+                <div class="section-label">
                     <svg viewBox="0 0 24 24" fill="currentColor">
                         <path
                             d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
@@ -2726,20 +2723,20 @@
                 <p>ดูคลิปกิจกรรมและบทสัมภาษณ์จากครูในเครือข่ายของเรา</p>
             </div>
 
-            <div class="category-tabs" data-aos="fade-up" data-aos-delay="100">
+            <div class="category-tabs">
                 <button class="category-tab active" data-category="all">All Videos</button>
                 <button class="category-tab" data-category="interview">🎤 Interviews</button>
                 <button class="category-tab" data-category="camp">🏕️ Camp</button>
                 <button class="category-tab" data-category="orientation">🎓 Orientation</button>
             </div>
 
-            <div class="videos-grid" id="videos-grid" data-aos="fade-up" data-aos-delay="200">
+            <div class="videos-grid" id="videos-grid">
 
                 <!-- Video 1 -->
                 <div class="video-card" data-category="interview">
                     <div class="video-player">
                         <iframe src="https://www.tiktok.com/embed/v2/7560444457364147459" allowfullscreen scrolling="no"
-                            allow="encrypted-media;">
+                            allow="encrypted-media" referrerpolicy="no-referrer">
                         </iframe>
                     </div>
                     <div class="video-info">
@@ -2763,7 +2760,7 @@
                 <div class="video-card" data-category="interview">
                     <div class="video-player">
                         <iframe src="https://www.tiktok.com/embed/v2/7556733806972177686" allowfullscreen scrolling="no"
-                            allow="encrypted-media;">
+                            allow="encrypted-media" referrerpolicy="no-referrer">
                         </iframe>
                     </div>
                     <div class="video-info">
@@ -2787,7 +2784,7 @@
                 <div class="video-card" data-category="camp">
                     <div class="video-player">
                         <iframe src="https://www.tiktok.com/embed/v2/7566932650078801170" allowfullscreen scrolling="no"
-                            allow="encrypted-media;">
+                            allow="encrypted-media" referrerpolicy="no-referrer">
                         </iframe>
                     </div>
                     <div class="video-info">
@@ -2811,7 +2808,7 @@
                 <div class="video-card" data-category="orientation">
                     <div class="video-player">
                         <iframe src="https://www.tiktok.com/embed/v2/7564025137587031318" allowfullscreen scrolling="no"
-                            allow="encrypted-media;">
+                            allow="encrypted-media" referrerpolicy="no-referrer">
                         </iframe>
                     </div>
                     <div class="video-info">
@@ -2833,7 +2830,7 @@
 
             </div>
 
-            <div class="follow-cta" data-aos="fade-up" data-aos-delay="300">
+            <div class="follow-cta">
                 <p>ติดตามคลิปใหม่ๆ ของเราได้ที่ TikTok</p>
                 <a href="https://www.tiktok.com/@mediakidsacademy" target="_blank" class="follow-btn">
                     <svg viewBox="0 0 24 24" fill="currentColor">
@@ -2846,14 +2843,20 @@
         </section>
 
         <script>
-            document.addEventListener('DOMContentLoaded', () => {
+            function initVideoCards() {
                 const cards = document.querySelectorAll('.video-card');
                 cards.forEach((card, index) => {
                     setTimeout(() => {
                         card.classList.add('visible');
                     }, index * 100);
                 });
-            });
+            }
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initVideoCards);
+            } else {
+                initVideoCards();
+            }
 
             document.querySelectorAll('.category-tab').forEach(tab => {
                 tab.addEventListener('click', () => {
