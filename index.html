@@ -15,6 +15,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self';
         img-src 'self' data: https://images.unsplash.com https://placehold.co https://drive.google.com https://drive.googleusercontent.com https://lh3.googleusercontent.com https://drive.usercontent.google.com https://*.googleusercontent.com https://p16-sign-sg.tiktokcdn.com https://p16-sign.tiktokcdn-us.com https://*.tiktokcdn.com;
+        media-src 'self' https://drive.google.com https://*.googleusercontent.com https://drive.usercontent.google.com blob:;
         font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;
         style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://unpkg.com;
         script-src 'self' 'unsafe-inline'
@@ -34,7 +35,7 @@
           https://www.googletagmanager.com
           https://www.tiktok.com
           https://*.tiktok.com;
-        frame-src 'self' https://www.tiktok.com https://*.tiktok.com;
+        frame-src 'self' https://www.tiktok.com https://*.tiktok.com https://drive.google.com;
         form-action 'self' https://script.google.com https://script.googleusercontent.com https://formspree.io;
         frame-ancestors 'self';
         upgrade-insecure-requests">
@@ -355,7 +356,7 @@
     <!-- Shared Header Container -->
     <div id="shared-header"></div>
 
-    <main class="bg-hero-pattern relative overflow-hidden">
+    <main class="bg-hero-pattern relative">
         <!-- Global Background Elements -->
         <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
             <!-- Hero Section Blobs -->
@@ -814,24 +815,26 @@
             <style>
                 /* Jobs Section Styles */
                 .jobs-section {
-                    max-width: 980px;
+                    max-width: 1400px;
                     margin: 0 auto;
                     padding: 48px 24px;
                 }
 
                 .jobs-section .section-header {
                     text-align: center;
-                    margin-bottom: 32px;
+                    margin-bottom: 24px;
+                    padding-top: 40px;
                 }
 
                 .jobs-section .section-header h2 {
-                    font-size: 2rem;
-                    font-weight: 700;
-                    letter-spacing: -0.02em;
-                    background: linear-gradient(135deg, #1d1d1f 0%, #434343 100%);
+                    font-size: 3rem;
+                    font-weight: 800;
+                    letter-spacing: -0.03em;
+                    background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
                     -webkit-background-clip: text;
                     -webkit-text-fill-color: transparent;
                     background-clip: text;
+                    margin-bottom: 8px;
                 }
 
                 .jobs-section .section-header p {
@@ -920,7 +923,7 @@
                 }
 
                 .table-scroll {
-                    max-height: 420px;
+                    max-height: 480px;
                     overflow-y: auto;
                     scrollbar-width: thin;
                     scrollbar-color: #c7c7cc transparent;
@@ -1464,535 +1467,543 @@
                 // Initialize Jobs Table
                 document.addEventListener('DOMContentLoaded', () => {
                     JOBS_SHEET_ID === 'YOUR_GOOGLE_SHEET_ID_HERE' ? loadJobsDemo() : fetchJobsData();
+
+                    // Scroll passthrough for jobs table
+                    const tableScroll = document.querySelector('.jobs-section .table-scroll');
+                    if (tableScroll) {
+                        tableScroll.addEventListener('wheel', (e) => {
+                            const { scrollTop, scrollHeight, clientHeight } = tableScroll;
+                            const isAtTop = scrollTop <= 0;
+                            const isAtBottom = scrollTop + clientHeight >= scrollHeight - 1;
+
+                            // If at top and scrolling up, or at bottom and scrolling down, let the page scroll
+                            if ((isAtTop && e.deltaY < 0) || (isAtBottom && e.deltaY > 0)) {
+                                // Remove data-lenis-prevent temporarily
+                                tableScroll.removeAttribute('data-lenis-prevent');
+                            } else {
+                                // Re-add data-lenis-prevent to capture scroll
+                                if (!tableScroll.hasAttribute('data-lenis-prevent')) {
+                                    tableScroll.setAttribute('data-lenis-prevent', '');
+                                }
+                            }
+                        }, { passive: true });
+                    }
                 });
             </script>
         </section>
 
-        <section id="programs" class="py-20 relative">
-            <div class="container mx-auto px-6">
-                <!-- Header -->
-                <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-12" data-aos="fade-up">
-                    <div>
-                        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
-                            What We Offer
-                        </h2>
-                    </div>
-                    <a href="teach-and-earn/"
-                        class="text-blue-600 hover:text-blue-700 font-medium mt-4 md:mt-0 flex items-center gap-1 group">
-                        Learn More
-                        <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none"
-                            stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
-                            </path>
-                        </svg>
-                    </a>
-                </div>
-
-                <!-- Horizontal Scroll Container -->
-                <div class="offer-scroll-wrapper" data-aos="fade-up">
-                    <div class="offer-scroll-container" id="offerScrollContainer">
-                        <!-- Card 1: Unique Locations -->
-                        <div class="offer-card" data-card="1">
-                            <div class="offer-icon">
-                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="1.5">
-                                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
-                                    <circle cx="12" cy="9" r="2.5" />
-                                </svg>
-                            </div>
-                            <h3 class="offer-title">Unique Locations</h3>
-                            <p class="offer-desc">Kindergarten, primary, and secondary schools throughout Thailand.
-                            </p>
-                            <button class="offer-btn" onclick="openOfferModal(1)"
-                                aria-label="Learn more about Unique Locations">
-                                <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
-                                    <path d="M6 0v12M0 6h12" stroke="currentColor" stroke-width="2" fill="none" />
-                                </svg>
-                            </button>
-                        </div>
-
-                        <!-- Card 2: Free Training -->
-                        <div class="offer-card" data-card="2">
-                            <div class="offer-icon">
-                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="1.5">
-                                    <path d="M12 3L1 9l11 6 9-4.91V17M5 13.18v4L12 21l7-3.82v-4" />
-                                </svg>
-                            </div>
-                            <h3 class="offer-title">Free Professional Training</h3>
-                            <p class="offer-desc">Orientation including Thai language basics and cultural immersion.
-                            </p>
-                            <button class="offer-btn" onclick="openOfferModal(2)"
-                                aria-label="Learn more about Free Training">
-                                <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
-                                    <path d="M6 0v12M0 6h12" stroke="currentColor" stroke-width="2" fill="none" />
-                                </svg>
-                            </button>
-                        </div>
-
-                        <!-- Card 3: Document Assistance -->
-                        <div class="offer-card" data-card="3">
-                            <div class="offer-icon">
-                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="1.5">
-                                    <rect x="3" y="4" width="18" height="16" rx="2" />
-                                    <path d="M7 8h10M7 12h6" />
-                                    <circle cx="17" cy="14" r="2" />
-                                </svg>
-                            </div>
-                            <h3 class="offer-title">Document Assistance</h3>
-                            <p class="offer-desc">Working documents support and partial reimbursement towards work
-                                visa costs.</p>
-                            <button class="offer-btn" onclick="openOfferModal(3)"
-                                aria-label="Learn more about Document Assistance">
-                                <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
-                                    <path d="M6 0v12M0 6h12" stroke="currentColor" stroke-width="2" fill="none" />
-                                </svg>
-                            </button>
-                        </div>
-
-                        <!-- Card 4: Thai Consultant -->
-                        <div class="offer-card" data-card="4">
-                            <div class="offer-icon">
-                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="1.5">
-                                    <circle cx="12" cy="7" r="4" />
-                                    <path d="M5.5 21a6.5 6.5 0 0 1 13 0" />
-                                    <path d="M16 11l2 2 4-4" />
-                                </svg>
-                            </div>
-                            <h3 class="offer-title">Thai Consultant Support</h3>
-                            <p class="offer-desc">Dedicated Thai consultant available to assist you throughout your
-                                journey.</p>
-                            <button class="offer-btn" onclick="openOfferModal(4)"
-                                aria-label="Learn more about Thai Consultant">
-                                <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
-                                    <path d="M6 0v12M0 6h12" stroke="currentColor" stroke-width="2" fill="none" />
-                                </svg>
-                            </button>
-                        </div>
-
-                        <!-- Card 5: Curriculum Consultant -->
-                        <div class="offer-card" data-card="5">
-                            <div class="offer-icon">
-                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="1.5">
-                                    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
-                                    <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
-                                    <path d="M12 7v10M9 12h6" />
-                                </svg>
-                            </div>
-                            <h3 class="offer-title">Curriculum Consultant</h3>
-                            <p class="offer-desc">Expert guidance on lesson planning and teaching methodology.</p>
-                            <button class="offer-btn" onclick="openOfferModal(5)"
-                                aria-label="Learn more about Curriculum Consultant">
-                                <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
-                                    <path d="M6 0v12M0 6h12" stroke="currentColor" stroke-width="2" fill="none" />
-                                </svg>
-                            </button>
-                        </div>
-
-                        <!-- Card 6: Accident Insurance -->
-                        <div class="offer-card" data-card="6">
-                            <div class="offer-icon">
-                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="1.5">
-                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                                    <path d="M9 12l2 2 4-4" />
-                                </svg>
-                            </div>
-                            <h3 class="offer-title">Accident Insurance</h3>
-                            <p class="offer-desc">Comprehensive accident insurance coverage for your peace of mind.
-                            </p>
-                            <button class="offer-btn" onclick="openOfferModal(6)"
-                                aria-label="Learn more about Accident Insurance">
-                                <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
-                                    <path d="M6 0v12M0 6h12" stroke="currentColor" stroke-width="2" fill="none" />
-                                </svg>
-                            </button>
-                        </div>
-
-                        <!-- Card 7: Accommodation -->
-                        <div class="offer-card" data-card="7">
-                            <div class="offer-icon">
-                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="1.5">
-                                    <path d="M3 21h18M5 21V7l7-4 7 4v14" />
-                                    <path d="M9 21v-6h6v6" />
-                                    <path d="M9 9h.01M15 9h.01M9 13h.01M15 13h.01" />
-                                </svg>
-                            </div>
-                            <h3 class="offer-title">Accommodation Assistance</h3>
-                            <p class="offer-desc">Help finding quality, affordable housing near your school.</p>
-                            <button class="offer-btn" onclick="openOfferModal(7)"
-                                aria-label="Learn more about Accommodation">
-                                <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
-                                    <path d="M6 0v12M0 6h12" stroke="currentColor" stroke-width="2" fill="none" />
-                                </svg>
-                            </button>
-                        </div>
-
-                        <!-- Card 8: Full Curriculum -->
-                        <div class="offer-card" data-card="8">
-                            <div class="offer-icon">
-                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="1.5">
-                                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
-                                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
-                                    <path d="M8 7h8M8 11h8M8 15h4" />
-                                </svg>
-                            </div>
-                            <h3 class="offer-title">Full Curriculum</h3>
-                            <p class="offer-desc">Complete curriculum inclusive of textbooks and course plans.</p>
-                            <button class="offer-btn" onclick="openOfferModal(8)"
-                                aria-label="Learn more about Full Curriculum">
-                                <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
-                                    <path d="M6 0v12M0 6h12" stroke="currentColor" stroke-width="2" fill="none" />
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Navigation Arrows -->
-                <div class="flex justify-end mt-8 gap-3" data-aos="fade-up">
-                    <button class="offer-nav-btn" id="offerPrevBtn" onclick="scrollOfferCards(-1)"
-                        aria-label="Previous">
-                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M8 2L4 6l4 4" />
-                        </svg>
-                    </button>
-                    <button class="offer-nav-btn" id="offerNextBtn" onclick="scrollOfferCards(1)" aria-label="Next">
-                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M4 2l4 4-4 4" />
-                        </svg>
-                    </button>
-                </div>
-            </div>
-
-            <!-- Modal -->
-            <div id="offerModal" class="offer-modal" onclick="closeOfferModal(event)">
-                <div class="offer-modal-content" onclick="event.stopPropagation()">
-                    <button class="offer-modal-close" onclick="closeOfferModal()" aria-label="Close">
-                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M1 1l12 12M13 1L1 13" />
-                        </svg>
-                    </button>
-                    <p class="offer-modal-category" id="modalCategory"></p>
-                    <h3 class="offer-modal-title" id="modalTitle"></h3>
-                    <p class="offer-modal-desc" id="modalDesc"></p>
-                </div>
-            </div>
-
+        <!-- Antigravity-Style What We Offer Section -->
+        <section id="what-we-offer" class="antigravity-section">
             <style>
-                /* Offer Section - Apple Style */
-                .offer-scroll-wrapper {
-                    position: relative;
-                    margin: 0 -1.5rem;
-                    padding: 0 1.5rem;
+                /* Antigravity Section Styles */
+                .antigravity-section {
+                    padding: 80px 0;
                 }
 
-                .offer-scroll-container {
-                    display: flex;
-                    gap: 20px;
-                    overflow-x: auto;
-                    scroll-behavior: smooth;
-                    scrollbar-width: none;
-                    -ms-overflow-style: none;
-                    padding: 0.5rem 0;
+                .antigravity-container {
+                    display: grid;
+                    grid-template-columns: 1fr 1.5fr;
+                    gap: 60px;
+                    max-width: 1400px;
+                    margin: 0 auto;
                 }
 
-                .offer-scroll-container::-webkit-scrollbar {
-                    display: none;
-                }
-
-                .offer-card {
-                    background: #ffffff;
-                    border-radius: 28px;
-                    padding: 32px 76px 56px 32px;
-                    min-width: 372px;
-                    max-width: 372px;
-                    min-height: 389px;
+                .antigravity-text-column {
                     display: flex;
                     flex-direction: column;
-                    position: relative;
-                    transition: all 0.3s ease;
-                    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
-                    flex-shrink: 0;
                 }
 
-                .offer-card:hover {
-                    transform: translateY(-2px);
-                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+                .antigravity-header {
+                    margin-bottom: 60px;
                 }
 
-                .offer-icon {
-                    width: 46px;
-                    height: 56px;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
+                .antigravity-header h2 {
+                    font-size: 3rem;
+                    font-weight: 700;
                     color: #1d1d1f;
-                    margin-bottom: 1.25rem;
+                    line-height: 1.1;
+                    margin-bottom: 16px;
                 }
 
-                .offer-icon svg {
-                    width: 46px;
-                    height: 56px;
-                    stroke-linecap: round;
-                    stroke-linejoin: round;
+                .antigravity-header .learn-more {
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 6px;
+                    color: #0066cc;
+                    font-weight: 500;
+                    text-decoration: none;
+                    transition: gap 0.2s ease;
                 }
 
-                .offer-title {
-                    font-size: 28px;
+                .antigravity-header .learn-more:hover {
+                    gap: 10px;
+                }
+
+                .text-block {
+                    padding: 80px 0;
+                    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+                }
+
+                .text-block.active {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+
+                .text-block:first-of-type {
+                    padding-top: 0;
+                }
+
+                .text-block h3 {
+                    font-size: 2rem;
                     font-weight: 600;
                     color: #1d1d1f;
-                    margin-bottom: 0.75rem;
-                    line-height: 1.4;
+                    margin-bottom: 16px;
+                    line-height: 1.2;
+                    opacity: 0.35;
+                    transition: opacity 0.8s ease-out;
                 }
 
-                .offer-desc {
-                    font-size: 17px;
-                    color: #86868b;
-                    line-height: 1.47;
-                    flex-grow: 1;
+                .text-block.active h3 {
+                    opacity: 1;
                 }
 
-                .offer-btn {
+                .text-block p {
+                    font-size: 1.125rem;
+                    color: #515154;
+                    line-height: 1.6;
+                    max-width: 480px;
+                    opacity: 0;
+                    visibility: hidden;
+                    transition: opacity 0.8s ease-out, visibility 0.8s ease-out;
+                }
+
+                .text-block.active p {
+                    opacity: 1;
+                    visibility: visible;
+                }
+
+                .text-block .category {
+                    opacity: 0.35;
+                    transition: opacity 0.8s ease-out;
+                }
+
+                .text-block.active .category {
+                    opacity: 1;
+                }
+
+                .text-block .category {
+                    font-size: 0.875rem;
+                    font-weight: 500;
+                    color: #f56300;
+                    margin-bottom: 8px;
+                    text-transform: uppercase;
+                    letter-spacing: 0.05em;
+                }
+
+                .antigravity-image-column {
+                    position: relative;
+                }
+
+                .sticky-image-container {
+                    position: sticky;
+                    top: 100px;
+                    height: 800px;
+                    border-radius: 24px;
+                    overflow: hidden;
+                    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+                }
+
+                .sticky-image-container img {
                     position: absolute;
-                    bottom: 1.25rem;
-                    right: 1.25rem;
-                    width: 32px;
-                    height: 32px;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    opacity: 0;
+                    transition: opacity 0.6s ease;
+                }
+
+                .sticky-image-container img.active {
+                    opacity: 1;
+                }
+
+                /* Mobile Responsive */
+                @media (max-width: 1024px) {
+                    .antigravity-container {
+                        grid-template-columns: 1fr;
+                        gap: 40px;
+                    }
+
+                    .antigravity-image-column {
+                        order: -1;
+                    }
+
+                    .sticky-image-container {
+                        position: relative;
+                        top: 0;
+                        height: 350px;
+                    }
+
+                    .text-block {
+                        padding: 40px 0;
+                        opacity: 1;
+                        transform: none;
+                    }
+
+                    .antigravity-header h2 {
+                        font-size: 2.25rem;
+                    }
+                }
+
+                /* Read More Button */
+                .read-more-btn {
+                    margin-top: 16px;
+                    width: 40px;
+                    height: 40px;
                     border-radius: 50%;
-                    background: #e8e8ed;
-                    border: none;
+                    border: 2px solid #e5e5e7;
+                    background: transparent;
+                    cursor: pointer;
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    color: #1d1d1f;
-                    cursor: pointer;
-                    transition: all 0.2s ease;
+                    color: #86868b;
+                    transition: all 0.3s ease;
+                    opacity: 0;
+                    visibility: hidden;
                 }
 
-                .offer-card:hover .offer-btn {
-                    background: #0071e3;
-                    color: white;
+                .text-block.active .read-more-btn {
+                    opacity: 1;
+                    visibility: visible;
                 }
 
-                .offer-nav-btn {
-                    width: 36px;
-                    height: 36px;
-                    border-radius: 50%;
-                    background: #e8e8ed;
-                    border: none;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    color: #1d1d1f;
-                    cursor: pointer;
-                    transition: all 0.2s ease;
-                }
-
-                .offer-nav-btn:hover {
-                    background: #d2d2d7;
-                }
-
-                .offer-nav-btn:disabled {
-                    opacity: 0.4;
-                    cursor: not-allowed;
+                .read-more-btn:hover {
+                    border-color: #0066cc;
+                    color: #0066cc;
+                    transform: scale(1.1);
                 }
 
                 /* Modal Styles */
                 .offer-modal {
-                    display: none;
                     position: fixed;
                     top: 0;
                     left: 0;
                     width: 100%;
                     height: 100%;
-                    background: rgba(0, 0, 0, 0.3);
+                    background: rgba(0, 0, 0, 0.6);
                     backdrop-filter: blur(8px);
-                    -webkit-backdrop-filter: blur(8px);
                     z-index: 9999;
+                    display: flex;
                     align-items: center;
                     justify-content: center;
-                    padding: 1.5rem;
                     opacity: 0;
-                    transition: opacity 0.3s ease;
+                    visibility: hidden;
+                    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
                 }
 
                 .offer-modal.active {
-                    display: flex;
                     opacity: 1;
+                    visibility: visible;
                 }
 
                 .offer-modal-content {
-                    background: #ffffff;
-                    border-radius: 24px;
-                    padding: 3rem 3rem 2.5rem 3rem;
-                    max-width: 640px;
-                    width: 100%;
+                    background: #fff;
+                    border-radius: 28px;
+                    padding: 60px;
+                    max-width: 700px;
+                    width: 92%;
                     position: relative;
-                    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.2);
-                    transform: scale(0.95);
-                    transition: transform 0.3s ease;
+                    transform: scale(0.85) translateY(40px);
+                    opacity: 0;
+                    transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+                    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.25);
                 }
 
                 .offer-modal.active .offer-modal-content {
-                    transform: scale(1);
+                    transform: scale(1) translateY(0);
+                    opacity: 1;
                 }
 
                 .offer-modal-close {
                     position: absolute;
-                    top: 1.25rem;
-                    right: 1.25rem;
-                    width: 32px;
-                    height: 32px;
+                    top: 24px;
+                    right: 24px;
+                    width: 44px;
+                    height: 44px;
                     border-radius: 50%;
-                    background: #f5f5f7;
                     border: none;
+                    background: #f5f5f7;
+                    cursor: pointer;
                     display: flex;
                     align-items: center;
                     justify-content: center;
                     color: #86868b;
-                    cursor: pointer;
                     transition: all 0.2s ease;
                 }
 
                 .offer-modal-close:hover {
-                    background: #e8e8ed;
+                    background: #e5e5e7;
                     color: #1d1d1f;
+                    transform: scale(1.1);
                 }
 
                 .offer-modal-category {
                     font-size: 1rem;
+                    font-weight: 600;
                     color: #f56300;
-                    font-weight: 500;
-                    margin-bottom: 1rem;
+                    text-transform: uppercase;
+                    letter-spacing: 0.08em;
+                    margin-bottom: 16px;
                 }
 
                 .offer-modal-title {
-                    font-size: 2.25rem;
+                    font-size: 2.5rem;
                     font-weight: 700;
                     color: #1d1d1f;
-                    line-height: 1.25;
-                    margin-bottom: 1.25rem;
+                    margin-bottom: 24px;
+                    line-height: 1.15;
                 }
 
                 .offer-modal-desc {
-                    font-size: 1.125rem;
+                    font-size: 1.25rem;
                     color: #515154;
-                    line-height: 1.75;
-                }
-
-                @media (max-width: 768px) {
-                    .offer-card {
-                        min-width: 300px;
-                        max-width: 300px;
-                        min-height: 320px;
-                        padding: 24px 48px 48px 24px;
-                        border-radius: 22px;
-                    }
-
-                    .offer-icon svg {
-                        width: 40px;
-                        height: 48px;
-                    }
-
-                    .offer-title {
-                        font-size: 22px;
-                    }
-
-                    .offer-modal-content {
-                        padding: 2.5rem 2rem 2rem 2rem;
-                    }
-
-                    .offer-modal-title {
-                        font-size: 1.75rem;
-                    }
-
-                    .offer-modal-desc {
-                        font-size: 1rem;
-                    }
+                    line-height: 1.8;
                 }
             </style>
 
+            <div class="container mx-auto px-6">
+                <div class="antigravity-container">
+                    <!-- Left: Text Column -->
+                    <div class="antigravity-text-column">
+                        <div class="antigravity-header" data-aos="fade-up">
+                            <h2>What We Offer</h2>
+                            <a href="teach-and-earn/" class="learn-more">
+                                Learn More
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M9 5l7 7-7 7" />
+                                </svg>
+                            </a>
+                        </div>
+
+                        <!-- Text Blocks -->
+                        <div class="text-block active" data-index="0">
+                            <p class="category">Teaching Locations</p>
+                            <h3>Unique Locations</h3>
+                            <p>Teach in diverse settings across Thailand - from kindergartens nurturing young minds, to
+                                primary schools building foundations.</p>
+                            <button class="read-more-btn" onclick="openOfferModal(0)"
+                                aria-label="Read more about Unique Locations">
+                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M7 1v12M1 7h12" />
+                                </svg>
+                            </button>
+                        </div>
+
+                        <div class="text-block" data-index="1">
+                            <p class="category">Professional Development</p>
+                            <h3>Free Professional Training</h3>
+                            <p>Orientation including Thai language basics and cultural immersion to help you adapt
+                                quickly.</p>
+                            <button class="read-more-btn" onclick="openOfferModal(1)"
+                                aria-label="Read more about Free Training">
+                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M7 1v12M1 7h12" />
+                                </svg>
+                            </button>
+                        </div>
+
+                        <div class="text-block" data-index="2">
+                            <p class="category">Visa & Documents</p>
+                            <h3>Document Assistance</h3>
+                            <p>Navigate the work permit process with confidence. We provide guidance on required
+                                documents.</p>
+                            <button class="read-more-btn" onclick="openOfferModal(2)"
+                                aria-label="Read more about Document Assistance">
+                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M7 1v12M1 7h12" />
+                                </svg>
+                            </button>
+                        </div>
+
+                        <div class="text-block" data-index="3">
+                            <p class="category">Local Support</p>
+                            <h3>Thai Consultant</h3>
+                            <p>Your personal guide throughout your journey in Thailand with bilingual support.</p>
+                            <button class="read-more-btn" onclick="openOfferModal(3)"
+                                aria-label="Read more about Thai Consultant">
+                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M7 1v12M1 7h12" />
+                                </svg>
+                            </button>
+                        </div>
+
+                        <div class="text-block" data-index="4">
+                            <p class="category">Academic Support</p>
+                            <h3>Curriculum Consultant</h3>
+                            <p>Never feel alone in lesson planning with our curriculum consultant support.</p>
+                            <button class="read-more-btn" onclick="openOfferModal(4)"
+                                aria-label="Read more about Curriculum Consultant">
+                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M7 1v12M1 7h12" />
+                                </svg>
+                            </button>
+                        </div>
+
+                        <div class="text-block" data-index="5">
+                            <p class="category">Protection</p>
+                            <h3>Accident Insurance</h3>
+                            <p>Annual coverage for peace of mind with comprehensive accident insurance.</p>
+                            <button class="read-more-btn" onclick="openOfferModal(5)"
+                                aria-label="Read more about Accident Insurance">
+                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M7 1v12M1 7h12" />
+                                </svg>
+                            </button>
+                        </div>
+
+                        <div class="text-block" data-index="6">
+                            <p class="category">Housing Support</p>
+                            <h3>Accommodation Assistance</h3>
+                            <p>Finding a home in Thailand is easy with our help and local connections.</p>
+                            <button class="read-more-btn" onclick="openOfferModal(6)"
+                                aria-label="Read more about Accommodation">
+                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M7 1v12M1 7h12" />
+                                </svg>
+                            </button>
+                        </div>
+
+                        <div class="text-block" data-index="7">
+                            <p class="category">Teaching Resources</p>
+                            <h3>Full Curriculum</h3>
+                            <p>Hit the ground running with our complete curriculum package and materials.</p>
+                            <button class="read-more-btn" onclick="openOfferModal(7)"
+                                aria-label="Read more about Full Curriculum">
+                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M7 1v12M1 7h12" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Right: Sticky Image Column -->
+                    <div class="antigravity-image-column">
+                        <div class="sticky-image-container">
+                            <img src="assets/images/general/mk1.webp" data-index="0" class="active"
+                                alt="Teaching locations" />
+                            <img src="assets/images/general/mk2.webp" data-index="1" alt="Professional training" />
+                            <img src="assets/images/general/mk3.webp" data-index="2" alt="Document assistance" />
+                            <img src="assets/images/general/mk4.webp" data-index="3" alt="Thai consultant" />
+                            <img src="assets/images/general/mk5.webp" data-index="4" alt="Curriculum consultant" />
+                            <img src="assets/images/general/mk6.webp" data-index="5" alt="Accident insurance" />
+                            <img src="assets/images/general/mk7.webp" data-index="6" alt="Accommodation" />
+                            <img src="assets/images/general/mk8.webp" data-index="7" alt="Full curriculum" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <script>
-                // Offer Cards Data
+                // Antigravity Scroll Animation
+                (function () {
+                    const textBlocks = document.querySelectorAll('.antigravity-section .text-block');
+                    const images = document.querySelectorAll('.sticky-image-container img');
+
+                    if (textBlocks.length === 0) return;
+
+                    // Check if IntersectionObserver is supported
+                    if ('IntersectionObserver' in window) {
+                        const observerOptions = {
+                            root: null,
+                            rootMargin: '-45% 0px -45% 0px',
+                            threshold: 0.1
+                        };
+
+                        const observerCallback = (entries) => {
+                            entries.forEach(entry => {
+                                if (entry.isIntersecting) {
+                                    const index = entry.target.dataset.index;
+
+                                    // Update text blocks
+                                    textBlocks.forEach(block => block.classList.remove('active'));
+                                    entry.target.classList.add('active');
+
+                                    // Update images
+                                    images.forEach(img => img.classList.remove('active'));
+                                    const activeImage = document.querySelector(`.sticky-image-container img[data-index="${index}"]`);
+                                    if (activeImage) activeImage.classList.add('active');
+                                }
+                            });
+                        };
+
+                        const observer = new IntersectionObserver(observerCallback, observerOptions);
+                        textBlocks.forEach(block => observer.observe(block));
+                    }
+                })();
+
+                // Offer Data for Modal
                 const offerData = {
-                    1: {
+                    0: {
                         category: "Teaching Locations",
                         title: "Unique Locations",
                         desc: "Teach in diverse settings across Thailand - from kindergartens nurturing young minds, to primary schools building foundations, to secondary schools preparing students for the future. Experience the rich culture and warm hospitality of Thai communities while making a real difference in students' lives."
                     },
-                    2: {
+                    1: {
                         category: "Professional Development",
                         title: "Free Professional Training",
-                        desc: "Start your teaching journey with comprehensive orientation training. Learn essential Thai language skills for daily communication, understand Thai classroom culture and etiquette, and receive practical teaching strategies. Our training prepares you to thrive in Thai schools from day one."
+                        desc: "Orientation including Thai language basics and cultural immersion. Our comprehensive program covers classroom management techniques, cultural sensitivity training, and Thai language essentials to ensure you feel confident and prepared for your new life in Thailand."
                     },
-                    3: {
+                    2: {
                         category: "Visa & Documents",
                         title: "Document Assistance",
                         desc: "Navigate the work permit process with confidence. We provide guidance on required documents, assist with applications, and offer partial reimbursement towards work visa costs. Our experienced team ensures your paperwork is handled efficiently and correctly."
                     },
-                    4: {
+                    3: {
                         category: "Local Support",
-                        title: "Thai Consultant Support",
-                        desc: "Your personal Thai consultant is always ready to help. From translating documents to accompanying you to government offices, from helping with housing to resolving everyday challenges - you'll never have to navigate Thai bureaucracy alone."
+                        title: "Thai Consultant",
+                        desc: "Your dedicated local partner for a smooth transition. Our Thai consultants assist with on-ground orientation, housing search, school introduction, and daily communication needs, ensuring your journey in Thailand is comfortable and successful."
+                    },
+                    4: {
+                        category: "Academic Support",
+                        title: "Curriculum Consultant",
+                        desc: "Expert guidance on our comprehensive curriculum, from lesson planning to classroom strategies. Our curriculum consultants provide ongoing support, classroom observation feedback, and resources to help you deliver engaging and effective lessons."
                     },
                     5: {
-                        category: "Teaching Support",
-                        title: "Curriculum Consultant",
-                        desc: "Receive expert guidance from our curriculum consultants. Get help with lesson planning, teaching materials, classroom management strategies, and adapting your teaching style to Thai students. We're here to help you become the best teacher you can be."
+                        category: "Protection",
+                        title: "Accident Insurance",
+                        desc: "Comprehensive accident insurance coverage for your peace of mind throughout your stay in Thailand. We prioritize your well-being with coverage that includes medical expenses, emergency support, and 24/7 assistance."
                     },
                     6: {
-                        category: "Safety & Security",
-                        title: "Accident Insurance",
-                        desc: "Teach with peace of mind knowing you're protected. Our comprehensive accident insurance covers medical expenses in case of unexpected injuries, allowing you to focus on what matters most - your teaching and your adventure in Thailand."
-                    },
-                    7: {
                         category: "Housing Support",
                         title: "Accommodation Assistance",
-                        desc: "Finding a home in Thailand is easy with our help. We connect you with safe, affordable housing options near your school. Our local consultants can accompany you to view apartments and help negotiate fair rental terms."
+                        desc: "Find comfortable and convenient housing with our assistance. We help you secure suitable accommodation that fits your needs and budget, connect you with landlords, and guide you through the rental process."
                     },
-                    8: {
+                    7: {
                         category: "Teaching Resources",
                         title: "Full Curriculum",
-                        desc: "Hit the ground running with our complete curriculum package. Receive all textbooks, detailed lesson plans, activity guides, and supplementary materials you need. Our curriculum is designed specifically for Thai schools and updated regularly."
+                        desc: "Complete curriculum inclusive of textbooks, detailed lesson plans, activity guides, flashcards, and supplementary teaching materials. Our curriculum is designed specifically for Thai schools and is regularly updated to meet educational standards."
                     }
                 };
 
-                // Scroll functionality
-                function scrollOfferCards(direction) {
-                    const container = document.getElementById('offerScrollContainer');
-                    const cardWidth = 372 + 20; // card width + gap
-                    container.scrollBy({ left: direction * cardWidth, behavior: 'smooth' });
-                    updateOfferNavButtons();
-                }
-
-                function updateOfferNavButtons() {
-                    const container = document.getElementById('offerScrollContainer');
-                    const prevBtn = document.getElementById('offerPrevBtn');
-                    const nextBtn = document.getElementById('offerNextBtn');
-
-                    setTimeout(() => {
-                        prevBtn.disabled = container.scrollLeft <= 0;
-                        nextBtn.disabled = container.scrollLeft >= container.scrollWidth - container.clientWidth - 10;
-                    }, 350);
-                }
-
-                // Modal functionality
-                function openOfferModal(cardId) {
+                // Modal Functions
+                function openOfferModal(index) {
                     const modal = document.getElementById('offerModal');
-                    const data = offerData[cardId];
+                    const data = offerData[index];
 
-                    document.getElementById('modalCategory').textContent = data.category;
-                    document.getElementById('modalTitle').textContent = data.title;
-                    document.getElementById('modalDesc').textContent = data.desc;
+                    document.getElementById('offerModalCategory').textContent = data.category;
+                    document.getElementById('offerModalTitle').textContent = data.title;
+                    document.getElementById('offerModalDesc').textContent = data.desc;
 
                     modal.classList.add('active');
                     document.body.style.overflow = 'hidden';
@@ -2005,91 +2016,106 @@
                     document.body.style.overflow = '';
                 }
 
-                // Initialize
-                document.addEventListener('DOMContentLoaded', function () {
-                    updateOfferNavButtons();
-                    document.getElementById('offerScrollContainer').addEventListener('scroll', updateOfferNavButtons);
-
-                    // Close modal with Escape key
-                    document.addEventListener('keydown', function (e) {
-                        if (e.key === 'Escape') closeOfferModal();
-                    });
-                    // Hero Variable Proximity Effect (Optimized for Smoothness & Precision)
-                    const focusLines = document.querySelectorAll('.focus-line');
-                    const RADIUS = 100; // Tighter radius
-                    const MIN_WEIGHT = 800;
-                    const MAX_WEIGHT = 900;
-
-                    // 1. Initialize: Split characters
-                    focusLines.forEach(line => {
-                        const text = line.getAttribute('data-text');
-                        line.innerHTML = '';
-                        [...text].forEach(char => {
-                            const span = document.createElement('span');
-                            span.className = 'focus-char';
-                            span.textContent = char;
-                            line.appendChild(span);
-                        });
-                    });
-
-                    const allChars = document.querySelectorAll('.focus-char');
-                    let mouseX = 0, mouseY = 0;
-                    let lastMouseX = 0, lastMouseY = 0;
-
-                    window.addEventListener('mousemove', (e) => {
-                        mouseX = e.clientX;
-                        mouseY = e.clientY;
-                    });
-
-                    function updateProximity() {
-                        // Only update if mouse moved to save performance
-                        if (mouseX !== lastMouseX || mouseY !== lastMouseY) {
-                            allChars.forEach(char => {
-                                const rect = char.getBoundingClientRect();
-                                const charX = rect.left + rect.width / 2;
-                                const charY = rect.top + rect.height / 2;
-
-                                // Weight vertical distance (dy * 2.5) to prevent bleeding into other lines
-                                const dx = mouseX - charX;
-                                const dy = (mouseY - charY) * 2.5;
-                                const dist = Math.sqrt(dx * dx + dy * dy);
-
-                                if (dist < RADIUS) {
-                                    // Use a more aggressive falloff for a "snappier" feel (squared distance)
-                                    const proximity = Math.pow(1 - (dist / RADIUS), 2);
-                                    const weight = MIN_WEIGHT + (MAX_WEIGHT - MIN_WEIGHT) * proximity;
-                                    const scale = 1 + (0.15 * proximity);
-
-                                    char.style.fontWeight = Math.round(weight);
-                                    char.style.transform = `scale(${scale})`;
-                                    char.style.zIndex = "10";
-                                } else {
-                                    char.style.fontWeight = MIN_WEIGHT;
-                                    char.style.transform = `scale(1)`;
-                                    char.style.zIndex = "1";
-                                }
-                            });
-                            lastMouseX = mouseX;
-                            lastMouseY = mouseY;
+                // Close modal on Escape key
+                document.addEventListener('keydown', function (e) {
+                    if (e.key === 'Escape') {
+                        const modal = document.getElementById('offerModal');
+                        if (modal && modal.classList.contains('active')) {
+                            closeOfferModal();
                         }
-                        requestAnimationFrame(updateProximity);
                     }
-
-                    // Start the high-performance loop
-                    requestAnimationFrame(updateProximity);
                 });
             </script>
-        </section>
-        <section id="partners" class="py-12 bg-gray-50">
-            <div class="container mx-auto px-6">
-                <h3 class="text-center text-4xl md:text-5xl font-bold mb-12 shimmer-text">Our Valued Partners</h3>
-                <div id="partners-marquee" class="relative overflow-hidden">
-                    <!-- Fade edges -->
-                    <div class="partners-fade-left"></div>
-                    <div class="partners-fade-right"></div>
 
-                    <div id="partners-track" class="partners-track">
-                        <!-- Logos will be inserted by JS -->
+            <!-- Offer Modal -->
+            <div id="offerModal" class="offer-modal" onclick="closeOfferModal(event)">
+                <div class="offer-modal-content" onclick="event.stopPropagation()">
+                    <button class="offer-modal-close" onclick="closeOfferModal()" aria-label="Close">
+                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M1 1l12 12M13 1L1 13" />
+                        </svg>
+                    </button>
+                    <p class="offer-modal-category" id="offerModalCategory"></p>
+                    <h3 class="offer-modal-title" id="offerModalTitle"></h3>
+                    <p class="offer-modal-desc" id="offerModalDesc"></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hero Variable Proximity Effect Script -->
+        <script>
+            // Hero Variable Proximity Effect (Optimized for Smoothness & Precision)
+            document.addEventListener('DOMContentLoaded', function () {
+                const focusLines = document.querySelectorAll('.focus-line');
+                const RADIUS = 100;
+                const MIN_WEIGHT = 800;
+                const MAX_WEIGHT = 900;
+
+                // Initialize: Split characters
+                focusLines.forEach(line => {
+                    const text = line.getAttribute('data-text');
+                    line.innerHTML = '';
+                    [...text].forEach(char => {
+                        const span = document.createElement('span');
+                        span.className = 'focus-char';
+                        span.textContent = char;
+                        line.appendChild(span);
+                    });
+                });
+
+                const allChars = document.querySelectorAll('.focus-char');
+                let mouseX = 0, mouseY = 0;
+                let lastMouseX = 0, lastMouseY = 0;
+
+                document.addEventListener('mousemove', (e) => {
+                    mouseX = e.clientX;
+                    mouseY = e.clientY;
+                });
+
+                function updateProximity() {
+                    if (mouseX !== lastMouseX || mouseY !== lastMouseY) {
+                        allChars.forEach(char => {
+                            const rect = char.getBoundingClientRect();
+                            const charCenterX = rect.left + rect.width / 2;
+                            const charCenterY = rect.top + rect.height / 2;
+                            const dist = Math.sqrt(Math.pow(mouseX - charCenterX, 2) + Math.pow(mouseY - charCenterY, 2));
+
+                            if (dist < RADIUS) {
+                                const proximity = Math.pow(1 - (dist / RADIUS), 2);
+                                const weight = MIN_WEIGHT + (MAX_WEIGHT - MIN_WEIGHT) * proximity;
+                                const scale = 1 + (0.15 * proximity);
+
+                                char.style.fontWeight = Math.round(weight);
+                                char.style.transform = `scale(${scale})`;
+                                char.style.zIndex = "10";
+                            } else {
+                                char.style.fontWeight = MIN_WEIGHT;
+                                char.style.transform = `scale(1)`;
+                                char.style.zIndex = "1";
+                            }
+                        });
+                        lastMouseX = mouseX;
+                        lastMouseY = mouseY;
+                    }
+                    requestAnimationFrame(updateProximity);
+                }
+
+                requestAnimationFrame(updateProximity);
+            });
+        </script>
+        <section id="partners" class="py-12">
+            <div class="container mx-auto px-6">
+                <div class="partners-capsule">
+                    <h3 class="text-center text-4xl md:text-5xl font-bold mb-12 shimmer-text">Our Valued Partners</h3>
+                    <div id="partners-marquee" class="relative overflow-hidden">
+                        <!-- Fade edges -->
+                        <div class="partners-fade-left"></div>
+                        <div class="partners-fade-right"></div>
+
+                        <div id="partners-track" class="partners-track">
+                            <!-- Logos will be inserted by JS -->
+                        </div>
                     </div>
                 </div>
             </div>
@@ -2120,6 +2146,14 @@
                     }
                 }
 
+                .partners-capsule {
+                    background: #ffffff;
+                    border-radius: 40px;
+                    padding: 48px 32px;
+                    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.06);
+                    border: 1px solid rgba(0, 0, 0, 0.04);
+                }
+
                 #partners-marquee {
                     position: relative;
                     max-width: 700px;
@@ -2131,19 +2165,19 @@
                     position: absolute;
                     top: 0;
                     bottom: 0;
-                    width: 100px;
+                    width: 80px;
                     z-index: 10;
                     pointer-events: none;
                 }
 
                 .partners-fade-left {
                     left: 0;
-                    background: linear-gradient(to right, #fff 0%, transparent 100%);
+                    background: linear-gradient(to right, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
                 }
 
                 .partners-fade-right {
                     right: 0;
-                    background: linear-gradient(to left, #fff 0%, transparent 100%);
+                    background: linear-gradient(to left, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
                 }
 
                 .partners-track {
@@ -2432,9 +2466,13 @@
         <!-- TikTok Videos Section (User Original) -->
         <style>
             .videos-section {
-                max-width: 1200px;
-                margin: 0 auto;
-                padding: 64px 24px;
+                max-width: 1300px;
+                margin: 0 auto 60px auto;
+                padding: 48px 32px;
+                background: linear-gradient(145deg, #f8f9fa 0%, #ffffff 100%);
+                border-radius: 40px;
+                box-shadow: 0 4px 30px rgba(0, 0, 0, 0.06);
+                border: 1px solid rgba(0, 0, 0, 0.04);
             }
 
             .video-section-header {
@@ -2476,9 +2514,10 @@
             .video-section-header p {
                 font-size: 1.0625rem;
                 color: #86868b;
-                max-width: 500px;
+                max-width: 100%;
                 margin: 0 auto;
                 line-height: 1.5;
+                white-space: nowrap;
             }
 
             .category-tabs {
@@ -2563,15 +2602,20 @@
                 box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
             }
 
-            /* ===== VIDEO PLAYER - TikTok Standard Size ===== */
-            /* TikTok embed standard: 325 x 740 px (ratio 1:2.28) */
+            /* ===== VIDEO PLAYER ===== */
             .video-player {
                 position: relative;
                 width: 100%;
-                height: 500px;
-                /* Fixed height for consistency */
+                height: 580px;
                 background: #000;
                 overflow: hidden;
+                border-radius: 12px 12px 0 0;
+            }
+
+            .video-player video {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
             }
 
             .video-player iframe {
@@ -2654,11 +2698,9 @@
             }
 
             .follow-cta {
-                margin-top: 48px;
+                margin-top: 32px;
                 text-align: center;
-                padding: 32px;
-                background: linear-gradient(135deg, #fafafa 0%, #f5f5f7 100%);
-                border-radius: 20px;
+                padding: 20px 0;
             }
 
             .follow-cta p {
@@ -2716,26 +2758,19 @@
         </style>
 
         <section class="videos-section">
-            <div class="video-section-header">
-                <div class="video-section-label">
-                    <svg viewBox="0 0 24 24" fill="currentColor">
-                        <path
-                            d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
-                    </svg>
-                    Videos
-                </div>
+            <div class="video-section-header" data-aos="fade-up">
                 <h2>Life at MediaKids</h2>
-                <p>ดูคลิปกิจกรรมและบทสัมภาษณ์จากครูในเครือข่ายของเรา</p>
+                <p>Watch interviews and activity clips from teachers in our network</p>
             </div>
 
-            <div class="category-tabs">
+            <div class="category-tabs" data-aos="fade-up" data-aos-delay="100">
                 <button class="category-tab active" data-category="all">All Videos</button>
                 <button class="category-tab" data-category="interview">🎤 Interviews</button>
                 <button class="category-tab" data-category="camp">🏕️ Camp</button>
                 <button class="category-tab" data-category="orientation">🎓 Orientation</button>
             </div>
 
-            <div class="videos-grid" id="videos-grid">
+            <div class="videos-grid" id="videos-grid" data-aos="fade-up" data-aos-delay="200">
 
                 <!-- Video 1 -->
                 <div class="video-card" data-category="interview">
@@ -2835,8 +2870,8 @@
 
             </div>
 
-            <div class="follow-cta">
-                <p>ติดตามคลิปใหม่ๆ ของเราได้ที่ TikTok</p>
+            <div class="follow-cta" data-aos="fade-up">
+                <p>Follow us on TikTok for more videos</p>
                 <a href="https://www.tiktok.com/@mediakidsacademy" target="_blank" class="follow-btn">
                     <svg viewBox="0 0 24 24" fill="currentColor">
                         <path
