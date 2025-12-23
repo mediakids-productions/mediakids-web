@@ -2282,176 +2282,330 @@
                 })();
             </script>
         </section>
-        <section id="journey" class="py-20 bg-white">
+        <!-- Your Journey With Us - Dark Zigzag Parallax Design -->
+        <section id="journey" class="journey-dark-section">
             <style>
-                .journey-section-new {
+                /* Journey Section - Light Theme Matching Hero */
+                .journey-dark-section {
+                    background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 50%, #f8f9fa 100%);
+                    padding: 120px 0;
+                    position: relative;
+                    overflow: hidden;
+                }
+
+                /* Subtle animated background elements */
+                .journey-dark-section::before {
+                    content: '';
+                    position: absolute;
+                    top: 10%;
+                    left: -10%;
+                    width: 500px;
+                    height: 500px;
+                    background: radial-gradient(circle, rgba(77, 171, 255, 0.15) 0%, transparent 70%);
+                    border-radius: 50%;
+                    animation: floatBlob 20s ease-in-out infinite;
+                    pointer-events: none;
+                }
+
+                .journey-dark-section::after {
+                    content: '';
+                    position: absolute;
+                    bottom: 15%;
+                    right: -5%;
+                    width: 400px;
+                    height: 400px;
+                    background: radial-gradient(circle, rgba(255, 193, 7, 0.12) 0%, transparent 70%);
+                    border-radius: 50%;
+                    animation: floatBlob 25s ease-in-out infinite reverse;
+                    pointer-events: none;
+                }
+
+                @keyframes floatBlob {
+
+                    0%,
+                    100% {
+                        transform: translate(0, 0) scale(1);
+                    }
+
+                    50% {
+                        transform: translate(30px, -30px) scale(1.1);
+                    }
+                }
+
+                .journey-dark-container {
                     max-width: 1200px;
                     margin: 0 auto;
                     padding: 0 24px;
-                }
-
-                .journey-header {
-                    text-align: center;
-                    margin-bottom: 60px;
-                }
-
-                .journey-header h2 {
-                    font-size: 3rem;
-                    font-weight: 800;
-                    letter-spacing: -0.03em;
-                    background: linear-gradient(135deg, #1d1d1f 0%, #434343 100%);
-                    -webkit-background-clip: text;
-                    -webkit-text-fill-color: transparent;
-                    background-clip: text;
-                    margin-bottom: 12px;
-                }
-
-                .journey-header p {
-                    font-size: 1.125rem;
-                    color: #86868b;
-                }
-
-                .journey-steps-container {
-                    display: grid;
-                    grid-template-columns: repeat(3, 1fr);
-                    gap: 32px;
-                }
-
-                @media (max-width: 768px) {
-                    .journey-steps-container {
-                        grid-template-columns: 1fr;
-                        gap: 40px;
-                    }
-
-                    .journey-header h2 {
-                        font-size: 2.25rem;
-                    }
-                }
-
-                .journey-step-card {
                     position: relative;
-                    border-radius: 24px;
-                    overflow: hidden;
-                    background: #fff;
-                    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-                    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+                    z-index: 1;
                 }
 
-                .journey-step-card:hover {
-                    transform: translateY(-8px);
-                    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+                /* Header */
+                .journey-dark-header {
+                    text-align: center;
+                    margin-bottom: 100px;
                 }
 
-                .journey-step-image {
-                    width: 100%;
-                    height: 240px;
-                    object-fit: cover;
-                }
-
-                .journey-step-content {
-                    padding: 28px;
-                }
-
-                .journey-step-number {
-                    display: inline-flex;
-                    align-items: center;
-                    justify-content: center;
-                    width: 40px;
-                    height: 40px;
-                    border-radius: 50%;
-                    background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
-                    color: #fff;
-                    font-size: 1.125rem;
-                    font-weight: 700;
+                .journey-dark-header h2 {
+                    font-size: 3.5rem;
+                    font-weight: 800;
+                    color: #1d1d1f;
+                    letter-spacing: -0.03em;
                     margin-bottom: 16px;
                 }
 
+                .journey-dark-header p {
+                    font-size: 1.25rem;
+                    color: #6b7280;
+                    max-width: 500px;
+                    margin: 0 auto;
+                }
+
+                /* Steps Container */
+                .journey-steps-zigzag {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 80px;
+                }
+
+                /* Individual Step Row */
+                .journey-step-row {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    gap: 60px;
+                    align-items: center;
+                }
+
+                .journey-step-row.reverse {
+                    direction: rtl;
+                }
+
+                .journey-step-row.reverse>* {
+                    direction: ltr;
+                }
+
+                /* Image Side */
+                .journey-step-image-wrap {
+                    position: relative;
+                }
+
+                .journey-step-img {
+                    width: 100%;
+                    height: 320px;
+                    object-fit: cover;
+                    border-radius: 20px;
+                    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.12);
+                    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+                }
+
+                .journey-step-row:hover .journey-step-img {
+                    transform: scale(1.03);
+                }
+
+                /* Parallax offset for images */
+                .journey-step-image-wrap[data-parallax] {
+                    transform: translateY(var(--parallax-offset, 0));
+                    transition: transform 0.1s linear;
+                }
+
+                /* Content Side */
+                .journey-step-content {
+                    padding: 20px 0;
+                }
+
+                /* Number Badge */
+                .journey-badge-wrap {
+                    display: flex;
+                    align-items: center;
+                    gap: 16px;
+                    margin-bottom: 20px;
+                }
+
+                .journey-number-circle {
+                    width: 48px;
+                    height: 48px;
+                    background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 1.25rem;
+                    font-weight: 800;
+                    color: #ffffff;
+                    box-shadow: 0 8px 25px rgba(0, 102, 204, 0.35);
+                    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+                }
+
+                .journey-step-row:hover .journey-number-circle {
+                    transform: scale(1.15);
+                    box-shadow: 0 12px 35px rgba(0, 102, 204, 0.5);
+                }
+
+                .journey-step-label {
+                    font-size: 0.875rem;
+                    font-weight: 600;
+                    text-transform: uppercase;
+                    letter-spacing: 0.1em;
+                    color: #0066cc;
+                }
+
+                /* Title */
                 .journey-step-title {
-                    font-size: 1.5rem;
+                    font-size: 2.5rem;
                     font-weight: 700;
                     color: #1d1d1f;
-                    margin-bottom: 12px;
+                    margin-bottom: 16px;
+                    letter-spacing: -0.02em;
+                    line-height: 1.2;
                 }
 
+                /* Description */
                 .journey-step-desc {
-                    font-size: 1rem;
-                    color: #515154;
-                    line-height: 1.6;
+                    font-size: 1.125rem;
+                    color: #6b7280;
+                    line-height: 1.8;
+                    max-width: 450px;
                 }
 
-                .journey-connector {
-                    display: none;
+                /* Reveal Animation */
+                .journey-step-row {
+                    opacity: 0;
+                    transform: translateY(60px);
+                    transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
                 }
 
-                @media (min-width: 769px) {
-                    .journey-connector {
-                        display: block;
-                        position: absolute;
-                        top: 120px;
-                        right: -16px;
-                        width: 32px;
-                        height: 2px;
-                        background: linear-gradient(90deg, #0066cc, #0052a3);
-                        z-index: 10;
+                .journey-step-row.revealed {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+
+                .journey-step-row:nth-child(1) {
+                    transition-delay: 0.1s;
+                }
+
+                .journey-step-row:nth-child(2) {
+                    transition-delay: 0.2s;
+                }
+
+                .journey-step-row:nth-child(3) {
+                    transition-delay: 0.3s;
+                }
+
+                /* Mobile Responsive */
+                @media (max-width: 900px) {
+                    .journey-dark-section {
+                        padding: 80px 0;
                     }
 
-                    .journey-connector::after {
-                        content: '';
-                        position: absolute;
-                        right: -4px;
-                        top: -4px;
-                        width: 10px;
-                        height: 10px;
-                        border-top: 2px solid #0052a3;
-                        border-right: 2px solid #0052a3;
-                        transform: rotate(45deg);
+                    .journey-dark-header {
+                        margin-bottom: 60px;
+                    }
+
+                    .journey-dark-header h2 {
+                        font-size: 2.5rem;
+                    }
+
+                    .journey-step-row,
+                    .journey-step-row.reverse {
+                        grid-template-columns: 1fr;
+                        gap: 30px;
+                        direction: ltr;
+                    }
+
+                    .journey-step-row.reverse>* {
+                        direction: ltr;
+                    }
+
+                    .journey-step-img {
+                        height: 240px;
+                    }
+
+                    .journey-step-title {
+                        font-size: 1.75rem;
+                    }
+
+                    .journey-steps-zigzag {
+                        gap: 60px;
+                    }
+                }
+
+                @media (max-width: 640px) {
+                    .journey-dark-header h2 {
+                        font-size: 2rem;
+                    }
+
+                    .journey-dark-header p {
+                        font-size: 1rem;
+                    }
+
+                    .journey-step-title {
+                        font-size: 1.5rem;
+                    }
+
+                    .journey-step-desc {
+                        font-size: 1rem;
+                    }
+
+                    .journey-number-circle {
+                        width: 40px;
+                        height: 40px;
+                        font-size: 1rem;
                     }
                 }
             </style>
 
-            <div class="journey-section-new">
-                <div class="journey-header" data-aos="fade-up">
+            <div class="journey-dark-container">
+                <div class="journey-dark-header" data-aos="fade-up">
                     <h2>Your Journey With Us</h2>
                     <p>Three simple steps to start your teaching adventure in Thailand</p>
                 </div>
 
-                <div class="journey-steps-container">
-                    <!-- Step 1: Apply -->
-                    <div class="journey-step-card" data-aos="fade-up" data-aos-delay="100">
-                        <div style="position: relative;">
-                            <img src="assets/images/general/mk15.webp" alt="Apply to MediaKids"
-                                class="journey-step-image">
-                            <div class="journey-connector"></div>
+                <div class="journey-steps-zigzag" id="journeyZigzag">
+                    <!-- Step 1: Apply (Image Left, Text Right) -->
+                    <div class="journey-step-row">
+                        <div class="journey-step-image-wrap" data-parallax>
+                            <img src="assets/images/general/mk15.webp" alt="Apply to MediaKids" class="journey-step-img"
+                                loading="lazy">
                         </div>
                         <div class="journey-step-content">
-                            <div class="journey-step-number">1</div>
+                            <div class="journey-badge-wrap">
+                                <div class="journey-number-circle">1</div>
+                                <span class="journey-step-label">Step One</span>
+                            </div>
                             <h3 class="journey-step-title">Apply</h3>
                             <p class="journey-step-desc">Fill out our simple application form and complete a quick
                                 online interview with our team. The whole process takes about 5 minutes.</p>
                         </div>
                     </div>
 
-                    <!-- Step 2: Prepare -->
-                    <div class="journey-step-card" data-aos="fade-up" data-aos-delay="200">
-                        <div style="position: relative;">
+                    <!-- Step 2: Prepare (Text Left, Image Right) -->
+                    <div class="journey-step-row reverse">
+                        <div class="journey-step-image-wrap" data-parallax>
                             <img src="assets/images/general/mk21.webp" alt="Prepare for teaching"
-                                class="journey-step-image">
-                            <div class="journey-connector"></div>
+                                class="journey-step-img" loading="lazy">
                         </div>
                         <div class="journey-step-content">
-                            <div class="journey-step-number">2</div>
+                            <div class="journey-badge-wrap">
+                                <div class="journey-number-circle">2</div>
+                                <span class="journey-step-label">Step Two</span>
+                            </div>
                             <h3 class="journey-step-title">Prepare</h3>
                             <p class="journey-step-desc">We handle your visa documents and provide professional
                                 orientation training. Meet your cohort and practice teaching techniques.</p>
                         </div>
                     </div>
 
-                    <!-- Step 3: Start Teaching -->
-                    <div class="journey-step-card" data-aos="fade-up" data-aos-delay="300">
-                        <img src="assets/images/general/mk3.webp" alt="Start teaching in Thailand"
-                            class="journey-step-image">
+                    <!-- Step 3: Start Teaching (Image Left, Text Right) -->
+                    <div class="journey-step-row">
+                        <div class="journey-step-image-wrap" data-parallax>
+                            <img src="assets/images/general/mk3.webp" alt="Start teaching in Thailand"
+                                class="journey-step-img" loading="lazy">
+                        </div>
                         <div class="journey-step-content">
-                            <div class="journey-step-number">3</div>
+                            <div class="journey-badge-wrap">
+                                <div class="journey-number-circle">3</div>
+                                <span class="journey-step-label">Step Three</span>
+                            </div>
                             <h3 class="journey-step-title">Start Teaching</h3>
                             <p class="journey-step-desc">Begin your adventure at one of our partner schools across
                                 Thailand. Enjoy ongoing support from our team throughout your journey.</p>
@@ -2459,6 +2613,59 @@
                     </div>
                 </div>
             </div>
+
+            <script>
+                // Journey Zigzag Parallax + Reveal Animation
+                (function () {
+                    const container = document.getElementById('journeyZigzag');
+                    const rows = document.querySelectorAll('.journey-step-row');
+                    const parallaxImages = document.querySelectorAll('[data-parallax]');
+
+                    if (!container) return;
+
+                    // Reveal Animation on Scroll
+                    const revealObserver = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                entry.target.classList.add('revealed');
+                                revealObserver.unobserve(entry.target);
+                            }
+                        });
+                    }, { threshold: 0.15 });
+
+                    rows.forEach(row => revealObserver.observe(row));
+
+                    // Parallax Effect on Scroll
+                    let ticking = false;
+
+                    function updateParallax() {
+                        parallaxImages.forEach(el => {
+                            const rect = el.getBoundingClientRect();
+                            const windowHeight = window.innerHeight;
+
+                            // Calculate how far the element is from the center of the viewport
+                            const elementCenter = rect.top + rect.height / 2;
+                            const viewportCenter = windowHeight / 2;
+                            const distanceFromCenter = elementCenter - viewportCenter;
+
+                            // Apply subtle parallax offset (negative = moves up as you scroll down)
+                            const parallaxAmount = distanceFromCenter * 0.08;
+                            el.style.setProperty('--parallax-offset', `${parallaxAmount}px`);
+                        });
+                        ticking = false;
+                    }
+
+                    function onScroll() {
+                        if (!ticking) {
+                            requestAnimationFrame(updateParallax);
+                            ticking = true;
+                        }
+                    }
+
+                    window.addEventListener('scroll', onScroll, { passive: true });
+                    updateParallax(); // Initial call
+                })();
+            </script>
         </section>
         <!-- HIDDEN: Teacher Stories section - ซ่อนไว้รอข้อมูลจริง
             <section id="testimonials" class="py-20 bg-gray-50">
