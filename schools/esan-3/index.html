@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-C3WTLTZ1Y1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -17,39 +16,22 @@
         img-src 'self' data: https://images.unsplash.com https://placehold.co https://drive.google.com https://drive.googleusercontent.com https://lh3.googleusercontent.com https://drive.usercontent.google.com https://*.googleusercontent.com;
         font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;
         style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://unpkg.com;
-        script-src 'self' 'unsafe-inline'
-          https://cdn.tailwindcss.com
-          https://cdnjs.cloudflare.com
-          https://unpkg.com
-          https://script.google.com
-          https://www.googletagmanager.com
-          https://www.google-analytics.com;
-        connect-src 'self'
-          https://script.google.com
-          https://script.googleusercontent.com
-          https://www.google-analytics.com
-          https://region1.google-analytics.com
-          https://www.googletagmanager.com;
+        script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://cdnjs.cloudflare.com https://unpkg.com https://script.google.com https://www.googletagmanager.com https://www.google-analytics.com;
+        connect-src 'self' https://script.google.com https://script.googleusercontent.com https://www.google-analytics.com https://region1.google-analytics.com https://www.googletagmanager.com;
         form-action 'self' https://script.google.com https://script.googleusercontent.com https://formspree.io;
         frame-ancestors 'self';
         upgrade-insecure-requests">
-    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
-    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
-    <title>North Area Schools - MediaKids Academy</title>
+    <title>Esan 3 Schools - MediaKids Academy</title>
     <meta name="description"
-        content="Explore MediaKids Academy partner schools in Northern Thailand including Phrae and Uttaradit.">
+        content="Explore MediaKids Academy partner schools in Esan 3 region including Mahasarakam and Sakonnakhon.">
 
     <link rel="icon" type="image/png" sizes="32x32" href="../../assets/images/icons/logo.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/icons/logo.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="../../assets/images/icons/logo.png">
-
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/style.css?v=1.0.2">
 
     <style>
-        /* Province card */
         .province-card {
             background: white;
             border-radius: 20px;
@@ -62,10 +44,8 @@
         .province-card:hover {
             transform: translateY(-8px);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            border-color: #e2e8f0;
         }
 
-        /* Province header */
         .province-header {
             display: flex;
             align-items: center;
@@ -85,7 +65,6 @@
             font-size: 1.5rem;
         }
 
-        /* School item */
         .school-item {
             display: flex;
             align-items: center;
@@ -102,7 +81,7 @@
         }
 
         .school-item:hover {
-            background: linear-gradient(135deg, #eff6ff, #f0fdf4);
+            background: linear-gradient(135deg, #fff7ed, #fef3c7);
             transform: translateX(5px);
         }
 
@@ -113,7 +92,6 @@
             flex-shrink: 0;
         }
 
-        /* Stats cards */
         .stat-card {
             background: white;
             padding: 24px;
@@ -127,117 +105,77 @@
             transform: scale(1.05);
         }
 
-        /* Region badge */
         .region-badge {
             display: inline-flex;
             align-items: center;
             gap: 8px;
             padding: 10px 24px;
-            background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(16, 185, 129, 0.1));
-            border: 1px solid rgba(34, 197, 94, 0.2);
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(168, 85, 247, 0.1));
+            border: 1px solid rgba(139, 92, 246, 0.2);
             border-radius: 50px;
             font-size: 0.875rem;
             font-weight: 600;
-            color: #16a34a;
+            color: #7c3aed;
         }
 
-        /* Province colors */
-        .province-phrae {
-            background: linear-gradient(135deg, #d1fae5, #a7f3d0);
-            color: #065f46;
+        .province-mahasarakam {
+            background: linear-gradient(135deg, #ede9fe, #ddd6fe);
+            color: #5b21b6;
         }
 
-        .province-uttaradit {
-            background: linear-gradient(135deg, #dbeafe, #bfdbfe);
-            color: #1e40af;
+        .province-sakonnakhon {
+            background: linear-gradient(135deg, #f3e8ff, #e9d5ff);
+            color: #7c3aed;
         }
 
-        /* Dot colors */
-        .dot-phrae {
-            background: #10b981;
+        .dot-mahasarakam {
+            background: #8b5cf6;
         }
 
-        .dot-uttaradit {
-            background: #3b82f6;
-        }
-    </style>
-    <style>
-        /* Lenis Smooth Scroll CSS */
-        html.lenis {
-            height: auto;
-        }
-
-        .lenis.lenis-smooth {
-            scroll-behavior: auto;
-        }
-
-        .lenis.lenis-smooth [data-lenis-prevent] {
-            overscroll-behavior: contain;
-        }
-
-        .lenis.lenis-stopped {
-            overflow: hidden;
-        }
-
-        .lenis.lenis-scrolling iframe {
-            pointer-events: none;
+        .dot-sakonnakhon {
+            background: #a855f7;
         }
     </style>
 </head>
 
 <body class="leading-relaxed overflow-x-hidden relative">
-
-    <!-- Back to Top Button -->
-    <button id="back-to-top" aria-label="Back to top">
-        <i class="fas fa-chevron-up"></i>
-    </button>
-
-    <!-- Shared Header -->
+    <button id="back-to-top" aria-label="Back to top"><i class="fas fa-chevron-up"></i></button>
     <div id="shared-header"></div>
 
     <main>
         <div id="main-content">
-
-            <!-- Hero Section -->
             <section class="py-24 lg:py-32 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
-                <!-- Decorative circles -->
                 <div
-                    class="absolute top-0 right-0 w-96 h-96 bg-green-100 rounded-full opacity-50 blur-3xl -translate-y-1/2 translate-x-1/2">
+                    class="absolute top-0 right-0 w-96 h-96 bg-purple-100 rounded-full opacity-50 blur-3xl -translate-y-1/2 translate-x-1/2">
                 </div>
                 <div
-                    class="absolute bottom-0 left-0 w-80 h-80 bg-blue-100 rounded-full opacity-50 blur-3xl translate-y-1/2 -translate-x-1/2">
+                    class="absolute bottom-0 left-0 w-80 h-80 bg-violet-100 rounded-full opacity-50 blur-3xl translate-y-1/2 -translate-x-1/2">
                 </div>
 
                 <div class="container mx-auto px-6 text-center relative z-10">
                     <div class="region-badge mb-6" data-aos="fade-down">
-                        <i class="fas fa-mountain"></i>
-                        <span>Northern Thailand</span>
+                        <i class="fas fa-sun"></i>
+                        <span>Northeastern Thailand</span>
                     </div>
-
                     <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold text-gray-900 mb-6" data-aos="fade-up">
-                        North <span class="text-green-600">Area</span>
+                        Esan <span class="text-purple-600">3</span>
                     </h1>
-
                     <p class="text-xl text-gray-600 max-w-2xl mx-auto mb-12" data-aos="fade-up" data-aos-delay="100">
-                        Discover our partner schools in Northern Thailand, providing quality English education in the
-                        beautiful mountainous region.
+                        Partner schools in Mahasarakam and Sakonnakhon provinces.
                     </p>
-
-                    <!-- Stats -->
                     <div class="grid grid-cols-2 gap-4 max-w-md mx-auto" data-aos="fade-up" data-aos-delay="200">
                         <div class="stat-card">
-                            <div class="text-3xl font-extrabold text-green-600 mb-1">2</div>
+                            <div class="text-3xl font-extrabold text-purple-600 mb-1">2</div>
                             <div class="text-gray-500 text-sm">Provinces</div>
                         </div>
                         <div class="stat-card">
-                            <div class="text-3xl font-extrabold text-blue-600 mb-1">2</div>
+                            <div class="text-3xl font-extrabold text-violet-600 mb-1">7</div>
                             <div class="text-gray-500 text-sm">Schools</div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- Schools by Province -->
             <section class="py-20 bg-white">
                 <div class="container mx-auto px-6">
                     <div class="text-center mb-16">
@@ -245,47 +183,61 @@
                         <p class="section-subtitle">Our partner schools organized by location</p>
                     </div>
 
-                    <div class="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
-
-                        <!-- Phrae -->
+                    <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                        <!-- Mahasarakam -->
                         <div class="province-card" data-aos="fade-up">
                             <div class="province-header">
-                                <div class="province-icon province-phrae">
-                                    <i class="fas fa-tree"></i>
+                                <div class="province-icon province-mahasarakam"><i class="fas fa-graduation-cap"></i>
                                 </div>
                                 <div>
-                                    <h3 class="text-xl font-bold text-gray-900">Phrae</h3>
-                                    <p class="text-gray-500 text-sm">1 School</p>
+                                    <h3 class="text-xl font-bold text-gray-900">Maha Sarakam</h3>
+                                    <p class="text-gray-500 text-sm">4 Schools</p>
                                 </div>
                             </div>
                             <div class="school-item">
-                                <div class="school-dot dot-phrae"></div>
-                                <span class="text-gray-700">Nareerat School Phrae Province</span>
+                                <div class="school-dot dot-mahasarakam"></div><span class="text-gray-700">Anuban
+                                    Mahasarakam School</span>
+                            </div>
+                            <div class="school-item">
+                                <div class="school-dot dot-mahasarakam"></div><span
+                                    class="text-gray-700">Nachuakpittayasan School</span>
+                            </div>
+                            <div class="school-item">
+                                <div class="school-dot dot-mahasarakam"></div><span
+                                    class="text-gray-700">Phayakkaphumwittayakarn School</span>
+                            </div>
+                            <div class="school-item">
+                                <div class="school-dot dot-mahasarakam"></div><span
+                                    class="text-gray-700">Sarakharmpittayakom School</span>
                             </div>
                         </div>
 
-                        <!-- Uttaradit -->
+                        <!-- Sakonnakhon -->
                         <div class="province-card" data-aos="fade-up" data-aos-delay="100">
                             <div class="province-header">
-                                <div class="province-icon province-uttaradit">
-                                    <i class="fas fa-mountain"></i>
-                                </div>
+                                <div class="province-icon province-sakonnakhon"><i class="fas fa-fish"></i></div>
                                 <div>
-                                    <h3 class="text-xl font-bold text-gray-900">Uttaradit</h3>
-                                    <p class="text-gray-500 text-sm">1 School</p>
+                                    <h3 class="text-xl font-bold text-gray-900">Sakon Nakhon</h3>
+                                    <p class="text-gray-500 text-sm">3 Schools</p>
                                 </div>
                             </div>
                             <div class="school-item">
-                                <div class="school-dot dot-uttaradit"></div>
-                                <span class="text-gray-700">Uttaradit School</span>
+                                <div class="school-dot dot-sakonnakhon"></div><span
+                                    class="text-gray-700">Sakonrajwittayanukul School</span>
+                            </div>
+                            <div class="school-item">
+                                <div class="school-dot dot-sakonnakhon"></div><span class="text-gray-700">Sawangdaendin
+                                    School</span>
+                            </div>
+                            <div class="school-item">
+                                <div class="school-dot dot-sakonnakhon"></div><span class="text-gray-700">Triam Udom
+                                    Suksa School Of The Northeast</span>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </section>
 
-            <!-- Other Regions CTA -->
             <section class="py-16 bg-gray-50">
                 <div class="container mx-auto px-6">
                     <div class="text-center mb-10">
@@ -293,81 +245,56 @@
                         <p class="text-gray-600" data-aos="fade-up" data-aos-delay="100">Discover our partner schools
                             across Thailand</p>
                     </div>
-
                     <div class="flex flex-wrap justify-center gap-4" data-aos="fade-up" data-aos-delay="200">
-                        <a href="../central-area/"
+                        <a href="../esan-4/"
                             class="px-8 py-4 bg-white rounded-full shadow-md hover:shadow-lg transition-all duration-300 flex items-center gap-3 font-semibold text-gray-700 hover:text-blue-600">
-                            <i class="fas fa-city text-blue-600"></i>
-                            <span>Central Area</span>
-                            <i class="fas fa-arrow-right text-gray-300"></i>
+                            <i class="fas fa-sun text-orange-500"></i><span>Esan 4</span><i
+                                class="fas fa-arrow-right text-gray-300"></i>
                         </a>
-                        <a href="../esan-area/"
+                        <a href="../esan-2/"
                             class="px-8 py-4 bg-white rounded-full shadow-md hover:shadow-lg transition-all duration-300 flex items-center gap-3 font-semibold text-gray-700 hover:text-blue-600">
-                            <i class="fas fa-sun text-orange-500"></i>
-                            <span>Esan Area</span>
-                            <i class="fas fa-arrow-right text-gray-300"></i>
+                            <i class="fas fa-sun text-orange-500"></i><span>Esan 2</span><i
+                                class="fas fa-arrow-right text-gray-300"></i>
                         </a>
                     </div>
                 </div>
             </section>
 
-            <!-- Contact CTA -->
             <section class="py-20 bg-gradient-to-br from-slate-800 via-slate-900 to-gray-900 relative overflow-hidden">
                 <div class="absolute top-0 left-0 w-full h-full opacity-10">
-                    <div class="absolute top-10 left-10 w-40 h-40 bg-green-400 rounded-full blur-3xl"></div>
-                    <div class="absolute bottom-10 right-10 w-60 h-60 bg-blue-400 rounded-full blur-3xl"></div>
+                    <div class="absolute top-10 left-10 w-40 h-40 bg-purple-400 rounded-full blur-3xl"></div>
+                    <div class="absolute bottom-10 right-10 w-60 h-60 bg-violet-400 rounded-full blur-3xl"></div>
                 </div>
-
                 <div class="container mx-auto px-6 relative z-10">
                     <div class="text-center max-w-2xl mx-auto">
-                        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4" data-aos="fade-up">
-                            Want to Join Our Network?
-                        </h2>
-                        <p class="text-gray-300 mb-8" data-aos="fade-up" data-aos-delay="100">
-                            Whether you're a school looking for quality English programs or a teacher seeking
-                            opportunities, we'd love to hear from you.
-                        </p>
+                        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4" data-aos="fade-up">Want to Join Our
+                            Network?</h2>
+                        <p class="text-gray-300 mb-8" data-aos="fade-up" data-aos-delay="100">Whether you're a school
+                            looking for quality English programs or a teacher seeking opportunities, we'd love to hear
+                            from you.</p>
                         <div class="flex flex-wrap justify-center gap-4" data-aos="fade-up" data-aos-delay="200">
                             <a href="../../contact/"
-                                class="btn-primary px-8 py-4 rounded-full text-lg inline-flex items-center gap-2">
-                                <i class="fas fa-envelope"></i>
-                                <span>Contact Us</span>
-                            </a>
+                                class="btn-primary px-8 py-4 rounded-full text-lg inline-flex items-center gap-2"><i
+                                    class="fas fa-envelope"></i><span>Contact Us</span></a>
                             <a href="../../apply-now/"
-                                class="px-8 py-4 bg-white/10 border border-white/20 text-white rounded-full text-lg inline-flex items-center gap-2 hover:bg-white/20 transition-all">
-                                <i class="fas fa-paper-plane"></i>
-                                <span>Apply Now</span>
-                            </a>
+                                class="px-8 py-4 bg-white/10 border border-white/20 text-white rounded-full text-lg inline-flex items-center gap-2 hover:bg-white/20 transition-all"><i
+                                    class="fas fa-paper-plane"></i><span>Apply Now</span></a>
                         </div>
                     </div>
                 </div>
             </section>
-
         </div>
     </main>
 
-    <!-- Shared Footer -->
     <div id="shared-footer"></div>
-
+    <script src="../../js/version.js?v=1.0.2"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script src="../../js/components.js"></script>
-    <script src="../../js/script.js"></script>
-
-    <!-- Lenis Smooth Scroll -->
+    <script src="../../js/components.js?v=1.0.2"></script>
+    <script src="../../js/script.js?v=1.0.2"></script>
     <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
     <script>
-        const lenis = new Lenis({
-            lerp: 0.1,
-            orientation: 'vertical',
-            gestureOrientation: 'vertical',
-            smoothWheel: true,
-            wheelMultiplier: 1,
-            touchMultiplier: 1,
-        });
-        function raf(time) {
-            lenis.raf(time);
-            requestAnimationFrame(raf);
-        }
+        const lenis = new Lenis({ lerp: 0.1, orientation: 'vertical', gestureOrientation: 'vertical', smoothWheel: true, wheelMultiplier: 1, touchMultiplier: 1 });
+        function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
         requestAnimationFrame(raf);
     </script>
 </body>

@@ -39,7 +39,7 @@
         .nav-card {
             background: white;
             border-radius: 24px;
-            padding: 40px;
+            padding: 32px;
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.06);
             transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
             text-decoration: none;
@@ -52,41 +52,31 @@
         }
 
         .card-icon {
-            width: 80px;
-            height: 80px;
-            border-radius: 24px;
+            width: 64px;
+            height: 64px;
+            border-radius: 18px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2rem;
-            margin-bottom: 24px;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
             transition: all 0.4s ease;
         }
 
         .nav-card:hover .card-icon {
             transform: scale(1.1) rotate(5deg);
         }
-    </style>
-    <style>
-        /* Lenis Smooth Scroll CSS */
-        html.lenis {
-            height: auto;
-        }
 
-        .lenis.lenis-smooth {
-            scroll-behavior: auto;
-        }
-
-        .lenis.lenis-smooth [data-lenis-prevent] {
-            overscroll-behavior: contain;
-        }
-
-        .lenis.lenis-stopped {
-            overflow: hidden;
-        }
-
-        .lenis.lenis-scrolling iframe {
-            pointer-events: none;
+        .stats-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 12px;
+            background: #f1f5f9;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            color: #64748b;
+            margin-top: 12px;
         }
     </style>
 </head>
@@ -110,48 +100,119 @@
                 Partner Schools
             </h1>
             <p class="text-lg text-gray-500 max-w-2xl mx-auto leading-relaxed">
-                Explore our partner schools across different regions of Thailand.
+                Explore our partner schools across 6 regions of Thailand. 54 schools in 23 provinces.
             </p>
         </div>
 
         <!-- Navigation Cards -->
-        <div class="container mx-auto px-6 max-w-4xl">
-            <div class="grid md:grid-cols-3 gap-8">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-                <a href="central-area/" class="nav-card group nav-page" data-aos="fade-up" data-aos-delay="100">
+                <!-- Central 1 -->
+                <a href="central-1/" class="nav-card group nav-page" data-aos="fade-up" data-aos-delay="100">
                     <div class="card-icon bg-blue-100 text-blue-600">
                         <i class="fas fa-city"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-3 group-hover:text-blue-600 transition-colors">
-                        Central Area</h3>
-                    <p class="text-gray-500 text-sm mb-4">Bangkok and surrounding provinces</p>
-                    <div class="flex items-center text-blue-600 font-semibold text-sm">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2 group-hover:text-blue-600 transition-colors">
+                        Central 1</h3>
+                    <p class="text-gray-500 text-sm mb-3">Chonburi, Rayong, Phrae, Uttaradit, Samut Prakan</p>
+                    <div class="flex items-center gap-4">
+                        <span class="stats-badge"><i class="fas fa-map-pin"></i> 5 Provinces</span>
+                        <span class="stats-badge"><i class="fas fa-school"></i> 11 Schools</span>
+                    </div>
+                    <div class="flex items-center text-blue-600 font-semibold text-sm mt-4">
                         <span>View Schools</span>
                         <i class="fas fa-arrow-right ml-2 group-hover:translate-x-2 transition-transform"></i>
                     </div>
                 </a>
 
-                <a href="north-area/" class="nav-card group nav-page" data-aos="fade-up" data-aos-delay="200">
-                    <div class="card-icon bg-emerald-100 text-emerald-600">
-                        <i class="fas fa-mountain"></i>
+                <!-- Central 2 -->
+                <a href="central-2/" class="nav-card group nav-page" data-aos="fade-up" data-aos-delay="150">
+                    <div class="card-icon bg-purple-100 text-purple-600">
+                        <i class="fas fa-landmark"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-3 group-hover:text-emerald-600 transition-colors">
-                        North Area</h3>
-                    <p class="text-gray-500 text-sm mb-4">Chiang Mai and northern region</p>
-                    <div class="flex items-center text-emerald-600 font-semibold text-sm">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2 group-hover:text-purple-600 transition-colors">
+                        Central 2</h3>
+                    <p class="text-gray-500 text-sm mb-3">Pathumthani, Ayutthaya, Nakhonnayok, Prachinburi, Suphan Buri
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <span class="stats-badge"><i class="fas fa-map-pin"></i> 5 Provinces</span>
+                        <span class="stats-badge"><i class="fas fa-school"></i> 10 Schools</span>
+                    </div>
+                    <div class="flex items-center text-purple-600 font-semibold text-sm mt-4">
                         <span>View Schools</span>
                         <i class="fas fa-arrow-right ml-2 group-hover:translate-x-2 transition-transform"></i>
                     </div>
                 </a>
 
-                <a href="esan-area/" class="nav-card group nav-page" data-aos="fade-up" data-aos-delay="300">
+                <!-- Esan 1 -->
+                <a href="esan-1/" class="nav-card group nav-page" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card-icon bg-orange-100 text-orange-600">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2 group-hover:text-orange-600 transition-colors">
+                        Esan 1</h3>
+                    <p class="text-gray-500 text-sm mb-3">Chaiyaphum, Loei</p>
+                    <div class="flex items-center gap-4">
+                        <span class="stats-badge"><i class="fas fa-map-pin"></i> 2 Provinces</span>
+                        <span class="stats-badge"><i class="fas fa-school"></i> 7 Schools</span>
+                    </div>
+                    <div class="flex items-center text-orange-600 font-semibold text-sm mt-4">
+                        <span>View Schools</span>
+                        <i class="fas fa-arrow-right ml-2 group-hover:translate-x-2 transition-transform"></i>
+                    </div>
+                </a>
+
+                <!-- Esan 2 -->
+                <a href="esan-2/" class="nav-card group nav-page" data-aos="fade-up" data-aos-delay="250">
+                    <div class="card-icon bg-red-100 text-red-600">
+                        <i class="fas fa-sun"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2 group-hover:text-red-600 transition-colors">
+                        Esan 2</h3>
+                    <p class="text-gray-500 text-sm mb-3">Nakhon Ratchasima, Buriram, Si Sa Ket, Ubonratchathani, Roi
+                        Et, Mukdahan</p>
+                    <div class="flex items-center gap-4">
+                        <span class="stats-badge"><i class="fas fa-map-pin"></i> 6 Provinces</span>
+                        <span class="stats-badge"><i class="fas fa-school"></i> 9 Schools</span>
+                    </div>
+                    <div class="flex items-center text-red-600 font-semibold text-sm mt-4">
+                        <span>View Schools</span>
+                        <i class="fas fa-arrow-right ml-2 group-hover:translate-x-2 transition-transform"></i>
+                    </div>
+                </a>
+
+                <!-- Esan 3 -->
+                <a href="esan-3/" class="nav-card group nav-page" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card-icon bg-violet-100 text-violet-600">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2 group-hover:text-violet-600 transition-colors">
+                        Esan 3</h3>
+                    <p class="text-gray-500 text-sm mb-3">Mahasarakam, Sakonnakhon</p>
+                    <div class="flex items-center gap-4">
+                        <span class="stats-badge"><i class="fas fa-map-pin"></i> 2 Provinces</span>
+                        <span class="stats-badge"><i class="fas fa-school"></i> 7 Schools</span>
+                    </div>
+                    <div class="flex items-center text-violet-600 font-semibold text-sm mt-4">
+                        <span>View Schools</span>
+                        <i class="fas fa-arrow-right ml-2 group-hover:translate-x-2 transition-transform"></i>
+                    </div>
+                </a>
+
+                <!-- Esan 4 -->
+                <a href="esan-4/" class="nav-card group nav-page" data-aos="fade-up" data-aos-delay="350">
                     <div class="card-icon bg-amber-100 text-amber-600">
-                        <i class="fas fa-seedling"></i>
+                        <i class="fas fa-bridge"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-3 group-hover:text-amber-600 transition-colors">
-                        Esan Area</h3>
-                    <p class="text-gray-500 text-sm mb-4">Northeastern Thailand region</p>
-                    <div class="flex items-center text-amber-600 font-semibold text-sm">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2 group-hover:text-amber-600 transition-colors">
+                        Esan 4</h3>
+                    <p class="text-gray-500 text-sm mb-3">Khonkaen, Nongkhai, Udonthani</p>
+                    <div class="flex items-center gap-4">
+                        <span class="stats-badge"><i class="fas fa-map-pin"></i> 3 Provinces</span>
+                        <span class="stats-badge"><i class="fas fa-school"></i> 10 Schools</span>
+                    </div>
+                    <div class="flex items-center text-amber-600 font-semibold text-sm mt-4">
                         <span>View Schools</span>
                         <i class="fas fa-arrow-right ml-2 group-hover:translate-x-2 transition-transform"></i>
                     </div>

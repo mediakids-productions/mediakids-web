@@ -2147,11 +2147,13 @@
                 }
 
                 .partners-capsule {
-                    background: #ffffff;
+                    background: rgba(255, 255, 255, 0.7);
+                    backdrop-filter: blur(10px);
+                    -webkit-backdrop-filter: blur(10px);
                     border-radius: 40px;
                     padding: 48px 32px;
-                    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.06);
-                    border: 1px solid rgba(0, 0, 0, 0.04);
+                    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.04);
+                    border: 1px solid rgba(255, 255, 255, 0.5);
                 }
 
                 #partners-marquee {
@@ -2172,12 +2174,12 @@
 
                 .partners-fade-left {
                     left: 0;
-                    background: linear-gradient(to right, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
+                    background: linear-gradient(to right, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0) 100%);
                 }
 
                 .partners-fade-right {
                     right: 0;
-                    background: linear-gradient(to left, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
+                    background: linear-gradient(to left, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0) 100%);
                 }
 
                 .partners-track {
@@ -2285,9 +2287,9 @@
         <!-- Your Journey With Us - Dark Zigzag Parallax Design -->
         <section id="journey" class="journey-dark-section">
             <style>
-                /* Journey Section - Light Theme Matching Hero */
+                /* Journey Section - Transparent to match Hero */
                 .journey-dark-section {
-                    background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 50%, #f8f9fa 100%);
+                    background: transparent;
                     padding: 120px 0;
                     position: relative;
                     overflow: hidden;
