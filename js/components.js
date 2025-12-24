@@ -90,6 +90,9 @@ const headerHTML = `
                     <a href="${basePath}faq/" class="nav-page nav-link flex items-center h-full w-full justify-center">FAQ</a>
                 </div>
                 <div class="menu-close-trigger flex items-center h-full px-5">
+                    <a href="${basePath}blogs/" class="nav-page nav-link flex items-center h-full w-full justify-center">Blogs</a>
+                </div>
+                <div class="menu-close-trigger flex items-center h-full px-5">
                     <a href="${basePath}jobs/" class="nav-link nav-page flex items-center h-full w-full justify-center">Jobs</a>
                 </div>
                 <div class="menu-close-trigger flex items-center h-full px-5">
@@ -118,7 +121,6 @@ const headerHTML = `
                             <span class="mm-header">Organization</span>
                             <a href="${basePath}story/" class="mm-link nav-page">MediaKids Story</a>
                             <a href="${basePath}mission-vision/" class="mm-link nav-page">Mission & Vision</a>
-                            <a href="${basePath}blogs/" class="mm-link nav-page">Blogs</a>
                             <a href="${basePath}contact/" class="mm-link nav-page">Contact Us</a>
                         </div>
                         <div class="col-span-3 border-l border-gray-100 pl-8 mm-col">
@@ -328,6 +330,9 @@ const headerHTML = `
                 <!-- Direct Links -->
                 <a href="${basePath}faq/" class="mobile-menu-direct nav-page">
                     <i class="fas fa-question-circle"></i>FAQ
+                </a>
+                <a href="${basePath}blogs/" class="mobile-menu-direct nav-page">
+                    <i class="fas fa-blog"></i>Blogs
                 </a>
                 <a href="${basePath}jobs/" class="mobile-menu-direct nav-page">
                     <i class="fas fa-briefcase"></i>Jobs
