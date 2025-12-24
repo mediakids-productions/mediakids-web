@@ -168,78 +168,694 @@
             </script>
         </section>
 
-        <!-- Current Opportunities -->
-        <section id="jobs" class="py-20 bg-gray-50">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-16" data-aos="fade-up">
-                    <span class="inline-block text-blue-600 font-semibold text-sm tracking-wider uppercase mb-3">Open
-                        Positions</span>
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Current Opportunities</h2>
-                    <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-cyan-400 mx-auto rounded-full"></div>
+        <!-- Jobs Table Section -->
+        <section id="jobs" class="jobs-section bg-gray-50">
+            <style>
+                /* Jobs Section Styles */
+                .jobs-section {
+                    max-width: 1400px;
+                    margin: 0 auto;
+                    padding: 48px 24px;
+                }
+
+                .jobs-section .section-header {
+                    text-align: center;
+                    margin-bottom: 24px;
+                    padding-top: 40px;
+                }
+
+                .jobs-section .section-header h2 {
+                    font-size: 3rem;
+                    font-weight: 800;
+                    letter-spacing: -0.03em;
+                    background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    background-clip: text;
+                    margin-bottom: 8px;
+                }
+
+                .jobs-section .section-header p {
+                    font-size: 1rem;
+                    color: #86868b;
+                    margin-top: 8px;
+                }
+
+                .filter-row {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    margin-bottom: 20px;
+                    flex-wrap: wrap;
+                    gap: 12px;
+                }
+
+                .filter-pills {
+                    display: flex;
+                    gap: 8px;
+                }
+
+                .filter-pill {
+                    padding: 8px 18px;
+                    font-size: 0.8125rem;
+                    font-weight: 500;
+                    color: #1d1d1f;
+                    background: #f5f5f7;
+                    border: none;
+                    border-radius: 980px;
+                    cursor: pointer;
+                    transition: all 0.25s cubic-bezier(0.25, 0.1, 0.25, 1);
+                }
+
+                .filter-pill:hover {
+                    background: #e8e8ed;
+                    transform: translateY(-1px);
+                }
+
+                .filter-pill.active {
+                    background: linear-gradient(135deg, #1d1d1f 0%, #434343 100%);
+                    color: #fff;
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+                }
+
+                .jobs-count {
+                    font-size: 0.8125rem;
+                    color: #86868b;
+                    font-weight: 500;
+                }
+
+                .jobs-count span {
+                    color: #1d1d1f;
+                    font-weight: 600;
+                }
+
+                .table-container {
+                    border-radius: 16px;
+                    overflow: hidden;
+                    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.05);
+                    background: #fff;
+                }
+
+                .jobs-table {
+                    width: 100%;
+                    border-collapse: collapse;
+                }
+
+                .jobs-table thead th {
+                    padding: 14px 20px;
+                    font-size: 0.6875rem;
+                    font-weight: 600;
+                    color: #86868b;
+                    text-transform: uppercase;
+                    letter-spacing: 0.05em;
+                    text-align: left;
+                    background: linear-gradient(180deg, #fafafa 0%, #f5f5f7 100%);
+                    border-bottom: 1px solid #e8e8ed;
+                    position: sticky;
+                    top: 0;
+                    z-index: 10;
+                }
+
+                .jobs-table thead th:first-child {
+                    width: 45%;
+                }
+
+                .jobs-table thead th:nth-child(2) {
+                    width: 20%;
+                }
+
+                .jobs-table thead th:nth-child(3) {
+                    width: 20%;
+                }
+
+                .jobs-table thead th:last-child {
+                    width: 15%;
+                    text-align: right;
+                }
+
+                .table-scroll {
+                    max-height: 480px;
+                    overflow-y: auto;
+                    scrollbar-width: thin;
+                    scrollbar-color: #c7c7cc transparent;
+                    overscroll-behavior: contain;
+                    -ms-overflow-style: -ms-autohiding-scrollbar;
+                }
+
+                .table-scroll::-webkit-scrollbar {
+                    width: 6px;
+                }
+
+                .table-scroll::-webkit-scrollbar-track {
+                    background: transparent;
+                }
+
+                .table-scroll::-webkit-scrollbar-thumb {
+                    background: #c7c7cc;
+                    border-radius: 3px;
+                }
+
+                .table-scroll::-webkit-scrollbar-thumb:hover {
+                    background: #a1a1a6;
+                }
+
+                .jobs-table tbody tr {
+                    transition: all 0.2s ease;
+                    opacity: 0;
+                    transform: translateX(-10px);
+                }
+
+                .jobs-table tbody tr.visible {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+
+                .jobs-table tbody tr:hover {
+                    background: linear-gradient(90deg, #f0f7ff 0%, #fff9f0 100%);
+                }
+
+                .jobs-table tbody tr:hover .position-icon {
+                    transform: scale(1.1);
+                }
+
+                .jobs-table tbody td {
+                    padding: 16px 20px;
+                    font-size: 0.875rem;
+                    color: #1d1d1f;
+                    border-bottom: 1px solid #f0f0f2;
+                    vertical-align: middle;
+                }
+
+                .jobs-table tbody td:first-child {
+                    width: 45%;
+                }
+
+                .jobs-table tbody td:nth-child(2) {
+                    width: 20%;
+                }
+
+                .jobs-table tbody td:nth-child(3) {
+                    width: 20%;
+                }
+
+                .jobs-table tbody td:last-child {
+                    width: 15%;
+                }
+
+                .jobs-table tbody tr:last-child td {
+                    border-bottom: none;
+                }
+
+                .position-cell {
+                    display: flex;
+                    align-items: center;
+                    gap: 14px;
+                }
+
+                .position-icon {
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 10px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-shrink: 0;
+                    transition: transform 0.25s cubic-bezier(0.25, 0.1, 0.25, 1);
+                }
+
+                .position-icon svg {
+                    width: 20px;
+                    height: 20px;
+                    stroke-width: 1.75;
+                    fill: none;
+                }
+
+                .icon-blue {
+                    background: linear-gradient(135deg, #e8f4ff 0%, #cce5ff 100%);
+                }
+
+                .icon-blue svg {
+                    stroke: #0066cc;
+                }
+
+                .icon-orange {
+                    background: linear-gradient(135deg, #fff4e6 0%, #ffe8cc 100%);
+                }
+
+                .icon-orange svg {
+                    stroke: #ff9500;
+                }
+
+                .icon-green {
+                    background: linear-gradient(135deg, #e6f9ed 0%, #c8f0d8 100%);
+                }
+
+                .icon-green svg {
+                    stroke: #34c759;
+                }
+
+                .icon-purple {
+                    background: linear-gradient(135deg, #f3e8ff 0%, #e5d4ff 100%);
+                }
+
+                .icon-purple svg {
+                    stroke: #af52de;
+                }
+
+                .icon-pink {
+                    background: linear-gradient(135deg, #ffe8f0 0%, #ffd4e3 100%);
+                }
+
+                .icon-pink svg {
+                    stroke: #ff2d55;
+                }
+
+                .icon-teal {
+                    background: linear-gradient(135deg, #e6faf8 0%, #c8f0ec 100%);
+                }
+
+                .icon-teal svg {
+                    stroke: #5ac8c8;
+                }
+
+                .icon-red {
+                    background: linear-gradient(135deg, #ffe5e5 0%, #ffcccc 100%);
+                }
+
+                .icon-red svg {
+                    stroke: #ff3b30;
+                }
+
+                .icon-indigo {
+                    background: linear-gradient(135deg, #e8e8ff 0%, #d4d4ff 100%);
+                }
+
+                .icon-indigo svg {
+                    stroke: #5856d6;
+                }
+
+                .position-info {
+                    min-width: 0;
+                }
+
+                .position-title {
+                    font-weight: 600;
+                    color: #1d1d1f;
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    font-size: 0.9375rem;
+                }
+
+                .position-school {
+                    font-size: 0.75rem;
+                    color: #86868b;
+                    margin-top: 2px;
+                }
+
+                .urgent-tag {
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 5px;
+                    padding: 3px 8px;
+                    font-size: 0.625rem;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    letter-spacing: 0.02em;
+                    color: #fff;
+                    background: linear-gradient(135deg, #ff9500 0%, #ff6b00 100%);
+                    border-radius: 6px;
+                    box-shadow: 0 2px 8px rgba(255, 149, 0, 0.3);
+                }
+
+                .urgent-dot {
+                    width: 5px;
+                    height: 5px;
+                    background: #fff;
+                    border-radius: 50%;
+                    animation: pulse-dot 1.2s ease-in-out infinite;
+                }
+
+                @keyframes pulse-dot {
+
+                    0%,
+                    100% {
+                        opacity: 1;
+                        transform: scale(1);
+                    }
+
+                    50% {
+                        opacity: 0.6;
+                        transform: scale(0.85);
+                    }
+                }
+
+                .location-cell {
+                    color: #6e6e73;
+                    font-size: 0.8125rem;
+                    font-weight: 500;
+                }
+
+                .salary-cell {
+                    font-weight: 600;
+                    color: #1d1d1f;
+                    font-size: 0.8125rem;
+                }
+
+                .apply-btn {
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 6px;
+                    padding: 8px 16px;
+                    font-size: 0.8125rem;
+                    font-weight: 600;
+                    color: #fff;
+                    background: linear-gradient(135deg, #0077ed 0%, #0066cc 100%);
+                    border: none;
+                    border-radius: 980px;
+                    cursor: pointer;
+                    transition: all 0.25s cubic-bezier(0.25, 0.1, 0.25, 1);
+                    text-decoration: none;
+                }
+
+                .apply-btn:hover {
+                    background: linear-gradient(135deg, #0088ff 0%, #0077ed 100%);
+                    transform: translateY(-1px);
+                    box-shadow: 0 4px 12px rgba(0, 102, 204, 0.35);
+                }
+
+                .apply-btn svg {
+                    width: 12px;
+                    height: 12px;
+                    stroke: currentColor;
+                    stroke-width: 2.5;
+                    fill: none;
+                    transition: transform 0.2s;
+                }
+
+                .apply-btn:hover svg {
+                    transform: translateX(2px);
+                }
+
+                .action-cell {
+                    text-align: right;
+                }
+
+                .scroll-hint {
+                    text-align: center;
+                    padding: 12px;
+                    font-size: 0.75rem;
+                    color: #86868b;
+                    background: linear-gradient(180deg, transparent 0%, #f5f5f7 100%);
+                    border-top: 1px solid #f0f0f2;
+                    display: none;
+                }
+
+                .scroll-hint.show {
+                    display: block;
+                }
+
+                .loading-row td {
+                    text-align: center;
+                    padding: 60px;
+                    color: #86868b;
+                }
+
+                .spinner {
+                    width: 24px;
+                    height: 24px;
+                    border: 2.5px solid #e8e8ed;
+                    border-top-color: #0066cc;
+                    border-radius: 50%;
+                    animation: spin 0.7s linear infinite;
+                    margin: 0 auto 12px;
+                }
+
+                @keyframes spin {
+                    to {
+                        transform: rotate(360deg);
+                    }
+                }
+
+                .empty-row td {
+                    text-align: center;
+                    padding: 60px;
+                    color: #86868b;
+                }
+
+                @media (max-width: 768px) {
+                    .jobs-table thead {
+                        display: none;
+                    }
+
+                    .table-scroll {
+                        max-height: 500px;
+                    }
+
+                    .jobs-table tbody tr {
+                        display: block;
+                        padding: 16px;
+                        border-bottom: 1px solid #f0f0f2;
+                    }
+
+                    .jobs-table tbody td {
+                        display: block;
+                        padding: 4px 0;
+                        border: none;
+                        width: 100% !important;
+                    }
+
+                    .jobs-table tbody td:first-child {
+                        padding-bottom: 10px;
+                    }
+
+                    .location-cell::before {
+                        content: "📍 ";
+                    }
+
+                    .salary-cell::before {
+                        content: "💰 ";
+                    }
+
+                    .action-cell {
+                        text-align: left;
+                        padding-top: 14px;
+                    }
+
+                    .apply-btn {
+                        width: 100%;
+                        justify-content: center;
+                        padding: 12px;
+                    }
+                }
+            </style>
+
+            <!-- Header -->
+            <div class="section-header" data-aos="fade-up">
+                <h2>Open positions</h2>
+                <p>Join our team of educators across Thailand</p>
+            </div>
+
+            <!-- Filter Row -->
+            <div class="filter-row" data-aos="fade-up" data-aos-delay="100">
+                <div class="filter-pills">
+                    <button class="filter-pill active" data-filter="all">All</button>
+                    <button class="filter-pill" data-filter="urgent">🔥 Urgent</button>
+                    <button class="filter-pill" data-filter="other">Other</button>
                 </div>
+                <span class="jobs-count"><span id="jobs-count">0</span> positions available</span>
+            </div>
 
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
-                    <div class="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-blue-200 hover:-translate-y-2"
-                        data-aos="fade-up">
-                        <div
-                            class="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                            <i class="fas fa-child text-white text-2xl"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
-                            Kindergarten English Teacher</h3>
-                        <p class="text-gray-600 mb-6 leading-relaxed">Engage young learners (ages 3-6) with fun,
-                            play-based activities. A rewarding role for energetic and creative individuals.</p>
-                        <div class="flex items-center justify-between pt-4 border-t border-gray-100">
-                            <span class="text-sm text-gray-500"><i class="fas fa-map-marker-alt mr-1 text-blue-500"></i>
-                                Multiple Locations</span>
-                            <a href="../apply-now/"
-                                class="text-blue-600 font-semibold hover:text-blue-700 transition-colors">
-                                Apply <i class="fas fa-arrow-right ml-1"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-blue-200 hover:-translate-y-2"
-                        data-aos="fade-up" data-aos-delay="100">
-                        <div
-                            class="w-14 h-14 bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                            <i class="fas fa-book-reader text-white text-2xl"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
-                            Primary School English Teacher</h3>
-                        <p class="text-gray-600 mb-6 leading-relaxed">Teach English communication skills to students
-                            aged 7-12 in Thai government schools. Experience authentic local culture.</p>
-                        <div class="flex items-center justify-between pt-4 border-t border-gray-100">
-                            <span class="text-sm text-gray-500"><i class="fas fa-map-marker-alt mr-1 text-blue-500"></i>
-                                Multiple Locations</span>
-                            <a href="../apply-now/"
-                                class="text-blue-600 font-semibold hover:text-blue-700 transition-colors">
-                                Apply <i class="fas fa-arrow-right ml-1"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-blue-200 hover:-translate-y-2"
-                        data-aos="fade-up" data-aos-delay="200">
-                        <div
-                            class="w-14 h-14 bg-gradient-to-br from-purple-500 to-violet-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                            <i class="fas fa-graduation-cap text-white text-2xl"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
-                            High School English Teacher</h3>
-                        <p class="text-gray-600 mb-6 leading-relaxed">Prepare secondary students for their future with
-                            lessons focused on conversational skills, grammar, and exam preparation.</p>
-                        <div class="flex items-center justify-between pt-4 border-t border-gray-100">
-                            <span class="text-sm text-gray-500"><i class="fas fa-map-marker-alt mr-1 text-blue-500"></i>
-                                Multiple Locations</span>
-                            <a href="../apply-now/"
-                                class="text-blue-600 font-semibold hover:text-blue-700 transition-colors">
-                                Apply <i class="fas fa-arrow-right ml-1"></i>
-                            </a>
-                        </div>
-                    </div>
+            <!-- Table -->
+            <div class="table-container" data-aos="fade-up" data-aos-delay="200">
+                <table class="jobs-table">
+                    <thead>
+                        <tr>
+                            <th>Position</th>
+                            <th>Location</th>
+                            <th>Salary (THB)</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                </table>
+                <div class="table-scroll" data-lenis-prevent>
+                    <table class="jobs-table">
+                        <tbody id="jobs-tbody">
+                            <tr class="loading-row">
+                                <td colspan="4">
+                                    <div class="spinner"></div>
+                                    Loading positions...
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="scroll-hint" id="scroll-hint">
+                    ↓ Scroll to see more positions
                 </div>
             </div>
+
+            <script>
+                // Jobs Table Configuration
+                const JOBS_SHEET_ID = 'YOUR_GOOGLE_SHEET_ID_HERE';
+                const JOBS_SHEET_NAME = 'Jobs';
+                const JOBS_APPLY_URL = '../apply-now/';
+
+                // Icons for job positions
+                const jobIcons = {
+                    book: `<svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>`,
+                    calculator: `<svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="8" y2="10.01"/><line x1="12" y1="10" x2="12" y2="10.01"/><line x1="16" y1="10" x2="16" y2="10.01"/><line x1="8" y1="14" x2="8" y2="14.01"/><line x1="12" y1="14" x2="12" y2="14.01"/><line x1="16" y1="14" x2="16" y2="14.01"/><line x1="8" y1="18" x2="8" y2="18.01"/><line x1="12" y1="18" x2="16" y2="18"/></svg>`,
+                    flask: `<svg viewBox="0 0 24 24"><path d="M9 3h6v2H9z"/><path d="M10 5v6.5L4.5 20a1 1 0 0 0 .9 1.4h13.2a1 1 0 0 0 .9-1.4L14 11.5V5"/><path d="M8.5 14h7"/></svg>`,
+                    fitness: `<svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>`,
+                    paintbrush: `<svg viewBox="0 0 24 24"><path d="M18.37 2.63L14 7l-1.59-1.59a2 2 0 0 0-2.82 0L8 7l9 9 1.59-1.59a2 2 0 0 0 0-2.82L17 10l4.37-4.37a2.12 2.12 0 1 0-3-3z"/><path d="M9 8c-2 3-4 3.5-7 4l8 10c2-1 6-5 6-7"/></svg>`,
+                    music: `<svg viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>`,
+                    laptop: `<svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="2" y1="20" x2="22" y2="20"/></svg>`,
+                    globe: `<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>`,
+                    person: `<svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21v-2a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v2"/></svg>`,
+                    arrow: `<svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>`
+                };
+
+                const jobIconConfig = {
+                    english: { icon: 'book', color: 'blue' },
+                    language: { icon: 'book', color: 'blue' },
+                    math: { icon: 'calculator', color: 'orange' },
+                    science: { icon: 'flask', color: 'green' },
+                    chemistry: { icon: 'flask', color: 'green' },
+                    physics: { icon: 'flask', color: 'purple' },
+                    biology: { icon: 'flask', color: 'green' },
+                    pe: { icon: 'fitness', color: 'red' },
+                    physical: { icon: 'fitness', color: 'red' },
+                    sport: { icon: 'fitness', color: 'red' },
+                    art: { icon: 'paintbrush', color: 'pink' },
+                    design: { icon: 'paintbrush', color: 'pink' },
+                    music: { icon: 'music', color: 'purple' },
+                    computer: { icon: 'laptop', color: 'indigo' },
+                    it: { icon: 'laptop', color: 'indigo' },
+                    tech: { icon: 'laptop', color: 'indigo' },
+                    chinese: { icon: 'globe', color: 'teal' },
+                    japanese: { icon: 'globe', color: 'teal' },
+                    korean: { icon: 'globe', color: 'teal' },
+                    french: { icon: 'globe', color: 'teal' },
+                    german: { icon: 'globe', color: 'teal' },
+                };
+
+                let allJobsData = [];
+
+                async function fetchJobsData() {
+                    const url = `https://docs.google.com/spreadsheets/d/${JOBS_SHEET_ID}/gviz/tq?tqx=out:json&sheet=${JOBS_SHEET_NAME}`;
+                    try {
+                        const res = await fetch(url);
+                        const text = await res.text();
+                        const json = text.match(/google\.visualization\.Query\.setResponse\(([\s\S]*?)\);/)[1];
+                        const data = JSON.parse(json);
+                        const headers = data.table.cols.map(c => c.label.toLowerCase());
+
+                        allJobsData = data.table.rows.map((row, i) => {
+                            const job = { id: i + 1 };
+                            row.c.forEach((cell, j) => job[headers[j]] = cell ? cell.v : '');
+                            return job;
+                        }).filter(j => j.status === 'active' || j.status === 'Active');
+
+                        renderJobs(allJobsData);
+                    } catch (e) {
+                        showJobsError();
+                    }
+                }
+
+                function renderJobs(jobs) {
+                    const tbody = document.getElementById('jobs-tbody');
+                    const scrollHint = document.getElementById('scroll-hint');
+                    document.getElementById('jobs-count').textContent = jobs.length;
+
+                    scrollHint.classList.toggle('show', jobs.length > 6);
+
+                    if (!jobs.length) {
+                        tbody.innerHTML = `<tr class="empty-row visible"><td colspan="4">No positions available</td></tr>`;
+                        return;
+                    }
+
+                    tbody.innerHTML = jobs.map((job, i) => {
+                        const isUrgent = job.urgent === 'yes' || job.urgent === 'Yes';
+                        const { icon, color } = getJobIconConfig(job.position);
+                        return `
+                        <tr style="transition-delay: ${i * 0.04}s" data-loc="${job.location}" data-urg="${job.urgent}">
+                            <td>
+                                <div class="position-cell">
+                                    <div class="position-icon icon-${color}">${jobIcons[icon]}</div>
+                                    <div class="position-info">
+                                        <div class="position-title">
+                                            ${job.position}
+                                            ${isUrgent ? '<span class="urgent-tag"><span class="urgent-dot"></span>Urgent</span>' : ''}
+                                        </div>
+                                        <div class="position-school">${job.school}</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="location-cell">${job.location || '—'}</td>
+                            <td class="salary-cell">฿${job.salary || '—'}</td>
+                            <td class="action-cell">
+                                <a href="${JOBS_APPLY_URL}?position=${encodeURIComponent(job.position)}" class="apply-btn">
+                                    Apply ${jobIcons.arrow}
+                                </a>
+                            </td>
+                        </tr>`;
+                    }).join('');
+
+                    setTimeout(() => {
+                        tbody.querySelectorAll('tr').forEach(tr => tr.classList.add('visible'));
+                    }, 50);
+                }
+
+                function getJobIconConfig(pos) {
+                    const p = (pos || '').toLowerCase();
+                    for (const [keyword, config] of Object.entries(jobIconConfig)) {
+                        if (p.includes(keyword)) return config;
+                    }
+                    return { icon: 'person', color: 'blue' };
+                }
+
+                function showJobsError() {
+                    document.getElementById('jobs-tbody').innerHTML = `<tr class="empty-row visible"><td colspan="4">Unable to load positions</td></tr>`;
+                }
+
+                // Filter pills functionality
+                document.querySelectorAll('.jobs-section .filter-pill').forEach(btn => {
+                    btn.onclick = () => {
+                        document.querySelectorAll('.jobs-section .filter-pill').forEach(b => b.classList.remove('active'));
+                        btn.classList.add('active');
+
+                        const f = btn.dataset.filter;
+                        let filtered = allJobsData;
+                        if (f === 'urgent') filtered = allJobsData.filter(j => j.urgent === 'yes' || j.urgent === 'Yes');
+                        else if (f === 'bangkok') filtered = allJobsData.filter(j => (j.location || '').toLowerCase().includes('bangkok'));
+                        else if (f === 'other') filtered = allJobsData.filter(j => !(j.location || '').toLowerCase().includes('bangkok'));
+
+                        renderJobs(filtered);
+                    };
+                });
+
+                // Demo Data for testing
+                function loadJobsDemo() {
+                    allJobsData = [
+                        { position: "English Teacher", school: "Satit Bilingual School", location: "Bangkok", salary: "35,000 – 45,000", urgent: "yes", status: "active" },
+                        { position: "Mathematics Teacher", school: "International Academy", location: "Chiang Mai", salary: "32,000 – 40,000", urgent: "no", status: "active" },
+                        { position: "Science Teacher", school: "Bangkok Christian College", location: "Bangkok", salary: "38,000 – 48,000", urgent: "yes", status: "active" },
+                        { position: "PE Teacher", school: "Phuket International School", location: "Phuket", salary: "30,000 – 38,000", urgent: "no", status: "active" },
+                        { position: "Art Teacher", school: "Creative Academy", location: "Bangkok", salary: "28,000 – 35,000", urgent: "no", status: "active" },
+                        { position: "Music Teacher", school: "Harmony School", location: "Pattaya", salary: "30,000 – 38,000", urgent: "yes", status: "active" },
+                        { position: "Computer Teacher", school: "Tech Academy", location: "Bangkok", salary: "35,000 – 42,000", urgent: "no", status: "active" },
+                        { position: "Chinese Teacher", school: "Bilingual School", location: "Chiang Rai", salary: "32,000 – 40,000", urgent: "no", status: "active" },
+                        { position: "Physics Teacher", school: "Science Academy", location: "Bangkok", salary: "36,000 – 44,000", urgent: "yes", status: "active" },
+                        { position: "French Teacher", school: "Language Center", location: "Pattaya", salary: "33,000 – 41,000", urgent: "no", status: "active" },
+                    ];
+                    renderJobs(allJobsData);
+                }
+
+                // Initialize Jobs Table
+                document.addEventListener('DOMContentLoaded', () => {
+                    JOBS_SHEET_ID === 'YOUR_GOOGLE_SHEET_ID_HERE' ? loadJobsDemo() : fetchJobsData();
+                });
+            </script>
         </section>
 
         <!-- Why Teach With MediaKids -->

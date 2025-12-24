@@ -23,6 +23,8 @@
     <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
     <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
     <title>Our Programs - MediaKids Academy</title>
+    <meta name="description"
+        content="Explore MediaKids Academy's comprehensive teaching programs and activities. From ECD to MEP, English Camps to International experiences.">
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/icons/logo.png">
@@ -36,66 +38,198 @@
     <link rel="stylesheet" href="../css/style.css?v=1.0.2">
 
     <style>
-        .nav-card {
-            background: white;
-            border-radius: 24px;
-            padding: 32px;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.06);
-            transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-            text-decoration: none;
-            display: block;
+        /* Fix Lenis scroll behavior conflict */
+        html.lenis,
+        html.lenis body {
+            scroll-behavior: auto !important;
         }
 
-        .nav-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+        /* Gradient Text */
+        .gradient-text-blue {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
-        .card-icon {
-            width: 72px;
-            height: 72px;
-            border-radius: 20px;
-            display: flex;
+        /* Program Badge */
+        .program-badge {
+            display: inline-flex;
             align-items: center;
-            justify-content: center;
-            font-size: 1.75rem;
-            margin-bottom: 20px;
-            transition: all 0.4s ease;
+            gap: 8px;
+            padding: 12px 28px;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+            border: 2px solid rgba(59, 130, 246, 0.3);
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #3b82f6;
         }
 
-        .nav-card:hover .card-icon {
-            transform: scale(1.1) rotate(5deg);
+        /* Floating decorations */
+        .floating-shape {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.1;
+            animation: float 6s ease-in-out infinite;
         }
 
-        .section-header {
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: #64748b;
-            margin-bottom: 1.5rem;
-        }
-    </style>
-    <style>
-        /* Lenis Smooth Scroll CSS */
-        html.lenis {
-            height: auto;
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(10deg);
+            }
         }
 
-        .lenis.lenis-smooth {
-            scroll-behavior: auto;
-        }
-
-        .lenis.lenis-smooth [data-lenis-prevent] {
-            overscroll-behavior: contain;
-        }
-
-        .lenis.lenis-stopped {
+        /* Program Section Card */
+        .program-section {
+            position: relative;
             overflow: hidden;
         }
 
-        .lenis.lenis-scrolling iframe {
-            pointer-events: none;
+        .program-image-container {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+        }
+
+        .program-image-container img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .program-image-container:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Feature badge */
+        .feature-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: white;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .feature-badge:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        /* Bento Grid */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 280px);
+            gap: 24px;
+        }
+
+        @media (max-width: 1024px) {
+            .bento-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto;
+            }
+        }
+
+        .bento-item {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+
+        .bento-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+        }
+
+        .bento-item.featured {
+            grid-row: span 2;
+        }
+
+        .bento-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .bento-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .bento-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.2) 50%, transparent 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 24px;
+        }
+
+        .bento-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            width: fit-content;
+            margin-bottom: 12px;
+        }
+
+        /* Stats Section */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        @media (max-width: 768px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 32px 24px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
         }
     </style>
 </head>
@@ -105,96 +239,339 @@
     <!-- Header -->
     <div id="shared-header"></div>
 
-    <main class="min-h-screen pb-24">
+    <main class="min-h-screen">
 
         <!-- Hero Section -->
-        <div class="text-center pt-24 pb-16 px-6" data-aos="fade-down" data-aos-duration="800">
-            <div
-                class="inline-flex items-center gap-3 px-6 py-3 bg-orange-50 rounded-full text-orange-600 font-semibold mb-8">
-                <i class="fas fa-graduation-cap"></i>
-                <span>Teaching Programs</span>
+        <section class="py-24 lg:py-32 bg-white relative overflow-hidden">
+            <!-- Floating decorations -->
+            <div class="floating-shape w-96 h-96 bg-blue-400 top-0 right-0 blur-3xl" style="animation-delay: 0s;"></div>
+            <div class="floating-shape w-80 h-80 bg-purple-400 bottom-0 left-0 blur-3xl" style="animation-delay: 2s;">
             </div>
 
-            <h1 class="text-4xl md:text-6xl font-extrabold text-gray-900 mb-6">
-                Our Programs
-            </h1>
-            <p class="text-lg text-gray-500 max-w-2xl mx-auto leading-relaxed">
-                Explore our academic programs and exciting activities designed for schools across Thailand.
-            </p>
-        </div>
-
-        <!-- Navigation Cards -->
-        <div class="container mx-auto px-6 max-w-5xl">
-
-            <!-- Academic Programs Section -->
-            <div class="mb-12">
-                <p class="section-header" data-aos="fade-up">Academic Programs</p>
-                <div class="grid md:grid-cols-3 gap-6">
-                    <a href="../ecd-program/" class="nav-card group nav-page" data-aos="fade-up" data-aos-delay="100">
-                        <div class="card-icon bg-blue-100 text-blue-600">
-                            <i class="fas fa-child"></i>
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="grid lg:grid-cols-2 gap-16 items-center">
+                    <!-- Left content -->
+                    <div>
+                        <div class="program-badge mb-8" data-aos="fade-right">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>Teaching Excellence</span>
                         </div>
-                        <h3 class="text-lg font-bold text-gray-800 mb-2 group-hover:text-blue-600 transition-colors">
-                            ECD Program</h3>
-                        <p class="text-gray-500 text-sm">Early Childhood Development program for young learners</p>
+
+                        <h1 class="text-5xl md:text-7xl font-extrabold text-gray-900 mb-6 leading-tight"
+                            data-aos="fade-right" data-aos-delay="100">
+                            Our <span class="gradient-text-blue">Programs</span>
+                        </h1>
+
+                        <p class="text-xl text-gray-600 mb-8 leading-relaxed" data-aos="fade-right"
+                            data-aos-delay="150">
+                            Comprehensive English education programs designed to transform learning experiences across
+                            Thailand.
+                            From early childhood to advanced levels, we create lasting impact.
+                        </p>
+
+                        <!-- Quick stats -->
+                        <div class="flex flex-wrap gap-6" data-aos="fade-right" data-aos-delay="200">
+                            <div class="flex items-center gap-3">
+                                <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
+                                    <i class="fas fa-book-open text-blue-500 text-xl"></i>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-gray-900">3 Academic Programs</p>
+                                    <p class="text-sm text-gray-500">ECD, IEP, MEP</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center">
+                                    <i class="fas fa-star text-purple-500 text-xl"></i>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-gray-900">3 Special Activities</p>
+                                    <p class="text-sm text-gray-500">Camps, Awards, Canada</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Featured image -->
+                    <div class="relative" data-aos="fade-left" data-aos-delay="200">
+                        <div class="program-image-container">
+                            <img src="../assets/images/general/mk1.webp" alt="MediaKids Programs">
+                            <div class="absolute inset-0 bg-gradient-to-t from-blue-900/60 to-transparent"></div>
+                            <div class="absolute bottom-6 left-6 right-6">
+                                <div class="bg-white/95 backdrop-blur-sm rounded-2xl p-5 flex items-center gap-4">
+                                    <div
+                                        class="w-14 h-14 bg-gradient-to-br from-blue-500 to-purple-500 rounded-xl flex items-center justify-center">
+                                        <i class="fas fa-chalkboard-teacher text-white text-2xl"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-bold text-gray-900 text-lg">54 Partner Schools</p>
+                                        <p class="text-sm text-gray-500">Across 23 provinces in Thailand</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Decorative elements -->
+                        <div class="absolute -top-6 -right-6 w-24 h-24 bg-purple-400 rounded-full blur-2xl opacity-50">
+                        </div>
+                        <div class="absolute -bottom-8 -left-8 w-32 h-32 bg-blue-400 rounded-full blur-2xl opacity-40">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Academic Programs Section -->
+        <section class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <span
+                        class="inline-block px-4 py-2 bg-blue-100 text-blue-600 rounded-full text-sm font-semibold mb-4"
+                        data-aos="fade-up">Academic Programs</span>
+                    <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4" data-aos="fade-up"
+                        data-aos-delay="50">
+                        Structured <span class="gradient-text-blue">Learning Paths</span>
+                    </h2>
+                    <p class="text-xl text-gray-600 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                        Three comprehensive programs tailored for different age groups and learning objectives
+                    </p>
+                </div>
+
+                <!-- ECD Program -->
+                <div class="program-section mb-20">
+                    <div class="grid lg:grid-cols-2 gap-12 items-center">
+                        <div class="program-image-container" data-aos="fade-right">
+                            <img src="../assets/images/general/mk2.webp" alt="ECD Program">
+                            <div class="absolute top-6 left-6">
+                                <span class="feature-badge bg-blue-500 text-white">
+                                    <i class="fas fa-comments"></i> Communication Focus
+                                </span>
+                            </div>
+                        </div>
+                        <div data-aos="fade-left">
+                            <div
+                                class="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 rounded-full text-blue-600 font-semibold text-sm mb-4">
+                                <i class="fas fa-comments"></i> English for Communication Development
+                            </div>
+                            <h3 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">ECD Program</h3>
+                            <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                                The ECD (English for Communication Development) program builds a strong foundation in
+                                English
+                                through fun, interactive, and activity-based learning. Available for both primary and
+                                secondary
+                                levels, we create a supportive environment where learners develop confidence and
+                                communication skills naturally.
+                            </p>
+                            <div class="flex flex-wrap gap-3 mb-8">
+                                <span class="feature-badge text-blue-600"><i class="fas fa-gamepad"></i>
+                                    Activity-Based</span>
+                                <span class="feature-badge text-green-600"><i class="fas fa-smile"></i> Fun
+                                    Learning</span>
+                                <span class="feature-badge text-purple-600"><i class="fas fa-users"></i>
+                                    All Levels</span>
+                            </div>
+                            <a href="../ecd-program/"
+                                class="inline-flex items-center gap-3 px-8 py-4 bg-blue-600 text-white rounded-full font-bold hover:bg-blue-700 transition-all hover:-translate-y-1 shadow-lg">
+                                <span>Learn More</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- IEP Program -->
+                <div class="program-section mb-20">
+                    <div class="grid lg:grid-cols-2 gap-12 items-center">
+                        <div class="order-2 lg:order-1" data-aos="fade-right">
+                            <div
+                                class="inline-flex items-center gap-2 px-4 py-2 bg-purple-100 rounded-full text-purple-600 font-semibold text-sm mb-4">
+                                <i class="fas fa-globe"></i> Intensive English
+                            </div>
+                            <h3 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">IEP Program</h3>
+                            <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                                The Intensive English Program provides comprehensive English education with increased
+                                exposure and practice. Students develop strong skills in reading, writing, speaking, and
+                                listening through immersive daily activities.
+                            </p>
+                            <div class="flex flex-wrap gap-3 mb-8">
+                                <span class="feature-badge text-purple-600"><i class="fas fa-clock"></i> Intensive
+                                    Hours</span>
+                                <span class="feature-badge text-blue-600"><i class="fas fa-comments"></i> Communication
+                                    Focus</span>
+                                <span class="feature-badge text-green-600"><i class="fas fa-certificate"></i>
+                                    Comprehensive</span>
+                            </div>
+                            <a href="../iep-program/"
+                                class="inline-flex items-center gap-3 px-8 py-4 bg-purple-600 text-white rounded-full font-bold hover:bg-purple-700 transition-all hover:-translate-y-1 shadow-lg">
+                                <span>Learn More</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                        <div class="program-image-container order-1 lg:order-2" data-aos="fade-left">
+                            <img src="../assets/images/general/mk3.webp" alt="IEP Program">
+                            <div class="absolute top-6 right-6">
+                                <span class="feature-badge bg-purple-500 text-white">
+                                    <i class="fas fa-star"></i> Comprehensive
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MEP Program -->
+                <div class="program-section">
+                    <div class="grid lg:grid-cols-2 gap-12 items-center">
+                        <div class="program-image-container" data-aos="fade-right">
+                            <img src="../assets/images/general/mk4.webp" alt="MEP Program">
+                            <div class="absolute top-6 left-6">
+                                <span class="feature-badge bg-indigo-500 text-white">
+                                    <i class="fas fa-globe-asia"></i> Global Ready
+                                </span>
+                            </div>
+                        </div>
+                        <div data-aos="fade-left">
+                            <div
+                                class="inline-flex items-center gap-2 px-4 py-2 bg-indigo-100 rounded-full text-indigo-600 font-semibold text-sm mb-4">
+                                <i class="fas fa-school"></i> Bilingual Program
+                            </div>
+                            <h3 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">IP / EP / MEP Program
+                            </h3>
+                            <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                                Our bilingual programs integrate English into core subjects like Math, Science, and
+                                Computer. Students gain subject knowledge while developing English proficiency,
+                                preparing them for global opportunities.
+                            </p>
+                            <div class="flex flex-wrap gap-3 mb-8">
+                                <span class="feature-badge text-indigo-600"><i class="fas fa-calculator"></i> Math in
+                                    English</span>
+                                <span class="feature-badge text-green-600"><i class="fas fa-flask"></i> Science in
+                                    English</span>
+                                <span class="feature-badge text-blue-600"><i class="fas fa-laptop"></i> Computer
+                                    Studies</span>
+                            </div>
+                            <a href="../mep-program/"
+                                class="inline-flex items-center gap-3 px-8 py-4 bg-indigo-600 text-white rounded-full font-bold hover:bg-indigo-700 transition-all hover:-translate-y-1 shadow-lg">
+                                <span>Learn More</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Activities Section - Bento Grid -->
+        <section class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <span
+                        class="inline-block px-4 py-2 bg-orange-100 text-orange-600 rounded-full text-sm font-semibold mb-4"
+                        data-aos="fade-up">Special Activities</span>
+                    <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4" data-aos="fade-up"
+                        data-aos-delay="50">
+                        Beyond the <span class="gradient-text-blue">Classroom</span>
+                    </h2>
+                    <p class="text-xl text-gray-600 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                        Engaging activities that make learning memorable and fun
+                    </p>
+                </div>
+
+                <div class="bento-grid" data-aos="fade-up" data-aos-delay="150">
+                    <!-- English Camps - Featured -->
+                    <a href="../english-camps/" class="bento-item featured group">
+                        <img src="../assets/images/camps/camps1.webp" alt="English Camps">
+                        <div class="bento-overlay">
+                            <span class="bento-badge bg-orange-500 text-white"><i class="fas fa-campground"></i>
+                                Activity</span>
+                            <h3 class="text-2xl md:text-3xl font-extrabold text-white mb-2">English Camps</h3>
+                            <p class="text-white/80 text-sm md:text-base">Fun, interactive learning experiences with
+                                hands-on activities and energetic facilitators</p>
+                            <div
+                                class="flex items-center gap-2 mt-4 text-white font-semibold opacity-0 group-hover:opacity-100 transition-opacity">
+                                <span>Explore</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </div>
+                        </div>
                     </a>
 
-                    <a href="../iep-program/" class="nav-card group nav-page" data-aos="fade-up" data-aos-delay="150">
-                        <div class="card-icon bg-purple-100 text-purple-600">
-                            <i class="fas fa-globe"></i>
+                    <!-- MediaKids Awards -->
+                    <a href="../mediakids-awards/" class="bento-item group">
+                        <img src="../assets/images/mediakids-awards/mkaannounce1.webp" alt="MediaKids Awards">
+                        <div class="bento-overlay">
+                            <span class="bento-badge bg-purple-500 text-white"><i class="fas fa-trophy"></i>
+                                Competition</span>
+                            <h3 class="text-xl md:text-2xl font-extrabold text-white mb-2">MediaKids Awards</h3>
+                            <p class="text-white/80 text-sm">Win an international trip! English vocabulary competition
+                            </p>
+                            <div
+                                class="flex items-center gap-2 mt-3 text-white font-semibold opacity-0 group-hover:opacity-100 transition-opacity">
+                                <span>Explore</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </div>
                         </div>
-                        <h3 class="text-lg font-bold text-gray-800 mb-2 group-hover:text-purple-600 transition-colors">
-                            IEP Program</h3>
-                        <p class="text-gray-500 text-sm">Intensive English Program for comprehensive learning</p>
                     </a>
 
-                    <a href="../mep-program/" class="nav-card group nav-page" data-aos="fade-up" data-aos-delay="200">
-                        <div class="card-icon bg-indigo-100 text-indigo-600">
-                            <i class="fas fa-school"></i>
+                    <!-- Summer Camp Canada -->
+                    <a href="../summer-camp-canada/" class="bento-item group">
+                        <img src="../assets/images/summer-camp-canada/cannada1.webp" alt="Summer Camp Canada">
+                        <div class="bento-overlay">
+                            <span class="bento-badge bg-red-500 text-white"><i class="fas fa-plane"></i>
+                                International</span>
+                            <h3 class="text-xl md:text-2xl font-extrabold text-white mb-2">Summer Camp Canada</h3>
+                            <p class="text-white/80 text-sm">International summer experience in beautiful Canada</p>
+                            <div
+                                class="flex items-center gap-2 mt-3 text-white font-semibold opacity-0 group-hover:opacity-100 transition-opacity">
+                                <span>Explore</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </div>
                         </div>
-                        <h3 class="text-lg font-bold text-gray-800 mb-2 group-hover:text-indigo-600 transition-colors">
-                            IP / EP / MEP Program</h3>
-                        <p class="text-gray-500 text-sm">Mini English & International Programs</p>
                     </a>
                 </div>
             </div>
+        </section>
 
-            <!-- Activities Section -->
-            <div>
-                <p class="section-header" data-aos="fade-up">Activities</p>
-                <div class="grid md:grid-cols-3 gap-6">
-                    <a href="../english-camps/" class="nav-card group nav-page" data-aos="fade-up" data-aos-delay="100">
-                        <div class="card-icon bg-green-100 text-green-600">
-                            <i class="fas fa-campground"></i>
-                        </div>
-                        <h3 class="text-lg font-bold text-gray-800 mb-2 group-hover:text-green-600 transition-colors">
-                            English Camps</h3>
-                        <p class="text-gray-500 text-sm">Fun and interactive learning experiences</p>
-                    </a>
+        <!-- CTA Section -->
+        <section class="py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <div
+                    class="bg-gradient-to-br from-gray-900 to-gray-800 rounded-3xl p-12 md:p-16 relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-full opacity-5">
+                        <div class="absolute top-0 right-0 w-96 h-96 bg-blue-400 rounded-full blur-3xl"></div>
+                        <div class="absolute bottom-0 left-0 w-80 h-80 bg-purple-400 rounded-full blur-3xl"></div>
+                    </div>
 
-                    <a href="../mediakids-awards/" class="nav-card group nav-page" data-aos="fade-up"
-                        data-aos-delay="150">
-                        <div class="card-icon bg-amber-100 text-amber-600">
-                            <i class="fas fa-trophy"></i>
+                    <div class="relative z-10 text-center max-w-3xl mx-auto">
+                        <div class="inline-flex items-center gap-2 px-6 py-3 bg-white/10 rounded-full text-white font-medium mb-8"
+                            data-aos="fade-up">
+                            <i class="fas fa-rocket animate-pulse"></i>
+                            <span>Start Your Journey</span>
                         </div>
-                        <h3 class="text-lg font-bold text-gray-800 mb-2 group-hover:text-amber-600 transition-colors">
-                            MediaKids Awards</h3>
-                        <p class="text-gray-500 text-sm">Nationwide English competition</p>
-                    </a>
 
-                    <a href="../summer-camp-canada/" class="nav-card group nav-page" data-aos="fade-up"
-                        data-aos-delay="200">
-                        <div class="card-icon bg-red-100 text-red-600">
-                            <i class="fas fa-leaf"></i>
+                        <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-6" data-aos="fade-up"
+                            data-aos-delay="100">
+                            Ready to Join Our Teaching Programs?
+                        </h2>
+                        <p class="text-xl text-gray-300 mb-10" data-aos="fade-up" data-aos-delay="150">
+                            Whether you're a teacher looking to join our team or a school interested in partnering with
+                            us, we'd love to hear from you.
+                        </p>
+
+                        <div class="flex flex-wrap justify-center gap-4" data-aos="fade-up" data-aos-delay="200">
+                            <a href="../apply-now/"
+                                class="px-10 py-5 bg-blue-600 text-white rounded-full text-lg font-bold inline-flex items-center gap-3 hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1">
+                                <i class="fas fa-paper-plane"></i>
+                                <span>Apply Now</span>
+                            </a>
+                            <a href="../contact/"
+                                class="px-10 py-5 bg-transparent border-2 border-white text-white rounded-full text-lg font-bold inline-flex items-center gap-3 hover:bg-white/10 transition-all">
+                                <i class="fas fa-envelope"></i>
+                                <span>Contact Us</span>
+                            </a>
                         </div>
-                        <h3 class="text-lg font-bold text-gray-800 mb-2 group-hover:text-red-600 transition-colors">
-                            Summer Camp in Canada</h3>
-                        <p class="text-gray-500 text-sm">International summer experience</p>
-                    </a>
+                    </div>
                 </div>
             </div>
-
-        </div>
+        </section>
 
     </main>
 
@@ -216,7 +593,7 @@
         });
     </script>
 
-    <!-- Lenis Smooth Scroll -->
+    <!-- Lenis Smooth Scroll with Momentum -->
     <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
     <script>
         const lenis = new Lenis({

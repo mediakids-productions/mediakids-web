@@ -739,3 +739,142 @@ body.switching-page footer {
 .focus-char:hover {
     transform: scale(1.1);
 }
+
+/* =============================================
+   MOBILE RESPONSIVE - Apple Style Clean Design
+   ============================================= */
+
+@media (max-width: 768px) {
+
+    /* Body - reduce padding for mobile header */
+    body {
+        padding-top: 70px;
+        overflow-x: hidden;
+    }
+
+    html {
+        overflow-x: hidden;
+    }
+
+    /* Reduce blob effects on mobile - cleaner look */
+    .blob {
+        opacity: 0.1;
+        filter: blur(80px);
+    }
+
+    .blob-1 {
+        width: 300px;
+        height: 300px;
+    }
+
+    .blob-2 {
+        width: 350px;
+        height: 350px;
+    }
+
+    .blob-3 {
+        width: 250px;
+        height: 250px;
+    }
+
+    /* Section titles - more compact */
+    .section-title {
+        font-size: 1.75rem;
+        letter-spacing: -0.02em;
+        line-height: 1.2;
+    }
+
+    .section-subtitle {
+        font-size: 0.95rem;
+        margin-bottom: 2rem;
+    }
+
+    /* Cards - less dramatic hover */
+    .card:hover {
+        transform: translateY(-5px);
+    }
+
+    /* Post cards - smaller image height */
+    .post-card .overflow-hidden {
+        height: 180px !important;
+    }
+
+    /* Stats frame - more compact on mobile */
+    .stats-frame {
+        border-radius: 24px !important;
+        padding: 20px !important;
+    }
+
+    /* Back to top button - smaller on mobile */
+    #back-to-top {
+        width: 44px;
+        height: 44px;
+        bottom: 20px;
+        right: 20px;
+    }
+
+    /* Program Highlights section - cleaner on mobile */
+    #program-highlights .absolute {
+        opacity: 0 !important;
+    }
+
+    #program-highlights>div>div {
+        border-radius: 24px !important;
+        padding: 24px 16px !important;
+        box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.08) !important;
+    }
+
+    /* Remove inline glow effects */
+    #program-highlights [style*="box-shadow"],
+    #program-highlights [style*="gradient"] {
+        box-shadow: none !important;
+    }
+
+    /* Program image - smaller on mobile */
+    #program-highlights img {
+        height: 200px !important;
+        max-width: 280px !important;
+    }
+
+    /* Program dots - prevent overflow */
+    .program-dots {
+        flex-wrap: wrap;
+        gap: 8px !important;
+        max-width: 100%;
+        padding: 0 16px;
+    }
+
+    /* Program dots - easier to tap */
+    .program-dot {
+        width: 10px;
+        height: 10px;
+    }
+
+    /* Hide decorative gradient backgrounds on mobile */
+    #program-highlights .absolute[class*="gradient"],
+    #program-highlights div[style*="radial-gradient"],
+    #program-highlights div[style*="gradient"] {
+        display: none !important;
+    }
+}
+
+@media (max-width: 480px) {
+
+    /* Extra small screens */
+    body {
+        padding-top: 60px;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .section-subtitle {
+        font-size: 0.9rem;
+    }
+
+    /* Blobs - almost invisible on small screens */
+    .blob {
+        opacity: 0.05;
+    }
+}

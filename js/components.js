@@ -2,10 +2,13 @@
 let basePath = '';
 const path = window.location.pathname;
 
-// Level 3 deep: ../../ (schools areas are inside /schools/xxx-area/)
-if (path.includes('/schools/central-area/') ||
-    path.includes('/schools/north-area/') ||
-    path.includes('/schools/esan-area/')) {
+// Level 2 deep: ../../ (schools regions are inside /schools/xxx/)
+if (path.includes('/schools/central-1/') ||
+    path.includes('/schools/central-2/') ||
+    path.includes('/schools/esan-1/') ||
+    path.includes('/schools/esan-2/') ||
+    path.includes('/schools/esan-3/') ||
+    path.includes('/schools/esan-4/')) {
     basePath = '../../';
 }
 // Level 4 deep: ../../../ (curriculum pages are inside /curriculum/semX/ecd/)
@@ -17,6 +20,9 @@ else if (path.includes('/curriculum/sem1/ecd/') ||
 else if (path.includes('/curriculum/sem1/') ||
     path.includes('/curriculum/sem2/') ||
     path.includes('/blogs/top-10-myths/') ||
+    path.includes('/blogs/teach-in-thailand-guide/') ||
+    path.includes('/blogs/cost-of-living-thailand/') ||
+    path.includes('/blogs/teaching-without-experience/') ||
     path.includes('/teach-and-earn/apply/')) {
     basePath = '../../';
 }
@@ -176,19 +182,25 @@ const headerHTML = `
             <div id="mm-content-schools" class="mm-section">
                 <div class="container mx-auto px-6">
                     <div class="grid grid-cols-12 gap-8">
-                        <div class="col-span-4 mm-col">
-                            <span class="mm-header">Regions</span>
-                            <a href="${basePath}schools/central-area/" class="mm-link nav-page">Central Area</a>
-                            <a href="${basePath}schools/north-area/" class="mm-link nav-page">North Area</a>
-                            <a href="${basePath}schools/esan-area/" class="mm-link nav-page">Esan Area</a>
+                        <div class="col-span-3 mm-col">
+                            <span class="mm-header">Central</span>
+                            <a href="${basePath}schools/central-1/" class="mm-link nav-page">Central 1</a>
+                            <a href="${basePath}schools/central-2/" class="mm-link nav-page">Central 2</a>
                         </div>
-                        <div class="col-span-8 border-l border-gray-100 pl-12 mm-col flex flex-col justify-center">
+                        <div class="col-span-3 border-l border-gray-100 pl-8 mm-col">
+                            <span class="mm-header">Esan</span>
+                            <a href="${basePath}schools/esan-1/" class="mm-link nav-page">Esan 1</a>
+                            <a href="${basePath}schools/esan-2/" class="mm-link nav-page">Esan 2</a>
+                            <a href="${basePath}schools/esan-3/" class="mm-link nav-page">Esan 3</a>
+                            <a href="${basePath}schools/esan-4/" class="mm-link nav-page">Esan 4</a>
+                        </div>
+                        <div class="col-span-6 border-l border-gray-100 pl-8 mm-col flex flex-col justify-center">
                             <span class="mm-header mb-4">Our Coverage</span>
                             <div class="flex items-center text-blue-600">
                                 <i class="fas fa-map-marked-alt text-5xl mr-4"></i>
                                 <div>
-                                    <p class="text-lg font-bold">Nationwide Network</p>
-                                    <p class="text-sm text-gray-500">Connecting teachers with schools throughout Thailand.</p>
+                                    <p class="text-lg font-bold">54 Schools Nationwide</p>
+                                    <p class="text-sm text-gray-500">Across 23 provinces in Central and Northeastern Thailand.</p>
                                 </div>
                             </div>
                         </div>
@@ -290,14 +302,25 @@ const headerHTML = `
                         <a href="${basePath}schools/" class="mobile-menu-link nav-page">
                             <i class="fas fa-th-large"></i>All Regions
                         </a>
-                        <a href="${basePath}schools/central-area/" class="mobile-menu-link nav-page">
-                            <i class="fas fa-city"></i>Central Area
+                        <div class="mobile-menu-divider"></div>
+                        <a href="${basePath}schools/central-1/" class="mobile-menu-link nav-page">
+                            <i class="fas fa-city"></i>Central 1
                         </a>
-                        <a href="${basePath}schools/north-area/" class="mobile-menu-link nav-page">
-                            <i class="fas fa-mountain"></i>North Area
+                        <a href="${basePath}schools/central-2/" class="mobile-menu-link nav-page">
+                            <i class="fas fa-building"></i>Central 2
                         </a>
-                        <a href="${basePath}schools/esan-area/" class="mobile-menu-link nav-page">
-                            <i class="fas fa-seedling"></i>Esan Area
+                        <div class="mobile-menu-divider"></div>
+                        <a href="${basePath}schools/esan-1/" class="mobile-menu-link nav-page">
+                            <i class="fas fa-sun"></i>Esan 1
+                        </a>
+                        <a href="${basePath}schools/esan-2/" class="mobile-menu-link nav-page">
+                            <i class="fas fa-sun"></i>Esan 2
+                        </a>
+                        <a href="${basePath}schools/esan-3/" class="mobile-menu-link nav-page">
+                            <i class="fas fa-sun"></i>Esan 3
+                        </a>
+                        <a href="${basePath}schools/esan-4/" class="mobile-menu-link nav-page">
+                            <i class="fas fa-sun"></i>Esan 4
                         </a>
                     </div>
                 </div>
@@ -349,7 +372,7 @@ const footerHTML = `
                 <div>
                     <h4 class="text-lg font-bold mb-6 border-b border-blue-500 inline-block pb-2">Contact Us</h4>
                     <ul class="space-y-4 text-gray-400">
-                        <li class="flex items-start"><i class="fas fa-map-marker-alt mt-1 mr-3 text-blue-400"></i><span>40/470 Prueksa B Village, Liab Klongsam Road,<br>Klongluang, Pathumthani 12120, Thailand</span></li>
+                        <li class="flex items-start"><i class="fas fa-map-marker-alt mt-1 mr-3 text-blue-400"></i><span>40/496 Prueksa B Village, Liab Klongsam Road,<br>Klongluang, Pathumthani 12120, Thailand</span></li>
                         <li class="flex items-center"><i class="fas fa-phone-alt mr-3 text-blue-400"></i><a href="tel:+6628341897" class="hover:text-blue-400 transition-colors">(+66) 2834 1897</a></li>
                         <li class="flex items-center"><i class="fas fa-envelope mr-3 text-blue-400"></i><a href="mailto:hr@mediakidsacademy.com" class="hover:text-blue-400 transition-colors">hr@mediakidsacademy.com</a></li>
                     </ul>
