@@ -214,139 +214,31 @@ const headerHTML = `
         </div>
     </header>
 
-    <!-- Mobile Menu Overlay (Full Screen) -->
+    <!-- Mobile Menu Overlay (Apple Style Full Screen) -->
     <div id="mobile-menu-overlay" class="mobile-menu-overlay">
         <div class="mobile-menu-panel">
-            <!-- Header with Close Button -->
+            <!-- Header with Close Button only -->
             <div class="mobile-menu-header">
-                <a href="${basePath}" class="text-2xl font-bold text-blue-600">MediaKids<span class="text-gray-800"> Academy</span></a>
                 <button id="mobile-menu-close" class="mobile-menu-close" aria-label="Close menu">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
 
-            <!-- Menu Items -->
+            <!-- Menu Items - Apple Style Flat List -->
             <nav class="mobile-menu-nav">
-                <!-- About Us -->
-                <div class="mobile-accordion">
-                    <button class="mobile-accordion-toggle">
-                        <span>About Us</span>
-                        <i class="fas fa-chevron-down mobile-accordion-icon"></i>
-                    </button>
-                    <div class="mobile-accordion-content">
-                        <a href="${basePath}about/" class="mobile-menu-link nav-page">
-                            <i class="fas fa-th-large"></i>Overview
-                        </a>
-                        <a href="${basePath}story/" class="mobile-menu-link nav-page">
-                            <i class="fas fa-book-open"></i>MediaKids Story
-                        </a>
-                        <a href="${basePath}mission-vision/" class="mobile-menu-link nav-page">
-                            <i class="fas fa-bullseye"></i>Mission & Vision
-                        </a>
-                        <a href="${basePath}blogs/" class="mobile-menu-link nav-page">
-                            <i class="fas fa-pen-fancy"></i>Blogs
-                        </a>
-                        <a href="${basePath}contact/" class="mobile-menu-link nav-page">
-                            <i class="fas fa-envelope"></i>Contact Us
-                        </a>
-                        <div class="mobile-menu-divider"></div>
-                        <a href="${basePath}hr/" class="mobile-menu-link nav-page">
-                            <i class="fas fa-users"></i>Human Resources
-                        </a>
-                        <a href="${basePath}curriculum-consultants/" class="mobile-menu-link nav-page">
-                            <i class="fas fa-chalkboard-teacher"></i>Curriculum Consultants
-                        </a>
-                        <a href="${basePath}thai-consultants/" class="mobile-menu-link nav-page">
-                            <i class="fas fa-headset"></i>Thai Consultants
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Programs -->
-                <div class="mobile-accordion">
-                    <button class="mobile-accordion-toggle">
-                        <span>Programs</span>
-                        <i class="fas fa-chevron-down mobile-accordion-icon"></i>
-                    </button>
-                    <div class="mobile-accordion-content">
-                        <a href="${basePath}programs/" class="mobile-menu-link nav-page">
-                            <i class="fas fa-th-large"></i>All Programs
-                        </a>
-                        <a href="${basePath}ecd-program/" class="mobile-menu-link nav-page">
-                            <i class="fas fa-child"></i>ECD Program
-                        </a>
-                        <a href="${basePath}iep-program/" class="mobile-menu-link nav-page">
-                            <i class="fas fa-globe"></i>IEP Program
-                        </a>
-                        <a href="${basePath}mep-program/" class="mobile-menu-link nav-page">
-                            <i class="fas fa-school"></i>IP / EP / MEP
-                        </a>
-                        <div class="mobile-menu-divider"></div>
-                        <a href="${basePath}english-camps/" class="mobile-menu-link nav-page">
-                            <i class="fas fa-campground"></i>English Camps
-                        </a>
-                        <a href="${basePath}mediakids-awards/" class="mobile-menu-link nav-page">
-                            <i class="fas fa-trophy"></i>MediaKids Awards
-                        </a>
-                        <a href="${basePath}summer-camp-canada/" class="mobile-menu-link nav-page">
-                            <i class="fas fa-leaf"></i>Summer Camp Canada
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Schools -->
-                <div class="mobile-accordion">
-                    <button class="mobile-accordion-toggle">
-                        <span>Schools</span>
-                        <i class="fas fa-chevron-down mobile-accordion-icon"></i>
-                    </button>
-                    <div class="mobile-accordion-content">
-                        <a href="${basePath}schools/" class="mobile-menu-link nav-page">
-                            <i class="fas fa-th-large"></i>All Regions
-                        </a>
-                        <div class="mobile-menu-divider"></div>
-                        <a href="${basePath}schools/central-1/" class="mobile-menu-link nav-page">
-                            <i class="fas fa-city"></i>Central 1
-                        </a>
-                        <a href="${basePath}schools/central-2/" class="mobile-menu-link nav-page">
-                            <i class="fas fa-building"></i>Central 2
-                        </a>
-                        <div class="mobile-menu-divider"></div>
-                        <a href="${basePath}schools/esan-1/" class="mobile-menu-link nav-page">
-                            <i class="fas fa-sun"></i>Esan 1
-                        </a>
-                        <a href="${basePath}schools/esan-2/" class="mobile-menu-link nav-page">
-                            <i class="fas fa-sun"></i>Esan 2
-                        </a>
-                        <a href="${basePath}schools/esan-3/" class="mobile-menu-link nav-page">
-                            <i class="fas fa-sun"></i>Esan 3
-                        </a>
-                        <a href="${basePath}schools/esan-4/" class="mobile-menu-link nav-page">
-                            <i class="fas fa-sun"></i>Esan 4
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Direct Links -->
-                <a href="${basePath}faq/" class="mobile-menu-direct nav-page">
-                    <i class="fas fa-question-circle"></i>FAQ
-                </a>
-                <a href="${basePath}blogs/" class="mobile-menu-direct nav-page">
-                    <i class="fas fa-blog"></i>Blogs
-                </a>
-                <a href="${basePath}jobs/" class="mobile-menu-direct nav-page">
-                    <i class="fas fa-briefcase"></i>Jobs
-                </a>
-                <a href="${basePath}curriculum/" class="mobile-menu-direct nav-page">
-                    <i class="fas fa-book"></i>Curriculum
-                </a>
+                <a href="${basePath}about/" class="mobile-menu-link nav-page">About Us</a>
+                <a href="${basePath}programs/" class="mobile-menu-link nav-page">Programs</a>
+                <a href="${basePath}schools/" class="mobile-menu-link nav-page">Schools</a>
+                <a href="${basePath}jobs/" class="mobile-menu-link nav-page">Jobs</a>
+                <a href="${basePath}faq/" class="mobile-menu-link nav-page">FAQ</a>
+                <a href="${basePath}blogs/" class="mobile-menu-link nav-page">Blogs</a>
+                <a href="${basePath}curriculum/" class="mobile-menu-link nav-page">Curriculum</a>
+                <a href="${basePath}contact/" class="mobile-menu-link nav-page">Contact</a>
             </nav>
 
             <!-- Apply Now Button -->
             <div class="mobile-menu-footer">
-                <a href="${basePath}jobs/" class="mobile-apply-btn nav-page">
-                    <i class="fas fa-paper-plane"></i>Apply Now
-                </a>
+                <a href="${basePath}apply-now/" class="mobile-apply-btn nav-page">Apply Now</a>
             </div>
         </div>
     </div>

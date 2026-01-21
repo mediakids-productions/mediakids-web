@@ -44,7 +44,9 @@ The blog must include:
 
 ### Required scripts at bottom (before closing `</body>`):
 ```html
-<script src="../../js/version.js?v=1.0.2"></script>
+<!-- IMPORTANT: Dynamic version loader - ensures cache busting works -->
+<script>document.write('<script src="../../js/version.js?v=' + Date.now() + '"><\/script>');</script>
+
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script src="../../js/components.js?v=1.0.2"></script>
 <script src="../../js/script.js?v=1.0.2"></script>
@@ -67,6 +69,7 @@ The blog must include:
     requestAnimationFrame(raf);
 </script>
 ```
+
 
 ### Design specifications:
 - **Font**: Inter from Google Fonts

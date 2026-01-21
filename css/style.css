@@ -526,20 +526,21 @@ body.switching-page footer {
 }
 
 /* =============================================
-   MOBILE MENU - Full Screen Overlay
+   MOBILE MENU V2 - Apple Style Clean Design
    ============================================= */
 
+/* Full-screen white overlay */
 .mobile-menu-overlay {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: white;
+    background: #ffffff;
     z-index: 9999;
     opacity: 0;
     visibility: hidden;
-    transition: all 0.3s ease;
+    transition: opacity 0.4s cubic-bezier(0.32, 0.72, 0, 1);
 }
 
 .mobile-menu-overlay.active {
@@ -547,175 +548,225 @@ body.switching-page footer {
     visibility: visible;
 }
 
+/* Menu Panel - slides in from right */
 .mobile-menu-panel {
     display: flex;
     flex-direction: column;
     height: 100%;
-    transform: translateX(100%);
-    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    transform: translateX(30px);
+    opacity: 0;
+    transition: transform 0.5s cubic-bezier(0.32, 0.72, 0, 1),
+        opacity 0.4s cubic-bezier(0.32, 0.72, 0, 1);
 }
 
 .mobile-menu-overlay.active .mobile-menu-panel {
     transform: translateX(0);
+    opacity: 1;
 }
 
-/* Header */
+/* Header - minimal with just close button */
 .mobile-menu-header {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
     padding: 20px 24px;
-    border-bottom: 1px solid #f1f5f9;
+    min-height: 70px;
 }
 
+/* Hide logo in mobile menu header for Apple-clean look */
+.mobile-menu-header>a {
+    display: none;
+}
+
+/* X Close button - Apple style */
 .mobile-menu-close {
-    width: 44px;
-    height: 44px;
+    width: 40px;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 24px;
-    color: #64748b;
-    background: #f8fafc;
+    font-size: 20px;
+    color: #1d1d1f;
+    background: transparent;
     border: none;
-    border-radius: 12px;
+    border-radius: 50%;
     cursor: pointer;
     transition: all 0.2s ease;
 }
 
-.mobile-menu-close:hover {
-    background: #e2e8f0;
-    color: #1e293b;
+.mobile-menu-close:hover,
+.mobile-menu-close:active {
+    background: rgba(0, 0, 0, 0.05);
 }
 
-/* Navigation */
+/* Navigation - clean vertical list */
 .mobile-menu-nav {
     flex: 1;
     overflow-y: auto;
-    padding: 16px 24px;
+    padding: 0 32px;
+    -webkit-overflow-scrolling: touch;
 }
 
-/* Accordion */
+/* Remove all accordion styles - Apple uses flat list */
 .mobile-accordion {
-    border-bottom: 1px solid #f1f5f9;
+    border: none;
 }
 
 .mobile-accordion-toggle {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 16px 0;
-    font-size: 18px;
-    font-weight: 600;
-    color: #1e293b;
-    background: none;
-    border: none;
-    cursor: pointer;
-}
-
-.mobile-accordion-icon {
-    font-size: 12px;
-    color: #94a3b8;
-    transition: transform 0.3s ease;
-}
-
-.mobile-accordion.active .mobile-accordion-icon {
-    transform: rotate(180deg);
+    display: none;
 }
 
 .mobile-accordion-content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
+    max-height: none !important;
+    overflow: visible;
 }
 
-.mobile-accordion.active .mobile-accordion-content {
-    max-height: 500px;
-}
-
-/* Menu Links */
+/* Apple-style menu items - large, clean, no icons */
 .mobile-menu-link {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 12px 0;
-    font-size: 16px;
-    color: #64748b;
+    display: block;
+    padding: 14px 0;
+    font-size: 17px;
+    font-weight: 400;
+    color: #1d1d1f;
     text-decoration: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
     transition: color 0.2s ease;
 }
 
+/* Hide icons in mobile menu for clean Apple look */
 .mobile-menu-link i {
-    width: 24px;
-    font-size: 14px;
-    color: #94a3b8;
+    display: none;
 }
 
 .mobile-menu-link:hover,
 .mobile-menu-link:active {
-    color: #3b82f6;
+    color: var(--primary-blue);
 }
 
-.mobile-menu-link:hover i,
-.mobile-menu-link:active i {
-    color: #3b82f6;
-}
-
+/* Remove dividers for clean look */
 .mobile-menu-divider {
-    height: 1px;
-    background: #f1f5f9;
-    margin: 8px 0;
+    display: none;
 }
 
-/* Direct Links */
+/* Direct Links - same style as regular links */
 .mobile-menu-direct {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 16px 0;
-    font-size: 18px;
-    font-weight: 600;
-    color: #1e293b;
+    display: block;
+    padding: 14px 0;
+    font-size: 17px;
+    font-weight: 400;
+    color: #1d1d1f;
     text-decoration: none;
-    border-bottom: 1px solid #f1f5f9;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    transition: color 0.2s ease;
 }
 
+/* Hide icons */
 .mobile-menu-direct i {
-    width: 24px;
-    font-size: 16px;
-    color: #64748b;
+    display: none;
 }
 
-.mobile-menu-direct:hover {
-    color: #3b82f6;
+.mobile-menu-direct:hover,
+.mobile-menu-direct:active {
+    color: var(--primary-blue);
 }
 
-/* Footer */
+/* Footer with CTA */
 .mobile-menu-footer {
-    padding: 24px;
-    border-top: 1px solid #f1f5f9;
+    padding: 24px 32px;
+    padding-bottom: max(24px, env(safe-area-inset-bottom));
+    border-top: none;
 }
 
 .mobile-apply-btn {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: 8px;
     width: 100%;
-    padding: 16px;
-    font-size: 18px;
+    padding: 16px 24px;
+    font-size: 17px;
     font-weight: 600;
-    color: white;
-    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    color: #ffffff;
+    background: var(--primary-blue);
     border-radius: 12px;
     text-decoration: none;
     transition: all 0.3s ease;
 }
 
-.mobile-apply-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+.mobile-apply-btn i {
+    display: none;
+}
+
+.mobile-apply-btn:hover,
+.mobile-apply-btn:active {
+    background: #0041a3;
+    transform: scale(0.98);
+}
+
+/* Staggered animation for menu items */
+.mobile-menu-overlay.active .mobile-menu-link,
+.mobile-menu-overlay.active .mobile-menu-direct {
+    animation: menuItemFadeIn 0.5s cubic-bezier(0.32, 0.72, 0, 1) forwards;
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+@keyframes menuItemFadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Stagger delays */
+.mobile-menu-nav .mobile-menu-link:nth-child(1),
+.mobile-menu-nav .mobile-menu-direct:nth-child(1) {
+    animation-delay: 0.05s;
+}
+
+.mobile-menu-nav .mobile-menu-link:nth-child(2),
+.mobile-menu-nav .mobile-menu-direct:nth-child(2) {
+    animation-delay: 0.08s;
+}
+
+.mobile-menu-nav .mobile-menu-link:nth-child(3),
+.mobile-menu-nav .mobile-menu-direct:nth-child(3) {
+    animation-delay: 0.11s;
+}
+
+.mobile-menu-nav .mobile-menu-link:nth-child(4),
+.mobile-menu-nav .mobile-menu-direct:nth-child(4) {
+    animation-delay: 0.14s;
+}
+
+.mobile-menu-nav .mobile-menu-link:nth-child(5),
+.mobile-menu-nav .mobile-menu-direct:nth-child(5) {
+    animation-delay: 0.17s;
+}
+
+.mobile-menu-nav .mobile-menu-link:nth-child(6),
+.mobile-menu-nav .mobile-menu-direct:nth-child(6) {
+    animation-delay: 0.20s;
+}
+
+.mobile-menu-nav .mobile-menu-link:nth-child(7),
+.mobile-menu-nav .mobile-menu-direct:nth-child(7) {
+    animation-delay: 0.23s;
+}
+
+.mobile-menu-nav .mobile-menu-link:nth-child(8),
+.mobile-menu-nav .mobile-menu-direct:nth-child(8) {
+    animation-delay: 0.26s;
+}
+
+.mobile-menu-nav .mobile-menu-link:nth-child(9),
+.mobile-menu-nav .mobile-menu-direct:nth-child(9) {
+    animation-delay: 0.29s;
+}
+
+.mobile-menu-nav .mobile-menu-link:nth-child(10),
+.mobile-menu-nav .mobile-menu-direct:nth-child(10) {
+    animation-delay: 0.32s;
 }
 
 /* Variable Proximity Text Effect */
@@ -805,23 +856,34 @@ body.switching-page footer {
         padding: 20px !important;
     }
 
-    /* Back to top button - smaller on mobile */
+    /* Back to top button - repositioned to avoid overlap */
     #back-to-top {
-        width: 44px;
-        height: 44px;
-        bottom: 20px;
-        right: 20px;
+        width: 40px;
+        height: 40px;
+        bottom: 24px;
+        right: 16px;
+        font-size: 14px;
+        opacity: 0.9;
+        z-index: 100;
+    }
+
+    #back-to-top.show {
+        opacity: 0.85;
     }
 
     /* Program Highlights section - cleaner on mobile */
+    #program-highlights {
+        padding: 2rem 0 !important;
+    }
+
     #program-highlights .absolute {
         opacity: 0 !important;
     }
 
     #program-highlights>div>div {
-        border-radius: 24px !important;
-        padding: 24px 16px !important;
-        box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.08) !important;
+        border-radius: 20px !important;
+        padding: 20px 16px !important;
+        box-shadow: 0 4px 20px -4px rgba(0, 0, 0, 0.06) !important;
     }
 
     /* Remove inline glow effects */
@@ -830,24 +892,47 @@ body.switching-page footer {
         box-shadow: none !important;
     }
 
+    /* Program slide content */
+    #program-highlights .program-slide h2 {
+        font-size: 1.5rem !important;
+        line-height: 1.2 !important;
+    }
+
+    #program-highlights .program-slide p {
+        font-size: 0.9375rem !important;
+        line-height: 1.5 !important;
+    }
+
     /* Program image - smaller on mobile */
     #program-highlights img {
-        height: 200px !important;
-        max-width: 280px !important;
+        height: 180px !important;
+        max-width: 100% !important;
+        border-radius: 16px !important;
+    }
+
+    /* Program feature icons - compact */
+    #program-highlights .flex.items-center.gap-3 {
+        margin-bottom: 8px !important;
+    }
+
+    #program-highlights .w-10.h-10 {
+        width: 36px !important;
+        height: 36px !important;
     }
 
     /* Program dots - prevent overflow */
     .program-dots {
         flex-wrap: wrap;
-        gap: 8px !important;
+        gap: 10px !important;
         max-width: 100%;
         padding: 0 16px;
+        margin-top: 1.5rem !important;
     }
 
     /* Program dots - easier to tap */
     .program-dot {
-        width: 10px;
-        height: 10px;
+        width: 12px;
+        height: 12px;
     }
 
     /* Hide decorative gradient backgrounds on mobile */

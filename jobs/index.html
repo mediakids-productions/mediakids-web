@@ -25,6 +25,7 @@
           https://www.googletagmanager.com
           https://www.google-analytics.com;
         connect-src 'self'
+          https://docs.google.com
           https://script.google.com
           https://script.googleusercontent.com
           https://www.google-analytics.com
@@ -35,6 +36,9 @@
         upgrade-insecure-requests">
     <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
     <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
 
     <!-- Primary Meta Tags -->
     <title>Teaching Jobs in Thailand | MediaKids Academy</title>
@@ -697,7 +701,7 @@
 
             <script>
                 // Jobs Table Configuration
-                const JOBS_SHEET_ID = 'YOUR_GOOGLE_SHEET_ID_HERE';
+                const JOBS_SHEET_ID = '1daBA8-R-BCERBg55JjuIwp4tcshaR2df2FgCwXq4wbA';
                 const JOBS_SHEET_NAME = 'Jobs';
                 const JOBS_APPLY_URL = '../apply-now/';
 
@@ -716,48 +720,119 @@
                 };
 
                 const jobIconConfig = {
+                    // English & Languages
                     english: { icon: 'book', color: 'blue' },
                     language: { icon: 'book', color: 'blue' },
+                    literature: { icon: 'book', color: 'blue' },
+                    reading: { icon: 'book', color: 'blue' },
+                    writing: { icon: 'book', color: 'blue' },
+                    esl: { icon: 'book', color: 'blue' },
+                    efl: { icon: 'book', color: 'blue' },
+                    tefl: { icon: 'book', color: 'blue' },
+
+                    // Math
                     math: { icon: 'calculator', color: 'orange' },
+                    mathematics: { icon: 'calculator', color: 'orange' },
+                    algebra: { icon: 'calculator', color: 'orange' },
+                    calculus: { icon: 'calculator', color: 'orange' },
+                    statistics: { icon: 'calculator', color: 'orange' },
+
+                    // Sciences
                     science: { icon: 'flask', color: 'green' },
                     chemistry: { icon: 'flask', color: 'green' },
-                    physics: { icon: 'flask', color: 'purple' },
                     biology: { icon: 'flask', color: 'green' },
+                    physics: { icon: 'flask', color: 'purple' },
+                    lab: { icon: 'flask', color: 'green' },
+
+                    // PE & Sports
                     pe: { icon: 'fitness', color: 'red' },
                     physical: { icon: 'fitness', color: 'red' },
                     sport: { icon: 'fitness', color: 'red' },
+                    swimming: { icon: 'fitness', color: 'red' },
+                    football: { icon: 'fitness', color: 'red' },
+                    basketball: { icon: 'fitness', color: 'red' },
+                    health: { icon: 'fitness', color: 'red' },
+
+                    // Arts
                     art: { icon: 'paintbrush', color: 'pink' },
                     design: { icon: 'paintbrush', color: 'pink' },
+                    drawing: { icon: 'paintbrush', color: 'pink' },
+                    painting: { icon: 'paintbrush', color: 'pink' },
+                    craft: { icon: 'paintbrush', color: 'pink' },
+
+                    // Music & Drama
                     music: { icon: 'music', color: 'purple' },
+                    drama: { icon: 'music', color: 'purple' },
+                    theater: { icon: 'music', color: 'purple' },
+                    choir: { icon: 'music', color: 'purple' },
+                    band: { icon: 'music', color: 'purple' },
+
+                    // Technology
                     computer: { icon: 'laptop', color: 'indigo' },
                     it: { icon: 'laptop', color: 'indigo' },
                     tech: { icon: 'laptop', color: 'indigo' },
+                    coding: { icon: 'laptop', color: 'indigo' },
+                    programming: { icon: 'laptop', color: 'indigo' },
+                    digital: { icon: 'laptop', color: 'indigo' },
+                    ict: { icon: 'laptop', color: 'indigo' },
+
+                    // Foreign Languages
                     chinese: { icon: 'globe', color: 'teal' },
                     japanese: { icon: 'globe', color: 'teal' },
                     korean: { icon: 'globe', color: 'teal' },
                     french: { icon: 'globe', color: 'teal' },
                     german: { icon: 'globe', color: 'teal' },
+                    spanish: { icon: 'globe', color: 'teal' },
+                    thai: { icon: 'globe', color: 'teal' },
+                    mandarin: { icon: 'globe', color: 'teal' },
+
+                    // Social Studies
+                    history: { icon: 'globe', color: 'orange' },
+                    geography: { icon: 'globe', color: 'green' },
+                    social: { icon: 'globe', color: 'blue' },
+                    economics: { icon: 'calculator', color: 'teal' },
+                    business: { icon: 'calculator', color: 'teal' },
+
+                    // Early Childhood
+                    kindergarten: { icon: 'person', color: 'pink' },
+                    nursery: { icon: 'person', color: 'pink' },
+                    preschool: { icon: 'person', color: 'pink' },
+                    homeroom: { icon: 'person', color: 'blue' },
+
+                    // Academic/Management
+                    coordinator: { icon: 'person', color: 'indigo' },
+                    head: { icon: 'person', color: 'indigo' },
+                    manager: { icon: 'person', color: 'indigo' },
+                    director: { icon: 'person', color: 'indigo' },
+                    assistant: { icon: 'person', color: 'blue' },
                 };
 
                 let allJobsData = [];
 
                 async function fetchJobsData() {
-                    const url = `https://docs.google.com/spreadsheets/d/${JOBS_SHEET_ID}/gviz/tq?tqx=out:json&sheet=${JOBS_SHEET_NAME}`;
+                    const url = `https://docs.google.com/spreadsheets/d/${JOBS_SHEET_ID}/gviz/tq?tqx=out:json&sheet=${JOBS_SHEET_NAME}&headers=1`;
                     try {
                         const res = await fetch(url);
                         const text = await res.text();
                         const json = text.match(/google\.visualization\.Query\.setResponse\(([\s\S]*?)\);/)[1];
                         const data = JSON.parse(json);
-                        const headers = data.table.cols.map(c => c.label.toLowerCase());
+
+                        // Use fixed column order: position, school, location, salary, urgent, status
+                        const headers = ['position', 'school', 'location', 'salary', 'urgent', 'status'];
 
                         allJobsData = data.table.rows.map((row, i) => {
                             const job = { id: i + 1 };
-                            row.c.forEach((cell, j) => job[headers[j]] = cell ? cell.v : '');
+                            row.c.forEach((cell, j) => {
+                                if (headers[j]) {
+                                    job[headers[j]] = cell ? (cell.v !== null ? String(cell.v) : '') : '';
+                                }
+                            });
                             return job;
-                        }).filter(j => j.status === 'active' || j.status === 'Active');
+                        }).filter(j => j.status && (j.status.toLowerCase() === 'active'));
 
                         renderJobs(allJobsData);
                     } catch (e) {
+                        console.error('Jobs fetch error:', e);
                         showJobsError();
                     }
                 }
@@ -1018,7 +1093,8 @@
     <!-- Shared Footer -->
     <div id="shared-footer"></div>
     <!-- Scripts -->
-    <script src="../js/version.js?v=1.0.2"></script>
+    <!-- Dynamic version loader - ensures cache busting works -->
+    <script>document.write('<script src="../js/version.js?v=' + Date.now() + '"><\/script>');</script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="../js/components.js?v=1.0.2"></script>
     <script src="../js/script.js?v=1.0.2"></script>

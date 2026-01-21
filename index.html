@@ -28,6 +28,7 @@
           https://www.tiktok.com
           https://lf16-tiktok-web.tiktokcdn-us.com;
         connect-src 'self'
+          https://docs.google.com
           https://script.google.com
           https://script.googleusercontent.com
           https://www.google-analytics.com
@@ -41,6 +42,9 @@
         upgrade-insecure-requests">
     <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
     <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
 
     <!-- Primary Meta Tags -->
     <title>MediaKids Academy: Teach and Travel in Thailand</title>
@@ -307,22 +311,60 @@
         /* Mobile Responsive for Hero & Stats */
         @media (max-width: 768px) {
             .stats-section {
-                padding: 20px 16px;
-                margin-top: -20px;
+                padding: 16px 16px 24px;
+                margin-top: -16px;
             }
 
             .stats-frame {
-                padding: 20px 24px !important;
-                border-radius: 20px !important;
+                padding: 24px 20px !important;
+                border-radius: 24px !important;
+                background: #fff !important;
             }
 
+            /* 2x2 Grid Layout */
             .stats-row {
-                gap: 20px;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px 16px;
             }
 
             .stat-item {
-                min-width: 80px;
-                flex: 0 0 40%;
+                min-width: auto;
+                flex: none;
+                padding: 8px 0;
+            }
+
+            .stat-number {
+                font-size: 1.75rem;
+            }
+
+            .stat-suffix {
+                font-size: 1.1rem;
+            }
+
+            .stat-label {
+                font-size: 0.875rem;
+                margin-top: 4px;
+            }
+
+            .stat-sublabel {
+                font-size: 0.75rem;
+                line-height: 1.3;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #hero-focus-title {
+                font-size: 2.25rem !important;
+                line-height: 1.1;
+            }
+
+            .stats-frame {
+                padding: 20px 16px !important;
+            }
+
+            .stats-row {
+                gap: 16px 12px;
             }
 
             .stat-number {
@@ -330,41 +372,15 @@
             }
 
             .stat-suffix {
-                font-size: 1rem;
+                font-size: 0.95rem;
             }
 
             .stat-label {
-                font-size: 0.9rem;
+                font-size: 0.8125rem;
             }
 
             .stat-sublabel {
-                font-size: 0.75rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            #hero-focus-title {
-                font-size: 2.5rem !important;
-            }
-
-            .stats-frame {
-                padding: 16px 20px !important;
-            }
-
-            .stat-item {
-                min-width: 70px;
-            }
-
-            .stat-number {
-                font-size: 1.3rem;
-            }
-
-            .stat-label {
-                font-size: 0.8rem;
-            }
-
-            .stat-sublabel {
-                font-size: 0.7rem;
+                font-size: 0.6875rem;
             }
         }
 
@@ -440,9 +456,10 @@
                     <div data-aos="fade-right">
                         <h1 id="hero-focus-title" class="text-5xl md:text-7xl font-extrabold leading-tight select-none">
                             <span class="accent-text block focus-line" data-text="Your Journey">Your Journey</span>
-                            <span class="text-gray-900 block focus-line" data-text="Begins Here">Begins Here</span>
+                            <span class="text-gray-900 block focus-line" data-text="Begins Here!">Begins Here!</span>
                         </h1>
-                        <p class="mt-6 text-lg text-gray-600 max-w-lg">Embark on a Thai adventure where teaching meets
+                        <p class="mt-6 text-lg text-gray-600 max-w-lg">Embark on a new adventure in Thailand where
+                            teaching meets
                             cultural immersion! In Thailand’s vibrant cities and serene temples, each classroom is a
                             doorway to discovery. Join us in weaving tales of learning, growth, and mutual
                             understanding.</p>
@@ -567,11 +584,10 @@
                                             </h2>
                                             <p class="text-gray-600 text-lg mb-5 leading-relaxed">
                                                 Get TEFL certified, teach English in Thai schools, and earn while
-                                                exploring
-                                                Thailand!
-                                                Join our 120-hour TEFL program with CultureRoute, UK.
+                                                exploring Thailand! Join our 120-hour TEFL program in partnership with
+                                                CultureRoute, UK.
                                             </p>
-                                            <div class="flex flex-wrap gap-x-6 gap-y-4 mb-6">
+                                            <div class="flex flex-nowrap gap-x-4 gap-y-4 mb-6">
                                                 <div class="flex items-center gap-3">
                                                     <div
                                                         class="w-10 h-10 bg-emerald-100 rounded-lg flex items-center justify-center">
@@ -599,7 +615,8 @@
                                                     </div>
                                                     <div>
                                                         <p class="text-gray-900 font-bold">$420 Fee</p>
-                                                        <p class="text-gray-500 text-sm">100% Refundable</p>
+                                                        <p class="text-gray-500 text-sm">100% Reimbursed (upon
+                                                            completion)</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -962,6 +979,11 @@
                     background: #fff;
                 }
 
+                /* Hide mobile-only button on desktop */
+                .mobile-view-all-jobs {
+                    display: none;
+                }
+
                 .jobs-table {
                     width: 100%;
                     border-collapse: collapse;
@@ -1310,47 +1332,181 @@
                 }
 
                 @media (max-width: 768px) {
+
+                    /* Jobs Section Mobile */
+                    .jobs-section {
+                        padding: 32px 16px;
+                    }
+
+                    .jobs-section .section-header {
+                        padding-top: 24px;
+                        margin-bottom: 16px;
+                    }
+
+                    .jobs-section .section-header h2 {
+                        font-size: 1.75rem;
+                    }
+
+                    /* Filter Pills - Horizontal Scroll */
+                    .filter-row {
+                        flex-direction: column;
+                        align-items: flex-start;
+                        gap: 8px;
+                    }
+
+                    .filter-pills {
+                        width: 100%;
+                        overflow-x: auto;
+                        padding-bottom: 4px;
+                        -webkit-overflow-scrolling: touch;
+                    }
+
+                    .filter-pill {
+                        flex-shrink: 0;
+                        padding: 10px 16px;
+                        font-size: 0.875rem;
+                    }
+
+                    /* Hide Table Header */
                     .jobs-table thead {
                         display: none;
                     }
 
                     .table-scroll {
-                        max-height: 500px;
+                        max-height: none;
+                        overflow: visible;
                     }
 
+                    .table-container {
+                        box-shadow: none;
+                        background: transparent;
+                    }
+
+                    /* Table Rows as Cards */
                     .jobs-table tbody tr {
-                        display: block;
+                        display: flex;
+                        flex-direction: column;
                         padding: 16px;
-                        border-bottom: 1px solid #f0f0f2;
+                        margin-bottom: 12px;
+                        background: #fff;
+                        border-radius: 16px;
+                        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+                        border: 1px solid rgba(0, 0, 0, 0.04);
                     }
 
                     .jobs-table tbody td {
                         display: block;
-                        padding: 4px 0;
+                        padding: 0;
                         border: none;
+                        width: 100% !important;
                     }
 
+                    /* Position Cell - Full Width */
                     .jobs-table tbody td:first-child {
-                        padding-bottom: 10px;
+                        padding-bottom: 12px;
+                        margin-bottom: 12px;
+                        border-bottom: 1px solid #f0f0f2;
+                    }
+
+                    .position-cell {
+                        flex-wrap: wrap;
+                    }
+
+                    .position-icon {
+                        width: 44px;
+                        height: 44px;
+                    }
+
+                    .position-title {
+                        font-size: 1rem;
+                        flex-wrap: wrap;
+                    }
+
+                    .position-school {
+                        font-size: 0.8125rem;
+                    }
+
+                    /* Location and Salary - Side by Side */
+                    .jobs-table tbody td:nth-child(2),
+                    .jobs-table tbody td:nth-child(3) {
+                        display: inline-block;
+                        width: auto !important;
+                        padding: 4px 0;
+                    }
+
+                    .location-cell {
+                        font-size: 0.9375rem;
+                        white-space: nowrap;
                     }
 
                     .location-cell::before {
                         content: "📍 ";
                     }
 
+                    .salary-cell {
+                        font-size: 0.9375rem;
+                        font-weight: 700;
+                        color: #0066cc;
+                        white-space: nowrap;
+                        margin-left: 16px;
+                    }
+
                     .salary-cell::before {
                         content: "💰 ";
                     }
 
+                    /* Apply Button - Full Width */
                     .action-cell {
-                        text-align: left;
-                        padding-top: 14px;
+                        text-align: center;
+                        padding-top: 12px !important;
+                        margin-top: 12px;
+                        border-top: 1px solid #f0f0f2;
                     }
 
                     .apply-btn {
                         width: 100%;
                         justify-content: center;
-                        padding: 12px;
+                        padding: 14px 20px;
+                        font-size: 0.9375rem;
+                        border-radius: 12px;
+                    }
+
+                    /* Scroll Hint */
+                    .scroll-hint {
+                        display: none !important;
+                    }
+
+                    /* Hide filter row on mobile */
+                    .filter-row {
+                        display: none !important;
+                    }
+
+                    /* Show only first job on mobile */
+                    .jobs-table tbody tr:not(:first-child) {
+                        display: none !important;
+                    }
+
+                    /* View All Jobs Button - Mobile Only */
+                    .mobile-view-all-jobs {
+                        display: block;
+                        width: 100%;
+                        padding: 16px 24px;
+                        margin-top: 16px;
+                        font-size: 1rem;
+                        font-weight: 600;
+                        color: var(--primary-blue);
+                        background: #f0f7ff;
+                        border: 2px solid var(--primary-blue);
+                        border-radius: 12px;
+                        text-align: center;
+                        text-decoration: none;
+                        transition: all 0.3s ease;
+                    }
+
+                    .mobile-view-all-jobs:hover,
+                    .mobile-view-all-jobs:active {
+                        background: var(--primary-blue);
+                        color: #fff;
                     }
                 }
             </style>
@@ -1398,11 +1554,15 @@
                 <div class="scroll-hint" id="scroll-hint">
                     ↓ Scroll to see more positions
                 </div>
+                <!-- Mobile Only: View All Jobs Button -->
+                <a href="jobs/" class="mobile-view-all-jobs">
+                    View All <span id="mobile-jobs-count"></span> Positions →
+                </a>
             </div>
 
             <script>
                 // Jobs Table Configuration
-                const JOBS_SHEET_ID = 'YOUR_GOOGLE_SHEET_ID_HERE';
+                const JOBS_SHEET_ID = '1daBA8-R-BCERBg55JjuIwp4tcshaR2df2FgCwXq4wbA';
                 const JOBS_SHEET_NAME = 'Jobs';
                 const JOBS_APPLY_URL = 'apply-now/';
 
@@ -1421,48 +1581,119 @@
                 };
 
                 const jobIconConfig = {
+                    // English & Languages
                     english: { icon: 'book', color: 'blue' },
                     language: { icon: 'book', color: 'blue' },
+                    literature: { icon: 'book', color: 'blue' },
+                    reading: { icon: 'book', color: 'blue' },
+                    writing: { icon: 'book', color: 'blue' },
+                    esl: { icon: 'book', color: 'blue' },
+                    efl: { icon: 'book', color: 'blue' },
+                    tefl: { icon: 'book', color: 'blue' },
+
+                    // Math
                     math: { icon: 'calculator', color: 'orange' },
+                    mathematics: { icon: 'calculator', color: 'orange' },
+                    algebra: { icon: 'calculator', color: 'orange' },
+                    calculus: { icon: 'calculator', color: 'orange' },
+                    statistics: { icon: 'calculator', color: 'orange' },
+
+                    // Sciences
                     science: { icon: 'flask', color: 'green' },
                     chemistry: { icon: 'flask', color: 'green' },
-                    physics: { icon: 'flask', color: 'purple' },
                     biology: { icon: 'flask', color: 'green' },
+                    physics: { icon: 'flask', color: 'purple' },
+                    lab: { icon: 'flask', color: 'green' },
+
+                    // PE & Sports
                     pe: { icon: 'fitness', color: 'red' },
                     physical: { icon: 'fitness', color: 'red' },
                     sport: { icon: 'fitness', color: 'red' },
+                    swimming: { icon: 'fitness', color: 'red' },
+                    football: { icon: 'fitness', color: 'red' },
+                    basketball: { icon: 'fitness', color: 'red' },
+                    health: { icon: 'fitness', color: 'red' },
+
+                    // Arts
                     art: { icon: 'paintbrush', color: 'pink' },
                     design: { icon: 'paintbrush', color: 'pink' },
+                    drawing: { icon: 'paintbrush', color: 'pink' },
+                    painting: { icon: 'paintbrush', color: 'pink' },
+                    craft: { icon: 'paintbrush', color: 'pink' },
+
+                    // Music & Drama
                     music: { icon: 'music', color: 'purple' },
+                    drama: { icon: 'music', color: 'purple' },
+                    theater: { icon: 'music', color: 'purple' },
+                    choir: { icon: 'music', color: 'purple' },
+                    band: { icon: 'music', color: 'purple' },
+
+                    // Technology
                     computer: { icon: 'laptop', color: 'indigo' },
                     it: { icon: 'laptop', color: 'indigo' },
                     tech: { icon: 'laptop', color: 'indigo' },
+                    coding: { icon: 'laptop', color: 'indigo' },
+                    programming: { icon: 'laptop', color: 'indigo' },
+                    digital: { icon: 'laptop', color: 'indigo' },
+                    ict: { icon: 'laptop', color: 'indigo' },
+
+                    // Foreign Languages
                     chinese: { icon: 'globe', color: 'teal' },
                     japanese: { icon: 'globe', color: 'teal' },
                     korean: { icon: 'globe', color: 'teal' },
                     french: { icon: 'globe', color: 'teal' },
                     german: { icon: 'globe', color: 'teal' },
+                    spanish: { icon: 'globe', color: 'teal' },
+                    thai: { icon: 'globe', color: 'teal' },
+                    mandarin: { icon: 'globe', color: 'teal' },
+
+                    // Social Studies
+                    history: { icon: 'globe', color: 'orange' },
+                    geography: { icon: 'globe', color: 'green' },
+                    social: { icon: 'globe', color: 'blue' },
+                    economics: { icon: 'calculator', color: 'teal' },
+                    business: { icon: 'calculator', color: 'teal' },
+
+                    // Early Childhood
+                    kindergarten: { icon: 'person', color: 'pink' },
+                    nursery: { icon: 'person', color: 'pink' },
+                    preschool: { icon: 'person', color: 'pink' },
+                    homeroom: { icon: 'person', color: 'blue' },
+
+                    // Academic/Management
+                    coordinator: { icon: 'person', color: 'indigo' },
+                    head: { icon: 'person', color: 'indigo' },
+                    manager: { icon: 'person', color: 'indigo' },
+                    director: { icon: 'person', color: 'indigo' },
+                    assistant: { icon: 'person', color: 'blue' },
                 };
 
                 let allJobsData = [];
 
                 async function fetchJobsData() {
-                    const url = `https://docs.google.com/spreadsheets/d/${JOBS_SHEET_ID}/gviz/tq?tqx=out:json&sheet=${JOBS_SHEET_NAME}`;
+                    const url = `https://docs.google.com/spreadsheets/d/${JOBS_SHEET_ID}/gviz/tq?tqx=out:json&sheet=${JOBS_SHEET_NAME}&headers=1`;
                     try {
                         const res = await fetch(url);
                         const text = await res.text();
                         const json = text.match(/google\.visualization\.Query\.setResponse\(([\s\S]*?)\);/)[1];
                         const data = JSON.parse(json);
-                        const headers = data.table.cols.map(c => c.label.toLowerCase());
+
+                        // Use fixed column order: position, school, location, salary, urgent, status
+                        const headers = ['position', 'school', 'location', 'salary', 'urgent', 'status'];
 
                         allJobsData = data.table.rows.map((row, i) => {
                             const job = { id: i + 1 };
-                            row.c.forEach((cell, j) => job[headers[j]] = cell ? cell.v : '');
+                            row.c.forEach((cell, j) => {
+                                if (headers[j]) {
+                                    job[headers[j]] = cell ? (cell.v !== null ? String(cell.v) : '') : '';
+                                }
+                            });
                             return job;
-                        }).filter(j => j.status === 'active' || j.status === 'Active');
+                        }).filter(j => j.status && (j.status.toLowerCase() === 'active'));
 
                         renderJobs(allJobsData);
                     } catch (e) {
+                        console.error('Jobs fetch error:', e);
                         showJobsError();
                     }
                 }
@@ -1883,9 +2114,8 @@
                         <!-- Text Blocks -->
                         <div class="text-block active" data-index="0">
                             <p class="category">Teaching Locations</p>
-                            <h3>Unique Locations</h3>
-                            <p>Teach in diverse settings across Thailand - from kindergartens nurturing young minds, to
-                                primary schools building foundations.</p>
+                            <h3>Unique Placements</h3>
+                            <p>Kindergarten, primary, and secondary schools throughout Thailand.</p>
                             <button class="read-more-btn" onclick="openOfferModal(0)"
                                 aria-label="Read more about Unique Locations">
                                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor"
@@ -1897,9 +2127,8 @@
 
                         <div class="text-block" data-index="1">
                             <p class="category">Professional Development</p>
-                            <h3>Free Professional Training</h3>
-                            <p>Orientation including Thai language basics and cultural immersion to help you adapt
-                                quickly.</p>
+                            <h3>Professional Training</h3>
+                            <p>Orientation including Thai language basics and cultural immersion.</p>
                             <button class="read-more-btn" onclick="openOfferModal(1)"
                                 aria-label="Read more about Free Training">
                                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor"
@@ -1912,8 +2141,7 @@
                         <div class="text-block" data-index="2">
                             <p class="category">Visa & Documents</p>
                             <h3>Document Assistance</h3>
-                            <p>Navigate the work permit process with confidence. We provide guidance on required
-                                documents.</p>
+                            <p>Working documents support and partial reimbursement towards work visa costs.</p>
                             <button class="read-more-btn" onclick="openOfferModal(2)"
                                 aria-label="Read more about Document Assistance">
                                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor"
@@ -1925,8 +2153,8 @@
 
                         <div class="text-block" data-index="3">
                             <p class="category">Local Support</p>
-                            <h3>Thai Consultant</h3>
-                            <p>Your personal guide throughout your journey in Thailand with bilingual support.</p>
+                            <h3>Thai Consultant Support</h3>
+                            <p>Dedicated Thai consultants available to assist you throughout your time in Thailand.</p>
                             <button class="read-more-btn" onclick="openOfferModal(3)"
                                 aria-label="Read more about Thai Consultant">
                                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor"
@@ -1937,9 +2165,9 @@
                         </div>
 
                         <div class="text-block" data-index="4">
-                            <p class="category">Academic Support</p>
+                            <p class="category">Teaching Support</p>
                             <h3>Curriculum Consultant</h3>
-                            <p>Never feel alone in lesson planning with our curriculum consultant support.</p>
+                            <p>Expert guidance on lesson planning and teaching methodology.</p>
                             <button class="read-more-btn" onclick="openOfferModal(4)"
                                 aria-label="Read more about Curriculum Consultant">
                                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor"
@@ -1950,9 +2178,9 @@
                         </div>
 
                         <div class="text-block" data-index="5">
-                            <p class="category">Protection</p>
+                            <p class="category">Safety & Security</p>
                             <h3>Accident Insurance</h3>
-                            <p>Annual coverage for peace of mind with comprehensive accident insurance.</p>
+                            <p>Comprehensive accident insurance coverage for your peace of mind.</p>
                             <button class="read-more-btn" onclick="openOfferModal(5)"
                                 aria-label="Read more about Accident Insurance">
                                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor"
@@ -1965,7 +2193,7 @@
                         <div class="text-block" data-index="6">
                             <p class="category">Housing Support</p>
                             <h3>Accommodation Assistance</h3>
-                            <p>Finding a home in Thailand is easy with our help and local connections.</p>
+                            <p>Help finding suitable, affordable housing near your school.</p>
                             <button class="read-more-btn" onclick="openOfferModal(6)"
                                 aria-label="Read more about Accommodation">
                                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor"
@@ -1978,7 +2206,7 @@
                         <div class="text-block" data-index="7">
                             <p class="category">Teaching Resources</p>
                             <h3>Full Curriculum</h3>
-                            <p>Hit the ground running with our complete curriculum package and materials.</p>
+                            <p>Complete curriculum inclusive of textbooks and course plans.</p>
                             <button class="read-more-btn" onclick="openOfferModal(7)"
                                 aria-label="Read more about Full Curriculum">
                                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor"
@@ -2048,43 +2276,43 @@
                 const offerData = {
                     0: {
                         category: "Teaching Locations",
-                        title: "Unique Locations",
-                        desc: "Teach in diverse settings across Thailand - from kindergartens nurturing young minds, to primary schools building foundations, to secondary schools preparing students for the future. Experience the rich culture and warm hospitality of Thai communities while making a real difference in students' lives."
+                        title: "Unique Placements",
+                        desc: "Teach in diverse settings across Thailand – in kindergartens nurturing the youngest minds, in primary schools where you will be building foundations, to secondary schools where you are able to prepare students for the future. Experience the rich culture and warm hospitality in the heart of authentic Thai communities while making a real difference in students' lives."
                     },
                     1: {
                         category: "Professional Development",
-                        title: "Free Professional Training",
-                        desc: "Orientation including Thai language basics and cultural immersion. Our comprehensive program covers classroom management techniques, cultural sensitivity training, and Thai language essentials to ensure you feel confident and prepared for your new life in Thailand."
+                        title: "Professional Training",
+                        desc: "Start your teaching journey with our free comprehensive orientation and training course. Learn essential Thai language skills for daily communication, understand Thai classroom culture and etiquette, and receive practical teaching strategies that you can use in the classroom from day one."
                     },
                     2: {
                         category: "Visa & Documents",
                         title: "Document Assistance",
-                        desc: "Navigate the work permit process with confidence. We provide guidance on required documents, assist with applications, and offer partial reimbursement towards work visa costs. Our experienced team ensures your paperwork is handled efficiently and correctly."
+                        desc: "Navigate the visa and work permit process with confidence. We provide guidance on required documents, assist with applications, and offer partial reimbursement towards work visa costs. Our experienced team ensures your paperwork is handled efficiently and correctly so that you do not have to worry."
                     },
                     3: {
                         category: "Local Support",
-                        title: "Thai Consultant",
-                        desc: "Your dedicated local partner for a smooth transition. Our Thai consultants assist with on-ground orientation, housing search, school introduction, and daily communication needs, ensuring your journey in Thailand is comfortable and successful."
+                        title: "Thai Consultant Support",
+                        desc: "Our team of Thai consultants is always ready to help. From translating documents, accompanying you to government offices, helping with housing to resolving everyday challenges that you may face living in Thailand - you'll never have to navigate Thai bureaucracy alone."
                     },
                     4: {
-                        category: "Academic Support",
+                        category: "Teaching Support",
                         title: "Curriculum Consultant",
-                        desc: "Expert guidance on our comprehensive curriculum, from lesson planning to classroom strategies. Our curriculum consultants provide ongoing support, classroom observation feedback, and resources to help you deliver engaging and effective lessons."
+                        desc: "Receive expert guidance from our team of experienced curriculum consultants. Get help with lesson planning, preparing teaching materials, classroom management strategies, and adapting your teaching style to fit within a Thai classroom. We're here to help you become the best teacher you can be."
                     },
                     5: {
-                        category: "Protection",
+                        category: "Safety & Security",
                         title: "Accident Insurance",
-                        desc: "Comprehensive accident insurance coverage for your peace of mind throughout your stay in Thailand. We prioritize your well-being with coverage that includes medical expenses, emergency support, and 24/7 assistance."
+                        desc: "Teach with peace of mind knowing you're protected. Our comprehensive accident insurance covers medical expenses in case of unexpected injuries, allowing you to focus on what matters most - teaching and continuing your adventure in Thailand."
                     },
                     6: {
                         category: "Housing Support",
                         title: "Accommodation Assistance",
-                        desc: "Find comfortable and convenient housing with our assistance. We help you secure suitable accommodation that fits your needs and budget, connect you with landlords, and guide you through the rental process."
+                        desc: "Finding a home in Thailand is easy with our help. We connect you with safe, affordable housing options near your school. Our local consultants can accompany you to view apartments and help negotiate fair rental terms."
                     },
                     7: {
                         category: "Teaching Resources",
                         title: "Full Curriculum",
-                        desc: "Complete curriculum inclusive of textbooks, detailed lesson plans, activity guides, flashcards, and supplementary teaching materials. Our curriculum is designed specifically for Thai schools and is regularly updated to meet educational standards."
+                        desc: "Hit the ground running with our complete curriculum package. Receive all textbooks, detailed lesson plans, activity guides, and supplementary materials you need. Our curriculum is designed specifically for Thai schools and updated regularly."
                     }
                 };
 
@@ -3426,7 +3654,8 @@
     <!-- Shared Footer Container -->
     <div id="shared-footer"></div>
     <!-- Scripts -->
-    <script src="js/version.js?v=1.0.2"></script>
+    <!-- Dynamic version loader - ensures cache busting works -->
+    <script>document.write('<script src="js/version.js?v=' + Date.now() + '"><\/script>');</script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="js/components.js?v=1.0.2"></script>
     <script src="js/script.js?v=1.0.2"></script>
