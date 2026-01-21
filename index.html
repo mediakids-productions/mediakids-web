@@ -1671,9 +1671,11 @@
                 let allJobsData = [];
 
                 async function fetchJobsData() {
-                    const url = `https://docs.google.com/spreadsheets/d/${JOBS_SHEET_ID}/gviz/tq?tqx=out:json&sheet=${JOBS_SHEET_NAME}&headers=1`;
+                    // Add timestamp to prevent Google Sheets API caching
+                    const cacheBust = Date.now();
+                    const url = `https://docs.google.com/spreadsheets/d/${JOBS_SHEET_ID}/gviz/tq?tqx=out:json&sheet=${JOBS_SHEET_NAME}&headers=1&_=${cacheBust}`;
                     try {
-                        const res = await fetch(url);
+                        const res = await fetch(url, { cache: 'no-store' });
                         const text = await res.text();
                         const json = text.match(/google\.visualization\.Query\.setResponse\(([\s\S]*?)\);/)[1];
                         const data = JSON.parse(json);
