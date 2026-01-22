@@ -112,7 +112,7 @@ const headerHTML = `
         </nav>
 
         <!-- SINGLE MEGA MENU CONTAINER (ABSOLUTE TO TOP OF HEADER) -->
-        <div id="mega-menu-container">
+        <div id="mega-menu-container" style="display: none;">
             <!-- Content: About Us -->
             <div id="mm-content-about" class="mm-section">
                 <div class="container mx-auto px-6">

@@ -132,6 +132,9 @@ function initSite() {
     });
 
     if (megaMenuContainer) {
+        // Show the mega menu container after JS is ready (prevents FOUC)
+        megaMenuContainer.style.display = 'block';
+
         megaMenuContainer.addEventListener('mouseenter', () => {
             if (closeTimeout) {
                 clearTimeout(closeTimeout);
