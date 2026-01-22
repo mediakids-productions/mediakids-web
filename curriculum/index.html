@@ -36,73 +36,272 @@
     <link rel="stylesheet" href="../css/style.css?v=1.0.2">
 
     <style>
+        /* ========================================
+           APPLE-STYLE CURRICULUM PAGE
+           ======================================== */
+
+        .curriculum-page {
+            min-height: 100vh;
+            background: linear-gradient(180deg, #f5f5f7 0%, #ffffff 50%, #f5f5f7 100%);
+        }
+
+        /* Hero Section */
+        .curriculum-hero {
+            padding: 100px 24px 60px;
+            text-align: center;
+        }
+
+        .curriculum-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 100px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #0077ED;
+            margin-bottom: 24px;
+            border: 1px solid rgba(0, 119, 237, 0.1);
+        }
+
+        .curriculum-badge svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .curriculum-title {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 700;
+            color: #1d1d1f;
+            letter-spacing: -0.03em;
+            margin-bottom: 16px;
+            line-height: 1.1;
+        }
+
+        .curriculum-subtitle {
+            font-size: 1.25rem;
+            color: #86868b;
+            max-width: 480px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Semester Cards Container */
+        .semester-container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 24px 80px;
+        }
+
+        .semester-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        @media (max-width: 768px) {
+            .semester-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+
+        /* Glassmorphism Semester Cards */
         .semester-card {
-            background: white;
-            border-radius: 32px;
-            padding: 48px;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.06);
-            transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
             position: relative;
-            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            padding: 40px 32px;
+            border-radius: 28px;
             text-decoration: none;
-            display: block;
+            overflow: hidden;
+            min-height: 340px;
+            transition: all 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
         }
 
         .semester-card::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 6px;
-            transition: transform 0.3s ease;
-            transform-origin: left;
+            inset: 0;
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            z-index: 0;
         }
 
-        .semester-card.sem1::before {
-            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+        .semester-card.sem1 {
+            background: linear-gradient(145deg,
+                    rgba(0, 119, 237, 0.85) 0%,
+                    rgba(88, 86, 214, 0.85) 50%,
+                    rgba(175, 82, 222, 0.7) 100%);
+            box-shadow:
+                0 20px 60px rgba(0, 119, 237, 0.3),
+                0 0 0 1px rgba(255, 255, 255, 0.1) inset;
         }
 
-        .semester-card.sem2::before {
-            background: linear-gradient(90deg, #10b981, #059669);
+        .semester-card.sem2 {
+            background: linear-gradient(145deg,
+                    rgba(52, 199, 89, 0.85) 0%,
+                    rgba(48, 209, 88, 0.85) 50%,
+                    rgba(0, 199, 190, 0.7) 100%);
+            box-shadow:
+                0 20px 60px rgba(52, 199, 89, 0.3),
+                0 0 0 1px rgba(255, 255, 255, 0.1) inset;
         }
 
         .semester-card:hover {
-            transform: translateY(-12px);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
+            transform: translateY(-8px) scale(1.02);
         }
 
-        .card-icon {
-            width: 100px;
-            height: 100px;
-            border-radius: 28px;
+        .semester-card.sem1:hover {
+            box-shadow:
+                0 30px 80px rgba(0, 119, 237, 0.4),
+                0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+        }
+
+        .semester-card.sem2:hover {
+            box-shadow:
+                0 30px 80px rgba(52, 199, 89, 0.4),
+                0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+        }
+
+        .semester-card>* {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Card Icon */
+        .semester-icon {
+            width: 72px;
+            height: 72px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2.5rem;
             margin-bottom: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
             transition: all 0.4s ease;
         }
 
-        .semester-card:hover .card-icon {
-            transform: scale(1.1) rotate(5deg);
+        .semester-icon svg {
+            width: 36px;
+            height: 36px;
+            stroke: white;
+            stroke-width: 1.5;
+            fill: none;
         }
 
-        .gradient-text-blue {
-            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        .semester-card:hover .semester-icon {
+            transform: scale(1.1);
+            background: rgba(255, 255, 255, 0.3);
         }
 
-        .gradient-text-green {
-            background: linear-gradient(135deg, #10b981, #059669);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        /* Card Content */
+        .semester-label {
+            font-size: 0.8125rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 8px;
         }
-    </style>
-    <style>
+
+        .semester-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 12px;
+            letter-spacing: -0.02em;
+        }
+
+        .semester-desc {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.6;
+            margin-bottom: 24px;
+            flex-grow: 1;
+        }
+
+        .semester-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: white;
+            padding: 12px 24px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 100px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .semester-cta svg {
+            width: 16px;
+            height: 16px;
+            stroke: currentColor;
+            stroke-width: 2.5;
+            fill: none;
+            transition: transform 0.3s ease;
+        }
+
+        .semester-card:hover .semester-cta {
+            background: rgba(255, 255, 255, 0.35);
+        }
+
+        .semester-card:hover .semester-cta svg {
+            transform: translateX(4px);
+        }
+
+        /* Help Notice */
+        .help-notice {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            max-width: 600px;
+            margin: 48px auto 0;
+            padding: 20px 28px;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            border-radius: 16px;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+        }
+
+        .help-notice-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #FF9500, #FF6B00);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .help-notice-icon svg {
+            width: 20px;
+            height: 20px;
+            stroke: white;
+            stroke-width: 2;
+            fill: none;
+        }
+
+        .help-notice-text {
+            font-size: 0.9375rem;
+            color: #1d1d1f;
+            line-height: 1.5;
+        }
+
+        .help-notice-text strong {
+            color: #0077ED;
+        }
+
         /* Lenis Smooth Scroll CSS */
         html.lenis {
             height: auto;
@@ -131,73 +330,100 @@
     <!-- Header -->
     <div id="shared-header"></div>
 
-    <main class="min-h-screen pb-24">
+    <main class="curriculum-page">
 
         <!-- Hero Section -->
-        <div class="text-center pt-24 pb-16 px-6" data-aos="fade-down" data-aos-duration="800">
-            <div
-                class="inline-flex items-center gap-3 px-6 py-3 bg-blue-50 rounded-full text-blue-600 font-semibold mb-8">
-                <i class="fas fa-book-open"></i>
+        <div class="curriculum-hero" data-aos="fade-down" data-aos-duration="800">
+            <div class="curriculum-badge">
+                <svg viewBox="0 0 24 24">
+                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" stroke="currentColor" stroke-width="2" fill="none" />
+                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" stroke="currentColor"
+                        stroke-width="2" fill="none" />
+                </svg>
                 <span>Teaching Resources</span>
             </div>
 
-            <h1 class="text-4xl md:text-6xl font-extrabold text-gray-900 mb-6">
-                Curriculum Resources
-            </h1>
-            <p class="text-lg text-gray-500 max-w-2xl mx-auto leading-relaxed">
-                Select a semester to access teaching materials and resources.
+            <h1 class="curriculum-title">Curriculum Resources</h1>
+            <p class="curriculum-subtitle">
+                Select a semester to access teaching materials, lesson plans, and educational resources.
             </p>
         </div>
 
         <!-- Semester Cards -->
-        <div class="container mx-auto px-6 max-w-4xl">
-            <div class="grid md:grid-cols-2 gap-8">
+        <div class="semester-container">
+            <div class="semester-grid">
 
                 <!-- Semester 1 -->
-                <a href="sem1/" class="semester-card sem1 group" data-aos="fade-up" data-aos-delay="100">
-                    <div class="card-icon bg-blue-100 text-blue-600">
-                        <i class="fas fa-sun"></i>
+                <a href="sem1/" class="semester-card sem1" data-aos="fade-up" data-aos-delay="100">
+                    <div class="semester-icon">
+                        <svg viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="4" />
+                            <path d="M12 2v2" />
+                            <path d="M12 20v2" />
+                            <path d="m4.93 4.93 1.41 1.41" />
+                            <path d="m17.66 17.66 1.41 1.41" />
+                            <path d="M2 12h2" />
+                            <path d="M20 12h2" />
+                            <path d="m6.34 17.66-1.41 1.41" />
+                            <path d="m19.07 4.93-1.41 1.41" />
+                        </svg>
                     </div>
-                    <h2 class="text-3xl font-bold text-gray-800 mb-3 group-hover:text-blue-600 transition-colors">
-                        Semester 1
-                    </h2>
-                    <p class="text-gray-500 mb-6 leading-relaxed">
-                        First semester curriculum resources for ECD, MEP, IEP programs and more.
+                    <div class="semester-label">May – October</div>
+                    <h2 class="semester-title">Semester 1</h2>
+                    <p class="semester-desc">
+                        First semester curriculum resources for ECD, MEP, IEP programs and more. Core subjects and
+                        foundational materials.
                     </p>
-                    <div class="flex items-center text-blue-600 font-bold text-lg">
-                        <span>Access Resources</span>
-                        <i class="fas fa-arrow-right ml-3 group-hover:translate-x-2 transition-transform"></i>
+                    <div class="semester-cta">
+                        <span>Explore Resources</span>
+                        <svg viewBox="0 0 24 24">
+                            <path d="M5 12h14" />
+                            <path d="m12 5 7 7-7 7" />
+                        </svg>
                     </div>
                 </a>
 
                 <!-- Semester 2 -->
-                <a href="sem2/" class="semester-card sem2 group" data-aos="fade-up" data-aos-delay="200">
-                    <div class="card-icon bg-emerald-100 text-emerald-600">
-                        <i class="fas fa-snowflake"></i>
+                <a href="sem2/" class="semester-card sem2" data-aos="fade-up" data-aos-delay="200">
+                    <div class="semester-icon">
+                        <svg viewBox="0 0 24 24">
+                            <line x1="2" x2="22" y1="12" y2="12" />
+                            <line x1="12" x2="12" y1="2" y2="22" />
+                            <path d="m20 16-4-4 4-4" />
+                            <path d="m4 8 4 4-4 4" />
+                            <path d="m16 4-4 4-4-4" />
+                            <path d="m8 20 4-4 4 4" />
+                        </svg>
                     </div>
-                    <h2 class="text-3xl font-bold text-gray-800 mb-3 group-hover:text-emerald-600 transition-colors">
-                        Semester 2
-                    </h2>
-                    <p class="text-gray-500 mb-6 leading-relaxed">
-                        Second semester curriculum resources for ECD, MEP, IEP programs and more.
+                    <div class="semester-label">November – March</div>
+                    <h2 class="semester-title">Semester 2</h2>
+                    <p class="semester-desc">
+                        Second semester curriculum resources for ECD, MEP, IEP programs and more. Advanced topics and
+                        project-based learning.
                     </p>
-                    <div class="flex items-center text-emerald-600 font-bold text-lg">
-                        <span>Access Resources</span>
-                        <i class="fas fa-arrow-right ml-3 group-hover:translate-x-2 transition-transform"></i>
+                    <div class="semester-cta">
+                        <span>Explore Resources</span>
+                        <svg viewBox="0 0 24 24">
+                            <path d="M5 12h14" />
+                            <path d="m12 5 7 7-7 7" />
+                        </svg>
                     </div>
                 </a>
 
             </div>
 
-            <!-- Help Text -->
-            <div class="text-center mt-16" data-aos="fade-up" data-aos-delay="300">
-                <div class="inline-flex items-center gap-3 px-6 py-4 bg-amber-50 rounded-2xl border border-amber-100">
-                    <i class="fas fa-info-circle text-amber-500 text-xl"></i>
-                    <p class="text-amber-700">
-                        Need access? Contact your <span class="font-semibold">curriculum consultant</span> for login
-                        credentials.
-                    </p>
+            <!-- Help Notice -->
+            <div class="help-notice" data-aos="fade-up" data-aos-delay="300">
+                <div class="help-notice-icon">
+                    <svg viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="M12 16v-4" />
+                        <path d="M12 8h.01" />
+                    </svg>
                 </div>
+                <p class="help-notice-text">
+                    Need access? Contact your <strong>curriculum consultant</strong> for login credentials.
+                </p>
             </div>
         </div>
 
@@ -207,7 +433,6 @@
     <div id="shared-footer"></div>
 
     <!-- Scripts -->
-    <!-- Dynamic version loader - ensures cache busting works -->
     <script>document.write('<script src="../js/version.js?v=' + Date.now() + '"><\/script>');</script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="../js/components.js?v=1.0.2"></script>

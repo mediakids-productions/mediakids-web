@@ -1509,6 +1509,323 @@
                         color: #fff;
                     }
                 }
+
+                /* ========================================
+                   JOB DETAILS MODAL - Apple Style
+                   ======================================== */
+                .job-modal-overlay {
+                    position: fixed;
+                    inset: 0;
+                    background: rgba(0, 0, 0, 0.4);
+                    backdrop-filter: blur(8px);
+                    -webkit-backdrop-filter: blur(8px);
+                    z-index: 9999;
+                    opacity: 0;
+                    visibility: hidden;
+                    transition: all 0.4s cubic-bezier(0.32, 0.72, 0, 1);
+                }
+
+                .job-modal-overlay.active {
+                    opacity: 1;
+                    visibility: visible;
+                }
+
+                .job-modal {
+                    position: fixed;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%) scale(0.95);
+                    width: 94%;
+                    max-width: 720px;
+                    max-height: 90vh;
+                    background: #fff;
+                    border-radius: 24px;
+                    box-shadow: 0 25px 80px -20px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(0, 0, 0, 0.05);
+                    z-index: 10000;
+                    opacity: 0;
+                    visibility: hidden;
+                    transition: all 0.5s cubic-bezier(0.32, 0.72, 0, 1);
+                    display: flex;
+                    flex-direction: column;
+                    overflow: hidden;
+                }
+
+                .job-modal.active {
+                    opacity: 1;
+                    visibility: visible;
+                    transform: translate(-50%, -50%) scale(1);
+                }
+
+                .job-modal-close {
+                    position: absolute;
+                    top: 16px;
+                    right: 16px;
+                    width: 32px;
+                    height: 32px;
+                    border-radius: 50%;
+                    background: rgba(0, 0, 0, 0.06);
+                    border: none;
+                    cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 18px;
+                    color: #86868b;
+                    transition: all 0.2s ease;
+                    z-index: 10;
+                }
+
+                .job-modal-close:hover {
+                    background: rgba(0, 0, 0, 0.1);
+                    color: #1d1d1f;
+                }
+
+                .job-modal-header {
+                    padding: 32px 32px 24px;
+                    display: flex;
+                    align-items: flex-start;
+                    gap: 18px;
+                    border-bottom: 1px solid #f0f0f2;
+                }
+
+                .job-modal-icon {
+                    width: 64px;
+                    height: 64px;
+                    border-radius: 16px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-shrink: 0;
+                }
+
+                .job-modal-icon svg {
+                    width: 32px;
+                    height: 32px;
+                    stroke-width: 1.75;
+                    fill: none;
+                }
+
+                .job-modal-header-info {
+                    flex: 1;
+                    padding-right: 40px;
+                }
+
+                .job-modal-title {
+                    font-size: 1.625rem;
+                    font-weight: 700;
+                    color: #1d1d1f;
+                    margin: 0 0 6px;
+                }
+
+                .job-modal-school {
+                    font-size: 1.0625rem;
+                    color: #86868b;
+                    margin: 0;
+                    font-weight: 500;
+                }
+
+                .job-modal-urgent {
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 5px;
+                    padding: 4px 10px;
+                    font-size: 0.6875rem;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    color: #fff;
+                    background: linear-gradient(135deg, #ff9500 0%, #ff6b00 100%);
+                    border-radius: 6px;
+                    margin-top: 8px;
+                }
+
+                .job-modal-body {
+                    padding: 28px 32px;
+                    overflow-y: auto;
+                    flex: 1;
+                    -webkit-overflow-scrolling: touch;
+                }
+
+                .job-modal-section {
+                    margin-bottom: 24px;
+                }
+
+                .job-modal-section:last-child {
+                    margin-bottom: 0;
+                }
+
+                .job-modal-section-title {
+                    font-size: 0.8125rem;
+                    font-weight: 600;
+                    text-transform: uppercase;
+                    letter-spacing: 0.05em;
+                    color: #86868b;
+                    margin: 0 0 12px;
+                }
+
+                .job-modal-description {
+                    font-size: 1.0625rem;
+                    color: #1d1d1f;
+                    line-height: 1.7;
+                    margin: 0;
+                }
+
+                .job-modal-list {
+                    list-style: none;
+                    padding: 0;
+                    margin: 0;
+                }
+
+                .job-modal-list li {
+                    position: relative;
+                    padding-left: 22px;
+                    font-size: 1rem;
+                    color: #1d1d1f;
+                    line-height: 1.7;
+                    margin-bottom: 10px;
+                }
+
+                .job-modal-list li::before {
+                    content: "";
+                    position: absolute;
+                    left: 0;
+                    top: 10px;
+                    width: 6px;
+                    height: 6px;
+                    border-radius: 50%;
+                    background: linear-gradient(135deg, #0077ed 0%, #0066cc 100%);
+                }
+
+                .job-modal-list.benefits li::before {
+                    background: linear-gradient(135deg, #34c759 0%, #30b855 100%);
+                }
+
+                .job-modal-meta {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 16px;
+                    padding: 18px 20px;
+                    background: #f5f5f7;
+                    border-radius: 14px;
+                    margin-top: 24px;
+                }
+
+                .job-modal-meta-item {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    font-size: 0.9375rem;
+                    color: #1d1d1f;
+                    font-weight: 500;
+                }
+
+                .job-modal-meta-item i {
+                    font-size: 1rem;
+                    color: #0066cc;
+                }
+
+                .job-modal-footer {
+                    padding: 20px 28px 24px;
+                    border-top: 1px solid #f0f0f2;
+                    background: linear-gradient(180deg, #fafafa 0%, #fff 100%);
+                }
+
+                .job-modal-apply-btn {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 8px;
+                    width: 100%;
+                    padding: 14px 24px;
+                    font-size: 1rem;
+                    font-weight: 600;
+                    color: #fff;
+                    background: linear-gradient(135deg, #0077ed 0%, #0066cc 100%);
+                    border: none;
+                    border-radius: 12px;
+                    cursor: pointer;
+                    text-decoration: none;
+                    transition: all 0.3s ease;
+                }
+
+                .job-modal-apply-btn:hover {
+                    background: linear-gradient(135deg, #0088ff 0%, #0077ed 100%);
+                    transform: translateY(-2px);
+                    box-shadow: 0 8px 24px rgba(0, 102, 204, 0.35);
+                }
+
+                .job-modal-apply-btn svg {
+                    width: 16px;
+                    height: 16px;
+                    stroke: currentColor;
+                    stroke-width: 2.5;
+                    fill: none;
+                }
+
+                /* View Details Button */
+                .view-details-btn {
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 6px;
+                    padding: 8px 16px;
+                    font-size: 0.8125rem;
+                    font-weight: 600;
+                    color: #0066cc;
+                    background: linear-gradient(135deg, #e8f4ff 0%, #dbeafe 100%);
+                    border: 1px solid rgba(0, 102, 204, 0.15);
+                    border-radius: 980px;
+                    cursor: pointer;
+                    transition: all 0.25s ease;
+                    text-decoration: none;
+                }
+
+                .view-details-btn:hover {
+                    background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+                    transform: translateY(-1px);
+                    box-shadow: 0 4px 12px rgba(0, 102, 204, 0.2);
+                }
+
+                .view-details-btn svg {
+                    width: 14px;
+                    height: 14px;
+                    stroke: currentColor;
+                    stroke-width: 2;
+                    fill: none;
+                }
+
+                /* Row clickable */
+                .jobs-table tbody tr {
+                    cursor: pointer;
+                }
+
+                @media (max-width: 640px) {
+                    .job-modal {
+                        width: 95%;
+                        max-height: 90vh;
+                        border-radius: 16px;
+                    }
+
+                    .job-modal-header {
+                        padding: 20px 20px 16px;
+                    }
+
+                    .job-modal-icon {
+                        width: 48px;
+                        height: 48px;
+                    }
+
+                    .job-modal-body {
+                        padding: 20px;
+                    }
+
+                    .job-modal-footer {
+                        padding: 16px 20px 20px;
+                    }
+
+                    .job-modal-meta {
+                        flex-direction: column;
+                        gap: 8px;
+                    }
+                }
             </style>
 
             <!-- Header -->
@@ -1554,6 +1871,65 @@
                 <div class="scroll-hint" id="scroll-hint">
                     ↓ Scroll to see more positions
                 </div>
+
+                <!-- Job Details Modal -->
+                <div id="job-modal-overlay" class="job-modal-overlay"></div>
+                <div id="job-modal" class="job-modal" data-lenis-prevent>
+                    <button id="job-modal-close" class="job-modal-close">&times;</button>
+                    <div class="job-modal-header">
+                        <div id="job-modal-icon" class="job-modal-icon"></div>
+                        <div class="job-modal-header-info">
+                            <h2 id="job-modal-title" class="job-modal-title"></h2>
+                            <p id="job-modal-school" class="job-modal-school"></p>
+                            <div id="job-modal-urgent" class="job-modal-urgent" style="display: none;">
+                                <span style="width:5px;height:5px;background:#fff;border-radius:50%;"></span>
+                                Urgent
+                            </div>
+                        </div>
+                    </div>
+                    <div class="job-modal-body" data-lenis-prevent>
+                        <div id="job-modal-desc-section" class="job-modal-section">
+                            <h3 class="job-modal-section-title">About This Position</h3>
+                            <p id="job-modal-description" class="job-modal-description"></p>
+                        </div>
+                        <div id="job-modal-qual-section" class="job-modal-section">
+                            <h3 class="job-modal-section-title">Qualifications</h3>
+                            <ul id="job-modal-qualifications" class="job-modal-list"></ul>
+                        </div>
+                        <div id="job-modal-benefits-section" class="job-modal-section">
+                            <h3 class="job-modal-section-title">Benefits & Package</h3>
+                            <ul id="job-modal-benefits" class="job-modal-list benefits"></ul>
+                        </div>
+                        <div id="job-modal-meta" class="job-modal-meta">
+                            <div class="job-modal-meta-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span id="job-modal-location"></span>
+                            </div>
+                            <div class="job-modal-meta-item">
+                                <i class="fas fa-coins"></i>
+                                <span id="job-modal-salary"></span>
+                            </div>
+                            <div id="job-modal-hours-item" class="job-modal-meta-item">
+                                <i class="fas fa-clock"></i>
+                                <span id="job-modal-hours"></span>
+                            </div>
+                            <div id="job-modal-start-item" class="job-modal-meta-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span id="job-modal-start"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="job-modal-footer">
+                        <a id="job-modal-apply" class="job-modal-apply-btn" href="#">
+                            Apply Now
+                            <svg viewBox="0 0 24 24">
+                                <path d="M5 12h14" />
+                                <path d="m12 5 7 7-7 7" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
                 <!-- Mobile Only: View All Jobs Button -->
                 <a href="jobs/" class="mobile-view-all-jobs">
                     View All <span id="mobile-jobs-count"></span> Positions →
@@ -1677,11 +2053,14 @@
                     try {
                         const res = await fetch(url, { cache: 'no-store' });
                         const text = await res.text();
-                        const json = text.match(/google\.visualization\.Query\.setResponse\(([\s\S]*?)\);/)[1];
+                        // Safer way to extract JSON - find first ( and last )
+                        const start = text.indexOf('(') + 1;
+                        const end = text.lastIndexOf(')');
+                        const json = text.substring(start, end);
                         const data = JSON.parse(json);
 
-                        // Use fixed column order: position, school, location, salary, urgent, status
-                        const headers = ['position', 'school', 'location', 'salary', 'urgent', 'status'];
+                        // Use fixed column order: position, level, location, salary, urgent, status, description, qualifications, benefits, working_hours, start_date
+                        const headers = ['position', 'level', 'location', 'salary', 'urgent', 'status', 'description', 'qualifications', 'benefits', 'working_hours', 'start_date'];
 
                         allJobsData = data.table.rows.map((row, i) => {
                             const job = { id: i + 1 };
@@ -1725,22 +2104,34 @@
                                             ${job.position}
                                             ${isUrgent ? '<span class="urgent-tag"><span class="urgent-dot"></span>Urgent</span>' : ''}
                                         </div>
-                                        <div class="position-school">${job.school}</div>
+                                        <div class="position-school">${job.level}</div>
                                     </div>
                                 </div>
                             </td>
                             <td class="location-cell">${job.location || '—'}</td>
                             <td class="salary-cell">฿${job.salary || '—'}</td>
                             <td class="action-cell">
-                                <a href="${JOBS_APPLY_URL}?position=${encodeURIComponent(job.position)}" class="apply-btn" target="_blank">
-                                    Apply ${jobIcons.arrow}
-                                </a>
+                                <button class="view-details-btn" onclick="openJobModal(window.jobs[${i}])">
+                                    View Details ${jobIcons.arrow}
+                                </button>
                             </td>
                         </tr>`;
                     }).join('');
 
+                    // Store jobs for modal access
+                    window.jobs = jobs;
+
+                    // Add row click handlers and animations
                     setTimeout(() => {
-                        tbody.querySelectorAll('tr').forEach(tr => tr.classList.add('visible'));
+                        const rows = tbody.querySelectorAll('tr');
+                        rows.forEach((tr, idx) => {
+                            tr.classList.add('visible');
+                            tr.addEventListener('click', (e) => {
+                                if (!e.target.closest('.view-details-btn')) {
+                                    openJobModal(jobs[idx]);
+                                }
+                            });
+                        });
                     }, 50);
                 }
 
@@ -1755,6 +2146,116 @@
                 function showJobsError() {
                     document.getElementById('jobs-tbody').innerHTML = `<tr class="empty-row visible"><td colspan="4">Unable to load positions</td></tr>`;
                 }
+
+                // Format salary with commas
+                function formatSalary(salary) {
+                    if (!salary) return 'Negotiable';
+                    if (String(salary).includes(',')) return salary;
+                    return String(salary).replace(/\d+/g, num => parseInt(num).toLocaleString('en-US'));
+                }
+
+                // Modal elements
+                const modal = document.getElementById('job-modal');
+                const modalOverlay = document.getElementById('job-modal-overlay');
+                const modalClose = document.getElementById('job-modal-close');
+
+                function openJobModal(job) {
+                    const { icon, color } = getJobIconConfig(job.position);
+                    const isUrgent = job.urgent === 'yes' || job.urgent === 'Yes';
+
+                    // Header
+                    document.getElementById('job-modal-icon').className = `job-modal-icon icon-${color}`;
+                    document.getElementById('job-modal-icon').innerHTML = jobIcons[icon];
+                    document.getElementById('job-modal-title').textContent = job.position;
+                    document.getElementById('job-modal-school').textContent = job.level;
+                    document.getElementById('job-modal-urgent').style.display = isUrgent ? 'inline-flex' : 'none';
+
+                    // Description
+                    const descSection = document.getElementById('job-modal-desc-section');
+                    if (job.description) {
+                        document.getElementById('job-modal-description').textContent = job.description;
+                        descSection.style.display = 'block';
+                    } else {
+                        descSection.style.display = 'none';
+                    }
+
+                    // Qualifications
+                    const qualSection = document.getElementById('job-modal-qual-section');
+                    if (job.qualifications) {
+                        const quals = job.qualifications.split(';').filter(q => q.trim());
+                        document.getElementById('job-modal-qualifications').innerHTML = quals.map(q => `<li>${q.trim()}</li>`).join('');
+                        qualSection.style.display = 'block';
+                    } else {
+                        qualSection.style.display = 'none';
+                    }
+
+                    // Benefits
+                    const benefitsSection = document.getElementById('job-modal-benefits-section');
+                    if (job.benefits) {
+                        const benefits = job.benefits.split(';').filter(b => b.trim());
+                        document.getElementById('job-modal-benefits').innerHTML = benefits.map(b => `<li>${b.trim()}</li>`).join('');
+                        benefitsSection.style.display = 'block';
+                    } else {
+                        benefitsSection.style.display = 'none';
+                    }
+
+                    // Meta info
+                    document.getElementById('job-modal-location').textContent = job.location || 'Thailand';
+                    document.getElementById('job-modal-salary').textContent = '฿' + formatSalary(job.salary);
+
+                    const hoursItem = document.getElementById('job-modal-hours-item');
+                    if (job.working_hours) {
+                        document.getElementById('job-modal-hours').textContent = job.working_hours;
+                        hoursItem.style.display = 'flex';
+                    } else {
+                        hoursItem.style.display = 'none';
+                    }
+
+                    const startItem = document.getElementById('job-modal-start-item');
+                    if (job.start_date) {
+                        document.getElementById('job-modal-start').textContent = job.start_date;
+                        startItem.style.display = 'flex';
+                    } else {
+                        startItem.style.display = 'none';
+                    }
+
+                    // Apply button
+                    document.getElementById('job-modal-apply').href = `${JOBS_APPLY_URL}?position=${encodeURIComponent(job.position)}`;
+
+                    // Show modal
+                    modalOverlay.classList.add('active');
+                    modal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                    if (typeof lenis !== 'undefined') lenis.stop();
+                }
+
+                function closeJobModal() {
+                    modalOverlay.classList.remove('active');
+                    modal.classList.remove('active');
+                    document.body.style.overflow = '';
+                    if (typeof lenis !== 'undefined') lenis.start();
+                }
+
+                // Event listeners for modal
+                if (modalClose) modalClose.addEventListener('click', closeJobModal);
+                if (modalOverlay) modalOverlay.addEventListener('click', closeJobModal);
+
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape' && modal && modal.classList.contains('active')) {
+                        closeJobModal();
+                    }
+                });
+
+                // Prevent background scroll when modal open
+                document.addEventListener('wheel', (e) => {
+                    if (modal && modal.classList.contains('active')) {
+                        if (modal.contains(e.target)) {
+                            return;
+                        } else {
+                            e.preventDefault();
+                        }
+                    }
+                }, { passive: false });
 
                 // Filter pills functionality
                 document.querySelectorAll('.jobs-section .filter-pill').forEach(btn => {

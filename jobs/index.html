@@ -652,6 +652,377 @@
                         padding: 12px;
                     }
                 }
+
+                /* ========================================
+                   JOB DETAILS MODAL - Apple Style
+                   ======================================== */
+
+                .job-modal-overlay {
+                    position: fixed;
+                    inset: 0;
+                    background: rgba(0, 0, 0, 0.4);
+                    backdrop-filter: blur(8px);
+                    -webkit-backdrop-filter: blur(8px);
+                    z-index: 9999;
+                    opacity: 0;
+                    visibility: hidden;
+                    transition: all 0.4s cubic-bezier(0.32, 0.72, 0, 1);
+                }
+
+                .job-modal-overlay.active {
+                    opacity: 1;
+                    visibility: visible;
+                }
+
+                .job-modal {
+                    position: fixed;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%) scale(0.95);
+                    width: 94%;
+                    max-width: 720px;
+                    max-height: 90vh;
+                    background: #fff;
+                    border-radius: 24px;
+                    box-shadow: 0 25px 80px -20px rgba(0, 0, 0, 0.3),
+                        0 0 0 1px rgba(0, 0, 0, 0.05);
+                    z-index: 10000;
+                    opacity: 0;
+                    visibility: hidden;
+                    transition: all 0.5s cubic-bezier(0.32, 0.72, 0, 1);
+                    display: flex;
+                    flex-direction: column;
+                    overflow: hidden;
+                    overscroll-behavior: contain;
+                }
+
+                .job-modal.active {
+                    opacity: 1;
+                    visibility: visible;
+                    transform: translate(-50%, -50%) scale(1);
+                }
+
+                .job-modal-close {
+                    position: absolute;
+                    top: 16px;
+                    right: 16px;
+                    width: 32px;
+                    height: 32px;
+                    border-radius: 50%;
+                    background: rgba(0, 0, 0, 0.06);
+                    border: none;
+                    cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 18px;
+                    color: #86868b;
+                    transition: all 0.2s ease;
+                    z-index: 10;
+                }
+
+                .job-modal-close:hover {
+                    background: rgba(0, 0, 0, 0.1);
+                    color: #1d1d1f;
+                    transform: scale(1.05);
+                }
+
+                .job-modal-header {
+                    padding: 32px 32px 24px;
+                    display: flex;
+                    align-items: flex-start;
+                    gap: 18px;
+                    border-bottom: 1px solid #f0f0f2;
+                }
+
+                .job-modal-icon {
+                    width: 64px;
+                    height: 64px;
+                    border-radius: 16px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-shrink: 0;
+                }
+
+                .job-modal-icon svg {
+                    width: 32px;
+                    height: 32px;
+                    stroke-width: 1.75;
+                    fill: none;
+                }
+
+                .job-modal-header-info {
+                    flex: 1;
+                    padding-right: 40px;
+                }
+
+                .job-modal-title {
+                    font-size: 1.625rem;
+                    font-weight: 700;
+                    color: #1d1d1f;
+                    margin: 0 0 6px;
+                    letter-spacing: -0.02em;
+                }
+
+                .job-modal-school {
+                    font-size: 1.0625rem;
+                    color: #86868b;
+                    margin: 0;
+                    font-weight: 500;
+                }
+
+                .job-modal-urgent {
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 5px;
+                    padding: 4px 10px;
+                    font-size: 0.6875rem;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    letter-spacing: 0.02em;
+                    color: #fff;
+                    background: linear-gradient(135deg, #ff9500 0%, #ff6b00 100%);
+                    border-radius: 6px;
+                    margin-top: 8px;
+                }
+
+                .job-modal-body {
+                    padding: 28px 32px;
+                    overflow-y: auto;
+                    flex: 1;
+                    -webkit-overflow-scrolling: touch;
+                    overscroll-behavior: contain;
+                }
+
+                .job-modal-section {
+                    margin-bottom: 24px;
+                }
+
+                .job-modal-section:last-child {
+                    margin-bottom: 0;
+                }
+
+                .job-modal-section-title {
+                    font-size: 0.8125rem;
+                    font-weight: 600;
+                    text-transform: uppercase;
+                    letter-spacing: 0.05em;
+                    color: #86868b;
+                    margin: 0 0 12px;
+                }
+
+                .job-modal-description {
+                    font-size: 1.0625rem;
+                    color: #1d1d1f;
+                    line-height: 1.7;
+                    margin: 0;
+                }
+
+                .job-modal-list {
+                    list-style: none;
+                    padding: 0;
+                    margin: 0;
+                }
+
+                .job-modal-list li {
+                    position: relative;
+                    padding-left: 22px;
+                    font-size: 1rem;
+                    color: #1d1d1f;
+                    line-height: 1.7;
+                    margin-bottom: 10px;
+                }
+
+                .job-modal-list li::before {
+                    content: "";
+                    position: absolute;
+                    left: 0;
+                    top: 10px;
+                    width: 6px;
+                    height: 6px;
+                    border-radius: 50%;
+                    background: linear-gradient(135deg, #0077ed 0%, #0066cc 100%);
+                }
+
+                .job-modal-list.benefits li::before {
+                    background: linear-gradient(135deg, #34c759 0%, #30b855 100%);
+                }
+
+                .job-modal-list li:last-child {
+                    margin-bottom: 0;
+                }
+
+                .job-modal-meta {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 16px;
+                    padding: 18px 20px;
+                    background: #f5f5f7;
+                    border-radius: 14px;
+                    margin-top: 24px;
+                }
+
+                .job-modal-meta-item {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    font-size: 0.9375rem;
+                    color: #1d1d1f;
+                    font-weight: 500;
+                }
+
+                .job-modal-meta-item i {
+                    font-size: 1rem;
+                    color: #0066cc;
+                }
+
+                .job-modal-footer {
+                    padding: 20px 28px 24px;
+                    border-top: 1px solid #f0f0f2;
+                    background: linear-gradient(180deg, #fafafa 0%, #fff 100%);
+                }
+
+                .job-modal-apply-btn {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 8px;
+                    width: 100%;
+                    padding: 14px 24px;
+                    font-size: 1rem;
+                    font-weight: 600;
+                    color: #fff;
+                    background: linear-gradient(135deg, #0077ed 0%, #0066cc 100%);
+                    border: none;
+                    border-radius: 12px;
+                    cursor: pointer;
+                    text-decoration: none;
+                    transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+                }
+
+                .job-modal-apply-btn:hover {
+                    background: linear-gradient(135deg, #0088ff 0%, #0077ed 100%);
+                    transform: translateY(-2px);
+                    box-shadow: 0 8px 24px rgba(0, 102, 204, 0.35);
+                }
+
+                .job-modal-apply-btn svg {
+                    width: 16px;
+                    height: 16px;
+                    stroke: currentColor;
+                    stroke-width: 2.5;
+                    fill: none;
+                }
+
+                /* Modal mobile optimization */
+                @media (max-width: 640px) {
+                    .job-modal {
+                        width: 95%;
+                        max-height: 90vh;
+                        border-radius: 16px;
+                    }
+
+                    .job-modal-header {
+                        padding: 20px 20px 16px;
+                    }
+
+                    .job-modal-icon {
+                        width: 48px;
+                        height: 48px;
+                    }
+
+                    .job-modal-icon svg {
+                        width: 24px;
+                        height: 24px;
+                    }
+
+                    .job-modal-title {
+                        font-size: 1.125rem;
+                    }
+
+                    .job-modal-body {
+                        padding: 20px;
+                    }
+
+                    .job-modal-footer {
+                        padding: 16px 20px 20px;
+                    }
+
+                    .job-modal-meta {
+                        flex-direction: column;
+                        gap: 8px;
+                    }
+                }
+
+                /* Row hover cursor for clickable */
+                .jobs-table tbody tr {
+                    cursor: pointer;
+                }
+
+                .jobs-table tbody tr:active {
+                    background: #f0f7ff;
+                }
+
+                /* View Details Button */
+                .view-details-btn {
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 6px;
+                    padding: 8px 16px;
+                    font-size: 0.8125rem;
+                    font-weight: 600;
+                    color: #0066cc;
+                    background: linear-gradient(135deg, #e8f4ff 0%, #dbeafe 100%);
+                    border: 1px solid rgba(0, 102, 204, 0.15);
+                    border-radius: 980px;
+                    cursor: pointer;
+                    transition: all 0.25s cubic-bezier(0.25, 0.1, 0.25, 1);
+                    text-decoration: none;
+                }
+
+                .view-details-btn:hover {
+                    background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+                    transform: translateY(-1px);
+                    box-shadow: 0 4px 12px rgba(0, 102, 204, 0.2);
+                }
+
+                .view-details-btn svg {
+                    width: 14px;
+                    height: 14px;
+                    stroke: currentColor;
+                    stroke-width: 2;
+                    fill: none;
+                    transition: transform 0.2s;
+                }
+
+                .view-details-btn:hover svg {
+                    transform: translateX(2px);
+                }
+
+                /* Animated pulse dot for "click to view" hint */
+                .view-details-btn::before {
+                    content: "";
+                    width: 6px;
+                    height: 6px;
+                    background: #0066cc;
+                    border-radius: 50%;
+                    animation: pulse-hint 2s ease-in-out infinite;
+                }
+
+                @keyframes pulse-hint {
+
+                    0%,
+                    100% {
+                        opacity: 1;
+                        transform: scale(1);
+                    }
+
+                    50% {
+                        opacity: 0.5;
+                        transform: scale(1.3);
+                    }
+                }
             </style>
 
             <!-- Header -->
@@ -699,24 +1070,138 @@
                 </div>
             </div>
 
+            <!-- Job Details Modal -->
+            <div id="job-modal-overlay" class="job-modal-overlay"></div>
+            <div id="job-modal" class="job-modal" data-lenis-prevent>
+                <button id="job-modal-close" class="job-modal-close">&times;</button>
+                <div class="job-modal-header">
+                    <div id="job-modal-icon" class="job-modal-icon"></div>
+                    <div class="job-modal-header-info">
+                        <h2 id="job-modal-title" class="job-modal-title"></h2>
+                        <p id="job-modal-school" class="job-modal-school"></p>
+                        <div id="job-modal-urgent" class="job-modal-urgent" style="display: none;">
+                            <span style="width:5px;height:5px;background:#fff;border-radius:50%;"></span>
+                            Urgent
+                        </div>
+                    </div>
+                </div>
+                <div class="job-modal-body" data-lenis-prevent>
+                    <div id="job-modal-desc-section" class="job-modal-section">
+                        <h3 class="job-modal-section-title">About This Position</h3>
+                        <p id="job-modal-description" class="job-modal-description"></p>
+                    </div>
+                    <div id="job-modal-qual-section" class="job-modal-section">
+                        <h3 class="job-modal-section-title">Qualifications</h3>
+                        <ul id="job-modal-qualifications" class="job-modal-list"></ul>
+                    </div>
+                    <div id="job-modal-benefits-section" class="job-modal-section">
+                        <h3 class="job-modal-section-title">Benefits & Package</h3>
+                        <ul id="job-modal-benefits" class="job-modal-list benefits"></ul>
+                    </div>
+                    <div id="job-modal-meta" class="job-modal-meta">
+                        <div class="job-modal-meta-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span id="job-modal-location"></span>
+                        </div>
+                        <div class="job-modal-meta-item">
+                            <i class="fas fa-coins"></i>
+                            <span id="job-modal-salary"></span>
+                        </div>
+                        <div id="job-modal-hours-item" class="job-modal-meta-item">
+                            <i class="fas fa-clock"></i>
+                            <span id="job-modal-hours"></span>
+                        </div>
+                        <div id="job-modal-start-item" class="job-modal-meta-item">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span id="job-modal-start"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="job-modal-footer">
+                    <a id="job-modal-apply" class="job-modal-apply-btn" href="#">
+                        Apply Now
+                        <svg viewBox="0 0 24 24">
+                            <path d="M5 12h14" />
+                            <path d="m12 5 7 7-7 7" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
             <script>
                 // Jobs Table Configuration
                 const JOBS_SHEET_ID = '1daBA8-R-BCERBg55JjuIwp4tcshaR2df2FgCwXq4wbA';
                 const JOBS_SHEET_NAME = 'Jobs';
                 const JOBS_APPLY_URL = '../apply-now/';
 
+                // Format salary with commas (handles ranges like "35000 – 45000" or "35,000 – 45,000")
+                function formatSalary(salary) {
+                    if (!salary) return 'Negotiable';
+                    // If already has commas, return as is
+                    if (String(salary).includes(',')) return salary;
+                    // Format numbers with commas
+                    return String(salary).replace(/\d+/g, num => {
+                        return parseInt(num).toLocaleString('en-US');
+                    });
+                }
+
                 // Icons for job positions
                 const jobIcons = {
-                    book: `<svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>`,
-                    calculator: `<svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="8" y2="10.01"/><line x1="12" y1="10" x2="12" y2="10.01"/><line x1="16" y1="10" x2="16" y2="10.01"/><line x1="8" y1="14" x2="8" y2="14.01"/><line x1="12" y1="14" x2="12" y2="14.01"/><line x1="16" y1="14" x2="16" y2="14.01"/><line x1="8" y1="18" x2="8" y2="18.01"/><line x1="12" y1="18" x2="16" y2="18"/></svg>`,
-                    flask: `<svg viewBox="0 0 24 24"><path d="M9 3h6v2H9z"/><path d="M10 5v6.5L4.5 20a1 1 0 0 0 .9 1.4h13.2a1 1 0 0 0 .9-1.4L14 11.5V5"/><path d="M8.5 14h7"/></svg>`,
-                    fitness: `<svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>`,
-                    paintbrush: `<svg viewBox="0 0 24 24"><path d="M18.37 2.63L14 7l-1.59-1.59a2 2 0 0 0-2.82 0L8 7l9 9 1.59-1.59a2 2 0 0 0 0-2.82L17 10l4.37-4.37a2.12 2.12 0 1 0-3-3z"/><path d="M9 8c-2 3-4 3.5-7 4l8 10c2-1 6-5 6-7"/></svg>`,
-                    music: `<svg viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>`,
-                    laptop: `<svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="2" y1="20" x2="22" y2="20"/></svg>`,
-                    globe: `<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>`,
-                    person: `<svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21v-2a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v2"/></svg>`,
-                    arrow: `<svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>`
+                    book: `<svg viewBox="0 0 24 24">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+            </svg>`,
+                    calculator: `<svg viewBox="0 0 24 24">
+                <rect x="4" y="2" width="16" height="20" rx="2" />
+                <line x1="8" y1="6" x2="16" y2="6" />
+                <line x1="8" y1="10" x2="8" y2="10.01" />
+                <line x1="12" y1="10" x2="12" y2="10.01" />
+                <line x1="16" y1="10" x2="16" y2="10.01" />
+                <line x1="8" y1="14" x2="8" y2="14.01" />
+                <line x1="12" y1="14" x2="12" y2="14.01" />
+                <line x1="16" y1="14" x2="16" y2="14.01" />
+                <line x1="8" y1="18" x2="8" y2="18.01" />
+                <line x1="12" y1="18" x2="16" y2="18" />
+            </svg>`,
+                    flask: `<svg viewBox="0 0 24 24">
+                <path d="M9 3h6v2H9z" />
+                <path d="M10 5v6.5L4.5 20a1 1 0 0 0 .9 1.4h13.2a1 1 0 0 0 .9-1.4L14 11.5V5" />
+                <path d="M8.5 14h7" />
+            </svg>`,
+                    fitness: `<svg viewBox="0 0 24 24">
+                <path d="M18 8h1a4 4 0 0 1 0 8h-1" />
+                <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" />
+                <line x1="6" y1="1" x2="6" y2="4" />
+                <line x1="10" y1="1" x2="10" y2="4" />
+                <line x1="14" y1="1" x2="14" y2="4" />
+            </svg>`,
+                    paintbrush: `<svg viewBox="0 0 24 24">
+                <path
+                    d="M18.37 2.63L14 7l-1.59-1.59a2 2 0 0 0-2.82 0L8 7l9 9 1.59-1.59a2 2 0 0 0 0-2.82L17 10l4.37-4.37a2.12 2.12 0 1 0-3-3z" />
+                <path d="M9 8c-2 3-4 3.5-7 4l8 10c2-1 6-5 6-7" />
+            </svg>`,
+                    music: `<svg viewBox="0 0 24 24">
+                <path d="M9 18V5l12-2v13" />
+                <circle cx="6" cy="18" r="3" />
+                <circle cx="18" cy="16" r="3" />
+            </svg>`,
+                    laptop: `<svg viewBox="0 0 24 24">
+                <rect x="2" y="3" width="20" height="14" rx="2" />
+                <line x1="2" y1="20" x2="22" y2="20" />
+            </svg>`,
+                    globe: `<svg viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10" />
+                <path d="M2 12h20" />
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+            </svg>`,
+                    person: `<svg viewBox="0 0 24 24">
+                <circle cx="12" cy="8" r="4" />
+                <path d="M4 21v-2a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v2" />
+            </svg>`,
+                    arrow: `<svg viewBox="0 0 24 24">
+                <path d="M5 12h14" />
+                <path d="m12 5 7 7-7 7" />
+            </svg>`
                 };
 
                 const jobIconConfig = {
@@ -812,15 +1297,20 @@
                 async function fetchJobsData() {
                     // Add timestamp to prevent Google Sheets API caching
                     const cacheBust = Date.now();
-                    const url = `https://docs.google.com/spreadsheets/d/${JOBS_SHEET_ID}/gviz/tq?tqx=out:json&sheet=${JOBS_SHEET_NAME}&headers=1&_=${cacheBust}`;
+                    const url =
+                        `https://docs.google.com/spreadsheets/d/${JOBS_SHEET_ID}/gviz/tq?tqx=out:json&sheet=${JOBS_SHEET_NAME}&headers=1&_=${cacheBust}`;
                     try {
                         const res = await fetch(url, { cache: 'no-store' });
                         const text = await res.text();
-                        const json = text.match(/google\.visualization\.Query\.setResponse\(([\s\S]*?)\);/)[1];
+                        // Safer way to extract JSON - find first ( and last )
+                        const start = text.indexOf('(') + 1;
+                        const end = text.lastIndexOf(')');
+                        const json = text.substring(start, end);
                         const data = JSON.parse(json);
 
-                        // Use fixed column order: position, school, location, salary, urgent, status
-                        const headers = ['position', 'school', 'location', 'salary', 'urgent', 'status'];
+                        // Column order: position, level, location, salary, urgent, status, description, qualifications, benefits, working_hours, start_date
+                        const headers = ['position', 'level', 'location', 'salary', 'urgent', 'status', 'description',
+                            'qualifications', 'benefits', 'working_hours', 'start_date'];
 
                         allJobsData = data.table.rows.map((row, i) => {
                             const job = { id: i + 1 };
@@ -832,11 +1322,20 @@
                             return job;
                         }).filter(j => j.status && (j.status.toLowerCase() === 'active'));
 
+                        console.log('Jobs loaded:', allJobsData.length, allJobsData);
                         renderJobs(allJobsData);
                     } catch (e) {
                         console.error('Jobs fetch error:', e);
                         showJobsError();
                     }
+                }
+
+                function showJobsError() {
+                    const tbody = document.getElementById('jobs-tbody');
+                    document.getElementById('jobs-count').textContent = '0';
+                    tbody.innerHTML = `<tr class="empty-row visible">
+                        <td colspan="4">Unable to load positions. Please try again later.</td>
+                    </tr>`;
                 }
 
                 function renderJobs(jobs) {
@@ -847,7 +1346,9 @@
                     scrollHint.classList.toggle('show', jobs.length > 6);
 
                     if (!jobs.length) {
-                        tbody.innerHTML = `<tr class="empty-row visible"><td colspan="4">No positions available</td></tr>`;
+                        tbody.innerHTML = `<tr class="empty-row visible">
+                <td colspan="4">No positions available</td>
+            </tr>`;
                         return;
                     }
 
@@ -855,31 +1356,49 @@
                         const isUrgent = job.urgent === 'yes' || job.urgent === 'Yes';
                         const { icon, color } = getJobIconConfig(job.position);
                         return `
-                        <tr style="transition-delay: ${i * 0.04}s" data-loc="${job.location}" data-urg="${job.urgent}">
-                            <td>
-                                <div class="position-cell">
-                                    <div class="position-icon icon-${color}">${jobIcons[icon]}</div>
-                                    <div class="position-info">
-                                        <div class="position-title">
-                                            ${job.position}
-                                            ${isUrgent ? '<span class="urgent-tag"><span class="urgent-dot"></span>Urgent</span>' : ''}
-                                        </div>
-                                        <div class="position-school">${job.school}</div>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="location-cell">${job.location || '—'}</td>
-                            <td class="salary-cell">฿${job.salary || '—'}</td>
-                            <td class="action-cell">
-                                <a href="${JOBS_APPLY_URL}?position=${encodeURIComponent(job.position)}" class="apply-btn">
-                                    Apply ${jobIcons.arrow}
-                                </a>
-                            </td>
-                        </tr>`;
+            <tr style="transition-delay: ${i * 0.04}s" data-index="${i}" data-loc="${job.location}"
+                data-urg="${job.urgent}">
+                <td>
+                    <div class="position-cell">
+                        <div class="position-icon icon-${color}">${jobIcons[icon]}</div>
+                        <div class="position-info">
+                            <div class="position-title">
+                                ${job.position}
+                                ${isUrgent ? '<span class="urgent-tag"><span class="urgent-dot"></span>Urgent</span>' :
+                                ''}
+                            </div>
+                            <div class="position-school">${job.level}</div>
+                        </div>
+                    </div>
+                </td>
+                <td class="location-cell">${job.location || '—'}</td>
+                <td class="salary-cell">฿${formatSalary(job.salary)}</td>
+                <td class="action-cell">
+                    <button class="view-details-btn" onclick="event.stopPropagation(); openJobModal(jobs[${i}]);">
+                        View Details
+                        <svg viewBox="0 0 24 24">
+                            <path d="M5 12h14" />
+                            <path d="m12 5 7 7-7 7" />
+                        </svg>
+                    </button>
+                </td>
+            </tr>`;
                     }).join('');
 
+                    // Store jobs reference for button onclick
+                    window.jobs = jobs;
+
+                    // Add click handlers for rows
                     setTimeout(() => {
-                        tbody.querySelectorAll('tr').forEach(tr => tr.classList.add('visible'));
+                        const rows = tbody.querySelectorAll('tr');
+                        rows.forEach((tr, idx) => {
+                            tr.classList.add('visible');
+                            tr.addEventListener('click', (e) => {
+                                if (!e.target.closest('.view-details-btn')) {
+                                    openJobModal(jobs[idx]);
+                                }
+                            });
+                        });
                     }, 50);
                 }
 
@@ -892,7 +1411,9 @@
                 }
 
                 function showJobsError() {
-                    document.getElementById('jobs-tbody').innerHTML = `<tr class="empty-row visible"><td colspan="4">Unable to load positions</td></tr>`;
+                    document.getElementById('jobs-tbody').innerHTML = `<tr class="empty-row visible">
+                <td colspan="4">Unable to load positions</td>
+            </tr>`;
                 }
 
                 // Filter pills functionality
@@ -904,33 +1425,171 @@
                         const f = btn.dataset.filter;
                         let filtered = allJobsData;
                         if (f === 'urgent') filtered = allJobsData.filter(j => j.urgent === 'yes' || j.urgent === 'Yes');
-                        else if (f === 'bangkok') filtered = allJobsData.filter(j => (j.location || '').toLowerCase().includes('bangkok'));
-                        else if (f === 'other') filtered = allJobsData.filter(j => !(j.location || '').toLowerCase().includes('bangkok'));
+                        else if (f === 'bangkok') filtered = allJobsData.filter(j => (j.location ||
+                            '').toLowerCase().includes('bangkok'));
+                        else if (f === 'other') filtered = allJobsData.filter(j => !(j.location ||
+                            '').toLowerCase().includes('bangkok'));
 
                         renderJobs(filtered);
                     };
                 });
 
-                // Demo Data for testing
+                // Demo Data for testing (with new columns)
                 function loadJobsDemo() {
                     allJobsData = [
-                        { position: "English Teacher", school: "Satit Bilingual School", location: "Bangkok", salary: "35,000 – 45,000", urgent: "yes", status: "active" },
-                        { position: "Mathematics Teacher", school: "International Academy", location: "Chiang Mai", salary: "32,000 – 40,000", urgent: "no", status: "active" },
-                        { position: "Science Teacher", school: "Bangkok Christian College", location: "Bangkok", salary: "38,000 – 48,000", urgent: "yes", status: "active" },
-                        { position: "PE Teacher", school: "Phuket International School", location: "Phuket", salary: "30,000 – 38,000", urgent: "no", status: "active" },
-                        { position: "Art Teacher", school: "Creative Academy", location: "Bangkok", salary: "28,000 – 35,000", urgent: "no", status: "active" },
-                        { position: "Music Teacher", school: "Harmony School", location: "Pattaya", salary: "30,000 – 38,000", urgent: "yes", status: "active" },
-                        { position: "Computer Teacher", school: "Tech Academy", location: "Bangkok", salary: "35,000 – 42,000", urgent: "no", status: "active" },
-                        { position: "Chinese Teacher", school: "Bilingual School", location: "Chiang Rai", salary: "32,000 – 40,000", urgent: "no", status: "active" },
-                        { position: "Physics Teacher", school: "Science Academy", location: "Bangkok", salary: "36,000 – 44,000", urgent: "yes", status: "active" },
-                        { position: "French Teacher", school: "Language Center", location: "Pattaya", salary: "33,000 – 41,000", urgent: "no", status: "active" },
+                        { position: "English Teacher", level: "Primary", location: "Bangkok", salary: "35000 – 45000", urgent: "yes", status: "active", description: "Teach English to K-12 students using modern teaching methods and curriculum. Work with Thai co-teachers in a supportive bilingual environment.", qualifications: "Bachelor's degree (any field);Native English speaker or equivalent;TEFL/TESOL certificate preferred;Passion for education", benefits: "Visa sponsorship;Work permit assistance;Health insurance;Paid vacation (Thai holidays);Free lunch on campus;Professional development", working_hours: "Mon-Fri 8:00-16:00", start_date: "Immediate" },
+                        { position: "Mathematics Teacher", level: "Secondary", location: "Chiang Mai", salary: "32000 – 40000", urgent: "no", status: "active", description: "Deliver engaging mathematics lessons for primary and secondary students. Prepare lesson plans and assessments aligned with international standards.", qualifications: "Bachelor's degree in Mathematics or Education;Teaching experience preferred;Strong communication skills", benefits: "Visa sponsorship;Work permit assistance;Health insurance;Annual bonus;Housing allowance", working_hours: "Mon-Fri 7:30-15:30", start_date: "May 2026" },
+                        { position: "Science Teacher", level: "Secondary", location: "Bangkok", salary: "38000 – 48000", urgent: "yes", status: "active", description: "Teach integrated science and conduct lab sessions for secondary students. Develop hands-on experiments and STEM activities.", qualifications: "Bachelor's degree in Science or related field;Lab experience preferred;Creative teaching approach", benefits: "Visa sponsorship;Work permit assistance;Health insurance;Paid vacation;Annual performance bonus;Flight allowance", working_hours: "Mon-Fri 8:00-16:00", start_date: "Immediate" },
+                        { position: "PE Teacher", level: "Primary", location: "Phuket", salary: "30000 – 38000", urgent: "no", status: "active", description: "Lead physical education classes and sports activities. Organize inter-school competitions and coach student teams.", qualifications: "Bachelor's degree in Physical Education or Sports Science;Coaching experience preferred;First aid certification a plus", benefits: "Visa sponsorship;Work permit assistance;Health insurance;Gym membership;Sports equipment provided", working_hours: "Mon-Fri 7:30-15:30", start_date: "August 2026" },
+                        { position: "Art Teacher", level: "Primary", location: "Bangkok", salary: "28000 – 35000", urgent: "no", status: "active", description: "Inspire creativity through visual arts education. Teach drawing, painting, and digital art to various grade levels.", qualifications: "Bachelor's degree in Fine Arts or Art Education;Portfolio of work;Experience with children", benefits: "Visa sponsorship;Work permit assistance;Health insurance;Art supplies provided;Exhibition opportunities", working_hours: "Mon-Fri 8:00-16:00", start_date: "May 2026" },
+                        { position: "Music Teacher", level: "Secondary", location: "Pattaya", salary: "30000 – 38000", urgent: "yes", status: "active", description: "Teach music theory and practical instruments. Direct school choir and organize music performances.", qualifications: "Bachelor's degree in Music or Music Education;Proficiency in multiple instruments;Performance experience", benefits: "Visa sponsorship;Work permit assistance;Health insurance;Instrument provided;Concert tickets", working_hours: "Mon-Fri 8:00-16:00", start_date: "Immediate" },
+                        { position: "Computer Teacher", level: "Secondary", location: "Bangkok", salary: "35000 – 42000", urgent: "no", status: "active", description: "Teach computer science and programming fundamentals. Guide students in coding projects and digital literacy.", qualifications: "Bachelor's degree in Computer Science or IT;Programming skills (Python/JavaScript);Patient teaching style", benefits: "Visa sponsorship;Work permit assistance;Health insurance;Laptop provided;Tech conference attendance", working_hours: "Mon-Fri 8:00-16:00", start_date: "May 2026" },
+                        { position: "Chinese Teacher", level: "Primary", location: "Chiang Rai", salary: "32000 – 40000", urgent: "no", status: "active", description: "Teach Mandarin Chinese language and culture. Prepare students for HSK examinations.", qualifications: "Bachelor's degree;Native Mandarin speaker or HSK 6;Teaching certification preferred", benefits: "Visa sponsorship;Work permit assistance;Health insurance;Housing support;Cultural exchange opportunities", working_hours: "Mon-Fri 7:30-15:30", start_date: "August 2026" },
+                        { position: "Physics Teacher", level: "Secondary", location: "Bangkok", salary: "36000 – 44000", urgent: "yes", status: "active", description: "Teach physics with hands-on experiments and real-world applications. Prepare students for university entrance exams.", qualifications: "Bachelor's degree in Physics or Engineering;Lab experience;Exam preparation experience", benefits: "Visa sponsorship;Work permit assistance;Health insurance;Research opportunities;Annual bonus", working_hours: "Mon-Fri 8:00-16:00", start_date: "Immediate" },
+                        { position: "French Teacher", level: "Secondary", location: "Pattaya", salary: "33000 – 41000", urgent: "no", status: "active", description: "Teach French language from beginner to advanced levels. Prepare students for DELF/DALF examinations.", qualifications: "Bachelor's degree;Native French speaker or C2 level;DELF examiner certification a plus", benefits: "Visa sponsorship;Work permit assistance;Health insurance;Cultural events;Language exchange programs", working_hours: "Mon-Fri 8:30-16:30", start_date: "May 2026" }
                     ];
                     renderJobs(allJobsData);
                 }
 
+                // ========================================
+                // JOB MODAL FUNCTIONS
+                // ========================================
+
+                const modalOverlay = document.getElementById('job-modal-overlay');
+                const modal = document.getElementById('job-modal');
+                const modalClose = document.getElementById('job-modal-close');
+
+                function openJobModal(job) {
+                    const { icon, color } = getJobIconConfig(job.position);
+                    const isUrgent = job.urgent === 'yes' || job.urgent === 'Yes';
+
+                    // Header
+                    document.getElementById('job-modal-icon').className = `job-modal-icon icon-${color}`;
+                    document.getElementById('job-modal-icon').innerHTML = jobIcons[icon];
+                    document.getElementById('job-modal-title').textContent = job.position;
+                    document.getElementById('job-modal-school').textContent = job.level;
+                    document.getElementById('job-modal-urgent').style.display = isUrgent ? 'inline-flex' : 'none';
+
+                    // Description
+                    const descSection = document.getElementById('job-modal-desc-section');
+                    if (job.description) {
+                        document.getElementById('job-modal-description').textContent = job.description;
+                        descSection.style.display = 'block';
+                    } else {
+                        descSection.style.display = 'none';
+                    }
+
+                    // Qualifications
+                    const qualSection = document.getElementById('job-modal-qual-section');
+                    if (job.qualifications) {
+                        const quals = job.qualifications.split(';').filter(q => q.trim());
+                        document.getElementById('job-modal-qualifications').innerHTML = quals.map(q => `<li>${q.trim()}</li>
+            `).join('');
+                        qualSection.style.display = 'block';
+                    } else {
+                        qualSection.style.display = 'none';
+                    }
+
+                    // Benefits
+                    const benefitsSection = document.getElementById('job-modal-benefits-section');
+                    if (job.benefits) {
+                        const benefits = job.benefits.split(';').filter(b => b.trim());
+                        document.getElementById('job-modal-benefits').innerHTML = benefits.map(b => `<li>${b.trim()}</li>
+            `).join('');
+                        benefitsSection.style.display = 'block';
+                    } else {
+                        benefitsSection.style.display = 'none';
+                    }
+
+                    // Meta info
+                    document.getElementById('job-modal-location').textContent = job.location || 'Thailand';
+                    document.getElementById('job-modal-salary').textContent = '฿' + formatSalary(job.salary);
+
+                    const hoursItem = document.getElementById('job-modal-hours-item');
+                    if (job.working_hours) {
+                        document.getElementById('job-modal-hours').textContent = job.working_hours;
+                        hoursItem.style.display = 'flex';
+                    } else {
+                        hoursItem.style.display = 'none';
+                    }
+
+                    const startItem = document.getElementById('job-modal-start-item');
+                    if (job.start_date) {
+                        document.getElementById('job-modal-start').textContent = job.start_date;
+                        startItem.style.display = 'flex';
+                    } else {
+                        startItem.style.display = 'none';
+                    }
+
+                    // Apply button
+                    document.getElementById('job-modal-apply').href =
+                        `${JOBS_APPLY_URL}?position=${encodeURIComponent(job.position)}`;
+
+                    // Show modal with animation
+                    modalOverlay.classList.add('active');
+                    modal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                    // Stop Lenis smooth scroll if available
+                    if (typeof lenis !== 'undefined') lenis.stop();
+                }
+
+                function closeJobModal() {
+                    modalOverlay.classList.remove('active');
+                    modal.classList.remove('active');
+                    document.body.style.overflow = '';
+                    // Resume Lenis smooth scroll if available
+                    if (typeof lenis !== 'undefined') lenis.start();
+                }
+
+                // Event listeners for closing modal
+                if (modalClose) modalClose.addEventListener('click', closeJobModal);
+                if (modalOverlay) modalOverlay.addEventListener('click', closeJobModal);
+
+                // Close on ESC key
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape' && modal && modal.classList.contains('active')) {
+                        closeJobModal();
+                    }
+                });
+
+                // Prevent background scrolling when modal is open - but allow scroll inside modal
+                document.addEventListener('wheel', (e) => {
+                    if (modal && modal.classList.contains('active')) {
+                        // Allow scrolling inside the entire modal
+                        if (modal.contains(e.target)) {
+                            // Let modal content scroll naturally - don't prevent
+                            return;
+                        } else {
+                            // Prevent scrolling outside modal (on overlay/background)
+                            e.preventDefault();
+                        }
+                    }
+                }, { passive: false });
+
                 // Initialize Jobs Table
                 document.addEventListener('DOMContentLoaded', () => {
                     JOBS_SHEET_ID === 'YOUR_GOOGLE_SHEET_ID_HERE' ? loadJobsDemo() : fetchJobsData();
+
+                    // Scroll passthrough for jobs table - when at top/bottom, let page scroll
+                    const tableScroll = document.querySelector('.jobs-section .table-scroll');
+                    if (tableScroll) {
+                        tableScroll.addEventListener('wheel', (e) => {
+                            const { scrollTop, scrollHeight, clientHeight } = tableScroll;
+                            const isAtTop = scrollTop <= 0;
+                            const isAtBottom = scrollTop + clientHeight >= scrollHeight - 1;
+
+                            // If at top and scrolling up, or at bottom and scrolling down, let the page scroll
+                            if ((isAtTop && e.deltaY < 0) || (isAtBottom && e.deltaY > 0)) {
+                                // Remove data-lenis-prevent temporarily
+                                tableScroll.removeAttribute('data-lenis-prevent');
+                            } else {
+                                // Re-add data-lenis-prevent to capture scroll
+                                if (!tableScroll.hasAttribute('data-lenis-prevent')) {
+                                    tableScroll.setAttribute('data-lenis-prevent', '');
+                                }
+                            }
+                        }, { passive: true });
+                    }
                 });
             </script>
         </section>
