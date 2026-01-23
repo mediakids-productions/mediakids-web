@@ -2109,7 +2109,7 @@
                                 </div>
                             </td>
                             <td class="location-cell">${job.location || '—'}</td>
-                            <td class="salary-cell">฿${job.salary || '—'}</td>
+                            <td class="salary-cell">฿${formatSalary(job.salary)}</td>
                             <td class="action-cell">
                                 <button class="view-details-btn" onclick="openJobModal(window.jobs[${i}])">
                                     View Details ${jobIcons.arrow}
