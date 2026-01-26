@@ -36,6 +36,33 @@
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="../../../css/style.css?v=1.0.2">
 
+    <!-- Early Auth Check - Prevents password overlay flash and dark footer flash -->
+    <script>
+        (function () {
+            // Allow force reset via URL parameter ?reset=1
+            if (new URLSearchParams(window.location.search).has('reset')) {
+                sessionStorage.removeItem('ecd_authenticated');
+                console.log('[ECD] Session reset via URL parameter');
+                window.location.href = window.location.pathname;
+                return;
+            }
+
+            var isAuthenticated = sessionStorage.getItem('ecd_authenticated') === 'true';
+            console.log('[ECD] Auth check - isAuthenticated:', isAuthenticated);
+            console.log('[ECD] sessionStorage value:', sessionStorage.getItem('ecd_authenticated'));
+
+            if (isAuthenticated) {
+                // Hide password overlay immediately before render
+                console.log('[ECD] User is authenticated - hiding overlay');
+                document.write('<style>#password-overlay{display:none !important;}</style>');
+            } else {
+                // Show overlay, hide protected content AND footer if not authenticated
+                console.log('[ECD] User NOT authenticated - showing login overlay');
+                document.write('<style id="ecd-hide-content">#protected-content{display:none !important;}#shared-footer{display:none !important;}</style>');
+            }
+        })();
+    </script>
+
     <style>
         /* ========================================
            LIQUID GLASS DESIGN - ECD RESOURCES
@@ -321,7 +348,7 @@
         /* Hero Section */
         .hero-section {
             text-align: center;
-            padding: 100px 24px 60px;
+            padding: 80px 24px 40px;
             position: relative;
         }
 
@@ -442,8 +469,8 @@
         .level-selector {
             display: flex;
             justify-content: center;
-            gap: 24px;
-            padding: 60px 24px 80px;
+            gap: 32px;
+            padding: 50px 24px 80px;
             transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
             max-height: 500px;
         }
@@ -461,12 +488,12 @@
         /* Large Level Cards */
         .level-card {
             position: relative;
-            width: 200px;
-            padding: 40px 24px;
+            width: 280px;
+            padding: 50px 32px;
             background: linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.5) 100%);
             backdrop-filter: blur(40px) saturate(200%);
             -webkit-backdrop-filter: blur(40px) saturate(200%);
-            border-radius: 32px;
+            border-radius: 36px;
             border: 1px solid rgba(255, 255, 255, 0.7);
             box-shadow: 0 16px 48px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.9);
             cursor: pointer;
@@ -512,14 +539,14 @@
         }
 
         .level-card-icon {
-            width: 72px;
-            height: 72px;
-            margin: 0 auto 20px;
-            border-radius: 20px;
+            width: 90px;
+            height: 90px;
+            margin: 0 auto 24px;
+            border-radius: 24px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 32px;
+            font-size: 40px;
             position: relative;
         }
 
@@ -550,15 +577,15 @@
         }
 
         .level-card-title {
-            font-size: 1.25rem;
+            font-size: 1.5rem;
             font-weight: 700;
             color: #1d1d1f;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             letter-spacing: -0.02em;
         }
 
         .level-card-subtitle {
-            font-size: 0.875rem;
+            font-size: 1rem;
             color: #6b7280;
             font-weight: 500;
         }
@@ -593,50 +620,67 @@
             pointer-events: auto;
         }
 
-        /* Resource cards stagger animation */
+        /* Resource cards stagger animation - Uses transitions for smooth enter/exit */
         .resource-card {
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(20px) scale(0.98);
+            transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
+        /* Staggered transition delays for enter - faster */
         .content-area.visible .resource-card {
-            animation: cardReveal 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            opacity: 1;
+            transform: translateY(0) scale(1);
         }
 
         .content-area.visible .resource-card:nth-child(1) {
-            animation-delay: 0.1s;
+            transition-delay: 0.02s;
         }
 
         .content-area.visible .resource-card:nth-child(2) {
-            animation-delay: 0.2s;
+            transition-delay: 0.04s;
         }
 
         .content-area.visible .resource-card:nth-child(3) {
-            animation-delay: 0.3s;
+            transition-delay: 0.06s;
         }
 
         .content-area.visible .resource-card:nth-child(4) {
-            animation-delay: 0.4s;
+            transition-delay: 0.08s;
         }
 
         .content-area.visible .resource-card:nth-child(5) {
-            animation-delay: 0.5s;
+            transition-delay: 0.1s;
         }
 
         .content-area.visible .resource-card:nth-child(6) {
-            animation-delay: 0.6s;
+            transition-delay: 0.12s;
         }
 
-        @keyframes cardReveal {
-            from {
-                opacity: 0;
-                transform: translateY(30px) scale(0.95);
-            }
+        /* Exit animation - faster reverse stagger */
+        .content-area:not(.visible) .resource-card:nth-child(1) {
+            transition-delay: 0.06s;
+        }
 
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
+        .content-area:not(.visible) .resource-card:nth-child(2) {
+            transition-delay: 0.05s;
+        }
+
+        .content-area:not(.visible) .resource-card:nth-child(3) {
+            transition-delay: 0.04s;
+        }
+
+        .content-area:not(.visible) .resource-card:nth-child(4) {
+            transition-delay: 0.03s;
+        }
+
+        .content-area:not(.visible) .resource-card:nth-child(5) {
+            transition-delay: 0.02s;
+        }
+
+        .content-area:not(.visible) .resource-card:nth-child(6) {
+            transition-delay: 0s;
         }
 
         /* Back to levels button */
@@ -682,17 +726,70 @@
         .lenis.lenis-scrolling iframe {
             pointer-events: none;
         }
+
+        /* ========================================
+           APPLE-STYLE PAGE TRANSITIONS
+           ======================================== */
+
+        /* Page wrapper for transitions */
+        .page-transition-wrapper {
+            transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Exit animation - fade out and scale down slightly */
+        .page-transition-wrapper.page-exit {
+            opacity: 0;
+            transform: scale(0.98) translateY(-10px);
+        }
+
+        /* Entry animation - starts hidden, then reveals */
+        .page-transition-wrapper.page-enter {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .page-transition-wrapper.page-enter-active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Overlay for smooth transition */
+        .page-transition-overlay {
+            position: fixed;
+            inset: 0;
+            background: linear-gradient(180deg, #e8f4fc 0%, #f0f8ff 100%);
+            z-index: 9999;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .page-transition-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
     </style>
 </head>
 
 <body class="antialiased">
 
+    <!-- Page Transition Overlay -->
+    <div class="page-transition-overlay" id="pageTransitionOverlay"></div>
+
+    <!-- Early Script to prevent Flash -->
+    <script>
+        if (sessionStorage.getItem('pageTransition') === 'true') {
+            document.getElementById('pageTransitionOverlay').classList.add('active');
+        }
+    </script>
+
     <!-- Header -->
     <div id="shared-header"></div>
 
     <!-- PASSWORD PROTECTION OVERLAY -->
-    <div id="password-overlay" class="fixed inset-0 z-50 flex items-center justify-center overflow-hidden"
-        style="background: linear-gradient(180deg, #e8f4fc 0%, #f0f8ff 50%, #e4f0f8 100%);">
+    <div id="password-overlay" class="fixed inset-0 flex items-center justify-center overflow-hidden"
+        style="background: linear-gradient(180deg, #e8f4fc 0%, #f0f8ff 50%, #e4f0f8 100%); z-index: 9999 !important; position: fixed !important; top: 0 !important; left: 0 !important; right: 0 !important; bottom: 0 !important;">
 
         <!-- Animated Blobs -->
         <div style="position: absolute; width: 500px; height: 500px; border-radius: 50%; filter: blur(80px); 
@@ -784,7 +881,7 @@
     </div>
 
     <!-- MAIN CONTENT (Hidden until password verified) -->
-    <main id="protected-content" class="min-h-screen pb-24 hidden">
+    <main id="protected-content" class="pb-12 hidden page-transition-wrapper" data-page-content>
 
         <!-- Animated Background -->
         <div class="bg-animation">
@@ -831,11 +928,18 @@
         </div>
 
         <!-- Back Button (shown after level selection) -->
-        <div id="back-button-wrapper" class="back-button-wrapper">
+        <div id="back-button-wrapper" class="back-button-wrapper relative">
             <button class="back-to-levels" onclick="backToLevels()">
                 <i class="fas fa-arrow-left"></i>
                 Change Level
             </button>
+            <div id="logout-btn-wrapper"
+                class="absolute top-0 right-6 opacity-0 transition-opacity duration-300 pointer-events-none">
+                <button onclick="logout()"
+                    class="text-red-500 hover:text-red-600 font-medium text-sm flex items-center gap-2 pointer-events-auto">
+                    <i class="fas fa-lock"></i> Lock
+                </button>
+            </div>
         </div>
 
         <!-- Content Container (hidden initially) -->
@@ -847,7 +951,7 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
                         <!-- Scope & Sequence -->
-                        <div class="resource-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="resource-card">
                             <div class="card-icon bg-blue-50 text-blue-600"><i class="fas fa-list-ul"></i></div>
                             <h3 class="text-2xl font-bold mb-2 text-gray-800">Scope & Sequence</h3>
                             <p class="text-gray-500 mb-8 leading-relaxed">Curriculum outline and pacing guides for
@@ -873,7 +977,7 @@
                         </div>
 
                         <!-- Activity Plans -->
-                        <div class="resource-card" data-aos="fade-up" data-aos-delay="150">
+                        <div class="resource-card">
                             <div class="card-icon bg-green-50 text-green-600"><i class="fas fa-shapes"></i></div>
                             <h3 class="text-2xl font-bold mb-2 text-gray-800">Activity Plans</h3>
                             <p class="text-gray-500 mb-8 leading-relaxed">Daily activities and learning objectives.</p>
@@ -897,7 +1001,7 @@
                         </div>
 
                         <!-- Flashcards -->
-                        <div class="resource-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="resource-card">
                             <div class="card-icon bg-purple-50 text-purple-600"><i class="fas fa-images"></i></div>
                             <h3 class="text-2xl font-bold mb-2 text-gray-800">Flashcards</h3>
                             <p class="text-gray-500 mb-8 leading-relaxed">Visual aids for vocabulary teaching.</p>
@@ -921,7 +1025,7 @@
                         </div>
 
                         <!-- Other Resources -->
-                        <div class="resource-card" data-aos="fade-up" data-aos-delay="250">
+                        <div class="resource-card">
                             <div class="card-icon bg-orange-50 text-orange-600"><i class="fas fa-music"></i></div>
                             <h3 class="text-2xl font-bold mb-2 text-gray-800">Other Resources</h3>
                             <p class="text-gray-500 mb-8 leading-relaxed">Songs, admin files, and extras.</p>
@@ -940,7 +1044,7 @@
                         </div>
 
                         <!-- i-Tools Info (Fixed: White Background) -->
-                        <div class="resource-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="resource-card">
                             <div class="card-icon bg-gray-100 text-gray-700"><i class="fas fa-laptop-code"></i></div>
                             <h3 class="text-2xl font-bold mb-2 text-gray-800">Interactive Tools</h3>
                             <p class="text-gray-500 mb-8 leading-relaxed">Digital resources for smart classrooms.</p>
@@ -1313,9 +1417,11 @@
             // Collapse level selector
             document.getElementById('level-selector').classList.add('collapsed');
 
-            // Show back button
+            // Show back button & Logout button
             setTimeout(() => {
                 document.getElementById('back-button-wrapper').classList.add('visible');
+                const logoutBtn = document.getElementById('logout-btn-wrapper');
+                if (logoutBtn) logoutBtn.classList.add('visible');
             }, 300);
 
             // Show content area
@@ -1337,6 +1443,10 @@
             setTimeout(() => {
                 document.getElementById('back-button-wrapper').classList.remove('visible');
             }, 200);
+
+            // Step 2.5: Fade out Logout button (if visible)
+            const logoutBtn = document.getElementById('logout-btn-wrapper');
+            if (logoutBtn) logoutBtn.classList.remove('visible');
 
             // Step 3: Show level selector with smooth animation
             setTimeout(() => {
@@ -1394,8 +1504,25 @@
 
         // Check if already authenticated in this session
         if (sessionStorage.getItem('ecd_authenticated') === 'true') {
+            console.log('[ECD] Already authenticated - showing content directly');
+
+            // ลบ style tag ที่ซ่อน content ออก
+            const hideStyle = document.getElementById('ecd-hide-content');
+            if (hideStyle) {
+                hideStyle.remove();
+                console.log('[ECD] Removed hide-content style tag');
+            }
+
             document.getElementById('password-overlay').style.display = 'none';
-            document.getElementById('protected-content').classList.remove('hidden');
+
+            const protectedContent = document.getElementById('protected-content');
+            if (protectedContent) {
+                protectedContent.classList.remove('hidden');
+            }
+
+            // Show footer too
+            const footer = document.getElementById('shared-footer');
+            // Footer will be visible automatically after removing the style tag
         }
 
         // Simple hash function for password verification
@@ -1433,6 +1560,7 @@
             if (isValid) {
                 // Store authentication in session
                 sessionStorage.setItem('ecd_authenticated', 'true');
+                console.log('[ECD] Password correct - unlocking content');
 
                 // Hide overlay with animation
                 const overlay = document.getElementById('password-overlay');
@@ -1440,10 +1568,9 @@
                 overlay.style.transition = 'opacity 0.5s ease';
 
                 setTimeout(() => {
-                    overlay.style.display = 'none';
-                    document.getElementById('protected-content').classList.remove('hidden');
-                    // Re-init AOS for content
-                    AOS.refresh();
+                    // วิธีที่ง่ายและมั่นใจที่สุด: reload หน้า
+                    // Early Auth Check จะเห็น session และแสดง content โดยอัตโนมัติ
+                    window.location.reload();
                 }, 500);
             } else {
                 // Show error
@@ -1471,6 +1598,14 @@
             }
         `;
         document.head.appendChild(style);
+
+        function logout() {
+            if (confirm('Lock this page? You will need to enter the password again.')) {
+                sessionStorage.removeItem('ecd_authenticated');
+                // Force reload to show lock screen
+                window.location.reload();
+            }
+        }
     </script>
 
     <!-- Lenis Smooth Scroll -->
@@ -1489,6 +1624,57 @@
             requestAnimationFrame(raf);
         }
         requestAnimationFrame(raf);
+    </script>
+
+    <!-- Apple-style Page Transitions -->
+    <script>
+        (function () {
+            const pageContent = document.querySelector('[data-page-content]');
+            const overlay = document.getElementById('pageTransitionOverlay');
+
+            // Entry animation on page load
+            window.addEventListener('load', function () {
+                // Check if coming from a transition
+                if (sessionStorage.getItem('pageTransition') === 'true') {
+                    sessionStorage.removeItem('pageTransition');
+
+                    if (pageContent && !pageContent.classList.contains('hidden')) {
+                        pageContent.classList.add('page-enter');
+                        overlay.classList.add('active');
+
+                        // Start reveal animation
+                        requestAnimationFrame(function () {
+                            overlay.classList.remove('active');
+                            setTimeout(function () {
+                                pageContent.classList.remove('page-enter');
+                                pageContent.classList.add('page-enter-active');
+                            }, 100);
+                        });
+                    }
+                }
+            });
+
+            // Handle back link with transition
+            const backLink = document.querySelector('a[href="../"]');
+            if (backLink) {
+                backLink.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const href = this.getAttribute('href');
+
+                    sessionStorage.setItem('pageTransition', 'true');
+
+                    // Animate page out
+                    if (pageContent) {
+                        pageContent.classList.add('page-exit');
+                    }
+                    overlay.classList.add('active');
+
+                    setTimeout(function () {
+                        window.location.href = href;
+                    }, 350);
+                });
+            }
+        })();
     </script>
 </body>
 

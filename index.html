@@ -3683,22 +3683,43 @@
                 box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
             }
 
+            /* Video Slider Container */
+            .videos-slider-wrapper {
+                position: relative;
+                margin: 0 -32px;
+                padding: 0 32px;
+            }
+
             .videos-grid {
-                display: grid;
-                grid-template-columns: repeat(4, 1fr);
+                display: flex;
                 gap: 20px;
+                overflow-x: auto;
+                scroll-behavior: smooth;
+                scrollbar-width: none;
+                -ms-overflow-style: none;
+                padding: 10px 0;
+            }
+
+            .videos-grid::-webkit-scrollbar {
+                display: none;
+            }
+
+            .videos-grid .video-card {
+                flex: 0 0 calc(25% - 15px);
+                min-width: 280px;
             }
 
             @media (max-width: 1100px) {
-                .videos-grid {
-                    grid-template-columns: repeat(2, 1fr);
+                .videos-grid .video-card {
+                    flex: 0 0 calc(50% - 10px);
+                    min-width: 260px;
                 }
             }
 
             @media (max-width: 640px) {
-                .videos-grid {
-                    grid-template-columns: repeat(2, 1fr);
-                    gap: 12px;
+                .videos-grid .video-card {
+                    flex: 0 0 calc(50% - 6px);
+                    min-width: 180px;
                 }
 
                 .video-section-header h2 {
@@ -3707,6 +3728,64 @@
 
                 .video-player {
                     height: 400px !important;
+                }
+            }
+
+            /* Slider Navigation Arrows */
+            .slider-nav {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 48px;
+                height: 48px;
+                background: rgba(255, 255, 255, 0.95);
+                border: none;
+                border-radius: 50%;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+                transition: all 0.3s ease;
+                z-index: 10;
+            }
+
+            .slider-nav:hover {
+                background: #fff;
+                transform: translateY(-50%) scale(1.1);
+                box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+            }
+
+            .slider-nav:disabled {
+                opacity: 0.3;
+                cursor: not-allowed;
+            }
+
+            .slider-nav:disabled:hover {
+                transform: translateY(-50%);
+            }
+
+            .slider-nav i {
+                font-size: 1.25rem;
+                color: #1d1d1f;
+            }
+
+            .slider-nav-prev {
+                left: 0;
+            }
+
+            .slider-nav-next {
+                right: 0;
+            }
+
+            @media (max-width: 768px) {
+                .slider-nav {
+                    width: 40px;
+                    height: 40px;
+                }
+
+                .slider-nav i {
+                    font-size: 1rem;
                 }
             }
 
@@ -3884,6 +3963,64 @@
             .video-card.hidden {
                 display: none;
             }
+
+            /* Hidden video cards - initially hidden */
+            .video-card.hidden-video {
+                display: none;
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            .video-card.hidden-video.revealed {
+                display: block;
+                animation: slideInUp 0.5s ease forwards;
+            }
+
+            @keyframes slideInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            /* Load More Button */
+            .load-more-btn {
+                display: inline-flex;
+                align-items: center;
+                gap: 10px;
+                padding: 14px 32px;
+                font-size: 0.9375rem;
+                font-weight: 600;
+                color: #1d1d1f;
+                background: #f5f5f7;
+                border: none;
+                border-radius: 980px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+            }
+
+            .load-more-btn:hover {
+                background: #e8e8ed;
+                transform: translateY(-2px);
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            }
+
+            .load-more-btn i {
+                transition: transform 0.3s ease;
+            }
+
+            .load-more-btn:hover i {
+                transform: translateY(3px);
+            }
+
+            .load-more-btn.hidden {
+                display: none;
+            }
         </style>
 
         <section class="videos-section">
@@ -3899,104 +4036,304 @@
                 <button class="category-tab" data-category="orientation">🎓 Orientation</button>
             </div>
 
-            <div class="videos-grid" id="videos-grid" data-aos="fade-up" data-aos-delay="200">
+            <div class="videos-slider-wrapper" data-aos="fade-up" data-aos-delay="200">
+                <button class="slider-nav slider-nav-prev" id="videos-nav-prev" aria-label="Previous videos">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="videos-grid" id="videos-grid">
 
-                <!-- Video 1 -->
-                <div class="video-card" data-category="interview">
-                    <div class="video-player">
-                        <iframe src="https://www.tiktok.com/embed/v2/7560444457364147459" allowfullscreen scrolling="no"
-                            allow="encrypted-media" referrerpolicy="no-referrer">
-                        </iframe>
+                    <!-- Video 1 -->
+                    <div class="video-card" data-category="interview">
+                        <div class="video-player">
+                            <iframe src="https://www.tiktok.com/embed/v2/7560444457364147459" allowfullscreen
+                                scrolling="no" allow="encrypted-media" referrerpolicy="no-referrer">
+                            </iframe>
+                        </div>
+                        <div class="video-info">
+                            <span class="video-category category-interview">🎤 Interview</span>
+                            <a href="https://www.tiktok.com/@mediakidsacademy/video/7560444457364147459" target="_blank"
+                                class="video-title">
+                                Teacher Interview: Life in Thailand
+                            </a>
+                            <a href="https://www.tiktok.com/@mediakidsacademy/video/7560444457364147459" target="_blank"
+                                class="tiktok-link">
+                                <svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
+                                </svg>
+                                <span>Watch on TikTok</span>
+                            </a>
+                        </div>
                     </div>
-                    <div class="video-info">
-                        <span class="video-category category-interview">🎤 Interview</span>
-                        <a href="https://www.tiktok.com/@mediakidsacademy/video/7560444457364147459" target="_blank"
-                            class="video-title">
-                            Teacher Interview: Life in Thailand
-                        </a>
-                        <a href="https://www.tiktok.com/@mediakidsacademy/video/7560444457364147459" target="_blank"
-                            class="tiktok-link">
-                            <svg viewBox="0 0 24 24">
-                                <path
-                                    d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
-                            </svg>
-                            <span>Watch on TikTok</span>
-                        </a>
+
+                    <!-- Video 2 -->
+                    <div class="video-card" data-category="interview">
+                        <div class="video-player">
+                            <iframe src="https://www.tiktok.com/embed/v2/7556733806972177686" allowfullscreen
+                                scrolling="no" allow="encrypted-media" referrerpolicy="no-referrer">
+                            </iframe>
+                        </div>
+                        <div class="video-info">
+                            <span class="video-category category-interview">🎤 Interview</span>
+                            <a href="https://www.tiktok.com/@mediakidsacademy/video/7556733806972177686" target="_blank"
+                                class="video-title">
+                                Teacher Interview: Teaching Experience
+                            </a>
+                            <a href="https://www.tiktok.com/@mediakidsacademy/video/7556733806972177686" target="_blank"
+                                class="tiktok-link">
+                                <svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
+                                </svg>
+                                <span>Watch on TikTok</span>
+                            </a>
+                        </div>
                     </div>
+
+                    <!-- Video 3 -->
+                    <div class="video-card" data-category="camp">
+                        <div class="video-player">
+                            <iframe src="https://www.tiktok.com/embed/v2/7566932650078801170" allowfullscreen
+                                scrolling="no" allow="encrypted-media" referrerpolicy="no-referrer">
+                            </iframe>
+                        </div>
+                        <div class="video-info">
+                            <span class="video-category category-camp">🏕️ English Camp</span>
+                            <a href="https://www.tiktok.com/@mediakids.activities/video/7566932650078801170"
+                                target="_blank" class="video-title">
+                                English Camp Highlights
+                            </a>
+                            <a href="https://www.tiktok.com/@mediakids.activities/video/7566932650078801170"
+                                target="_blank" class="tiktok-link">
+                                <svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
+                                </svg>
+                                <span>Watch on TikTok</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Video 4 -->
+                    <div class="video-card" data-category="orientation">
+                        <div class="video-player">
+                            <iframe src="https://www.tiktok.com/embed/v2/7564025137587031318" allowfullscreen
+                                scrolling="no" allow="encrypted-media" referrerpolicy="no-referrer">
+                            </iframe>
+                        </div>
+                        <div class="video-info">
+                            <span class="video-category category-orientation">🎓 Orientation</span>
+                            <a href="https://www.tiktok.com/@mediakidsacademy/video/7564025137587031318" target="_blank"
+                                class="video-title">
+                                New Teacher Orientation Course
+                            </a>
+                            <a href="https://www.tiktok.com/@mediakidsacademy/video/7564025137587031318" target="_blank"
+                                class="tiktok-link">
+                                <svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
+                                </svg>
+                                <span>Watch on TikTok</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Video 5 - NEW (Hidden by default) -->
+                    <div class="video-card" data-category="interview">
+                        <div class="video-player">
+                            <iframe src="https://www.tiktok.com/embed/v2/7574922397753560342" allowfullscreen
+                                scrolling="no" allow="encrypted-media" referrerpolicy="no-referrer">
+                            </iframe>
+                        </div>
+                        <div class="video-info">
+                            <span class="video-category category-interview">🎤 Interview</span>
+                            <a href="https://www.tiktok.com/@mediakidsacademy/video/7574922397753560342" target="_blank"
+                                class="video-title">
+                                Teacher Interview: Adventures in Thailand
+                            </a>
+                            <a href="https://www.tiktok.com/@mediakidsacademy/video/7574922397753560342" target="_blank"
+                                class="tiktok-link">
+                                <svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
+                                </svg>
+                                <span>Watch on TikTok</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Video 6 - NEW (Hidden by default) -->
+                    <div class="video-card" data-category="interview">
+                        <div class="video-player">
+                            <iframe src="https://www.tiktok.com/embed/v2/7571184800875302166" allowfullscreen
+                                scrolling="no" allow="encrypted-media" referrerpolicy="no-referrer">
+                            </iframe>
+                        </div>
+                        <div class="video-info">
+                            <span class="video-category category-interview">🎤 Interview</span>
+                            <a href="https://www.tiktok.com/@mediakidsacademy/video/7571184800875302166" target="_blank"
+                                class="video-title">
+                                Teacher Interview: Teaching Journey
+                            </a>
+                            <a href="https://www.tiktok.com/@mediakidsacademy/video/7571184800875302166" target="_blank"
+                                class="tiktok-link">
+                                <svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
+                                </svg>
+                                <span>Watch on TikTok</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Video 7 - NEW (Hidden by default) -->
+                    <div class="video-card" data-category="camp">
+                        <div class="video-player">
+                            <iframe src="https://www.tiktok.com/embed/v2/7582548863974788370" allowfullscreen
+                                scrolling="no" allow="encrypted-media" referrerpolicy="no-referrer">
+                            </iframe>
+                        </div>
+                        <div class="video-info">
+                            <span class="video-category category-camp">🏕️ English Camp</span>
+                            <a href="https://www.tiktok.com/@mediakids.activities/video/7582548863974788370"
+                                target="_blank" class="video-title">
+                                English Camp Fun Activities
+                            </a>
+                            <a href="https://www.tiktok.com/@mediakids.activities/video/7582548863974788370"
+                                target="_blank" class="tiktok-link">
+                                <svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
+                                </svg>
+                                <span>Watch on TikTok</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Video 8 - NEW (Hidden by default) -->
+                    <div class="video-card" data-category="camp">
+                        <div class="video-player">
+                            <iframe src="https://www.tiktok.com/embed/v2/7571383182961036562" allowfullscreen
+                                scrolling="no" allow="encrypted-media" referrerpolicy="no-referrer">
+                            </iframe>
+                        </div>
+                        <div class="video-info">
+                            <span class="video-category category-camp">🏕️ English Camp</span>
+                            <a href="https://www.tiktok.com/@mediakids.activities/video/7571383182961036562"
+                                target="_blank" class="video-title">
+                                Camp Activities Highlights
+                            </a>
+                            <a href="https://www.tiktok.com/@mediakids.activities/video/7571383182961036562"
+                                target="_blank" class="tiktok-link">
+                                <svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
+                                </svg>
+                                <span>Watch on TikTok</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Video 9 - NEW (Hidden by default) -->
+                    <div class="video-card" data-category="camp">
+                        <div class="video-player">
+                            <iframe src="https://www.tiktok.com/embed/v2/7584391663116766472" allowfullscreen
+                                scrolling="no" allow="encrypted-media" referrerpolicy="no-referrer">
+                            </iframe>
+                        </div>
+                        <div class="video-info">
+                            <span class="video-category category-camp">🏕️ English Camp</span>
+                            <a href="https://www.tiktok.com/@mediakids.activities/video/7584391663116766472"
+                                target="_blank" class="video-title">
+                                Camp Day Adventures
+                            </a>
+                            <a href="https://www.tiktok.com/@mediakids.activities/video/7584391663116766472"
+                                target="_blank" class="tiktok-link">
+                                <svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
+                                </svg>
+                                <span>Watch on TikTok</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Video 10 - NEW (Hidden by default) -->
+                    <div class="video-card" data-category="orientation">
+                        <div class="video-player">
+                            <iframe src="https://www.tiktok.com/embed/v2/7569888481669942535" allowfullscreen
+                                scrolling="no" allow="encrypted-media" referrerpolicy="no-referrer">
+                            </iframe>
+                        </div>
+                        <div class="video-info">
+                            <span class="video-category category-orientation">🎓 Orientation</span>
+                            <a href="https://www.tiktok.com/@mediakids.activities/video/7569888481669942535"
+                                target="_blank" class="video-title">
+                                Orientation Week Highlights
+                            </a>
+                            <a href="https://www.tiktok.com/@mediakids.activities/video/7569888481669942535"
+                                target="_blank" class="tiktok-link">
+                                <svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
+                                </svg>
+                                <span>Watch on TikTok</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Video 11 - NEW (Hidden by default) -->
+                    <div class="video-card" data-category="orientation">
+                        <div class="video-player">
+                            <iframe src="https://www.tiktok.com/embed/v2/7562868537291820296" allowfullscreen
+                                scrolling="no" allow="encrypted-media" referrerpolicy="no-referrer">
+                            </iframe>
+                        </div>
+                        <div class="video-info">
+                            <span class="video-category category-orientation">🎓 Orientation</span>
+                            <a href="https://www.tiktok.com/@mediakids.activities/video/7562868537291820296"
+                                target="_blank" class="video-title">
+                                Teacher Training Session
+                            </a>
+                            <a href="https://www.tiktok.com/@mediakids.activities/video/7562868537291820296"
+                                target="_blank" class="tiktok-link">
+                                <svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
+                                </svg>
+                                <span>Watch on TikTok</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Video 12 - NEW (Hidden by default) -->
+                    <div class="video-card" data-category="orientation">
+                        <div class="video-player">
+                            <iframe src="https://www.tiktok.com/embed/v2/7563252200147897618" allowfullscreen
+                                scrolling="no" allow="encrypted-media" referrerpolicy="no-referrer">
+                            </iframe>
+                        </div>
+                        <div class="video-info">
+                            <span class="video-category category-orientation">🎓 Orientation</span>
+                            <a href="https://www.tiktok.com/@mediakids.activities/video/7563252200147897618"
+                                target="_blank" class="video-title">
+                                New Teacher Welcome
+                            </a>
+                            <a href="https://www.tiktok.com/@mediakids.activities/video/7563252200147897618"
+                                target="_blank" class="tiktok-link">
+                                <svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
+                                </svg>
+                                <span>Watch on TikTok</span>
+                            </a>
+                        </div>
+                    </div>
+
                 </div>
-
-                <!-- Video 2 -->
-                <div class="video-card" data-category="interview">
-                    <div class="video-player">
-                        <iframe src="https://www.tiktok.com/embed/v2/7556733806972177686" allowfullscreen scrolling="no"
-                            allow="encrypted-media" referrerpolicy="no-referrer">
-                        </iframe>
-                    </div>
-                    <div class="video-info">
-                        <span class="video-category category-interview">🎤 Interview</span>
-                        <a href="https://www.tiktok.com/@mediakidsacademy/video/7556733806972177686" target="_blank"
-                            class="video-title">
-                            Teacher Interview: Teaching Experience
-                        </a>
-                        <a href="https://www.tiktok.com/@mediakidsacademy/video/7556733806972177686" target="_blank"
-                            class="tiktok-link">
-                            <svg viewBox="0 0 24 24">
-                                <path
-                                    d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
-                            </svg>
-                            <span>Watch on TikTok</span>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Video 3 -->
-                <div class="video-card" data-category="camp">
-                    <div class="video-player">
-                        <iframe src="https://www.tiktok.com/embed/v2/7566932650078801170" allowfullscreen scrolling="no"
-                            allow="encrypted-media" referrerpolicy="no-referrer">
-                        </iframe>
-                    </div>
-                    <div class="video-info">
-                        <span class="video-category category-camp">🏕️ English Camp</span>
-                        <a href="https://www.tiktok.com/@mediakids.activities/video/7566932650078801170" target="_blank"
-                            class="video-title">
-                            English Camp Highlights
-                        </a>
-                        <a href="https://www.tiktok.com/@mediakids.activities/video/7566932650078801170" target="_blank"
-                            class="tiktok-link">
-                            <svg viewBox="0 0 24 24">
-                                <path
-                                    d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
-                            </svg>
-                            <span>Watch on TikTok</span>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Video 4 -->
-                <div class="video-card" data-category="orientation">
-                    <div class="video-player">
-                        <iframe src="https://www.tiktok.com/embed/v2/7564025137587031318" allowfullscreen scrolling="no"
-                            allow="encrypted-media" referrerpolicy="no-referrer">
-                        </iframe>
-                    </div>
-                    <div class="video-info">
-                        <span class="video-category category-orientation">🎓 Orientation</span>
-                        <a href="https://www.tiktok.com/@mediakidsacademy/video/7564025137587031318" target="_blank"
-                            class="video-title">
-                            New Teacher Orientation Course
-                        </a>
-                        <a href="https://www.tiktok.com/@mediakidsacademy/video/7564025137587031318" target="_blank"
-                            class="tiktok-link">
-                            <svg viewBox="0 0 24 24">
-                                <path
-                                    d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
-                            </svg>
-                            <span>Watch on TikTok</span>
-                        </a>
-                    </div>
-                </div>
-
+                <button class="slider-nav slider-nav-next" id="videos-nav-next" aria-label="Next videos">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
             </div>
 
             <div class="follow-cta" data-aos="fade-up">
@@ -4027,19 +4364,62 @@
                 initVideoCards();
             }
 
+            // Video Slider Navigation
+            (function () {
+                const videosGrid = document.getElementById('videos-grid');
+                const prevBtn = document.getElementById('videos-nav-prev');
+                const nextBtn = document.getElementById('videos-nav-next');
+
+                if (!videosGrid || !prevBtn || !nextBtn) return;
+
+                const scrollAmount = 320; // Roughly one card width
+
+                function updateNavButtons() {
+                    const scrollLeft = videosGrid.scrollLeft;
+                    const maxScroll = videosGrid.scrollWidth - videosGrid.clientWidth;
+
+                    prevBtn.disabled = scrollLeft <= 0;
+                    nextBtn.disabled = scrollLeft >= maxScroll - 5;
+                }
+
+                prevBtn.addEventListener('click', () => {
+                    videosGrid.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+                });
+
+                nextBtn.addEventListener('click', () => {
+                    videosGrid.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+                });
+
+                videosGrid.addEventListener('scroll', updateNavButtons);
+                window.addEventListener('resize', updateNavButtons);
+
+                // Initial state
+                setTimeout(updateNavButtons, 100);
+            })();
+
+            // Category Tab Filtering
             document.querySelectorAll('.category-tab').forEach(tab => {
                 tab.addEventListener('click', () => {
                     document.querySelectorAll('.category-tab').forEach(t => t.classList.remove('active'));
                     tab.classList.add('active');
 
                     const category = tab.dataset.category;
+                    const videosGrid = document.getElementById('videos-grid');
+
                     document.querySelectorAll('.video-card').forEach(card => {
-                        if (category === 'all' || card.dataset.category === category) {
+                        if (category === 'all') {
+                            card.classList.remove('hidden');
+                        } else if (card.dataset.category === category) {
                             card.classList.remove('hidden');
                         } else {
                             card.classList.add('hidden');
                         }
                     });
+
+                    // Reset scroll position when changing categories
+                    if (videosGrid) {
+                        videosGrid.scrollTo({ left: 0, behavior: 'smooth' });
+                    }
                 });
             });
         </script>

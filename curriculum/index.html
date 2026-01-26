@@ -29,8 +29,8 @@
 
     <style>
         /* ========================================
-           STUNNING ANIMATED CURRICULUM PAGE
-           Premium • Animated • Eye-catching
+           LIQUID GLASS DESIGN - CURRICULUM
+           Apple-inspired • Premium • Glossy
            ======================================== */
 
         * {
@@ -40,12 +40,13 @@
         }
 
         body {
-            background: #0a0a0f;
-            color: #fff;
+            background: linear-gradient(180deg, #e8f4fc 0%, #f0f8ff 50%, #e4f0f8 100%);
+            color: #1d1d1f;
             overflow-x: hidden;
+            min-height: 100vh;
         }
 
-        /* Animated Background */
+        /* Animated Liquid Background */
         .bg-animation {
             position: fixed;
             inset: 0;
@@ -53,82 +54,54 @@
             overflow: hidden;
         }
 
-        .bg-animation::before {
-            content: '';
+        /* Liquid Blobs */
+        .blob {
             position: absolute;
-            width: 150%;
-            height: 150%;
-            top: -25%;
-            left: -25%;
-            background:
-                radial-gradient(ellipse at 20% 20%, rgba(120, 0, 255, 0.15) 0%, transparent 50%),
-                radial-gradient(ellipse at 80% 80%, rgba(0, 200, 255, 0.1) 0%, transparent 50%),
-                radial-gradient(ellipse at 50% 50%, rgba(255, 0, 150, 0.08) 0%, transparent 60%);
-            animation: bgFloat 20s ease-in-out infinite;
+            border-radius: 50%;
+            filter: blur(60px);
+            mix-blend-mode: multiply;
+            animation: blobFloat 12s ease-in-out infinite;
         }
 
-        @keyframes bgFloat {
+        .blob-1 {
+            width: 600px;
+            height: 600px;
+            background: linear-gradient(135deg, rgba(0, 122, 255, 0.4), rgba(90, 200, 250, 0.3));
+            top: -150px;
+            right: -100px;
+        }
+
+        .blob-2 {
+            width: 500px;
+            height: 500px;
+            background: linear-gradient(135deg, rgba(50, 173, 230, 0.4), rgba(0, 122, 255, 0.3));
+            bottom: 0;
+            left: -100px;
+            animation-delay: -4s;
+        }
+
+        .blob-3 {
+            width: 400px;
+            height: 400px;
+            background: linear-gradient(135deg, rgba(90, 200, 250, 0.3), rgba(0, 122, 255, 0.25));
+            top: 50%;
+            left: 40%;
+            animation-delay: -8s;
+        }
+
+        @keyframes blobFloat {
 
             0%,
             100% {
-                transform: translate(0, 0) rotate(0deg);
+                transform: translate(0, 0) scale(1) rotate(0deg);
             }
 
             33% {
-                transform: translate(2%, 2%) rotate(1deg);
+                transform: translate(30px, -30px) scale(1.05) rotate(5deg);
             }
 
             66% {
-                transform: translate(-2%, 1%) rotate(-1deg);
-            }
-        }
-
-        /* Floating Orbs */
-        .orb {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(80px);
-            animation: orbFloat 15s ease-in-out infinite;
-        }
-
-        .orb-1 {
-            width: 500px;
-            height: 500px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            top: -100px;
-            right: -100px;
-            animation-delay: 0s;
-        }
-
-        .orb-2 {
-            width: 400px;
-            height: 400px;
-            background: linear-gradient(135deg, #f093fb, #f5576c);
-            bottom: -50px;
-            left: -100px;
-            animation-delay: -5s;
-        }
-
-        .orb-3 {
-            width: 300px;
-            height: 300px;
-            background: linear-gradient(135deg, #4facfe, #00f2fe);
-            top: 50%;
-            left: 50%;
-            animation-delay: -10s;
-        }
-
-        @keyframes orbFloat {
-
-            0%,
-            100% {
-                transform: translate(0, 0) scale(1);
-                opacity: 0.4;
-            }
-
-            50% {
-                transform: translate(30px, -30px) scale(1.1);
-                opacity: 0.6;
+                transform: translate(-20px, 20px) scale(0.95) rotate(-5deg);
             }
         }
 
@@ -141,7 +114,7 @@
 
         /* Hero Section */
         .hero {
-            min-height: 70vh;
+            min-height: 60vh;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -150,44 +123,45 @@
             padding: 120px 24px 60px;
         }
 
-        /* Animated Badge */
+        /* Liquid Glass Badge */
         .badge {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            padding: 10px 20px;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
+            gap: 12px;
+            padding: 14px 28px;
+            background: linear-gradient(135deg,
+                    rgba(255, 255, 255, 0.6) 0%,
+                    rgba(255, 255, 255, 0.3) 50%,
+                    rgba(255, 255, 255, 0.5) 100%);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.6);
             border-radius: 100px;
-            font-size: 0.875rem;
-            font-weight: 500;
-            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #1d1d1f;
             margin-bottom: 32px;
+            box-shadow:
+                0 8px 32px rgba(0, 0, 0, 0.08),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
             animation: fadeSlideUp 0.8s ease forwards;
             opacity: 0;
         }
 
-        .badge-dot {
-            width: 8px;
-            height: 8px;
-            background: #00ff88;
-            border-radius: 50%;
-            animation: pulse 2s ease-in-out infinite;
+        .badge-icon {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, #007AFF, #5AC8FA);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            box-shadow: 0 4px 12px rgba(0, 122, 255, 0.4);
         }
 
-        @keyframes pulse {
-
-            0%,
-            100% {
-                transform: scale(1);
-                opacity: 1;
-            }
-
-            50% {
-                transform: scale(1.3);
-                opacity: 0.7;
-            }
+        .badge-icon i {
+            font-size: 0.875rem;
         }
 
         /* Gradient Title */
@@ -196,12 +170,12 @@
             font-weight: 800;
             line-height: 0.95;
             margin-bottom: 24px;
-            background: linear-gradient(135deg, #fff 0%, #fff 40%, #a78bfa 60%, #ec4899 80%, #f97316 100%);
+            background: linear-gradient(135deg, #1d1d1f 0%, #007AFF 50%, #5AC8FA 100%);
             background-size: 200% auto;
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: fadeSlideUp 0.8s ease 0.2s forwards, gradientShift 8s ease infinite;
+            animation: fadeSlideUp 0.8s ease 0.2s forwards, gradientShift 6s ease infinite;
             opacity: 0;
         }
 
@@ -231,15 +205,15 @@
 
         .hero-subtitle {
             font-size: 1.5rem;
-            color: rgba(255, 255, 255, 0.6);
-            font-weight: 400;
+            color: #6b7280;
+            font-weight: 500;
             animation: fadeSlideUp 0.8s ease 0.4s forwards;
             opacity: 0;
         }
 
         /* Cards Section */
         .cards-section {
-            padding: 40px 24px 120px;
+            padding: 40px 24px 100px;
         }
 
         .cards-container {
@@ -247,7 +221,7 @@
             margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 24px;
+            gap: 28px;
         }
 
         @media (max-width: 768px) {
@@ -257,20 +231,38 @@
             }
         }
 
-        /* Premium Glass Cards */
+        /* Liquid Glass Cards */
         .card {
             position: relative;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
-            backdrop-filter: blur(40px);
+            background: linear-gradient(135deg,
+                    rgba(255, 255, 255, 0.7) 0%,
+                    rgba(255, 255, 255, 0.4) 50%,
+                    rgba(255, 255, 255, 0.6) 100%);
+            backdrop-filter: blur(40px) saturate(200%);
+            -webkit-backdrop-filter: blur(40px) saturate(200%);
             border-radius: 32px;
             padding: 48px 40px;
             text-decoration: none;
-            color: #fff;
+            color: #1d1d1f;
             overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            box-shadow:
+                0 8px 40px rgba(0, 0, 0, 0.06),
+                0 2px 8px rgba(0, 0, 0, 0.04),
+                inset 0 1px 0 rgba(255, 255, 255, 0.9);
             transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             animation: cardReveal 0.8s ease forwards;
             opacity: 0;
+        }
+
+        /* Default: Both cards have same light background */
+        .card:nth-child(1),
+        .card:nth-child(2) {
+            background: linear-gradient(160deg,
+                    rgba(255, 255, 255, 0.85) 0%,
+                    rgba(232, 244, 252, 0.6) 50%,
+                    rgba(224, 242, 254, 0.4) 100%);
+            border: 1px solid rgba(186, 230, 253, 0.5);
         }
 
         .card:nth-child(1) {
@@ -293,45 +285,88 @@
             }
         }
 
+        /* Glass Shine Effect */
         .card::before {
             content: '';
             position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, transparent 0%, rgba(255, 255, 255, 0.05) 100%);
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg,
+                    transparent 0%,
+                    rgba(255, 255, 255, 0.4) 50%,
+                    transparent 100%);
+            transition: left 0.6s ease;
+        }
+
+        .card:hover::before {
+            left: 100%;
+        }
+
+        /* Liquid Border Glow */
+        .card::after {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: 34px;
+            background: linear-gradient(135deg,
+                    rgba(0, 122, 255, 0.4),
+                    rgba(90, 200, 250, 0.3));
+            z-index: -1;
             opacity: 0;
-            transition: opacity 0.5s ease;
+            transition: opacity 0.4s ease;
+            filter: blur(8px);
+        }
+
+        .card:hover::after {
+            opacity: 1;
+        }
+
+        /* Individual card hover glow colors */
+        .card:nth-child(1)::after {
+            background: linear-gradient(135deg,
+                    rgba(255, 149, 0, 0.5),
+                    rgba(255, 204, 0, 0.3));
+        }
+
+        .card:nth-child(2)::after {
+            background: linear-gradient(135deg,
+                    rgba(0, 122, 255, 0.4),
+                    rgba(90, 200, 250, 0.3));
         }
 
         .card:hover {
             transform: translateY(-12px) scale(1.02);
-            border-color: rgba(255, 255, 255, 0.25);
+        }
+
+        /* Semester 1: Warm background on hover */
+        .card:nth-child(1):hover {
+            background: linear-gradient(160deg,
+                    rgba(255, 204, 0, 0.5) 0%,
+                    rgba(255, 179, 71, 0.4) 50%,
+                    rgba(255, 149, 0, 0.3) 100%);
+            border: 1px solid rgba(255, 179, 71, 0.5);
             box-shadow:
-                0 30px 60px rgba(0, 0, 0, 0.3),
-                0 0 100px rgba(120, 0, 255, 0.15);
+                0 25px 60px rgba(255, 149, 0, 0.2),
+                0 8px 24px rgba(0, 0, 0, 0.08),
+                inset 0 1px 0 rgba(255, 255, 255, 1);
         }
 
-        .card:hover::before {
-            opacity: 1;
+        /* Semester 2: Cool background on hover */
+        .card:nth-child(2):hover {
+            background: linear-gradient(160deg,
+                    rgba(255, 255, 255, 0.9) 0%,
+                    rgba(224, 242, 254, 0.7) 50%,
+                    rgba(186, 230, 253, 0.5) 100%);
+            border: 1px solid rgba(186, 230, 253, 0.7);
+            box-shadow:
+                0 25px 60px rgba(0, 122, 255, 0.2),
+                0 8px 24px rgba(0, 0, 0, 0.08),
+                inset 0 1px 0 rgba(255, 255, 255, 1);
         }
 
-        /* Card Glow Effect */
-        .card-glow {
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(120, 0, 255, 0.2) 0%, transparent 50%);
-            opacity: 0;
-            transition: opacity 0.5s ease;
-            pointer-events: none;
-        }
-
-        .card:hover .card-glow {
-            opacity: 1;
-        }
-
-        /* Card Content */
+        /* Glossy Card Icons */
         .card-icon {
             width: 80px;
             height: 80px;
@@ -342,14 +377,40 @@
             margin-bottom: 28px;
             position: relative;
             overflow: hidden;
+            transition: all 0.4s ease;
         }
 
+        /* Semester 1: Orange/Yellow for Summer (May-October) */
         .card:nth-child(1) .card-icon {
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #FF9500, #FFCC00);
         }
 
+        /* Semester 2: Blue/Cyan for Winter (November-March) */
         .card:nth-child(2) .card-icon {
-            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            background: linear-gradient(135deg, #007AFF, #5AC8FA);
+        }
+
+        .card-icon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 50%;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.4) 0%, transparent 100%);
+            border-radius: 24px 24px 0 0;
+        }
+
+        .card:hover .card-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .card:nth-child(1):hover .card-icon {
+            box-shadow: 0 8px 25px rgba(255, 149, 0, 0.5);
+        }
+
+        .card:nth-child(2):hover .card-icon {
+            box-shadow: 0 8px 25px rgba(0, 122, 255, 0.5);
         }
 
         .card-icon i {
@@ -359,34 +420,37 @@
             z-index: 1;
         }
 
-        .card-icon::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), transparent);
+        .card-season {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            margin-bottom: 12px;
         }
 
-        .card-season {
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            color: rgba(255, 255, 255, 0.5);
-            margin-bottom: 8px;
+        /* Semester 1 text colors */
+        .card:nth-child(1) .card-season {
+            color: #b45309;
+        }
+
+        .card:nth-child(1) .card-title {
+            color: #1c1917;
+        }
+
+        /* Semester 2 text colors */
+        .card:nth-child(2) .card-season {
+            color: #0369a1;
+        }
+
+        .card:nth-child(2) .card-title {
+            color: #1d1d1f;
         }
 
         .card-title {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             font-weight: 700;
-            margin-bottom: 12px;
-            letter-spacing: -0.02em;
-        }
-
-        .card-desc {
-            font-size: 1rem;
-            color: rgba(255, 255, 255, 0.6);
-            line-height: 1.6;
-            margin-bottom: 32px;
+            margin-bottom: 24px;
+            letter-spacing: -0.03em;
         }
 
         .card-cta {
@@ -395,12 +459,33 @@
             gap: 12px;
             font-size: 1rem;
             font-weight: 600;
-            color: #fff;
             padding: 16px 28px;
-            background: rgba(255, 255, 255, 0.1);
             border-radius: 100px;
             transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        /* Semester 1 CTA: Warm colors */
+        .card:nth-child(1) .card-cta {
+            color: #78350f;
+            background: rgba(120, 53, 15, 0.1);
+            border: 1px solid rgba(120, 53, 15, 0.2);
+        }
+
+        .card:nth-child(1):hover .card-cta {
+            background: rgba(120, 53, 15, 0.15);
+            transform: translateX(4px);
+        }
+
+        /* Semester 2 CTA: Cool colors */
+        .card:nth-child(2) .card-cta {
+            color: #007AFF;
+            background: rgba(0, 122, 255, 0.1);
+            border: 1px solid rgba(0, 122, 255, 0.2);
+        }
+
+        .card:nth-child(2):hover .card-cta {
+            background: rgba(0, 122, 255, 0.15);
+            transform: translateX(4px);
         }
 
         .card-cta i {
@@ -408,7 +493,8 @@
         }
 
         .card:hover .card-cta {
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(0, 122, 255, 0.15);
+            border-color: rgba(0, 122, 255, 0.3);
         }
 
         .card:hover .card-cta i {
@@ -426,17 +512,18 @@
 
         .help-text {
             font-size: 1rem;
-            color: rgba(255, 255, 255, 0.5);
+            color: #6b7280;
         }
 
         .help-text a {
-            color: #a78bfa;
+            color: #007AFF;
             text-decoration: none;
+            font-weight: 600;
             transition: color 0.3s ease;
         }
 
         .help-text a:hover {
-            color: #c4b5fd;
+            color: #0056b3;
         }
 
         /* Smooth Scroll */
@@ -453,9 +540,9 @@
 <body>
     <!-- Animated Background -->
     <div class="bg-animation">
-        <div class="orb orb-1"></div>
-        <div class="orb orb-2"></div>
-        <div class="orb orb-3"></div>
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
     </div>
 
     <!-- Header -->
@@ -465,7 +552,9 @@
         <!-- Hero -->
         <section class="hero">
             <div class="badge">
-                <span class="badge-dot"></span>
+                <div class="badge-icon">
+                    <i class="fas fa-book-open"></i>
+                </div>
                 Teaching Resources
             </div>
             <h1 class="hero-title">Curriculum</h1>
@@ -477,13 +566,11 @@
             <div class="cards-container">
                 <!-- Semester 1 -->
                 <a href="sem1/" class="card">
-                    <div class="card-glow"></div>
                     <div class="card-icon">
                         <i class="fas fa-sun"></i>
                     </div>
                     <div class="card-season">May – October</div>
                     <h2 class="card-title">Semester 1</h2>
-                    <p class="card-desc">Core subjects and foundational teaching materials for all programs.</p>
                     <div class="card-cta">
                         Explore <i class="fas fa-arrow-right"></i>
                     </div>
@@ -491,13 +578,11 @@
 
                 <!-- Semester 2 -->
                 <a href="sem2/" class="card">
-                    <div class="card-glow"></div>
                     <div class="card-icon">
                         <i class="fas fa-snowflake"></i>
                     </div>
                     <div class="card-season">November – March</div>
                     <h2 class="card-title">Semester 2</h2>
-                    <p class="card-desc">Advanced topics and project-based learning resources.</p>
                     <div class="card-cta">
                         Explore <i class="fas fa-arrow-right"></i>
                     </div>

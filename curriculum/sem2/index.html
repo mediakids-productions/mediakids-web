@@ -12,7 +12,7 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self';
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline';
         img-src 'self' data:;
         font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;
         style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://unpkg.com;
@@ -20,105 +20,483 @@
         connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://www.googletagmanager.com;
         frame-ancestors 'self';
         upgrade-insecure-requests">
-    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
-    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
-    <title>Semester 2 Resources - MediaKids Academy</title>
+    <title>Semester 2 - MediaKids Academy</title>
 
-    <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="../../assets/images/icons/logo.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/icons/logo.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="../../assets/images/icons/logo.png">
-
-    <!-- Fonts & Tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="../../css/style.css?v=1.0.2">
 
     <style>
-        .resource-card {
-            background: white;
-            border-radius: 24px;
-            padding: 32px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-            border: 1px solid rgba(0, 0, 0, 0.03);
-            transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-            position: relative;
+        /* ========================================
+           LIQUID GLASS DESIGN - SEMESTER 2
+           Apple-inspired • Premium • Glossy
+           ======================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(180deg, #e8f4fc 0%, #f0f8ff 50%, #e4f0f8 100%);
+            color: #1d1d1f;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* Hide footer initially, then fade in */
+        #shared-footer {
+            opacity: 0;
+            animation: fadeInFooter 0.5s ease 0.3s forwards;
+        }
+
+        @keyframes fadeInFooter {
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Animated Liquid Background */
+        .bg-animation {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
             overflow: hidden;
         }
 
-        .resource-card::before {
+        /* Liquid Blobs - COOL BLUE THEME */
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            mix-blend-mode: multiply;
+            animation: blobFloat 12s ease-in-out infinite;
+        }
+
+        .blob-1 {
+            width: 600px;
+            height: 600px;
+            background: linear-gradient(135deg, rgba(0, 122, 255, 0.4), rgba(90, 200, 250, 0.3));
+            top: -150px;
+            right: -100px;
+        }
+
+        .blob-2 {
+            width: 500px;
+            height: 500px;
+            background: linear-gradient(135deg, rgba(50, 173, 230, 0.4), rgba(0, 122, 255, 0.3));
+            bottom: 0;
+            left: -100px;
+            animation-delay: -4s;
+        }
+
+        .blob-3 {
+            width: 400px;
+            height: 400px;
+            background: linear-gradient(135deg, rgba(90, 200, 250, 0.3), rgba(0, 122, 255, 0.25));
+            top: 50%;
+            left: 40%;
+            animation-delay: -8s;
+        }
+
+        @keyframes blobFloat {
+
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1) rotate(0deg);
+            }
+
+            33% {
+                transform: translate(30px, -30px) scale(1.05) rotate(5deg);
+            }
+
+            66% {
+                transform: translate(-20px, 20px) scale(0.95) rotate(-5deg);
+            }
+        }
+
+        /* Main Content */
+        .main-content {
+            position: relative;
+            z-index: 10;
+            min-height: 100vh;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 120px 24px 60px;
+        }
+
+        /* Liquid Glass Badge */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 28px;
+            background: linear-gradient(135deg,
+                    rgba(255, 255, 255, 0.6) 0%,
+                    rgba(255, 255, 255, 0.3) 50%,
+                    rgba(255, 255, 255, 0.5) 100%);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            border-radius: 100px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #1d1d1f;
+            margin-bottom: 32px;
+            box-shadow:
+                0 8px 32px rgba(0, 0, 0, 0.08),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8),
+                inset 0 -1px 0 rgba(0, 0, 0, 0.05);
+            animation: fadeSlideUp 0.8s ease forwards;
+            opacity: 0;
+        }
+
+        .badge-icon {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, #007AFF, #5AC8FA);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            box-shadow: 0 4px 12px rgba(0, 122, 255, 0.4);
+        }
+
+        .badge-icon i {
+            font-size: 0.875rem;
+        }
+
+        /* Gradient Title */
+        .hero-title {
+            font-size: clamp(3.5rem, 12vw, 8rem);
+            font-weight: 800;
+            line-height: 0.95;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, #1d1d1f 0%, #007AFF 50%, #5AC8FA 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeSlideUp 0.8s ease 0.2s forwards, gradientShift 6s ease infinite;
+            opacity: 0;
+            text-shadow: 0 4px 30px rgba(0, 122, 255, 0.2);
+        }
+
+        @keyframes gradientShift {
+
+            0%,
+            100% {
+                background-position: 0% center;
+            }
+
+            50% {
+                background-position: 100% center;
+            }
+        }
+
+        @keyframes fadeSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: #6b7280;
+            font-weight: 500;
+            animation: fadeSlideUp 0.8s ease 0.4s forwards;
+            opacity: 0;
+        }
+
+        /* Cards Section */
+        .cards-section {
+            padding: 40px 24px 100px;
+        }
+
+        .cards-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        @media (max-width: 1024px) {
+            .cards-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .cards-container {
+                grid-template-columns: 1fr;
+                max-width: 420px;
+            }
+        }
+
+        /* Liquid Glass Cards */
+        .card {
+            position: relative;
+            background: linear-gradient(135deg,
+                    rgba(255, 255, 255, 0.7) 0%,
+                    rgba(255, 255, 255, 0.4) 50%,
+                    rgba(255, 255, 255, 0.6) 100%);
+            backdrop-filter: blur(40px) saturate(200%);
+            -webkit-backdrop-filter: blur(40px) saturate(200%);
+            border-radius: 28px;
+            padding: 36px 32px;
+            text-decoration: none;
+            color: #1d1d1f;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            box-shadow:
+                0 8px 40px rgba(0, 0, 0, 0.06),
+                0 2px 8px rgba(0, 0, 0, 0.04),
+                inset 0 1px 0 rgba(255, 255, 255, 0.9),
+                inset 0 -1px 0 rgba(0, 0, 0, 0.03);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Glass Shine Effect */
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg,
+                    transparent 0%,
+                    rgba(255, 255, 255, 0.4) 50%,
+                    transparent 100%);
+            transition: left 0.6s ease;
+        }
+
+        .card:hover::before {
+            left: 100%;
+        }
+
+        /* Liquid Border Glow - COOL BLUE */
+        .card::after {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: 30px;
+            background: linear-gradient(135deg,
+                    rgba(0, 122, 255, 0.4),
+                    rgba(90, 200, 250, 0.3),
+                    rgba(52, 199, 89, 0.25));
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            filter: blur(8px);
+        }
+
+        .card:hover::after {
+            opacity: 1;
+        }
+
+        @keyframes cardReveal {
+            from {
+                opacity: 0;
+                transform: translateY(50px) scale(0.95);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .card:hover {
+            transform: translateY(-12px) scale(1.02);
+            background: linear-gradient(135deg,
+                    rgba(255, 255, 255, 0.85) 0%,
+                    rgba(255, 255, 255, 0.6) 50%,
+                    rgba(255, 255, 255, 0.75) 100%);
+            box-shadow:
+                0 25px 60px rgba(0, 122, 255, 0.12),
+                0 8px 24px rgba(0, 0, 0, 0.08),
+                inset 0 1px 0 rgba(255, 255, 255, 1);
+        }
+
+        .card.disabled {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        /* Card Header */
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        /* Glossy Icons */
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .card-icon::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--card-color-1), var(--card-color-2));
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-            transform-origin: left;
+            height: 50%;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.4) 0%, transparent 100%);
+            border-radius: 18px 18px 0 0;
         }
 
-        .resource-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        }
-
-        .resource-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .card-icon {
-            width: 72px;
-            height: 72px;
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            margin-bottom: 20px;
-            transition: all 0.4s ease;
-        }
-
-        .resource-card:hover .card-icon {
+        .card:hover .card-icon {
             transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 8px 25px var(--icon-shadow);
         }
 
-        .gradient-text {
-            background: linear-gradient(135deg, #10b981, #059669);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        .card-icon.blue {
+            background: linear-gradient(135deg, #3b82f6, #60a5fa);
+            --icon-shadow: rgba(59, 130, 246, 0.5);
         }
 
-        .locked-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            padding: 6px 14px;
-            background: linear-gradient(135deg, #fef3c7, #fde68a);
-            border-radius: 50px;
-            font-size: 0.75rem;
+        .card-icon.green {
+            background: linear-gradient(135deg, #10b981, #34d399);
+            --icon-shadow: rgba(16, 185, 129, 0.5);
+        }
+
+        .card-icon.purple {
+            background: linear-gradient(135deg, #8b5cf6, #a78bfa);
+            --icon-shadow: rgba(139, 92, 246, 0.5);
+        }
+
+        .card-icon.amber {
+            background: linear-gradient(135deg, #f59e0b, #fbbf24);
+            --icon-shadow: rgba(245, 158, 11, 0.5);
+        }
+
+        .card-icon.red {
+            background: linear-gradient(135deg, #ef4444, #f87171);
+            --icon-shadow: rgba(239, 68, 68, 0.5);
+        }
+
+        .card-icon.pink {
+            background: linear-gradient(135deg, #ec4899, #f472b6);
+            --icon-shadow: rgba(236, 72, 153, 0.5);
+        }
+
+        /* Glass Badge */
+        .card-badge {
+            padding: 8px 14px;
+            border-radius: 100px;
+            font-size: 0.7rem;
             font-weight: 600;
-            color: #92400e;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            backdrop-filter: blur(10px);
         }
 
-        .semester-badge {
+        .card-badge.locked {
+            background: linear-gradient(135deg, rgba(251, 191, 36, 0.3), rgba(245, 158, 11, 0.2));
+            color: #b45309;
+            border: 1px solid rgba(251, 191, 36, 0.4);
+        }
+
+        .card-badge.coming {
+            background: rgba(0, 0, 0, 0.05);
+            color: #9ca3af;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: -0.02em;
+            color: #1d1d1f;
+        }
+
+        .card-desc {
+            font-size: 0.95rem;
+            color: #6b7280;
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+
+        .card-cta {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 12px 28px;
-            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(5, 150, 105, 0.1));
-            border: 2px solid rgba(16, 185, 129, 0.3);
-            border-radius: 50px;
             font-size: 0.9rem;
-            font-weight: 700;
-            color: #10b981;
+            font-weight: 600;
+            color: #007AFF;
+            transition: all 0.3s ease;
         }
-    </style>
-    <style>
-        /* Lenis Smooth Scroll CSS */
+
+        .card:hover .card-cta {
+            gap: 14px;
+            color: #0056b3;
+        }
+
+        /* Back Link - Liquid Glass */
+        .back-section {
+            text-align: center;
+            padding: 40px 24px 80px;
+            animation: fadeSlideUp 0.8s ease 1.2s forwards;
+            opacity: 0;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #6b7280;
+            text-decoration: none;
+            padding: 16px 32px;
+            background: linear-gradient(135deg,
+                    rgba(255, 255, 255, 0.7),
+                    rgba(255, 255, 255, 0.4));
+            backdrop-filter: blur(20px) saturate(180%);
+            border-radius: 100px;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow:
+                0 8px 30px rgba(0, 0, 0, 0.06),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            transition: all 0.4s ease;
+        }
+
+        .back-link:hover {
+            color: #1d1d1f;
+            transform: translateY(-4px);
+            box-shadow:
+                0 15px 40px rgba(0, 122, 255, 0.12),
+                inset 0 1px 0 rgba(255, 255, 255, 1);
+        }
+
+        /* Smooth Scroll */
         html.lenis {
             height: auto;
         }
@@ -127,210 +505,255 @@
             scroll-behavior: auto;
         }
 
-        .lenis.lenis-smooth [data-lenis-prevent] {
-            overscroll-behavior: contain;
+        /* ========================================
+           APPLE-STYLE PAGE TRANSITIONS
+           ======================================== */
+
+        /* Page wrapper for transitions */
+        .page-transition-wrapper {
+            transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .lenis.lenis-stopped {
-            overflow: hidden;
+        /* Exit animation - fade out and scale down slightly */
+        .page-transition-wrapper.page-exit {
+            opacity: 0;
+            transform: scale(0.98) translateY(-10px);
         }
 
-        .lenis.lenis-scrolling iframe {
+        /* Entry animation - starts hidden, then reveals */
+        .page-transition-wrapper.page-enter {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .page-transition-wrapper.page-enter-active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Overlay for smooth transition */
+        .page-transition-overlay {
+            position: fixed;
+            inset: 0;
+            background: linear-gradient(180deg, #e8f4fc 0%, #f0f8ff 100%);
+            z-index: 9999;
+            opacity: 0;
             pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .page-transition-overlay.active {
+            opacity: 1;
+            pointer-events: all;
         }
     </style>
 </head>
 
-<body class="antialiased">
+<body>
+    <!-- Page Transition Overlay -->
+    <div class="page-transition-overlay" id="pageTransitionOverlay"></div>
+    <!-- Early Script to prevent Flash -->
+    <script>
+        if (sessionStorage.getItem('pageTransition') === 'true') {
+            document.getElementById('pageTransitionOverlay').classList.add('active');
+        }
+    </script>
+
+    <!-- Animated Background -->
+    <div class="bg-animation">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
 
     <!-- Header -->
     <div id="shared-header"></div>
 
-    <main class="min-h-screen pb-24">
-
-        <!-- Hero Section -->
-        <div class="text-center pt-24 pb-16 px-6" data-aos="fade-down" data-aos-duration="800">
-            <div class="semester-badge mb-8 mx-auto w-fit">
-                <i class="fas fa-book-open"></i>
-                <span>SECOND SEMESTER</span>
+    <main class="main-content page-transition-wrapper" id="pageContent">
+        <!-- Hero -->
+        <section class="hero">
+            <div class="badge">
+                <div class="badge-icon">
+                    <i class="fas fa-snowflake"></i>
+                </div>
+                Semester 2 · November – March
             </div>
+            <h1 class="hero-title">Resources</h1>
+            <p class="hero-subtitle">Select a program to access materials</p>
+        </section>
 
-            <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6">
-                Curriculum <span class="gradient-text">Resources</span>
-            </h1>
-            <p class="text-lg text-gray-500 max-w-2xl mx-auto leading-relaxed">
-                To request access, contact your curriculum consultant.
-            </p>
-        </div>
-
-        <!-- Resource Cards Grid -->
-        <div class="container mx-auto px-6 max-w-6xl">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Cards -->
+        <section class="cards-section">
+            <div class="cards-container">
 
                 <!-- ECD Resources -->
-                <div class="resource-card opacity-60 cursor-not-allowed"
-                    style="--card-color-1: #3b82f6; --card-color-2: #60a5fa;" data-aos="fade-up" data-aos-delay="100">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="card-icon bg-blue-100 text-blue-600">
+                <a href="ecd/" class="card disabled">
+                    <div class="card-header">
+                        <div class="card-icon blue">
                             <i class="fas fa-comments"></i>
                         </div>
-                        <span class="locked-badge bg-gray-100 text-gray-500">
-                            <i class="fas fa-clock text-xs"></i>
-                            Coming Soon
-                        </span>
+                        <span class="card-badge coming">Coming Soon</span>
                     </div>
-                    <h3 class="text-2xl font-bold text-gray-400 mb-3">ECD Resources</h3>
-                    <p class="text-gray-400 mb-4">English for Communication Development curriculum materials for
-                        Semester 2.</p>
-                    <div class="flex items-center text-gray-400 font-semibold">
-                        <span>Coming Soon</span>
-                    </div>
-                </div>
+                    <h3 class="card-title">ECD Resources</h3>
+                    <p class="card-desc">English for Communication Development materials.</p>
+                    <span class="card-cta" style="color: #c4c4c4;">Coming Soon</span>
+                </a>
 
                 <!-- MEP Resources -->
-                <div class="resource-card opacity-60 cursor-not-allowed"
-                    style="--card-color-1: #10b981; --card-color-2: #34d399;" data-aos="fade-up" data-aos-delay="150">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="card-icon bg-emerald-100 text-emerald-600">
+                <div class="card disabled">
+                    <div class="card-header">
+                        <div class="card-icon green">
                             <i class="fas fa-graduation-cap"></i>
                         </div>
-                        <span class="locked-badge bg-gray-100 text-gray-500">
-                            <i class="fas fa-clock text-xs"></i>
-                            Coming Soon
-                        </span>
+                        <span class="card-badge coming">Coming Soon</span>
                     </div>
-                    <h3 class="text-2xl font-bold text-gray-400 mb-3">MEP Resources</h3>
-                    <p class="text-gray-400 mb-4">Mini English Program teaching materials for Semester 2.</p>
-                    <div class="flex items-center text-gray-400 font-semibold">
-                        <span>Coming Soon</span>
-                    </div>
+                    <h3 class="card-title">MEP Resources</h3>
+                    <p class="card-desc">Mini English Program teaching materials.</p>
+                    <span class="card-cta" style="color: #c4c4c4;">Coming Soon</span>
                 </div>
 
                 <!-- IEP Resources -->
-                <div class="resource-card opacity-60 cursor-not-allowed"
-                    style="--card-color-1: #8b5cf6; --card-color-2: #a78bfa;" data-aos="fade-up" data-aos-delay="200">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="card-icon bg-purple-100 text-purple-600">
+                <div class="card disabled">
+                    <div class="card-header">
+                        <div class="card-icon purple">
                             <i class="fas fa-chalkboard-teacher"></i>
                         </div>
-                        <span class="locked-badge bg-gray-100 text-gray-500">
-                            <i class="fas fa-clock text-xs"></i>
-                            Coming Soon
-                        </span>
+                        <span class="card-badge coming">Coming Soon</span>
                     </div>
-                    <h3 class="text-2xl font-bold text-gray-400 mb-3">IEP Resources</h3>
-                    <p class="text-gray-400 mb-4">Intensive English Program curriculum for Semester 2.</p>
-                    <div class="flex items-center text-gray-400 font-semibold">
-                        <span>Coming Soon</span>
-                    </div>
+                    <h3 class="card-title">IEP Resources</h3>
+                    <p class="card-desc">Intensive English Program curriculum guides.</p>
+                    <span class="card-cta" style="color: #c4c4c4;">Coming Soon</span>
                 </div>
 
-                <!-- KEEP IT REAL i-tools -->
-                <div class="resource-card opacity-60 cursor-not-allowed"
-                    style="--card-color-1: #f59e0b; --card-color-2: #fbbf24;" data-aos="fade-up" data-aos-delay="250">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="card-icon bg-amber-100 text-amber-600">
+                <!-- i-tools -->
+                <div class="card disabled">
+                    <div class="card-header">
+                        <div class="card-icon amber">
                             <i class="fas fa-laptop-code"></i>
                         </div>
-                        <span class="locked-badge bg-gray-100 text-gray-500">
-                            <i class="fas fa-clock text-xs"></i>
-                            Coming Soon
-                        </span>
+                        <span class="card-badge coming">Coming Soon</span>
                     </div>
-                    <h3 class="text-2xl font-bold text-gray-400 mb-3">KEEP IT REAL i-tools</h3>
-                    <p class="text-gray-400 mb-4">Interactive digital tools for Semester 2.</p>
-                    <div class="flex items-center text-gray-400 font-semibold">
-                        <span>Coming Soon</span>
-                    </div>
+                    <h3 class="card-title">i-tools</h3>
+                    <p class="card-desc">Interactive digital tools for smart classrooms.</p>
+                    <span class="card-cta" style="color: #c4c4c4;">Coming Soon</span>
                 </div>
 
-                <!-- MK AWARDS VOCAB LIST -->
-                <div class="resource-card opacity-60 cursor-not-allowed"
-                    style="--card-color-1: #ef4444; --card-color-2: #f87171;" data-aos="fade-up" data-aos-delay="300">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="card-icon bg-red-100 text-red-600">
+                <!-- Vocab List -->
+                <div class="card disabled">
+                    <div class="card-header">
+                        <div class="card-icon red">
                             <i class="fas fa-spell-check"></i>
                         </div>
-                        <span class="locked-badge bg-gray-100 text-gray-500">
-                            <i class="fas fa-clock text-xs"></i>
-                            Coming Soon
-                        </span>
+                        <span class="card-badge coming">Coming Soon</span>
                     </div>
-                    <h3 class="text-2xl font-bold text-gray-400 mb-3">MK AWARDS VOCAB LIST</h3>
-                    <p class="text-gray-400 mb-4">Vocabulary lists for Semester 2.</p>
-                    <div class="flex items-center text-gray-400 font-semibold">
-                        <span>Coming Soon</span>
-                    </div>
+                    <h3 class="card-title">Vocab List</h3>
+                    <p class="card-desc">MediaKids Awards vocabulary lists.</p>
+                    <span class="card-cta" style="color: #c4c4c4;">Coming Soon</span>
                 </div>
 
-                <!-- MK AWARDS SCORING -->
-                <div class="resource-card opacity-60 cursor-not-allowed"
-                    style="--card-color-1: #ec4899; --card-color-2: #f472b6;" data-aos="fade-up" data-aos-delay="350">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="card-icon bg-pink-100 text-pink-600">
+                <!-- Scoring -->
+                <div class="card disabled">
+                    <div class="card-header">
+                        <div class="card-icon pink">
                             <i class="fas fa-clipboard-check"></i>
                         </div>
-                        <span class="locked-badge bg-gray-100 text-gray-500">
-                            <i class="fas fa-clock text-xs"></i>
-                            Coming Soon
-                        </span>
+                        <span class="card-badge coming">Coming Soon</span>
                     </div>
-                    <h3 class="text-2xl font-bold text-gray-400 mb-3">MK AWARDS SCORING</h3>
-                    <p class="text-gray-400 mb-4">Scoring rubrics for Semester 2.</p>
-                    <div class="flex items-center text-gray-400 font-semibold">
-                        <span>Coming Soon</span>
-                    </div>
+                    <h3 class="card-title">Scoring</h3>
+                    <p class="card-desc">MediaKids Awards scoring rubrics.</p>
+                    <span class="card-cta" style="color: #c4c4c4;">Coming Soon</span>
                 </div>
 
             </div>
+        </section>
 
-            <!-- Back Link -->
-            <div class="text-center mt-16" data-aos="fade-up" data-aos-delay="400">
-                <a href="../../"
-                    class="inline-flex items-center gap-2 text-gray-500 hover:text-emerald-600 transition-colors font-medium">
-                    <i class="fas fa-arrow-left"></i>
-                    <span>Back to Home</span>
-                </a>
-            </div>
+        <!-- Back Link -->
+        <div class="back-section">
+            <a href="../" class="back-link">
+                <i class="fas fa-arrow-left"></i>
+                Back to Curriculum
+            </a>
         </div>
-
     </main>
 
     <!-- Footer -->
     <div id="shared-footer"></div>
 
     <!-- Scripts -->
-    <!-- Dynamic version loader - ensures cache busting works -->
     <script>document.write('<script src="../../js/version.js?v=' + Date.now() + '"><\/script>');</script>
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="../../js/components.js?v=1.0.2"></script>
     <script src="../../js/script.js?v=1.0.2"></script>
 
-    <script>
-        AOS.init({
-            once: true,
-            offset: 50,
-            duration: 800,
-            easing: 'ease-out-cubic',
-        });
-    </script>
-
-    <!-- Lenis Smooth Scroll -->
+    <!-- Lenis -->
     <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
     <script>
-        const lenis = new Lenis({
-            lerp: 0.1,
-            orientation: 'vertical',
-            gestureOrientation: 'vertical',
-            smoothWheel: true,
-            wheelMultiplier: 1,
-            touchMultiplier: 1,
-        });
-        function raf(time) {
-            lenis.raf(time);
-            requestAnimationFrame(raf);
-        }
+        const lenis = new Lenis({ lerp: 0.08, smoothWheel: true });
+        function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
         requestAnimationFrame(raf);
+    </script>
+
+    <!-- Apple-style Page Transitions -->
+    <script>
+        (function () {
+            const pageContent = document.getElementById('pageContent');
+            const overlay = document.getElementById('pageTransitionOverlay');
+
+            // Entry animation on page load
+            window.addEventListener('load', function () {
+                // Check if coming from a transition
+                if (sessionStorage.getItem('pageTransition') === 'true') {
+                    sessionStorage.removeItem('pageTransition');
+                    pageContent.classList.add('page-enter');
+                    overlay.classList.add('active');
+
+                    // Start reveal animation
+                    requestAnimationFrame(function () {
+                        overlay.classList.remove('active');
+                        setTimeout(function () {
+                            pageContent.classList.remove('page-enter');
+                            pageContent.classList.add('page-enter-active');
+                        }, 100);
+                    });
+                }
+            });
+
+            // Exit animation on link click
+            document.querySelectorAll('a.card:not(.disabled)').forEach(function (link) {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const href = this.getAttribute('href');
+
+                    // Set transition flag
+                    sessionStorage.setItem('pageTransition', 'true');
+
+                    // Play exit animation
+                    pageContent.classList.add('page-exit');
+                    overlay.classList.add('active');
+
+                    // Navigate after animation
+                    setTimeout(function () {
+                        window.location.href = href;
+                    }, 350);
+                });
+            });
+
+            // Also handle back link
+            document.querySelectorAll('.back-link').forEach(function (link) {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const href = this.getAttribute('href');
+
+                    sessionStorage.setItem('pageTransition', 'true');
+                    pageContent.classList.add('page-exit');
+                    overlay.classList.add('active');
+
+                    setTimeout(function () {
+                        window.location.href = href;
+                    }, 350);
+                });
+            });
+        })();
     </script>
 </body>
 

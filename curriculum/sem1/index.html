@@ -12,7 +12,7 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self';
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline';
         img-src 'self' data:;
         font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;
         style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://unpkg.com;
@@ -44,6 +44,18 @@
             color: #1d1d1f;
             overflow-x: hidden;
             min-height: 100vh;
+        }
+
+        /* Hide footer initially, then fade in */
+        #shared-footer {
+            opacity: 0;
+            animation: fadeInFooter 0.5s ease 0.3s forwards;
+        }
+
+        @keyframes fadeInFooter {
+            to {
+                opacity: 1;
+            }
         }
 
         /* Animated Liquid Background */
@@ -494,10 +506,62 @@
         .lenis.lenis-smooth {
             scroll-behavior: auto;
         }
+
+        /* ========================================
+           APPLE-STYLE PAGE TRANSITIONS
+           ======================================== */
+
+        /* Page wrapper for transitions */
+        .page-transition-wrapper {
+            transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Exit animation - fade out and scale down slightly */
+        .page-transition-wrapper.page-exit {
+            opacity: 0;
+            transform: scale(0.98) translateY(-10px);
+        }
+
+        /* Entry animation - starts hidden, then reveals */
+        .page-transition-wrapper.page-enter {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .page-transition-wrapper.page-enter-active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Overlay for smooth transition */
+        .page-transition-overlay {
+            position: fixed;
+            inset: 0;
+            background: linear-gradient(180deg, #e8f4fc 0%, #f0f8ff 100%);
+            z-index: 9999;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .page-transition-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
     </style>
 </head>
 
 <body>
+    <!-- Page Transition Overlay -->
+    <div class="page-transition-overlay" id="pageTransitionOverlay"></div>
+    <!-- Early Script to prevent Flash -->
+    <script>
+        if (sessionStorage.getItem('pageTransition') === 'true') {
+            document.getElementById('pageTransitionOverlay').classList.add('active');
+        }
+    </script>
+
     <!-- Animated Background -->
     <div class="bg-animation">
         <div class="blob blob-1"></div>
@@ -508,7 +572,7 @@
     <!-- Header -->
     <div id="shared-header"></div>
 
-    <main class="main-content">
+    <main class="main-content page-transition-wrapper" id="pageContent">
         <!-- Hero -->
         <section class="hero">
             <div class="badge">
@@ -633,6 +697,69 @@
         const lenis = new Lenis({ lerp: 0.08, smoothWheel: true });
         function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
         requestAnimationFrame(raf);
+    </script>
+
+    <!-- Apple-style Page Transitions -->
+    <script>
+        (function () {
+            const pageContent = document.getElementById('pageContent');
+            const overlay = document.getElementById('pageTransitionOverlay');
+
+            // Entry animation on page load
+            window.addEventListener('load', function () {
+                // Check if coming from a transition
+                if (sessionStorage.getItem('pageTransition') === 'true') {
+                    sessionStorage.removeItem('pageTransition');
+                    pageContent.classList.add('page-enter');
+                    overlay.classList.add('active');
+
+                    // Start reveal animation
+                    requestAnimationFrame(function () {
+                        overlay.classList.remove('active');
+                        setTimeout(function () {
+                            pageContent.classList.remove('page-enter');
+                            pageContent.classList.add('page-enter-active');
+                        }, 100);
+                    });
+                }
+            });
+
+            // Exit animation on link click
+            document.querySelectorAll('a.card:not(.disabled)').forEach(function (link) {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const href = this.getAttribute('href');
+
+                    // Set transition flag
+                    sessionStorage.setItem('pageTransition', 'true');
+
+                    // Play exit animation
+                    pageContent.classList.add('page-exit');
+                    overlay.classList.add('active');
+
+                    // Navigate after animation
+                    setTimeout(function () {
+                        window.location.href = href;
+                    }, 350);
+                });
+            });
+
+            // Also handle back link
+            document.querySelectorAll('.back-link').forEach(function (link) {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const href = this.getAttribute('href');
+
+                    sessionStorage.setItem('pageTransition', 'true');
+                    pageContent.classList.add('page-exit');
+                    overlay.classList.add('active');
+
+                    setTimeout(function () {
+                        window.location.href = href;
+                    }, 350);
+                });
+            });
+        })();
     </script>
 </body>
 
