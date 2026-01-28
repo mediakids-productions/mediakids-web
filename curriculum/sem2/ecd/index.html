@@ -41,23 +41,23 @@
         (function () {
             // Allow force reset via URL parameter ?reset=1
             if (new URLSearchParams(window.location.search).has('reset')) {
-                sessionStorage.removeItem('ecd_authenticated');
-                console.log('[ECD] Session reset via URL parameter');
+                sessionStorage.removeItem('ecd_sem2_authenticated');
+                console.log('[ECD Sem2] Session reset via URL parameter');
                 window.location.href = window.location.pathname;
                 return;
             }
 
-            var isAuthenticated = sessionStorage.getItem('ecd_authenticated') === 'true';
-            console.log('[ECD] Auth check - isAuthenticated:', isAuthenticated);
-            console.log('[ECD] sessionStorage value:', sessionStorage.getItem('ecd_authenticated'));
+            var isAuthenticated = sessionStorage.getItem('ecd_sem2_authenticated') === 'true';
+            console.log('[ECD Sem2] Auth check - isAuthenticated:', isAuthenticated);
+            console.log('[ECD Sem2] sessionStorage value:', sessionStorage.getItem('ecd_sem2_authenticated'));
 
             if (isAuthenticated) {
                 // Hide password overlay immediately before render
-                console.log('[ECD] User is authenticated - hiding overlay');
+                console.log('[ECD Sem2] User is authenticated - hiding overlay');
                 document.write('<style>#password-overlay{display:none !important;}</style>');
             } else {
                 // Show overlay, hide protected content AND footer if not authenticated
-                console.log('[ECD] User NOT authenticated - showing login overlay');
+                console.log('[ECD Sem2] User NOT authenticated - showing login overlay');
                 document.write('<style id="ecd-hide-content">#protected-content{display:none !important;}#shared-footer,#shared-footer>footer{display:none !important;}</style>');
             }
         })();
@@ -910,7 +910,7 @@
                 <div class="hero-badge-icon">
                     <i class="fas fa-comments"></i>
                 </div>
-                ECD Resources · Semester 1
+                ECD Resources · Semester 2
             </div>
             <h1 class="hero-title">Curriculum Resources</h1>
             <p class="hero-subtitle">Select your teaching level to get started</p>
@@ -1517,14 +1517,14 @@
         const CORRECT_HASH = 'a8f5f167f44f4964e6c998dee827110c'; // MD5 hash for simplicity
 
         // Check if already authenticated in this session
-        if (sessionStorage.getItem('ecd_authenticated') === 'true') {
-            console.log('[ECD] Already authenticated - showing content directly');
+        if (sessionStorage.getItem('ecd_sem2_authenticated') === 'true') {
+            console.log('[ECD Sem2] Already authenticated - showing content directly');
 
             // ลบ style tag ที่ซ่อน content ออก
             const hideStyle = document.getElementById('ecd-hide-content');
             if (hideStyle) {
                 hideStyle.remove();
-                console.log('[ECD] Removed hide-content style tag');
+                console.log('[ECD Sem2] Removed hide-content style tag');
             }
 
             document.getElementById('password-overlay').style.display = 'none';
@@ -1558,9 +1558,9 @@
             return hashHex;
         }
 
-        // Password: ecd2025
-        // SHA-256 hash: 7a8b9c... (we'll check against plain for simplicity with obfuscation)
-        const VALID_PASSWORDS = ['1ecd26'];
+        // Password: 2ecd26 (Semester 2)
+        // SHA-256 hash: for simple password check
+        const VALID_PASSWORDS = ['2ecd26'];
 
         function checkPassword(event) {
             event.preventDefault();
@@ -1573,8 +1573,8 @@
 
             if (isValid) {
                 // Store authentication in session
-                sessionStorage.setItem('ecd_authenticated', 'true');
-                console.log('[ECD] Password correct - unlocking content');
+                sessionStorage.setItem('ecd_sem2_authenticated', 'true');
+                console.log('[ECD Sem2] Password correct - unlocking content');
 
                 // Hide overlay with animation
                 const overlay = document.getElementById('password-overlay');

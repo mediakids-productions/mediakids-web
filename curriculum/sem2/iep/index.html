@@ -22,7 +22,7 @@
         upgrade-insecure-requests">
     <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
     <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
-    <title>Curriculum Resources - MediaKids Academy</title>
+    <title>IEP Resources - MediaKids Academy</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="../../../assets/images/icons/logo.png">
@@ -41,15 +41,15 @@
         (function () {
             // Allow force reset via URL parameter ?reset=1
             if (new URLSearchParams(window.location.search).has('reset')) {
-                sessionStorage.removeItem('ecd_authenticated');
+                sessionStorage.removeItem('iep2_authenticated');
                 console.log('[ECD] Session reset via URL parameter');
                 window.location.href = window.location.pathname;
                 return;
             }
 
-            var isAuthenticated = sessionStorage.getItem('ecd_authenticated') === 'true';
+            var isAuthenticated = sessionStorage.getItem('iep2_authenticated') === 'true';
             console.log('[ECD] Auth check - isAuthenticated:', isAuthenticated);
-            console.log('[ECD] sessionStorage value:', sessionStorage.getItem('ecd_authenticated'));
+            console.log('[IEP] sessionStorage value:', sessionStorage.getItem('iep2_authenticated'));
 
             if (isAuthenticated) {
                 // Hide password overlay immediately before render
@@ -847,7 +847,7 @@
             <h2 style="font-size: 2rem; font-weight: 800; margin-bottom: 8px;
                 background: linear-gradient(135deg, #1d1d1f 0%, #007AFF 50%, #5AC8FA 100%);
                 background-size: 200% auto; -webkit-background-clip: text; background-clip: text;
-                -webkit-text-fill-color: transparent;">ECD Resources</h2>
+                -webkit-text-fill-color: transparent;">IEP Resources</h2>
             <p style="color: #6b7280; font-size: 1rem; margin-bottom: 32px;">
                 Enter your password to access curriculum materials.
             </p>
@@ -910,7 +910,7 @@
                 <div class="hero-badge-icon">
                     <i class="fas fa-comments"></i>
                 </div>
-                ECD Resources · Semester 1
+                IEP Resources · Semester 2
             </div>
             <h1 class="hero-title">Curriculum Resources</h1>
             <p class="hero-subtitle">Select your teaching level to get started</p>
@@ -968,21 +968,19 @@
                         <div class="resource-card">
                             <div class="card-icon bg-blue-50 text-blue-600"><i class="fas fa-list-ul"></i></div>
                             <h3 class="text-2xl font-bold mb-2 text-gray-800">Scope & Sequence</h3>
-                            <p class="text-gray-500 mb-8 leading-relaxed">Curriculum outline and pacing guides for
-                                Anuban
-                                levels.</p>
+                            <p class="text-gray-500 mb-8 leading-relaxed">Curriculum outline and pacing guides.</p>
                             <div class="mt-4 space-y-3">
-                                <a href="https://drive.google.com/uc?id=1gpsPyuM_c8XxK_aG5tkIOYb4huz64mOC&export=download"
+                                <a href="https://drive.google.com/uc?id=1efM7gWCoH2vOq2ZvDiNTgZesvLKHZ-eG&export=download"
                                     class="download-btn" onclick="animateDownload(this)">
                                     <span>K1 – Scope & Sequence</span>
                                     <i class="fas fa-cloud-download-alt"></i>
                                 </a>
-                                <a href="https://drive.google.com/uc?id=1cM33p--xcM1PLCb4DI9l1goA2kzw4XLP&export=download"
+                                <a href="https://drive.google.com/uc?id=1h5bHkj20g3fT2bkjvepkO7EMqrowSQht&export=download"
                                     class="download-btn" onclick="animateDownload(this)">
                                     <span>K2 – Scope & Sequence</span>
                                     <i class="fas fa-cloud-download-alt"></i>
                                 </a>
-                                <a href="https://drive.google.com/uc?id=16uH20OyzGbf-8lBjzJcFsitO-cnGHfhS&export=download"
+                                <a href="https://drive.google.com/uc?id=1yP5Z8QDQwdP_C0cche1Oj0qzcCLXApNx&export=download"
                                     class="download-btn" onclick="animateDownload(this)">
                                     <span>K3 – Scope & Sequence</span>
                                     <i class="fas fa-cloud-download-alt"></i>
@@ -990,25 +988,50 @@
                             </div>
                         </div>
 
-                        <!-- Activity Plans -->
+                        <!-- Unit Tests -->
                         <div class="resource-card">
-                            <div class="card-icon bg-green-50 text-green-600"><i class="fas fa-shapes"></i></div>
-                            <h3 class="text-2xl font-bold mb-2 text-gray-800">Activity Plans</h3>
-                            <p class="text-gray-500 mb-8 leading-relaxed">Daily activities and learning objectives.</p>
+                            <div class="card-icon bg-red-50 text-red-600"><i class="fas fa-file-alt"></i></div>
+                            <h3 class="text-2xl font-bold mb-2 text-gray-800">Unit Tests</h3>
+                            <p class="text-gray-500 mb-8 leading-relaxed">Assessment materials for each unit.</p>
                             <div class="mt-4 space-y-3">
-                                <a href="https://drive.google.com/uc?id=1ZkH7kb3Uu8doZV2tOsI2y-hj3ckKocQi&export=download"
+                                <a href="https://drive.google.com/uc?id=1pYy29x_nE4aCerFkKMLjjJ6gYrwUk5Aj&export=download"
                                     class="download-btn" onclick="animateDownload(this)">
-                                    <span>K1 – Activity Plans</span>
+                                    <span>K1 – Unit Tests</span>
                                     <i class="fas fa-cloud-download-alt"></i>
                                 </a>
-                                <a href="https://drive.google.com/uc?id=1FWVsXxckDxxCYqYnRvPdzOFGVER6SEu7&export=download"
+                                <a href="https://drive.google.com/uc?id=1_klpsRUxWifjir4P-0-uGZJ0pjZuP8Jx&export=download"
                                     class="download-btn" onclick="animateDownload(this)">
-                                    <span>K2 – Activity Plans</span>
+                                    <span>K2 – Unit Tests</span>
                                     <i class="fas fa-cloud-download-alt"></i>
                                 </a>
-                                <a href="https://drive.google.com/uc?id=1yPLPXPIJPh6_oJVVL4rbGOgLU_LmnWUR&export=download"
+                                <a href="https://drive.google.com/uc?id=1XgHkHSMNRljP0N1Z08CsEgIUEjEAdJFB&export=download"
                                     class="download-btn" onclick="animateDownload(this)">
-                                    <span>K3 – Activity Plans</span>
+                                    <span>K3 – Unit Tests</span>
+                                    <i class="fas fa-cloud-download-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Worksheets -->
+                        <div class="resource-card">
+                            <div class="card-icon bg-green-50 text-green-600"><i class="fas fa-file-signature"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-2 text-gray-800">Worksheets</h3>
+                            <p class="text-gray-500 mb-8 leading-relaxed">Practice materials for students.</p>
+                            <div class="mt-4 space-y-3">
+                                <a href="https://drive.google.com/uc?id=1b2fTb2-IWkcjZADmBVgqONXMiUMfaKGk&export=download"
+                                    class="download-btn" onclick="animateDownload(this)">
+                                    <span>K1 – Worksheets</span>
+                                    <i class="fas fa-cloud-download-alt"></i>
+                                </a>
+                                <a href="https://drive.google.com/uc?id=11hSa2YADjkHPmJBREq-JwXbwWskXhenY&export=download"
+                                    class="download-btn" onclick="animateDownload(this)">
+                                    <span>K2 – Worksheets</span>
+                                    <i class="fas fa-cloud-download-alt"></i>
+                                </a>
+                                <a href="https://drive.google.com/uc?id=1H8Xwvv7NYsp98eDtLXVLjvYugdvx_-QR&export=download"
+                                    class="download-btn" onclick="animateDownload(this)">
+                                    <span>K3 – Worksheets</span>
                                     <i class="fas fa-cloud-download-alt"></i>
                                 </a>
                             </div>
@@ -1020,17 +1043,17 @@
                             <h3 class="text-2xl font-bold mb-2 text-gray-800">Flashcards</h3>
                             <p class="text-gray-500 mb-8 leading-relaxed">Visual aids for vocabulary teaching.</p>
                             <div class="mt-4 space-y-3">
-                                <a href="https://drive.google.com/uc?id=15p3PG49TO98bGtCGRSSy3j64yAsdTSwG&export=download"
+                                <a href="https://drive.google.com/uc?id=1crSUVilYBHgebNSR0yUxWtCLHTCC-mi9&export=download"
                                     class="download-btn" onclick="animateDownload(this)">
                                     <span>K1 – Flashcards</span>
                                     <i class="fas fa-cloud-download-alt"></i>
                                 </a>
-                                <a href="https://drive.google.com/uc?id=1FDt_V123LWiCN5-phRjfH_NaCDrcE_9k&export=download"
+                                <a href="https://drive.google.com/uc?id=13QdMqlNqnO7bsV9wo3Zu7s4bGptfVmmF&export=download"
                                     class="download-btn" onclick="animateDownload(this)">
                                     <span>K2 – Flashcards</span>
                                     <i class="fas fa-cloud-download-alt"></i>
                                 </a>
-                                <a href="https://drive.google.com/uc?id=1fmrCcDM0F0OVg3Z3MiOVxIw1ypy2uvBB&export=download"
+                                <a href="https://drive.google.com/uc?id=1o0ZLpOiIARjrysCE6PgP7ZPOJKVFb1MV&export=download"
                                     class="download-btn" onclick="animateDownload(this)">
                                     <span>K3 – Flashcards</span>
                                     <i class="fas fa-cloud-download-alt"></i>
@@ -1038,34 +1061,33 @@
                             </div>
                         </div>
 
-                        <!-- Other Resources -->
+                        <!-- Extra Resources -->
                         <div class="resource-card">
-                            <div class="card-icon bg-orange-50 text-orange-600"><i class="fas fa-music"></i></div>
-                            <h3 class="text-2xl font-bold mb-2 text-gray-800">Other Resources</h3>
-                            <p class="text-gray-500 mb-8 leading-relaxed">Songs, admin files, and extras.</p>
+                            <div class="card-icon bg-orange-50 text-orange-600"><i class="fas fa-folder-plus"></i></div>
+                            <h3 class="text-2xl font-bold mb-2 text-gray-800">Extra Resources</h3>
+                            <p class="text-gray-500 mb-8 leading-relaxed">Additional teaching materials.</p>
                             <div class="mt-4 space-y-3">
                                 <a href="https://drive.google.com/drive/folders/1NdHfz0SNsfntX70fYSsehEeTVzGLiJIL?usp=sharing"
                                     target="_blank" class="download-btn">
-                                    <span>Anuban Songs</span>
+                                    <span>Songs & Tongue Twisters</span>
                                     <i class="fas fa-external-link-alt"></i>
                                 </a>
                                 <a href="https://drive.google.com/drive/folders/1vTHe9pp7jaLBnjC2_2pVjrRMYLIV3M-p?usp=sharing"
                                     target="_blank" class="download-btn">
-                                    <span>Teacher's Admin Files</span>
+                                    <span>Teacher Admin Resources</span>
                                     <i class="fas fa-external-link-alt"></i>
                                 </a>
                             </div>
                         </div>
 
-                        <!-- i-Tools Info (Fixed: White Background) -->
+                        <!-- i-Tools Info -->
                         <div class="resource-card">
                             <div class="card-icon bg-gray-100 text-gray-700"><i class="fas fa-laptop-code"></i></div>
-                            <h3 class="text-2xl font-bold mb-2 text-gray-800">Interactive Tools</h3>
-                            <p class="text-gray-500 mb-8 leading-relaxed">Digital resources for smart classrooms.</p>
+                            <h3 class="text-2xl font-bold mb-2 text-gray-800">I-Tools</h3>
+                            <p class="text-gray-500 mb-8 leading-relaxed">Interactive digital resources.</p>
                             <div class="mt-4 p-4 bg-gray-50 rounded-xl border border-gray-100">
                                 <p class="text-sm text-center text-gray-600">Please contact your curriculum consultant
-                                    to
-                                    access i-Tools.</p>
+                                    to access I-Tools.</p>
                             </div>
                         </div>
 
@@ -1082,51 +1104,24 @@
                             <h3 class="text-2xl font-bold mb-2 text-gray-800">Scope & Sequence</h3>
                             <p class="text-gray-500 mb-8 leading-relaxed">Curriculum outline and pacing guides.</p>
                             <div class="mt-4 download-list space-y-3">
-                                <a href="https://drive.google.com/uc?id=13KvJtbvXvveDXI-6NrWxkwKtlKXrMHCm&export=download"
+                                <a href="https://drive.google.com/uc?id=1JlwnFBHVY9T-6Dfdcv873Olljv-kKKjJ&export=download"
                                     class="download-btn" onclick="animateDownload(this)"><span>P1 – Scope &
                                         Sequence</span><i class="fas fa-cloud-download-alt"></i></a>
-                                <a href="https://drive.google.com/uc?id=1R3MlCZ2ZFnWtXFRUGfFftAL6aD7gpCf7&export=download"
+                                <a href="https://drive.google.com/uc?id=19-6GKmlImyNGiG03lVK8brkrwIwsiKZ4&export=download"
                                     class="download-btn" onclick="animateDownload(this)"><span>P2 – Scope &
                                         Sequence</span><i class="fas fa-cloud-download-alt"></i></a>
-                                <a href="https://drive.google.com/uc?id=1_jIapVGFDnmIuXYffpiiozcF20FB4LpV&export=download"
+                                <a href="https://drive.google.com/uc?id=1TxtRKwsT8TSJzqgKWGrx9MVfAM2aoySn&export=download"
                                     class="download-btn" onclick="animateDownload(this)"><span>P3 – Scope &
                                         Sequence</span><i class="fas fa-cloud-download-alt"></i></a>
-                                <a href="https://drive.google.com/uc?id=1__Df16jwY0O1l4PD2uSIzGhmzmc0G05v&export=download"
+                                <a href="https://drive.google.com/uc?id=1GmFAARbZfb99MeOuiulXBV0IR-0yyZMt&export=download"
                                     class="download-btn" onclick="animateDownload(this)"><span>P4 – Scope &
                                         Sequence</span><i class="fas fa-cloud-download-alt"></i></a>
-                                <a href="https://drive.google.com/uc?id=1lqgsORF57VKA10dcGV2SbfLi0meFBtQw&export=download"
+                                <a href="https://drive.google.com/uc?id=12znHYRh8A_RPeL7qpb_P--fRYuhE6UeC&export=download"
                                     class="download-btn" onclick="animateDownload(this)"><span>P5 – Scope &
                                         Sequence</span><i class="fas fa-cloud-download-alt"></i></a>
-                                <a href="https://drive.google.com/uc?id=1DLyWMA_4p6feqth0NH-e5pw7mCuMyomP&export=download"
+                                <a href="https://drive.google.com/uc?id=1OYJinwENy9GdSANogLsJu7qo1qyFpEPE&export=download"
                                     class="download-btn" onclick="animateDownload(this)"><span>P6 – Scope &
                                         Sequence</span><i class="fas fa-cloud-download-alt"></i></a>
-                            </div>
-                        </div>
-
-                        <!-- Activity Plans -->
-                        <div class="resource-card">
-                            <div class="card-icon bg-green-50 text-green-600"><i class="fas fa-shapes"></i></div>
-                            <h3 class="text-2xl font-bold mb-2 text-gray-800">Activity Plans</h3>
-                            <p class="text-gray-500 mb-8 leading-relaxed">Daily activities and learning objectives.</p>
-                            <div class="mt-4 download-list space-y-3">
-                                <a href="https://drive.google.com/uc?id=1MDy0wQKNitqUiQXhUiBvkROueSYPQbk1&export=download"
-                                    class="download-btn" onclick="animateDownload(this)"><span>P1 – Activity
-                                        Plans</span><i class="fas fa-cloud-download-alt"></i></a>
-                                <a href="https://drive.google.com/uc?id=15Xv1GghbKZv3WG4pDRBCeVZ_SEo9p9xx&export=download"
-                                    class="download-btn" onclick="animateDownload(this)"><span>P2 – Activity
-                                        Plans</span><i class="fas fa-cloud-download-alt"></i></a>
-                                <a href="https://drive.google.com/uc?id=16iueDRCxuhz9rT4gLSIidhafA_gEuH8G&export=download"
-                                    class="download-btn" onclick="animateDownload(this)"><span>P3 – Activity
-                                        Plans</span><i class="fas fa-cloud-download-alt"></i></a>
-                                <a href="https://drive.google.com/uc?id=1iT0nLF7pX6f0krSSQaPsIR56tFGlAyPQ&export=download"
-                                    class="download-btn" onclick="animateDownload(this)"><span>P4 – Activity
-                                        Plans</span><i class="fas fa-cloud-download-alt"></i></a>
-                                <a href="https://drive.google.com/uc?id=16072NCtnBohfOt8DcBVZwT1rOF3G2pZ9&export=download"
-                                    class="download-btn" onclick="animateDownload(this)"><span>P5 – Activity
-                                        Plans</span><i class="fas fa-cloud-download-alt"></i></a>
-                                <a href="https://drive.google.com/uc?id=1zCPMDeby5kFzTfWNZJtH8ozPr7ilCnUq&export=download"
-                                    class="download-btn" onclick="animateDownload(this)"><span>P6 – Activity
-                                        Plans</span><i class="fas fa-cloud-download-alt"></i></a>
                             </div>
                         </div>
 
@@ -1136,24 +1131,52 @@
                             <h3 class="text-2xl font-bold mb-2 text-gray-800">Unit Tests</h3>
                             <p class="text-gray-500 mb-8 leading-relaxed">Assessment materials for each unit.</p>
                             <div class="mt-4 download-list space-y-3">
-                                <a href="https://drive.google.com/uc?id=16roz39d92GeXhUKabuv-Jl4yguGRpZc-&export=download"
-                                    class="download-btn" onclick="animateDownload(this)"><span>P1 – Unit
-                                        Tests</span><i class="fas fa-cloud-download-alt"></i></a>
-                                <a href="https://drive.google.com/uc?id=1iafLzyhFC9SihT2q-ZTl3epQjfYVaB3L&export=download"
-                                    class="download-btn" onclick="animateDownload(this)"><span>P2 – Unit
-                                        Tests</span><i class="fas fa-cloud-download-alt"></i></a>
-                                <a href="https://drive.google.com/uc?id=1KlwaOu7JjXhMhtHwhy26pYqO2lptn3S3&export=download"
-                                    class="download-btn" onclick="animateDownload(this)"><span>P3 – Unit
-                                        Tests</span><i class="fas fa-cloud-download-alt"></i></a>
-                                <a href="https://drive.google.com/uc?id=1wrPg8pS7MN42Wk3l3WyqppF74TMS1INt&export=download"
-                                    class="download-btn" onclick="animateDownload(this)"><span>P4 – Unit
-                                        Tests</span><i class="fas fa-cloud-download-alt"></i></a>
-                                <a href="https://drive.google.com/uc?id=1r93yZqJXm_QN6W7Y5DkS1c5jN9_yFgdQ&export=download"
-                                    class="download-btn" onclick="animateDownload(this)"><span>P5 – Unit
-                                        Tests</span><i class="fas fa-cloud-download-alt"></i></a>
-                                <a href="https://drive.google.com/uc?id=125Gx5nsKQAC5Q6wg1XDdiiy26iIeGLgt&export=download"
-                                    class="download-btn" onclick="animateDownload(this)"><span>P6 – Unit
-                                        Tests</span><i class="fas fa-cloud-download-alt"></i></a>
+                                <a href="https://drive.google.com/uc?id=1jfwePrlEtzVaaXNyD_wU8Jt5q62_hTfz&export=download"
+                                    class="download-btn" onclick="animateDownload(this)"><span>P1 – Unit Tests</span><i
+                                        class="fas fa-cloud-download-alt"></i></a>
+                                <a href="https://drive.google.com/uc?id=1xMKUj4Uu2Rk-dNsd6raW-PhJ-9FWbX-M&export=download"
+                                    class="download-btn" onclick="animateDownload(this)"><span>P2 – Unit Tests</span><i
+                                        class="fas fa-cloud-download-alt"></i></a>
+                                <a href="https://drive.google.com/uc?id=1gFTYcPp6ja4y5P-BnknHB--F7tj1h4D6&export=download"
+                                    class="download-btn" onclick="animateDownload(this)"><span>P3 – Unit Tests</span><i
+                                        class="fas fa-cloud-download-alt"></i></a>
+                                <a href="https://drive.google.com/uc?id=1M9yvfgXjFlPhuNwARYJV1rzOl8HHRrRi&export=download"
+                                    class="download-btn" onclick="animateDownload(this)"><span>P4 – Unit Tests</span><i
+                                        class="fas fa-cloud-download-alt"></i></a>
+                                <a href="https://drive.google.com/uc?id=1HQVMHJ4QCrpQKfKdzk1YhWajqJ3fsa9p&export=download"
+                                    class="download-btn" onclick="animateDownload(this)"><span>P5 – Unit Tests</span><i
+                                        class="fas fa-cloud-download-alt"></i></a>
+                                <a href="https://drive.google.com/uc?id=1XcEkapriviRNkvfQq7u2ZNVRlO3HFDkv&export=download"
+                                    class="download-btn" onclick="animateDownload(this)"><span>P6 – Unit Tests</span><i
+                                        class="fas fa-cloud-download-alt"></i></a>
+                            </div>
+                        </div>
+
+                        <!-- Worksheets -->
+                        <div class="resource-card">
+                            <div class="card-icon bg-green-50 text-green-600"><i class="fas fa-file-signature"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-2 text-gray-800">Worksheets</h3>
+                            <p class="text-gray-500 mb-8 leading-relaxed">Practice materials for students.</p>
+                            <div class="mt-4 download-list space-y-3">
+                                <a href="https://drive.google.com/uc?id=1K_6Jwuwna8rAOPQ4VJ9TaU22Kbq13v9v&export=download"
+                                    class="download-btn" onclick="animateDownload(this)"><span>P1 – Worksheets</span><i
+                                        class="fas fa-cloud-download-alt"></i></a>
+                                <a href="https://drive.google.com/uc?id=1uFcCxTBgjxQkh2vOW73V4j4gkx8-HN1S&export=download"
+                                    class="download-btn" onclick="animateDownload(this)"><span>P2 – Worksheets</span><i
+                                        class="fas fa-cloud-download-alt"></i></a>
+                                <a href="https://drive.google.com/uc?id=1KQa9WN4JKz-o8pH7cyKkaMnWNoA4x2TQ&export=download"
+                                    class="download-btn" onclick="animateDownload(this)"><span>P3 – Worksheets</span><i
+                                        class="fas fa-cloud-download-alt"></i></a>
+                                <a href="https://drive.google.com/uc?id=1HE6TMcUW1QtyDLMuwMzFUQU26aV-KHbW&export=download"
+                                    class="download-btn" onclick="animateDownload(this)"><span>P4 – Worksheets</span><i
+                                        class="fas fa-cloud-download-alt"></i></a>
+                                <a href="https://drive.google.com/uc?id=1MyODpoDEQsgEXMy8rAjvGnoSnsm5xfWl&export=download"
+                                    class="download-btn" onclick="animateDownload(this)"><span>P5 – Worksheets</span><i
+                                        class="fas fa-cloud-download-alt"></i></a>
+                                <a href="https://drive.google.com/uc?id=1-WD4VodCEx2ej9F8V-zjSPIIdpDTwJxM&export=download"
+                                    class="download-btn" onclick="animateDownload(this)"><span>P6 – Worksheets</span><i
+                                        class="fas fa-cloud-download-alt"></i></a>
                             </div>
                         </div>
 
@@ -1163,70 +1186,54 @@
                             <h3 class="text-2xl font-bold mb-2 text-gray-800">Flashcards</h3>
                             <p class="text-gray-500 mb-8 leading-relaxed">Visual aids for vocabulary teaching.</p>
                             <div class="mt-4 download-list space-y-3">
-                                <a href="https://drive.google.com/uc?id=1PXRH2ncDqcjeufZfiMlQlPqLULGzL5No&export=download"
-                                    class="download-btn" onclick="animateDownload(this)"><span>P1 –
-                                        Flashcards</span><i class="fas fa-cloud-download-alt"></i></a>
-                                <a href="https://drive.google.com/uc?id=1h7qK8S88Z-jA5LFcunQtJQ-4MP8UNOMB&export=download"
-                                    class="download-btn" onclick="animateDownload(this)"><span>P2 –
-                                        Flashcards</span><i class="fas fa-cloud-download-alt"></i></a>
-                                <a href="https://drive.google.com/uc?id=1PMX59vXe-Y1970vqQNWw5-9eLFTQu4i8&export=download"
-                                    class="download-btn" onclick="animateDownload(this)"><span>P3 –
-                                        Flashcards</span><i class="fas fa-cloud-download-alt"></i></a>
-                                <a href="https://drive.google.com/uc?id=1CL5lEZZ6SkfpCFNpDz2PAMNXkIeHLlFc&export=download"
-                                    class="download-btn" onclick="animateDownload(this)"><span>P4 –
-                                        Flashcards</span><i class="fas fa-cloud-download-alt"></i></a>
-                                <a href="https://drive.google.com/uc?id=14zl74vd4O0Xhylihqn3qm9VnPyOe3zP1&export=download"
-                                    class="download-btn" onclick="animateDownload(this)"><span>P5 –
-                                        Flashcards</span><i class="fas fa-cloud-download-alt"></i></a>
-                                <a href="https://drive.google.com/uc?id=17HSRQ7QOXz_hLqDFY_icP0llkgbgThqN&export=download"
-                                    class="download-btn" onclick="animateDownload(this)"><span>P6 –
-                                        Flashcards</span><i class="fas fa-cloud-download-alt"></i></a>
+                                <a href="https://drive.google.com/uc?id=1LdqkMyArCW7g-sxffUBe5YxIaF-EF-od&export=download"
+                                    class="download-btn" onclick="animateDownload(this)"><span>P1 – Flashcards</span><i
+                                        class="fas fa-cloud-download-alt"></i></a>
+                                <a href="https://drive.google.com/uc?id=1ukLm6S4VSfot9828DA5Mf54g4xNQXMao&export=download"
+                                    class="download-btn" onclick="animateDownload(this)"><span>P2 – Flashcards</span><i
+                                        class="fas fa-cloud-download-alt"></i></a>
+                                <a href="https://drive.google.com/uc?id=1JhLFUMSe5MlbolIufwIMU55ycjOvmNAt&export=download"
+                                    class="download-btn" onclick="animateDownload(this)"><span>P3 – Flashcards</span><i
+                                        class="fas fa-cloud-download-alt"></i></a>
+                                <a href="https://drive.google.com/uc?id=1VCCzjoYUiXgSc9IYw37wB3SOSUkcYWCR&export=download"
+                                    class="download-btn" onclick="animateDownload(this)"><span>P4 – Flashcards</span><i
+                                        class="fas fa-cloud-download-alt"></i></a>
+                                <a href="https://drive.google.com/uc?id=1At5_fKEwZPQdMRHVqcBJ7wDFTp1pEaVV&export=download"
+                                    class="download-btn" onclick="animateDownload(this)"><span>P5 – Flashcards</span><i
+                                        class="fas fa-cloud-download-alt"></i></a>
+                                <a href="https://drive.google.com/uc?id=19sjJu1uFZKbOqeDioEDvU-zGPLga6p2G&export=download"
+                                    class="download-btn" onclick="animateDownload(this)"><span>P6 – Flashcards</span><i
+                                        class="fas fa-cloud-download-alt"></i></a>
                             </div>
                         </div>
 
-                        <!-- Lesson Plans (Folders) -->
+                        <!-- Extra Resources -->
                         <div class="resource-card">
-                            <div class="card-icon bg-yellow-50 text-yellow-600"><i class="fas fa-book-open"></i></div>
-                            <h3 class="text-2xl font-bold mb-2 text-gray-800">Lesson Plans</h3>
-                            <p class="text-gray-500 mb-8 leading-relaxed">Detailed guides for every lesson.</p>
-                            <div class="mt-4 download-list space-y-3">
-                                <a href="https://drive.google.com/drive/folders/18fa7dA4SdotXRFmLxZDR163qdASgfjhZ"
-                                    target="_blank" class="download-btn"><span>P1 – Lesson Plans</span><i
-                                        class="fas fa-folder-open"></i></a>
-                                <a href="https://drive.google.com/drive/folders/18jei-ccAbx4b4xUzDDZ8H2PKw_I2yNeh"
-                                    target="_blank" class="download-btn"><span>P2 – Lesson Plans</span><i
-                                        class="fas fa-folder-open"></i></a>
-                                <a href="https://drive.google.com/drive/folders/14VcMK7qKR1esC7HrsaHmaT6S_wgp_Gtg"
-                                    target="_blank" class="download-btn"><span>P3 – Lesson Plans</span><i
-                                        class="fas fa-folder-open"></i></a>
-                                <a href="https://drive.google.com/drive/folders/1ixVOR8RDpYPDj7XLtcouH4O475tHH_pM"
-                                    target="_blank" class="download-btn"><span>P4 – Lesson Plans</span><i
-                                        class="fas fa-folder-open"></i></a>
-                                <a href="https://drive.google.com/drive/folders/1_jkXgmmD2xILQFV0ptyP5zQN2n010TDr"
-                                    target="_blank" class="download-btn"><span>P5 – Lesson Plans</span><i
-                                        class="fas fa-folder-open"></i></a>
-                                <a href="https://drive.google.com/drive/folders/1bw4MCw-UyveR0yk4ZEbiEgw7J4u9Gj1l"
-                                    target="_blank" class="download-btn"><span>P6 – Lesson Plans</span><i
-                                        class="fas fa-folder-open"></i></a>
-                            </div>
-                        </div>
-
-                        <!-- Other Resources -->
-                        <div class="resource-card h-fit">
-                            <div class="card-icon bg-orange-50 text-orange-600"><i class="fas fa-music"></i></div>
-                            <h3 class="text-2xl font-bold mb-2 text-gray-800">Other Resources</h3>
-                            <p class="text-gray-500 mb-8 leading-relaxed">Songs, admin files, and extras.</p>
+                            <div class="card-icon bg-orange-50 text-orange-600"><i class="fas fa-folder-plus"></i></div>
+                            <h3 class="text-2xl font-bold mb-2 text-gray-800">Extra Resources</h3>
+                            <p class="text-gray-500 mb-8 leading-relaxed">Additional teaching materials.</p>
                             <div class="mt-4 space-y-3">
                                 <a href="https://drive.google.com/drive/folders/1El4y0zR9yEK853CyyHod1tzgJ3Uwoqyn?usp=sharing"
                                     target="_blank" class="download-btn">
-                                    <span>Prathom Songs</span>
+                                    <span>Songs & Tongue Twisters</span>
                                     <i class="fas fa-external-link-alt"></i>
                                 </a>
                                 <a href="https://drive.google.com/drive/folders/1vTHe9pp7jaLBnjC2_2pVjrRMYLIV3M-p?usp=sharing"
                                     target="_blank" class="download-btn">
-                                    <span>Teacher's Admin Files</span>
+                                    <span>Teacher Admin Resources</span>
                                     <i class="fas fa-external-link-alt"></i>
                                 </a>
+                            </div>
+                        </div>
+
+                        <!-- I-Tools Info -->
+                        <div class="resource-card">
+                            <div class="card-icon bg-gray-100 text-gray-700"><i class="fas fa-laptop-code"></i></div>
+                            <h3 class="text-2xl font-bold mb-2 text-gray-800">I-Tools</h3>
+                            <p class="text-gray-500 mb-8 leading-relaxed">Interactive digital resources.</p>
+                            <div class="mt-4 p-4 bg-gray-50 rounded-xl border border-gray-100">
+                                <p class="text-sm text-center text-gray-600">Please contact your curriculum consultant
+                                    to access I-Tools.</p>
                             </div>
                         </div>
 
@@ -1237,162 +1244,87 @@
                 <div id="mathayom-content" class="tab-content hidden fade-in">
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-                        <!-- Scope & Sequence -->
+                        <!-- Course Plans -->
                         <div class="resource-card">
-                            <div class="card-icon bg-blue-50 text-blue-600"><i class="fas fa-list-ul"></i></div>
-                            <h3 class="text-2xl font-bold mb-2 text-gray-800">Scope & Sequence</h3>
-                            <p class="text-gray-500 mb-8 leading-relaxed">Updated 2025 curriculum outline.</p>
+                            <div class="card-icon bg-blue-50 text-blue-600"><i class="fas fa-clipboard-list"></i></div>
+                            <h3 class="text-2xl font-bold mb-2 text-gray-800">Course Plans</h3>
+                            <p class="text-gray-500 mb-8 leading-relaxed">Detailed lesson plans and schedules.</p>
                             <div class="mt-4 download-list space-y-3">
-                                <a href="https://drive.google.com/uc?export=download&id=1378jECRNkYjoXPfOh6tSPA6LMi18nO9c"
-                                    class="download-btn" onclick="animateDownload(this)"><span>M1 – Scope &
-                                        Sequence</span><i class="fas fa-cloud-download-alt"></i></a>
-                                <a href="https://drive.google.com/uc?export=download&id=1h2g_KWkA3F-4nKWVqYgLqkf_nA-rPXpg"
-                                    class="download-btn" onclick="animateDownload(this)"><span>M2 – Scope &
-                                        Sequence</span><i class="fas fa-cloud-download-alt"></i></a>
-                                <a href="https://drive.google.com/uc?export=download&id=1uWt8917k9AkZS65ikBLepi6Uzhp0fuvC"
-                                    class="download-btn" onclick="animateDownload(this)"><span>M3 – Scope &
-                                        Sequence</span><i class="fas fa-cloud-download-alt"></i></a>
-                                <a href="https://drive.google.com/uc?export=download&id=15zzS6WkPYTG0k1QW2Vyg9Jy8PZja8uDh"
-                                    class="download-btn" onclick="animateDownload(this)"><span>M4 – Scope &
-                                        Sequence</span><i class="fas fa-cloud-download-alt"></i></a>
-                                <a href="https://drive.google.com/uc?export=download&id=1TMwufJ4J4TuK1ChyqYlYYZGxtsSHsi1c"
-                                    class="download-btn" onclick="animateDownload(this)"><span>M5 – Scope &
-                                        Sequence</span><i class="fas fa-cloud-download-alt"></i></a>
-                                <a href="https://drive.google.com/uc?export=download&id=11eDMa9OlmkRwQtHlucLNCx7WxEdf6xsU"
-                                    class="download-btn" onclick="animateDownload(this)"><span>M6 – Scope &
-                                        Sequence</span><i class="fas fa-cloud-download-alt"></i></a>
+                                <a href="https://drive.google.com/uc?id=1UDdh8pMzmYQJSHVMpu-0bdHeIvafBHoV&export=download"
+                                    class="download-btn" onclick="animateDownload(this)"><span>M1 – Course Plan</span><i
+                                        class="fas fa-cloud-download-alt"></i></a>
+                                <a href="https://drive.google.com/uc?id=1LE-H981sqSM_kz6Vj4rSEgY7qT2Sn-96&export=download"
+                                    class="download-btn" onclick="animateDownload(this)"><span>M2 – Course Plan</span><i
+                                        class="fas fa-cloud-download-alt"></i></a>
+                                <a href="https://drive.google.com/uc?id=19lNbjQVVzbgwaqhmgbZ7UN3tGNGNjWcg&export=download"
+                                    class="download-btn" onclick="animateDownload(this)"><span>M3 – Course Plan</span><i
+                                        class="fas fa-cloud-download-alt"></i></a>
+                                <a href="https://drive.google.com/uc?id=1-Uk7otHAzvA7muyeOOcy4AUvE5uAWUo-&export=download"
+                                    class="download-btn" onclick="animateDownload(this)"><span>M4 – Course Plan</span><i
+                                        class="fas fa-cloud-download-alt"></i></a>
+                                <a href="https://drive.google.com/uc?id=1jkNlhuUNf-sblNjOcfvJExkE3-YXVYUa&export=download"
+                                    class="download-btn" onclick="animateDownload(this)"><span>M5 – Course Plan</span><i
+                                        class="fas fa-cloud-download-alt"></i></a>
+                                <a href="https://drive.google.com/uc?id=1EI9jSLuwsip6MixkUuv5ddEaPsJS5bit&export=download"
+                                    class="download-btn" onclick="animateDownload(this)"><span>M6 – Course Plan</span><i
+                                        class="fas fa-cloud-download-alt"></i></a>
                             </div>
                         </div>
 
-                        <!-- Activity Plans -->
+                        <!-- Student Books -->
                         <div class="resource-card">
-                            <div class="card-icon bg-green-50 text-green-600"><i class="fas fa-shapes"></i></div>
-                            <h3 class="text-2xl font-bold mb-2 text-gray-800">Activity Plans</h3>
-                            <p class="text-gray-500 mb-8 leading-relaxed">Updated 2025 daily activities.</p>
+                            <div class="card-icon bg-green-50 text-green-600"><i class="fas fa-book"></i></div>
+                            <h3 class="text-2xl font-bold mb-2 text-gray-800">Student Books</h3>
+                            <p class="text-gray-500 mb-8 leading-relaxed">Textbooks and learning materials.</p>
                             <div class="mt-4 download-list space-y-3">
-                                <a href="https://drive.google.com/uc?id=1CikrXckkuJmaQwvlnN-UEsXgOat_a8_L&export=download"
-                                    class="download-btn" onclick="animateDownload(this)"><span>M1 – Activity
-                                        Plans</span><i class="fas fa-cloud-download-alt"></i></a>
-                                <a href="https://drive.google.com/uc?export=download&id=1KkKW0HZarGVo6rMUMJRrOXrGJupOf1Uw"
-                                    class="download-btn" onclick="animateDownload(this)"><span>M2 – Activity
-                                        Plans</span><i class="fas fa-cloud-download-alt"></i></a>
-                                <a href="https://drive.google.com/uc?export=download&id=1gJGRUiCSuIeC7hNMPBpgNEK-Jo03ra72"
-                                    class="download-btn" onclick="animateDownload(this)"><span>M3 – Activity
-                                        Plans</span><i class="fas fa-cloud-download-alt"></i></a>
-                                <a href="https://drive.google.com/uc?export=download&id=100H_BPAPBxlm9PkdyDdTBtQyLMMLT3G4"
-                                    class="download-btn" onclick="animateDownload(this)"><span>M4 – Activity
-                                        Plans</span><i class="fas fa-cloud-download-alt"></i></a>
-                                <a href="https://drive.google.com/uc?export=download&id=1_9OSvUU036WWBN8fsXExKmw0AjAExmA7"
-                                    class="download-btn" onclick="animateDownload(this)"><span>M5 – Activity
-                                        Plans</span><i class="fas fa-cloud-download-alt"></i></a>
-                                <a href="https://drive.google.com/uc?export=download&id=1bbrtBPU4y8WuqMGtrzeySiwYYv-1MS1w"
-                                    class="download-btn" onclick="animateDownload(this)"><span>M6 – Activity
-                                        Plans</span><i class="fas fa-cloud-download-alt"></i></a>
+                                <a href="https://drive.google.com/uc?id=1ju7yAYnk9rWLkIRcC0G5HwTHXbb-fpFI&export=download"
+                                    class="download-btn" onclick="animateDownload(this)"><span>M1 – Student
+                                        Book</span><i class="fas fa-cloud-download-alt"></i></a>
+                                <a href="https://drive.google.com/uc?id=1n1hQzJBn2frT9gHQ1kx4HDdNdxj7cMcn&export=download"
+                                    class="download-btn" onclick="animateDownload(this)"><span>M2 – Student
+                                        Book</span><i class="fas fa-cloud-download-alt"></i></a>
+                                <a href="https://drive.google.com/uc?id=1IGWurkHIvgx494iO_PxM5eH-WosiIOqz&export=download"
+                                    class="download-btn" onclick="animateDownload(this)"><span>M3 – Student
+                                        Book</span><i class="fas fa-cloud-download-alt"></i></a>
+                                <a href="https://drive.google.com/uc?id=1LBzBQdBX8NVuE7JwKrLIEA2vjxNlFljf&export=download"
+                                    class="download-btn" onclick="animateDownload(this)"><span>M4 – Student
+                                        Book</span><i class="fas fa-cloud-download-alt"></i></a>
+                                <a href="https://drive.google.com/uc?id=1XhAq1LrqslS7379LZw5GrSFaaVgXith3&export=download"
+                                    class="download-btn" onclick="animateDownload(this)"><span>M5 – Student
+                                        Book</span><i class="fas fa-cloud-download-alt"></i></a>
+                                <a href="https://drive.google.com/uc?id=1LOT25AENbMOGEW0gWJvTpRjRJOCcrR8W&export=download"
+                                    class="download-btn" onclick="animateDownload(this)"><span>M6 – Student
+                                        Book</span><i class="fas fa-cloud-download-alt"></i></a>
                             </div>
                         </div>
 
-                        <!-- Unit Tests -->
+                        <!-- Extra Resources -->
                         <div class="resource-card">
-                            <div class="card-icon bg-red-50 text-red-600"><i class="fas fa-file-alt"></i></div>
-                            <h3 class="text-2xl font-bold mb-2 text-gray-800">Unit Tests</h3>
-                            <p class="text-gray-500 mb-8 leading-relaxed">Updated 2025 assessment materials.</p>
-                            <div class="mt-4 download-list space-y-3">
-                                <a href="https://drive.google.com/uc?export=download&id=1POkhd7CpC8uyRz3FNz4UvTRsujQkVH6r"
-                                    class="download-btn" onclick="animateDownload(this)"><span>M1 – Unit
-                                        Tests</span><i class="fas fa-cloud-download-alt"></i></a>
-                                <a href="https://drive.google.com/uc?export=download&id=1TlFhsc_T6Am2HG01MXORhwfgLhiYjjEt"
-                                    class="download-btn" onclick="animateDownload(this)"><span>M2 – Unit
-                                        Tests</span><i class="fas fa-cloud-download-alt"></i></a>
-                                <a href="https://drive.google.com/uc?export=download&id=1tiEob2xSy15p5_S1_so3GVibatQSYR9W"
-                                    class="download-btn" onclick="animateDownload(this)"><span>M3 – Unit
-                                        Tests</span><i class="fas fa-cloud-download-alt"></i></a>
-                                <a href="https://drive.google.com/uc?export=download&id=1M_K2D-JUtUuIfloABu28qr0Lv3H7i0sw"
-                                    class="download-btn" onclick="animateDownload(this)"><span>M4 – Unit
-                                        Tests</span><i class="fas fa-cloud-download-alt"></i></a>
-                                <a href="https://drive.google.com/uc?export=download&id=1kBGFjPjMi023e07TMF_NHQZsECYDw9yC"
-                                    class="download-btn" onclick="animateDownload(this)"><span>M5 – Unit
-                                        Tests</span><i class="fas fa-cloud-download-alt"></i></a>
-                                <a href="https://drive.google.com/uc?export=download&id=14JJjQcmNlYx69K2WNgCF3N3KQpMwty7g"
-                                    class="download-btn" onclick="animateDownload(this)"><span>M6 – Unit
-                                        Tests</span><i class="fas fa-cloud-download-alt"></i></a>
-                            </div>
-                        </div>
-
-                        <!-- Flashcards (Folders) -->
-                        <div class="resource-card">
-                            <div class="card-icon bg-purple-50 text-purple-600"><i class="fas fa-images"></i></div>
-                            <h3 class="text-2xl font-bold mb-2 text-gray-800">Flashcards</h3>
-                            <p class="text-gray-500 mb-8 leading-relaxed">Visual aids for vocabulary teaching.</p>
-                            <div class="mt-4 download-list space-y-3">
-                                <a href="https://drive.google.com/drive/folders/1w8Kw-J2bYunhcY4bTmSumOljTJOPDp44?usp=drive_link"
-                                    target="_blank" class="download-btn"><span>M1 – Flashcards</span><i
-                                        class="fas fa-folder-open"></i></a>
-                                <a href="https://drive.google.com/drive/folders/1VJEyWOD8hh0TIQTFuAnRhz3ywB-J4ktp?usp=drive_link"
-                                    target="_blank" class="download-btn"><span>M2 – Flashcards</span><i
-                                        class="fas fa-folder-open"></i></a>
-                                <a href="https://drive.google.com/drive/folders/1k-RbGbUwhb1L_3ZZwRcvS6GFD55th_cG?usp=drive_link"
-                                    target="_blank" class="download-btn"><span>M3 – Flashcards</span><i
-                                        class="fas fa-folder-open"></i></a>
-                                <a href="https://drive.google.com/drive/folders/1BBPc2GfTTzDT74kMyjfxqbpS6KNViM-u?usp=drive_link"
-                                    target="_blank" class="download-btn"><span>M4 – Flashcards</span><i
-                                        class="fas fa-folder-open"></i></a>
-                                <a href="https://drive.google.com/drive/folders/15cPMNWOErioQ6vOmRFDpBRjpxdDYS_PD?usp=drive_link"
-                                    target="_blank" class="download-btn"><span>M5 – Flashcards</span><i
-                                        class="fas fa-folder-open"></i></a>
-                                <a href="https://drive.google.com/drive/folders/1YvVagrsFiFydRqp7Kk8WAneFimd85uBY?usp=drive_link"
-                                    target="_blank" class="download-btn"><span>M6 – Flashcards</span><i
-                                        class="fas fa-folder-open"></i></a>
-                            </div>
-                        </div>
-
-                        <!-- Lesson Plans (Folders) -->
-                        <div class="resource-card">
-                            <div class="card-icon bg-yellow-50 text-yellow-600"><i class="fas fa-book-open"></i></div>
-                            <h3 class="text-2xl font-bold mb-2 text-gray-800">Lesson Plans</h3>
-                            <p class="text-gray-500 mb-8 leading-relaxed">Updated 2025 detailed lesson guides.</p>
-                            <div class="mt-4 download-list space-y-3">
-                                <a href="https://drive.google.com/drive/folders/1A5RgJPIvZ4GxBCgTlzUTrOaUe4CKISxj"
-                                    target="_blank" class="download-btn"><span>M1 – Lesson Plans</span><i
-                                        class="fas fa-folder-open"></i></a>
-                                <a href="https://drive.google.com/drive/folders/1GwTeoaIkvI4fsgfN3eNVZH398JqVOheJ"
-                                    target="_blank" class="download-btn"><span>M2 – Lesson Plans</span><i
-                                        class="fas fa-folder-open"></i></a>
-                                <a href="https://drive.google.com/drive/folders/15MG2Vs3MhB7J_pycri9ZBtvR9gcVDJ7h"
-                                    target="_blank" class="download-btn"><span>M3 – Lesson Plans</span><i
-                                        class="fas fa-folder-open"></i></a>
-                                <a href="https://drive.google.com/drive/folders/1FQdWC6WCpbfiKuGHuZN9EVVH1IeWwvLz"
-                                    target="_blank" class="download-btn"><span>M4 – Lesson Plans</span><i
-                                        class="fas fa-folder-open"></i></a>
-                                <a href="https://drive.google.com/drive/folders/1UUGqj4ab2Zx6blCuc5dKky0Kd_vri8G2"
-                                    target="_blank" class="download-btn"><span>M5 – Lesson Plans</span><i
-                                        class="fas fa-folder-open"></i></a>
-                                <a href="https://drive.google.com/drive/folders/1WGWO9AywLNZ9UYs9q6l-tcvakRWUWoy5"
-                                    target="_blank" class="download-btn"><span>M6 – Lesson Plans</span><i
-                                        class="fas fa-folder-open"></i></a>
-                            </div>
-                        </div>
-
-                        <!-- Other Resources -->
-                        <div class="resource-card h-fit">
-                            <div class="card-icon bg-orange-50 text-orange-600"><i class="fas fa-lightbulb"></i></div>
-                            <h3 class="text-2xl font-bold mb-2 text-gray-800">Other Resources</h3>
-                            <p class="text-gray-500 mb-8 leading-relaxed">Project ideas, songs, and extras.</p>
+                            <div class="card-icon bg-orange-50 text-orange-600"><i class="fas fa-folder-plus"></i></div>
+                            <h3 class="text-2xl font-bold mb-2 text-gray-800">Extra Resources</h3>
+                            <p class="text-gray-500 mb-8 leading-relaxed">Additional teaching materials.</p>
                             <div class="mt-4 space-y-3">
-                                <a href="https://drive.google.com/uc?id=1hMgC7iiRxfD_uW1Q0JEgts_kABtH-Rh_&export=download"
-                                    class="download-btn" onclick="animateDownload(this)">
-                                    <span>Project Ideas</span>
-                                    <i class="fas fa-cloud-download-alt"></i>
-                                </a>
                                 <a href="https://drive.google.com/drive/folders/1-IpN1hG1FvMBygowVFzLY33Bme0zwdJm?usp=sharing"
                                     target="_blank" class="download-btn">
-                                    <span>Mathayom Songs</span>
+                                    <span>Songs & Tongue Twisters</span>
                                     <i class="fas fa-external-link-alt"></i>
                                 </a>
                                 <a href="https://drive.google.com/drive/folders/1vTHe9pp7jaLBnjC2_2pVjrRMYLIV3M-p?usp=sharing"
                                     target="_blank" class="download-btn">
-                                    <span>Teacher's Admin Files</span>
+                                    <span>Teacher Admin Resources</span>
                                     <i class="fas fa-external-link-alt"></i>
                                 </a>
+                            </div>
+                        </div>
+
+                        <!-- I-Tools Info -->
+                        <div class="resource-card">
+                            <div class="card-icon bg-gray-100 text-gray-700"><i class="fas fa-laptop-code"></i></div>
+                            <h3 class="text-2xl font-bold mb-2 text-gray-800">I-Tools</h3>
+                            <p class="text-gray-500 mb-8 leading-relaxed">Interactive digital resources.</p>
+                            <div class="mt-4 p-4 bg-gray-50 rounded-xl border border-gray-100">
+                                <p class="text-sm text-center text-gray-600">Please contact your curriculum consultant
+                                    to access I-Tools.</p>
                             </div>
                         </div>
 
@@ -1517,7 +1449,7 @@
         const CORRECT_HASH = 'a8f5f167f44f4964e6c998dee827110c'; // MD5 hash for simplicity
 
         // Check if already authenticated in this session
-        if (sessionStorage.getItem('ecd_authenticated') === 'true') {
+        if (sessionStorage.getItem('iep_authenticated') === 'true') {
             console.log('[ECD] Already authenticated - showing content directly');
 
             // ลบ style tag ที่ซ่อน content ออก
@@ -1560,7 +1492,7 @@
 
         // Password: ecd2025
         // SHA-256 hash: 7a8b9c... (we'll check against plain for simplicity with obfuscation)
-        const VALID_PASSWORDS = ['1ecd26'];
+        const VALID_PASSWORDS = ['2iep26'];
 
         function checkPassword(event) {
             event.preventDefault();
@@ -1573,7 +1505,7 @@
 
             if (isValid) {
                 // Store authentication in session
-                sessionStorage.setItem('ecd_authenticated', 'true');
+                sessionStorage.setItem('iep2_authenticated', 'true');
                 console.log('[ECD] Password correct - unlocking content');
 
                 // Hide overlay with animation
@@ -1615,7 +1547,7 @@
 
         function logout() {
             if (confirm('Lock this page? You will need to enter the password again.')) {
-                sessionStorage.removeItem('ecd_authenticated');
+                sessionStorage.removeItem('iep2_authenticated');
                 // Force reload to show lock screen
                 window.location.reload();
             }

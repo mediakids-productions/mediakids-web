@@ -482,6 +482,8 @@
                             class="slideshow-img absolute top-0 left-0 w-full h-full object-cover shadow-lg transition-all duration-1000 ease-in-out opacity-0">
                         <img src="assets/images/general/mk10.webp"
                             class="slideshow-img absolute top-0 left-0 w-full h-full object-cover shadow-lg transition-all duration-1000 ease-in-out opacity-0">
+                        <img src="assets/images/teachers/t1.webp"
+                            class="slideshow-img absolute top-0 left-0 w-full h-full object-cover shadow-lg transition-all duration-1000 ease-in-out opacity-0">
                     </div>
                 </div>
             </section>
@@ -3433,7 +3435,7 @@
                     <!-- Step 3: Start Teaching (Image Left, Text Right) -->
                     <div class="journey-step-row">
                         <div class="journey-step-image-wrap" data-parallax>
-                            <img src="assets/images/general/mk3.webp" alt="Start teaching in Thailand"
+                            <img src="assets/images/teachers/t1.webp" alt="Start teaching in Thailand"
                                 class="journey-step-img" loading="lazy">
                         </div>
                         <div class="journey-step-content">
@@ -3833,6 +3835,71 @@
                 width: 100%;
                 height: 100%;
                 border: none;
+            }
+
+            /* Lazy Video - Click to Play */
+            .lazy-video {
+                cursor: pointer;
+            }
+
+            .video-placeholder {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .play-overlay {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 16px;
+                z-index: 2;
+            }
+
+            .play-button {
+                width: 80px;
+                height: 80px;
+                background: rgba(255, 255, 255, 0.95);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+                transition: all 0.3s ease;
+            }
+
+            .play-button i {
+                font-size: 28px;
+                color: #1a1a2e;
+                margin-left: 4px;
+            }
+
+            .lazy-video:hover .play-button {
+                transform: scale(1.1);
+                box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+            }
+
+            .click-to-play-text {
+                color: rgba(255, 255, 255, 0.9);
+                font-size: 0.875rem;
+                font-weight: 500;
+            }
+
+            .tiktok-logo-overlay {
+                position: absolute;
+                bottom: 20px;
+                right: 20px;
+                opacity: 0.5;
+            }
+
+            .lazy-video.loaded .video-placeholder {
+                display: none;
             }
 
             .video-info {
@@ -4420,6 +4487,28 @@
                     if (videosGrid) {
                         videosGrid.scrollTo({ left: 0, behavior: 'smooth' });
                     }
+                });
+            });
+
+            // Lazy Video - Click to Play Handler
+            document.querySelectorAll('.lazy-video').forEach(player => {
+                player.addEventListener('click', function () {
+                    if (this.classList.contains('loaded')) return;
+
+                    const videoSrc = this.dataset.videoSrc;
+                    if (!videoSrc) return;
+
+                    // Create iframe
+                    const iframe = document.createElement('iframe');
+                    iframe.src = videoSrc;
+                    iframe.allowFullscreen = true;
+                    iframe.scrolling = 'no';
+                    iframe.allow = 'encrypted-media; autoplay';
+                    iframe.referrerPolicy = 'no-referrer';
+
+                    // Add iframe to player
+                    this.appendChild(iframe);
+                    this.classList.add('loaded');
                 });
             });
         </script>

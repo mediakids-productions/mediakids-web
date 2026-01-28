@@ -1,0 +1,1432 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-C3WTLTZ1Y1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-C3WTLTZ1Y1');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEP Resources - MediaKids Academy</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../assets/images/icons/logo.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="../../../css/style.css?v=1.0.2">
+    <script>
+        (function () {
+            if (new URLSearchParams(window.location.search).has('reset')) {
+                sessionStorage.removeItem('mep_authenticated');
+                window.location.href = window.location.pathname;
+                return;
+            }
+            var isAuthenticated = sessionStorage.getItem('mep_authenticated') === 'true';
+            if (isAuthenticated) {
+                document.write('<style>#password-overlay{display:none !important;}</style>');
+            } else {
+                document.write('<style id="mep-hide-content">#protected-content{display:none !important;}#shared-footer,#shared-footer>footer{display:none !important;}</style>');
+            }
+        })();
+    </script>
+    <style id="footer-flash-prevention">
+        #shared-footer {
+            opacity: 0;
+            transition: opacity 0.4s ease 0.1s;
+        }
+
+        body.content-loaded #shared-footer {
+            opacity: 1;
+        }
+    </style>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(180deg, #e8f4fc 0%, #f0f8ff 50%, #e4f0f8 100%);
+            color: #1d1d1f;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        .bg-animation {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            mix-blend-mode: multiply;
+            animation: blobFloat 12s ease-in-out infinite;
+        }
+
+        .blob-1 {
+            width: 600px;
+            height: 600px;
+            background: linear-gradient(135deg, rgba(0, 122, 255, 0.4), rgba(90, 200, 250, 0.3));
+            top: -150px;
+            right: -100px;
+        }
+
+        .blob-2 {
+            width: 500px;
+            height: 500px;
+            background: linear-gradient(135deg, rgba(50, 173, 230, 0.4), rgba(0, 122, 255, 0.3));
+            bottom: 0;
+            left: -100px;
+            animation-delay: -4s;
+        }
+
+        .blob-3 {
+            width: 400px;
+            height: 400px;
+            background: linear-gradient(135deg, rgba(90, 200, 250, 0.3), rgba(0, 122, 255, 0.25));
+            top: 50%;
+            left: 40%;
+            animation-delay: -8s;
+        }
+
+        @keyframes blobFloat {
+
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1) rotate(0deg);
+            }
+
+            33% {
+                transform: translate(30px, -30px) scale(1.05) rotate(5deg);
+            }
+
+            66% {
+                transform: translate(-20px, 20px) scale(0.95) rotate(-5deg);
+            }
+        }
+
+        .main-content {
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero-section {
+            text-align: center;
+            padding: 80px 24px 40px;
+            position: relative;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 28px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0.5) 100%);
+            backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            border-radius: 100px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #1d1d1f;
+            margin-bottom: 32px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+        }
+
+        .hero-badge-icon {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, #007AFF, #5AC8FA);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            box-shadow: 0 4px 12px rgba(0, 122, 255, 0.4);
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, #1d1d1f 0%, #007AFF 50%, #5AC8FA 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientShift 6s ease infinite;
+        }
+
+        @keyframes gradientShift {
+
+            0%,
+            100% {
+                background-position: 0% center;
+            }
+
+            50% {
+                background-position: 100% center;
+            }
+        }
+
+        .hero-subtitle {
+            font-size: 1.125rem;
+            color: #6b7280;
+            font-weight: 500;
+            max-width: 480px;
+            margin: 0 auto;
+        }
+
+        .subject-selector,
+        .level-selector {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 24px;
+            padding: 50px 24px 80px;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            max-height: 800px;
+        }
+
+        .subject-selector.collapsed,
+        .level-selector.collapsed {
+            padding: 0;
+            gap: 0;
+            opacity: 0;
+            transform: translateY(-30px);
+            max-height: 0;
+            pointer-events: none;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .subject-card,
+        .level-card {
+            position: relative;
+            width: 220px;
+            padding: 40px 24px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.5) 100%);
+            backdrop-filter: blur(40px) saturate(200%);
+            border-radius: 32px;
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .subject-card:hover,
+        .level-card:hover {
+            transform: translateY(-12px) scale(1.03);
+            box-shadow: 0 24px 60px rgba(0, 122, 255, 0.15), inset 0 1px 0 rgba(255, 255, 255, 1);
+        }
+
+        .subject-card-icon,
+        .level-card-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            border-radius: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            position: relative;
+        }
+
+        .subject-card-icon.english {
+            background: linear-gradient(135deg, #007AFF, #5AC8FA);
+            color: white;
+        }
+
+        .subject-card-icon.math {
+            background: linear-gradient(135deg, #34C759, #28A745);
+            color: white;
+        }
+
+        .subject-card-icon.science {
+            background: linear-gradient(135deg, #AF52DE, #9B59B6);
+            color: white;
+        }
+
+        .subject-card-icon.health {
+            background: linear-gradient(135deg, #FF9500, #FF6B00);
+            color: white;
+        }
+
+        .level-card-icon.anuban {
+            background: linear-gradient(135deg, #FF9500, #FF6B00);
+            color: white;
+        }
+
+        .level-card-icon.prathom {
+            background: linear-gradient(135deg, #34C759, #28A745);
+            color: white;
+        }
+
+        .level-card-icon.mathayom {
+            background: linear-gradient(135deg, #007AFF, #0056CC);
+            color: white;
+        }
+
+        .subject-card-title,
+        .level-card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #1d1d1f;
+            margin-bottom: 6px;
+            letter-spacing: -0.02em;
+        }
+
+        .subject-card-subtitle,
+        .level-card-subtitle {
+            font-size: 0.9rem;
+            color: #6b7280;
+            font-weight: 500;
+        }
+
+        .back-button-wrapper {
+            text-align: center;
+            padding: 20px 24px 0;
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            pointer-events: none;
+        }
+
+        .back-button-wrapper.visible {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        .back-to-levels,
+        .back-to-subjects {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #6b7280;
+            cursor: pointer;
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            border-radius: 100px;
+            transition: all 0.3s ease;
+            margin: 0 8px 16px;
+        }
+
+        .back-to-levels:hover,
+        .back-to-subjects:hover {
+            color: #007AFF;
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        .content-area {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            pointer-events: none;
+        }
+
+        .content-area.visible {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        .resource-card {
+            position: relative;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0.6) 100%);
+            backdrop-filter: blur(40px) saturate(200%);
+            border-radius: 28px;
+            padding: 28px 24px;
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.06), 0 2px 8px rgba(0, 0, 0, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(20px) scale(0.98);
+        }
+
+        .content-area.visible .resource-card {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        .resource-card:hover {
+            transform: translateY(-8px) scale(1.01);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.6) 50%, rgba(255, 255, 255, 0.75) 100%);
+            box-shadow: 0 20px 50px rgba(0, 122, 255, 0.12), 0 8px 24px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 1);
+        }
+
+        .card-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 18px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .resource-card h3 {
+            font-size: 1.375rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: -0.02em;
+            color: #1d1d1f;
+        }
+
+        .resource-card p {
+            font-size: 0.9rem;
+            color: #6b7280;
+            line-height: 1.6;
+            margin-bottom: 16px !important;
+        }
+
+        .download-btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 18px;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            border-radius: 14px;
+            color: #1d1d1f;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.25s ease;
+            margin-bottom: 10px;
+            text-decoration: none;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+        }
+
+        .download-btn:hover {
+            background: rgba(0, 122, 255, 0.1);
+            color: #007AFF;
+            border-color: rgba(0, 122, 255, 0.2);
+            transform: translateX(4px);
+        }
+
+        .download-btn i {
+            color: #86868b;
+            transition: all 0.25s ease;
+        }
+
+        .download-btn:hover i {
+            color: #007AFF;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .no-resources {
+            text-align: center;
+            padding: 60px 24px;
+            color: #6b7280;
+        }
+
+        .no-resources i {
+            font-size: 48px;
+            margin-bottom: 16px;
+            color: #d1d5db;
+        }
+
+        html.lenis,
+        html.lenis body {
+            scroll-behavior: auto !important;
+        }
+    </style>
+</head>
+
+<body class="antialiased">
+    <div id="shared-header"></div>
+
+    <!-- PASSWORD PROTECTION OVERLAY -->
+    <div id="password-overlay" class="fixed inset-0 flex items-center justify-center overflow-hidden"
+        style="background: linear-gradient(180deg, #e8f4fc 0%, #f0f8ff 50%, #e4f0f8 100%); z-index: 9999 !important;">
+        <div
+            style="position: absolute; width: 500px; height: 500px; border-radius: 50%; filter: blur(80px); background: linear-gradient(135deg, rgba(0, 122, 255, 0.35), rgba(90, 200, 250, 0.25)); top: -100px; right: -100px; animation: blobFloat 12s ease-in-out infinite;">
+        </div>
+        <div
+            style="position: absolute; width: 400px; height: 400px; border-radius: 50%; filter: blur(80px); background: linear-gradient(135deg, rgba(50, 173, 230, 0.3), rgba(0, 122, 255, 0.25)); bottom: -50px; left: -100px; animation: blobFloat 12s ease-in-out infinite; animation-delay: -4s;">
+        </div>
+        <div
+            style="position: relative; z-index: 10; max-width: 420px; width: 100%; margin: 0 24px; padding: 48px 40px; background: linear-gradient(135deg, rgba(255,255,255,0.8), rgba(255,255,255,0.5)); backdrop-filter: blur(40px) saturate(200%); border-radius: 32px; border: 1px solid rgba(255,255,255,0.7); box-shadow: 0 20px 60px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.9); text-align: center;">
+            <div
+                style="width: 80px; height: 80px; margin: 0 auto 24px; background: linear-gradient(135deg, #007AFF, #5AC8FA); border-radius: 24px; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 24px rgba(0, 122, 255, 0.4);">
+                <i class="fas fa-lock text-white text-3xl"></i>
+            </div>
+            <h2
+                style="font-size: 2rem; font-weight: 800; margin-bottom: 8px; background: linear-gradient(135deg, #1d1d1f 0%, #007AFF 50%, #5AC8FA 100%); background-size: 200% auto; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">
+                MEP Resources</h2>
+            <p style="color: #6b7280; font-size: 1rem; margin-bottom: 32px;">Enter your password to access curriculum
+                materials.</p>
+            <form id="password-form" onsubmit="return checkPassword(event)">
+                <div style="margin-bottom: 16px;">
+                    <input type="password" id="password-input"
+                        style="width: 100%; padding: 18px 24px; font-size: 1.125rem; font-weight: 500; background: rgba(255,255,255,0.7); border: 2px solid rgba(0,0,0,0.08); border-radius: 16px; text-align: center; letter-spacing: 0.2em; outline: none; transition: all 0.3s ease;"
+                        onfocus="this.style.borderColor='#007AFF'; this.style.background='#fff';"
+                        onblur="this.style.borderColor='rgba(0,0,0,0.08)'; this.style.background='rgba(255,255,255,0.7)';"
+                        placeholder="••••••••" autocomplete="off" required>
+                </div>
+                <p id="password-error" class="text-red-500 text-sm mb-4 hidden"><i
+                        class="fas fa-exclamation-circle mr-1"></i> Incorrect password. Please try again.</p>
+                <button type="submit"
+                    style="width: 100%; padding: 18px 32px; font-size: 1rem; font-weight: 700; background: linear-gradient(135deg, #007AFF, #5AC8FA); color: white; border: none; border-radius: 16px; cursor: pointer; box-shadow: 0 8px 24px rgba(0, 122, 255, 0.4); transition: all 0.3s ease;"><i
+                        class="fas fa-unlock mr-2"></i> Access Resources</button>
+            </form>
+            <p style="margin-top: 28px; font-size: 0.875rem; color: #9ca3af;">Need access? Contact your <span
+                    style="color: #007AFF; font-weight: 600;">curriculum consultant</span></p>
+            <a href="../"
+                style="display: inline-flex; align-items: center; gap: 8px; margin-top: 20px; padding: 12px 24px; font-size: 0.9rem; font-weight: 500; color: #6b7280; text-decoration: none; background: rgba(255,255,255,0.5); border-radius: 100px; border: 1px solid rgba(0,0,0,0.08); transition: all 0.3s ease;"><i
+                    class="fas fa-arrow-left"></i> Back to Resources</a>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main id="protected-content" class="pb-12 hidden">
+        <div class="bg-animation">
+            <div class="blob blob-1"></div>
+            <div class="blob blob-2"></div>
+            <div class="blob blob-3"></div>
+        </div>
+
+        <!-- Hero Section -->
+        <section class="hero-section main-content">
+            <div class="hero-badge">
+                <div class="hero-badge-icon"><i class="fas fa-graduation-cap"></i></div> MEP Resources · Semester 1
+            </div>
+            <h1 class="hero-title">MEP Curriculum Resources</h1>
+            <p class="hero-subtitle">Select your subject to get started</p>
+        </section>
+
+        <!-- Subject Selection -->
+        <div id="subject-selector" class="subject-selector main-content">
+            <div class="subject-card" onclick="selectSubject('english')">
+                <div class="subject-card-icon english"><i class="fas fa-language"></i></div>
+                <div class="subject-card-title">ENGLISH</div>
+                <div class="subject-card-subtitle">Mini English Program</div>
+            </div>
+            <div class="subject-card" onclick="selectSubject('math')">
+                <div class="subject-card-icon math"><i class="fas fa-calculator"></i></div>
+                <div class="subject-card-title">MATHEMATICS</div>
+                <div class="subject-card-subtitle">Mini English Program</div>
+            </div>
+            <div class="subject-card" onclick="selectSubject('science')">
+                <div class="subject-card-icon science"><i class="fas fa-flask"></i></div>
+                <div class="subject-card-title">SCIENCE</div>
+                <div class="subject-card-subtitle">Mini English Program</div>
+            </div>
+            <div class="subject-card" onclick="selectSubject('health')">
+                <div class="subject-card-icon health"><i class="fas fa-heartbeat"></i></div>
+                <div class="subject-card-title">HEALTH</div>
+                <div class="subject-card-subtitle">Mini English Program</div>
+            </div>
+        </div>
+
+        <!-- Level Selection (hidden initially) -->
+        <div id="level-selector" class="level-selector main-content collapsed">
+            <div class="level-card" onclick="selectLevel('anuban')">
+                <div class="level-card-icon anuban"><i class="fas fa-child"></i></div>
+                <div class="level-card-title">ANUBAN</div>
+                <div class="level-card-subtitle">K1 – K3</div>
+            </div>
+            <div class="level-card" onclick="selectLevel('prathom')">
+                <div class="level-card-icon prathom"><i class="fas fa-book-reader"></i></div>
+                <div class="level-card-title">PRATHOM</div>
+                <div class="level-card-subtitle">P1 – P6</div>
+            </div>
+            <div class="level-card" onclick="selectLevel('mathayom')">
+                <div class="level-card-icon mathayom"><i class="fas fa-graduation-cap"></i></div>
+                <div class="level-card-title">MATHAYOM</div>
+                <div class="level-card-subtitle">M1 – M3</div>
+            </div>
+        </div>
+
+        <!-- Back Buttons -->
+        <div id="back-button-wrapper" class="back-button-wrapper">
+            <button id="back-to-subjects-btn" class="back-to-subjects hidden" onclick="backToSubjects()"><i
+                    class="fas fa-arrow-left"></i> Change Subject</button>
+            <button id="back-to-levels-btn" class="back-to-levels hidden" onclick="backToLevels()"><i
+                    class="fas fa-arrow-left"></i> Change Level</button>
+            <div id="logout-btn-wrapper"
+                class="inline-block opacity-0 transition-opacity duration-300 pointer-events-none ml-4">
+                <button onclick="logout()"
+                    class="text-red-500 hover:text-red-600 font-medium text-sm flex items-center gap-2 pointer-events-auto"><i
+                        class="fas fa-lock"></i> Lock</button>
+            </div>
+        </div>
+
+        <!-- Content Area -->
+        <div id="content-area" class="content-area">
+            <div class="container mx-auto px-6 max-w-6xl main-content">
+                <!-- Content will be inserted by JavaScript based on subject+level selection -->
+                <div id="resource-content"></div>
+            </div>
+        </div>
+    </main>
+
+    <div id="shared-footer"></div>
+
+    <!-- Scripts -->
+    <script>document.write('<script src="../../../js/version.js?v=' + Date.now() + '"><\/script>');</script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="../../../js/components.js?v=1.0.2"></script>
+    <script src="../../../js/script.js?v=1.0.2"></script>
+
+    <script>
+        AOS.init({ once: true, offset: 50, duration: 800, easing: 'ease-out-cubic' });
+
+        let currentSubject = null;
+        let currentLevel = null;
+
+        // Check authentication
+        if (sessionStorage.getItem('mep_authenticated') === 'true') {
+            const hideStyle = document.getElementById('mep-hide-content');
+            if (hideStyle) hideStyle.remove();
+            document.getElementById('password-overlay').style.display = 'none';
+            const protectedContent = document.getElementById('protected-content');
+            if (protectedContent) protectedContent.classList.remove('hidden');
+        }
+
+        const VALID_PASSWORDS = ['1mep26'];
+
+        function checkPassword(event) {
+            event.preventDefault();
+            const input = document.getElementById('password-input').value;
+            const errorEl = document.getElementById('password-error');
+            const isValid = VALID_PASSWORDS.some(p => input === p);
+            if (isValid) {
+                sessionStorage.setItem('mep_authenticated', 'true');
+                const overlay = document.getElementById('password-overlay');
+                overlay.style.opacity = '0';
+                overlay.style.transition = 'opacity 0.5s ease';
+                setTimeout(() => { window.location.reload(); }, 500);
+            } else {
+                errorEl.classList.remove('hidden');
+                document.getElementById('password-input').classList.add('border-red-500');
+                document.getElementById('password-input').value = '';
+                document.getElementById('password-input').focus();
+                const form = document.getElementById('password-form');
+                form.style.animation = 'shake 0.5s ease';
+                setTimeout(() => form.style.animation = '', 500);
+            }
+            return false;
+        }
+
+        const style = document.createElement('style');
+        style.textContent = `@keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-10px); } 75% { transform: translateX(10px); } }`;
+        document.head.appendChild(style);
+
+        function logout() {
+            if (confirm('Lock this page? You will need to enter the password again.')) {
+                sessionStorage.removeItem('mep_authenticated');
+                window.location.reload();
+            }
+        }
+
+        function selectSubject(subject) {
+            currentSubject = subject;
+            document.getElementById('subject-selector').classList.add('collapsed');
+            setTimeout(() => {
+                document.getElementById('level-selector').classList.remove('collapsed');
+                document.getElementById('back-button-wrapper').classList.add('visible');
+                document.getElementById('back-to-subjects-btn').classList.remove('hidden');
+            }, 300);
+        }
+
+        function selectLevel(level) {
+            currentLevel = level;
+            document.getElementById('level-selector').classList.add('collapsed');
+            setTimeout(() => {
+                document.getElementById('back-to-levels-btn').classList.remove('hidden');
+                document.getElementById('logout-btn-wrapper').classList.add('opacity-100');
+                document.getElementById('logout-btn-wrapper').classList.remove('opacity-0', 'pointer-events-none');
+            }, 200);
+            setTimeout(() => {
+                document.getElementById('content-area').classList.add('visible');
+                renderContent();
+            }, 400);
+        }
+
+        function backToSubjects() {
+            document.getElementById('content-area').classList.remove('visible');
+            document.getElementById('level-selector').classList.add('collapsed');
+            document.getElementById('back-to-levels-btn').classList.add('hidden');
+            document.getElementById('logout-btn-wrapper').classList.remove('opacity-100');
+            document.getElementById('logout-btn-wrapper').classList.add('opacity-0', 'pointer-events-none');
+            setTimeout(() => {
+                document.getElementById('back-button-wrapper').classList.remove('visible');
+                document.getElementById('back-to-subjects-btn').classList.add('hidden');
+            }, 200);
+            setTimeout(() => {
+                document.getElementById('subject-selector').classList.remove('collapsed');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }, 400);
+            currentSubject = null;
+            currentLevel = null;
+        }
+
+        function backToLevels() {
+            document.getElementById('content-area').classList.remove('visible');
+            document.getElementById('back-to-levels-btn').classList.add('hidden');
+            document.getElementById('logout-btn-wrapper').classList.remove('opacity-100');
+            document.getElementById('logout-btn-wrapper').classList.add('opacity-0', 'pointer-events-none');
+            setTimeout(() => {
+                document.getElementById('level-selector').classList.remove('collapsed');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }, 300);
+            currentLevel = null;
+        }
+
+        function renderContent() {
+            const container = document.getElementById('resource-content');
+            const key = currentSubject + '_' + currentLevel;
+            const html = resourceData[key] || '<div class="no-resources"><i class="fas fa-folder-open"></i><h3 class="text-xl font-bold mb-2">No Resources Available</h3><p>Please contact your curriculum consultant for access to materials.</p></div>';
+            container.innerHTML = html;
+        }
+
+        // Resource Data
+        const resourceData = {
+            // ===== ENGLISH =====
+            'english_anuban': `
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="resource-card">
+                        <div class="card-icon bg-blue-50 text-blue-600"><i class="fas fa-list-ul"></i></div>
+                        <h3>Scope & Sequence</h3>
+                        <p>Curriculum outline and pacing guides.</p>
+                        <div class="mt-4 space-y-3">
+                            <a href="https://drive.google.com/uc?id=1F38kHYduouCtYIvoy6svHlMuMNB_iOa-&export=download" class="download-btn"><span>K1 – Scope & Sequence</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=1hMfBfxKTWzxGPSBiMFiwcgBa-ipdHJi3&export=download" class="download-btn"><span>K2 – Scope & Sequence</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=1rMxcPf_pj20a9Kqs6FetBfwyrIOsxd_-&export=download" class="download-btn"><span>K3 – Scope & Sequence</span><i class="fas fa-cloud-download-alt"></i></a>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <div class="card-icon bg-red-50 text-red-600"><i class="fas fa-file-alt"></i></div>
+                        <h3>Unit Tests</h3>
+                        <p>Assessment materials for each unit.</p>
+                        <div class="mt-4 space-y-3">
+                            <a href="https://drive.google.com/uc?id=1wP5cX0acQoujyNMrjn1umP8AhitWZb3s&export=download" class="download-btn"><span>K1 – Unit Tests</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=1breAz2Yvl_6R7NN2o2hdbJfvyJgWnPrE&export=download" class="download-btn"><span>K2 – Unit Tests</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=1xGRSG2QhE-RDbP-Lrx919zk3FjUU484k&export=download" class="download-btn"><span>K3 – Unit Tests</span><i class="fas fa-cloud-download-alt"></i></a>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <div class="card-icon bg-green-50 text-green-600"><i class="fas fa-file-signature"></i></div>
+                        <h3>Worksheets</h3>
+                        <p>Practice worksheets for students.</p>
+                        <div class="mt-4 space-y-3">
+                            <a href="https://drive.google.com/uc?id=1Xanm2h2I29EkC5tqy0dBDuftl_Z3Qpld&export=download" class="download-btn"><span>K1 – Worksheets</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=1CbRRC06sxHl22bcH2Uf0S1ltOKQOy2qs&export=download" class="download-btn"><span>K2 – Worksheets</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=1ZpVabZeCcbIXMaQMrhPlSdccDpXdn_up&export=download" class="download-btn"><span>K3 – Worksheets</span><i class="fas fa-cloud-download-alt"></i></a>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <div class="card-icon bg-purple-50 text-purple-600"><i class="fas fa-images"></i></div>
+                        <h3>Flashcards</h3>
+                        <p>Visual aids for vocabulary teaching.</p>
+                        <div class="mt-4 space-y-3">
+                            <a href="https://drive.google.com/uc?id=1Eunsm0g65ZRpc95HiAgPDm_NFbcMHlh_&export=download" class="download-btn"><span>K1 – Flashcards</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=1gkUqkVFDmKVUGY5i6lZJBRRL5jfDobf5&export=download" class="download-btn"><span>K2 – Flashcards</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=1hfLFemNTkKHDPce_I6BbOuimrHLjv6LX&export=download" class="download-btn"><span>K3 – Flashcards</span><i class="fas fa-cloud-download-alt"></i></a>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <div class="card-icon bg-orange-50 text-orange-600"><i class="fas fa-folder-open"></i></div>
+                        <h3>Other Resources</h3>
+                        <p>Songs, admin files, and extras.</p>
+                        <div class="mt-4 space-y-3">
+                            <a href="https://drive.google.com/drive/folders/18IBtpMJyKbaAuQ-uQlEjEmw95TYuuyX3?usp=sharing" target="_blank" class="download-btn"><span>Teacher Admin Resources</span><i class="fas fa-external-link-alt"></i></a>
+                            <a href="https://drive.google.com/drive/folders/19NEZerxVahcsTRO63pRMsRV_t3h9b_-0?usp=sharing" target="_blank" class="download-btn"><span>Songs and Tongue Twisters</span><i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <div class="card-icon bg-gray-100 text-gray-700"><i class="fas fa-laptop-code"></i></div>
+                        <h3>Interactive Tools</h3>
+                        <p>Digital resources for smart classrooms.</p>
+                        <div class="mt-4 p-4 bg-gray-50 rounded-xl border border-gray-100">
+                            <p class="text-sm text-center text-gray-600">Please contact your curriculum consultant to access i-Tools.</p>
+                        </div>
+                    </div>
+                </div>`,
+
+            'english_prathom': `
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="resource-card">
+                        <div class="card-icon bg-blue-50 text-blue-600"><i class="fas fa-list-ul"></i></div>
+                        <h3>Scope & Sequence</h3>
+                        <p>Curriculum outline and pacing guides.</p>
+                        <div class="mt-4 space-y-3">
+                            <a href="https://drive.google.com/uc?id=1erpH31SgpkQBinPPlROdwwgEJyk60YUO&export=download" class="download-btn"><span>P1 – Scope & Sequence</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=18pCAH7_c2vhGp50wQlRYFeNTYcCv1v1Z&export=download" class="download-btn"><span>P2 – Scope & Sequence</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=12QePtG4yQZ0jDDJO5AKIK1lqnWKrwbKz&export=download" class="download-btn"><span>P3 – Scope & Sequence</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=1gFViR5a6EcJ7uMisDWnnQU_g7fTMvypy&export=download" class="download-btn"><span>P4 – Scope & Sequence</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=14fBaJxVNEQXCh6oqj-N0QQTmWzMDR6Wf&export=download" class="download-btn"><span>P5 – Scope & Sequence</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=1SWh_LgMQnimQKPM5UVz_78O67GKCczs0&export=download" class="download-btn"><span>P6 – Scope & Sequence</span><i class="fas fa-cloud-download-alt"></i></a>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <div class="card-icon bg-red-50 text-red-600"><i class="fas fa-file-alt"></i></div>
+                        <h3>Unit Tests</h3>
+                        <p>Assessment materials for each unit.</p>
+                        <div class="mt-4 space-y-3">
+                            <a href="https://drive.google.com/uc?id=1tzdBdRFay4zTz8eaq59emIwZS8nVv0RC&export=download" class="download-btn"><span>P1 – Unit Tests</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=1703BZG0VJcOXiG1KHVceMGCK8JMwIJoY&export=download" class="download-btn"><span>P2 – Unit Tests</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=1ZLHmQdFiQCTA1jJHDRbPb5owFjt1qpo2&export=download" class="download-btn"><span>P3 – Unit Tests</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=1u76mx-b8CfK8i38cHwGN6-q6WW38lEWB&export=download" class="download-btn"><span>P4 – Unit Tests</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=14_qEp4oNQsFrbt9-1eWc4Ob5ozu1wgtx&export=download" class="download-btn"><span>P5 – Unit Tests</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=1M4Q9r126dwSR0M7nZWLaVCeuhltwtaVC&export=download" class="download-btn"><span>P6 – Unit Tests</span><i class="fas fa-cloud-download-alt"></i></a>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <div class="card-icon bg-green-50 text-green-600"><i class="fas fa-file-signature"></i></div>
+                        <h3>Worksheets</h3>
+                        <p>Practice worksheets for students.</p>
+                        <div class="mt-4 space-y-3">
+                            <a href="https://drive.google.com/uc?id=1RzRDevq3P71daO1PmLgPD9ZTgysXQUg2&export=download" class="download-btn"><span>P1 – Worksheets</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=13XHS7fuGGtzCOfZQJMoOOZiPrC5Hh3iw&export=download" class="download-btn"><span>P2 – Worksheets</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=1Q8EeJVXS3Bf4aRsdZeJyS-rffLbYaBhC&export=download" class="download-btn"><span>P3 – Worksheets</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=1Hsw3mhdkYr5UwmijDVgah3zF-yvkFi6h&export=download" class="download-btn"><span>P4 – Worksheets</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=1AOqNhtBnA3-Xn3n6tkZWkqbiu4ce8WKE&export=download" class="download-btn"><span>P5 – Worksheets</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=1oqoh4iwWJFipXrC0RkH025u8_iQhKZbM&export=download" class="download-btn"><span>P6 – Worksheets</span><i class="fas fa-cloud-download-alt"></i></a>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <div class="card-icon bg-purple-50 text-purple-600"><i class="fas fa-images"></i></div>
+                        <h3>Flashcards</h3>
+                        <p>Visual aids for vocabulary teaching.</p>
+                        <div class="mt-4 space-y-3">
+                            <a href="https://drive.google.com/uc?id=14vBp2ueQamXHLPaU099o4ZiqxoRHN-6B&export=download" class="download-btn"><span>P1 – Flashcards</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=1RO1ncG13aOUq9EA1k0hZC2olpSgxjBf0&export=download" class="download-btn"><span>P2 – Flashcards</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=1CqWOUvFoRUo-6gu3iST3KbaRFeJ2Yrst&export=download" class="download-btn"><span>P3 – Flashcards</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=1WPy2LkMpLOeyzGLN6j2YRdcL6wwcc1P4&export=download" class="download-btn"><span>P4 – Flashcards</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=1L4fzLy07QWusWVyq4T7-wj5k3WuUy65D&export=download" class="download-btn"><span>P5 – Flashcards</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=1j2gNVw5Vva3LMYUvgiHCCDI85EA5Sp4X&export=download" class="download-btn"><span>P6 – Flashcards</span><i class="fas fa-cloud-download-alt"></i></a>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <div class="card-icon bg-orange-50 text-orange-600"><i class="fas fa-folder-open"></i></div>
+                        <h3>Other Resources</h3>
+                        <p>Songs, admin files, and extras.</p>
+                        <div class="mt-4 space-y-3">
+                            <a href="https://drive.google.com/drive/folders/18IBtpMJyKbaAuQ-uQlEjEmw95TYuuyX3?usp=sharing" target="_blank" class="download-btn"><span>Teacher Admin Resources</span><i class="fas fa-external-link-alt"></i></a>
+                            <a href="https://drive.google.com/drive/folders/1qVTUfNUK1mRKbU7yQHnlol4hllx8vou5?usp=sharing" target="_blank" class="download-btn"><span>Songs and Tongue Twisters</span><i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <div class="card-icon bg-gray-100 text-gray-700"><i class="fas fa-laptop-code"></i></div>
+                        <h3>Interactive Tools</h3>
+                        <p>Digital resources for smart classrooms.</p>
+                        <div class="mt-4 p-4 bg-gray-50 rounded-xl border border-gray-100">
+                            <p class="text-sm text-center text-gray-600">Please contact your curriculum consultant to access i-Tools.</p>
+                        </div>
+                    </div>
+                </div>`,
+
+            'english_mathayom': `
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="resource-card">
+                        <div class="card-icon bg-blue-50 text-blue-600"><i class="fas fa-list-ul"></i></div>
+                        <h3>Scope & Sequence</h3>
+                        <p>Curriculum outline and pacing guides.</p>
+                        <div class="mt-4 space-y-3">
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>M1 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>M2 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>M3 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <div class="card-icon bg-red-50 text-red-600"><i class="fas fa-file-alt"></i></div>
+                        <h3>Unit Tests</h3>
+                        <p>Assessment materials for each unit.</p>
+                        <div class="mt-4 space-y-3">
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>M1 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>M2 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>M3 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <div class="card-icon bg-green-50 text-green-600"><i class="fas fa-file-signature"></i></div>
+                        <h3>Worksheets</h3>
+                        <p>Practice worksheets for students.</p>
+                        <div class="mt-4 space-y-3">
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>M1 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>M2 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>M3 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <div class="card-icon bg-purple-50 text-purple-600"><i class="fas fa-images"></i></div>
+                        <h3>Flashcards</h3>
+                        <p>Visual aids for vocabulary teaching.</p>
+                        <div class="mt-4 space-y-3">
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>M1 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>M2 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>M3 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <div class="card-icon bg-gray-100 text-gray-700"><i class="fas fa-laptop-code"></i></div>
+                        <h3>Interactive Tools</h3>
+                        <p>Digital resources for smart classrooms.</p>
+                        <div class="mt-4 p-4 bg-gray-50 rounded-xl border border-gray-100">
+                            <p class="text-sm text-center text-gray-600">Please contact your curriculum consultant to access i-Tools.</p>
+                        </div>
+                    </div>
+                </div>`,
+
+            // ===== MATHEMATICS =====
+            'math_anuban': `
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="resource-card">
+                        <div class="card-icon bg-blue-50 text-blue-600"><i class="fas fa-list-ul"></i></div>
+                        <h3>Scope & Sequence</h3>
+                        <p>Curriculum outline and pacing guides.</p>
+                        <div class="mt-4 space-y-3">
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>K1 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>K2 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>K3 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <div class="card-icon bg-red-50 text-red-600"><i class="fas fa-file-alt"></i></div>
+                        <h3>Unit Tests</h3>
+                        <p>Assessment materials for each unit.</p>
+                        <div class="mt-4 space-y-3">
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>K1 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>K2 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>K3 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <div class="card-icon bg-green-50 text-green-600"><i class="fas fa-file-signature"></i></div>
+                        <h3>Worksheets</h3>
+                        <p>Practice worksheets for students.</p>
+                        <div class="mt-4 space-y-3">
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>K1 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>K2 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>K3 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <div class="card-icon bg-purple-50 text-purple-600"><i class="fas fa-images"></i></div>
+                        <h3>Flashcards</h3>
+                        <p>Visual aids for vocabulary teaching.</p>
+                        <div class="mt-4 space-y-3">
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>K1 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>K2 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>K3 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <div class="card-icon bg-yellow-50 text-yellow-600"><i class="fas fa-file-powerpoint"></i></div>
+                        <h3>PowerPoint Files</h3>
+                        <p>Presentation materials for lessons.</p>
+                        <div class="mt-4 space-y-3">
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>K1 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>K2 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>K3 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                        </div>
+                    </div>
+                </div>`,
+
+            'math_prathom': `
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="resource-card">
+                        <div class="card-icon bg-blue-50 text-blue-600"><i class="fas fa-list-ul"></i></div>
+                        <h3>Scope & Sequence</h3>
+                        <p>Curriculum outline and pacing guides.</p>
+                        <div class="mt-4 space-y-3">
+                            <a href="https://drive.google.com/uc?id=1dqqdWJ1ra8E_NA_iLzgRGWr1hAdqZe9h&export=download" class="download-btn"><span>P1 – Scope & Sequence</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=11ANKGx1aA4fcMAFRcVNitrNfykYwDoSI&export=download" class="download-btn"><span>P2 – Scope & Sequence</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=1xSsXGS3-nrLnhxPhqyTJ8t9yiY9cW1aP&export=download" class="download-btn"><span>P3 – Scope & Sequence</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=1-cW7vtdnAyPXaD8mKpiEsRMUnccpF2gZ&export=download" class="download-btn"><span>P4 – Scope & Sequence</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=1LM9NAAMfnL2VQVPdmDV-AjydMvFbgCwD&export=download" class="download-btn"><span>P5 – Scope & Sequence</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=1XcGibh-oJU8OITvOzEpUv78s-rHUWwtf&export=download" class="download-btn"><span>P6 – Scope & Sequence</span><i class="fas fa-cloud-download-alt"></i></a>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <div class="card-icon bg-red-50 text-red-600"><i class="fas fa-file-alt"></i></div>
+                        <h3>Unit Tests</h3>
+                        <p>Assessment materials for each unit.</p>
+                        <div class="mt-4 space-y-3">
+                            <a href="https://drive.google.com/uc?id=1_fmcBuNXeTmIsEnCEazrcWHOVoQnr5sr&export=download" class="download-btn"><span>P1 – Unit Tests</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=117UnXx-nL5AKb-0uxUt1TLc2t4l_YKGZ&export=download" class="download-btn"><span>P2 – Unit Tests</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=1urDv_DDMR_aiIqZGmkW8mjrUhWwBSU8g&export=download" class="download-btn"><span>P3 – Unit Tests</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=1EsmCVYRHE8NhoejwIRN0mJWa2VhWtXxQ&export=download" class="download-btn"><span>P4 – Unit Tests</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=1fpFXgJlXEdjKd4nzlVdQ4SLHn3OCLFbP&export=download" class="download-btn"><span>P5 – Unit Tests</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=168Xl6URFSvzi8d2_MadmZ4jYNH6FUQhC&export=download" class="download-btn"><span>P6 – Unit Tests</span><i class="fas fa-cloud-download-alt"></i></a>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <div class="card-icon bg-green-50 text-green-600"><i class="fas fa-file-signature"></i></div>
+                        <h3>Worksheets</h3>
+                        <p>Practice worksheets for students.</p>
+                        <div class="mt-4 space-y-3">
+                            <a href="https://drive.google.com/uc?id=159j_Jqye5bYA_w-swjTk9odBoW50nyWP&export=download" class="download-btn"><span>P1 – Worksheets</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=1kUgK0ffNdwpP58yBYo8dETipYa7aqYS6&export=download" class="download-btn"><span>P2 – Worksheets</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=1H_N0hRLHUaKL3jrtGN7V-xtLj7mlQT8P&export=download" class="download-btn"><span>P3 – Worksheets</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=16pgFQUeRpJ0GWUSHIyNyCntxd1NnaMrd&export=download" class="download-btn"><span>P4 – Worksheets</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=13MUJaLWzW9_QBj-Qbj2hCRMalnuwoz68&export=download" class="download-btn"><span>P5 – Worksheets</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=1wfFOyywvLensCbM4ad9TM_SDB4UY5s2R&export=download" class="download-btn"><span>P6 – Worksheets</span><i class="fas fa-cloud-download-alt"></i></a>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <div class="card-icon bg-purple-50 text-purple-600"><i class="fas fa-images"></i></div>
+                        <h3>Flashcards</h3>
+                        <p>Visual aids for vocabulary teaching.</p>
+                        <div class="mt-4 space-y-3">
+                            <a href="https://drive.google.com/uc?id=1PKxRBDWirtQ8W2bIH3uVctLAifAvEoC4&export=download" class="download-btn"><span>P1 – Flashcards</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=1Y4xT6UUEbRE3ivKukDI28jFB2qQWZDqt&export=download" class="download-btn"><span>P2 – Flashcards</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=13XwtC9ulcdT5GDnWNyXfVFgOYo3JRTJK&export=download" class="download-btn"><span>P3 – Flashcards</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=1g5SPpTzcRjfbTT-Gc__8bC4XuHa41wzo&export=download" class="download-btn"><span>P4 – Flashcards</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=1OyogejVKnuqSIAlDuytIPI-QEdYFV8xj&export=download" class="download-btn"><span>P5 – Flashcards</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=1l22LhAyRjodccZ0dpPkGQCLhrbUwqunb&export=download" class="download-btn"><span>P6 – Flashcards</span><i class="fas fa-cloud-download-alt"></i></a>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <div class="card-icon bg-yellow-50 text-yellow-600"><i class="fas fa-file-powerpoint"></i></div>
+                        <h3>PowerPoint Files</h3>
+                        <p>Presentation materials for lessons.</p>
+                        <div class="mt-4 space-y-3">
+                            <a href="https://drive.google.com/drive/folders/1WQCbMRnxLIdmdTkCamLEPE6Ho8ROym69?usp=sharing" target="_blank" class="download-btn"><span>P1 – PowerPoint Files</span><i class="fas fa-external-link-alt"></i></a>
+                            <a href="https://drive.google.com/drive/folders/1zm4Nbjsaju-axSdmiVS7-hWDuM6phOMV?usp=sharing" target="_blank" class="download-btn"><span>P2 – PowerPoint Files</span><i class="fas fa-external-link-alt"></i></a>
+                            <a href="https://drive.google.com/drive/folders/1bxCu3CMra2XoqUSCMHd8SpCSxbA0Iaze?usp=sharing" target="_blank" class="download-btn"><span>P3 – PowerPoint Files</span><i class="fas fa-external-link-alt"></i></a>
+                            <a href="https://drive.google.com/drive/folders/1n7V-WgHXJwWW92Di9n24TUXNB1byUZnb?usp=sharing" target="_blank" class="download-btn"><span>P4 – PowerPoint Files</span><i class="fas fa-external-link-alt"></i></a>
+                            <a href="https://drive.google.com/drive/folders/1PgXQhMlAqIIRdJKBVt99RT36KSquJSkf?usp=sharing" target="_blank" class="download-btn"><span>P5 – PowerPoint Files</span><i class="fas fa-external-link-alt"></i></a>
+                            <a href="https://drive.google.com/drive/folders/1ZilteWlvCwhMykTLmhAx-7y1ysd-j0Oo?usp=sharing" target="_blank" class="download-btn"><span>P6 – PowerPoint Files</span><i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                </div>`,
+
+            'math_mathayom': `
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="resource-card">
+                        <div class="card-icon bg-blue-50 text-blue-600"><i class="fas fa-list-ul"></i></div>
+                        <h3>Scope & Sequence</h3>
+                        <p>Curriculum outline and pacing guides.</p>
+                        <div class="mt-4 space-y-3">
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>M1 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>M2 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>M3 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <div class="card-icon bg-red-50 text-red-600"><i class="fas fa-file-alt"></i></div>
+                        <h3>Unit Tests</h3>
+                        <p>Assessment materials for each unit.</p>
+                        <div class="mt-4 space-y-3">
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>M1 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>M2 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>M3 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <div class="card-icon bg-green-50 text-green-600"><i class="fas fa-file-signature"></i></div>
+                        <h3>Worksheets</h3>
+                        <p>Practice worksheets for students.</p>
+                        <div class="mt-4 space-y-3">
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>M1 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>M2 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>M3 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <div class="card-icon bg-purple-50 text-purple-600"><i class="fas fa-images"></i></div>
+                        <h3>Flashcards</h3>
+                        <p>Visual aids for vocabulary teaching.</p>
+                        <div class="mt-4 space-y-3">
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>M1 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>M2 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>M3 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                        </div>
+                    </div>
+                </div>`,
+
+            // ===== SCIENCE =====
+            'science_anuban': `
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="resource-card">
+                        <div class="card-icon bg-blue-50 text-blue-600"><i class="fas fa-list-ul"></i></div>
+                        <h3>Scope & Sequence</h3>
+                        <p>Curriculum outline and pacing guides.</p>
+                        <div class="mt-4 space-y-3">
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>K1 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>K2 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>K3 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <div class="card-icon bg-red-50 text-red-600"><i class="fas fa-file-alt"></i></div>
+                        <h3>Unit Tests</h3>
+                        <p>Assessment materials for each unit.</p>
+                        <div class="mt-4 space-y-3">
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>K1 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>K2 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>K3 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <div class="card-icon bg-green-50 text-green-600"><i class="fas fa-file-signature"></i></div>
+                        <h3>Worksheets</h3>
+                        <p>Practice worksheets for students.</p>
+                        <div class="mt-4 space-y-3">
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>K1 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>K2 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>K3 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <div class="card-icon bg-purple-50 text-purple-600"><i class="fas fa-images"></i></div>
+                        <h3>Flashcards</h3>
+                        <p>Visual aids for vocabulary teaching.</p>
+                        <div class="mt-4 space-y-3">
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>K1 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>K2 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>K3 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <div class="card-icon bg-yellow-50 text-yellow-600"><i class="fas fa-file-powerpoint"></i></div>
+                        <h3>PowerPoint Files</h3>
+                        <p>Presentation materials for lessons.</p>
+                        <div class="mt-4 space-y-3">
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>K1 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>K2 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>K3 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                        </div>
+                    </div>
+                </div>`,
+
+            'science_prathom': `
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="resource-card">
+                        <div class="card-icon bg-blue-50 text-blue-600"><i class="fas fa-list-ul"></i></div>
+                        <h3>Scope & Sequence</h3>
+                        <p>Curriculum outline and pacing guides.</p>
+                        <div class="mt-4 space-y-3">
+                            <a href="https://drive.google.com/uc?id=1CluwF_f6iMz_Lm8iIzvs9AmxITTyKKPQ&export=download" class="download-btn"><span>P1 – Scope & Sequence</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=1GuYO3WlLH_Q6mDbB2phIDIf1LvoEFka1&export=download" class="download-btn"><span>P2 – Scope & Sequence</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=112dJpJ_cJ-qvnrTHqULAEKN1_Z4JprQe&export=download" class="download-btn"><span>P3 – Scope & Sequence</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=1GzYckKwR_8J05QsqX8NKxYu05-mfpX1c&export=download" class="download-btn"><span>P4 – Scope & Sequence</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=1B4KHIW-kpSGicKDmiTPcSYb-6gBBucGk&export=download" class="download-btn"><span>P5 – Scope & Sequence</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=1cOe7p2Q6rxRwji7IUF_7zNG4lwGpNtBD&export=download" class="download-btn"><span>P6 – Scope & Sequence</span><i class="fas fa-cloud-download-alt"></i></a>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <div class="card-icon bg-red-50 text-red-600"><i class="fas fa-file-alt"></i></div>
+                        <h3>Unit Tests</h3>
+                        <p>Assessment materials for each unit.</p>
+                        <div class="mt-4 space-y-3">
+                            <a href="https://drive.google.com/uc?id=1Y1YKnqJ7j_Ojr2197oSLBFOdoPKEMyBs&export=download" class="download-btn"><span>P1 – Unit Tests</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=1i1AP9JGVycHpRUpk7dT52g-iTDeDW0Lj&export=download" class="download-btn"><span>P2 – Unit Tests</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=1nfsSQHhqqapp3VG0FYsDlGQj-ndR3cqP&export=download" class="download-btn"><span>P3 – Unit Tests</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=1S_VeNvfNOMF3R7sv-fTF-vhjJSvEPDAD&export=download" class="download-btn"><span>P4 – Unit Tests</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=1wchES_hEXy6JC0-1QlQPYQC-nRIGaBHx&export=download" class="download-btn"><span>P5 – Unit Tests</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=1DIXoaqaLwM9WczYuB8TICrUvX5OQueIm&export=download" class="download-btn"><span>P6 – Unit Tests</span><i class="fas fa-cloud-download-alt"></i></a>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <div class="card-icon bg-green-50 text-green-600"><i class="fas fa-file-signature"></i></div>
+                        <h3>Worksheets</h3>
+                        <p>Practice worksheets for students.</p>
+                        <div class="mt-4 space-y-3">
+                            <a href="https://drive.google.com/uc?id=1fRwogmlXfvI6bU4NogKmIdHvXajHYgt_&export=download" class="download-btn"><span>P1 – Worksheets</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=1ow05ecHWZoUXxRWNgWyFwjWo7csKzYBY&export=download" class="download-btn"><span>P2 – Worksheets</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=1T_swMbQkjtAlyLUHG8bgcaXVYuyLsunl&export=download" class="download-btn"><span>P3 – Worksheets</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=1KeCxoqV3gWQ_7GsE0lhOu-1VZICwWctw&export=download" class="download-btn"><span>P4 – Worksheets</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=1V_HST53kDZ7l0QH4Gl65a1vE-17QOH2_&export=download" class="download-btn"><span>P5 – Worksheets</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=1lkvhc0lJO5lcX519BwmD5obFFcxUmjUP&export=download" class="download-btn"><span>P6 – Worksheets</span><i class="fas fa-cloud-download-alt"></i></a>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <div class="card-icon bg-purple-50 text-purple-600"><i class="fas fa-images"></i></div>
+                        <h3>Flashcards</h3>
+                        <p>Visual aids for vocabulary teaching.</p>
+                        <div class="mt-4 space-y-3">
+                            <a href="https://drive.google.com/uc?id=17hs_VK8fB-Yoltde3hwllEHf1SPQn94e&export=download" class="download-btn"><span>P1 – Flashcards</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=11nIdfobSb6e0UwlhrGdZhly2U8xYm8I8&export=download" class="download-btn"><span>P2 – Flashcards</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=1-CPuERFY1wpkDy_aDx3rymK-2myE6I5A&export=download" class="download-btn"><span>P3 – Flashcards</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=1GHKpdpH27wiOyyLaSY2W7U8nuGFjtqYu&export=download" class="download-btn"><span>P4 – Flashcards</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=1Q_gvmKFcXtDr8d5JbqrHLKr7-0RUBmDe&export=download" class="download-btn"><span>P5 – Flashcards</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=1l5i1-hPJQMaAJrTOxYVUdZ4fUC1GBItt&export=download" class="download-btn"><span>P6 – Flashcards</span><i class="fas fa-cloud-download-alt"></i></a>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <div class="card-icon bg-yellow-50 text-yellow-600"><i class="fas fa-file-powerpoint"></i></div>
+                        <h3>PowerPoint Files</h3>
+                        <p>Presentation materials for lessons.</p>
+                        <div class="mt-4 space-y-3">
+                            <a href="https://drive.google.com/drive/folders/1rJXXKmXzyV4d64kjB_K73bjdzImfRbfk?usp=sharing" target="_blank" class="download-btn"><span>P1 – PowerPoint Files</span><i class="fas fa-external-link-alt"></i></a>
+                            <a href="https://drive.google.com/drive/folders/1V8dO7LsQ3WK1O4dh7CdashOQeDsd1Afu?usp=sharing" target="_blank" class="download-btn"><span>P2 – PowerPoint Files</span><i class="fas fa-external-link-alt"></i></a>
+                            <a href="https://drive.google.com/drive/folders/1WyM2tEGTvTZRO3r0jQRDr3BBSPrri7oe?usp=sharing" target="_blank" class="download-btn"><span>P3 – PowerPoint Files</span><i class="fas fa-external-link-alt"></i></a>
+                            <a href="https://drive.google.com/drive/folders/1rpyAF91bM7RZvsL6nHU5E2My68iaV8kw?usp=sharing" target="_blank" class="download-btn"><span>P4 – PowerPoint Files</span><i class="fas fa-external-link-alt"></i></a>
+                            <a href="https://drive.google.com/drive/folders/1E11HlAwcedjyTE0r0B-5wo-Za7MgrjlD?usp=sharing" target="_blank" class="download-btn"><span>P5 – PowerPoint Files</span><i class="fas fa-external-link-alt"></i></a>
+                            <a href="https://drive.google.com/drive/folders/1ia1oSs3Kk70aJVKjQSWUS67QwKZs1YOO?usp=sharing" target="_blank" class="download-btn"><span>P6 – PowerPoint Files</span><i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                </div>`,
+
+            'science_mathayom': `
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="resource-card">
+                        <div class="card-icon bg-blue-50 text-blue-600"><i class="fas fa-list-ul"></i></div>
+                        <h3>Scope & Sequence</h3>
+                        <p>Curriculum outline and pacing guides.</p>
+                        <div class="mt-4 space-y-3">
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>M1 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>M2 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>M3 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <div class="card-icon bg-red-50 text-red-600"><i class="fas fa-file-alt"></i></div>
+                        <h3>Unit Tests</h3>
+                        <p>Assessment materials for each unit.</p>
+                        <div class="mt-4 space-y-3">
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>M1 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>M2 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>M3 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <div class="card-icon bg-green-50 text-green-600"><i class="fas fa-file-signature"></i></div>
+                        <h3>Worksheets</h3>
+                        <p>Practice worksheets for students.</p>
+                        <div class="mt-4 space-y-3">
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>M1 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>M2 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>M3 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <div class="card-icon bg-purple-50 text-purple-600"><i class="fas fa-images"></i></div>
+                        <h3>Flashcards</h3>
+                        <p>Visual aids for vocabulary teaching.</p>
+                        <div class="mt-4 space-y-3">
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>M1 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>M2 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>M3 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                        </div>
+                    </div>
+                </div>`,
+
+            // ===== HEALTH =====
+            'health_anuban': `
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="resource-card">
+                        <div class="card-icon bg-blue-50 text-blue-600"><i class="fas fa-list-ul"></i></div>
+                        <h3>Scope & Sequence</h3>
+                        <p>Curriculum outline and pacing guides.</p>
+                        <div class="mt-4 space-y-3">
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>K1 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>K2 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>K3 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <div class="card-icon bg-red-50 text-red-600"><i class="fas fa-file-alt"></i></div>
+                        <h3>Unit Tests</h3>
+                        <p>Assessment materials for each unit.</p>
+                        <div class="mt-4 space-y-3">
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>K1 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>K2 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>K3 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <div class="card-icon bg-green-50 text-green-600"><i class="fas fa-file-signature"></i></div>
+                        <h3>Worksheets</h3>
+                        <p>Practice worksheets for students.</p>
+                        <div class="mt-4 space-y-3">
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>K1 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>K2 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>K3 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <div class="card-icon bg-purple-50 text-purple-600"><i class="fas fa-images"></i></div>
+                        <h3>Flashcards</h3>
+                        <p>Visual aids for vocabulary teaching.</p>
+                        <div class="mt-4 space-y-3">
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>K1 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>K2 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>K3 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <div class="card-icon bg-yellow-50 text-yellow-600"><i class="fas fa-file-powerpoint"></i></div>
+                        <h3>PowerPoint Files</h3>
+                        <p>Presentation materials for lessons.</p>
+                        <div class="mt-4 space-y-3">
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>K1 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>K2 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>K3 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                        </div>
+                    </div>
+                </div>`,
+
+            'health_prathom': `
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="resource-card">
+                        <div class="card-icon bg-blue-50 text-blue-600"><i class="fas fa-list-ul"></i></div>
+                        <h3>Scope & Sequence</h3>
+                        <p>Curriculum outline and pacing guides.</p>
+                        <div class="mt-4 space-y-3">
+                            <a href="https://drive.google.com/uc?id=1KR6GRvFL3NpfNhNAk5_Z-4Rh5_MdhUd8&export=download" class="download-btn"><span>P1 – Scope & Sequence</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=1UA2ldnIErWoiz93mwAbTaVyXK7Xs4RYZ&export=download" class="download-btn"><span>P2 – Scope & Sequence</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=1vluaafyKvmq7JNZ6WJKqHoehlYDKAQNY&export=download" class="download-btn"><span>P3 – Scope & Sequence</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=1I8egBan1AFIAgp6KfVJW4maDYEwZIHmX&export=download" class="download-btn"><span>P4 – Scope & Sequence</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=1e5eWaNXuB2DdQauPcgi-zUAw_321BUmH&export=download" class="download-btn"><span>P5 – Scope & Sequence</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=1j40i34PeatACcZ304M3tUyLDcVsAmBuR&export=download" class="download-btn"><span>P6 – Scope & Sequence</span><i class="fas fa-cloud-download-alt"></i></a>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <div class="card-icon bg-red-50 text-red-600"><i class="fas fa-file-alt"></i></div>
+                        <h3>Unit Tests</h3>
+                        <p>Assessment materials for each unit.</p>
+                        <div class="mt-4 space-y-3">
+                            <a href="https://drive.google.com/uc?id=1tdJWUzGL9upaK5pb-B7_Wbx-ZsFX_SbF&export=download" class="download-btn"><span>P1 – Unit Tests</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=1QtJnlR-0UmehNhB0gqhG7OY_T_k1Ei6k&export=download" class="download-btn"><span>P2 – Unit Tests</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=1NQ3fwJMOh55q8eDI7fTHyg9Uiv-L22Zb&export=download" class="download-btn"><span>P3 – Unit Tests</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=1YUImW50atdiW7T6IG4nE7MJHTnsmFk5J&export=download" class="download-btn"><span>P4 – Unit Tests</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=1S3Dqb939jyNmVMre2FpJRF1IIKcDvYKP&export=download" class="download-btn"><span>P5 – Unit Tests</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=1rittSba-GZCh7zmgPJBFwto4rZRAMWPE&export=download" class="download-btn"><span>P6 – Unit Tests</span><i class="fas fa-cloud-download-alt"></i></a>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <div class="card-icon bg-green-50 text-green-600"><i class="fas fa-file-signature"></i></div>
+                        <h3>Worksheets</h3>
+                        <p>Practice worksheets for students.</p>
+                        <div class="mt-4 space-y-3">
+                            <a href="https://drive.google.com/uc?id=1tAXgH_CLVxp3CtPwbpclpwKWhfYQ78s3&export=download" class="download-btn"><span>P1 – Worksheets</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=1ZPrcxS4g9f0mJ9O9C-pQuRy65ZI96OAx&export=download" class="download-btn"><span>P2 – Worksheets</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=1fz0bKM85NwvXCPritVePxc3kG3ysjYQD&export=download" class="download-btn"><span>P3 – Worksheets</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=1G_ZXwKdouiJVby5cn57-ncr_SnSCwox8&export=download" class="download-btn"><span>P4 – Worksheets</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=1NjL0ykcoi1zHCBxDNNt8RcFmM-qEMzWm&export=download" class="download-btn"><span>P5 – Worksheets</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=1KkMkx78WF9LtF_Vj0IjQGDL325N1pExZ&export=download" class="download-btn"><span>P6 – Worksheets</span><i class="fas fa-cloud-download-alt"></i></a>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <div class="card-icon bg-purple-50 text-purple-600"><i class="fas fa-images"></i></div>
+                        <h3>Flashcards</h3>
+                        <p>Visual aids for vocabulary teaching.</p>
+                        <div class="mt-4 space-y-3">
+                            <a href="https://drive.google.com/uc?id=1PmLN_hPgc5vAF-m34oNTRU4X-0sDXT3D&export=download" class="download-btn"><span>P1 – Flashcards</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=1zga2IK3tLrB5EsGSVs6b2BeaE_MHbfRw&export=download" class="download-btn"><span>P2 – Flashcards</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=1Rr2dS_eVhqShJk5wd5S3XQKtPX4_rkIV&export=download" class="download-btn"><span>P3 – Flashcards</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=1V7QwurWJ7GqscBBrXe_Q5fgR93_K_jox&export=download" class="download-btn"><span>P4 – Flashcards</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=1E0VI2niwIIMpULGjUaLBPLijE7m-wCFB&export=download" class="download-btn"><span>P5 – Flashcards</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=1aO7wix7XUQ_yuL6hNnXEABdNCXrOWo6P&export=download" class="download-btn"><span>P6 – Flashcards</span><i class="fas fa-cloud-download-alt"></i></a>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <div class="card-icon bg-yellow-50 text-yellow-600"><i class="fas fa-file-powerpoint"></i></div>
+                        <h3>PowerPoint Files</h3>
+                        <p>Presentation materials for lessons.</p>
+                        <div class="mt-4 space-y-3">
+                            <a href="https://drive.google.com/uc?id=168Tck6MLMm-fqJXH_x3LsNQ7t7wrziMD&export=download" class="download-btn"><span>P1 – PowerPoint Files</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=1q2UpsyzL5h5nzoCGKPe_3PzUKsR8dcRg&export=download" class="download-btn"><span>P2 – PowerPoint Files</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=1FyynyZYJwzP0LJ7n2gXVinSlF5IupUOI&export=download" class="download-btn"><span>P3 – PowerPoint Files</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=1fFzWaJr7_zAvjYkYn0C9ueNT84283QSu&export=download" class="download-btn"><span>P4 – PowerPoint Files</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=1mPmh0kOdbNn520mjPlcXBwqFZNpvs418&export=download" class="download-btn"><span>P5 – PowerPoint Files</span><i class="fas fa-cloud-download-alt"></i></a>
+                            <a href="https://drive.google.com/uc?id=1AUiwmLm6r3-9Vbwdb-HEdShefQCiiZbQ&export=download" class="download-btn"><span>P6 – PowerPoint Files</span><i class="fas fa-cloud-download-alt"></i></a>
+                        </div>
+                    </div>
+                </div>`,
+
+            'health_mathayom': `
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="resource-card">
+                        <div class="card-icon bg-blue-50 text-blue-600"><i class="fas fa-list-ul"></i></div>
+                        <h3>Scope & Sequence</h3>
+                        <p>Curriculum outline and pacing guides.</p>
+                        <div class="mt-4 space-y-3">
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>M1 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>M2 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>M3 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <div class="card-icon bg-red-50 text-red-600"><i class="fas fa-file-alt"></i></div>
+                        <h3>Unit Tests</h3>
+                        <p>Assessment materials for each unit.</p>
+                        <div class="mt-4 space-y-3">
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>M1 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>M2 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>M3 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <div class="card-icon bg-green-50 text-green-600"><i class="fas fa-file-signature"></i></div>
+                        <h3>Worksheets</h3>
+                        <p>Practice worksheets for students.</p>
+                        <div class="mt-4 space-y-3">
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>M1 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>M2 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>M3 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <div class="card-icon bg-purple-50 text-purple-600"><i class="fas fa-images"></i></div>
+                        <h3>Flashcards</h3>
+                        <p>Visual aids for vocabulary teaching.</p>
+                        <div class="mt-4 space-y-3">
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>M1 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>M2 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>M3 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                        </div>
+                    </div>
+                    <div class="resource-card">
+                        <div class="card-icon bg-yellow-50 text-yellow-600"><i class="fas fa-file-powerpoint"></i></div>
+                        <h3>PowerPoint Files</h3>
+                        <p>Presentation materials for lessons.</p>
+                        <div class="mt-4 space-y-3">
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>M1 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>M2 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                            <div class="download-btn opacity-50 cursor-not-allowed"><span>M3 – Coming Soon</span><i class="fas fa-clock"></i></div>
+                        </div>
+                    </div>
+                </div>`
+        };
+    </script>
+
+    <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+    <script>
+        const lenis = new Lenis({ lerp: 0.1, orientation: 'vertical', gestureOrientation: 'vertical', smoothWheel: true, wheelMultiplier: 1, touchMultiplier: 1 });
+        function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+        requestAnimationFrame(raf);
+    </script>
+
+    <script>
+        window.addEventListener('load', function () {
+            setTimeout(function () { document.body.classList.add('content-loaded'); }, 150);
+        });
+    </script>
+</body>
+
+</html>

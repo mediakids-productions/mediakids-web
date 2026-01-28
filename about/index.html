@@ -62,18 +62,63 @@
         }
 
         .ceo-quote-card {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 24px;
-            padding: 2.5rem;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 2.5rem 3rem;
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .ceo-quote-card::before,
+        .ceo-quote-card::after {
+            font-family: Georgia, serif;
+            font-size: 6rem;
+            color: rgba(255, 209, 0, 0.2);
+            position: absolute;
+            line-height: 1;
+        }
+
+        .ceo-quote-card::before {
+            content: '"';
+            top: 10px;
+            left: 20px;
+        }
+
+        .ceo-quote-card::after {
+            content: '"';
+            bottom: -20px;
+            right: 20px;
         }
 
         .ceo-quote {
-            font-size: 1.25rem;
-            line-height: 1.8;
+            font-size: 1.35rem;
+            line-height: 1.9;
             font-style: italic;
-            color: rgba(255, 255, 255, 0.9);
+            color: rgba(255, 255, 255, 0.92);
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Decorative Line */
+        .ceo-decorative-line {
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #FFD100, transparent);
+            margin: 0 auto 2rem;
+        }
+
+        /* CEO Name Card */
+        .ceo-name-card {
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(255, 209, 0, 0.15) 0%, rgba(255, 209, 0, 0.05) 100%);
+            border: 1px solid rgba(255, 209, 0, 0.3);
+            border-radius: 50px;
+            padding: 1rem 2.5rem;
+            margin-top: 2rem;
         }
 
         .highlight-card {
@@ -254,10 +299,11 @@
                     <div class="md:w-2/3" data-aos="fade-left">
                         <div class="ceo-quote-card">
                             <p class="ceo-quote mb-6">
-                                "MediaKids Academy is bringing different worlds and cultures together. Our aim is to
-                                educate Thai children in English language with an emphasis on cultural differences and
-                                its role in education. We make a difference from big cities to rural areas across
-                                Thailand!"
+                                "Our aim is to educate Thai children in the English language with an emphasis on
+                                cultural
+                                differences and its important role in education. We are not an ordinary teacher
+                                placement agency - we make a difference, from big cities to rural countryside bringing
+                                different worlds and cultures together."
                             </p>
                             <div class="h-1 w-20 bg-yellow-400"></div>
                         </div>

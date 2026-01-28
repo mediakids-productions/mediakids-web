@@ -11,9 +11,14 @@ if (path.includes('/schools/central-1/') ||
     path.includes('/schools/esan-4/')) {
     basePath = '../../';
 }
-// Level 4 deep: ../../../ (curriculum pages are inside /curriculum/semX/ecd/)
+// Level 4 deep: ../../../ (curriculum pages are inside /curriculum/semX/ecd/, /mep/, /iep/, or /i-tools/)
 else if (path.includes('/curriculum/sem1/ecd/') ||
-    path.includes('/curriculum/sem2/ecd/')) {
+    path.includes('/curriculum/sem1/mep/') ||
+    path.includes('/curriculum/sem1/iep/') ||
+    path.includes('/curriculum/sem1/i-tools/') ||
+    path.includes('/curriculum/sem2/ecd/') ||
+    path.includes('/curriculum/sem2/mep/') ||
+    path.includes('/curriculum/sem2/iep/')) {
     basePath = '../../../';
 }
 // Level 2 deep: ../../
