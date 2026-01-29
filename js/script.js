@@ -1,5 +1,6 @@
 function initSite() {
-    AOS.init({ duration: 800, once: true });
+    // AOS: Faster duration, wait for components to load before animating
+    AOS.init({ duration: 600, once: true, startEvent: 'componentsLoaded' });
 
     // Header Scroll Effect
     const header = document.getElementById('main-header');

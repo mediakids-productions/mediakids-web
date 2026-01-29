@@ -385,6 +385,9 @@ function loadComponents() {
     // 4. Dispatch Event (CRITICAL for script.js)
     console.log("Components loaded. Dispatching event...");
     document.dispatchEvent(new Event('componentsLoaded'));
+
+    // 5. Signal that components are ready - triggers CSS fade-in
+    document.body.classList.add('components-loaded');
 }
 
 // Run immediately
