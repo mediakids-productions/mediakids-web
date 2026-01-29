@@ -386,16 +386,16 @@ function loadComponents() {
     console.log("Components loaded. Dispatching event...");
     document.dispatchEvent(new Event('componentsLoaded'));
 
-    // 5. Wait for fonts (Font Awesome) to load, then show header
-    // This prevents flash of unstyled icons (FOUC)
+    // 5. Wait for fonts (Font Awesome) to load, then show page
+    // This prevents flash of unstyled content (FOUC)
     if (document.fonts && document.fonts.ready) {
         document.fonts.ready.then(() => {
-            document.body.classList.add('fonts-ready');
+            document.body.classList.add('fonts-ready', 'page-ready');
         });
     } else {
         // Fallback for browsers without Font Loading API
         setTimeout(() => {
-            document.body.classList.add('header-ready');
+            document.body.classList.add('fonts-ready', 'page-ready');
         }, 150);
     }
 }
