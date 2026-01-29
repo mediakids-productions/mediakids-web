@@ -34,16 +34,9 @@ section:not(#home) {
     }
 }
 
-/* Blur-to-Sharp Transition for Hero Images */
+/* Hero Slideshow Images - Clean display without blur effect */
 .slideshow-img {
-    filter: blur(20px);
-    transform: scale(1.1);
-    transition: filter 1.2s ease-out, transform 1.2s ease-out, opacity 0.8s ease-out;
-}
-
-.slideshow-img.loaded {
-    filter: blur(0);
-    transform: scale(1);
+    transition: opacity 0.8s ease-out;
 }
 
 /* Floating Background Animation */
