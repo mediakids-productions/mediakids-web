@@ -5,6 +5,20 @@
     --light-text: #f7fafc;
 }
 
+/* ============================================= 
+   FIX: Hide header until icon fonts are ready
+   Prevents flash of unstyled Font Awesome icons
+   ============================================= */
+#shared-header {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+body.fonts-ready #shared-header,
+body.header-ready #shared-header {
+    opacity: 1;
+}
+
 html {
     scroll-behavior: smooth;
 }

@@ -385,6 +385,19 @@ function loadComponents() {
     // 4. Dispatch Event (CRITICAL for script.js)
     console.log("Components loaded. Dispatching event...");
     document.dispatchEvent(new Event('componentsLoaded'));
+
+    // 5. Wait for fonts (Font Awesome) to load, then show header
+    // This prevents flash of unstyled icons (FOUC)
+    if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(() => {
+            document.body.classList.add('fonts-ready');
+        });
+    } else {
+        // Fallback for browsers without Font Loading API
+        setTimeout(() => {
+            document.body.classList.add('header-ready');
+        }, 150);
+    }
 }
 
 // Run immediately
