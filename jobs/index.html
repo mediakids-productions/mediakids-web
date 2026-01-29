@@ -1070,64 +1070,6 @@
                 </div>
             </div>
 
-            <!-- Job Details Modal -->
-            <div id="job-modal-overlay" class="job-modal-overlay"></div>
-            <div id="job-modal" class="job-modal" data-lenis-prevent>
-                <button id="job-modal-close" class="job-modal-close">&times;</button>
-                <div class="job-modal-header">
-                    <div id="job-modal-icon" class="job-modal-icon"></div>
-                    <div class="job-modal-header-info">
-                        <h2 id="job-modal-title" class="job-modal-title"></h2>
-                        <p id="job-modal-school" class="job-modal-school"></p>
-                        <div id="job-modal-urgent" class="job-modal-urgent" style="display: none;">
-                            <span style="width:5px;height:5px;background:#fff;border-radius:50%;"></span>
-                            Urgent
-                        </div>
-                    </div>
-                </div>
-                <div class="job-modal-body" data-lenis-prevent>
-                    <div id="job-modal-desc-section" class="job-modal-section">
-                        <h3 class="job-modal-section-title">About This Position</h3>
-                        <p id="job-modal-description" class="job-modal-description"></p>
-                    </div>
-                    <div id="job-modal-qual-section" class="job-modal-section">
-                        <h3 class="job-modal-section-title">Qualifications</h3>
-                        <ul id="job-modal-qualifications" class="job-modal-list"></ul>
-                    </div>
-                    <div id="job-modal-benefits-section" class="job-modal-section">
-                        <h3 class="job-modal-section-title">Benefits & Package</h3>
-                        <ul id="job-modal-benefits" class="job-modal-list benefits"></ul>
-                    </div>
-                    <div id="job-modal-meta" class="job-modal-meta">
-                        <div class="job-modal-meta-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span id="job-modal-location"></span>
-                        </div>
-                        <div class="job-modal-meta-item">
-                            <i class="fas fa-coins"></i>
-                            <span id="job-modal-salary"></span>
-                        </div>
-                        <div id="job-modal-hours-item" class="job-modal-meta-item">
-                            <i class="fas fa-clock"></i>
-                            <span id="job-modal-hours"></span>
-                        </div>
-                        <div id="job-modal-start-item" class="job-modal-meta-item">
-                            <i class="fas fa-calendar-alt"></i>
-                            <span id="job-modal-start"></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="job-modal-footer">
-                    <a id="job-modal-apply" class="job-modal-apply-btn" href="#">
-                        Apply Now
-                        <svg viewBox="0 0 24 24">
-                            <path d="M5 12h14" />
-                            <path d="m12 5 7 7-7 7" />
-                        </svg>
-                    </a>
-                </div>
-            </div>
-
             <script>
                 // Jobs Table Configuration
                 const JOBS_SHEET_ID = '1daBA8-R-BCERBg55JjuIwp4tcshaR2df2FgCwXq4wbA';
@@ -1451,13 +1393,10 @@
                     renderJobs(allJobsData);
                 }
 
-                // ========================================
-                // JOB MODAL FUNCTIONS
-                // ========================================
-
-                const modalOverlay = document.getElementById('job-modal-overlay');
-                const modal = document.getElementById('job-modal');
-                const modalClose = document.getElementById('job-modal-close');
+                // Modal elements - use getters since modal is at body level
+                function getModalOverlay() { return document.getElementById('job-modal-overlay'); }
+                function getModal() { return document.getElementById('job-modal'); }
+                function getModalClose() { return document.getElementById('job-modal-close'); }
 
                 function openJobModal(job) {
                     const { icon, color } = getJobIconConfig(job.position);
@@ -1526,37 +1465,43 @@
                         `${JOBS_APPLY_URL}?position=${encodeURIComponent(job.position)}`;
 
                     // Show modal with animation
-                    modalOverlay.classList.add('active');
-                    modal.classList.add('active');
+                    getModalOverlay().classList.add('active');
+                    getModal().classList.add('active');
                     document.body.style.overflow = 'hidden';
                     // Stop Lenis smooth scroll if available
                     if (typeof lenis !== 'undefined') lenis.stop();
                 }
 
                 function closeJobModal() {
-                    modalOverlay.classList.remove('active');
-                    modal.classList.remove('active');
+                    getModalOverlay().classList.remove('active');
+                    getModal().classList.remove('active');
                     document.body.style.overflow = '';
                     // Resume Lenis smooth scroll if available
                     if (typeof lenis !== 'undefined') lenis.start();
                 }
 
-                // Event listeners for closing modal
-                if (modalClose) modalClose.addEventListener('click', closeJobModal);
-                if (modalOverlay) modalOverlay.addEventListener('click', closeJobModal);
+                // Event listeners for closing modal (must wait for DOM)
+                document.addEventListener('DOMContentLoaded', () => {
+                    const mc = getModalClose();
+                    const mo = getModalOverlay();
+                    if (mc) mc.addEventListener('click', closeJobModal);
+                    if (mo) mo.addEventListener('click', closeJobModal);
+                });
 
                 // Close on ESC key
                 document.addEventListener('keydown', (e) => {
-                    if (e.key === 'Escape' && modal && modal.classList.contains('active')) {
+                    const m = getModal();
+                    if (e.key === 'Escape' && m && m.classList.contains('active')) {
                         closeJobModal();
                     }
                 });
 
                 // Prevent background scrolling when modal is open - but allow scroll inside modal
                 document.addEventListener('wheel', (e) => {
-                    if (modal && modal.classList.contains('active')) {
+                    const m = getModal();
+                    if (m && m.classList.contains('active')) {
                         // Allow scrolling inside the entire modal
-                        if (modal.contains(e.target)) {
+                        if (m.contains(e.target)) {
                             // Let modal content scroll naturally - don't prevent
                             return;
                         } else {
@@ -1777,6 +1722,64 @@
         }
         requestAnimationFrame(raf);
     </script>
+
+    <!-- Job Details Modal (body level for correct position:fixed) -->
+    <div id="job-modal-overlay" class="job-modal-overlay"></div>
+    <div id="job-modal" class="job-modal" data-lenis-prevent>
+        <button id="job-modal-close" class="job-modal-close">&times;</button>
+        <div class="job-modal-header">
+            <div id="job-modal-icon" class="job-modal-icon"></div>
+            <div class="job-modal-header-info">
+                <h2 id="job-modal-title" class="job-modal-title"></h2>
+                <p id="job-modal-school" class="job-modal-school"></p>
+                <div id="job-modal-urgent" class="job-modal-urgent" style="display: none;">
+                    <span style="width:5px;height:5px;background:#fff;border-radius:50%;"></span>
+                    Urgent
+                </div>
+            </div>
+        </div>
+        <div class="job-modal-body" data-lenis-prevent>
+            <div id="job-modal-desc-section" class="job-modal-section">
+                <h3 class="job-modal-section-title">About This Position</h3>
+                <p id="job-modal-description" class="job-modal-description"></p>
+            </div>
+            <div id="job-modal-qual-section" class="job-modal-section">
+                <h3 class="job-modal-section-title">Qualifications</h3>
+                <ul id="job-modal-qualifications" class="job-modal-list"></ul>
+            </div>
+            <div id="job-modal-benefits-section" class="job-modal-section">
+                <h3 class="job-modal-section-title">Benefits & Package</h3>
+                <ul id="job-modal-benefits" class="job-modal-list benefits"></ul>
+            </div>
+            <div id="job-modal-meta" class="job-modal-meta">
+                <div class="job-modal-meta-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span id="job-modal-location"></span>
+                </div>
+                <div class="job-modal-meta-item">
+                    <i class="fas fa-coins"></i>
+                    <span id="job-modal-salary"></span>
+                </div>
+                <div id="job-modal-hours-item" class="job-modal-meta-item">
+                    <i class="fas fa-clock"></i>
+                    <span id="job-modal-hours"></span>
+                </div>
+                <div id="job-modal-start-item" class="job-modal-meta-item">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span id="job-modal-start"></span>
+                </div>
+            </div>
+        </div>
+        <div class="job-modal-footer">
+            <a id="job-modal-apply" class="job-modal-apply-btn" href="#">
+                Apply Now
+                <svg viewBox="0 0 24 24">
+                    <path d="M5 12h14" />
+                    <path d="m12 5 7 7-7 7" />
+                </svg>
+            </a>
+        </div>
+    </div>
 </body>
 
 </html>

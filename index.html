@@ -1894,64 +1894,6 @@
                     ↓ Scroll to see more positions
                 </div>
 
-                <!-- Job Details Modal -->
-                <div id="job-modal-overlay" class="job-modal-overlay"></div>
-                <div id="job-modal" class="job-modal" data-lenis-prevent>
-                    <button id="job-modal-close" class="job-modal-close">&times;</button>
-                    <div class="job-modal-header">
-                        <div id="job-modal-icon" class="job-modal-icon"></div>
-                        <div class="job-modal-header-info">
-                            <h2 id="job-modal-title" class="job-modal-title"></h2>
-                            <p id="job-modal-school" class="job-modal-school"></p>
-                            <div id="job-modal-urgent" class="job-modal-urgent" style="display: none;">
-                                <span style="width:5px;height:5px;background:#fff;border-radius:50%;"></span>
-                                Urgent
-                            </div>
-                        </div>
-                    </div>
-                    <div class="job-modal-body" data-lenis-prevent>
-                        <div id="job-modal-desc-section" class="job-modal-section">
-                            <h3 class="job-modal-section-title">About This Position</h3>
-                            <p id="job-modal-description" class="job-modal-description"></p>
-                        </div>
-                        <div id="job-modal-qual-section" class="job-modal-section">
-                            <h3 class="job-modal-section-title">Qualifications</h3>
-                            <ul id="job-modal-qualifications" class="job-modal-list"></ul>
-                        </div>
-                        <div id="job-modal-benefits-section" class="job-modal-section">
-                            <h3 class="job-modal-section-title">Benefits & Package</h3>
-                            <ul id="job-modal-benefits" class="job-modal-list benefits"></ul>
-                        </div>
-                        <div id="job-modal-meta" class="job-modal-meta">
-                            <div class="job-modal-meta-item">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <span id="job-modal-location"></span>
-                            </div>
-                            <div class="job-modal-meta-item">
-                                <i class="fas fa-coins"></i>
-                                <span id="job-modal-salary"></span>
-                            </div>
-                            <div id="job-modal-hours-item" class="job-modal-meta-item">
-                                <i class="fas fa-clock"></i>
-                                <span id="job-modal-hours"></span>
-                            </div>
-                            <div id="job-modal-start-item" class="job-modal-meta-item">
-                                <i class="fas fa-calendar-alt"></i>
-                                <span id="job-modal-start"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="job-modal-footer">
-                        <a id="job-modal-apply" class="job-modal-apply-btn" href="#">
-                            Apply Now
-                            <svg viewBox="0 0 24 24">
-                                <path d="M5 12h14" />
-                                <path d="m12 5 7 7-7 7" />
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-
                 <!-- Mobile Only: View All Jobs Button -->
                 <a href="jobs/" class="mobile-view-all-jobs">
                     View All <span id="mobile-jobs-count"></span> Positions →
@@ -2176,10 +2118,10 @@
                     return String(salary).replace(/\d+/g, num => parseInt(num).toLocaleString('en-US'));
                 }
 
-                // Modal elements
-                const modal = document.getElementById('job-modal');
-                const modalOverlay = document.getElementById('job-modal-overlay');
-                const modalClose = document.getElementById('job-modal-close');
+                // Modal elements - use getters since modal is at body level (loaded after this script)
+                function getModal() { return document.getElementById('job-modal'); }
+                function getModalOverlay() { return document.getElementById('job-modal-overlay'); }
+                function getModalClose() { return document.getElementById('job-modal-close'); }
 
                 function openJobModal(job) {
                     const { icon, color } = getJobIconConfig(job.position);
@@ -2245,33 +2187,39 @@
                     document.getElementById('job-modal-apply').href = `${JOBS_APPLY_URL}?position=${encodeURIComponent(job.position)}`;
 
                     // Show modal
-                    modalOverlay.classList.add('active');
-                    modal.classList.add('active');
+                    getModalOverlay().classList.add('active');
+                    getModal().classList.add('active');
                     document.body.style.overflow = 'hidden';
                     if (typeof lenis !== 'undefined') lenis.stop();
                 }
 
                 function closeJobModal() {
-                    modalOverlay.classList.remove('active');
-                    modal.classList.remove('active');
+                    getModalOverlay().classList.remove('active');
+                    getModal().classList.remove('active');
                     document.body.style.overflow = '';
                     if (typeof lenis !== 'undefined') lenis.start();
                 }
 
-                // Event listeners for modal
-                if (modalClose) modalClose.addEventListener('click', closeJobModal);
-                if (modalOverlay) modalOverlay.addEventListener('click', closeJobModal);
+                // Event listeners for modal (must wait for DOM)
+                document.addEventListener('DOMContentLoaded', () => {
+                    const mc = getModalClose();
+                    const mo = getModalOverlay();
+                    if (mc) mc.addEventListener('click', closeJobModal);
+                    if (mo) mo.addEventListener('click', closeJobModal);
+                });
 
                 document.addEventListener('keydown', (e) => {
-                    if (e.key === 'Escape' && modal && modal.classList.contains('active')) {
+                    const m = getModal();
+                    if (e.key === 'Escape' && m && m.classList.contains('active')) {
                         closeJobModal();
                     }
                 });
 
                 // Prevent background scroll when modal open
                 document.addEventListener('wheel', (e) => {
-                    if (modal && modal.classList.contains('active')) {
-                        if (modal.contains(e.target)) {
+                    const m = getModal();
+                    if (m && m.classList.contains('active')) {
+                        if (m.contains(e.target)) {
                             return;
                         } else {
                             e.preventDefault();
@@ -2502,6 +2450,13 @@
                     .antigravity-header h2 {
                         font-size: 2.25rem;
                     }
+                }
+
+                /* Fix: Last text block - สร้าง scroll runway เพื่อให้หยุดที่กลาง */
+                .text-block:last-child {
+                    /* ใช้ styling เดิม (padding: 80px 0 สืบทอดจาก .text-block) */
+                    /* เพิ่ม scroll runway เพื่อให้ข้อความอยู่ที่กลาง viewport ได้นานขึ้น */
+                    margin-bottom: 45vh;
                 }
 
                 /* Read More Button */
@@ -2871,21 +2826,6 @@
                     }
                 });
             </script>
-
-            <!-- Offer Modal -->
-            <div id="offerModal" class="offer-modal" onclick="closeOfferModal(event)">
-                <div class="offer-modal-content" onclick="event.stopPropagation()">
-                    <button class="offer-modal-close" onclick="closeOfferModal()" aria-label="Close">
-                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <path d="M1 1l12 12M13 1L1 13" />
-                        </svg>
-                    </button>
-                    <p class="offer-modal-category" id="offerModalCategory"></p>
-                    <h3 class="offer-modal-title" id="offerModalTitle"></h3>
-                    <p class="offer-modal-desc" id="offerModalDesc"></p>
-                </div>
-            </div>
         </section>
 
         <!-- Hero Variable Proximity Effect Script -->
@@ -3324,6 +3264,18 @@
                     max-width: 450px;
                 }
 
+                /* Header Reveal Animation */
+                .journey-dark-header {
+                    opacity: 0;
+                    transform: translateY(40px);
+                    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+                }
+
+                .journey-dark-header.revealed {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+
                 /* Reveal Animation */
                 .journey-step-row {
                     opacity: 0;
@@ -3337,15 +3289,15 @@
                 }
 
                 .journey-step-row:nth-child(1) {
-                    transition-delay: 0.1s;
+                    transition-delay: 0.15s;
                 }
 
                 .journey-step-row:nth-child(2) {
-                    transition-delay: 0.2s;
+                    transition-delay: 0.3s;
                 }
 
                 .journey-step-row:nth-child(3) {
-                    transition-delay: 0.3s;
+                    transition-delay: 0.45s;
                 }
 
                 /* Mobile Responsive */
@@ -3412,7 +3364,7 @@
             </style>
 
             <div class="journey-dark-container">
-                <div class="journey-dark-header" data-aos="fade-up">
+                <div class="journey-dark-header" id="journeyHeader">
                     <h2>Your Journey With Us</h2>
                     <p>Three simple steps to start your teaching adventure in Thailand</p>
                 </div>
@@ -3480,7 +3432,8 @@
 
                     if (!container) return;
 
-                    // Reveal Animation on Scroll
+                    // Reveal Animation on Scroll - Header first, then rows
+                    const header = document.getElementById('journeyHeader');
                     const revealObserver = new IntersectionObserver((entries) => {
                         entries.forEach(entry => {
                             if (entry.isIntersecting) {
@@ -3489,6 +3442,19 @@
                             }
                         });
                     }, { threshold: 0.15 });
+
+                    // Observe header FIRST with lower threshold for earlier reveal
+                    if (header) {
+                        const headerObserver = new IntersectionObserver((entries) => {
+                            entries.forEach(entry => {
+                                if (entry.isIntersecting) {
+                                    entry.target.classList.add('revealed');
+                                    headerObserver.unobserve(entry.target);
+                                }
+                            });
+                        }, { threshold: 0.05 });  // Lower threshold = reveal earlier
+                        headerObserver.observe(header);
+                    }
 
                     rows.forEach(row => revealObserver.observe(row));
 
@@ -4805,6 +4771,78 @@
             }
         })();
     </script>
+
+    <!-- Job Details Modal (body level for correct position:fixed) -->
+    <div id="job-modal-overlay" class="job-modal-overlay"></div>
+    <div id="job-modal" class="job-modal" data-lenis-prevent>
+        <button id="job-modal-close" class="job-modal-close">&times;</button>
+        <div class="job-modal-header">
+            <div id="job-modal-icon" class="job-modal-icon"></div>
+            <div class="job-modal-header-info">
+                <h2 id="job-modal-title" class="job-modal-title"></h2>
+                <p id="job-modal-school" class="job-modal-school"></p>
+                <div id="job-modal-urgent" class="job-modal-urgent" style="display: none;">
+                    <span style="width:5px;height:5px;background:#fff;border-radius:50%;"></span>
+                    Urgent
+                </div>
+            </div>
+        </div>
+        <div class="job-modal-body" data-lenis-prevent>
+            <div id="job-modal-desc-section" class="job-modal-section">
+                <h3 class="job-modal-section-title">About This Position</h3>
+                <p id="job-modal-description" class="job-modal-description"></p>
+            </div>
+            <div id="job-modal-qual-section" class="job-modal-section">
+                <h3 class="job-modal-section-title">Qualifications</h3>
+                <ul id="job-modal-qualifications" class="job-modal-list"></ul>
+            </div>
+            <div id="job-modal-benefits-section" class="job-modal-section">
+                <h3 class="job-modal-section-title">Benefits & Package</h3>
+                <ul id="job-modal-benefits" class="job-modal-list benefits"></ul>
+            </div>
+            <div id="job-modal-meta" class="job-modal-meta">
+                <div class="job-modal-meta-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span id="job-modal-location"></span>
+                </div>
+                <div class="job-modal-meta-item">
+                    <i class="fas fa-coins"></i>
+                    <span id="job-modal-salary"></span>
+                </div>
+                <div id="job-modal-hours-item" class="job-modal-meta-item">
+                    <i class="fas fa-clock"></i>
+                    <span id="job-modal-hours"></span>
+                </div>
+                <div id="job-modal-start-item" class="job-modal-meta-item">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span id="job-modal-start"></span>
+                </div>
+            </div>
+        </div>
+        <div class="job-modal-footer">
+            <a id="job-modal-apply" class="job-modal-apply-btn" href="#">
+                Apply Now
+                <svg viewBox="0 0 24 24">
+                    <path d="M5 12h14" />
+                    <path d="m12 5 7 7-7 7" />
+                </svg>
+            </a>
+        </div>
+    </div>
+
+    <!-- Offer Modal (body level for correct position:fixed) -->
+    <div id="offerModal" class="offer-modal" onclick="closeOfferModal(event)">
+        <div class="offer-modal-content" onclick="event.stopPropagation()">
+            <button class="offer-modal-close" onclick="closeOfferModal()" aria-label="Close">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M1 1l12 12M13 1L1 13" />
+                </svg>
+            </button>
+            <p class="offer-modal-category" id="offerModalCategory"></p>
+            <h3 class="offer-modal-title" id="offerModalTitle"></h3>
+            <p class="offer-modal-desc" id="offerModalDesc"></p>
+        </div>
+    </div>
 </body>
 
 </html>

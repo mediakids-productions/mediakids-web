@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="th">
+<html lang="en">
 
 <head>
     <!-- Google tag (gtag.js) -->
@@ -16,80 +16,335 @@
         img-src 'self' data:;
         font-src 'self' https://fonts.gstatic.com;
         style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
-        script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://unpkg.com https://www.googletagmanager.com https://www.google-analytics.com;
+        script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com;
         connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com;
         frame-ancestors 'self';
         upgrade-insecure-requests">
     <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
     <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
     <title>404 - Page Not Found | MediaKids Academy</title>
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/icons/logo.png">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <meta name="description" content="Oops! The page you're looking for doesn't exist. Let's get you back on track.">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/icons/logo.png">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css?v=1.0.2">
+
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: 'Outfit', sans-serif;
-        }
-    </style>
-    <style>
-        /* Lenis Smooth Scroll CSS */
-        html.lenis {
-            height: auto;
-        }
-
-        .lenis.lenis-smooth {
-            scroll-behavior: auto;
-        }
-
-        .lenis.lenis-smooth [data-lenis-prevent] {
-            overscroll-behavior: contain;
-        }
-
-        .lenis.lenis-stopped {
+            font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             overflow: hidden;
+            background: linear-gradient(135deg,
+                    #667eea 0%,
+                    #764ba2 25%,
+                    #f093fb 50%,
+                    #f5576c 75%,
+                    #4facfe 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
         }
 
-        .lenis.lenis-scrolling iframe {
-            pointer-events: none;
+        @keyframes gradientShift {
+
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+
+            25% {
+                background-position: 100% 50%;
+            }
+
+            50% {
+                background-position: 100% 100%;
+            }
+
+            75% {
+                background-position: 0% 100%;
+            }
+        }
+
+        /* Floating orbs background */
+        .orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.6;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .orb-1 {
+            width: 400px;
+            height: 400px;
+            background: rgba(102, 126, 234, 0.5);
+            top: -100px;
+            left: -100px;
+            animation-delay: 0s;
+        }
+
+        .orb-2 {
+            width: 300px;
+            height: 300px;
+            background: rgba(240, 147, 251, 0.5);
+            bottom: -50px;
+            right: -50px;
+            animation-delay: -2s;
+        }
+
+        .orb-3 {
+            width: 200px;
+            height: 200px;
+            background: rgba(79, 172, 254, 0.4);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation-delay: -4s;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0) scale(1);
+            }
+
+            50% {
+                transform: translateY(-30px) scale(1.05);
+            }
+        }
+
+        /* Glass Card */
+        .glass-card {
+            position: relative;
+            z-index: 10;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 32px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 60px 50px;
+            text-align: center;
+            max-width: 500px;
+            margin: 20px;
+            box-shadow:
+                0 8px 32px rgba(0, 0, 0, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4),
+                inset 0 -1px 0 rgba(255, 255, 255, 0.1);
+            animation: cardAppear 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            opacity: 0;
+            transform: translateY(30px) scale(0.95);
+        }
+
+        @keyframes cardAppear {
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* 404 Number */
+        .error-code {
+            font-size: clamp(100px, 20vw, 160px);
+            font-weight: 800;
+            line-height: 1;
+            background: linear-gradient(135deg, #ffffff 0%, rgba(255, 255, 255, 0.7) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 4px 30px rgba(255, 255, 255, 0.3);
+            margin-bottom: 10px;
+            animation: numberPulse 3s ease-in-out infinite;
+        }
+
+        @keyframes numberPulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.02);
+            }
+        }
+
+        /* Title */
+        .title {
+            font-size: clamp(24px, 5vw, 32px);
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 16px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards 0.3s;
+        }
+
+        /* Description */
+        .description {
+            font-size: clamp(14px, 3vw, 18px);
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+            margin-bottom: 40px;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards 0.5s;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Button */
+        .home-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 36px;
+            font-size: 16px;
+            font-weight: 600;
+            font-family: inherit;
+            color: #1d1d1f;
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            border-radius: 980px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow:
+                0 4px 20px rgba(0, 0, 0, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 1);
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards 0.7s;
+        }
+
+        .home-btn:hover {
+            transform: translateY(-3px) scale(1.02);
+            background: #ffffff;
+            box-shadow:
+                0 8px 40px rgba(0, 0, 0, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 1);
+        }
+
+        .home-btn:active {
+            transform: translateY(0) scale(0.98);
+        }
+
+        .home-btn svg {
+            width: 18px;
+            height: 18px;
+            transition: transform 0.3s ease;
+        }
+
+        .home-btn:hover svg {
+            transform: translateX(-3px);
+        }
+
+        /* Decorative elements */
+        .sparkle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: #ffffff;
+            border-radius: 50%;
+            opacity: 0;
+            animation: sparkle 3s ease-in-out infinite;
+        }
+
+        .sparkle-1 {
+            top: 20%;
+            left: 15%;
+            animation-delay: 0s;
+        }
+
+        .sparkle-2 {
+            top: 30%;
+            right: 20%;
+            animation-delay: 0.5s;
+        }
+
+        .sparkle-3 {
+            bottom: 25%;
+            left: 25%;
+            animation-delay: 1s;
+        }
+
+        .sparkle-4 {
+            bottom: 35%;
+            right: 15%;
+            animation-delay: 1.5s;
+        }
+
+        @keyframes sparkle {
+
+            0%,
+            100% {
+                opacity: 0;
+                transform: scale(0);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 480px) {
+            .glass-card {
+                padding: 40px 30px;
+                border-radius: 24px;
+            }
         }
     </style>
 </head>
 
-<body class="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center">
-    <div class="text-center px-6">
-        <h1 class="text-9xl font-bold text-blue-600 mb-4">404</h1>
-        <h2 class="text-3xl font-semibold text-gray-800 mb-4">Page Not Found</h2>
-        <p class="text-gray-600 mb-8 max-w-md mx-auto">
-            ขออภัย ไม่พบหน้าที่คุณต้องการ หน้านี้อาจถูกย้ายหรือลบไปแล้ว
+<body>
+    <!-- Background Orbs -->
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+
+    <!-- Glass Card -->
+    <div class="glass-card">
+        <!-- Sparkles -->
+        <div class="sparkle sparkle-1"></div>
+        <div class="sparkle sparkle-2"></div>
+        <div class="sparkle sparkle-3"></div>
+        <div class="sparkle sparkle-4"></div>
+
+        <!-- Content -->
+        <div class="error-code">404</div>
+        <h1 class="title">Oops! Lost in Space?</h1>
+        <p class="description">
+            The page you're looking for has drifted away into the digital cosmos.
+            Don't worry, we'll help you find your way back.
         </p>
-        <a href="./"
-            class="inline-block bg-blue-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-blue-700 transition-colors duration-300 shadow-lg hover:shadow-xl">
-            กลับหน้าแรก
+        <a href="/" class="home-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                    d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" />
+            </svg>
+            Take Me Home
         </a>
     </div>
-    <script src="js/analytics.js"></script>
 
-    <!-- Lenis Smooth Scroll -->
-    <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
-    <script>
-        const lenis = new Lenis({
-            lerp: 0.1,
-            orientation: 'vertical',
-            gestureOrientation: 'vertical',
-            smoothWheel: true,
-            wheelMultiplier: 1,
-            touchMultiplier: 1,
-        });
-        function raf(time) {
-            lenis.raf(time);
-            requestAnimationFrame(raf);
-        }
-        requestAnimationFrame(raf);
-    </script>
+    <script src="/js/analytics.js"></script>
 </body>
 
 </html>
