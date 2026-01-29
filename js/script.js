@@ -196,12 +196,12 @@ function initSite() {
         link.addEventListener('click', closeMobileMenu);
     });
 
-    // Mobile Accordion Toggle
-    const mobileAccordions = document.querySelectorAll('.mobile-accordion-toggle');
-    mobileAccordions.forEach(toggle => {
-        toggle.addEventListener('click', (e) => {
+    // Mobile Accordion Toggle - target button only, not the link
+    const mobileAccordionBtns = document.querySelectorAll('.mobile-accordion-btn');
+    mobileAccordionBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
             e.preventDefault();
-            const accordion = toggle.parentElement;
+            const accordion = btn.closest('.mobile-accordion');
 
             // Close other accordions
             document.querySelectorAll('.mobile-accordion.active').forEach(other => {
@@ -215,62 +215,65 @@ function initSite() {
         });
     });
 
-    // Simple Slideshow Logic
+    // Simple Slideshow Logic with Blur-to-Sharp Transition
     const slideshowImages = document.querySelectorAll('#hero-slideshow .slideshow-img');
     const slideshowContainer = document.getElementById('hero-slideshow');
     let currentImageIndex = 0;
 
-    if (slideshowImages.length > 0) {
-        // Wait for everything to load (including images) before showing the slideshow
-        window.addEventListener('load', () => {
-            // Ensure all images are loaded before starting slideshow
-            const imagePromises = Array.from(slideshowImages).map(img => {
+    if (slideshowImages.length > 0 && slideshowContainer) {
+        // Show first image immediately (blurred) - don't wait for load
+        slideshowContainer.classList.remove('opacity-0');
+        slideshowImages[0].classList.add('opacity-100', 'translate-x-0');
+        slideshowImages[0].classList.remove('opacity-0', 'translate-x-full');
+
+        // When first image loads, add 'loaded' class to make it sharp
+        const firstImage = slideshowImages[0];
+        if (firstImage.complete) {
+            firstImage.classList.add('loaded');
+        } else {
+            firstImage.addEventListener('load', () => {
+                firstImage.classList.add('loaded');
+            }, { once: true });
+        }
+
+        // Prepare other images
+        slideshowImages.forEach((img, index) => {
+            if (index > 0) {
+                img.classList.add('opacity-0', 'translate-x-full');
+                img.classList.remove('opacity-100', 'translate-x-0');
+
+                // Add loaded class when each image loads
                 if (img.complete) {
-                    return Promise.resolve();
+                    img.classList.add('loaded');
+                } else {
+                    img.addEventListener('load', () => {
+                        img.classList.add('loaded');
+                    }, { once: true });
                 }
-                return new Promise((resolve) => {
-                    img.addEventListener('load', resolve, { once: true });
-                    img.addEventListener('error', resolve, { once: true }); // Continue even if image fails
-                });
-            });
-
-            Promise.all(imagePromises).then(() => {
-                // Small delay to ensure smooth transition
-                setTimeout(() => {
-                    // Reveal the slideshow container
-                    if (slideshowContainer) {
-                        slideshowContainer.classList.remove('opacity-0');
-                    }
-
-                    // Initialize first image
-                    slideshowImages.forEach((img, index) => {
-                        if (index === 0) {
-                            img.classList.add('opacity-100', 'translate-x-0');
-                            img.classList.remove('opacity-0', 'translate-x-full', '-translate-x-full');
-                        } else {
-                            img.classList.add('opacity-0', 'translate-x-full');
-                            img.classList.remove('opacity-100', 'translate-x-0', '-translate-x-full');
-                        }
-                    });
-
-                    // Start auto-rotation immediately so the first slide stays on screen the same duration as others
-                    setInterval(() => {
-                        const nextImageIndex = (currentImageIndex + 1) % slideshowImages.length;
-                        const currentImage = slideshowImages[currentImageIndex];
-                        const nextImage = slideshowImages[nextImageIndex];
-                        currentImage.classList.remove('opacity-100', 'translate-x-0');
-                        currentImage.classList.add('opacity-0', '-translate-x-full');
-                        nextImage.classList.remove('opacity-0', 'translate-x-full');
-                        nextImage.classList.add('opacity-100', 'translate-x-0');
-                        setTimeout(() => {
-                            currentImage.classList.remove('-translate-x-full');
-                            currentImage.classList.add('translate-x-full');
-                        }, 1000);
-                        currentImageIndex = nextImageIndex;
-                    }, 4000);
-                }, 100);
-            });
+            }
         });
+
+        // Start auto-rotation after a short delay
+        setTimeout(() => {
+            setInterval(() => {
+                const nextImageIndex = (currentImageIndex + 1) % slideshowImages.length;
+                const currentImage = slideshowImages[currentImageIndex];
+                const nextImage = slideshowImages[nextImageIndex];
+
+                currentImage.classList.remove('opacity-100', 'translate-x-0');
+                currentImage.classList.add('opacity-0', '-translate-x-full');
+
+                nextImage.classList.remove('opacity-0', 'translate-x-full');
+                nextImage.classList.add('opacity-100', 'translate-x-0');
+
+                setTimeout(() => {
+                    currentImage.classList.remove('-translate-x-full');
+                    currentImage.classList.add('translate-x-full');
+                }, 1000);
+
+                currentImageIndex = nextImageIndex;
+            }, 4000);
+        }, 500);
     }
 
     // Counter Animation Logic

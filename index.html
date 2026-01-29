@@ -114,9 +114,27 @@
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/icons/logo.png">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/images/icons/logo.png">
 
+    <!-- Preconnect to CDNs for faster loading -->
+    <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://unpkg.com">
+
+    <!-- Preload critical resources -->
+    <link rel="preload" href="css/style.css?v=1.0.2" as="style">
+    <link rel="preload" href="assets/images/general/mk4.webp" as="image" type="image/webp">
+
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    </noscript>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
+    </noscript>
     <link rel="stylesheet" href="css/style.css?v=1.0.2">
     <style>
         /* Lenis Recommended CSS */
@@ -471,18 +489,19 @@
                         </div>
                     </div>
                     <div id="hero-slideshow"
-                        class="relative w-full h-[340px] md:h-[460px] overflow-hidden rounded-2xl opacity-0 transition-opacity duration-1000 shadow-2xl">
-                        <img src="assets/images/general/mk4.webp"
+                        class="relative w-full h-[340px] md:h-[460px] overflow-hidden rounded-2xl shadow-2xl animate-[fadeIn_1.5s_ease-out_forwards]"
+                        style="background: linear-gradient(160deg, rgba(255, 255, 255, 0.15) 0%, rgba(200, 220, 240, 0.1) 30%, rgba(180, 200, 220, 0.08) 70%, rgba(150, 180, 210, 0.12) 100%); backdrop-filter: blur(30px) saturate(150%); -webkit-backdrop-filter: blur(30px) saturate(150%); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6), inset 0 -1px 0 rgba(0, 0, 0, 0.05), inset 0 0 80px rgba(255, 255, 255, 0.1), 0 25px 50px -15px rgba(0, 0, 0, 0.2); border: 1px solid rgba(255, 255, 255, 0.25); opacity: 0;">
+                        <img src="assets/images/general/mk4.webp" fetchpriority="high" decoding="async"
                             class="slideshow-img absolute top-0 left-0 w-full h-full object-cover shadow-lg transition-all duration-1000 ease-in-out opacity-0">
-                        <img src="assets/images/general/mk24.webp"
+                        <img src="assets/images/general/mk24.webp" loading="lazy" decoding="async"
                             class="slideshow-img absolute top-0 left-0 w-full h-full object-cover shadow-lg transition-all duration-1000 ease-in-out opacity-0">
-                        <img src="assets/images/general/mk16.webp"
+                        <img src="assets/images/general/mk16.webp" loading="lazy" decoding="async"
                             class="slideshow-img absolute top-0 left-0 w-full h-full object-cover shadow-lg transition-all duration-1000 ease-in-out opacity-0">
-                        <img src="assets/images/general/mk1.webp"
+                        <img src="assets/images/general/mk1.webp" loading="lazy" decoding="async"
                             class="slideshow-img absolute top-0 left-0 w-full h-full object-cover shadow-lg transition-all duration-1000 ease-in-out opacity-0">
-                        <img src="assets/images/general/mk10.webp"
+                        <img src="assets/images/general/mk10.webp" loading="lazy" decoding="async"
                             class="slideshow-img absolute top-0 left-0 w-full h-full object-cover shadow-lg transition-all duration-1000 ease-in-out opacity-0">
-                        <img src="assets/images/teachers/t1.webp"
+                        <img src="assets/images/teachers/t1.webp" loading="lazy" decoding="async"
                             class="slideshow-img absolute top-0 left-0 w-full h-full object-cover shadow-lg transition-all duration-1000 ease-in-out opacity-0">
                     </div>
                 </div>
@@ -4628,32 +4647,33 @@
     <!-- Scripts -->
     <!-- Dynamic version loader - ensures cache busting works -->
     <script>document.write('<script src="js/version.js?v=' + Date.now() + '"><\/script>');</script>
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script defer src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="js/components.js?v=1.0.2"></script>
-    <script src="js/script.js?v=1.0.2"></script>
+    <script defer src="js/script.js?v=1.0.2"></script>
 
     <!-- Lenis Smooth Scroll - v1.1.13 (Exact Allfeat Version) -->
-    <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+    <script defer src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
     <script>
-        // Initialize Lenis - EXACT Allfeat.org Configuration
-        const lenis = new Lenis({
-            lerp: 0.1, // THE SECRET: Lower = more "slippery" momentum
-            orientation: 'vertical',
-            gestureOrientation: 'vertical',
-            smoothWheel: true,
-            wheelMultiplier: 1,
-            touchMultiplier: 1,
-        });
+        // Wait for page and deferred scripts to load
+        window.addEventListener('load', function () {
+            if (typeof Lenis === 'undefined') return;
 
-        // The RAF loop is CRITICAL for Lenis to work
-        function raf(time) {
-            lenis.raf(time);
+            const lenis = new Lenis({
+                lerp: 0.1,
+                orientation: 'vertical',
+                gestureOrientation: 'vertical',
+                smoothWheel: true,
+                wheelMultiplier: 1,
+                touchMultiplier: 1,
+            });
+
+            function raf(time) {
+                lenis.raf(time);
+                requestAnimationFrame(raf);
+            }
+
             requestAnimationFrame(raf);
-        }
-
-        requestAnimationFrame(raf);
-
-        console.log("Lenis V1.1.13 Initialized - Exact Allfeat Feel");
+        });
     </script>
 
     <!-- Stats Section Counter Animation -->

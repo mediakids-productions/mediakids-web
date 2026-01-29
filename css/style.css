@@ -17,6 +17,35 @@ body {
     color: var(--dark-text);
 }
 
+/* Performance: skip rendering off-screen sections until needed */
+section:not(#home) {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 800px;
+}
+
+/* Simple fade in animation */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Blur-to-Sharp Transition for Hero Images */
+.slideshow-img {
+    filter: blur(20px);
+    transform: scale(1.1);
+    transition: filter 1.2s ease-out, transform 1.2s ease-out, opacity 0.8s ease-out;
+}
+
+.slideshow-img.loaded {
+    filter: blur(0);
+    transform: scale(1);
+}
+
 /* Floating Background Animation */
 .bg-hero-pattern {
     background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
@@ -607,18 +636,100 @@ body.switching-page footer {
     -webkit-overflow-scrolling: touch;
 }
 
-/* Remove all accordion styles - Apple uses flat list */
+/* =============================================
+   MOBILE ACCORDION - Apple Style Smooth Design
+   ============================================= */
+
 .mobile-accordion {
-    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
+/* Accordion Toggle - Apple style with chevron */
 .mobile-accordion-toggle {
-    display: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+    -webkit-tap-highlight-color: transparent;
 }
 
+/* Accordion link - clickable text to main page */
+.mobile-accordion-link {
+    flex: 1;
+    font-size: 17px;
+    font-weight: 400;
+    color: #1d1d1f;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.mobile-accordion-link:active {
+    color: var(--primary-blue);
+}
+
+/* Accordion expand button - Apple style */
+.mobile-accordion-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    margin: -12px 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transition: background 0.2s ease;
+    border-radius: 50%;
+}
+
+.mobile-accordion-btn:active {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+/* Chevron icon - smooth rotation */
+.mobile-accordion-btn i {
+    font-size: 12px;
+    color: #86868b;
+    transition: transform 0.4s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+/* Rotate chevron when open */
+.mobile-accordion.active .mobile-accordion-btn i {
+    transform: rotate(180deg);
+}
+
+/* Accordion Content - smooth expand */
 .mobile-accordion-content {
-    max-height: none !important;
-    overflow: visible;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+/* Expanded state */
+.mobile-accordion.active .mobile-accordion-content {
+    max-height: 400px;
+}
+
+/* Submenu links - Apple style */
+.mobile-submenu-link {
+    display: block;
+    padding: 12px 0 12px 16px;
+    font-size: 15px;
+    font-weight: 400;
+    color: #6e6e73;
+    text-decoration: none;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.mobile-submenu-link:active {
+    color: var(--primary-blue);
+    transform: scale(0.98);
+}
+
+/* Last submenu item padding */
+.mobile-accordion-content .mobile-submenu-link:last-child {
+    padding-bottom: 16px;
 }
 
 /* Apple-style menu items - large, clean, no icons */
@@ -704,8 +815,8 @@ body.switching-page footer {
 }
 
 /* Staggered animation for menu items */
-.mobile-menu-overlay.active .mobile-menu-link,
-.mobile-menu-overlay.active .mobile-menu-direct {
+.mobile-menu-overlay.active .mobile-accordion,
+.mobile-menu-overlay.active .mobile-menu-link {
     animation: menuItemFadeIn 0.5s cubic-bezier(0.32, 0.72, 0, 1) forwards;
     opacity: 0;
     transform: translateY(10px);
@@ -718,55 +829,37 @@ body.switching-page footer {
     }
 }
 
-/* Stagger delays */
-.mobile-menu-nav .mobile-menu-link:nth-child(1),
-.mobile-menu-nav .mobile-menu-direct:nth-child(1) {
+/* Stagger delays for accordions and links */
+.mobile-menu-nav>*:nth-child(1) {
     animation-delay: 0.05s;
 }
 
-.mobile-menu-nav .mobile-menu-link:nth-child(2),
-.mobile-menu-nav .mobile-menu-direct:nth-child(2) {
-    animation-delay: 0.08s;
+.mobile-menu-nav>*:nth-child(2) {
+    animation-delay: 0.1s;
 }
 
-.mobile-menu-nav .mobile-menu-link:nth-child(3),
-.mobile-menu-nav .mobile-menu-direct:nth-child(3) {
-    animation-delay: 0.11s;
+.mobile-menu-nav>*:nth-child(3) {
+    animation-delay: 0.15s;
 }
 
-.mobile-menu-nav .mobile-menu-link:nth-child(4),
-.mobile-menu-nav .mobile-menu-direct:nth-child(4) {
-    animation-delay: 0.14s;
+.mobile-menu-nav>*:nth-child(4) {
+    animation-delay: 0.2s;
 }
 
-.mobile-menu-nav .mobile-menu-link:nth-child(5),
-.mobile-menu-nav .mobile-menu-direct:nth-child(5) {
-    animation-delay: 0.17s;
+.mobile-menu-nav>*:nth-child(5) {
+    animation-delay: 0.25s;
 }
 
-.mobile-menu-nav .mobile-menu-link:nth-child(6),
-.mobile-menu-nav .mobile-menu-direct:nth-child(6) {
-    animation-delay: 0.20s;
+.mobile-menu-nav>*:nth-child(6) {
+    animation-delay: 0.3s;
 }
 
-.mobile-menu-nav .mobile-menu-link:nth-child(7),
-.mobile-menu-nav .mobile-menu-direct:nth-child(7) {
-    animation-delay: 0.23s;
+.mobile-menu-nav>*:nth-child(7) {
+    animation-delay: 0.35s;
 }
 
-.mobile-menu-nav .mobile-menu-link:nth-child(8),
-.mobile-menu-nav .mobile-menu-direct:nth-child(8) {
-    animation-delay: 0.26s;
-}
-
-.mobile-menu-nav .mobile-menu-link:nth-child(9),
-.mobile-menu-nav .mobile-menu-direct:nth-child(9) {
-    animation-delay: 0.29s;
-}
-
-.mobile-menu-nav .mobile-menu-link:nth-child(10),
-.mobile-menu-nav .mobile-menu-direct:nth-child(10) {
-    animation-delay: 0.32s;
+.mobile-menu-nav>*:nth-child(8) {
+    animation-delay: 0.4s;
 }
 
 /* Variable Proximity Text Effect */

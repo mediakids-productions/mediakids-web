@@ -65,7 +65,7 @@ const headerHTML = `
         <nav id="nav-container" class="container mx-auto px-6 flex justify-between items-stretch transition-all duration-300 relative z-50 h-full">
             <a href="${basePath}" class="nav-logo menu-close-trigger flex items-center space-x-3 py-4 relative z-50">
                 <img id="logo-image" src="${basePath}assets/images/icons/logo.png" alt="MediaKids Academy Logo" class="h-10 w-auto" loading="lazy" />
-                <span class="text-3xl font-bold accent-text">
+                <span class="text-xl lg:text-3xl font-bold accent-text">
                     MediaKids<span class="text-gray-800"> Academy</span>
                 </span>
             </a>
@@ -229,11 +229,62 @@ const headerHTML = `
                 </button>
             </div>
 
-            <!-- Menu Items - Apple Style Flat List -->
+            <!-- Menu Items - Apple Style with Accordions -->
             <nav class="mobile-menu-nav">
-                <a href="${basePath}about/" class="mobile-menu-link nav-page">About Us</a>
-                <a href="${basePath}programs/" class="mobile-menu-link nav-page">Programs</a>
-                <a href="${basePath}schools/" class="mobile-menu-link nav-page">Schools</a>
+                <!-- About Us - Accordion -->
+                <div class="mobile-accordion">
+                    <div class="mobile-accordion-toggle">
+                        <a href="${basePath}about/" class="mobile-accordion-link nav-page">About Us</a>
+                        <button class="mobile-accordion-btn" aria-label="Expand menu">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="mobile-accordion-content">
+                        <a href="${basePath}story/" class="mobile-submenu-link nav-page">MediaKids Story</a>
+                        <a href="${basePath}mission-vision/" class="mobile-submenu-link nav-page">Mission & Vision</a>
+                        <a href="${basePath}hr/" class="mobile-submenu-link nav-page">Human Resources</a>
+                        <a href="${basePath}curriculum-consultants/" class="mobile-submenu-link nav-page">Curriculum Consultants</a>
+                        <a href="${basePath}thai-consultants/" class="mobile-submenu-link nav-page">Thai Consultants</a>
+                    </div>
+                </div>
+
+                <!-- Programs - Accordion -->
+                <div class="mobile-accordion">
+                    <div class="mobile-accordion-toggle">
+                        <a href="${basePath}programs/" class="mobile-accordion-link nav-page">Programs</a>
+                        <button class="mobile-accordion-btn" aria-label="Expand menu">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="mobile-accordion-content">
+                        <a href="${basePath}ecd-program/" class="mobile-submenu-link nav-page">ECD Program</a>
+                        <a href="${basePath}iep-program/" class="mobile-submenu-link nav-page">IEP Program</a>
+                        <a href="${basePath}mep-program/" class="mobile-submenu-link nav-page">IP / EP / MEP Program</a>
+                        <a href="${basePath}english-camps/" class="mobile-submenu-link nav-page">English Camps</a>
+                        <a href="${basePath}mediakids-awards/" class="mobile-submenu-link nav-page">MediaKids Awards</a>
+                        <a href="${basePath}summer-camp-canada/" class="mobile-submenu-link nav-page">Summer Camp in Canada</a>
+                    </div>
+                </div>
+
+                <!-- Schools - Accordion -->
+                <div class="mobile-accordion">
+                    <div class="mobile-accordion-toggle">
+                        <a href="${basePath}schools/" class="mobile-accordion-link nav-page">Schools</a>
+                        <button class="mobile-accordion-btn" aria-label="Expand menu">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                    </div>
+                    <div class="mobile-accordion-content">
+                        <a href="${basePath}schools/central-1/" class="mobile-submenu-link nav-page">Central 1</a>
+                        <a href="${basePath}schools/central-2/" class="mobile-submenu-link nav-page">Central 2</a>
+                        <a href="${basePath}schools/esan-1/" class="mobile-submenu-link nav-page">Esan 1</a>
+                        <a href="${basePath}schools/esan-2/" class="mobile-submenu-link nav-page">Esan 2</a>
+                        <a href="${basePath}schools/esan-3/" class="mobile-submenu-link nav-page">Esan 3</a>
+                        <a href="${basePath}schools/esan-4/" class="mobile-submenu-link nav-page">Esan 4</a>
+                    </div>
+                </div>
+
+                <!-- Direct Links -->
                 <a href="${basePath}jobs/" class="mobile-menu-link nav-page">Jobs</a>
                 <a href="${basePath}faq/" class="mobile-menu-link nav-page">FAQ</a>
                 <a href="${basePath}blogs/" class="mobile-menu-link nav-page">Blogs</a>
