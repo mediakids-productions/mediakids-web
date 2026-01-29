@@ -1,0 +1,46 @@
+# MediaKids Academy - 301 Redirects for Cloudflare Pages
+# Format: /old-url /new-url [status-code]
+
+# ==========================================
+# Curriculum Pages - Semester 1
+# ==========================================
+/ecd1sem/                    /curriculum/sem1/ecd/          301
+/iep1sem/                    /curriculum/sem1/iep/          301
+/mep1sem/                    /curriculum/sem1/mep/          301
+/keepitreal/                 /curriculum/sem1/i-tools/      301
+/integrate-ls-basic-1/       /curriculum/sem1/i-tools/      301
+/curriculum-sem-1/           /curriculum/sem1/              301
+
+# ==========================================
+# Curriculum Pages - Semester 2
+# ==========================================
+/ecd2sem/                    /curriculum/sem2/ecd/          301
+/ecd2sem-2/                  /curriculum/sem2/ecd/          301
+/iep2sem/                    /curriculum/sem2/iep/          301
+/mepsem2/                    /curriculum/sem2/mep/          301
+/curriculum-sem-2/           /curriculum/sem2/              301
+
+# ==========================================
+# Main Pages
+# ==========================================
+/about-us/                   /about/                        301
+/contact-us/                 /contact/                      301
+/placements/                 /schools/                      301
+/benefits/                   /teach-and-earn/               301
+/mkaward/                    /mediakids-awards/             301
+/grades/                     /programs/                     301
+
+# ==========================================
+# Legacy Pages
+# ==========================================
+/pictures-and-videos/        /activity/                     301
+/teachers-testimonials/videos/ /activity/                   301
+/new-frontiers-books-2nd-edition/ /curriculum/              301
+/mkvocablist/                /curriculum/                   301
+/ipptkgrades/                /programs/                     301
+/epptkgrades/                /programs/                     301
+/integrate-ls-basic-3/       /curriculum/sem1/i-tools/      301
+/integrate-rw-building-1/    /curriculum/                   301
+/integrate-rw-building-3/    /curriculum/                   301
+/reading-the-world-now-1/    /curriculum/                   301
+/cash-advanced-form/         /hr/                           301

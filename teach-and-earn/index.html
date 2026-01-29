@@ -412,7 +412,7 @@
                                 <div class="inline-block p-8 rounded-2xl glass-card">
                                     <i class="fas fa-hand-holding-usd text-6xl text-yellow-400 mb-4"></i>
                                     <p class="text-white text-xl font-bold">100% Refundable</p>
-                                    <p class="text-gray-400">Upon Program Completion</p>
+                                    <p class="text-emerald-400 text-sm font-medium mt-1">upon completion</p>
                                 </div>
                             </div>
                         </div>
@@ -778,7 +778,7 @@
     <script src="../js/components.js?v=1.0.2"></script>
     <script src="../js/script.js?v=1.0.2"></script>
 
-    <!-- Lenis Smooth Scroll -->
+    <!-- Lenis Smooth Scroll with AOS sync -->
     <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
     <script>
         const lenis = new Lenis({
@@ -789,6 +789,14 @@
             wheelMultiplier: 1,
             touchMultiplier: 1,
         });
+
+        // Sync Lenis scroll with AOS
+        lenis.on('scroll', () => {
+            if (typeof AOS !== 'undefined') {
+                AOS.refresh();
+            }
+        });
+
         function raf(time) {
             lenis.raf(time);
             requestAnimationFrame(raf);

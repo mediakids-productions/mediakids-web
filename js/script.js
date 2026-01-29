@@ -34,6 +34,7 @@ function initSite() {
         if (!content) return;
 
         megaMenuContainer.classList.add('active');
+        megaMenuContainer.style.display = 'block';  // Override inline display:none
         document.body.classList.add('menu-open');
 
         // Manage active class on triggers for arrow rotation
@@ -79,10 +80,17 @@ function initSite() {
             setTimeout(() => {
                 megaMenuContainer.style.height = '0px';
                 megaMenuContainer.classList.remove('nav-closing');
+                megaMenuContainer.style.display = 'none';  // Hide after animation
             }, 500);
         } else {
             megaMenuContainer.classList.remove('active');
             megaMenuContainer.style.height = '0px';
+            // Delay hiding to allow fade animation
+            setTimeout(() => {
+                if (!megaMenuContainer.classList.contains('active')) {
+                    megaMenuContainer.style.display = 'none';
+                }
+            }, 500);
         }
 
         document.body.classList.remove('menu-open');
