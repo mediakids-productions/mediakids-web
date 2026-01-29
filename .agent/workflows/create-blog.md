@@ -36,6 +36,15 @@ The blog must include:
 
 ### Required CSS/Scripts in `<head>`:
 ```html
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-C3WTLTZ1Y1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-C3WTLTZ1Y1');
+</script>
+
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
@@ -124,8 +133,22 @@ Add a new blog card with an image cover:
 
 Use images from `assets/images/general/` (mk1.webp - mk24.webp) for blog content and cover images.
 
+## Step 6: Update sitemap.xml
+
+เพิ่ม URL ใหม่ใน `sitemap.xml`:
+
+```xml
+<url>
+  <loc>https://www.mediakidsacademy.com/blogs/[blog-slug]/</loc>
+  <lastmod>[YYYY-MM-DD]</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+```
+
 ## Checklist before publishing:
 
+- [ ] Google Analytics code added in `<head>`
 - [ ] basePath added to components.js
 - [ ] AOS CSS and JS included
 - [ ] Lenis scroll included with correct config
@@ -133,3 +156,4 @@ Use images from `assets/images/general/` (mk1.webp - mk24.webp) for blog content
 - [ ] All paths use `../../` prefix
 - [ ] Blog card added to blogs/index.html with image cover
 - [ ] Images use company assets from /general/ folder
+- [ ] URL added to sitemap.xml
