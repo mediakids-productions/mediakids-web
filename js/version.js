@@ -24,7 +24,7 @@
     // Build timestamp - update this when deploying new versions
     // Format: YYYYMMDDHHMM (Year-Month-Day-Hour-Minute)
     // Run: .\update-version.ps1 to update automatically
-    const BUILD_VERSION = '202601291155';
+    const BUILD_VERSION = '202601290920';
 
     // Export for reference
     window.SITE_VERSION = BUILD_VERSION;
