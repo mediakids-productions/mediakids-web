@@ -52,9 +52,9 @@
             console.log('[IEP] sessionStorage value:', sessionStorage.getItem('iep2_authenticated'));
 
             if (isAuthenticated) {
-                // Hide password overlay immediately before render
-                console.log('[ECD] User is authenticated - hiding overlay');
-                document.write('<style>#password-overlay{display:none !important;}</style>');
+                // Hide password overlay and SHOW protected content immediately before render
+                console.log('[IEP] User is authenticated - hiding overlay and showing content');
+                document.write('<style>#password-overlay{display:none !important;}#protected-content{display:block !important;}</style>');
             } else {
                 // Show overlay, hide protected content AND footer if not authenticated
                 console.log('[ECD] User NOT authenticated - showing login overlay');
