@@ -1,4 +1,4 @@
-﻿/**
+/**
  * MediaKids Academy - Auto Cache Busting System
  * 
  * This system automatically adds timestamps to CSS/JS files to prevent caching issues.
@@ -24,7 +24,7 @@
     // Build timestamp - update this when deploying new versions
     // Format: YYYYMMDDHHMM (Year-Month-Day-Hour-Minute)
     // Run: .\update-version.ps1 to update automatically
-    const BUILD_VERSION = '202601300328';
+    const BUILD_VERSION = '202601301143';
 
     // Export for reference
     window.SITE_VERSION = BUILD_VERSION;
