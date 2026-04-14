@@ -31,8 +31,17 @@
 └── /js/
     ├── config.js           # ⭐ ข้อมูลบริษัท (แก้ที่นี่)
     ├── components.js       # Header/Footer
-    └── script.js           # Logic ต่างๆ
+    ├── script.js           # Logic ต่างๆ
+    ├── holiday-popup-config.js # ตั้งค่าเปิด/ปิด popup หน้าแรก
+    └── holiday-popup.js    # renderer ของ popup หน้าแรก
 ```
+
+## Homepage Popup
+
+- ระบบ popup หน้าแรกใช้ไฟล์ตั้งค่าที่ `js/holiday-popup-config.js`
+- logic การแสดงผลอยู่ที่ `js/holiday-popup.js`
+- artwork เก็บที่ `assets/images/popups/`
+- workflow สำหรับ AI อยู่ที่ `.agent/workflows/manage-popup.md`
 
 ## 🎯 วิธีสั่งแก้ไข
 
