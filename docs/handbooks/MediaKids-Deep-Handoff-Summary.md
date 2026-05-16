@@ -19,6 +19,8 @@
 - ถ้าเพิ่มส่วนใหม่ในหน้าแรก ต้องใช้พื้นหลังและบรรยากาศเดียวกับหน้าแรก ไม่ใช่ section ที่ดูไม่กลืน
 - ต้องรองรับวิดีโอจาก Google Drive, YouTube และ TikTok
 - ต้องมีคู่มือ Word สำหรับเจ้าของเครื่อง Mac และคู่มือ Word สำหรับทีมงาน/คนอื่น
+- หลังแก้เว็บจริงเสร็จ อยากให้ Codex ถามก่อนว่าจะทำรายงานสรุปส่งหัวหน้าหรือไม่ โดยรายงานต้องอ่านง่าย ไม่เน้นโค้ด และบอกว่าเว็บดีขึ้นอย่างไร
+- รายงานส่งหัวหน้าใช้กับงานเว็บจริง เช่น รูป แกลเลอรี UI วิดีโอ popup ความปลอดภัย SEO หรือ performance ไม่ใช้กับงานระบบภายใน เช่น skill, SSH, workflow docs หรือคู่มือ เว้นแต่เจ้าของขอ
 
 ## 2. สถานะ repo และ GitHub
 
@@ -84,6 +86,7 @@ README.md
 .agent/workflows/media-workflow.md
 .agent/workflows/ui-design-system.md
 .agent/workflows/external-worker.md
+.agent/workflows/website-update-report.md
 ```
 
 ปรับไฟล์เดิม:
@@ -100,6 +103,7 @@ README.md
 - `media-workflow.md`: กฎรูป อัลบั้ม วิดีโอ และ popup
 - `ui-design-system.md`: กฎ UI จากหน้าแรกและ curriculum
 - `external-worker.md`: วิธีให้คนอื่นหรือ AI อื่นทำงานจากคอมอื่น
+- `website-update-report.md`: กฎทำรายงานสรุปการอัปเดตเว็บไซต์สำหรับส่งหัวหน้า
 - `project-overview.md`: map ของโปรเจกต์แบบไม่สับสนกับ path เก่า
 - `update-version.md`: วิธี bump cache version แบบ branch/PR ไม่ใช่ push main
 - `update-sitemap.md`: ปรับให้ชี้ไป workflow version ใหม่
@@ -129,12 +133,14 @@ docs/handbooks/MediaKids-Team-Website-Guide.md
 docs/handbooks/MediaKids-Team-Website-Guide.docx
 docs/handbooks/MediaKids-Mac-Owner-Guide.md
 docs/handbooks/MediaKids-Mac-Owner-Guide.docx
+docs/reports/README.md
 ```
 
 ความหมาย:
 
 - คู่มือทีมงาน ใช้เมื่อทีมงานหรือ AI อื่นขอ “คู่มือ”
 - คู่มือ Mac ใช้เมื่อเจ้าของเครื่องขอ “คู่มือแมค”
+- `docs/reports/` ใช้เก็บรายงานสรุปการอัปเดตเว็บไซต์ที่เจ้าของขอเพื่อส่งหัวหน้า
 
 ## 4. สิ่งที่ทำให้แล้วนอก repo บน Mac เครื่องนี้
 
@@ -156,6 +162,7 @@ references/ui-design-system.md
 references/image-gallery.md
 references/media-embed.md
 references/popup-workflow.md
+references/website-update-report.md
 references/handoff-new-chat.md
 references/external-worker.md
 scripts/prepare_images.py
@@ -167,6 +174,7 @@ scripts/prepare_images.py
 - บังคับ workflow: sync, branch, plan, preview, PR, owner approval
 - แยก reference ย่อยเพื่อให้ Codex อ่านเฉพาะงานที่เกี่ยวข้อง
 - รองรับงาน UI, รูป, วิดีโอ, popup, mobile, new chat, external worker
+- หลังงานเว็บจริงเสร็จ จะถามเรื่องรายงานสรุปส่งหัวหน้า แต่ไม่ถามสำหรับงานระบบภายใน
 
 ข้อควรจำ:
 
@@ -361,7 +369,45 @@ assets/images/popups/
 
 Codex ต้องถามเฉพาะสิ่งจำเป็น เช่น รูปอยู่ที่ไหน ชื่ออัลบั้ม และจะลงหน้าไหน
 
-## 10. ถ้า Mac เครื่องนี้เสียหรือเปลี่ยนเครื่องกะทันหัน
+## 10. รายงานสรุปส่งหัวหน้า
+
+หลังจากงานที่แก้เว็บจริงเสร็จ Codex ต้องถาม:
+
+```text
+ต้องการให้ผมทำรายงานสรุปการอัปเดตเว็บไซต์สำหรับส่งหัวหน้าไหมครับ?
+```
+
+ให้ถามเมื่อเป็นงานที่หัวหน้าควรรู้ เช่น:
+
+- เพิ่มรูป อัลบั้ม หรือแกลเลอรี
+- เพิ่มหรือแก้ section หน้าเว็บ
+- ปรับ UI/UX
+- เพิ่มวิดีโอหรือ popup campaign
+- ปรับความปลอดภัย SEO performance accessibility หรือ broken links
+
+ไม่ต้องถามเมื่อเป็นงานระบบภายใน เช่น:
+
+- สร้างหรือแก้ skill
+- ตั้ง GitHub/SSH
+- แก้ workflow docs
+- ทำคู่มือ
+- ดูแล branch/PR
+
+ถ้าเจ้าของต้องการรายงาน ให้ใช้:
+
+```text
+.agent/workflows/website-update-report.md
+```
+
+และบันทึกไฟล์ใน:
+
+```text
+docs/reports/
+```
+
+รายงานควรเขียนเป็นภาษาคน อ่านง่าย ส่งหัวหน้าได้ทันที และสรุปว่าเว็บดีขึ้นอย่างไร ไม่ใช่แค่บอกว่าแก้ไฟล์อะไร
+
+## 11. ถ้า Mac เครื่องนี้เสียหรือเปลี่ยนเครื่องกะทันหัน
 
 ให้ AI หรือคนใหม่ทำตามนี้:
 
@@ -391,6 +437,7 @@ AI_INSTRUCTIONS.md
 .agent/workflows/media-workflow.md
 .agent/workflows/ui-design-system.md
 .agent/workflows/external-worker.md
+.agent/workflows/website-update-report.md
 docs/handbooks/MediaKids-Mac-Owner-Guide.md
 docs/handbooks/MediaKids-Team-Website-Guide.md
 ```
@@ -417,7 +464,7 @@ C:\Users\[name]\Pictures\mediakids-processed-images
 
 7. ห้าม push เข้า `main` ตรง ๆ ให้ทำ branch และ PR เสมอ
 
-## 11. สิ่งที่ยังควรทำต่อ
+## 12. สิ่งที่ยังควรทำต่อ
 
 งานที่เสร็จแล้วเป็นระบบพื้นฐาน ยังมีสิ่งที่ควรทำต่อ:
 
@@ -428,7 +475,7 @@ C:\Users\[name]\Pictures\mediakids-processed-images
 - ถ้าจะใช้ GitHub CLI ให้ติดตั้ง `gh` เพื่อให้ Codex เปิด PR ได้จาก terminal
 - ถ้าจะใช้ external team บ่อย ให้ทดสอบคู่มือทีมงานกับคนจริง 1 รอบ
 
-## 12. QA ที่ทำไปแล้ว
+## 13. QA ที่ทำไปแล้ว
 
 ตรวจแล้ว:
 
@@ -446,10 +493,10 @@ C:\Users\[name]\Pictures\mediakids-processed-images
 - ยังไม่ได้เปิด PR ผ่าน CLI เพราะเครื่องนี้ไม่มี `gh`
 - ยังไม่ได้ merge เข้า `main`
 
-## 13. สรุปสั้นสำหรับ AI ตัวใหม่
+## 14. สรุปสั้นสำหรับ AI ตัวใหม่
 
 เจ้าของเว็บต้องการระบบดูแลเว็บ MediaKids ที่ปลอดภัยและง่ายสำหรับคนไม่ใช่โปรแกรมเมอร์ งานสำคัญคืออัปภาพจำนวนมาก เพิ่มแกลเลอรี คุม UI ให้เหมือนหน้าแรกและ curriculum และเปิด PR/preview ก่อนขึ้นจริงเสมอ
 
-งานที่ทำแล้วคือสร้าง branch `setup-mediakids-workflow`, เพิ่ม repo handoff docs, workflow docs, scripts, Word guides, local Codex skill `mediakids-webmaster`, image inbox/archive folders, และตั้ง GitHub SSH บน Mac เครื่องหลัก
+งานที่ทำแล้วคือสร้าง branch `setup-mediakids-workflow`, เพิ่ม repo handoff docs, workflow docs, scripts, Word guides, local Codex skill `mediakids-webmaster`, image inbox/archive folders, ตั้ง GitHub SSH บน Mac เครื่องหลัก และเพิ่มกฎรายงานสรุปส่งหัวหน้าหลังงานเว็บจริง
 
 หากรับงานต่อ ให้เริ่มจากอ่าน `AI_INSTRUCTIONS.md` และ `.agent/workflows/codex-handoff.md` แล้วทำงานผ่าน branch + preview + PR เท่านั้น ห้าม push หรือ merge เข้า `main` โดยไม่ได้รับอนุมัติจากเจ้าของ

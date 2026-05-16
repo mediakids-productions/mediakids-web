@@ -9,6 +9,7 @@ Read `AI_INSTRUCTIONS.md` first. This file is a quick project map; detailed oper
 - `.agent/workflows/codex-handoff.md`
 - `.agent/workflows/media-workflow.md`
 - `.agent/workflows/ui-design-system.md`
+- `.agent/workflows/website-update-report.md`
 - `.agent/workflows/external-worker.md`
 - `.agent/workflows/manage-popup.md`
 
@@ -46,6 +47,7 @@ docs/handbooks/
 - Preview before PR.
 - Never push directly to `main`.
 - Merge/publish only after the owner clearly says `อนุมัติ เอาขึ้นจริง`.
+- After public website changes, ask whether the owner wants a boss-ready update report. Skip this for internal setup work unless requested.
 
 ## High-Risk Files
 
@@ -70,3 +72,7 @@ Use the homepage and `curriculum/` as visual references:
 - Commit web-ready images, not original large images.
 - Archive originals in `_processed-images`.
 - Use `.agent/scripts/prepare_images.py` for repeatable conversion.
+
+## Boss-Ready Reports
+
+For public website changes, use `.agent/workflows/website-update-report.md` if the owner wants a report for their manager. Save reports in `docs/reports/`.

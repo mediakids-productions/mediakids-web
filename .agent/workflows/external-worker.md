@@ -54,6 +54,7 @@ C:\Users\[name]\Pictures\mediakids-incoming-images
 - Wait for owner approval before merge.
 - Keep UI aligned with homepage and `curriculum/`.
 - Do not commit original large photos unless the owner explicitly asks.
+- After public website changes, ask the owner whether they want a boss-ready update report. Do not ask for internal setup tasks unless requested.
 
 ## Minimum Handoff Back To Owner
 
@@ -65,3 +66,4 @@ Every external worker must report:
 - Preview screenshots or local preview notes
 - Any image/media source used
 - Anything the owner must check before approving
+- Whether the owner requested a boss-ready update report

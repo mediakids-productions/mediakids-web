@@ -12,6 +12,7 @@ Use this workflow for all work on `mediakids-web`.
 2. Read the task-specific workflow:
    - UI: `.agent/workflows/ui-design-system.md`
    - Images/media: `.agent/workflows/media-workflow.md`
+   - Boss-ready update report: `.agent/workflows/website-update-report.md`
    - Popup: `.agent/workflows/manage-popup.md`
    - Other computer or AI: `.agent/workflows/external-worker.md`
 3. Run `git status --short --branch`.
@@ -22,8 +23,35 @@ Use this workflow for all work on `mediakids-web`.
 8. Make the smallest useful changes.
 9. Preview the affected pages locally.
 10. Summarize the result in plain Thai.
-11. Open a PR.
-12. Wait for explicit approval before merging or publishing.
+11. If the task changed the public website, ask whether the owner wants a boss-ready update report.
+12. Open a PR.
+13. Wait for explicit approval before merging or publishing.
+
+## Boss-Ready Update Reports
+
+After website-facing work, ask:
+
+```text
+ต้องการให้ผมทำรายงานสรุปการอัปเดตเว็บไซต์สำหรับส่งหัวหน้าไหมครับ?
+```
+
+Ask this for:
+
+- New or updated page content
+- Images, albums, galleries, videos, popup campaigns
+- UI/UX changes
+- Security, SEO, performance, accessibility, or broken-link fixes
+- Website behavior visible to visitors
+
+Do not ask this for internal setup work unless the owner requests it:
+
+- Codex skills
+- SSH/GitHub setup
+- Workflow docs
+- Handbooks
+- Branch/PR maintenance
+
+If the owner says yes, read `.agent/workflows/website-update-report.md`.
 
 ## Branch Naming
 

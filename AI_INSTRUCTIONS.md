@@ -18,6 +18,7 @@ Before editing, read the relevant workflow files:
 - `.agent/workflows/codex-handoff.md` for the safe working process
 - `.agent/workflows/media-workflow.md` for image, gallery, popup, and video work
 - `.agent/workflows/ui-design-system.md` for UI changes
+- `.agent/workflows/website-update-report.md` after website-facing work, if the owner wants a boss-ready report
 - `.agent/workflows/external-worker.md` when working from another computer, Windows, Claude, or a non-Codex tool
 - `.agent/workflows/manage-popup.md` before any homepage popup work
 
@@ -35,6 +36,7 @@ If the local Codex skill `mediakids-webmaster` exists, use it first. If the skil
 8. Merge or publish only after the owner clearly approves, for example: `อนุมัติ เอาขึ้นจริง`.
 9. Do not delete original images. Archive them outside the repo after processing.
 10. Keep new UI aligned with the homepage and `curriculum/` Apple/Liquid Glass style.
+11. After website-facing changes, ask whether the owner wants a boss-ready website update report. Do not ask for internal setup tasks such as skills, SSH, workflow docs, or handbooks unless the owner requests it.
 
 ## New Chat Prompt
 
@@ -56,3 +58,4 @@ For another person, another computer, Windows, Claude, or another AI tool, use:
 
 - If someone asks for `คู่มือ`, provide the team guide: `docs/handbooks/MediaKids-Team-Website-Guide.md` or `.docx`.
 - If the owner asks for `คู่มือแมค`, provide the Mac owner guide: `docs/handbooks/MediaKids-Mac-Owner-Guide.md` or `.docx`.
+- If the owner asks for a website update report, use `.agent/workflows/website-update-report.md` and save it under `docs/reports/`.

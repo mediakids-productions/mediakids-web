@@ -68,6 +68,7 @@ Never push directly to `main`.
 - Mac owner guide: `docs/handbooks/MediaKids-Mac-Owner-Guide.md`
 - UI rules: `.agent/workflows/ui-design-system.md`
 - Image/media rules: `.agent/workflows/media-workflow.md`
+- Website update report rules: `.agent/workflows/website-update-report.md`
 - External worker rules: `.agent/workflows/external-worker.md`
 - Popup workflow: `.agent/workflows/manage-popup.md`
 
