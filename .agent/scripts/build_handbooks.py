@@ -215,6 +215,12 @@ def main() -> None:
         "สำหรับเจ้าของเว็บบน Mac เครื่องหลักและ Codex",
         "MediaKids-Mac-Owner-Guide.docx",
     )
+    build_docx(
+        "MediaKids-Deep-Handoff-Summary.md",
+        "MediaKids Deep Handoff Summary",
+        "สรุปสิ่งที่เจ้าของเว็บต้องการ สิ่งที่ทำแล้ว และวิธีกู้ระบบถ้าเปลี่ยนเครื่อง",
+        "MediaKids-Deep-Handoff-Summary.docx",
+    )
 
 
 if __name__ == "__main__":
