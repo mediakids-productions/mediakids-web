@@ -121,6 +121,12 @@ When that happens, first read the local workspace files if available:
 - `/Users/thos000150/Documents/Work/MK web/AGENTS.md`
 - `/Users/thos000150/Documents/Work/MK web/MEDIAKIDS_CURRENT.md`
 
+Before running checks, acknowledge the continuation setup with:
+
+```text
+รับทราบครับ ผมกำลังทำงานต่อบนระบบ MediaKids ของ Mac เครื่องนี้ จะอ่านสมุดจำและ workflow ก่อน แล้วสรุปสถานะให้ฟัง โดยยังไม่แก้ไฟล์ ไม่ preview และไม่ขึ้นจริงเองครับ
+```
+
 Then read `AI_INSTRUCTIONS.md` and this handoff file, check Git status, fetch latest `main`, summarize the current state in plain Thai, and wait for the owner's next instruction. Do not edit files, preview, merge, publish, or deploy just because the owner said `ทำงานต่อ`.
 
 For other computers or tools, use the longer prompt in `.agent/workflows/external-worker.md`.
