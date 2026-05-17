@@ -46,6 +46,17 @@ Local Codex skills, such as `mediakids-webmaster`, are installed on the owner's 
 
 If workflow updates are only on a branch or PR, they are available only after checking out that branch, or after the PR is merged into `main`. A fresh clone of `main` contains only what has been merged into `main`.
 
+## Main Mac Short Continuation
+
+On the owner's main Mac, the workspace root may contain local continuity files outside this repo:
+
+- `/Users/thos000150/Documents/Work/MK web/AGENTS.md`
+- `/Users/thos000150/Documents/Work/MK web/MEDIAKIDS_CURRENT.md`
+
+When the owner opens a new Codex chat, switches Codex/OpenAI account, hits a limit, or types only `ทำงานต่อ`, read those local files first if available. Then read this file and `.agent/workflows/codex-handoff.md`.
+
+Before ending a meaningful work session on the main Mac, update `MEDIAKIDS_CURRENT.md` with the latest branch, what changed, whether changes were pushed, any PR/approval status, and what the owner needs to decide next.
+
 ## Preview Permission
 
 After website-facing work is complete, do not automatically spend tokens opening or checking the preview. First ask the owner:

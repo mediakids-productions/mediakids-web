@@ -110,11 +110,28 @@ If approval is unclear, or if more than one PR could match the owner's words, ke
 
 ## New Chat Continuity
 
-When a chat is full or the owner changes account on the same Mac, ask them to paste:
+On the main Mac, the owner wants to be able to type only:
 
 ```text
-ทำงานเว็บ MediaKids ต่อบน Mac เครื่องเดิม โปรดอ่าน AI_INSTRUCTIONS.md และ .agent/workflows/codex-handoff.md ก่อน ถ้ามี skill mediakids-webmaster ให้ใช้ skill นั้นด้วย งานทุกอย่างต้อง sync GitHub, ทำ branch, preview, PR และรออนุมัติก่อนขึ้นจริง
+ทำงานต่อ
 ```
+
+When that happens, first read the local workspace files if available:
+
+- `/Users/thos000150/Documents/Work/MK web/AGENTS.md`
+- `/Users/thos000150/Documents/Work/MK web/MEDIAKIDS_CURRENT.md`
+
+Then read `AI_INSTRUCTIONS.md` and this handoff file, check Git status, fetch latest `main`, summarize the current state in plain Thai, and wait for the owner's next instruction. Do not edit files, preview, merge, publish, or deploy just because the owner said `ทำงานต่อ`.
+
+For other computers or tools, use the longer prompt in `.agent/workflows/external-worker.md`.
+
+Before ending a meaningful work session on the main Mac, update `/Users/thos000150/Documents/Work/MK web/MEDIAKIDS_CURRENT.md` with:
+
+- latest branch
+- what changed
+- whether changes were pushed
+- PR/approval status if known
+- what the owner needs to decide next
 
 ## Mobile Commands
 
