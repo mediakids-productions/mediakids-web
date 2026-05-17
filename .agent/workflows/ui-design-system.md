@@ -93,6 +93,18 @@ border-radius: 980px;
 - Prefer existing components and classes before inventing new ones.
 - Keep navigation/footer behavior intact.
 
+## GPT Image Preview Workflow
+
+For new website design, layout, section, campaign visual, or major visual-direction work:
+
+1. Before editing website files, create a static visual preview/mockup with GPT Image 2 when available.
+2. Match the MediaKids homepage and `curriculum/` Apple/Liquid Glass direction.
+3. Show the owner the preview image and briefly state what would be implemented.
+4. Wait for the owner to approve the visual direction before coding.
+5. After approval, implement the approved direction in HTML/CSS/JS, then follow the normal preview and PR workflow.
+
+Skip this step for small text edits, bug fixes, simple link changes, or clearly specified content swaps.
+
 ## Required UI Review
 
 Before PR:

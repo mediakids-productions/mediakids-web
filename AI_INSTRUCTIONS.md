@@ -36,7 +36,8 @@ If the local Codex skill `mediakids-webmaster` exists, use it first. If the skil
 8. Merge or publish only after the owner clearly approves. Plain Thai commands are valid, such as `อนุมัติงานระบบ Codex`, `อนุมัติงานหน้าเว็บ`, `อนุมัติงานรูป activity`, or `อนุมัติทุกงานที่พร้อม`.
 9. Do not delete original images. Archive them outside the repo after processing.
 10. Keep new UI aligned with the homepage and `curriculum/` Apple/Liquid Glass style.
-11. After website-facing changes, ask whether the owner wants a boss-ready website update report. Do not ask for internal setup tasks such as skills, SSH, workflow docs, or handbooks unless the owner requests it.
+11. For new website design, layout, or visual-direction work, generate a GPT Image 2 preview/mockup first when available, show the owner the visual direction, and wait for approval before editing website files. Skip this for small text edits, bug fixes, or clearly specified content swaps.
+12. After website-facing changes, ask whether the owner wants a boss-ready website update report. Do not ask for internal setup tasks such as skills, SSH, workflow docs, or handbooks unless the owner requests it.
 
 ## Clone and Continuity Rules
 
