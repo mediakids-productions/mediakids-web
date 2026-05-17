@@ -25,7 +25,7 @@ Use this workflow for all work on `mediakids-web`.
 10. Summarize the result in plain Thai.
 11. If the task changed the public website, ask whether the owner wants a boss-ready update report.
 12. Open a PR.
-13. Wait for explicit approval before merging or publishing.
+13. Wait for explicit approval before merging or publishing. Plain Thai owner commands are valid when the target work is clear.
 
 ## Boss-Ready Update Reports
 
@@ -71,7 +71,17 @@ Never push directly to `main`. Never merge without a clear owner command such as
 อนุมัติ เอาขึ้นจริง
 ```
 
-If approval is unclear, keep the work in the PR.
+Owner-friendly commands are also valid:
+
+- `อนุมัติงานระบบ Codex` means merge only the Codex/workflow/docs PR.
+- `อนุมัติงานหน้าเว็บ` means merge the reviewed website-facing PR.
+- `อนุมัติงานรูป activity` means merge the reviewed activity/photo PR.
+- `อนุมัติงาน popup` means merge the reviewed popup PR.
+- `อนุมัติทุกงานที่พร้อม` means merge all reviewed PRs that are explicitly ready.
+
+Commands such as `อย่าเพิ่งขึ้นจริง`, `ยังไม่เอาขึ้น`, or `แค่ทำตัวอย่างให้ดู` mean do not merge or publish.
+
+If approval is unclear, or if more than one PR could match the owner's words, keep the work in the PR and ask which work should go live. Do not guess.
 
 ## New Chat Continuity
 

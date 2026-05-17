@@ -33,10 +33,23 @@ If the local Codex skill `mediakids-webmaster` exists, use it first. If the skil
 5. Create a branch for every task.
 6. Preview the site locally before publishing work.
 7. Open a PR for review.
-8. Merge or publish only after the owner clearly approves, for example: `อนุมัติ เอาขึ้นจริง`.
+8. Merge or publish only after the owner clearly approves. Plain Thai commands are valid, such as `อนุมัติงานระบบ Codex`, `อนุมัติงานหน้าเว็บ`, `อนุมัติงานรูป activity`, or `อนุมัติทุกงานที่พร้อม`.
 9. Do not delete original images. Archive them outside the repo after processing.
 10. Keep new UI aligned with the homepage and `curriculum/` Apple/Liquid Glass style.
 11. After website-facing changes, ask whether the owner wants a boss-ready website update report. Do not ask for internal setup tasks such as skills, SSH, workflow docs, or handbooks unless the owner requests it.
+
+## Owner-Friendly Commands
+
+The owner is not expected to use programmer terms such as branch, PR, merge, or deploy. Treat normal Thai instructions as valid when the intent is clear.
+
+- `อนุมัติงานระบบ Codex` means approve only the Codex/workflow/docs PR, such as `setup-mediakids-workflow`.
+- `อนุมัติงานหน้าเว็บ` means approve the website-facing PR that was just reviewed.
+- `อนุมัติงานรูป activity` means approve the activity/photo update PR.
+- `อนุมัติงาน popup` means approve the popup update PR.
+- `อนุมัติทุกงานที่พร้อม` means approve all reviewed PRs that are explicitly ready.
+- `อย่าเพิ่งขึ้นจริง`, `ยังไม่เอาขึ้น`, or `แค่ทำตัวอย่างให้ดู` means do not merge or publish.
+
+If more than one PR could match a plain-language approval, stop and ask which work should go live. Do not guess.
 
 ## New Chat Prompt
 
