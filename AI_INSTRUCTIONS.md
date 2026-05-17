@@ -38,6 +38,24 @@ If the local Codex skill `mediakids-webmaster` exists, use it first. If the skil
 10. Keep new UI aligned with the homepage and `curriculum/` Apple/Liquid Glass style.
 11. After website-facing changes, ask whether the owner wants a boss-ready website update report. Do not ask for internal setup tasks such as skills, SSH, workflow docs, or handbooks unless the owner requests it.
 
+## Clone and Continuity Rules
+
+When someone clones this repository on another computer or opens it in another AI tool, all committed repository files come with the clone. This includes `AI_INSTRUCTIONS.md`, `.agent/workflows/*.md`, `docs/handbooks/*`, and website files.
+
+Local Codex skills, such as `mediakids-webmaster`, are installed on the owner's Mac and are not part of a normal Git clone unless they have separately been installed on that machine. If the skill is missing, the AI must follow this repository's Markdown workflow files as the source of truth.
+
+If workflow updates are only on a branch or PR, they are available only after checking out that branch, or after the PR is merged into `main`. A fresh clone of `main` contains only what has been merged into `main`.
+
+## Preview Permission
+
+After website-facing work is complete, do not automatically spend tokens opening or checking the preview. First ask the owner:
+
+```text
+งานเสร็จแล้วครับ ต้องการตรวจหน้าเว็บเอง หรือให้ผมตรวจ preview ให้ก่อน?
+```
+
+If the owner chooses to check personally, provide the local preview URL or page path and wait. If the owner asks the AI to check, then run the local preview and inspect the affected pages. Internal documentation/workflow-only changes do not need website preview unless the owner asks.
+
 ## Owner-Friendly Commands
 
 The owner is not expected to use programmer terms such as branch, PR, merge, or deploy. Treat normal Thai instructions as valid when the intent is clear.

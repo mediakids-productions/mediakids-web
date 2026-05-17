@@ -21,7 +21,7 @@ Use this workflow for all work on `mediakids-web`.
 6. Create a task branch.
 7. Explain the plan in Thai before editing.
 8. Make the smallest useful changes.
-9. Preview the affected pages locally.
+9. After website-facing work, ask the owner whether they will check the page themselves or want the AI to inspect the preview. Do not open or inspect the preview until the owner answers.
 10. Summarize the result in plain Thai.
 11. If the task changed the public website, ask whether the owner wants a boss-ready update report.
 12. Open a PR.
@@ -52,6 +52,31 @@ Do not ask this for internal setup work unless the owner requests it:
 - Branch/PR maintenance
 
 If the owner says yes, read `.agent/workflows/website-update-report.md`.
+
+## Clone and Continuity
+
+A normal Git clone brings down committed repository files only:
+
+- website files
+- `AI_INSTRUCTIONS.md`
+- `.agent/workflows/*.md`
+- docs and handbooks committed to the repo
+
+Local Codex skills such as `mediakids-webmaster` do not come with a normal Git clone unless they have separately been installed on that machine. If the skill is missing, use the Markdown workflow files in this repo as the source of truth.
+
+If a rule exists only on a branch or PR, another computer will see it only after checking out that branch, or after the PR is merged into `main`. A fresh clone of `main` contains only merged work.
+
+## Preview Permission
+
+For website-facing work, finish the implementation first, then ask:
+
+```text
+งานเสร็จแล้วครับ ต้องการตรวจหน้าเว็บเอง หรือให้ผมตรวจ preview ให้ก่อน?
+```
+
+- If the owner will check personally, provide the local preview URL or affected page path and wait.
+- If the owner asks the AI to check, run the local preview and inspect the affected pages.
+- Internal documentation/workflow-only work does not need a website preview unless the owner asks.
 
 ## Branch Naming
 
