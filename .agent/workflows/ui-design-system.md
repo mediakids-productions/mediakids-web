@@ -103,6 +103,8 @@ For new website design, layout, section, campaign visual, or major visual-direct
 4. Wait for the owner to approve the visual direction before coding.
 5. After approval, implement the approved direction in HTML/CSS/JS, then follow the normal preview and PR workflow.
 
+If GPT Image 2 is unavailable, create the best available visual mockup with the available tool, or ask the owner whether to proceed with a text-only design plan.
+
 Skip this step for small text edits, bug fixes, simple link changes, or clearly specified content swaps.
 
 ## Required UI Review
