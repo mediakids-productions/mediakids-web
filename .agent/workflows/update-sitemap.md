@@ -37,11 +37,13 @@ description: Update sitemap and SEO files when creating new pages
 
 ## 3. Update Version (Optional)
 
-// turbo
-ถ้าต้องการ clear cache ให้รัน:
-```powershell
-.\update-version.ps1
+ถ้ามีการแก้ CSS/JS และต้องการ clear cache ให้ใช้ workflow:
+
+```text
+.agent/workflows/update-version.md
 ```
+
+อย่า push เข้า `main` ตรง ๆ ให้รวมการแก้ `js/version.js` ใน branch/PR เดียวกัน
 
 ## Files to Update
 

@@ -1,77 +1,93 @@
 # MediaKids Academy Website
 
-## 📁 โครงสร้างโปรเจค
+Static website for MediaKids Academy.
 
-```
-/global_teach_thailand/
-├── index.html              # หน้าแรก
-├── 404.html                # หน้า error
-├── /about/index.html       # หน้า About Us
-├── /programs/index.html    # หน้า Programs
-├── /schools/index.html     # หน้า Schools
-├── /jobs/index.html        # หน้า Jobs
-├── /faq/index.html         # หน้า FAQ
-├── /contact/index.html     # หน้า Contact
-├── /curriculum/index.html  # หน้า Curriculum
-├── /activity/index.html    # หน้า Activity
-│
-├── /assets/
-│   └── /images/
-│       ├── /hero/          # รูป slideshow หน้าแรก
-│       ├── /partners/      # โลโก้พาร์ทเนอร์
-│       ├── /posts/         # รูปบทความ
-│       ├── /testimonials/  # รูป testimonial
-│       ├── /journey/       # รูป journey steps
-│       ├── /programs/      # รูปโปรแกรม
-│       └── /icons/         # โลโก้, favicon
-│
-├── /css/
-│   └── style.css           # CSS หลัก
-│
-└── /js/
-    ├── config.js           # ⭐ ข้อมูลบริษัท (แก้ที่นี่)
-    ├── components.js       # Header/Footer
-    ├── script.js           # Logic ต่างๆ
-    ├── holiday-popup-config.js # ตั้งค่าเปิด/ปิด popup หน้าแรก
-    └── holiday-popup.js    # renderer ของ popup หน้าแรก
+## Start Here
+
+For AI/Codex work, read:
+
+```text
+AI_INSTRUCTIONS.md
+.agent/workflows/codex-handoff.md
 ```
 
-## Homepage Popup
+If using Codex on the main Mac, use the local skill:
 
-- ระบบ popup หน้าแรกใช้ไฟล์ตั้งค่าที่ `js/holiday-popup-config.js`
-- logic การแสดงผลอยู่ที่ `js/holiday-popup.js`
-- artwork เก็บที่ `assets/images/popups/`
-- workflow สำหรับ AI อยู่ที่ `.agent/workflows/manage-popup.md`
-
-## 🎯 วิธีสั่งแก้ไข
-
-### แก้ข้อมูลบริษัท
-```
-"เปลี่ยนเบอร์โทรใน config เป็น 02-xxx-xxxx"
-"เพิ่ม LINE ID ใน config"
+```text
+mediakids-webmaster
 ```
 
-### แก้หน้าเว็บ
-```
-"แก้หน้า about - เปลี่ยนข้อความ..."
-"เพิ่มรูปในหน้า programs"
-"แก้หน้าแรก - เปลี่ยน hero text"
+## Main Mac Paths
+
+```text
+/Users/thos000150/Documents/Work/MK web/mediakids-web
+/Users/thos000150/Documents/Work/MK web/_incoming-images
+/Users/thos000150/Documents/Work/MK web/_processed-images
 ```
 
-### แก้ Header/Footer (ทุกหน้า)
-```
-"แก้เมนู navigation"
-"เปลี่ยนสีปุ่ม Apply Now"
-"แก้ข้อความใน footer"
+## Project Structure
+
+```text
+index.html                         # Homepage
+404.html
+about/index.html
+activity/index.html
+blogs/
+curriculum/index.html
+programs/index.html
+schools/index.html
+jobs/index.html
+faq/index.html
+contact/index.html
+assets/images/
+css/style.css
+js/components.js                   # Shared header/footer and basePath
+js/script.js
+js/version.js                      # Cache busting
+js/holiday-popup-config.js         # Homepage popup config
+js/holiday-popup.js                # Homepage popup renderer
+.agent/workflows/
+docs/handbooks/
 ```
 
-### แก้สี/ฟอนต์
-```
-"เปลี่ยนสีหลักเป็นสีเขียว"
-"เปลี่ยน font เป็น..."
+## Safe Workflow
+
+1. Sync latest GitHub `main`.
+2. Create a branch.
+3. Plan in Thai before editing.
+4. Make scoped changes.
+5. Preview locally.
+6. Open a PR.
+7. Merge/publish only after the owner says `อนุมัติ เอาขึ้นจริง`.
+
+Never push directly to `main`.
+
+## Useful Guides
+
+- Team guide: `docs/handbooks/MediaKids-Team-Website-Guide.md`
+- Mac owner guide: `docs/handbooks/MediaKids-Mac-Owner-Guide.md`
+- UI rules: `.agent/workflows/ui-design-system.md`
+- Image/media rules: `.agent/workflows/media-workflow.md`
+- Website update report rules: `.agent/workflows/website-update-report.md`
+- External worker rules: `.agent/workflows/external-worker.md`
+- Popup workflow: `.agent/workflows/manage-popup.md`
+
+## Image Workflow
+
+On the main Mac, put new original photos in:
+
+```text
+/Users/thos000150/Documents/Work/MK web/_incoming-images
 ```
 
-## ⚠️ ข้อควรระวัง
-- **อย่าลบ** `/assets/` หรือ `/js/`
-- **อย่าแก้** `components.js` โดยไม่จำเป็น (มีผลทุกหน้า)
-- **Backup ก่อน** push ขึ้น GitHub
+Web-ready images belong in the repo, usually:
+
+```text
+assets/images/galleries/YYYY/album-slug/
+```
+
+Originals should be archived outside the repo in:
+
+```text
+/Users/thos000150/Documents/Work/MK web/_processed-images
+```

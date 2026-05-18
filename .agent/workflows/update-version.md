@@ -1,40 +1,51 @@
 ---
-description: Update cache busting version before deploying to GitHub Pages
+description: Update cache busting version before publishing a PR
 ---
 
-// turbo-all
+# Update Cache Version
 
-# Updating Cache Version Before Deploy
+Use this when CSS or JS changes must be forced fresh for visitors.
 
-Run this workflow whenever you've made changes to CSS/JS files and want to ensure users see the updates.
+## Rule
 
-## Step 1: Update BUILD_VERSION
+Update cache version inside the task branch and PR. Do not push directly to `main`.
+
+## Mac / Cross-Platform
+
+From repo root:
+
+```bash
+python3 .agent/scripts/bump_version.py
+```
+
+With the bundled Codex Python on the main Mac:
+
+```bash
+/Users/thos000150/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3 .agent/scripts/bump_version.py
+```
+
+Dry run:
+
+```bash
+python3 .agent/scripts/bump_version.py --dry-run
+```
+
+## Windows
+
+The existing PowerShell helper can still be used:
 
 ```powershell
-cd F:\global_teach_thailand
 .\update-version.ps1
 ```
 
-## Step 2: Stage all changes
+If PowerShell is unavailable, use Python:
 
 ```powershell
-git add -A
-```
-
-## Step 3: Commit changes
-
-```powershell
-git commit -m "Update cache version"
-```
-
-## Step 4: Push to GitHub
-
-```powershell
-git push origin main
+python .agent\scripts\bump_version.py
 ```
 
 ## Notes
-- The version update script automatically generates a timestamp-based version (YYYYMMDDHHMM)
-- All CSS/JS files will use this new version via the dynamic loader system
-- `version.js` is loaded fresh each time (with Date.now() timestamp) to ensure cache busting works
-- Cloudflare Pages will auto-deploy after push
+
+- The version format is `YYYYMMDDHHMM`.
+- The script updates only `js/version.js`.
+- Include the version change in the same branch/PR as the CSS/JS change.

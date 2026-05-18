@@ -9,9 +9,10 @@
  * 2. This ensures version.js is never cached and always loads fresh
  * 3. version.js then updates all other CSS/JS files with BUILD_VERSION
  * 
- * BEFORE DEPLOYING:
- * Run: .\update-version.ps1
- * This updates BUILD_VERSION to current timestamp, ensuring all users get fresh files.
+ * BEFORE PUBLISHING CSS/JS CHANGES:
+ * Update BUILD_VERSION inside the task branch/PR.
+ * Main Mac helper: .agent/scripts/bump_version.py
+ * Windows helper: .\update-version.ps1
  * 
  * ADDING NEW PAGES:
  * Use the dynamic loader pattern in new HTML pages:
@@ -23,7 +24,7 @@
 
     // Build timestamp - update this when deploying new versions
     // Format: YYYYMMDDHHMM (Year-Month-Day-Hour-Minute)
-    // Run: .\update-version.ps1 to update automatically
+    // Use .agent/scripts/bump_version.py or update-version.ps1 to update automatically
     const BUILD_VERSION = '202602030036';
 
     // Export for reference
