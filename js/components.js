@@ -99,9 +99,6 @@ const headerHTML = `
                     <a href="${basePath}blogs/" class="nav-page nav-link flex items-center h-full w-full justify-center whitespace-nowrap">Blogs</a>
                 </div>
                 <div class="menu-close-trigger flex items-center h-full px-2 xl:px-3 2xl:px-5">
-                    <a href="${basePath}gallery/" class="nav-page nav-link flex items-center h-full w-full justify-center whitespace-nowrap">Gallery</a>
-                </div>
-                <div class="menu-close-trigger flex items-center h-full px-2 xl:px-3 2xl:px-5">
                     <a href="${basePath}jobs/" class="nav-link nav-page flex items-center h-full w-full justify-center whitespace-nowrap">Jobs</a>
                 </div>
                 <div class="menu-close-trigger flex items-center h-full px-2 xl:px-3 2xl:px-5">
@@ -163,8 +160,7 @@ const headerHTML = `
                             <a href="${basePath}mep-program/" class="mm-link nav-page">IP / EP / MEP Program</a>
                         </div>
                         <div class="col-span-3 border-l border-gray-100 pl-8 mm-col">
-                            <span class="mm-header">Gallery</span>
-                            <a href="${basePath}gallery/" class="mm-link nav-page">MediaKids Gallery</a>
+                            <span class="mm-header">Experiences</span>
                             <a href="${basePath}english-camps/" class="mm-link nav-page">English Camps</a>
                             <a href="${basePath}mediakids-awards/" class="mm-link nav-page">MediaKids Awards</a>
                             <a href="${basePath}summer-camp-canada/" class="mm-link nav-page">Summer Camp in Canada</a>
@@ -293,7 +289,6 @@ const headerHTML = `
                 <a href="${basePath}jobs/" class="mobile-menu-link nav-page">Jobs</a>
                 <a href="${basePath}faq/" class="mobile-menu-link nav-page">FAQ</a>
                 <a href="${basePath}blogs/" class="mobile-menu-link nav-page">Blogs</a>
-                <a href="${basePath}gallery/" class="mobile-menu-link nav-page">Gallery</a>
                 <a href="${basePath}curriculum/" class="mobile-menu-link nav-page">Curriculum</a>
                 <a href="${basePath}contact/" class="mobile-menu-link nav-page">Contact</a>
             </nav>

@@ -25,7 +25,7 @@
     // Build timestamp - update this when deploying new versions
     // Format: YYYYMMDDHHMM (Year-Month-Day-Hour-Minute)
     // Use .agent/scripts/bump_version.py or update-version.ps1 to update automatically
-    const BUILD_VERSION = '202605191318';
+    const BUILD_VERSION = '202605191358';
 
     // Export for reference
     window.SITE_VERSION = BUILD_VERSION;
