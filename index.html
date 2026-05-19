@@ -373,7 +373,7 @@
 
         @media (max-width: 480px) {
             #hero-focus-title {
-                font-size: 2.25rem !important;
+                font-size: clamp(2rem, 12.5vw, 2.65rem) !important;
                 line-height: 1.1;
             }
 
@@ -4074,6 +4074,1057 @@
             .load-more-btn.hidden {
                 display: none;
             }
+
+            /* ===== HOMEPAGE ACTIVITY GALLERY ===== */
+            .moments-section {
+                max-width: 1300px;
+                margin: 0 auto 60px auto;
+                padding: 48px 32px;
+                position: relative;
+                overflow: hidden;
+                background:
+                    radial-gradient(circle at 16% 8%, rgba(90, 200, 250, 0.10), transparent 30%),
+                    radial-gradient(circle at 84% 92%, rgba(255, 209, 0, 0.08), transparent 28%),
+                    linear-gradient(145deg, rgba(255, 255, 255, 0.96) 0%, rgba(250, 253, 255, 0.94) 100%);
+                border: 1px solid rgba(255, 255, 255, 0.86);
+                border-radius: 40px;
+                box-shadow: 0 20px 48px rgba(31, 73, 118, 0.10), inset 0 1px 0 rgba(255, 255, 255, 0.96);
+            }
+
+            .moments-header {
+                text-align: center;
+                margin-bottom: 18px;
+                position: relative;
+                z-index: 1;
+            }
+
+            .moments-header h2 {
+                font-size: 1.96rem;
+                font-weight: 800;
+                letter-spacing: 0;
+                color: #1d1d1f;
+                line-height: 1.12;
+                margin-bottom: 4px;
+            }
+
+            .moments-header p {
+                color: #86868b;
+                font-size: 0.79rem;
+                font-weight: 600;
+                line-height: 1.45;
+                max-width: 680px;
+                margin: 0 auto;
+            }
+
+            .moments-tabs {
+                display: flex;
+                justify-content: center;
+                gap: 12px;
+                flex-wrap: wrap;
+                margin-bottom: 18px;
+                position: relative;
+                z-index: 1;
+            }
+
+            .moments-tab {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                gap: 9px;
+                min-height: 35px;
+                border: 1px solid rgba(17, 24, 39, 0.08);
+                border-radius: 980px;
+                background: rgba(255, 255, 255, 0.84);
+                color: #334155;
+                cursor: pointer;
+                font-size: 0.78rem;
+                font-weight: 700;
+                line-height: 1;
+                padding: 8px 19px;
+                transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, color 0.25s ease;
+                box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.95), 0 5px 16px rgba(15, 23, 42, 0.06);
+            }
+
+            .moments-tab i {
+                color: #0066cc;
+                font-size: 0.85rem;
+                line-height: 1;
+            }
+
+            .moments-tab:hover {
+                transform: translateY(-2px);
+                background: #fff;
+            }
+
+            .moments-tab.active {
+                background: linear-gradient(135deg, #0052CC 0%, #007AFF 100%);
+                color: #fff;
+                border-color: rgba(0, 102, 204, 0.24);
+                box-shadow: 0 12px 26px rgba(0, 102, 204, 0.26);
+            }
+
+            .moments-tab.active i {
+                color: #fff;
+            }
+
+            .moments-tab:nth-child(6):not(.active) i {
+                color: #ffb300;
+            }
+
+            .moments-shell {
+                position: relative;
+                z-index: 1;
+            }
+
+            .moments-gallery {
+                display: grid;
+                grid-template-columns: minmax(0, 1.18fr) minmax(0, 0.98fr);
+                gap: 8px;
+                height: 304px;
+                padding: 8px;
+                position: relative;
+                z-index: 1;
+                background: rgba(255, 255, 255, 0.72);
+                border: 1px solid rgba(226, 232, 240, 0.74);
+                border-radius: 21px;
+                box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.94), 0 10px 26px rgba(15, 23, 42, 0.05);
+            }
+
+            .moments-feature {
+                position: relative;
+                min-height: 0;
+                overflow: hidden;
+                border-radius: 15px;
+                background: #e8f4fc;
+                box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+                cursor: zoom-in;
+            }
+
+            .moments-feature img,
+            .moments-tile img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+                transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+            }
+
+            .moments-feature:hover img,
+            .moments-tile:hover img {
+                transform: scale(1.045);
+            }
+
+            .moments-feature::after {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background: linear-gradient(180deg, transparent 42%, rgba(15, 23, 42, 0.22) 100%);
+                pointer-events: none;
+            }
+
+            .moments-caption {
+                position: absolute;
+                left: 14px;
+                right: 14px;
+                bottom: 14px;
+                z-index: 2;
+                display: grid;
+                grid-template-columns: auto minmax(0, 1fr) auto;
+                align-items: center;
+                gap: 14px;
+                min-height: 90px;
+                padding: 13px 14px;
+                color: #1d1d1f;
+                background: rgba(255, 255, 255, 0.70);
+                border: 1px solid rgba(255, 255, 255, 0.72);
+                border-radius: 18px;
+                backdrop-filter: blur(30px) saturate(175%);
+                -webkit-backdrop-filter: blur(30px) saturate(175%);
+                box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.84), 0 12px 24px rgba(15, 23, 42, 0.12);
+            }
+
+            .moments-caption-icon {
+                width: 50px;
+                height: 50px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-shrink: 0;
+                border-radius: 18px;
+                background: linear-gradient(135deg, #007AFF 0%, #5AC8FA 100%);
+                color: #fff;
+                font-size: 1.18rem;
+                box-shadow: 0 10px 22px rgba(0, 122, 255, 0.26);
+            }
+
+            .moments-caption h3 {
+                font-size: 1.12rem;
+                font-weight: 800;
+                letter-spacing: 0;
+                line-height: 1.15;
+            }
+
+            .moments-caption p {
+                color: #475569;
+                font-size: 0.75rem;
+                font-weight: 600;
+                line-height: 1.35;
+                margin-top: 4px;
+            }
+
+            .moments-meta {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 18px;
+                margin-top: 11px;
+            }
+
+            .moments-meta span {
+                display: inline-flex;
+                align-items: center;
+                gap: 5px;
+                color: #334155;
+                font-size: 0.72rem;
+                font-weight: 700;
+                line-height: 1;
+            }
+
+            .moments-meta i {
+                color: #0066cc;
+                font-size: 0.82rem;
+            }
+
+            .moments-cta {
+                display: inline-flex;
+                width: fit-content;
+                align-items: center;
+                justify-content: center;
+                gap: 9px;
+                min-width: 146px;
+                border-radius: 980px;
+                background: rgba(255, 255, 255, 0.68);
+                color: #0052CC;
+                font-size: 0.74rem;
+                font-weight: 800;
+                line-height: 1;
+                padding: 12px 16px;
+                border: 1px solid rgba(0, 102, 204, 0.26);
+                text-decoration: none;
+                transition: transform 0.25s ease, box-shadow 0.25s ease;
+                white-space: nowrap;
+            }
+
+            .moments-cta:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+            }
+
+            .moments-mosaic {
+                display: grid;
+                grid-template-columns: repeat(6, minmax(0, 1fr));
+                grid-template-rows: repeat(3, minmax(0, 1fr));
+                gap: 8px;
+                min-height: 0;
+            }
+
+            .moments-tile {
+                position: relative;
+                overflow: hidden;
+                margin: 0;
+                padding: 0;
+                border: 0;
+                border-radius: 13px;
+                background: #f5f8fb;
+                box-shadow: 0 7px 18px rgba(15, 23, 42, 0.07);
+                color: inherit;
+                cursor: zoom-in;
+                font: inherit;
+                text-align: inherit;
+            }
+
+            .moments-feature:focus-visible,
+            .moments-tile:focus-visible {
+                outline: 3px solid rgba(0, 122, 255, 0.72);
+                outline-offset: 3px;
+            }
+
+            .moments-tile:nth-child(1) {
+                grid-column: span 3;
+                grid-row: span 1;
+            }
+
+            .moments-tile:nth-child(2) {
+                grid-column: span 3;
+                grid-row: span 1;
+            }
+
+            .moments-tile:nth-child(3) {
+                grid-column: span 3;
+                grid-row: span 1;
+            }
+
+            .moments-tile:nth-child(4) {
+                grid-column: span 3;
+                grid-row: span 1;
+            }
+
+            .moments-tile:nth-child(5) {
+                grid-column: span 4;
+                grid-row: span 1;
+            }
+
+            .moments-tile:nth-child(6) {
+                grid-column: span 2;
+                grid-row: span 1;
+            }
+
+            .moments-tile-label {
+                position: absolute;
+                width: 1px;
+                height: 1px;
+                padding: 0;
+                margin: -1px;
+                overflow: hidden;
+                clip: rect(0, 0, 0, 0);
+                white-space: nowrap;
+                border: 0;
+            }
+
+            .moments-nav {
+                position: absolute;
+                top: 160px;
+                z-index: 4;
+                width: 39px;
+                height: 39px;
+                border: 1px solid rgba(226, 232, 240, 0.72);
+                border-radius: 50%;
+                background: rgba(255, 255, 255, 0.92);
+                color: #0f172a;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                box-shadow: 0 8px 20px rgba(15, 23, 42, 0.13);
+                transform: translateY(-50%);
+                transition: transform 0.25s ease, box-shadow 0.25s ease;
+            }
+
+            .moments-nav:hover {
+                transform: translateY(-50%) scale(1.08);
+                box-shadow: 0 14px 36px rgba(0, 0, 0, 0.18);
+            }
+
+            .moments-nav-prev {
+                left: -19px;
+            }
+
+            .moments-nav-next {
+                right: -19px;
+            }
+
+            body.moments-lightbox-open {
+                overflow: hidden;
+            }
+
+            .moments-lightbox {
+                position: fixed;
+                inset: 0;
+                z-index: 9999;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 34px;
+                background: rgba(15, 23, 42, 0.74);
+                backdrop-filter: blur(20px) saturate(135%);
+                -webkit-backdrop-filter: blur(20px) saturate(135%);
+                opacity: 0;
+                pointer-events: none;
+                transition: opacity 0.22s ease;
+            }
+
+            .moments-lightbox.active {
+                opacity: 1;
+                pointer-events: auto;
+            }
+
+            .moments-lightbox-frame {
+                position: relative;
+                width: min(100%, 1040px);
+                max-height: calc(100vh - 84px);
+                margin: 0;
+                overflow: hidden;
+                border-radius: 28px;
+                background: rgba(255, 255, 255, 0.92);
+                border: 1px solid rgba(255, 255, 255, 0.66);
+                box-shadow: 0 28px 80px rgba(0, 0, 0, 0.34), inset 0 1px 0 rgba(255, 255, 255, 0.82);
+            }
+
+            .moments-lightbox img {
+                width: 100%;
+                height: min(72vh, 700px);
+                object-fit: contain;
+                display: block;
+                background: #0f172a;
+            }
+
+            .moments-lightbox-caption {
+                display: flex;
+                justify-content: space-between;
+                gap: 16px;
+                padding: 15px 20px;
+                color: #1d1d1f;
+                font-size: 0.9rem;
+                font-weight: 700;
+            }
+
+            .moments-lightbox-caption span {
+                color: #6b7280;
+                font-size: 0.78rem;
+                font-weight: 700;
+                white-space: nowrap;
+            }
+
+            .moments-lightbox-close,
+            .moments-lightbox-step {
+                position: absolute;
+                z-index: 2;
+                border: 1px solid rgba(255, 255, 255, 0.42);
+                border-radius: 50%;
+                background: rgba(255, 255, 255, 0.86);
+                color: #0f172a;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22);
+                transition: transform 0.2s ease, background 0.2s ease;
+            }
+
+            .moments-lightbox-close:hover,
+            .moments-lightbox-step:hover {
+                background: #fff;
+                transform: scale(1.06);
+            }
+
+            .moments-lightbox-close {
+                top: 20px;
+                right: 20px;
+                width: 42px;
+                height: 42px;
+            }
+
+            .moments-lightbox-step {
+                top: 50%;
+                width: 46px;
+                height: 46px;
+                transform: translateY(-50%);
+            }
+
+            .moments-lightbox-step:hover {
+                transform: translateY(-50%) scale(1.06);
+            }
+
+            .moments-lightbox-prev {
+                left: 22px;
+            }
+
+            .moments-lightbox-next {
+                right: 22px;
+            }
+
+            .moments-insights {
+                display: grid;
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 34px;
+                margin-top: 22px;
+                padding: 12px 74px;
+                background: rgba(255, 255, 255, 0.62);
+                border: 1px solid rgba(226, 232, 240, 0.76);
+                border-radius: 24px;
+                box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.92), 0 10px 24px rgba(15, 23, 42, 0.04);
+            }
+
+            .moments-insight {
+                display: flex;
+                align-items: center;
+                gap: 14px;
+                min-width: 0;
+            }
+
+            .moments-insight-icon {
+                width: 44px;
+                height: 44px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-shrink: 0;
+                border-radius: 15px;
+                background: rgba(0, 122, 255, 0.08);
+                color: #0052CC;
+                font-size: 1.1rem;
+            }
+
+            .moments-insight:nth-child(2) .moments-insight-icon {
+                background: rgba(255, 209, 0, 0.18);
+                color: #B77900;
+            }
+
+            .moments-insight:nth-child(3) .moments-insight-icon {
+                background: rgba(0, 122, 255, 0.10);
+                color: #0052CC;
+            }
+
+            .moments-insight h4 {
+                font-size: 0.86rem;
+                font-weight: 800;
+                color: #334155;
+                line-height: 1.25;
+            }
+
+            .moments-insight p {
+                color: #6b7280;
+                font-size: 0.68rem;
+                font-weight: 600;
+                line-height: 1.35;
+                margin-top: 3px;
+            }
+
+            @media (max-width: 1024px) {
+                .moments-section {
+                    padding: 48px 32px;
+                }
+
+                .moments-gallery {
+                    grid-template-columns: 1fr;
+                    height: auto;
+                }
+
+                .moments-feature,
+                .moments-mosaic {
+                    min-height: 330px;
+                }
+
+                .moments-insights {
+                    grid-template-columns: 1fr;
+                    gap: 16px;
+                    padding: 16px 18px;
+                }
+
+                .moments-nav {
+                    top: 178px;
+                }
+            }
+
+            @media (max-width: 640px) {
+                .moments-section {
+                    margin-bottom: 60px;
+                    padding: 48px 32px;
+                    border-radius: 40px;
+                }
+
+                .moments-header h2 {
+                    font-size: 1.74rem;
+                }
+
+                .moments-header p {
+                    font-size: 0.78rem;
+                }
+
+                .moments-tab {
+                    min-height: 33px;
+                    padding: 8px 13px;
+                    font-size: 0.72rem;
+                    gap: 7px;
+                }
+
+                .moments-feature {
+                    min-height: 390px;
+                    border-radius: 15px;
+                }
+
+                .moments-caption {
+                    left: 12px;
+                    right: 12px;
+                    bottom: 12px;
+                    grid-template-columns: 1fr;
+                    gap: 12px;
+                    padding: 15px;
+                    border-radius: 18px;
+                }
+
+                .moments-caption-icon {
+                    display: none;
+                }
+
+                .moments-caption h3 {
+                    font-size: 1rem;
+                }
+
+                .moments-cta {
+                    min-width: 0;
+                    width: 100%;
+                }
+
+                .moments-mosaic {
+                    grid-template-rows: none;
+                    min-height: auto;
+                    gap: 10px;
+                }
+
+                .moments-tile,
+                .moments-tile:nth-child(n) {
+                    grid-column: span 3;
+                    grid-row: auto;
+                    aspect-ratio: 1 / 1;
+                    border-radius: 18px;
+                }
+
+                .moments-tile:nth-child(5),
+                .moments-tile:nth-child(6) {
+                    grid-column: span 6;
+                    aspect-ratio: 2.1 / 1;
+                }
+
+                .moments-nav {
+                    display: none;
+                }
+
+                .moments-insights {
+                    padding: 14px;
+                    border-radius: 22px;
+                }
+
+                .moments-lightbox {
+                    padding: 18px;
+                }
+
+                .moments-lightbox-frame {
+                    border-radius: 22px;
+                }
+
+                .moments-lightbox img {
+                    height: min(68vh, 560px);
+                }
+
+                .moments-lightbox-caption {
+                    align-items: flex-start;
+                    flex-direction: column;
+                    gap: 4px;
+                    padding: 14px 16px;
+                }
+
+                .moments-lightbox-close {
+                    top: 12px;
+                    right: 12px;
+                    width: 38px;
+                    height: 38px;
+                }
+
+                .moments-lightbox-step {
+                    width: 40px;
+                    height: 40px;
+                }
+
+                .moments-lightbox-prev {
+                    left: 10px;
+                }
+
+                .moments-lightbox-next {
+                    right: 10px;
+                }
+            }
+
+            /* ===== HOMEPAGE GALLERY REFRESH ===== */
+            .moments-section {
+                background:
+                    radial-gradient(circle at 8% 18%, rgba(0, 122, 255, 0.12) 0, transparent 25%),
+                    radial-gradient(circle at 86% 20%, rgba(0, 102, 204, 0.12) 0, transparent 28%),
+                    linear-gradient(180deg, #f7fbff 0%, #eef7ff 52%, #ffffff 100%);
+            }
+
+            .moments-section::before,
+            .moments-section::after {
+                content: "";
+                position: absolute;
+                pointer-events: none;
+                border: 2px solid rgba(255, 255, 255, 0.72);
+                border-radius: 50%;
+                box-shadow: inset 0 0 72px rgba(255, 255, 255, 0.36);
+                opacity: 0.72;
+            }
+
+            .moments-section::before {
+                width: 520px;
+                height: 520px;
+                top: -210px;
+                left: -140px;
+            }
+
+            .moments-section::after {
+                width: 560px;
+                height: 560px;
+                top: 42px;
+                right: -170px;
+            }
+
+            .moments-tabs {
+                width: min(1120px, 100%);
+                margin: 20px auto 22px;
+                padding: 10px;
+                gap: 10px;
+                border: 1px solid rgba(148, 163, 184, 0.15);
+                border-radius: 999px;
+                background: rgba(255, 255, 255, 0.72);
+                box-shadow: 0 18px 48px rgba(15, 23, 42, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.95);
+                backdrop-filter: blur(22px);
+                -webkit-backdrop-filter: blur(22px);
+            }
+
+            .moments-tab {
+                min-height: 42px;
+                padding: 10px 20px;
+                font-size: 0.86rem;
+                font-weight: 850;
+                box-sizing: border-box;
+            }
+
+            .moments-gallery {
+                display: grid;
+                grid-template-columns: minmax(0, 1fr) 420px;
+                gap: 18px;
+                align-items: stretch;
+                height: auto;
+                padding: 18px;
+                border: 1px solid rgba(148, 163, 184, 0.16);
+                border-radius: 28px;
+                background: rgba(255, 255, 255, 0.68);
+                box-shadow: 0 26px 70px rgba(15, 23, 42, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.95);
+                backdrop-filter: blur(24px);
+                -webkit-backdrop-filter: blur(24px);
+            }
+
+            .moments-spotlight {
+                height: 304px;
+                display: grid;
+                grid-template-columns: minmax(0, 1fr) 164px;
+                grid-template-rows: minmax(0, 1fr);
+                gap: 12px;
+                align-items: stretch;
+                border: 1px solid rgba(148, 163, 184, 0.16);
+                border-radius: 24px;
+                background: rgba(255, 255, 255, 0.72);
+                box-shadow: 0 18px 42px rgba(15, 23, 42, 0.09), inset 0 1px 0 rgba(255, 255, 255, 0.96);
+                overflow: hidden;
+                padding: 10px;
+                backdrop-filter: blur(22px);
+                -webkit-backdrop-filter: blur(22px);
+            }
+
+            .moments-feature {
+                grid-column: 1;
+                grid-row: 1;
+                width: 100%;
+                height: 100%;
+                min-height: 0;
+                border: 1px solid rgba(148, 163, 184, 0.14);
+                border-radius: 18px;
+                box-shadow: none;
+                background: #f8fafc;
+                cursor: zoom-in;
+                padding: 0;
+            }
+
+            .moments-feature::after {
+                background: linear-gradient(90deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.95) 22%, rgba(255, 255, 255, 0.72) 40%, rgba(255, 255, 255, 0.18) 62%, rgba(255, 255, 255, 0) 78%);
+                z-index: 1;
+            }
+
+            .moments-caption {
+                position: relative;
+                grid-column: 1;
+                grid-row: 1;
+                z-index: 2;
+                left: auto;
+                right: auto;
+                bottom: auto;
+                width: min(390px, 49%);
+                min-height: 0;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: flex-start;
+                gap: 14px;
+                padding: 24px 12px 24px 18px;
+                border: 0;
+                border-radius: 0;
+                background: transparent;
+                box-shadow: none;
+                backdrop-filter: none;
+                -webkit-backdrop-filter: none;
+            }
+
+            .moments-kicker {
+                display: inline-flex;
+                align-items: center;
+                gap: 7px;
+                min-height: 28px;
+                padding: 6px 10px;
+                border-radius: 999px;
+                background: rgba(226, 241, 255, 0.86);
+                color: #0052cc;
+                font-size: 0.72rem;
+                font-weight: 900;
+                line-height: 1;
+                text-transform: uppercase;
+            }
+
+            .moments-copy {
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+                min-width: 0;
+            }
+
+            .moments-caption h3 {
+                color: #07111f;
+                font-size: clamp(1.45rem, 2.2vw, 2rem);
+                font-weight: 900;
+                line-height: 1.08;
+                margin: 0;
+            }
+
+            .moments-caption p {
+                color: #52647d;
+                margin: 0;
+                line-height: 1.55;
+                font-size: 0.95rem;
+                font-weight: 650;
+            }
+
+            .moments-meta {
+                margin-top: 0;
+                gap: 10px;
+            }
+
+            .moments-meta span {
+                color: #334155;
+                font-size: 0.9rem;
+                font-weight: 850;
+            }
+
+            .moments-cta {
+                min-height: 42px;
+                min-width: 0;
+                border-radius: 14px;
+                background: rgba(255, 255, 255, 0.82);
+                font-size: 0.86rem;
+                padding: 10px 18px;
+                box-shadow: 0 10px 22px rgba(15, 23, 42, 0.06);
+            }
+
+            .moments-mosaic {
+                grid-column: 2;
+                grid-row: 1;
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                grid-template-rows: 1.08fr 1fr 1.08fr;
+                gap: 10px;
+                min-height: 0;
+            }
+
+            .moments-tile,
+            .moments-tile:nth-child(n) {
+                grid-column: auto;
+                grid-row: auto;
+                height: auto;
+                aspect-ratio: auto;
+                border-radius: 14px;
+                box-shadow: 0 10px 22px rgba(15, 23, 42, 0.08);
+            }
+
+            .moments-tile:nth-child(1),
+            .moments-tile:nth-child(4) {
+                grid-column: 1 / -1;
+            }
+
+            .moments-preview-panel {
+                position: relative;
+                min-height: 304px;
+                border: 1px solid rgba(255, 255, 255, 0.32);
+                border-radius: 26px;
+                background: rgba(17, 24, 39, 0.48);
+                box-shadow: 0 22px 52px rgba(15, 23, 42, 0.2);
+                overflow: hidden;
+                padding: 22px;
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+            }
+
+            .moments-preview-photo {
+                position: relative;
+                width: 100%;
+                min-height: 250px;
+                border: 0;
+                border-radius: 18px;
+                overflow: hidden;
+                padding: 0;
+                cursor: zoom-in;
+                background: rgba(255, 255, 255, 0.2);
+                box-shadow: 0 16px 30px rgba(15, 23, 42, 0.22);
+            }
+
+            .moments-preview-photo img {
+                width: 100%;
+                height: 250px;
+                object-fit: cover;
+                display: block;
+            }
+
+            .moments-preview-bar {
+                position: absolute;
+                left: 22px;
+                right: 22px;
+                bottom: 22px;
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 14px;
+                padding: 11px 14px;
+                border-radius: 0 0 18px 18px;
+                background: rgba(15, 23, 42, 0.82);
+                color: #fff;
+                font-weight: 850;
+                backdrop-filter: blur(16px);
+                -webkit-backdrop-filter: blur(16px);
+            }
+
+            .moments-preview-bar span {
+                color: rgba(255, 255, 255, 0.82);
+                font-size: 0.86rem;
+                white-space: nowrap;
+            }
+
+            .moments-preview-step {
+                position: absolute;
+                top: 50%;
+                z-index: 2;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 42px;
+                height: 42px;
+                border: 0;
+                border-radius: 999px;
+                background: rgba(255, 255, 255, 0.9);
+                color: #0052cc;
+                cursor: pointer;
+                transform: translateY(-50%);
+                box-shadow: 0 10px 20px rgba(15, 23, 42, 0.18);
+            }
+
+            .moments-preview-prev {
+                left: 8px;
+            }
+
+            .moments-preview-next {
+                right: 8px;
+            }
+
+            @media (max-width: 1024px) {
+                .moments-gallery {
+                    grid-template-columns: 1fr;
+                }
+
+                .moments-spotlight {
+                    grid-template-columns: minmax(0, 1fr) 144px;
+                }
+            }
+
+            @media (max-width: 640px) {
+                .moments-section {
+                    padding: 34px 14px;
+                    border-radius: 32px;
+                }
+
+                .moments-tabs {
+                    display: grid;
+                    grid-template-columns: repeat(2, minmax(0, 1fr));
+                    border-radius: 26px;
+                    overflow: hidden;
+                }
+
+                .moments-tab {
+                    width: 100%;
+                    min-width: 0;
+                    min-height: 48px;
+                    font-size: 0.76rem;
+                    line-height: 1.15;
+                    white-space: normal;
+                }
+
+                .moments-tab.active {
+                    grid-column: 1 / -1;
+                }
+
+                .moments-gallery {
+                    padding: 12px;
+                    border-radius: 28px;
+                }
+
+                .moments-spotlight {
+                    height: auto;
+                    grid-template-columns: 1fr;
+                    grid-template-rows: minmax(300px, auto) auto;
+                    padding: 12px;
+                }
+
+                .moments-caption {
+                    width: min(100%, 320px);
+                    padding: 22px 14px 18px;
+                }
+
+                .moments-feature {
+                    height: 300px;
+                    border-radius: 22px;
+                }
+
+                .moments-mosaic {
+                    grid-column: 1;
+                    grid-row: 2;
+                    grid-template-columns: repeat(4, minmax(0, 1fr));
+                    grid-template-rows: none;
+                }
+
+                .moments-tile,
+                .moments-tile:nth-child(n) {
+                    grid-column: auto;
+                    height: 76px;
+                    border-radius: 16px;
+                }
+
+                .moments-preview-panel {
+                    min-height: 290px;
+                    padding: 12px;
+                    border-radius: 22px;
+                }
+
+                .moments-preview-photo {
+                    min-height: 265px;
+                    border-radius: 18px;
+                }
+
+                .moments-preview-photo img {
+                    height: 265px;
+                }
+
+                .moments-preview-bar {
+                    left: 12px;
+                    right: 12px;
+                    bottom: 12px;
+                    border-radius: 0 0 18px 18px;
+                }
+            }
         </style>
 
         <section class="videos-section">
@@ -4499,6 +5550,359 @@
             });
         </script>
 
+        <section class="moments-section" id="moments" aria-labelledby="moments-title">
+            <div class="moments-header" data-aos="fade-up">
+                <h2 id="moments-title">MediaKids Moments</h2>
+                <p>Explore highlights from our activities, camps, orientations, and school events</p>
+            </div>
+
+            <div class="moments-tabs" data-aos="fade-up" data-aos-delay="100" aria-label="Gallery albums">
+                <button class="moments-tab active" type="button" data-gallery="all"><i class="fas fa-layer-group" aria-hidden="true"></i> All Photos</button>
+                <button class="moments-tab" type="button" data-gallery="camp"><i class="fas fa-campground" aria-hidden="true"></i> English Camp</button>
+                <button class="moments-tab" type="button" data-gallery="cultural"><i class="fas fa-landmark" aria-hidden="true"></i> Cultural Day @ Wat Arun</button>
+                <button class="moments-tab" type="button" data-gallery="orientation"><i class="fas fa-graduation-cap" aria-hidden="true"></i> Orientation</button>
+                <button class="moments-tab" type="button" data-gallery="teachers"><i class="fas fa-users" aria-hidden="true"></i> Teacher Moments</button>
+                <button class="moments-tab" type="button" data-gallery="awards"><i class="fas fa-trophy" aria-hidden="true"></i> Awards</button>
+            </div>
+
+            <div class="moments-shell" data-aos="fade-up" data-aos-delay="200">
+                <div class="moments-gallery">
+                    <article class="moments-spotlight" aria-label="Featured gallery collection">
+                        <div class="moments-caption">
+                            <span class="moments-kicker"><i class="fas fa-star" aria-hidden="true"></i> Featured Collection</span>
+                            <div class="moments-copy">
+                                <h3 id="moments-album-title">All Photos</h3>
+                                <div class="moments-meta" aria-label="Album summary">
+                                    <span id="moments-photo-count"><i class="far fa-image mr-1"></i> 106 Photos</span>
+                                </div>
+                                <p id="moments-album-desc">A collected view of MediaKids moments across every collection.</p>
+                            </div>
+                            <a class="moments-cta" href="gallery/?album=all">View All 106 Photos <i class="fas fa-chevron-right"></i></a>
+                        </div>
+                        <button class="moments-feature" id="moments-feature-card" type="button" aria-label="Preview highlighted gallery photo" title="Preview photo">
+                            <img id="moments-feature-img" src="assets/images/galleries/2026/cultural-day-wat-arun/wat-arun-001-display.webp" alt="MediaKids activity highlight" loading="lazy">
+                        </button>
+                        <div class="moments-mosaic" id="moments-mosaic" aria-live="polite"></div>
+                    </article>
+
+                    <aside class="moments-preview-panel" aria-label="Gallery photo preview">
+                        <button class="moments-preview-step moments-preview-prev" id="moments-preview-prev" type="button" aria-label="Previous preview photo">
+                            <i class="fas fa-chevron-left" aria-hidden="true"></i>
+                        </button>
+                        <button class="moments-preview-photo" id="moments-preview-photo" type="button" aria-label="Open preview photo">
+                            <img id="moments-preview-img" src="assets/images/galleries/2026/cultural-day-wat-arun/wat-arun-006-display.webp" alt="MediaKids gallery preview photo" loading="lazy">
+                        </button>
+                        <button class="moments-preview-step moments-preview-next" id="moments-preview-next" type="button" aria-label="Next preview photo">
+                            <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                        </button>
+                        <div class="moments-preview-bar">
+                            <strong id="moments-preview-title">MediaKids Gallery</strong>
+                            <span id="moments-preview-count">Photo 1 / 106</span>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <div class="moments-lightbox" id="moments-lightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Gallery photo preview">
+            <button class="moments-lightbox-close" id="moments-lightbox-close" type="button" aria-label="Close photo preview">
+                <i class="fas fa-times"></i>
+            </button>
+            <button class="moments-lightbox-step moments-lightbox-prev" id="moments-lightbox-prev" type="button" aria-label="Previous photo">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <figure class="moments-lightbox-frame">
+                <img id="moments-lightbox-img" src="" alt="">
+                <figcaption class="moments-lightbox-caption">
+                    <strong id="moments-lightbox-title">MediaKids Moment</strong>
+                    <span id="moments-lightbox-count">1 / 1</span>
+                </figcaption>
+            </figure>
+            <button class="moments-lightbox-step moments-lightbox-next" id="moments-lightbox-next" type="button" aria-label="Next photo">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+
+        <script>
+            (function () {
+                const galleries = {
+                    all: {
+                        title: 'All Photos',
+                        desc: 'A collected view of MediaKids moments across every collection.',
+                        count: '106 Photos',
+                        total: 106,
+                        previewIndex: 5,
+                        feature: {
+                            src: 'assets/images/galleries/2026/cultural-day-wat-arun/wat-arun-001-display.webp',
+                            alt: 'Cultural Day at Wat Arun bouquet photo',
+                            label: 'Cultural Day @ Wat Arun'
+                        },
+                        tiles: [
+                            { src: 'assets/images/galleries/2026/cultural-day-wat-arun/wat-arun-002-display.webp', alt: 'Cultural Day at Wat Arun portrait', label: 'Cultural Day @ Wat Arun' },
+                            { src: 'assets/images/galleries/2026/cultural-day-wat-arun/wat-arun-003-display.webp', alt: 'Cultural Day Thai costume fitting', label: 'Cultural Day @ Wat Arun' },
+                            { src: 'assets/images/galleries/2026/cultural-day-wat-arun/wat-arun-004-display.webp', alt: 'Cultural Day at Wat Arun temple portrait', label: 'Cultural Day @ Wat Arun' },
+                            { src: 'assets/images/galleries/2026/cultural-day-wat-arun/wat-arun-005-display.webp', alt: 'Cultural Day at Wat Arun portrait', label: 'Cultural Day @ Wat Arun' },
+                            { src: 'assets/images/galleries/2026/cultural-day-wat-arun/wat-arun-006-display.webp', alt: 'Cultural Day at Wat Arun group photo', label: 'Cultural Day @ Wat Arun' },
+                            { src: 'assets/images/galleries/2026/orientation-tc/orientation-tc-001-display.webp', alt: 'Teacher orientation moment', label: 'Orientation' }
+                        ]
+                    },
+                    camp: {
+                        title: 'English Camp Highlights',
+                        desc: 'Games, teamwork, and active learning across our camp programs',
+                        count: '16 Photos',
+                        total: 16,
+                        feature: { src: 'assets/images/camps/camps1.webp', alt: 'English camp group photo' },
+                        tiles: [
+                            { src: 'assets/images/camps/camps2.webp', alt: 'English camp activity', label: 'Team Games' },
+                            { src: 'assets/images/camps/camps3.webp', alt: 'Students joining camp activity', label: 'Student Activities' },
+                            { src: 'assets/images/camps/camps4.webp', alt: 'Camp learning session', label: 'Learning Sessions' },
+                            { src: 'assets/images/camps/camps5.webp', alt: 'English camp group moment', label: 'Group Moments' },
+                            { src: 'assets/images/camps/camps6.webp', alt: 'Camp celebration', label: 'Camp Energy' },
+                            { src: 'assets/images/camps/camps8.webp', alt: 'Camp group activity', label: 'Together' }
+                        ]
+                    },
+                    cultural: {
+                        title: 'Cultural Day @ Wat Arun',
+                        desc: 'Teachers experiencing Thai culture and temple beauty together',
+                        count: '24 Photos',
+                        total: 24,
+                        previewIndex: 5,
+                        feature: {
+                            src: 'assets/images/galleries/2026/cultural-day-wat-arun/wat-arun-001-display.webp',
+                            alt: 'Cultural Day at Wat Arun photo wat-arun-001',
+                            label: 'wat-arun-001'
+                        },
+                        tiles: [
+                            { src: 'assets/images/galleries/2026/cultural-day-wat-arun/wat-arun-002-display.webp', alt: 'Cultural Day at Wat Arun photo wat-arun-002', label: 'wat-arun-002' },
+                            { src: 'assets/images/galleries/2026/cultural-day-wat-arun/wat-arun-003-display.webp', alt: 'Cultural Day at Wat Arun photo wat-arun-003', label: 'wat-arun-003' },
+                            { src: 'assets/images/galleries/2026/cultural-day-wat-arun/wat-arun-004-display.webp', alt: 'Cultural Day at Wat Arun photo wat-arun-004', label: 'wat-arun-004' },
+                            { src: 'assets/images/galleries/2026/cultural-day-wat-arun/wat-arun-005-display.webp', alt: 'Cultural Day at Wat Arun photo wat-arun-005', label: 'wat-arun-005' },
+                            { src: 'assets/images/galleries/2026/cultural-day-wat-arun/wat-arun-006-display.webp', alt: 'Cultural Day at Wat Arun photo wat-arun-006', label: 'wat-arun-006' },
+                            { src: 'assets/images/galleries/2026/cultural-day-wat-arun/wat-arun-007-display.webp', alt: 'Cultural Day at Wat Arun photo wat-arun-007', label: 'wat-arun-007' }
+                        ]
+                    },
+                    orientation: {
+                        title: 'Teacher Orientation',
+                        desc: 'Warm welcomes, training sessions, and first-day connections',
+                        count: '42 Photos',
+                        total: 42,
+                        feature: {
+                            src: 'assets/images/galleries/2026/orientation-tc/orientation-tc-001-display.webp',
+                            alt: 'Teacher orientation photo orientation-tc-001',
+                            label: 'orientation-tc-001'
+                        },
+                        tiles: [
+                            { src: 'assets/images/galleries/2026/orientation-tc/orientation-tc-002-display.webp', alt: 'Teacher orientation photo orientation-tc-002', label: 'orientation-tc-002' },
+                            { src: 'assets/images/galleries/2026/orientation-tc/orientation-tc-003-display.webp', alt: 'Teacher orientation photo orientation-tc-003', label: 'orientation-tc-003' },
+                            { src: 'assets/images/galleries/2026/orientation-tc/orientation-tc-004-display.webp', alt: 'Teacher orientation photo orientation-tc-004', label: 'orientation-tc-004' },
+                            { src: 'assets/images/galleries/2026/orientation-tc/orientation-tc-005-display.webp', alt: 'Teacher orientation photo orientation-tc-005', label: 'orientation-tc-005' },
+                            { src: 'assets/images/galleries/2026/orientation-tc/orientation-tc-006-display.webp', alt: 'Teacher orientation photo orientation-tc-006', label: 'orientation-tc-006' },
+                            { src: 'assets/images/galleries/2026/orientation-tc/orientation-tc-007-display.webp', alt: 'Teacher orientation photo orientation-tc-007', label: 'orientation-tc-007' }
+                        ]
+                    },
+                    teachers: {
+                        title: 'Teacher Activities',
+                        desc: 'Real moments from classrooms, training, and MediaKids community life',
+                        count: '4 Photos',
+                        total: 4,
+                        feature: { src: 'assets/images/teachers/t1.webp', alt: 'MediaKids teacher portrait' },
+                        tiles: [
+                            { src: 'assets/images/teachers/t2.webp', alt: 'Teacher profile photo', label: 'Teacher Story' },
+                            { src: 'assets/images/teachers/t3.webp', alt: 'Teacher profile photo', label: 'Teacher Story' },
+                            { src: 'assets/images/teachers/t4.webp', alt: 'Teacher profile photo', label: 'Teacher Story' }
+                        ]
+                    },
+                    awards: {
+                        title: 'Awards and Achievements',
+                        desc: 'Celebrating student creativity and MediaKids learning milestones',
+                        count: '20 Photos',
+                        total: 20,
+                        feature: { src: 'assets/images/mediakids-awards/mkaannounce1.webp', alt: 'MediaKids awards event' },
+                        tiles: [
+                            { src: 'assets/images/mediakids-awards/mkaannounce2.webp', alt: 'Awards announcement', label: 'Announcements' },
+                            { src: 'assets/images/mediakids-awards/mkaannounce3.webp', alt: 'MediaKids awards highlight', label: 'Highlights' },
+                            { src: 'assets/images/mediakids-awards/mkatest1.webp', alt: 'Awards test activity', label: 'Competition' },
+                            { src: 'assets/images/mediakids-awards/mkatravel1.webp', alt: 'Awards travel activity', label: 'Travel' },
+                            { src: 'assets/images/mediakids-awards/mkatest2.webp', alt: 'Awards participant moment', label: 'Student Work' },
+                            { src: 'assets/images/mediakids-awards/mkaannounce4.webp', alt: 'Awards celebration moment', label: 'Celebration' }
+                        ]
+                    }
+                };
+
+                const galleryOrder = ['all', 'camp', 'cultural', 'orientation', 'teachers', 'awards'];
+                const featureImg = document.getElementById('moments-feature-img');
+                const title = document.getElementById('moments-album-title');
+                const desc = document.getElementById('moments-album-desc');
+                const count = document.getElementById('moments-photo-count');
+                const mosaic = document.getElementById('moments-mosaic');
+                const featureCard = document.getElementById('moments-feature-card');
+                const previewPhoto = document.getElementById('moments-preview-photo');
+                const previewImg = document.getElementById('moments-preview-img');
+                const previewTitle = document.getElementById('moments-preview-title');
+                const previewCount = document.getElementById('moments-preview-count');
+                const previewPrev = document.getElementById('moments-preview-prev');
+                const previewNext = document.getElementById('moments-preview-next');
+                const lightbox = document.getElementById('moments-lightbox');
+                const lightboxImg = document.getElementById('moments-lightbox-img');
+                const lightboxTitle = document.getElementById('moments-lightbox-title');
+                const lightboxCount = document.getElementById('moments-lightbox-count');
+                const lightboxClose = document.getElementById('moments-lightbox-close');
+                const lightboxPrev = document.getElementById('moments-lightbox-prev');
+                const lightboxNext = document.getElementById('moments-lightbox-next');
+                const galleryCta = document.querySelector('.moments-cta');
+                let activeGallery = 'all';
+                let previewItems = [];
+                let previewIndex = 0;
+                let lastPreviewTrigger = null;
+
+                function renderGallery(key) {
+                    const gallery = galleries[key] || galleries.all;
+                    activeGallery = key;
+                    previewItems = [
+                        { ...gallery.feature, label: gallery.feature.label || gallery.title },
+                        ...gallery.tiles
+                    ];
+                    featureImg.src = gallery.feature.src;
+                    featureImg.alt = gallery.feature.alt;
+                    title.textContent = gallery.title;
+                    desc.textContent = gallery.desc;
+                    count.innerHTML = `<i class="far fa-image mr-1"></i> ${gallery.count}`;
+                    if (galleryCta) {
+                        galleryCta.href = `gallery/?album=${key}`;
+                        galleryCta.innerHTML = `View All ${gallery.count} <i class="fas fa-chevron-right"></i>`;
+                    }
+                    mosaic.innerHTML = gallery.tiles.slice(0, 4).map((tile, index) => `
+                        <button class="moments-tile" type="button" data-preview-index="${index + 1}" aria-label="Preview ${tile.label} photo" title="Preview photo">
+                            <img src="${tile.src}" alt="${tile.alt}" loading="lazy">
+                            <span class="moments-tile-label">${tile.label}</span>
+                        </button>
+                    `).join('');
+                    updatePreview(gallery.previewIndex || 0);
+                }
+
+                function activateGallery(key) {
+                    document.querySelectorAll('.moments-tab').forEach(button => {
+                        button.classList.toggle('active', button.dataset.gallery === key);
+                    });
+                    renderGallery(key);
+                }
+
+                document.querySelectorAll('.moments-tab').forEach(tab => {
+                    tab.addEventListener('click', () => {
+                        activateGallery(tab.dataset.gallery);
+                    });
+                });
+
+                function updatePreview(index) {
+                    if (!previewItems.length) return;
+
+                    previewIndex = (index + previewItems.length) % previewItems.length;
+                    const item = previewItems[previewIndex];
+                    lightboxImg.src = item.src;
+                    lightboxImg.alt = item.alt;
+                    lightboxTitle.textContent = item.label || galleries[activeGallery].title;
+                    lightboxCount.textContent = `${previewIndex + 1} / ${galleries[activeGallery].total || previewItems.length}`;
+                    if (previewImg) {
+                        previewImg.src = item.src;
+                        previewImg.alt = item.alt;
+                    }
+                    if (previewTitle) {
+                        previewTitle.textContent = item.label || galleries[activeGallery].title;
+                    }
+                    if (previewCount) {
+                        previewCount.textContent = `Photo ${previewIndex + 1} / ${galleries[activeGallery].total || previewItems.length}`;
+                    }
+                }
+
+                function openPreview(index, trigger) {
+                    if (!lightbox || !previewItems.length) return;
+
+                    lastPreviewTrigger = trigger || document.activeElement;
+                    updatePreview(index);
+                    lightbox.classList.add('active');
+                    lightbox.setAttribute('aria-hidden', 'false');
+                    document.body.classList.add('moments-lightbox-open');
+                    lightboxClose?.focus();
+                }
+
+                function closePreview() {
+                    if (!lightbox) return;
+
+                    lightbox.classList.remove('active');
+                    lightbox.setAttribute('aria-hidden', 'true');
+                    document.body.classList.remove('moments-lightbox-open');
+                    lightboxImg.removeAttribute('src');
+
+                    if (lastPreviewTrigger && typeof lastPreviewTrigger.focus === 'function') {
+                        lastPreviewTrigger.focus();
+                    }
+                }
+
+                function stepPreview(direction) {
+                    updatePreview(previewIndex + direction);
+                }
+
+                featureCard?.addEventListener('click', event => {
+                    if (event.target.closest('.moments-cta')) return;
+                    openPreview(0, featureCard);
+                });
+
+                featureCard?.addEventListener('keydown', event => {
+                    if (event.target.closest('.moments-cta')) return;
+                    if (event.key !== 'Enter' && event.key !== ' ') return;
+
+                    event.preventDefault();
+                    openPreview(0, featureCard);
+                });
+
+                mosaic?.addEventListener('click', event => {
+                    const tile = event.target.closest('.moments-tile');
+                    if (!tile) return;
+
+                    openPreview(Number(tile.dataset.previewIndex || 0), tile);
+                });
+
+                lightboxClose?.addEventListener('click', closePreview);
+                lightboxPrev?.addEventListener('click', () => stepPreview(-1));
+                lightboxNext?.addEventListener('click', () => stepPreview(1));
+                previewPhoto?.addEventListener('click', () => openPreview(previewIndex, previewPhoto));
+                previewPrev?.addEventListener('click', () => stepPreview(-1));
+                previewNext?.addEventListener('click', () => stepPreview(1));
+
+                lightbox?.addEventListener('click', event => {
+                    if (event.target === lightbox) {
+                        closePreview();
+                    }
+                });
+
+                document.addEventListener('keydown', event => {
+                    if (!lightbox?.classList.contains('active')) return;
+
+                    if (event.key === 'Escape') {
+                        closePreview();
+                    } else if (event.key === 'ArrowLeft') {
+                        stepPreview(-1);
+                    } else if (event.key === 'ArrowRight') {
+                        stepPreview(1);
+                    }
+                });
+
+                document.querySelector('.moments-nav-prev')?.addEventListener('click', () => {
+                    const current = galleryOrder.indexOf(activeGallery);
+                    const previous = galleryOrder[(current - 1 + galleryOrder.length) % galleryOrder.length];
+                    activateGallery(previous);
+                });
+
+                document.querySelector('.moments-nav-next')?.addEventListener('click', () => {
+                    const current = galleryOrder.indexOf(activeGallery);
+                    const next = galleryOrder[(current + 1) % galleryOrder.length];
+                    activateGallery(next);
+                });
+
+                renderGallery('all');
+            })();
+        </script>
+
         <section id="latest-posts" class="py-20 relative">
             <div class="container mx-auto px-6">
                 <div class="flex flex-col md:flex-row justify-between md:items-center mb-12">
@@ -4615,7 +6019,7 @@
     <!-- Dynamic version loader - ensures cache busting works -->
     <script>document.write('<script src="js/version.js?v=' + Date.now() + '"><\/script>');</script>
     <script defer src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script src="js/components.js?v=1.1.3"></script>
+    <script src="js/components.js?v=202605191304"></script>
     <script defer src="js/script.js?v=1.1.3"></script>
     <script src="js/holiday-popup-config.js?v=1.1.3"></script>
     <script defer src="js/holiday-popup.js?v=1.1.3"></script>

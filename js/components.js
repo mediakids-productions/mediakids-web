@@ -40,6 +40,7 @@ else if (path.includes('/about/') ||
     path.includes('/contact/') ||
     path.includes('/curriculum/') ||
     path.includes('/activity/') ||
+    path.includes('/gallery/') ||
     path.includes('/apply-now/') ||
     path.includes('/hr/') ||
     path.includes('/story/') ||
@@ -62,51 +63,54 @@ else if (path.includes('/about/') ||
 
 const headerHTML = `
     <header id="main-header" class="fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-in-out h-[88px] bg-white/90 backdrop-blur-md border-b border-transparent">
-        <nav id="nav-container" class="container mx-auto px-6 flex justify-between items-stretch transition-all duration-300 relative z-50 h-full">
-            <a href="${basePath}" class="nav-logo menu-close-trigger flex items-center space-x-3 py-4 relative z-50">
+        <nav id="nav-container" class="container mx-auto px-6 flex justify-between items-stretch gap-3 transition-all duration-300 relative z-50 h-full">
+            <a href="${basePath}" class="nav-logo menu-close-trigger flex flex-shrink-0 items-center space-x-3 py-4 relative z-50">
                 <img id="logo-image" src="${basePath}assets/images/icons/logo.png" alt="MediaKids Academy Logo" class="h-10 w-auto" loading="lazy" />
-                <span class="text-xl lg:text-3xl font-bold accent-text">
+                <span class="whitespace-nowrap text-xl lg:text-2xl 2xl:text-3xl font-bold accent-text leading-none">
                     MediaKids<span class="text-gray-800"> Academy</span>
                 </span>
             </a>
 
-            <div class="hidden lg:flex items-stretch h-full relative z-50">
-                <div class="group-trigger h-full flex items-center px-5" data-menu="about">
-                    <a href="${basePath}about/" class="nav-link flex items-center h-full w-full justify-center">
+            <div class="hidden lg:flex flex-1 min-w-0 justify-center items-stretch h-full relative z-50">
+                <div class="group-trigger h-full flex items-center px-2 xl:px-3 2xl:px-5" data-menu="about">
+                    <a href="${basePath}about/" class="nav-link flex items-center h-full w-full justify-center whitespace-nowrap">
                         About Us <i class="fas fa-chevron-down text-xs ml-2 transition-transform duration-300"></i>
                     </a>
                 </div>
 
-                <div class="group-trigger h-full flex items-center px-5" data-menu="programs">
-                    <a href="${basePath}programs/" class="nav-link flex items-center h-full w-full justify-center">
+                <div class="group-trigger h-full flex items-center px-2 xl:px-3 2xl:px-5" data-menu="programs">
+                    <a href="${basePath}programs/" class="nav-link flex items-center h-full w-full justify-center whitespace-nowrap">
                         Programs <i class="fas fa-chevron-down text-xs ml-2 transition-transform duration-300"></i>
                     </a>
                 </div>
 
-                <div class="group-trigger h-full flex items-center px-5" data-menu="schools">
-                    <a href="${basePath}schools/" class="nav-link flex items-center h-full w-full justify-center">
+                <div class="group-trigger h-full flex items-center px-2 xl:px-3 2xl:px-5" data-menu="schools">
+                    <a href="${basePath}schools/" class="nav-link flex items-center h-full w-full justify-center whitespace-nowrap">
                         Schools <i class="fas fa-chevron-down text-xs ml-2 transition-transform duration-300"></i>
                     </a>
                 </div>
 
 
 
-                <div class="menu-close-trigger flex items-center h-full px-5">
-                    <a href="${basePath}faq/" class="nav-page nav-link flex items-center h-full w-full justify-center">FAQ</a>
+                <div class="menu-close-trigger flex items-center h-full px-2 xl:px-3 2xl:px-5">
+                    <a href="${basePath}faq/" class="nav-page nav-link flex items-center h-full w-full justify-center whitespace-nowrap">FAQ</a>
                 </div>
-                <div class="menu-close-trigger flex items-center h-full px-5">
-                    <a href="${basePath}blogs/" class="nav-page nav-link flex items-center h-full w-full justify-center">Blogs</a>
+                <div class="menu-close-trigger flex items-center h-full px-2 xl:px-3 2xl:px-5">
+                    <a href="${basePath}blogs/" class="nav-page nav-link flex items-center h-full w-full justify-center whitespace-nowrap">Blogs</a>
                 </div>
-                <div class="menu-close-trigger flex items-center h-full px-5">
-                    <a href="${basePath}jobs/" class="nav-link nav-page flex items-center h-full w-full justify-center">Jobs</a>
+                <div class="menu-close-trigger flex items-center h-full px-2 xl:px-3 2xl:px-5">
+                    <a href="${basePath}gallery/" class="nav-page nav-link flex items-center h-full w-full justify-center whitespace-nowrap">Gallery</a>
                 </div>
-                <div class="menu-close-trigger flex items-center h-full px-5">
-                    <a href="${basePath}curriculum/" class="nav-link nav-page flex items-center h-full w-full justify-center">Curriculum</a>
+                <div class="menu-close-trigger flex items-center h-full px-2 xl:px-3 2xl:px-5">
+                    <a href="${basePath}jobs/" class="nav-link nav-page flex items-center h-full w-full justify-center whitespace-nowrap">Jobs</a>
+                </div>
+                <div class="menu-close-trigger flex items-center h-full px-2 xl:px-3 2xl:px-5">
+                    <a href="${basePath}curriculum/" class="nav-link nav-page flex items-center h-full w-full justify-center whitespace-nowrap">Curriculum</a>
                 </div>
             </div>
 
-            <div class="menu-close-trigger hidden lg:flex items-center h-full relative z-50 ml-4 flex-shrink-0">
-                <a href="${basePath}apply-now/" class="btn-primary px-6 py-2 rounded-full nav-page ml-4">
+            <div class="menu-close-trigger hidden lg:flex items-center h-full relative z-50 ml-1 xl:ml-2 2xl:ml-4 flex-shrink-0">
+                <a href="${basePath}apply-now/" class="btn-primary px-4 xl:px-5 2xl:px-6 py-2 rounded-full nav-page ml-1 xl:ml-2 2xl:ml-4 whitespace-nowrap">
                     Apply Now
                 </a>
             </div>
@@ -159,7 +163,8 @@ const headerHTML = `
                             <a href="${basePath}mep-program/" class="mm-link nav-page">IP / EP / MEP Program</a>
                         </div>
                         <div class="col-span-3 border-l border-gray-100 pl-8 mm-col">
-                            <span class="mm-header">Activities</span>
+                            <span class="mm-header">Gallery</span>
+                            <a href="${basePath}gallery/" class="mm-link nav-page">MediaKids Gallery</a>
                             <a href="${basePath}english-camps/" class="mm-link nav-page">English Camps</a>
                             <a href="${basePath}mediakids-awards/" class="mm-link nav-page">MediaKids Awards</a>
                             <a href="${basePath}summer-camp-canada/" class="mm-link nav-page">Summer Camp in Canada</a>
@@ -288,6 +293,7 @@ const headerHTML = `
                 <a href="${basePath}jobs/" class="mobile-menu-link nav-page">Jobs</a>
                 <a href="${basePath}faq/" class="mobile-menu-link nav-page">FAQ</a>
                 <a href="${basePath}blogs/" class="mobile-menu-link nav-page">Blogs</a>
+                <a href="${basePath}gallery/" class="mobile-menu-link nav-page">Gallery</a>
                 <a href="${basePath}curriculum/" class="mobile-menu-link nav-page">Curriculum</a>
                 <a href="${basePath}contact/" class="mobile-menu-link nav-page">Contact</a>
             </nav>
@@ -317,6 +323,7 @@ const footerHTML = `
                     <ul class="space-y-3 text-gray-400">
                         <li><a href="${basePath}apply-now/" class="nav-page hover:text-blue-400 transition-colors">Apply Now</a></li>
                         <li><a href="${basePath}programs/#programs-ecd" class="nav-page hover:text-blue-400 transition-colors">Our Programs</a></li>
+                        <li><a href="${basePath}gallery/" class="nav-page hover:text-blue-400 transition-colors">Gallery</a></li>
                         <li><a href="${basePath}schools/#schools-central-north" class="nav-page hover:text-blue-400 transition-colors">School Locations</a></li>
                         <li><a href="${basePath}about/#about-mediakids" class="nav-page hover:text-blue-400 transition-colors">About Us</a></li>
                         <li><a href="${basePath}faq/" class="nav-page hover:text-blue-400 transition-colors">FAQ</a></li>
@@ -388,15 +395,16 @@ function loadComponents() {
 
     // 5. Wait for fonts (Font Awesome) to load, then show page
     // This prevents flash of unstyled content (FOUC)
+    const revealPage = () => {
+        document.body.classList.add('fonts-ready', 'page-ready');
+    };
+
     if (document.fonts && document.fonts.ready) {
-        document.fonts.ready.then(() => {
-            document.body.classList.add('fonts-ready', 'page-ready');
-        });
+        document.fonts.ready.then(revealPage).catch(revealPage);
+        setTimeout(revealPage, 600);
     } else {
         // Fallback for browsers without Font Loading API
-        setTimeout(() => {
-            document.body.classList.add('fonts-ready', 'page-ready');
-        }, 150);
+        setTimeout(revealPage, 150);
     }
 }
 
