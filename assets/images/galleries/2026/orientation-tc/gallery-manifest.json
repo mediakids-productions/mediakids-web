@@ -1,0 +1,385 @@
+{
+  "album": "orientation-tc",
+  "generatedAt": "2026-05-19T09:45:46",
+  "count": 42,
+  "images": [
+    {
+      "source": "566225952_1344984390754300_4211230380460303424_n.jpg",
+      "width": 1440,
+      "height": 960,
+      "variants": {
+        "thumb": "orientation-tc-001-thumb.webp",
+        "display": "orientation-tc-001-display.webp"
+      }
+    },
+    {
+      "source": "567565798_1344984807420925_1829897034584592605_n.jpg",
+      "width": 1440,
+      "height": 960,
+      "variants": {
+        "thumb": "orientation-tc-002-thumb.webp",
+        "display": "orientation-tc-002-display.webp"
+      }
+    },
+    {
+      "source": "568568984_1344984357420970_4575808832948776174_n.jpg",
+      "width": 1440,
+      "height": 960,
+      "variants": {
+        "thumb": "orientation-tc-003-thumb.webp",
+        "display": "orientation-tc-003-display.webp"
+      }
+    },
+    {
+      "source": "569359473_1344984590754280_1394072554212497419_n.jpg",
+      "width": 1440,
+      "height": 960,
+      "variants": {
+        "thumb": "orientation-tc-004-thumb.webp",
+        "display": "orientation-tc-004-display.webp"
+      }
+    },
+    {
+      "source": "571264631_1346910770561662_3240885482977159584_n.jpg",
+      "width": 2048,
+      "height": 1365,
+      "variants": {
+        "thumb": "orientation-tc-005-thumb.webp",
+        "display": "orientation-tc-005-display.webp"
+      }
+    },
+    {
+      "source": "571322706_1346911347228271_2154051932000677944_n.jpg",
+      "width": 1440,
+      "height": 960,
+      "variants": {
+        "thumb": "orientation-tc-006-thumb.webp",
+        "display": "orientation-tc-006-display.webp"
+      }
+    },
+    {
+      "source": "675557035_1494799649106106_3578112324911429503_n.jpg",
+      "width": 1440,
+      "height": 810,
+      "variants": {
+        "thumb": "orientation-tc-007-thumb.webp",
+        "display": "orientation-tc-007-display.webp"
+      }
+    },
+    {
+      "source": "678139847_1494799635772774_6711631736643440568_n.jpg",
+      "width": 1440,
+      "height": 810,
+      "variants": {
+        "thumb": "orientation-tc-008-thumb.webp",
+        "display": "orientation-tc-008-display.webp"
+      }
+    },
+    {
+      "source": "678285447_1494799699106101_2316567363471954386_n.jpg",
+      "width": 1440,
+      "height": 810,
+      "variants": {
+        "thumb": "orientation-tc-009-thumb.webp",
+        "display": "orientation-tc-009-display.webp"
+      }
+    },
+    {
+      "source": "678515254_1494799765772761_5730697536823442203_n.jpg",
+      "width": 1440,
+      "height": 810,
+      "variants": {
+        "thumb": "orientation-tc-010-thumb.webp",
+        "display": "orientation-tc-010-display.webp"
+      }
+    },
+    {
+      "source": "678536047_1494799949106076_3732339015900310897_n.jpg",
+      "width": 1440,
+      "height": 810,
+      "variants": {
+        "thumb": "orientation-tc-011-thumb.webp",
+        "display": "orientation-tc-011-display.webp"
+      }
+    },
+    {
+      "source": "678613848_1494800039106067_9021360705699664127_n.jpg",
+      "width": 1440,
+      "height": 960,
+      "variants": {
+        "thumb": "orientation-tc-012-thumb.webp",
+        "display": "orientation-tc-012-display.webp"
+      }
+    },
+    {
+      "source": "678701656_1494799639106107_1943587888669253499_n.jpg",
+      "width": 1440,
+      "height": 960,
+      "variants": {
+        "thumb": "orientation-tc-013-thumb.webp",
+        "display": "orientation-tc-013-display.webp"
+      }
+    },
+    {
+      "source": "678735550_1494799935772744_2574770544803372628_n.jpg",
+      "width": 1440,
+      "height": 960,
+      "variants": {
+        "thumb": "orientation-tc-014-thumb.webp",
+        "display": "orientation-tc-014-display.webp"
+      }
+    },
+    {
+      "source": "678865954_1494799715772766_8803560443357100173_n.jpg",
+      "width": 1440,
+      "height": 960,
+      "variants": {
+        "thumb": "orientation-tc-015-thumb.webp",
+        "display": "orientation-tc-015-display.webp"
+      }
+    },
+    {
+      "source": "679048354_1494800202439384_7556903841154904765_n.jpg",
+      "width": 1440,
+      "height": 810,
+      "variants": {
+        "thumb": "orientation-tc-016-thumb.webp",
+        "display": "orientation-tc-016-display.webp"
+      }
+    },
+    {
+      "source": "679140590_1494799939106077_7103964370407187505_n.jpg",
+      "width": 1440,
+      "height": 960,
+      "variants": {
+        "thumb": "orientation-tc-017-thumb.webp",
+        "display": "orientation-tc-017-display.webp"
+      }
+    },
+    {
+      "source": "679678048_1494799499106121_4363290382905872268_n.jpg",
+      "width": 1440,
+      "height": 960,
+      "variants": {
+        "thumb": "orientation-tc-018-thumb.webp",
+        "display": "orientation-tc-018-display.webp"
+      }
+    },
+    {
+      "source": "679818904_1494799539106117_8848550084596879597_n.jpg",
+      "width": 1440,
+      "height": 960,
+      "variants": {
+        "thumb": "orientation-tc-019-thumb.webp",
+        "display": "orientation-tc-019-display.webp"
+      }
+    },
+    {
+      "source": "679901621_1494800012439403_5449346731494177842_n.jpg",
+      "width": 1440,
+      "height": 960,
+      "variants": {
+        "thumb": "orientation-tc-020-thumb.webp",
+        "display": "orientation-tc-020-display.webp"
+      }
+    },
+    {
+      "source": "680160705_1494799922439412_8439136080436876231_n.jpg",
+      "width": 1440,
+      "height": 810,
+      "variants": {
+        "thumb": "orientation-tc-021-thumb.webp",
+        "display": "orientation-tc-021-display.webp"
+      }
+    },
+    {
+      "source": "680409121_1494799805772757_2537573558649990848_n.jpg",
+      "width": 1440,
+      "height": 960,
+      "variants": {
+        "thumb": "orientation-tc-022-thumb.webp",
+        "display": "orientation-tc-022-display.webp"
+      }
+    },
+    {
+      "source": "680436512_1494799925772745_347796753496073180_n.jpg",
+      "width": 1440,
+      "height": 960,
+      "variants": {
+        "thumb": "orientation-tc-023-thumb.webp",
+        "display": "orientation-tc-023-display.webp"
+      }
+    },
+    {
+      "source": "682056388_1494799502439454_811695352105328194_n.jpg",
+      "width": 1440,
+      "height": 960,
+      "variants": {
+        "thumb": "orientation-tc-024-thumb.webp",
+        "display": "orientation-tc-024-display.webp"
+      }
+    },
+    {
+      "source": "687446351_1504536114799126_1035652958098524366_n.jpg",
+      "width": 2048,
+      "height": 1365,
+      "variants": {
+        "thumb": "orientation-tc-025-thumb.webp",
+        "display": "orientation-tc-025-display.webp"
+      }
+    },
+    {
+      "source": "687552327_1504536444799093_288493713496346385_n.jpg",
+      "width": 2048,
+      "height": 1365,
+      "variants": {
+        "thumb": "orientation-tc-026-thumb.webp",
+        "display": "orientation-tc-026-display.webp"
+      }
+    },
+    {
+      "source": "687961806_1504526411466763_8203254286876833371_n.jpg",
+      "width": 2048,
+      "height": 1153,
+      "variants": {
+        "thumb": "orientation-tc-027-thumb.webp",
+        "display": "orientation-tc-027-display.webp"
+      }
+    },
+    {
+      "source": "687981250_1504536128132458_3312625790104844948_n.jpg",
+      "width": 2048,
+      "height": 1365,
+      "variants": {
+        "thumb": "orientation-tc-028-thumb.webp",
+        "display": "orientation-tc-028-display.webp"
+      }
+    },
+    {
+      "source": "688185963_1504525431466861_1570432793312086414_n.jpg",
+      "width": 2048,
+      "height": 1153,
+      "variants": {
+        "thumb": "orientation-tc-029-thumb.webp",
+        "display": "orientation-tc-029-display.webp"
+      }
+    },
+    {
+      "source": "688283769_1504525468133524_491021647932892574_n.jpg",
+      "width": 2048,
+      "height": 1153,
+      "variants": {
+        "thumb": "orientation-tc-030-thumb.webp",
+        "display": "orientation-tc-030-display.webp"
+      }
+    },
+    {
+      "source": "688370696_1504536471465757_442993605302244551_n.jpg",
+      "width": 2048,
+      "height": 1365,
+      "variants": {
+        "thumb": "orientation-tc-031-thumb.webp",
+        "display": "orientation-tc-031-display.webp"
+      }
+    },
+    {
+      "source": "688577528_1504526311466773_7931729612948503762_n.jpg",
+      "width": 1153,
+      "height": 2048,
+      "variants": {
+        "thumb": "orientation-tc-032-thumb.webp",
+        "display": "orientation-tc-032-display.webp"
+      }
+    },
+    {
+      "source": "688893180_1504525398133531_7225229435551893550_n.jpg",
+      "width": 2048,
+      "height": 1536,
+      "variants": {
+        "thumb": "orientation-tc-033-thumb.webp",
+        "display": "orientation-tc-033-display.webp"
+      }
+    },
+    {
+      "source": "688954488_1504536191465785_1680052834155636125_n.jpg",
+      "width": 2048,
+      "height": 1365,
+      "variants": {
+        "thumb": "orientation-tc-034-thumb.webp",
+        "display": "orientation-tc-034-display.webp"
+      }
+    },
+    {
+      "source": "689478321_1504525464800191_2050625385673745273_n.jpg",
+      "width": 2048,
+      "height": 1153,
+      "variants": {
+        "thumb": "orientation-tc-035-thumb.webp",
+        "display": "orientation-tc-035-display.webp"
+      }
+    },
+    {
+      "source": "689570969_1504525361466868_2911846920134541631_n.jpg",
+      "width": 2048,
+      "height": 1153,
+      "variants": {
+        "thumb": "orientation-tc-036-thumb.webp",
+        "display": "orientation-tc-036-display.webp"
+      }
+    },
+    {
+      "source": "689747743_1504536201465784_8983195565995071758_n.jpg",
+      "width": 2048,
+      "height": 1365,
+      "variants": {
+        "thumb": "orientation-tc-037-thumb.webp",
+        "display": "orientation-tc-037-display.webp"
+      }
+    },
+    {
+      "source": "689805390_1504526181466786_4729235841401104088_n.jpg",
+      "width": 2048,
+      "height": 1153,
+      "variants": {
+        "thumb": "orientation-tc-038-thumb.webp",
+        "display": "orientation-tc-038-display.webp"
+      }
+    },
+    {
+      "source": "690321308_1504537008132370_8647004649840430291_n.jpg",
+      "width": 2048,
+      "height": 1365,
+      "variants": {
+        "thumb": "orientation-tc-039-thumb.webp",
+        "display": "orientation-tc-039-display.webp"
+      }
+    },
+    {
+      "source": "690601299_1504525458133525_633297791883736133_n.jpg",
+      "width": 2048,
+      "height": 1153,
+      "variants": {
+        "thumb": "orientation-tc-040-thumb.webp",
+        "display": "orientation-tc-040-display.webp"
+      }
+    },
+    {
+      "source": "690654026_1504526394800098_995805218249054406_n.jpg",
+      "width": 2048,
+      "height": 1153,
+      "variants": {
+        "thumb": "orientation-tc-041-thumb.webp",
+        "display": "orientation-tc-041-display.webp"
+      }
+    },
+    {
+      "source": "692390615_1504526134800124_4294005821537760983_n.jpg",
+      "width": 2048,
+      "height": 1153,
+      "variants": {
+        "thumb": "orientation-tc-042-thumb.webp",
+        "display": "orientation-tc-042-display.webp"
+      }
+    }
+  ]
+}
