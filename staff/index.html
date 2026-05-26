@@ -1,0 +1,1572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>MediaKids Staff Portal</title>
+  <style>
+    :root {
+      --blue: #0a84ff;
+      --blue-dark: #0066ee;
+      --ink: #071735;
+      --muted: #5f6f8f;
+      --soft: #72809a;
+      --line: rgba(116, 151, 190, 0.2);
+      --glass: rgba(255, 255, 255, 0.32);
+      --glass-strong: rgba(255, 255, 255, 0.52);
+      --glass-edge: rgba(255, 255, 255, 0.9);
+      --glass-shadow: 0 32px 92px rgba(41, 92, 148, 0.14), 0 8px 28px rgba(41, 92, 148, 0.08);
+      --glass-inner: inset 0 1px 0 rgba(255, 255, 255, 0.96), inset 0 -34px 68px rgba(157, 207, 255, 0.09);
+      --green: #28c76f;
+      --purple: #7c5cff;
+      --orange: #ff9f0a;
+      --red: #b42318;
+      --shadow: var(--glass-shadow);
+      color-scheme: light;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      min-height: 100%;
+      background: #eef8ff;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      color: var(--ink);
+      font-family: Inter, "Noto Sans Thai", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      -webkit-font-smoothing: antialiased;
+      background:
+        linear-gradient(63deg, transparent 0 31%, rgba(255, 255, 255, 0.54) 44%, rgba(201, 235, 255, 0.18) 56%, transparent 68%),
+        linear-gradient(112deg, rgba(255, 255, 255, 0.78) 0%, rgba(255, 255, 255, 0.36) 18%, transparent 38%),
+        radial-gradient(ellipse at 50% -12%, rgba(255, 255, 255, 0.98), transparent 32rem),
+        radial-gradient(circle at 84% 6%, rgba(179, 218, 255, 0.62), transparent 38rem),
+        radial-gradient(circle at 10% 90%, rgba(214, 238, 255, 0.78), transparent 38rem),
+        linear-gradient(135deg, #fbfdff 0%, #eff8ff 46%, #f7fbff 100%);
+      overflow-x: hidden;
+    }
+
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      border: 2px solid rgba(126, 186, 238, 0.2);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    body::before {
+      width: 1020px;
+      height: 1020px;
+      right: -420px;
+      top: -410px;
+      box-shadow: 0 0 80px rgba(255, 255, 255, 0.34);
+    }
+
+    body::after {
+      width: 1100px;
+      height: 1100px;
+      left: -600px;
+      bottom: -560px;
+      box-shadow: 0 0 80px rgba(255, 255, 255, 0.32);
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    .glass {
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(130deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.22) 42%, rgba(206, 242, 255, 0.24) 66%, rgba(255, 255, 255, 0.42)),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.24), rgba(255, 255, 255, 0.08));
+      border: 1px solid var(--glass-edge);
+      box-shadow: var(--shadow), var(--glass-inner);
+      backdrop-filter: blur(66px) saturate(255%) contrast(104%);
+      -webkit-backdrop-filter: blur(66px) saturate(255%) contrast(104%);
+    }
+
+    .glass::before {
+      content: "";
+      position: absolute;
+      left: 26px;
+      right: 26px;
+      top: 1px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.92), transparent);
+      pointer-events: none;
+    }
+
+    .glass::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background:
+        linear-gradient(118deg, rgba(255, 255, 255, 0.42) 0%, transparent 18% 72%, rgba(255, 255, 255, 0.18) 100%),
+        radial-gradient(ellipse at 78% 0%, rgba(162, 225, 255, 0.24), transparent 42%);
+      opacity: 0.58;
+      pointer-events: none;
+    }
+
+    .glass > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .login-screen {
+      position: relative;
+      z-index: 1;
+      min-height: calc(100vh - 54px);
+      display: grid;
+      place-items: center;
+      padding: 64px 20px 24px;
+    }
+
+    .login-card {
+      width: min(1110px, 100%);
+      min-height: 860px;
+      border-radius: 34px;
+      padding: 26px 36px 32px;
+      background:
+        linear-gradient(150deg, rgba(255, 255, 255, 0.66), rgba(255, 255, 255, 0.22) 47%, rgba(201, 245, 255, 0.26) 72%, rgba(255, 255, 255, 0.42)),
+        radial-gradient(ellipse at 16% 0%, rgba(255, 255, 255, 0.58), transparent 28rem);
+    }
+
+    .login-head {
+      display: grid;
+      justify-items: center;
+      text-align: center;
+      padding: 0 0 24px;
+      border-bottom: 1px solid rgba(83, 98, 124, 0.18);
+    }
+
+    .doc-icon {
+      width: 88px;
+      height: 88px;
+      display: grid;
+      place-items: center;
+      border-radius: 22px;
+      color: var(--blue);
+      background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.42) 58%, rgba(198, 235, 255, 0.22)),
+        rgba(255, 255, 255, 0.22);
+      border: 1px solid rgba(255, 255, 255, 0.95);
+      box-shadow: 0 20px 44px rgba(50, 97, 150, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.96), inset 0 -20px 36px rgba(145, 195, 245, 0.12);
+      margin-bottom: 18px;
+    }
+
+    .doc-icon.small {
+      width: 58px;
+      height: 58px;
+      border-radius: 16px;
+      margin: 0;
+    }
+
+    .doc-icon svg {
+      width: 42px;
+      height: 42px;
+      stroke-width: 2.2;
+    }
+
+    .doc-icon.small svg {
+      width: 32px;
+      height: 32px;
+    }
+
+    .login-head h1 {
+      margin: 0;
+      font-size: clamp(2.35rem, 3vw, 3.15rem);
+      line-height: 1;
+      letter-spacing: 0;
+      font-weight: 820;
+    }
+
+    .login-head p {
+      margin: 12px 0 0;
+      color: #61708e;
+      font-size: 1.28rem;
+      font-weight: 520;
+    }
+
+    .login-body {
+      display: grid;
+      gap: 28px;
+      padding-top: 30px;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 0 0 18px;
+      color: var(--ink);
+      font-size: 1.12rem;
+      font-weight: 760;
+    }
+
+    .section-icon {
+      width: 28px;
+      height: 28px;
+      color: var(--blue);
+    }
+
+    .department-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .dept-btn {
+      min-height: 180px;
+      position: relative;
+      display: grid;
+      justify-items: center;
+      align-content: center;
+      gap: 12px;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.75);
+      color: var(--ink);
+      background:
+        linear-gradient(150deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.18) 58%, rgba(203, 242, 255, 0.18)),
+        rgba(255, 255, 255, 0.18);
+      box-shadow: 0 18px 42px rgba(38, 83, 132, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.9), inset 0 -20px 38px rgba(151, 203, 255, 0.08);
+      backdrop-filter: blur(30px) saturate(205%);
+      -webkit-backdrop-filter: blur(30px) saturate(205%);
+      cursor: pointer;
+      transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+    }
+
+    .dept-btn.active {
+      border-color: rgba(22, 119, 242, 0.86);
+      background:
+        linear-gradient(150deg, rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.26) 58%, rgba(205, 243, 255, 0.24)),
+        rgba(255, 255, 255, 0.22);
+      box-shadow: 0 22px 48px rgba(10, 132, 255, 0.18), 0 0 0 1px rgba(10, 132, 255, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.94), inset 0 -20px 38px rgba(10, 132, 255, 0.08);
+    }
+
+    .dept-btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .dept-btn[disabled] {
+      cursor: not-allowed;
+      opacity: 0.86;
+    }
+
+    .dept-check {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      width: 26px;
+      height: 26px;
+      display: none;
+      place-items: center;
+      border-radius: 50%;
+      color: #fff;
+      background: var(--blue);
+      font-weight: 900;
+    }
+
+    .dept-btn.active .dept-check {
+      display: grid;
+    }
+
+    .dept-circle {
+      width: 62px;
+      height: 62px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: var(--blue);
+      background: rgba(22, 119, 242, 0.08);
+      border: 1px solid rgba(22, 119, 242, 0.24);
+    }
+
+    .dept-btn:nth-child(2) .dept-circle { color: #19a567; background: rgba(25, 165, 103, 0.08); border-color: rgba(25, 165, 103, 0.24); }
+    .dept-btn:nth-child(3) .dept-circle { color: #7357e8; background: rgba(115, 87, 232, 0.08); border-color: rgba(115, 87, 232, 0.24); }
+    .dept-btn:nth-child(4) .dept-circle { color: #f39a10; background: rgba(243, 154, 16, 0.08); border-color: rgba(243, 154, 16, 0.24); }
+    .dept-btn:nth-child(5) .dept-circle { color: #18a7b3; background: rgba(24, 167, 179, 0.08); border-color: rgba(24, 167, 179, 0.24); }
+
+    .dept-circle svg {
+      width: 34px;
+      height: 34px;
+      stroke-width: 2;
+    }
+
+    .dept-name {
+      font-size: 1.1rem;
+      font-weight: 780;
+      letter-spacing: 0;
+    }
+
+    .dept-sub {
+      color: #63708c;
+      font-size: 0.92rem;
+      font-weight: 520;
+    }
+
+    .access-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 1px minmax(0, 1fr);
+      gap: 38px;
+      align-items: start;
+      padding: 4px 4px 0;
+    }
+
+    .divider {
+      width: 1px;
+      height: 290px;
+      background: rgba(83, 98, 124, 0.18);
+    }
+
+    .field {
+      display: grid;
+      gap: 12px;
+      margin: 0 0 28px;
+    }
+
+    .field label {
+      color: #4f5f7d;
+      font-size: 1rem;
+      font-weight: 560;
+    }
+
+    .input-wrap {
+      position: relative;
+    }
+
+    .input {
+      width: 100%;
+      min-height: 58px;
+      border: 1px solid rgba(121, 150, 184, 0.34);
+      border-radius: 14px;
+      outline: 0;
+      color: var(--ink);
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.62), rgba(255, 255, 255, 0.28));
+      padding: 0 54px 0 18px;
+      font-size: 1.05rem;
+      font-weight: 720;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.82), 0 10px 24px rgba(38, 83, 132, 0.05);
+    }
+
+    .input:focus {
+      border-color: rgba(22, 119, 242, 0.55);
+      box-shadow: 0 0 0 5px rgba(22, 119, 242, 0.1);
+    }
+
+    .input-eye {
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      width: 24px;
+      height: 24px;
+      color: #44526d;
+      transform: translateY(-50%);
+      pointer-events: none;
+    }
+
+    .btn {
+      min-height: 60px;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.42);
+      border-radius: 14px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      color: #fff;
+      background:
+        radial-gradient(ellipse at 36% 0%, rgba(255, 255, 255, 0.48), transparent 34%),
+        linear-gradient(180deg, #3da0ff 0%, #0a84ff 48%, #0066e6 100%);
+      box-shadow: 0 17px 32px rgba(8, 106, 240, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.42), inset 0 -16px 26px rgba(0, 57, 156, 0.16);
+      font: inherit;
+      font-size: 1.1rem;
+      font-weight: 770;
+      cursor: pointer;
+      transition: transform 160ms ease, box-shadow 160ms ease, opacity 160ms ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn:disabled {
+      opacity: 0.56;
+      transform: none;
+      cursor: not-allowed;
+    }
+
+    .btn.full {
+      width: 100%;
+    }
+
+    .btn.ghost,
+    .link-btn {
+      min-height: 38px;
+      border-radius: 12px;
+      padding: 0 14px;
+      color: #12264a;
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.66), rgba(255, 255, 255, 0.3));
+      border: 1px solid rgba(255, 255, 255, 0.76);
+      box-shadow: 0 8px 20px rgba(38, 83, 132, 0.07), inset 0 1px 0 rgba(255, 255, 255, 0.82);
+      font-size: 0.88rem;
+      font-weight: 620;
+      text-decoration: none;
+    }
+
+    .login-error,
+    .notice {
+      display: none;
+      margin-top: 14px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      color: var(--red);
+      background: rgba(255, 255, 255, 0.7);
+      border: 1px solid rgba(180, 35, 24, 0.18);
+      font-weight: 700;
+      line-height: 1.45;
+    }
+
+    .login-error.visible,
+    .notice.visible {
+      display: block;
+    }
+
+    .authorized {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 24px;
+      color: #647491;
+      font-size: 0.95rem;
+      font-weight: 520;
+    }
+
+    .after-signin {
+      min-height: 286px;
+      border-radius: 18px;
+      padding: 22px 28px;
+      background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.54), rgba(255, 255, 255, 0.18) 58%, rgba(205, 244, 255, 0.16)),
+        rgba(255, 255, 255, 0.14);
+      border: 1px solid rgba(255, 255, 255, 0.78);
+      box-shadow: 0 14px 34px rgba(38, 83, 132, 0.065), inset 0 1px 0 rgba(255, 255, 255, 0.88), inset 0 -18px 36px rgba(151, 203, 255, 0.07);
+      backdrop-filter: blur(30px) saturate(205%);
+      -webkit-backdrop-filter: blur(30px) saturate(205%);
+    }
+
+    .after-signin h3 {
+      margin: 0 0 18px;
+      color: var(--blue);
+      font-size: 1.12rem;
+      font-weight: 720;
+    }
+
+    .flow-list {
+      display: grid;
+      gap: 18px;
+    }
+
+    .flow-item {
+      display: grid;
+      grid-template-columns: 54px minmax(0, 1fr);
+      gap: 18px;
+      align-items: center;
+    }
+
+    .flow-icon {
+      width: 54px;
+      height: 54px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: var(--blue);
+      background: rgba(22, 119, 242, 0.08);
+      border: 1px solid rgba(22, 119, 242, 0.24);
+    }
+
+    .flow-item:nth-child(2) .flow-icon { color: #1aa86b; background: rgba(26, 168, 107, 0.08); border-color: rgba(26, 168, 107, 0.24); }
+    .flow-item:nth-child(3) .flow-icon { color: #7357e8; background: rgba(115, 87, 232, 0.08); border-color: rgba(115, 87, 232, 0.24); }
+
+    .flow-icon svg {
+      width: 28px;
+      height: 28px;
+      stroke-width: 2;
+    }
+
+    .flow-item strong {
+      display: block;
+      color: var(--ink);
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+
+    .flow-item span {
+      color: #647491;
+      font-size: 0.93rem;
+      line-height: 1.35;
+    }
+
+    .login-foot {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      color: #536f9f;
+      padding: 0 20px 28px;
+      font-size: 1rem;
+    }
+
+    body.is-portal .login-screen,
+    body.is-portal .login-foot {
+      display: none !important;
+    }
+
+    .portal {
+      position: relative;
+      z-index: 1;
+      display: none;
+      min-height: 100vh;
+      padding: 26px 0 20px;
+    }
+
+    .portal.visible {
+      display: block;
+    }
+
+    .generator-shell {
+      width: min(1440px, calc(100% - 64px));
+      min-height: calc(100vh - 46px);
+      margin: 0 auto;
+      border-radius: 28px;
+      overflow: hidden;
+      background:
+        linear-gradient(150deg, rgba(255, 255, 255, 0.62), rgba(255, 255, 255, 0.2) 47%, rgba(200, 244, 255, 0.28) 74%, rgba(255, 255, 255, 0.38)),
+        radial-gradient(ellipse at 18% 0%, rgba(255, 255, 255, 0.52), transparent 31rem);
+    }
+
+    .generator-top {
+      min-height: 94px;
+      display: grid;
+      grid-template-columns: 280px minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 30px;
+      padding: 22px 34px;
+      border-bottom: 1px solid rgba(83, 98, 124, 0.16);
+    }
+
+    .brand-block {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding-right: 28px;
+      border-right: 1px solid rgba(83, 98, 124, 0.16);
+    }
+
+    .brand-doc {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 8px;
+      color: #fff;
+      background:
+        radial-gradient(ellipse at 34% 0%, rgba(255, 255, 255, 0.52), transparent 38%),
+        linear-gradient(180deg, #3ca0ff, #0a84ff 54%, #0062e8);
+      box-shadow: 0 14px 26px rgba(8, 106, 240, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.42);
+    }
+
+    .brand-block strong {
+      font-size: 1.06rem;
+      font-weight: 780;
+    }
+
+    .generator-title h1 {
+      margin: 0 0 6px;
+      font-size: 1.58rem;
+      letter-spacing: 0;
+      line-height: 1.05;
+      font-weight: 830;
+    }
+
+    .generator-title p {
+      margin: 0;
+      color: #647491;
+      font-size: 0.98rem;
+      font-weight: 520;
+    }
+
+    .staff-badge {
+      margin-left: 18px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 34px;
+      padding: 0 16px;
+      border-radius: 9px;
+      color: #055fe0;
+      background: rgba(22, 119, 242, 0.08);
+      border: 1px solid rgba(10, 132, 255, 0.34);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.58);
+      font-size: 0.78rem;
+      font-weight: 800;
+    }
+
+    .generator-actions {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      color: var(--ink);
+    }
+
+    .help-link {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.96rem;
+      font-weight: 540;
+    }
+
+    .user-menu {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding-left: 28px;
+      border-left: 1px solid rgba(83, 98, 124, 0.16);
+    }
+
+    .user-avatar {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: #fff;
+      background:
+        radial-gradient(ellipse at 32% 0%, rgba(255, 255, 255, 0.5), transparent 42%),
+        linear-gradient(180deg, #3ca0ff, #0a84ff 54%, #0062e8);
+      font-weight: 780;
+    }
+
+    .workspace {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 16px;
+      padding: 20px 28px 16px;
+    }
+
+    .panel {
+      min-height: 764px;
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+      border-radius: 17px;
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(150deg, rgba(255, 255, 255, 0.48), rgba(255, 255, 255, 0.16) 58%, rgba(204, 244, 255, 0.16)),
+        rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.78);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9), inset 0 -24px 48px rgba(151, 203, 255, 0.06), 0 18px 48px rgba(38, 83, 132, 0.055);
+      backdrop-filter: blur(42px) saturate(220%);
+      -webkit-backdrop-filter: blur(42px) saturate(220%);
+    }
+
+    .panel::before {
+      content: "";
+      position: absolute;
+      inset: 1px 18px auto;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.84), transparent);
+      pointer-events: none;
+    }
+
+    .panel-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .panel-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .num {
+      width: 26px;
+      height: 26px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: #fff;
+      background: var(--blue);
+      font-size: 0.9rem;
+      font-weight: 800;
+      flex: 0 0 auto;
+    }
+
+    .panel h2 {
+      margin: 0;
+      font-size: 1.12rem;
+      letter-spacing: 0;
+      font-weight: 730;
+    }
+
+    .search-row {
+      position: relative;
+      margin-bottom: 14px;
+    }
+
+    .search-row::before {
+      content: "";
+      position: absolute;
+      left: 18px;
+      top: 20px;
+      width: 14px;
+      height: 14px;
+      border: 2px solid #697690;
+      border-radius: 50%;
+      z-index: 1;
+    }
+
+    .search-row::after {
+      content: "";
+      position: absolute;
+      left: 31px;
+      top: 33px;
+      width: 7px;
+      height: 2px;
+      border-radius: 999px;
+      background: #697690;
+      transform: rotate(45deg);
+      z-index: 1;
+    }
+
+    .search-row .input {
+      padding-left: 48px;
+      padding-right: 14px;
+    }
+
+    .teacher-count,
+    .hint-line {
+      margin: 10px 0 14px;
+      color: #4e5d78;
+      font-size: 0.88rem;
+      font-weight: 520;
+    }
+
+    .list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .teacher-card,
+    .doc-card,
+    .tag-card,
+    .result-card,
+    .empty-state {
+      border-radius: 14px;
+      background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.62), rgba(255, 255, 255, 0.26) 62%, rgba(221, 248, 255, 0.2)),
+        rgba(255, 255, 255, 0.16);
+      border: 1px solid rgba(255, 255, 255, 0.76);
+      box-shadow: 0 14px 32px rgba(38, 83, 132, 0.065), inset 0 1px 0 rgba(255, 255, 255, 0.86), inset 0 -16px 32px rgba(151, 203, 255, 0.055);
+    }
+
+    .teacher-card,
+    .doc-card {
+      width: 100%;
+      color: var(--ink);
+      cursor: pointer;
+      text-align: left;
+      transition: transform 160ms ease, border-color 160ms ease;
+    }
+
+    .teacher-card:hover,
+    .teacher-card.active,
+    .doc-card:hover,
+    .doc-card.selected {
+      transform: translateY(-1px);
+      border-color: rgba(10, 132, 255, 0.78);
+      background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.76), rgba(255, 255, 255, 0.3) 62%, rgba(207, 244, 255, 0.24)),
+        rgba(255, 255, 255, 0.18);
+      box-shadow: 0 20px 46px rgba(10, 132, 255, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.9), inset 0 -16px 32px rgba(10, 132, 255, 0.055);
+    }
+
+    .teacher-card {
+      display: grid;
+      grid-template-columns: 62px minmax(0, 1fr) auto;
+      gap: 16px;
+      align-items: center;
+      min-height: 120px;
+      padding: 18px;
+    }
+
+    .teacher-initials {
+      width: 58px;
+      height: 58px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: var(--blue);
+      background:
+        radial-gradient(ellipse at 34% 0%, rgba(255, 255, 255, 0.74), transparent 42%),
+        linear-gradient(145deg, rgba(215, 233, 255, 0.86), rgba(244, 250, 255, 0.66));
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.92), 0 10px 24px rgba(38, 83, 132, 0.08);
+      font-size: 1.35rem;
+      font-weight: 820;
+    }
+
+    .teacher-name,
+    .doc-title,
+    .result-title {
+      margin: 0 0 6px;
+      font-size: 1rem;
+      font-weight: 750;
+      line-height: 1.25;
+      letter-spacing: 0;
+    }
+
+    .teacher-meta,
+    .doc-meta,
+    .result-meta {
+      margin: 0;
+      color: #4e5d78;
+      font-size: 0.86rem;
+      line-height: 1.4;
+      font-weight: 520;
+    }
+
+    .teacher-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .mini-pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      border-radius: 8px;
+      padding: 0 9px;
+      color: #263654;
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.56), rgba(255, 255, 255, 0.22));
+      border: 1px solid rgba(255, 255, 255, 0.72);
+      font-size: 0.78rem;
+      font-weight: 560;
+      white-space: nowrap;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--green);
+      margin-right: 7px;
+    }
+
+    .status-label {
+      display: flex;
+      align-items: center;
+      color: #53627c;
+      font-size: 0.86rem;
+      font-weight: 520;
+      white-space: nowrap;
+    }
+
+    .doc-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .filter-chip,
+    .selection-strip {
+      min-height: 34px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      padding: 0 16px;
+      color: #2e3a54;
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.56), rgba(255, 255, 255, 0.22));
+      border: 1px solid rgba(255, 255, 255, 0.72);
+      font-size: 0.86rem;
+      font-weight: 560;
+    }
+
+    .filter-chip {
+      cursor: pointer;
+    }
+
+    .filter-chip.active,
+    .selection-strip.visible {
+      color: #075fe0;
+      background: linear-gradient(145deg, rgba(10, 132, 255, 0.14), rgba(255, 255, 255, 0.26));
+      border-color: rgba(22, 119, 242, 0.34);
+    }
+
+    .template-hint {
+      padding: 12px 14px;
+      border-radius: 14px;
+      color: #315170;
+      background: linear-gradient(145deg, rgba(227, 242, 255, 0.52), rgba(255, 255, 255, 0.24));
+      border: 1px solid rgba(255, 255, 255, 0.76);
+      font-size: 0.84rem;
+      font-weight: 560;
+      line-height: 1.45;
+    }
+
+    .template-group-title {
+      margin: 4px 2px -2px;
+      color: #4e5d78;
+      font-size: 0.78rem;
+      font-weight: 780;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .library-steps {
+      display: grid;
+      gap: 14px;
+    }
+
+    .library-step {
+      display: grid;
+      gap: 10px;
+      padding: 12px;
+      border-radius: 16px;
+      background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.46), rgba(255, 255, 255, 0.18) 64%, rgba(225, 249, 255, 0.18)),
+        rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.64);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.72), inset 0 -14px 26px rgba(151, 203, 255, 0.045);
+    }
+
+    .library-step-head,
+    .library-search-head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #263654;
+      font-size: 0.9rem;
+      font-weight: 780;
+    }
+
+    .library-step-head em,
+    .library-search-head span {
+      min-width: 0;
+      color: #65738c;
+      font-style: normal;
+      font-size: 0.8rem;
+      font-weight: 560;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .library-search-head {
+      justify-content: space-between;
+      padding: 2px 2px 0;
+    }
+
+    .step-index {
+      width: 24px;
+      height: 24px;
+      display: grid;
+      place-items: center;
+      border-radius: 8px;
+      color: #075fe0;
+      background: rgba(10, 132, 255, 0.1);
+      border: 1px solid rgba(10, 132, 255, 0.18);
+      font-size: 0.78rem;
+      font-weight: 840;
+    }
+
+    .library-card-list,
+    .doc-list {
+      display: grid;
+      gap: 9px;
+    }
+
+    .library-card {
+      width: 100%;
+      min-height: 62px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      border-radius: 13px;
+      padding: 12px 14px;
+      color: var(--ink);
+      text-align: left;
+      cursor: pointer;
+      background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.58), rgba(255, 255, 255, 0.22) 64%, rgba(221, 248, 255, 0.14)),
+        rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.72);
+      box-shadow: 0 10px 24px rgba(38, 83, 132, 0.045), inset 0 1px 0 rgba(255, 255, 255, 0.82);
+      transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+    }
+
+    .library-card:hover,
+    .library-card.active {
+      transform: translateY(-1px);
+      border-color: rgba(10, 132, 255, 0.7);
+      box-shadow: 0 16px 34px rgba(10, 132, 255, 0.105), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    }
+
+    .library-card strong {
+      display: block;
+      font-size: 0.92rem;
+      line-height: 1.2;
+      font-weight: 760;
+    }
+
+    .library-card small {
+      display: block;
+      margin-top: 5px;
+      color: #65738c;
+      font-size: 0.78rem;
+      line-height: 1.2;
+      font-weight: 540;
+    }
+
+    .doc-card {
+      display: grid;
+      grid-template-columns: 48px minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 16px;
+      min-height: 82px;
+      padding: 14px 18px;
+    }
+
+    .doc-icon-tile {
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      border-radius: 10px;
+      color: #fff;
+      background:
+        radial-gradient(ellipse at 34% 0%, rgba(255, 255, 255, 0.42), transparent 42%),
+        linear-gradient(180deg, #63a8ff, #1476ee);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.42), 0 8px 18px rgba(20, 118, 238, 0.16);
+    }
+
+    .doc-card:nth-child(2n) .doc-icon-tile { background: linear-gradient(180deg, #9f82ff, #7457e7); }
+    .doc-card:nth-child(3n) .doc-icon-tile { background: linear-gradient(180deg, #62ca7a, #28a958); }
+    .doc-card:nth-child(4n) .doc-icon-tile { background: linear-gradient(180deg, #ffb555, #f39413); }
+
+    .doc-badge {
+      width: fit-content;
+      display: inline-flex;
+      margin-top: 8px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      color: #075fe0;
+      background: rgba(10, 132, 255, 0.1);
+      border: 1px solid rgba(10, 132, 255, 0.2);
+      font-size: 0.72rem;
+      font-weight: 760;
+    }
+
+    .check {
+      width: 22px;
+      height: 22px;
+      display: grid;
+      place-items: center;
+      border-radius: 5px;
+      border: 2px solid rgba(121, 150, 184, 0.54);
+      color: #fff;
+      background: transparent;
+    }
+
+    .doc-card.selected .check {
+      background: var(--blue);
+      border-color: var(--blue);
+    }
+
+    .doc-card.selected .check::before {
+      content: "✓";
+      font-size: 15px;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .selection-strip {
+      display: none;
+      margin-bottom: 18px;
+      width: fit-content;
+      margin-left: auto;
+    }
+
+    .profile-mini {
+      display: none;
+    }
+
+    .profile-mini.visible {
+      display: none;
+    }
+
+    .preview-title-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+    }
+
+    .preview-title-row h3 {
+      margin: 0;
+      font-size: 1rem;
+      font-weight: 690;
+    }
+
+    .tag-card {
+      overflow: hidden;
+    }
+
+    .preview-panel .tag-grid {
+      max-height: 326px;
+      overflow: auto;
+      padding-right: 2px;
+    }
+
+    .preview-panel .tag-grid::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .preview-panel .tag-grid::-webkit-scrollbar-thumb {
+      border-radius: 999px;
+      background: rgba(85, 118, 154, 0.22);
+      border: 2px solid rgba(255, 255, 255, 0.4);
+    }
+
+    .tag-card h4 {
+      margin: 0;
+      padding: 14px 16px;
+      font-size: 0.98rem;
+      font-weight: 720;
+      border-bottom: 1px solid rgba(121, 150, 184, 0.2);
+    }
+
+    .tag-row {
+      display: grid;
+      grid-template-columns: minmax(140px, 0.8fr) minmax(0, 1fr);
+      gap: 12px;
+      padding: 11px 16px;
+      border-bottom: 1px solid rgba(121, 150, 184, 0.16);
+      font-size: 0.88rem;
+      line-height: 1.35;
+    }
+
+    .tag-row:last-child {
+      border-bottom: 0;
+    }
+
+    .tag-name {
+      color: #263654;
+      font-weight: 560;
+      overflow-wrap: anywhere;
+    }
+
+    .tag-value {
+      color: #24314c;
+      font-weight: 620;
+      overflow-wrap: anywhere;
+    }
+
+    .warning-box {
+      display: none;
+      margin: 14px 0;
+      padding: 14px 16px;
+      border-radius: 12px;
+      color: #754300;
+      background: rgba(255, 247, 230, 0.82);
+      border: 1px solid rgba(243, 162, 26, 0.3);
+      font-size: 0.88rem;
+      line-height: 1.5;
+      font-weight: 560;
+    }
+
+    .warning-box.visible {
+      display: block;
+    }
+
+    .confirm-row {
+      display: none;
+      align-items: flex-start;
+      gap: 10px;
+      margin: 12px 0;
+      color: #53627c;
+      font-size: 0.86rem;
+      line-height: 1.45;
+      font-weight: 560;
+    }
+
+    .confirm-row.visible {
+      display: flex;
+    }
+
+    .confirm-row input {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--blue);
+    }
+
+    .action-bar {
+      display: grid;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .result-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .result-card {
+      padding: 12px 14px;
+    }
+
+    .result-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .empty-state {
+      min-height: 150px;
+      display: grid;
+      place-items: center;
+      padding: 18px;
+      color: #647491;
+      text-align: center;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      font-weight: 540;
+    }
+
+    .panel-foot,
+    .generator-foot {
+      margin-top: auto;
+      padding-top: 14px;
+      border-top: 1px solid rgba(83, 98, 124, 0.14);
+      color: #53627c;
+      font-size: 0.82rem;
+      font-weight: 520;
+    }
+
+    .generator-foot {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin: 0 28px;
+      padding: 17px 8px 18px;
+    }
+
+    .synced {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .ok-dot {
+      width: 20px;
+      height: 20px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: #fff;
+      background: var(--green);
+      font-size: 0.82rem;
+      font-weight: 900;
+    }
+
+    @media (max-width: 1180px) {
+      .department-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .access-row {
+        grid-template-columns: 1fr;
+      }
+
+      .divider {
+        display: none;
+      }
+
+      .workspace {
+        grid-template-columns: 1fr;
+      }
+
+      .panel {
+        min-height: auto;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .login-card {
+        min-height: auto;
+        padding: 24px 20px;
+      }
+
+      .department-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .dept-btn {
+        min-height: 128px;
+      }
+
+      .generator-shell {
+        width: min(100% - 20px, 1440px);
+      }
+
+      .generator-top {
+        grid-template-columns: 1fr;
+      }
+
+      .brand-block,
+      .user-menu {
+        border: 0;
+        padding: 0;
+      }
+
+      .generator-actions {
+        justify-content: space-between;
+      }
+
+      .workspace {
+        padding: 14px;
+      }
+
+      .teacher-card,
+      .doc-card {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section id="login-screen" class="login-screen">
+    <form id="login-form" class="login-card glass">
+      <header class="login-head">
+        <div class="doc-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M7 3h7l4 4v14H7z"></path>
+            <path d="M14 3v5h5"></path>
+            <path d="M9.5 13.5l1.8 1.8 3.7-4"></path>
+            <path d="M17 12l3 1.5v3.2c0 1.9-1.2 3.2-3 4-1.8-.8-3-2.1-3-4v-3.2z"></path>
+          </svg>
+        </div>
+        <h1>MediaKids Staff Portal</h1>
+        <p>Select your department to continue</p>
+      </header>
+
+      <div class="login-body">
+        <section>
+          <h2 class="section-title">
+            <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 3l7 4v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V7z"></path><path d="m9.5 12 1.7 1.7 3.4-4"></path></svg>
+            <span>1. Choose your department</span>
+          </h2>
+          <div class="department-grid" role="radiogroup" aria-label="Department">
+            <button class="dept-btn active" type="button" data-department="Consultant" aria-pressed="true">
+              <span class="dept-check">✓</span>
+              <span class="dept-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M16 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"></path><circle cx="9.5" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></span>
+              <span class="dept-name">Consultant</span>
+              <span class="dept-sub">Document tools</span>
+            </button>
+            <button class="dept-btn" type="button" disabled aria-pressed="false">
+              <span class="dept-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></span>
+              <span class="dept-name">HR</span>
+              <span class="dept-sub">People operations</span>
+            </button>
+            <button class="dept-btn" type="button" disabled aria-pressed="false">
+              <span class="dept-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 10 12 4 2 10l10 6 10-6Z"></path><path d="M6 12v5c3 2 9 2 12 0v-5"></path></svg></span>
+              <span class="dept-name">Curriculum</span>
+              <span class="dept-sub">Academic resources</span>
+            </button>
+            <button class="dept-btn" type="button" disabled aria-pressed="false">
+              <span class="dept-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 20V10"></path><path d="M10 20V4"></path><path d="M16 20v-7"></path><path d="M22 20V7"></path></svg></span>
+              <span class="dept-name">Finance</span>
+              <span class="dept-sub">Finance &amp; accounting</span>
+            </button>
+            <button class="dept-btn" type="button" disabled aria-pressed="false">
+              <span class="dept-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M16 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"></path><circle cx="9.5" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></span>
+              <span class="dept-name">Thai Consultants</span>
+              <span class="dept-sub">Local support</span>
+            </button>
+          </div>
+        </section>
+
+        <section class="access-row">
+          <div>
+            <h2 class="section-title">
+              <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="5" y="10" width="14" height="10" rx="2"></rect><path d="M8 10V7a4 4 0 0 1 8 0v3"></path></svg>
+              <span>2. Enter department passcode</span>
+            </h2>
+            <div class="field">
+              <label for="passcode-input">Department Passcode</label>
+              <div class="input-wrap">
+                <input id="passcode-input" class="input" type="password" inputmode="numeric" autocomplete="current-password" placeholder="••••••">
+                <svg class="input-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 3l18 18"></path><path d="M10.7 5.1A10.9 10.9 0 0 1 12 5c7 0 10 7 10 7a13.2 13.2 0 0 1-3.1 4.2"></path><path d="M6.6 6.6C3.6 8.6 2 12 2 12s3 7 10 7c1.9 0 3.5-.5 4.9-1.2"></path></svg>
+              </div>
+            </div>
+            <button id="login-button" class="btn full" type="submit">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="5" y="10" width="14" height="10" rx="2"></rect><path d="M8 10V7a4 4 0 0 1 8 0v3"></path></svg>
+              <span>Continue</span>
+            </button>
+            <div id="login-error" class="login-error" role="alert"></div>
+            <div class="authorized">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 3l7 4v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V7z"></path><path d="m9.5 12 1.7 1.7 3.4-4"></path></svg>
+              <span>Authorized staff only</span>
+            </div>
+          </div>
+          <div class="divider" aria-hidden="true"></div>
+          <aside class="after-signin">
+            <h3>After sign in: Consultant Document Center</h3>
+            <div class="flow-list">
+              <div class="flow-item">
+                <div class="flow-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg></div>
+                <div><strong>Select teacher</strong><span>Search and choose a teacher from the database</span></div>
+              </div>
+              <div class="flow-item">
+                <div class="flow-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M7 3h7l4 4v14H7z"></path><path d="M14 3v5h5"></path><path d="M9 13h6M9 17h4"></path></svg></div>
+                <div><strong>Choose documents</strong><span>Select one or multiple document templates</span></div>
+              </div>
+              <div class="flow-item">
+                <div class="flow-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M7 3h7l4 4v14H7z"></path><path d="M14 3v5h5"></path><path d="M9.5 13.5l1.8 1.8 3.7-4"></path></svg></div>
+                <div><strong>Generate Google Docs</strong><span>Create documents with live data and download links</span></div>
+              </div>
+            </div>
+          </aside>
+        </section>
+      </div>
+    </form>
+  </section>
+  <footer class="login-foot">
+    <span>MediaKids Academy</span><span>•</span><span>Internal Use Only</span><span>•</span><span>Secure Access 🔒</span>
+  </footer>
+
+  <main id="portal" class="portal">
+    <section class="generator-shell glass">
+      <header class="generator-top">
+        <div class="brand-block">
+          <div class="brand-doc" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M7 3h7l4 4v14H7z"></path><path d="M14 3v5h5"></path><path d="M9 13h6M9 17h4"></path></svg>
+          </div>
+          <strong>MediaKids Academy</strong>
+        </div>
+        <div class="generator-title">
+          <h1>Staff Document Generator <span class="staff-badge">🔒 STAFF ONLY</span></h1>
+          <p>Internal Consultant document tools</p>
+        </div>
+        <div class="generator-actions">
+          <span class="help-link">ⓘ Help</span>
+          <div class="user-menu">
+            <span id="user-chip" class="user-avatar">CO</span>
+            <strong>Consultant Team</strong>
+            <button id="logout-button" class="btn ghost" type="button">Log out</button>
+          </div>
+        </div>
+      </header>
+
+      <section class="workspace" aria-label="Document generation workspace">
+        <section class="panel" aria-label="Select teacher">
+          <div class="panel-header">
+            <div class="panel-title"><span class="num">1</span><h2>Select Teacher</h2></div>
+          </div>
+          <div class="search-row">
+            <input id="teacher-search" class="input" type="search" autocomplete="off" placeholder="Search teacher, passport, school...">
+          </div>
+          <p id="teacher-count" class="teacher-count">0 teachers found</p>
+          <div id="teacher-list" class="list">
+            <div class="empty-state">Enter a name, passport number, or school to begin.</div>
+          </div>
+          <div class="panel-foot">ⓘ Can't find the teacher? <button id="refresh-teachers-button" class="btn ghost" type="button">Refresh List</button></div>
+        </section>
+
+        <section class="panel" aria-label="Choose documents">
+          <div class="panel-header">
+            <div class="panel-title"><span class="num">2</span><h2>Choose Documents</h2></div>
+            <div id="selection-strip" class="selection-strip">0 selected</div>
+          </div>
+          <div class="doc-filters">
+            <button class="filter-chip active" type="button" data-doc-filter="All">All</button>
+            <button class="filter-chip" type="button" data-doc-filter="Visa">Visa</button>
+            <button class="filter-chip" type="button" data-doc-filter="School">School</button>
+            <button class="filter-chip" type="button" data-doc-filter="Work Permit">Work Permit</button>
+            <button class="filter-chip" type="button" data-doc-filter="Finance">Finance</button>
+          </div>
+          <div class="search-row">
+            <input id="template-search" class="input" type="search" autocomplete="off" placeholder="Search document, school, or area...">
+          </div>
+          <button id="refresh-templates-button" class="btn ghost" type="button">Refresh templates</button>
+          <div id="template-list" class="list" style="margin-top: 14px;">
+            <div class="empty-state">Select a teacher to load Area, School, and document folders.</div>
+          </div>
+          <div class="panel-foot">ⓘ Area → School → Documents</div>
+        </section>
+
+        <section class="panel preview-panel" aria-label="Preview and generate">
+          <div class="panel-header">
+            <div class="panel-title"><span class="num">3</span><h2>Preview &amp; Generate</h2></div>
+          </div>
+          <div class="preview-title-row">
+            <h3>Data Preview ⓘ</h3>
+            <button class="btn ghost" type="button">View All Tags ↗</button>
+          </div>
+          <div id="selected-profile" class="profile-mini">
+            <div id="profile-avatar" class="teacher-initials">JS</div>
+            <div><h3 id="profile-name">Select a teacher</h3><p id="profile-meta">Teacher details</p></div>
+          </div>
+          <div id="preview-empty" class="empty-state">Select a teacher and one or more document templates to preview tag values.</div>
+          <div id="preview-list" class="tag-grid"></div>
+          <div id="warning-box" class="warning-box"></div>
+          <label id="confirm-row" class="confirm-row">
+            <input id="confirm-warning" type="checkbox">
+            <span>I reviewed the missing or unknown tags and want to continue.</span>
+          </label>
+          <div id="action-bar" class="action-bar">
+            <button id="generate-button" class="btn full" type="button" disabled>
+              <span>Generate Documents</span>
+            </button>
+            <button class="btn ghost full" type="button">Open output folder</button>
+          </div>
+          <div id="result-list" class="result-list"></div>
+        </section>
+      </section>
+
+      <footer class="generator-foot">
+        <span>🔒 Internal use only. Do not share outside MediaKids Academy.</span>
+        <span class="synced">Data synced from Google Sheets <span>Just now</span><span class="ok-dot">✓</span></span>
+      </footer>
+    </section>
+  </main>
+
+  <script src="../js/staff-portal.js"></script>
+</body>
+</html>
