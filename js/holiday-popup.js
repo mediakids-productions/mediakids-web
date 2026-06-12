@@ -12,7 +12,8 @@
         campaignId: 'default',
         imageSrc: '',
         imageAlt: 'MediaKids Academy popup artwork',
-        delayMs: 0
+        delayMs: 0,
+        expiresAt: ''
     };
 
     const config = Object.freeze({
@@ -21,6 +22,7 @@
     });
 
     if (!config.enabled || !config.imageSrc) return;
+    if (hasExpired(config.expiresAt)) return;
 
     const sessionKey = `holiday-popup:dismissed:${config.campaignId}`;
     if (sessionStorage.getItem(sessionKey)) return;
@@ -61,6 +63,10 @@
 
         image.addEventListener('load', revealPopup, { once: true });
         image.addEventListener('error', revealPopup, { once: true });
+        image.addEventListener('click', function (event) {
+            event.stopPropagation();
+            closePopup();
+        });
         image.src = config.imageSrc;
 
         closeButton.addEventListener('click', function (event) {
@@ -108,6 +114,15 @@
         if (event.key === 'Escape') {
             closePopup();
         }
+    }
+
+    function hasExpired(expiresAt) {
+        if (!expiresAt) return false;
+
+        const expiry = new Date(expiresAt);
+        if (Number.isNaN(expiry.getTime())) return false;
+
+        return Date.now() >= expiry.getTime();
     }
 
     function closePopup() {
