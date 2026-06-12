@@ -1234,6 +1234,7 @@ body.holiday-popup-open {
     background: transparent;
     box-shadow: none;
     object-fit: contain;
+    cursor: pointer;
     opacity: 0;
     filter: blur(10px);
     transform: translateY(18px) scale(0.965);
