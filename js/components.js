@@ -327,7 +327,7 @@ const footerHTML = `
                 <div>
                     <h4 class="text-lg font-bold mb-6 border-b border-blue-500 inline-block pb-2">Contact Us</h4>
                     <ul class="space-y-4 text-gray-400">
-                        <li class="flex items-start"><i class="fas fa-map-marker-alt mt-1 mr-3 text-blue-400"></i><span>40/496 Prueksa B Village, Liab Klongsam Road,<br>Klongluang, Pathumthani 12120, Thailand</span></li>
+                        <li class="flex items-start"><i class="fas fa-map-marker-alt mt-1 mr-3 text-blue-400"></i><span>40/471 Prueksa B Village, Liab Klongsam Road,<br>Klongluang, Pathumthani 12120, Thailand</span></li>
                         <li class="flex items-center"><i class="fas fa-phone-alt mr-3 text-blue-400"></i><a href="tel:+6628341897" class="hover:text-blue-400 transition-colors">(+66) 2834 1897</a></li>
                         <li class="flex items-center"><i class="fas fa-envelope mr-3 text-blue-400"></i><a href="mailto:hr@mediakidsacademy.com" class="hover:text-blue-400 transition-colors">hr@mediakidsacademy.com</a></li>
                     </ul>
