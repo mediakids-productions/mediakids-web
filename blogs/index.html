@@ -22,12 +22,15 @@
     <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
     <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
     <title>Blogs - MediaKids Academy</title>
+    <meta name="description"
+        content="Practical teaching guides, ESL classroom ideas, and advice for living and working as a teacher in Thailand.">
 
     <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/icons/logo.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="../css/style.css?v=1.0.2">
+    <link rel="stylesheet" href="../css/blog.css?v=202606301636">
 
     <style>
         .blog-card {
@@ -108,137 +111,16 @@
             </p>
         </div>
 
+        <div class="blog-filter-bar">
+            <div id="blog-category-tabs" class="blog-category-tabs" role="tablist"
+                aria-label="Filter articles by category"></div>
+            <p id="blog-result-count" class="blog-filter-summary" aria-live="polite"></p>
+        </div>
+
         <!-- Blog Grid -->
         <div class="container mx-auto px-6 max-w-6xl">
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-                <!-- Blog Card 1 - Top 10 Myths -->
-                <a href="top-10-myths/" class="blog-card group" data-aos="fade-up" data-aos-delay="100">
-                    <div class="relative h-52 overflow-hidden">
-                        <img src="../assets/images/general/mk8.webp" alt="Top 10 Myths About Teaching"
-                            class="w-full h-full object-cover">
-                        <div class="absolute top-4 left-4">
-                            <span class="category-badge px-4 py-2 rounded-full text-sm font-semibold bg-white/90">
-                                <i class="fas fa-star mr-1"></i> Featured
-                            </span>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-800 mb-3 group-hover:text-indigo-600 transition-colors">
-                            Top 10 Myths About Teaching in Thailand
-                        </h3>
-                        <p class="text-gray-500 text-sm mb-4 line-clamp-2">
-                            What teachers often hear vs. what is actually true. Debunking common misconceptions about
-                            teaching abroad.
-                        </p>
-                        <div class="flex items-center justify-between">
-                            <span class="text-xs text-gray-400">8 min read</span>
-                            <span
-                                class="text-indigo-600 font-semibold text-sm group-hover:translate-x-2 transition-transform inline-flex items-center gap-1">
-                                Read More <i class="fas fa-arrow-right text-xs"></i>
-                            </span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Blog Card 2 - Complete Guide -->
-                <a href="teach-in-thailand-guide/" class="blog-card group" data-aos="fade-up" data-aos-delay="150">
-                    <div class="relative h-52 overflow-hidden">
-                        <img src="../assets/images/general/mk1.webp" alt="Teach in Thailand Guide"
-                            class="w-full h-full object-cover">
-                        <div class="absolute top-4 left-4">
-                            <span class="category-badge px-4 py-2 rounded-full text-sm font-semibold bg-white/90">
-                                <i class="fas fa-book-open mr-1"></i> Guide
-                            </span>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-800 mb-3 group-hover:text-indigo-600 transition-colors">
-                            Teach in Thailand: Your Complete Guide
-                        </h3>
-                        <p class="text-gray-500 text-sm mb-4 line-clamp-2">
-                            Everything you need to know before starting your teaching adventure with MediaKids Academy.
-                        </p>
-                        <div class="flex items-center justify-between">
-                            <span class="text-xs text-gray-400">12 min read</span>
-                            <span
-                                class="text-indigo-600 font-semibold text-sm group-hover:translate-x-2 transition-transform inline-flex items-center gap-1">
-                                Read More <i class="fas fa-arrow-right text-xs"></i>
-                            </span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Blog Card 3 - Cost of Living -->
-                <a href="cost-of-living-thailand/" class="blog-card group" data-aos="fade-up" data-aos-delay="200">
-                    <div class="relative h-52 overflow-hidden">
-                        <img src="../assets/images/general/mk14.webp" alt="Cost of Living in Thailand"
-                            class="w-full h-full object-cover">
-                        <div class="absolute top-4 left-4">
-                            <span class="category-badge px-4 py-2 rounded-full text-sm font-semibold bg-white/90">
-                                <i class="fas fa-coins mr-1"></i> Budget
-                            </span>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-800 mb-3 group-hover:text-indigo-600 transition-colors">
-                            How Much Does It Cost to Live in Thailand?
-                        </h3>
-                        <p class="text-gray-500 text-sm mb-4 line-clamp-2">
-                            A complete breakdown of living costs—housing, food, transport, and lifestyle expenses.
-                        </p>
-                        <div class="flex items-center justify-between">
-                            <span class="text-xs text-gray-400">7 min read</span>
-                            <span
-                                class="text-indigo-600 font-semibold text-sm group-hover:translate-x-2 transition-transform inline-flex items-center gap-1">
-                                Read More <i class="fas fa-arrow-right text-xs"></i>
-                            </span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Blog Card 4 - Teaching Without Experience -->
-                <a href="teaching-without-experience/" class="blog-card group" data-aos="fade-up" data-aos-delay="250">
-                    <div class="relative h-52 overflow-hidden">
-                        <img src="../assets/images/general/mk19.webp" alt="Teaching Without Experience"
-                            class="w-full h-full object-cover">
-                        <div class="absolute top-4 left-4">
-                            <span class="category-badge px-4 py-2 rounded-full text-sm font-semibold bg-white/90">
-                                <i class="fas fa-graduation-cap mr-1"></i> Beginners
-                            </span>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-800 mb-3 group-hover:text-indigo-600 transition-colors">
-                            Teaching Without Experience: Why Thailand Is Best
-                        </h3>
-                        <p class="text-gray-500 text-sm mb-4 line-clamp-2">
-                            No teaching experience? No problem. Here's why Thailand is perfect for first-time teachers.
-                        </p>
-                        <div class="flex items-center justify-between">
-                            <span class="text-xs text-gray-400">6 min read</span>
-                            <span
-                                class="text-indigo-600 font-semibold text-sm group-hover:translate-x-2 transition-transform inline-flex items-center gap-1">
-                                Read More <i class="fas fa-arrow-right text-xs"></i>
-                            </span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Coming Soon Card -->
-                <div class="blog-card opacity-60 cursor-not-allowed" data-aos="fade-up" data-aos-delay="300">
-                    <div class="relative h-52 overflow-hidden bg-gray-200 flex items-center justify-center">
-                        <i class="fas fa-clock text-gray-400 text-5xl"></i>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-400 mb-3">More Articles Coming Soon</h3>
-                        <p class="text-gray-400 text-sm mb-4">
-                            We're working on more helpful content for teachers.
-                        </p>
-                        <span class="text-xs text-gray-400">Stay tuned!</span>
-                    </div>
-                </div>
-
+            <div id="blog-grid" class="blog-index-grid" aria-live="polite">
+                <p class="blog-empty-state">Loading articles...</p>
             </div>
 
             <!-- Back Link -->
@@ -261,6 +143,7 @@
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="../js/components.js?v=202606151039"></script>
     <script src="../js/script.js?v=1.0.2"></script>
+    <script src="../js/blog-index.js?v=202606301636"></script>
 
     <script>
         AOS.init({ once: true, offset: 50, duration: 800 });

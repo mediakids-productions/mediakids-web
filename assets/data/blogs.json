@@ -1,0 +1,114 @@
+[
+  {
+    "title": "What to Prepare Before Teaching in Thailand",
+    "slug": "what-to-prepare-before-teaching-in-thailand",
+    "publishedAt": "2026-06-09T09:00:00+07:00",
+    "displayDate": "9 June 2026",
+    "readTime": "3 min read",
+    "category": {
+      "id": "teacher-guide",
+      "label": "Teacher Guide"
+    },
+    "excerpt": "A practical checklist for documents, school culture, professional clothing, and the mindset that helps new teachers arrive prepared.",
+    "image": "/assets/images/blogs/2026/what-to-prepare-before-teaching-in-thailand/01-hero.webp",
+    "imageAlt": "Foreign teacher preparing documents and professional clothing before moving to Thailand"
+  },
+  {
+    "title": "Teaching in Thailand: What First-Time Teachers Should Know",
+    "slug": "teaching-in-thailand-first-time-teachers",
+    "publishedAt": "2026-06-16T09:00:00+07:00",
+    "displayDate": "16 June 2026",
+    "readTime": "3 min read",
+    "category": {
+      "id": "teacher-guide",
+      "label": "Teacher Guide"
+    },
+    "excerpt": "Helpful tips for first-time teachers in Thailand, including classroom confidence, student engagement, and adjusting to school life.",
+    "image": "/assets/images/blogs/2026/teaching-in-thailand-first-time-teachers/01-hero.webp",
+    "imageAlt": "First-time foreign teacher smiling in a Thai classroom"
+  },
+  {
+    "title": "The Importance of AI in Teaching and Learning Today",
+    "slug": "importance-of-ai-in-teaching-and-learning",
+    "publishedAt": "2026-06-23T09:00:00+07:00",
+    "displayDate": "23 June 2026",
+    "readTime": "3 min read",
+    "category": {
+      "id": "teaching-in-thailand",
+      "label": "Teaching in Thailand"
+    },
+    "excerpt": "Learn why AI is becoming important in modern teaching and learning, and how teachers can use it responsibly to support students.",
+    "image": "/assets/images/blogs/2026/importance-of-ai-in-teaching-and-learning/01-hero.webp",
+    "imageAlt": "Blonde foreign teacher using technology in a Thai classroom"
+  },
+  {
+    "title": "How to Create a Positive Classroom Environment",
+    "slug": "how-to-create-positive-classroom-environment",
+    "publishedAt": "2026-06-30T09:00:00+07:00",
+    "displayDate": "30 June 2026",
+    "readTime": "3 min read",
+    "category": {
+      "id": "esl-teaching-tips",
+      "label": "ESL Teaching Tips"
+    },
+    "excerpt": "Simple ways teachers can create a positive classroom environment where students feel safe, confident, and ready to learn English.",
+    "image": "/assets/images/blogs/2026/how-to-create-positive-classroom-environment/01-hero.webp",
+    "imageAlt": "Foreign teacher creating a positive classroom environment"
+  },
+  {
+    "title": "Top 10 Myths About Teaching in Thailand",
+    "slug": "top-10-myths",
+    "publishedAt": "2024-12-01T12:00:00+07:00",
+    "displayDate": "December 2024",
+    "readTime": "8 min read",
+    "category": {
+      "id": "teaching-in-thailand",
+      "label": "Teaching in Thailand"
+    },
+    "excerpt": "What teachers often hear versus what is actually true about teaching and living in Thailand.",
+    "image": "/assets/images/general/mk8.webp",
+    "imageAlt": "Foreign teacher working with students in Thailand"
+  },
+  {
+    "title": "Teach in Thailand: Your Complete Guide",
+    "slug": "teach-in-thailand-guide",
+    "publishedAt": "2024-12-01T11:00:00+07:00",
+    "displayDate": "December 2024",
+    "readTime": "12 min read",
+    "category": {
+      "id": "teacher-guide",
+      "label": "Teacher Guide"
+    },
+    "excerpt": "Everything you need to know before starting your teaching journey with MediaKids Academy.",
+    "image": "/assets/images/general/mk1.webp",
+    "imageAlt": "Teacher preparing to teach in Thailand"
+  },
+  {
+    "title": "How Much Does It Cost to Live in Thailand?",
+    "slug": "cost-of-living-thailand",
+    "publishedAt": "2024-12-01T10:00:00+07:00",
+    "displayDate": "December 2024",
+    "readTime": "7 min read",
+    "category": {
+      "id": "life-in-thailand",
+      "label": "Life in Thailand"
+    },
+    "excerpt": "A practical breakdown of housing, food, transport, and lifestyle costs for teachers.",
+    "image": "/assets/images/general/mk14.webp",
+    "imageAlt": "Daily life and expenses in Thailand"
+  },
+  {
+    "title": "Teaching Without Experience: Why Thailand Is Best",
+    "slug": "teaching-without-experience",
+    "publishedAt": "2024-12-01T09:00:00+07:00",
+    "displayDate": "December 2024",
+    "readTime": "6 min read",
+    "category": {
+      "id": "teacher-guide",
+      "label": "Teacher Guide"
+    },
+    "excerpt": "Why Thailand can be a welcoming place to begin your first teaching role abroad.",
+    "image": "/assets/images/general/mk19.webp",
+    "imageAlt": "First-time foreign teacher in a Thai classroom"
+  }
+]

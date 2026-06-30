@@ -193,8 +193,32 @@
   <!-- Blogs -->
   <url>
     <loc>https://www.mediakidsacademy.com/blogs/</loc>
-    <lastmod>2026-01-29</lastmod>
+    <lastmod>2026-06-30</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.mediakidsacademy.com/blogs/what-to-prepare-before-teaching-in-thailand/</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.mediakidsacademy.com/blogs/teaching-in-thailand-first-time-teachers/</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.mediakidsacademy.com/blogs/importance-of-ai-in-teaching-and-learning/</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.mediakidsacademy.com/blogs/how-to-create-positive-classroom-environment/</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
