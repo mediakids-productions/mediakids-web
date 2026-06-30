@@ -1,6 +1,10 @@
 // Detect base path for nested folders
 let basePath = '';
 const path = window.location.pathname;
+const pathParts = path.split('/').filter(Boolean);
+const isBlogPostPath = pathParts[0] === 'blogs' &&
+    pathParts.length >= 2 &&
+    pathParts[1] !== 'index.html';
 
 // Level 2 deep: ../../ (schools regions are inside /schools/xxx/)
 if (path.includes('/schools/central-1/') ||
@@ -24,6 +28,7 @@ else if (path.includes('/curriculum/sem1/ecd/') ||
 // Level 2 deep: ../../
 else if (path.includes('/curriculum/sem1/') ||
     path.includes('/curriculum/sem2/') ||
+    isBlogPostPath ||
     path.includes('/blogs/top-10-myths/') ||
     path.includes('/blogs/teach-in-thailand-guide/') ||
     path.includes('/blogs/cost-of-living-thailand/') ||
